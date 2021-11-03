@@ -102,10 +102,12 @@ impl ::std::convert::From<i32> for CellularDtmfMode {
 }
 unsafe impl ::windows::runtime::Abi for CellularDtmfMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CellularDtmfMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.CellularDtmfMode;i4)");
+}
+impl ::windows::runtime::DefaultType for CellularDtmfMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -132,10 +134,12 @@ impl ::std::convert::From<i32> for DtmfKey {
 }
 unsafe impl ::windows::runtime::Abi for DtmfKey {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DtmfKey {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.DtmfKey;i4)");
+}
+impl ::windows::runtime::DefaultType for DtmfKey {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -152,13 +156,14 @@ impl ::std::convert::From<i32> for DtmfToneAudioPlayback {
 }
 unsafe impl ::windows::runtime::Abi for DtmfToneAudioPlayback {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DtmfToneAudioPlayback {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.DtmfToneAudioPlayback;i4)");
 }
+impl ::windows::runtime::DefaultType for DtmfToneAudioPlayback {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICallAnswerEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICallAnswerEventArgs {
@@ -177,7 +182,6 @@ pub struct ICallAnswerEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut VoipPhoneCallMedia) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICallRejectEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICallRejectEventArgs {
@@ -196,7 +200,6 @@ pub struct ICallRejectEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut VoipPhoneCallRejectReason) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICallStateChangeEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICallStateChangeEventArgs {
@@ -215,7 +218,6 @@ pub struct ICallStateChangeEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut VoipPhoneCallState) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILockScreenCallEndCallDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILockScreenCallEndCallDeferral {
@@ -234,7 +236,6 @@ pub struct ILockScreenCallEndCallDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILockScreenCallEndRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILockScreenCallEndRequestedEventArgs {
@@ -255,7 +256,6 @@ pub struct ILockScreenCallEndRequestedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILockScreenCallUI(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILockScreenCallUI {
@@ -284,7 +284,6 @@ pub struct ILockScreenCallUI_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMuteChangeEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMuteChangeEventArgs {
@@ -303,7 +302,6 @@ pub struct IMuteChangeEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneCall(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCall {
@@ -367,7 +365,6 @@ pub struct IPhoneCall_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneCallBlockingStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallBlockingStatics {
@@ -391,7 +388,6 @@ pub struct IPhoneCallBlockingStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneCallHistoryEntry(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallHistoryEntry {
@@ -447,7 +443,6 @@ pub struct IPhoneCallHistoryEntry_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneCallHistoryEntryAddress(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallHistoryEntryAddress {
@@ -473,7 +468,6 @@ pub struct IPhoneCallHistoryEntryAddress_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: PhoneCallHistoryEntryRawAddressKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneCallHistoryEntryAddressFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallHistoryEntryAddressFactory {
@@ -492,7 +486,6 @@ pub struct IPhoneCallHistoryEntryAddressFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rawaddress: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, rawaddresskind: PhoneCallHistoryEntryRawAddressKind, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneCallHistoryEntryQueryOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallHistoryEntryQueryOptions {
@@ -514,7 +507,6 @@ pub struct IPhoneCallHistoryEntryQueryOptions_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneCallHistoryEntryReader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallHistoryEntryReader {
@@ -534,7 +526,6 @@ pub struct IPhoneCallHistoryEntryReader_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneCallHistoryManagerForUser(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallHistoryManagerForUser {
@@ -556,7 +547,6 @@ pub struct IPhoneCallHistoryManagerForUser_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneCallHistoryManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallHistoryManagerStatics {
@@ -576,7 +566,6 @@ pub struct IPhoneCallHistoryManagerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneCallHistoryManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallHistoryManagerStatics2 {
@@ -596,7 +585,6 @@ pub struct IPhoneCallHistoryManagerStatics2_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneCallHistoryStore(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallHistoryStore {
@@ -636,7 +624,6 @@ pub struct IPhoneCallHistoryStore_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneCallInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallInfo {
@@ -661,7 +648,6 @@ pub struct IPhoneCallInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut PhoneCallDirection) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneCallManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallManagerStatics {
@@ -680,7 +666,6 @@ pub struct IPhoneCallManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phonenumber: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, displayname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneCallManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallManagerStatics2 {
@@ -707,7 +692,6 @@ pub struct IPhoneCallManagerStatics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneCallStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallStatics {
@@ -726,7 +710,6 @@ pub struct IPhoneCallStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneCallStore(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallStore {
@@ -749,7 +732,6 @@ pub struct IPhoneCallStore_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneCallVideoCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallVideoCapabilities {
@@ -768,7 +750,6 @@ pub struct IPhoneCallVideoCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneCallVideoCapabilitiesManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallVideoCapabilitiesManagerStatics {
@@ -788,7 +769,6 @@ pub struct IPhoneCallVideoCapabilitiesManagerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneCallsResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallsResult {
@@ -809,7 +789,6 @@ pub struct IPhoneCallsResult_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneDialOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneDialOptions {
@@ -843,7 +822,6 @@ pub struct IPhoneDialOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: PhoneAudioRoutingEndpoint) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneLine(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLine {
@@ -882,7 +860,6 @@ pub struct IPhoneLine_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, options: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneLine2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLine2 {
@@ -902,7 +879,6 @@ pub struct IPhoneLine2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneLine3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLine3 {
@@ -926,7 +902,6 @@ pub struct IPhoneLine3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneLineCellularDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLineCellularDetails {
@@ -949,7 +924,6 @@ pub struct IPhoneLineCellularDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, location: PhoneLineNetworkOperatorDisplayTextLocation, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneLineConfiguration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLineConfiguration {
@@ -970,7 +944,6 @@ pub struct IPhoneLineConfiguration_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneLineDialResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLineDialResult {
@@ -990,7 +963,6 @@ pub struct IPhoneLineDialResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneLineStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLineStatics {
@@ -1010,7 +982,6 @@ pub struct IPhoneLineStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneLineTransportDevice(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLineTransportDevice {
@@ -1042,7 +1013,6 @@ pub struct IPhoneLineTransportDevice_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneLineTransportDevice2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLineTransportDevice2 {
@@ -1070,7 +1040,6 @@ pub struct IPhoneLineTransportDevice2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneLineTransportDeviceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLineTransportDeviceStatics {
@@ -1091,7 +1060,6 @@ pub struct IPhoneLineTransportDeviceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transport: PhoneLineTransport, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneLineWatcher(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLineWatcher {
@@ -1132,7 +1100,6 @@ pub struct IPhoneLineWatcher_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut PhoneLineWatcherStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneLineWatcherEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLineWatcherEventArgs {
@@ -1151,7 +1118,6 @@ pub struct IPhoneLineWatcherEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneVoicemail(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneVoicemail {
@@ -1174,7 +1140,6 @@ pub struct IPhoneVoicemail_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVoipCallCoordinator(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoipCallCoordinator {
@@ -1235,7 +1200,6 @@ pub struct IVoipCallCoordinator_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callupgradeguid: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVoipCallCoordinator2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoipCallCoordinator2 {
@@ -1254,7 +1218,6 @@ pub struct IVoipCallCoordinator2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, context: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, contactname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, contactnumber: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, servicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, media: VoipPhoneCallMedia, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVoipCallCoordinator3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoipCallCoordinator3 {
@@ -1290,7 +1253,6 @@ pub struct IVoipCallCoordinator3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVoipCallCoordinator4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoipCallCoordinator4 {
@@ -1310,7 +1272,6 @@ pub struct IVoipCallCoordinator4_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVoipCallCoordinatorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoipCallCoordinatorStatics {
@@ -1329,7 +1290,6 @@ pub struct IVoipCallCoordinatorStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVoipPhoneCall(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoipPhoneCall {
@@ -1379,7 +1339,6 @@ pub struct IVoipPhoneCall_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVoipPhoneCall2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoipPhoneCall2 {
@@ -1398,7 +1357,6 @@ pub struct IVoipPhoneCall2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVoipPhoneCall3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoipPhoneCall3 {
@@ -1585,10 +1543,12 @@ impl ::std::convert::From<i32> for PhoneAudioRoutingEndpoint {
 }
 unsafe impl ::windows::runtime::Abi for PhoneAudioRoutingEndpoint {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneAudioRoutingEndpoint {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneAudioRoutingEndpoint;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneAudioRoutingEndpoint {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
@@ -1882,10 +1842,12 @@ impl ::std::convert::From<i32> for PhoneCallAudioDevice {
 }
 unsafe impl ::windows::runtime::Abi for PhoneCallAudioDevice {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneCallAudioDevice {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallAudioDevice;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneCallAudioDevice {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 pub struct PhoneCallBlocking {}
@@ -1944,10 +1906,12 @@ impl ::std::convert::From<i32> for PhoneCallDirection {
 }
 unsafe impl ::windows::runtime::Abi for PhoneCallDirection {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneCallDirection {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallDirection;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneCallDirection {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
@@ -2305,10 +2269,12 @@ impl ::std::convert::From<i32> for PhoneCallHistoryEntryMedia {
 }
 unsafe impl ::windows::runtime::Abi for PhoneCallHistoryEntryMedia {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneCallHistoryEntryMedia {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryMedia;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneCallHistoryEntryMedia {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2325,10 +2291,12 @@ impl ::std::convert::From<i32> for PhoneCallHistoryEntryOtherAppReadAccess {
 }
 unsafe impl ::windows::runtime::Abi for PhoneCallHistoryEntryOtherAppReadAccess {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneCallHistoryEntryOtherAppReadAccess {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryOtherAppReadAccess;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneCallHistoryEntryOtherAppReadAccess {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2347,10 +2315,12 @@ impl ::std::convert::From<u32> for PhoneCallHistoryEntryQueryDesiredMedia {
 }
 unsafe impl ::windows::runtime::Abi for PhoneCallHistoryEntryQueryDesiredMedia {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneCallHistoryEntryQueryDesiredMedia {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryQueryDesiredMedia;u4)");
+}
+impl ::windows::runtime::DefaultType for PhoneCallHistoryEntryQueryDesiredMedia {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PhoneCallHistoryEntryQueryDesiredMedia {
     type Output = Self;
@@ -2442,10 +2412,12 @@ impl ::std::convert::From<i32> for PhoneCallHistoryEntryRawAddressKind {
 }
 unsafe impl ::windows::runtime::Abi for PhoneCallHistoryEntryRawAddressKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneCallHistoryEntryRawAddressKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryRawAddressKind;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneCallHistoryEntryRawAddressKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
@@ -2556,10 +2528,12 @@ impl ::std::convert::From<i32> for PhoneCallHistorySourceIdKind {
 }
 unsafe impl ::windows::runtime::Abi for PhoneCallHistorySourceIdKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneCallHistorySourceIdKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistorySourceIdKind;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneCallHistorySourceIdKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
@@ -2701,10 +2675,12 @@ impl ::std::convert::From<i32> for PhoneCallHistoryStoreAccessType {
 }
 unsafe impl ::windows::runtime::Abi for PhoneCallHistoryStoreAccessType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneCallHistoryStoreAccessType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryStoreAccessType;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneCallHistoryStoreAccessType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
@@ -2847,10 +2823,12 @@ impl ::std::convert::From<i32> for PhoneCallMedia {
 }
 unsafe impl ::windows::runtime::Abi for PhoneCallMedia {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneCallMedia {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallMedia;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneCallMedia {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2870,10 +2848,12 @@ impl ::std::convert::From<i32> for PhoneCallOperationStatus {
 }
 unsafe impl ::windows::runtime::Abi for PhoneCallOperationStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneCallOperationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallOperationStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneCallOperationStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2894,10 +2874,12 @@ impl ::std::convert::From<i32> for PhoneCallStatus {
 }
 unsafe impl ::windows::runtime::Abi for PhoneCallStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneCallStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneCallStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
@@ -3482,10 +3464,12 @@ impl ::std::convert::From<i32> for PhoneLineNetworkOperatorDisplayTextLocation {
 }
 unsafe impl ::windows::runtime::Abi for PhoneLineNetworkOperatorDisplayTextLocation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneLineNetworkOperatorDisplayTextLocation {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineNetworkOperatorDisplayTextLocation;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneLineNetworkOperatorDisplayTextLocation {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3505,10 +3489,12 @@ impl ::std::convert::From<i32> for PhoneLineOperationStatus {
 }
 unsafe impl ::windows::runtime::Abi for PhoneLineOperationStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneLineOperationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineOperationStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneLineOperationStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3526,10 +3512,12 @@ impl ::std::convert::From<i32> for PhoneLineTransport {
 }
 unsafe impl ::windows::runtime::Abi for PhoneLineTransport {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneLineTransport {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineTransport;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneLineTransport {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
@@ -3846,10 +3834,12 @@ impl ::std::convert::From<i32> for PhoneLineWatcherStatus {
 }
 unsafe impl ::windows::runtime::Abi for PhoneLineWatcherStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneLineWatcherStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineWatcherStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneLineWatcherStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3872,10 +3862,12 @@ impl ::std::convert::From<i32> for PhoneNetworkState {
 }
 unsafe impl ::windows::runtime::Abi for PhoneNetworkState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneNetworkState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneNetworkState;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneNetworkState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3898,10 +3890,12 @@ impl ::std::convert::From<i32> for PhoneSimState {
 }
 unsafe impl ::windows::runtime::Abi for PhoneSimState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneSimState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneSimState;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneSimState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
@@ -3970,10 +3964,12 @@ impl ::std::convert::From<i32> for PhoneVoicemailType {
 }
 unsafe impl ::windows::runtime::Abi for PhoneVoicemailType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneVoicemailType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneVoicemailType;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneVoicemailType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3991,10 +3987,12 @@ impl ::std::convert::From<i32> for TransportDeviceAudioRoutingStatus {
 }
 unsafe impl ::windows::runtime::Abi for TransportDeviceAudioRoutingStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TransportDeviceAudioRoutingStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.TransportDeviceAudioRoutingStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for TransportDeviceAudioRoutingStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[repr(transparent)]
@@ -4429,10 +4427,12 @@ impl ::std::convert::From<u32> for VoipPhoneCallMedia {
 }
 unsafe impl ::windows::runtime::Abi for VoipPhoneCallMedia {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VoipPhoneCallMedia {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.VoipPhoneCallMedia;u4)");
+}
+impl ::windows::runtime::DefaultType for VoipPhoneCallMedia {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for VoipPhoneCallMedia {
     type Output = Self;
@@ -4480,10 +4480,12 @@ impl ::std::convert::From<i32> for VoipPhoneCallRejectReason {
 }
 unsafe impl ::windows::runtime::Abi for VoipPhoneCallRejectReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VoipPhoneCallRejectReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.VoipPhoneCallRejectReason;i4)");
+}
+impl ::windows::runtime::DefaultType for VoipPhoneCallRejectReason {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4500,10 +4502,12 @@ impl ::std::convert::From<i32> for VoipPhoneCallResourceReservationStatus {
 }
 unsafe impl ::windows::runtime::Abi for VoipPhoneCallResourceReservationStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VoipPhoneCallResourceReservationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.VoipPhoneCallResourceReservationStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for VoipPhoneCallResourceReservationStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Calls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4523,8 +4527,10 @@ impl ::std::convert::From<i32> for VoipPhoneCallState {
 }
 unsafe impl ::windows::runtime::Abi for VoipPhoneCallState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VoipPhoneCallState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.VoipPhoneCallState;i4)");
+}
+impl ::windows::runtime::DefaultType for VoipPhoneCallState {
+    type DefaultType = Self;
 }

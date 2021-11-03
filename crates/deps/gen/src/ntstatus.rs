@@ -34,7 +34,6 @@ pub fn gen_ntstatus() -> TokenStream {
 
         unsafe impl ::windows::runtime::Abi for NTSTATUS {
             type Abi = Self;
-            type DefaultType = Self;
         }
     }
 }

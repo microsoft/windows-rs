@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISocialDashboardItemUpdater(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocialDashboardItemUpdater {
@@ -32,7 +31,6 @@ pub struct ISocialDashboardItemUpdater_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISocialFeedUpdater(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocialFeedUpdater {
@@ -56,7 +54,6 @@ pub struct ISocialFeedUpdater_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISocialInfoProviderManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocialInfoProviderManagerStatics {

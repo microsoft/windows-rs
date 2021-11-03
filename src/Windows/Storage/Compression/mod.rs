@@ -18,10 +18,12 @@ impl ::std::convert::From<i32> for CompressAlgorithm {
 }
 unsafe impl ::windows::runtime::Abi for CompressAlgorithm {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CompressAlgorithm {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Compression.CompressAlgorithm;i4)");
+}
+impl ::windows::runtime::DefaultType for CompressAlgorithm {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Storage_Compression`*"]
 #[repr(transparent)]
@@ -262,7 +264,6 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::Streams::IInputStream> for &De
 unsafe impl ::std::marker::Send for Decompressor {}
 unsafe impl ::std::marker::Sync for Decompressor {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompressor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompressor {
@@ -284,7 +285,6 @@ pub struct ICompressor_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompressorFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompressorFactory {
@@ -306,7 +306,6 @@ pub struct ICompressorFactory_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDecompressor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDecompressor {
@@ -326,7 +325,6 @@ pub struct IDecompressor_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDecompressorFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDecompressorFactory {

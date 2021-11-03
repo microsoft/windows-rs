@@ -392,7 +392,6 @@ impl ::windows::runtime::RuntimeName for AppExtensionPackageUpdatingEventArgs {
 unsafe impl ::std::marker::Send for AppExtensionPackageUpdatingEventArgs {}
 unsafe impl ::std::marker::Sync for AppExtensionPackageUpdatingEventArgs {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppExtension(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppExtension {
@@ -419,7 +418,6 @@ pub struct IAppExtension_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppExtension2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppExtension2 {
@@ -438,7 +436,6 @@ pub struct IAppExtension2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppExtensionCatalog(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppExtensionCatalog {
@@ -480,7 +477,6 @@ pub struct IAppExtensionCatalog_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppExtensionCatalogStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppExtensionCatalogStatics {
@@ -499,7 +495,6 @@ pub struct IAppExtensionCatalogStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appextensionname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppExtensionPackageInstalledEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppExtensionPackageInstalledEventArgs {
@@ -521,7 +516,6 @@ pub struct IAppExtensionPackageInstalledEventArgs_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppExtensionPackageStatusChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppExtensionPackageStatusChangedEventArgs {
@@ -541,7 +535,6 @@ pub struct IAppExtensionPackageStatusChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppExtensionPackageUninstallingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppExtensionPackageUninstallingEventArgs {
@@ -561,7 +554,6 @@ pub struct IAppExtensionPackageUninstallingEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppExtensionPackageUpdatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppExtensionPackageUpdatedEventArgs {
@@ -583,7 +575,6 @@ pub struct IAppExtensionPackageUpdatedEventArgs_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppExtensionPackageUpdatingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppExtensionPackageUpdatingEventArgs {

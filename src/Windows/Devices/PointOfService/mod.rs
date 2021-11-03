@@ -425,10 +425,12 @@ impl ::std::convert::From<i32> for BarcodeScannerStatus {
 }
 unsafe impl ::windows::runtime::Abi for BarcodeScannerStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BarcodeScannerStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.BarcodeScannerStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for BarcodeScannerStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
@@ -1267,10 +1269,12 @@ impl ::std::convert::From<i32> for BarcodeSymbologyDecodeLengthKind {
 }
 unsafe impl ::windows::runtime::Abi for BarcodeSymbologyDecodeLengthKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BarcodeSymbologyDecodeLengthKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.BarcodeSymbologyDecodeLengthKind;i4)");
+}
+impl ::windows::runtime::DefaultType for BarcodeSymbologyDecodeLengthKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
@@ -1800,10 +1804,12 @@ impl ::std::convert::From<i32> for CashDrawerStatusKind {
 }
 unsafe impl ::windows::runtime::Abi for CashDrawerStatusKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CashDrawerStatusKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.CashDrawerStatusKind;i4)");
+}
+impl ::windows::runtime::DefaultType for CashDrawerStatusKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
@@ -3008,7 +3014,7 @@ impl ClaimedMagneticStripeReader {
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService`, `Foundation`*"]
-    pub fn AuthenticateDeviceAsync(&self, responsetoken: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
+    pub fn AuthenticateDeviceAsync(&self, responsetoken: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3017,7 +3023,7 @@ impl ClaimedMagneticStripeReader {
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService`, `Foundation`*"]
-    pub fn DeAuthenticateDeviceAsync(&self, responsetoken: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DeAuthenticateDeviceAsync(&self, responsetoken: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -3936,7 +3942,6 @@ impl<'a> ::windows::runtime::IntoParam<'a, ICommonClaimedPosPrinterStation> for 
 unsafe impl ::std::marker::Send for ClaimedSlipPrinter {}
 unsafe impl ::std::marker::Sync for ClaimedSlipPrinter {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBarcodeScanner(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScanner {
@@ -3973,7 +3978,6 @@ pub struct IBarcodeScanner_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBarcodeScanner2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScanner2 {
@@ -3992,7 +3996,6 @@ pub struct IBarcodeScanner2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBarcodeScannerCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerCapabilities {
@@ -4014,7 +4017,6 @@ pub struct IBarcodeScannerCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBarcodeScannerCapabilities1(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerCapabilities1 {
@@ -4033,7 +4035,6 @@ pub struct IBarcodeScannerCapabilities1_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBarcodeScannerCapabilities2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerCapabilities2 {
@@ -4052,7 +4053,6 @@ pub struct IBarcodeScannerCapabilities2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBarcodeScannerDataReceivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerDataReceivedEventArgs {
@@ -4071,7 +4071,6 @@ pub struct IBarcodeScannerDataReceivedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBarcodeScannerErrorOccurredEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerErrorOccurredEventArgs {
@@ -4092,7 +4091,6 @@ pub struct IBarcodeScannerErrorOccurredEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBarcodeScannerImagePreviewReceivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerImagePreviewReceivedEventArgs {
@@ -4112,7 +4110,6 @@ pub struct IBarcodeScannerImagePreviewReceivedEventArgs_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBarcodeScannerReport(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerReport {
@@ -4135,7 +4132,6 @@ pub struct IBarcodeScannerReport_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBarcodeScannerReportFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerReportFactory {
@@ -4155,7 +4151,6 @@ pub struct IBarcodeScannerReportFactory_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBarcodeScannerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerStatics {
@@ -4178,7 +4173,6 @@ pub struct IBarcodeScannerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBarcodeScannerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerStatics2 {
@@ -4197,7 +4191,6 @@ pub struct IBarcodeScannerStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, connectiontypes: PosConnectionTypes, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBarcodeScannerStatusUpdatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerStatusUpdatedEventArgs {
@@ -4217,7 +4210,6 @@ pub struct IBarcodeScannerStatusUpdatedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBarcodeSymbologiesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeSymbologiesStatics {
@@ -4329,7 +4321,6 @@ pub struct IBarcodeSymbologiesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, scandatatype: u32, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBarcodeSymbologiesStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeSymbologiesStatics2 {
@@ -4348,7 +4339,6 @@ pub struct IBarcodeSymbologiesStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBarcodeSymbologyAttributes(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeSymbologyAttributes {
@@ -4379,7 +4369,6 @@ pub struct IBarcodeSymbologyAttributes_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICashDrawer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICashDrawer {
@@ -4412,7 +4401,6 @@ pub struct ICashDrawer_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICashDrawerCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICashDrawerCapabilities {
@@ -4436,7 +4424,6 @@ pub struct ICashDrawerCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICashDrawerCloseAlarm(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICashDrawerCloseAlarm {
@@ -4474,7 +4461,6 @@ pub struct ICashDrawerCloseAlarm_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICashDrawerEventSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICashDrawerEventSource {
@@ -4532,7 +4518,6 @@ pub struct ICashDrawerEventSourceEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICashDrawerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICashDrawerStatics {
@@ -4555,7 +4540,6 @@ pub struct ICashDrawerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICashDrawerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICashDrawerStatics2 {
@@ -4574,7 +4558,6 @@ pub struct ICashDrawerStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, connectiontypes: PosConnectionTypes, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICashDrawerStatus(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICashDrawerStatus {
@@ -4594,7 +4577,6 @@ pub struct ICashDrawerStatus_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICashDrawerStatusUpdatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICashDrawerStatusUpdatedEventArgs {
@@ -4613,7 +4595,6 @@ pub struct ICashDrawerStatusUpdatedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClaimedBarcodeScanner(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedBarcodeScanner {
@@ -4674,7 +4655,6 @@ pub struct IClaimedBarcodeScanner_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClaimedBarcodeScanner1(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedBarcodeScanner1 {
@@ -4696,7 +4676,6 @@ pub struct IClaimedBarcodeScanner1_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClaimedBarcodeScanner2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedBarcodeScanner2 {
@@ -4718,7 +4697,6 @@ pub struct IClaimedBarcodeScanner2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClaimedBarcodeScanner3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedBarcodeScanner3 {
@@ -4741,7 +4719,6 @@ pub struct IClaimedBarcodeScanner3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClaimedBarcodeScanner4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedBarcodeScanner4 {
@@ -4763,7 +4740,6 @@ pub struct IClaimedBarcodeScanner4_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClaimedBarcodeScannerClosedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedBarcodeScannerClosedEventArgs {
@@ -4781,7 +4757,6 @@ pub struct IClaimedBarcodeScannerClosedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClaimedCashDrawer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedCashDrawer {
@@ -4819,7 +4794,6 @@ pub struct IClaimedCashDrawer_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClaimedCashDrawer2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedCashDrawer2 {
@@ -4841,7 +4815,6 @@ pub struct IClaimedCashDrawer2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClaimedCashDrawerClosedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedCashDrawerClosedEventArgs {
@@ -4859,7 +4832,6 @@ pub struct IClaimedCashDrawerClosedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClaimedJournalPrinter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedJournalPrinter {
@@ -4878,7 +4850,6 @@ pub struct IClaimedJournalPrinter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClaimedLineDisplay(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedLineDisplay {
@@ -4909,7 +4880,6 @@ pub struct IClaimedLineDisplay_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClaimedLineDisplay2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedLineDisplay2 {
@@ -4959,7 +4929,6 @@ pub struct IClaimedLineDisplay2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClaimedLineDisplay3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedLineDisplay3 {
@@ -4981,7 +4950,6 @@ pub struct IClaimedLineDisplay3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClaimedLineDisplayClosedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedLineDisplayClosedEventArgs {
@@ -4999,7 +4967,6 @@ pub struct IClaimedLineDisplayClosedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClaimedLineDisplayStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedLineDisplayStatics {
@@ -5021,7 +4988,6 @@ pub struct IClaimedLineDisplayStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, connectiontypes: PosConnectionTypes, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClaimedMagneticStripeReader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedMagneticStripeReader {
@@ -5090,7 +5056,6 @@ pub struct IClaimedMagneticStripeReader_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClaimedMagneticStripeReader2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedMagneticStripeReader2 {
@@ -5112,7 +5077,6 @@ pub struct IClaimedMagneticStripeReader2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClaimedMagneticStripeReaderClosedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedMagneticStripeReaderClosedEventArgs {
@@ -5130,7 +5094,6 @@ pub struct IClaimedMagneticStripeReaderClosedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClaimedPosPrinter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedPosPrinter {
@@ -5174,7 +5137,6 @@ pub struct IClaimedPosPrinter_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClaimedPosPrinter2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedPosPrinter2 {
@@ -5196,7 +5158,6 @@ pub struct IClaimedPosPrinter2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClaimedPosPrinterClosedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedPosPrinterClosedEventArgs {
@@ -5214,7 +5175,6 @@ pub struct IClaimedPosPrinterClosedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClaimedReceiptPrinter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedReceiptPrinter {
@@ -5240,7 +5200,6 @@ pub struct IClaimedReceiptPrinter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClaimedSlipPrinter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClaimedSlipPrinter {
@@ -5831,7 +5790,6 @@ pub struct ICommonReceiptSlipCapabilities_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IJournalPrintJob(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJournalPrintJob {
@@ -5852,7 +5810,6 @@ pub struct IJournalPrintJob_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, distance: i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IJournalPrinterCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJournalPrinterCapabilities {
@@ -5870,7 +5827,6 @@ pub struct IJournalPrinterCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IJournalPrinterCapabilities2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJournalPrinterCapabilities2 {
@@ -5894,7 +5850,6 @@ pub struct IJournalPrinterCapabilities2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILineDisplay(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplay {
@@ -5921,7 +5876,6 @@ pub struct ILineDisplay_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILineDisplay2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplay2 {
@@ -5941,7 +5895,6 @@ pub struct ILineDisplay2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILineDisplayAttributes(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayAttributes {
@@ -5977,7 +5930,6 @@ pub struct ILineDisplayAttributes_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILineDisplayCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayCapabilities {
@@ -6013,7 +5965,6 @@ pub struct ILineDisplayCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILineDisplayCursor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayCursor {
@@ -6041,7 +5992,6 @@ pub struct ILineDisplayCursor_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILineDisplayCursorAttributes(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayCursorAttributes {
@@ -6069,7 +6019,6 @@ pub struct ILineDisplayCursorAttributes_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILineDisplayCustomGlyphs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayCustomGlyphs {
@@ -6093,7 +6042,6 @@ pub struct ILineDisplayCustomGlyphs_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILineDisplayMarquee(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayMarquee {
@@ -6125,7 +6073,6 @@ pub struct ILineDisplayMarquee_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILineDisplayStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayStatics {
@@ -6149,7 +6096,6 @@ pub struct ILineDisplayStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, connectiontypes: PosConnectionTypes, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILineDisplayStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayStatics2 {
@@ -6168,7 +6114,6 @@ pub struct ILineDisplayStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILineDisplayStatisticsCategorySelector(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayStatisticsCategorySelector {
@@ -6189,7 +6134,6 @@ pub struct ILineDisplayStatisticsCategorySelector_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILineDisplayStatusUpdatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayStatusUpdatedEventArgs {
@@ -6208,7 +6152,6 @@ pub struct ILineDisplayStatusUpdatedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut LineDisplayPowerStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILineDisplayStoredBitmap(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayStoredBitmap {
@@ -6229,7 +6172,6 @@ pub struct ILineDisplayStoredBitmap_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILineDisplayWindow(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayWindow {
@@ -6265,7 +6207,6 @@ pub struct ILineDisplayWindow_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILineDisplayWindow2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineDisplayWindow2 {
@@ -6299,7 +6240,6 @@ pub struct ILineDisplayWindow2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMagneticStripeReader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReader {
@@ -6332,7 +6272,6 @@ pub struct IMagneticStripeReader_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMagneticStripeReaderAamvaCardDataReceivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderAamvaCardDataReceivedEventArgs {
@@ -6369,7 +6308,6 @@ pub struct IMagneticStripeReaderAamvaCardDataReceivedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMagneticStripeReaderBankCardDataReceivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderBankCardDataReceivedEventArgs {
@@ -6396,7 +6334,6 @@ pub struct IMagneticStripeReaderBankCardDataReceivedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMagneticStripeReaderCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderCapabilities {
@@ -6425,7 +6362,6 @@ pub struct IMagneticStripeReaderCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMagneticStripeReaderCardTypesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderCardTypesStatics {
@@ -6447,7 +6383,6 @@ pub struct IMagneticStripeReaderCardTypesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMagneticStripeReaderEncryptionAlgorithmsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderEncryptionAlgorithmsStatics {
@@ -6468,7 +6403,6 @@ pub struct IMagneticStripeReaderEncryptionAlgorithmsStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMagneticStripeReaderErrorOccurredEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderErrorOccurredEventArgs {
@@ -6492,7 +6426,6 @@ pub struct IMagneticStripeReaderErrorOccurredEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMagneticStripeReaderReport(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderReport {
@@ -6522,7 +6455,6 @@ pub struct IMagneticStripeReaderReport_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMagneticStripeReaderStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderStatics {
@@ -6545,7 +6477,6 @@ pub struct IMagneticStripeReaderStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMagneticStripeReaderStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderStatics2 {
@@ -6564,7 +6495,6 @@ pub struct IMagneticStripeReaderStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, connectiontypes: PosConnectionTypes, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMagneticStripeReaderStatusUpdatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderStatusUpdatedEventArgs {
@@ -6584,7 +6514,6 @@ pub struct IMagneticStripeReaderStatusUpdatedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMagneticStripeReaderTrackData(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderTrackData {
@@ -6608,7 +6537,6 @@ pub struct IMagneticStripeReaderTrackData_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
@@ -6627,7 +6555,6 @@ pub struct IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPosPrinter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinter {
@@ -6662,7 +6589,6 @@ pub struct IPosPrinter_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPosPrinter2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinter2 {
@@ -6683,7 +6609,6 @@ pub struct IPosPrinter2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, typeface: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPosPrinterCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterCapabilities {
@@ -6711,7 +6636,6 @@ pub struct IPosPrinterCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPosPrinterCharacterSetIdsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterCharacterSetIdsStatics {
@@ -6732,7 +6656,6 @@ pub struct IPosPrinterCharacterSetIdsStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPosPrinterFontProperty(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterFontProperty {
@@ -6806,7 +6729,6 @@ pub struct IPosPrinterJob_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPosPrinterPrintOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterPrintOptions {
@@ -6850,7 +6772,6 @@ pub struct IPosPrinterPrintOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPosPrinterReleaseDeviceRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterReleaseDeviceRequestedEventArgs {
@@ -6868,7 +6789,6 @@ pub struct IPosPrinterReleaseDeviceRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPosPrinterStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterStatics {
@@ -6891,7 +6811,6 @@ pub struct IPosPrinterStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPosPrinterStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterStatics2 {
@@ -6910,7 +6829,6 @@ pub struct IPosPrinterStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, connectiontypes: PosConnectionTypes, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPosPrinterStatus(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterStatus {
@@ -6930,7 +6848,6 @@ pub struct IPosPrinterStatus_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPosPrinterStatusUpdatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPosPrinterStatusUpdatedEventArgs {
@@ -7126,7 +7043,6 @@ pub struct IReceiptOrSlipJob_abi(
     #[cfg(not(feature = "Graphics_Imaging"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IReceiptPrintJob(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IReceiptPrintJob {
@@ -7147,7 +7063,6 @@ pub struct IReceiptPrintJob_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IReceiptPrintJob2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IReceiptPrintJob2 {
@@ -7169,7 +7084,6 @@ pub struct IReceiptPrintJob2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, distance: i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IReceiptPrinterCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IReceiptPrinterCapabilities {
@@ -7190,7 +7104,6 @@ pub struct IReceiptPrinterCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut PosPrinterMarkFeedCapabilities) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IReceiptPrinterCapabilities2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IReceiptPrinterCapabilities2 {
@@ -7214,7 +7127,6 @@ pub struct IReceiptPrinterCapabilities2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISlipPrintJob(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISlipPrintJob {
@@ -7235,7 +7147,6 @@ pub struct ISlipPrintJob_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, distance: i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISlipPrinterCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISlipPrinterCapabilities {
@@ -7255,7 +7166,6 @@ pub struct ISlipPrinterCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISlipPrinterCapabilities2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISlipPrinterCapabilities2 {
@@ -7279,7 +7189,6 @@ pub struct ISlipPrinterCapabilities2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUnifiedPosErrorData(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUnifiedPosErrorData {
@@ -7301,7 +7210,6 @@ pub struct IUnifiedPosErrorData_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUnifiedPosErrorDataFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUnifiedPosErrorDataFactory {
@@ -8215,10 +8123,12 @@ impl ::std::convert::From<i32> for LineDisplayCursorType {
 }
 unsafe impl ::windows::runtime::Abi for LineDisplayCursorType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for LineDisplayCursorType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayCursorType;i4)");
+}
+impl ::windows::runtime::DefaultType for LineDisplayCursorType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
@@ -8281,10 +8191,12 @@ impl ::std::convert::From<i32> for LineDisplayDescriptorState {
 }
 unsafe impl ::windows::runtime::Abi for LineDisplayDescriptorState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for LineDisplayDescriptorState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayDescriptorState;i4)");
+}
+impl ::windows::runtime::DefaultType for LineDisplayDescriptorState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8302,10 +8214,12 @@ impl ::std::convert::From<i32> for LineDisplayHorizontalAlignment {
 }
 unsafe impl ::windows::runtime::Abi for LineDisplayHorizontalAlignment {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for LineDisplayHorizontalAlignment {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayHorizontalAlignment;i4)");
+}
+impl ::windows::runtime::DefaultType for LineDisplayHorizontalAlignment {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
@@ -8402,10 +8316,12 @@ impl ::std::convert::From<i32> for LineDisplayMarqueeFormat {
 }
 unsafe impl ::windows::runtime::Abi for LineDisplayMarqueeFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for LineDisplayMarqueeFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayMarqueeFormat;i4)");
+}
+impl ::windows::runtime::DefaultType for LineDisplayMarqueeFormat {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8425,10 +8341,12 @@ impl ::std::convert::From<i32> for LineDisplayPowerStatus {
 }
 unsafe impl ::windows::runtime::Abi for LineDisplayPowerStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for LineDisplayPowerStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayPowerStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for LineDisplayPowerStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8447,10 +8365,12 @@ impl ::std::convert::From<i32> for LineDisplayScrollDirection {
 }
 unsafe impl ::windows::runtime::Abi for LineDisplayScrollDirection {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for LineDisplayScrollDirection {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayScrollDirection;i4)");
+}
+impl ::windows::runtime::DefaultType for LineDisplayScrollDirection {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
@@ -8572,10 +8492,12 @@ impl ::std::convert::From<i32> for LineDisplayTextAttribute {
 }
 unsafe impl ::windows::runtime::Abi for LineDisplayTextAttribute {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for LineDisplayTextAttribute {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayTextAttribute;i4)");
+}
+impl ::windows::runtime::DefaultType for LineDisplayTextAttribute {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8593,10 +8515,12 @@ impl ::std::convert::From<i32> for LineDisplayTextAttributeGranularity {
 }
 unsafe impl ::windows::runtime::Abi for LineDisplayTextAttributeGranularity {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for LineDisplayTextAttributeGranularity {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayTextAttributeGranularity;i4)");
+}
+impl ::windows::runtime::DefaultType for LineDisplayTextAttributeGranularity {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8614,10 +8538,12 @@ impl ::std::convert::From<i32> for LineDisplayVerticalAlignment {
 }
 unsafe impl ::windows::runtime::Abi for LineDisplayVerticalAlignment {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for LineDisplayVerticalAlignment {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayVerticalAlignment;i4)");
+}
+impl ::windows::runtime::DefaultType for LineDisplayVerticalAlignment {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
@@ -9182,10 +9108,12 @@ impl ::std::convert::From<i32> for MagneticStripeReaderAuthenticationLevel {
 }
 unsafe impl ::windows::runtime::Abi for MagneticStripeReaderAuthenticationLevel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MagneticStripeReaderAuthenticationLevel {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderAuthenticationLevel;i4)");
+}
+impl ::windows::runtime::DefaultType for MagneticStripeReaderAuthenticationLevel {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9202,10 +9130,12 @@ impl ::std::convert::From<i32> for MagneticStripeReaderAuthenticationProtocol {
 }
 unsafe impl ::windows::runtime::Abi for MagneticStripeReaderAuthenticationProtocol {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MagneticStripeReaderAuthenticationProtocol {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderAuthenticationProtocol;i4)");
+}
+impl ::windows::runtime::DefaultType for MagneticStripeReaderAuthenticationProtocol {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
@@ -9555,10 +9485,12 @@ impl ::std::convert::From<i32> for MagneticStripeReaderErrorReportingType {
 }
 unsafe impl ::windows::runtime::Abi for MagneticStripeReaderErrorReportingType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MagneticStripeReaderErrorReportingType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderErrorReportingType;i4)");
+}
+impl ::windows::runtime::DefaultType for MagneticStripeReaderErrorReportingType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
@@ -9669,10 +9601,12 @@ impl ::std::convert::From<i32> for MagneticStripeReaderStatus {
 }
 unsafe impl ::windows::runtime::Abi for MagneticStripeReaderStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MagneticStripeReaderStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for MagneticStripeReaderStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
@@ -9772,10 +9706,12 @@ impl ::std::convert::From<i32> for MagneticStripeReaderTrackErrorType {
 }
 unsafe impl ::windows::runtime::Abi for MagneticStripeReaderTrackErrorType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MagneticStripeReaderTrackErrorType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderTrackErrorType;i4)");
+}
+impl ::windows::runtime::DefaultType for MagneticStripeReaderTrackErrorType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9795,10 +9731,12 @@ impl ::std::convert::From<i32> for MagneticStripeReaderTrackIds {
 }
 unsafe impl ::windows::runtime::Abi for MagneticStripeReaderTrackIds {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MagneticStripeReaderTrackIds {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderTrackIds;i4)");
+}
+impl ::windows::runtime::DefaultType for MagneticStripeReaderTrackIds {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
@@ -9843,10 +9781,12 @@ impl ::std::convert::From<u32> for PosConnectionTypes {
 }
 unsafe impl ::windows::runtime::Abi for PosConnectionTypes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PosConnectionTypes {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosConnectionTypes;u4)");
+}
+impl ::windows::runtime::DefaultType for PosConnectionTypes {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PosConnectionTypes {
     type Output = Self;
@@ -10081,10 +10021,12 @@ impl ::std::convert::From<i32> for PosPrinterAlignment {
 }
 unsafe impl ::windows::runtime::Abi for PosPrinterAlignment {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PosPrinterAlignment {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterAlignment;i4)");
+}
+impl ::windows::runtime::DefaultType for PosPrinterAlignment {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10102,10 +10044,12 @@ impl ::std::convert::From<i32> for PosPrinterBarcodeTextPosition {
 }
 unsafe impl ::windows::runtime::Abi for PosPrinterBarcodeTextPosition {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PosPrinterBarcodeTextPosition {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterBarcodeTextPosition;i4)");
+}
+impl ::windows::runtime::DefaultType for PosPrinterBarcodeTextPosition {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
@@ -10223,10 +10167,12 @@ impl ::std::convert::From<u32> for PosPrinterCartridgeSensors {
 }
 unsafe impl ::windows::runtime::Abi for PosPrinterCartridgeSensors {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PosPrinterCartridgeSensors {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterCartridgeSensors;u4)");
+}
+impl ::windows::runtime::DefaultType for PosPrinterCartridgeSensors {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PosPrinterCartridgeSensors {
     type Output = Self;
@@ -10313,10 +10259,12 @@ impl ::std::convert::From<u32> for PosPrinterColorCapabilities {
 }
 unsafe impl ::windows::runtime::Abi for PosPrinterColorCapabilities {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PosPrinterColorCapabilities {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterColorCapabilities;u4)");
+}
+impl ::windows::runtime::DefaultType for PosPrinterColorCapabilities {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PosPrinterColorCapabilities {
     type Output = Self;
@@ -10370,10 +10318,12 @@ impl ::std::convert::From<i32> for PosPrinterColorCartridge {
 }
 unsafe impl ::windows::runtime::Abi for PosPrinterColorCartridge {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PosPrinterColorCartridge {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterColorCartridge;i4)");
+}
+impl ::windows::runtime::DefaultType for PosPrinterColorCartridge {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
@@ -10433,10 +10383,12 @@ impl ::std::convert::From<i32> for PosPrinterLineDirection {
 }
 unsafe impl ::windows::runtime::Abi for PosPrinterLineDirection {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PosPrinterLineDirection {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterLineDirection;i4)");
+}
+impl ::windows::runtime::DefaultType for PosPrinterLineDirection {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10455,10 +10407,12 @@ impl ::std::convert::From<i32> for PosPrinterLineStyle {
 }
 unsafe impl ::windows::runtime::Abi for PosPrinterLineStyle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PosPrinterLineStyle {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterLineStyle;i4)");
+}
+impl ::windows::runtime::DefaultType for PosPrinterLineStyle {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10477,10 +10431,12 @@ impl ::std::convert::From<i32> for PosPrinterMapMode {
 }
 unsafe impl ::windows::runtime::Abi for PosPrinterMapMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PosPrinterMapMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterMapMode;i4)");
+}
+impl ::windows::runtime::DefaultType for PosPrinterMapMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10500,10 +10456,12 @@ impl ::std::convert::From<u32> for PosPrinterMarkFeedCapabilities {
 }
 unsafe impl ::windows::runtime::Abi for PosPrinterMarkFeedCapabilities {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PosPrinterMarkFeedCapabilities {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterMarkFeedCapabilities;u4)");
+}
+impl ::windows::runtime::DefaultType for PosPrinterMarkFeedCapabilities {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PosPrinterMarkFeedCapabilities {
     type Output = Self;
@@ -10550,10 +10508,12 @@ impl ::std::convert::From<i32> for PosPrinterMarkFeedKind {
 }
 unsafe impl ::windows::runtime::Abi for PosPrinterMarkFeedKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PosPrinterMarkFeedKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterMarkFeedKind;i4)");
+}
+impl ::windows::runtime::DefaultType for PosPrinterMarkFeedKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
@@ -10765,10 +10725,12 @@ impl ::std::convert::From<i32> for PosPrinterPrintSide {
 }
 unsafe impl ::windows::runtime::Abi for PosPrinterPrintSide {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PosPrinterPrintSide {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterPrintSide;i4)");
+}
+impl ::windows::runtime::DefaultType for PosPrinterPrintSide {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
@@ -10804,10 +10766,12 @@ impl ::std::convert::From<i32> for PosPrinterRotation {
 }
 unsafe impl ::windows::runtime::Abi for PosPrinterRotation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PosPrinterRotation {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterRotation;i4)");
+}
+impl ::windows::runtime::DefaultType for PosPrinterRotation {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10825,10 +10789,12 @@ impl ::std::convert::From<u32> for PosPrinterRuledLineCapabilities {
 }
 unsafe impl ::windows::runtime::Abi for PosPrinterRuledLineCapabilities {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PosPrinterRuledLineCapabilities {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterRuledLineCapabilities;u4)");
+}
+impl ::windows::runtime::DefaultType for PosPrinterRuledLineCapabilities {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PosPrinterRuledLineCapabilities {
     type Output = Self;
@@ -10910,10 +10876,12 @@ impl ::std::convert::From<i32> for PosPrinterStatusKind {
 }
 unsafe impl ::windows::runtime::Abi for PosPrinterStatusKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PosPrinterStatusKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterStatusKind;i4)");
+}
+impl ::windows::runtime::DefaultType for PosPrinterStatusKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
@@ -11485,10 +11453,12 @@ impl ::std::cmp::PartialEq for SizeUInt32 {
 impl ::std::cmp::Eq for SizeUInt32 {}
 unsafe impl ::windows::runtime::Abi for SizeUInt32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SizeUInt32 {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Devices.PointOfService.SizeUInt32;u4;u4)");
+}
+impl ::windows::runtime::DefaultType for SizeUInt32 {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[repr(transparent)]
@@ -12063,10 +12033,12 @@ impl ::std::convert::From<i32> for UnifiedPosErrorReason {
 }
 unsafe impl ::windows::runtime::Abi for UnifiedPosErrorReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UnifiedPosErrorReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosErrorReason;i4)");
+}
+impl ::windows::runtime::DefaultType for UnifiedPosErrorReason {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12087,10 +12059,12 @@ impl ::std::convert::From<i32> for UnifiedPosErrorSeverity {
 }
 unsafe impl ::windows::runtime::Abi for UnifiedPosErrorSeverity {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UnifiedPosErrorSeverity {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosErrorSeverity;i4)");
+}
+impl ::windows::runtime::DefaultType for UnifiedPosErrorSeverity {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12109,10 +12083,12 @@ impl ::std::convert::From<i32> for UnifiedPosHealthCheckLevel {
 }
 unsafe impl ::windows::runtime::Abi for UnifiedPosHealthCheckLevel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UnifiedPosHealthCheckLevel {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosHealthCheckLevel;i4)");
+}
+impl ::windows::runtime::DefaultType for UnifiedPosHealthCheckLevel {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_PointOfService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12130,8 +12106,10 @@ impl ::std::convert::From<i32> for UnifiedPosPowerReportingType {
 }
 unsafe impl ::windows::runtime::Abi for UnifiedPosPowerReportingType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UnifiedPosPowerReportingType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosPowerReportingType;i4)");
+}
+impl ::windows::runtime::DefaultType for UnifiedPosPowerReportingType {
+    type DefaultType = Self;
 }

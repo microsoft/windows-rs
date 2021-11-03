@@ -47,7 +47,6 @@ impl ::std::cmp::Eq for CompositionFrameDisplayInstance {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for CompositionFrameDisplayInstance {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -63,7 +62,6 @@ impl ::std::convert::From<i32> for CompositionFrameInstanceKind {
 }
 unsafe impl ::windows::runtime::Abi for CompositionFrameInstanceKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`*"]
 #[inline]
@@ -588,7 +586,6 @@ impl ::std::convert::From<i32> for PresentStatisticsKind {
 }
 unsafe impl ::windows::runtime::Abi for PresentStatisticsKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_CompositionSwapchain`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -604,7 +601,6 @@ impl ::std::convert::From<i32> for PresentStatus {
 }
 unsafe impl ::windows::runtime::Abi for PresentStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -636,7 +632,6 @@ impl ::std::cmp::PartialEq for PresentationTransform {
 impl ::std::cmp::Eq for PresentationTransform {}
 unsafe impl ::windows::runtime::Abi for PresentationTransform {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -663,5 +658,4 @@ impl ::std::cmp::PartialEq for SystemInterruptTime {
 impl ::std::cmp::Eq for SystemInterruptTime {}
 unsafe impl ::windows::runtime::Abi for SystemInterruptTime {
     type Abi = Self;
-    type DefaultType = Self;
 }

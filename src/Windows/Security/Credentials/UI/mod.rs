@@ -19,10 +19,12 @@ impl ::std::convert::From<i32> for AuthenticationProtocol {
 }
 unsafe impl ::windows::runtime::Abi for AuthenticationProtocol {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AuthenticationProtocol {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.AuthenticationProtocol;i4)");
+}
+impl ::windows::runtime::DefaultType for AuthenticationProtocol {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Credentials_UI`*"]
 pub struct CredentialPicker {}
@@ -303,13 +305,14 @@ impl ::std::convert::From<i32> for CredentialSaveOption {
 }
 unsafe impl ::windows::runtime::Abi for CredentialSaveOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CredentialSaveOption {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.CredentialSaveOption;i4)");
 }
+impl ::windows::runtime::DefaultType for CredentialSaveOption {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICredentialPickerOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICredentialPickerOptions {
@@ -349,7 +352,6 @@ pub struct ICredentialPickerOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut CredentialSaveOption) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICredentialPickerResults(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICredentialPickerResults {
@@ -375,7 +377,6 @@ pub struct ICredentialPickerResults_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICredentialPickerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICredentialPickerStatics {
@@ -399,7 +400,6 @@ pub struct ICredentialPickerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserConsentVerifierStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserConsentVerifierStatics {
@@ -440,10 +440,12 @@ impl ::std::convert::From<i32> for UserConsentVerificationResult {
 }
 unsafe impl ::windows::runtime::Abi for UserConsentVerificationResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserConsentVerificationResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.UserConsentVerificationResult;i4)");
+}
+impl ::windows::runtime::DefaultType for UserConsentVerificationResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Credentials_UI`*"]
 pub struct UserConsentVerifier {}
@@ -490,8 +492,10 @@ impl ::std::convert::From<i32> for UserConsentVerifierAvailability {
 }
 unsafe impl ::windows::runtime::Abi for UserConsentVerifierAvailability {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserConsentVerifierAvailability {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.UserConsentVerifierAvailability;i4)");
+}
+impl ::windows::runtime::DefaultType for UserConsentVerifierAvailability {
+    type DefaultType = Self;
 }

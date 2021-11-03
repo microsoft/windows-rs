@@ -415,7 +415,6 @@ impl ::std::convert::From<i32> for UI_COLLECTIONCHANGE {
 }
 unsafe impl ::windows::runtime::Abi for UI_COLLECTIONCHANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 pub const UI_COLLECTION_INVALIDINDEX: u32 = 4294967295u32;
@@ -443,7 +442,6 @@ impl ::std::convert::From<i32> for UI_COMMANDTYPE {
 }
 unsafe impl ::windows::runtime::Abi for UI_COMMANDTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -459,7 +457,6 @@ impl ::std::convert::From<i32> for UI_CONTEXTAVAILABILITY {
 }
 unsafe impl ::windows::runtime::Abi for UI_CONTEXTAVAILABILITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -474,7 +471,6 @@ impl ::std::convert::From<i32> for UI_CONTROLDOCK {
 }
 unsafe impl ::windows::runtime::Abi for UI_CONTROLDOCK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -491,7 +487,6 @@ impl ::std::convert::From<i32> for UI_EVENTLOCATION {
 }
 unsafe impl ::windows::runtime::Abi for UI_EVENTLOCATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -520,7 +515,6 @@ impl ::std::cmp::Eq for UI_EVENTPARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for UI_EVENTPARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -549,7 +543,6 @@ impl ::std::cmp::Eq for UI_EVENTPARAMS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for UI_EVENTPARAMS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -595,7 +588,6 @@ impl ::std::cmp::Eq for UI_EVENTPARAMS_COMMAND {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for UI_EVENTPARAMS_COMMAND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -616,7 +608,6 @@ impl ::std::convert::From<i32> for UI_EVENTTYPE {
 }
 unsafe impl ::windows::runtime::Abi for UI_EVENTTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -632,7 +623,6 @@ impl ::std::convert::From<i32> for UI_EXECUTIONVERB {
 }
 unsafe impl ::windows::runtime::Abi for UI_EXECUTIONVERB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -647,7 +637,6 @@ impl ::std::convert::From<i32> for UI_FONTDELTASIZE {
 }
 unsafe impl ::windows::runtime::Abi for UI_FONTDELTASIZE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -663,7 +652,6 @@ impl ::std::convert::From<i32> for UI_FONTPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for UI_FONTPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -679,7 +667,6 @@ impl ::std::convert::From<i32> for UI_FONTUNDERLINE {
 }
 unsafe impl ::windows::runtime::Abi for UI_FONTUNDERLINE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -696,7 +683,6 @@ impl ::std::convert::From<i32> for UI_FONTVERTICALPOSITION {
 }
 unsafe impl ::windows::runtime::Abi for UI_FONTVERTICALPOSITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -713,7 +699,6 @@ impl ::std::convert::From<i32> for UI_INVALIDATIONS {
 }
 unsafe impl ::windows::runtime::Abi for UI_INVALIDATIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -728,7 +713,6 @@ impl ::std::convert::From<i32> for UI_OWNERSHIP {
 }
 unsafe impl ::windows::runtime::Abi for UI_OWNERSHIP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -743,7 +727,6 @@ impl ::std::convert::From<i32> for UI_SWATCHCOLORMODE {
 }
 unsafe impl ::windows::runtime::Abi for UI_SWATCHCOLORMODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -759,7 +742,6 @@ impl ::std::convert::From<i32> for UI_SWATCHCOLORTYPE {
 }
 unsafe impl ::windows::runtime::Abi for UI_SWATCHCOLORTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -773,7 +755,6 @@ impl ::std::convert::From<i32> for UI_VIEWTYPE {
 }
 unsafe impl ::windows::runtime::Abi for UI_VIEWTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Ribbon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -790,5 +771,4 @@ impl ::std::convert::From<i32> for UI_VIEWVERB {
 }
 unsafe impl ::windows::runtime::Abi for UI_VIEWVERB {
     type Abi = Self;
-    type DefaultType = Self;
 }

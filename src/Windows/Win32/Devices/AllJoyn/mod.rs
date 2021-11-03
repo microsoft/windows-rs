@@ -614,7 +614,6 @@ impl ::std::convert::From<i32> for QStatus {
 }
 unsafe impl ::windows::runtime::Abi for QStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -640,7 +639,6 @@ impl ::std::convert::From<i32> for alljoyn_about_announceflag {
 }
 unsafe impl ::windows::runtime::Abi for alljoyn_about_announceflag {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -653,7 +651,6 @@ impl ::std::default::Default for alljoyn_aboutdata {
 unsafe impl ::windows::runtime::Handle for alljoyn_aboutdata {}
 unsafe impl ::windows::runtime::Abi for alljoyn_aboutdata {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
@@ -1311,7 +1308,6 @@ impl ::std::default::Default for alljoyn_aboutdatalistener {
 unsafe impl ::windows::runtime::Handle for alljoyn_aboutdatalistener {}
 unsafe impl ::windows::runtime::Abi for alljoyn_aboutdatalistener {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1346,7 +1342,6 @@ impl ::std::cmp::Eq for alljoyn_aboutdatalistener_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for alljoyn_aboutdatalistener_callbacks {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
@@ -1590,7 +1585,6 @@ impl ::std::default::Default for alljoyn_aboutlistener {
 unsafe impl ::windows::runtime::Handle for alljoyn_aboutlistener {}
 unsafe impl ::windows::runtime::Abi for alljoyn_aboutlistener {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1624,7 +1618,6 @@ impl ::std::cmp::Eq for alljoyn_aboutlistener_callback {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for alljoyn_aboutlistener_callback {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
@@ -1666,7 +1659,6 @@ impl ::std::default::Default for alljoyn_aboutobj {
 unsafe impl ::windows::runtime::Handle for alljoyn_aboutobj {}
 unsafe impl ::windows::runtime::Abi for alljoyn_aboutobj {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
@@ -1749,7 +1741,6 @@ impl ::std::default::Default for alljoyn_aboutobjectdescription {
 unsafe impl ::windows::runtime::Handle for alljoyn_aboutobjectdescription {}
 unsafe impl ::windows::runtime::Abi for alljoyn_aboutobjectdescription {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
@@ -1935,7 +1926,6 @@ impl ::std::default::Default for alljoyn_aboutproxy {
 unsafe impl ::windows::runtime::Handle for alljoyn_aboutproxy {}
 unsafe impl ::windows::runtime::Abi for alljoyn_aboutproxy {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
@@ -2024,7 +2014,6 @@ impl ::std::convert::From<i32> for alljoyn_applicationstate {
 }
 unsafe impl ::windows::runtime::Abi for alljoyn_applicationstate {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -2037,7 +2026,6 @@ impl ::std::default::Default for alljoyn_applicationstatelistener {
 unsafe impl ::windows::runtime::Handle for alljoyn_applicationstatelistener {}
 unsafe impl ::windows::runtime::Abi for alljoyn_applicationstatelistener {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2064,7 +2052,6 @@ impl ::std::cmp::PartialEq for alljoyn_applicationstatelistener_callbacks {
 impl ::std::cmp::Eq for alljoyn_applicationstatelistener_callbacks {}
 unsafe impl ::windows::runtime::Abi for alljoyn_applicationstatelistener_callbacks {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
@@ -2106,7 +2093,6 @@ impl ::std::default::Default for alljoyn_authlistener {
 unsafe impl ::windows::runtime::Handle for alljoyn_authlistener {}
 unsafe impl ::windows::runtime::Abi for alljoyn_authlistener {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_authlistener_authenticationcomplete_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, success: i32);
@@ -2145,7 +2131,6 @@ impl ::std::cmp::Eq for alljoyn_authlistener_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for alljoyn_authlistener_callbacks {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
@@ -2262,7 +2247,6 @@ impl ::std::cmp::Eq for alljoyn_authlistenerasync_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for alljoyn_authlistenerasync_callbacks {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
@@ -2304,7 +2288,6 @@ impl ::std::default::Default for alljoyn_autopinger {
 unsafe impl ::windows::runtime::Handle for alljoyn_autopinger {}
 unsafe impl ::windows::runtime::Abi for alljoyn_autopinger {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
@@ -2452,7 +2435,6 @@ impl ::std::default::Default for alljoyn_busattachment {
 unsafe impl ::windows::runtime::Handle for alljoyn_busattachment {}
 unsafe impl ::windows::runtime::Abi for alljoyn_busattachment {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
@@ -3673,7 +3655,6 @@ impl ::std::default::Default for alljoyn_buslistener {
 unsafe impl ::windows::runtime::Handle for alljoyn_buslistener {}
 unsafe impl ::windows::runtime::Abi for alljoyn_buslistener {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type alljoyn_buslistener_bus_disconnected_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
@@ -3725,7 +3706,6 @@ impl ::std::cmp::Eq for alljoyn_buslistener_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for alljoyn_buslistener_callbacks {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
@@ -3775,7 +3755,6 @@ impl ::std::default::Default for alljoyn_busobject {
 unsafe impl ::windows::runtime::Handle for alljoyn_busobject {}
 unsafe impl ::windows::runtime::Abi for alljoyn_busobject {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
@@ -3870,7 +3849,6 @@ impl ::std::cmp::Eq for alljoyn_busobject_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for alljoyn_busobject_callbacks {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
@@ -4064,7 +4042,6 @@ impl ::std::cmp::Eq for alljoyn_busobject_methodentry {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for alljoyn_busobject_methodentry {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
@@ -4182,7 +4159,6 @@ impl ::std::cmp::PartialEq for alljoyn_certificateid {
 impl ::std::cmp::Eq for alljoyn_certificateid {}
 unsafe impl ::windows::runtime::Abi for alljoyn_certificateid {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4210,7 +4186,6 @@ impl ::std::cmp::PartialEq for alljoyn_certificateidarray {
 impl ::std::cmp::Eq for alljoyn_certificateidarray {}
 unsafe impl ::windows::runtime::Abi for alljoyn_certificateidarray {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4226,7 +4201,6 @@ impl ::std::convert::From<i32> for alljoyn_claimcapability_masks {
 }
 unsafe impl ::windows::runtime::Abi for alljoyn_claimcapability_masks {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4241,7 +4215,6 @@ impl ::std::convert::From<i32> for alljoyn_claimcapabilityadditionalinfo_masks {
 }
 unsafe impl ::windows::runtime::Abi for alljoyn_claimcapabilityadditionalinfo_masks {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -4254,7 +4227,6 @@ impl ::std::default::Default for alljoyn_credentials {
 unsafe impl ::windows::runtime::Handle for alljoyn_credentials {}
 unsafe impl ::windows::runtime::Abi for alljoyn_credentials {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
@@ -4559,7 +4531,6 @@ impl ::std::default::Default for alljoyn_interfacedescription {
 unsafe impl ::windows::runtime::Handle for alljoyn_interfacedescription {}
 unsafe impl ::windows::runtime::Abi for alljoyn_interfacedescription {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
@@ -5205,7 +5176,6 @@ impl ::std::cmp::Eq for alljoyn_interfacedescription_member {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for alljoyn_interfacedescription_member {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
@@ -5355,7 +5325,6 @@ impl ::std::cmp::Eq for alljoyn_interfacedescription_property {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for alljoyn_interfacedescription_property {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
@@ -5431,7 +5400,6 @@ impl ::std::convert::From<i32> for alljoyn_interfacedescription_securitypolicy {
 }
 unsafe impl ::windows::runtime::Abi for alljoyn_interfacedescription_securitypolicy {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
@@ -5602,7 +5570,6 @@ impl ::std::default::Default for alljoyn_keystore {
 unsafe impl ::windows::runtime::Handle for alljoyn_keystore {}
 unsafe impl ::windows::runtime::Abi for alljoyn_keystore {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -5615,7 +5582,6 @@ impl ::std::default::Default for alljoyn_keystorelistener {
 unsafe impl ::windows::runtime::Handle for alljoyn_keystorelistener {}
 unsafe impl ::windows::runtime::Abi for alljoyn_keystorelistener {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type alljoyn_keystorelistener_acquireexclusivelock_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, listener: alljoyn_keystorelistener) -> QStatus;
 #[derive(:: std :: clone :: Clone)]
@@ -5644,7 +5610,6 @@ impl ::std::cmp::PartialEq for alljoyn_keystorelistener_callbacks {
 impl ::std::cmp::Eq for alljoyn_keystorelistener_callbacks {}
 unsafe impl ::windows::runtime::Abi for alljoyn_keystorelistener_callbacks {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
@@ -5735,7 +5700,6 @@ impl ::std::cmp::PartialEq for alljoyn_keystorelistener_with_synchronization_cal
 impl ::std::cmp::Eq for alljoyn_keystorelistener_with_synchronization_callbacks {}
 unsafe impl ::windows::runtime::Abi for alljoyn_keystorelistener_with_synchronization_callbacks {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
@@ -5777,7 +5741,6 @@ impl ::std::cmp::PartialEq for alljoyn_manifestarray {
 impl ::std::cmp::Eq for alljoyn_manifestarray {}
 unsafe impl ::windows::runtime::Abi for alljoyn_manifestarray {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -5790,7 +5753,6 @@ impl ::std::default::Default for alljoyn_message {
 unsafe impl ::windows::runtime::Handle for alljoyn_message {}
 unsafe impl ::windows::runtime::Abi for alljoyn_message {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
@@ -6259,7 +6221,6 @@ impl ::std::convert::From<i32> for alljoyn_messagetype {
 }
 unsafe impl ::windows::runtime::Abi for alljoyn_messagetype {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -6272,7 +6233,6 @@ impl ::std::default::Default for alljoyn_msgarg {
 unsafe impl ::windows::runtime::Handle for alljoyn_msgarg {}
 unsafe impl ::windows::runtime::Abi for alljoyn_msgarg {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
@@ -7409,7 +7369,6 @@ impl ::std::default::Default for alljoyn_observer {
 unsafe impl ::windows::runtime::Handle for alljoyn_observer {}
 unsafe impl ::windows::runtime::Abi for alljoyn_observer {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
@@ -7537,7 +7496,6 @@ impl ::std::default::Default for alljoyn_observerlistener {
 unsafe impl ::windows::runtime::Handle for alljoyn_observerlistener {}
 unsafe impl ::windows::runtime::Abi for alljoyn_observerlistener {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -7565,7 +7523,6 @@ impl ::std::cmp::PartialEq for alljoyn_observerlistener_callback {
 impl ::std::cmp::Eq for alljoyn_observerlistener_callback {}
 unsafe impl ::windows::runtime::Abi for alljoyn_observerlistener_callback {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
@@ -7621,7 +7578,6 @@ impl ::std::default::Default for alljoyn_permissionconfigurationlistener {
 unsafe impl ::windows::runtime::Handle for alljoyn_permissionconfigurationlistener {}
 unsafe impl ::windows::runtime::Abi for alljoyn_permissionconfigurationlistener {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -7651,7 +7607,6 @@ impl ::std::cmp::PartialEq for alljoyn_permissionconfigurationlistener_callbacks
 impl ::std::cmp::Eq for alljoyn_permissionconfigurationlistener_callbacks {}
 unsafe impl ::windows::runtime::Abi for alljoyn_permissionconfigurationlistener_callbacks {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
@@ -7696,7 +7651,6 @@ impl ::std::default::Default for alljoyn_permissionconfigurator {
 unsafe impl ::windows::runtime::Handle for alljoyn_permissionconfigurator {}
 unsafe impl ::windows::runtime::Abi for alljoyn_permissionconfigurator {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
@@ -8180,7 +8134,6 @@ impl ::std::default::Default for alljoyn_pinglistener {
 unsafe impl ::windows::runtime::Handle for alljoyn_pinglistener {}
 unsafe impl ::windows::runtime::Abi for alljoyn_pinglistener {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -8215,7 +8168,6 @@ impl ::std::cmp::Eq for alljoyn_pinglistener_callback {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for alljoyn_pinglistener_callback {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
@@ -8257,7 +8209,6 @@ impl ::std::default::Default for alljoyn_proxybusobject {
 unsafe impl ::windows::runtime::Handle for alljoyn_proxybusobject {}
 unsafe impl ::windows::runtime::Abi for alljoyn_proxybusobject {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
@@ -8773,7 +8724,6 @@ impl ::std::default::Default for alljoyn_proxybusobject_ref {
 unsafe impl ::windows::runtime::Handle for alljoyn_proxybusobject_ref {}
 unsafe impl ::windows::runtime::Abi for alljoyn_proxybusobject_ref {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
@@ -8995,7 +8945,6 @@ impl ::std::default::Default for alljoyn_securityapplicationproxy {
 unsafe impl ::windows::runtime::Handle for alljoyn_securityapplicationproxy {}
 unsafe impl ::windows::runtime::Abi for alljoyn_securityapplicationproxy {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
@@ -9381,7 +9330,6 @@ impl ::std::default::Default for alljoyn_sessionlistener {
 unsafe impl ::windows::runtime::Handle for alljoyn_sessionlistener {}
 unsafe impl ::windows::runtime::Abi for alljoyn_sessionlistener {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -9417,7 +9365,6 @@ impl ::std::cmp::Eq for alljoyn_sessionlistener_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for alljoyn_sessionlistener_callbacks {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
@@ -9470,7 +9417,6 @@ impl ::std::convert::From<i32> for alljoyn_sessionlostreason {
 }
 unsafe impl ::windows::runtime::Abi for alljoyn_sessionlostreason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -9483,7 +9429,6 @@ impl ::std::default::Default for alljoyn_sessionopts {
 unsafe impl ::windows::runtime::Handle for alljoyn_sessionopts {}
 unsafe impl ::windows::runtime::Abi for alljoyn_sessionopts {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
@@ -9664,7 +9609,6 @@ impl ::std::default::Default for alljoyn_sessionportlistener {
 unsafe impl ::windows::runtime::Handle for alljoyn_sessionportlistener {}
 unsafe impl ::windows::runtime::Abi for alljoyn_sessionportlistener {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_sessionportlistener_acceptsessionjoiner_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, sessionport: u16, joiner: super::super::Foundation::PSTR, opts: alljoyn_sessionopts) -> i32;
@@ -9701,7 +9645,6 @@ impl ::std::cmp::Eq for alljoyn_sessionportlistener_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for alljoyn_sessionportlistener_callbacks {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
@@ -9791,7 +9734,6 @@ impl ::std::convert::From<i32> for alljoyn_typeid {
 }
 unsafe impl ::windows::runtime::Abi for alljoyn_typeid {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]

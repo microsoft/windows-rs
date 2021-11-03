@@ -2,7 +2,6 @@
 #[cfg(feature = "AI_MachineLearning_Preview")]
 pub mod Preview;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IImageFeatureDescriptor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageFeatureDescriptor {
@@ -26,7 +25,6 @@ pub struct IImageFeatureDescriptor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IImageFeatureDescriptor2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageFeatureDescriptor2 {
@@ -45,7 +43,6 @@ pub struct IImageFeatureDescriptor2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut LearningModelPixelRange) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IImageFeatureValue(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageFeatureValue {
@@ -65,7 +62,6 @@ pub struct IImageFeatureValue_abi(
     #[cfg(not(feature = "Media"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IImageFeatureValueStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageFeatureValueStatics {
@@ -85,7 +81,6 @@ pub struct IImageFeatureValueStatics_abi(
     #[cfg(not(feature = "Media"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILearningModel(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModel {
@@ -114,7 +109,6 @@ pub struct ILearningModel_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILearningModelBinding(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelBinding {
@@ -136,7 +130,6 @@ pub struct ILearningModelBinding_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILearningModelBindingFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelBindingFactory {
@@ -155,7 +148,6 @@ pub struct ILearningModelBindingFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, session: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILearningModelDevice(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelDevice {
@@ -177,7 +169,6 @@ pub struct ILearningModelDevice_abi(
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILearningModelDeviceFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelDeviceFactory {
@@ -196,7 +187,6 @@ pub struct ILearningModelDeviceFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, devicekind: LearningModelDeviceKind, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILearningModelDeviceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelDeviceStatics {
@@ -216,7 +206,6 @@ pub struct ILearningModelDeviceStatics_abi(
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILearningModelEvaluationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelEvaluationResult {
@@ -352,7 +341,6 @@ pub struct ILearningModelOperatorProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILearningModelSession(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelSession {
@@ -381,7 +369,6 @@ pub struct ILearningModelSession_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILearningModelSessionFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelSessionFactory {
@@ -401,7 +388,6 @@ pub struct ILearningModelSessionFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, model: ::windows::runtime::RawPtr, devicetorunon: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILearningModelSessionFactory2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelSessionFactory2 {
@@ -420,7 +406,6 @@ pub struct ILearningModelSessionFactory2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, model: ::windows::runtime::RawPtr, devicetorunon: ::windows::runtime::RawPtr, learningmodelsessionoptions: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILearningModelSessionOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelSessionOptions {
@@ -440,7 +425,6 @@ pub struct ILearningModelSessionOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILearningModelSessionOptions2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelSessionOptions2 {
@@ -460,7 +444,6 @@ pub struct ILearningModelSessionOptions2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILearningModelSessionOptions3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelSessionOptions3 {
@@ -479,7 +462,6 @@ pub struct ILearningModelSessionOptions3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, dimension: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILearningModelStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelStatics {
@@ -511,7 +493,6 @@ pub struct ILearningModelStatics_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapFeatureDescriptor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapFeatureDescriptor {
@@ -531,7 +512,6 @@ pub struct IMapFeatureDescriptor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISequenceFeatureDescriptor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISequenceFeatureDescriptor {
@@ -623,7 +603,6 @@ pub struct ITensor_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorBoolean(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorBoolean {
@@ -643,7 +622,6 @@ pub struct ITensorBoolean_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorBooleanStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorBooleanStatics {
@@ -668,7 +646,6 @@ pub struct ITensorBooleanStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorBooleanStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorBooleanStatics2 {
@@ -689,7 +666,6 @@ pub struct ITensorBooleanStatics2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorDouble(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorDouble {
@@ -709,7 +685,6 @@ pub struct ITensorDouble_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorDoubleStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorDoubleStatics {
@@ -734,7 +709,6 @@ pub struct ITensorDoubleStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorDoubleStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorDoubleStatics2 {
@@ -755,7 +729,6 @@ pub struct ITensorDoubleStatics2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorFeatureDescriptor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFeatureDescriptor {
@@ -776,7 +749,6 @@ pub struct ITensorFeatureDescriptor_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorFloat(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFloat {
@@ -796,7 +768,6 @@ pub struct ITensorFloat_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorFloat16Bit(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFloat16Bit {
@@ -816,7 +787,6 @@ pub struct ITensorFloat16Bit_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorFloat16BitStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFloat16BitStatics {
@@ -841,7 +811,6 @@ pub struct ITensorFloat16BitStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorFloat16BitStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFloat16BitStatics2 {
@@ -862,7 +831,6 @@ pub struct ITensorFloat16BitStatics2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorFloatStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFloatStatics {
@@ -887,7 +855,6 @@ pub struct ITensorFloatStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorFloatStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorFloatStatics2 {
@@ -908,7 +875,6 @@ pub struct ITensorFloatStatics2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorInt16Bit(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt16Bit {
@@ -928,7 +894,6 @@ pub struct ITensorInt16Bit_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorInt16BitStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt16BitStatics {
@@ -953,7 +918,6 @@ pub struct ITensorInt16BitStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorInt16BitStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt16BitStatics2 {
@@ -974,7 +938,6 @@ pub struct ITensorInt16BitStatics2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorInt32Bit(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt32Bit {
@@ -994,7 +957,6 @@ pub struct ITensorInt32Bit_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorInt32BitStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt32BitStatics {
@@ -1019,7 +981,6 @@ pub struct ITensorInt32BitStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorInt32BitStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt32BitStatics2 {
@@ -1040,7 +1001,6 @@ pub struct ITensorInt32BitStatics2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorInt64Bit(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt64Bit {
@@ -1060,7 +1020,6 @@ pub struct ITensorInt64Bit_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorInt64BitStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt64BitStatics {
@@ -1085,7 +1044,6 @@ pub struct ITensorInt64BitStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorInt64BitStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt64BitStatics2 {
@@ -1106,7 +1064,6 @@ pub struct ITensorInt64BitStatics2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorInt8Bit(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt8Bit {
@@ -1126,7 +1083,6 @@ pub struct ITensorInt8Bit_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorInt8BitStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt8BitStatics {
@@ -1151,7 +1107,6 @@ pub struct ITensorInt8BitStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorInt8BitStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorInt8BitStatics2 {
@@ -1172,7 +1127,6 @@ pub struct ITensorInt8BitStatics2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorString(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorString {
@@ -1192,7 +1146,6 @@ pub struct ITensorString_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorStringStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorStringStatics {
@@ -1217,7 +1170,6 @@ pub struct ITensorStringStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorStringStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorStringStatics2 {
@@ -1236,7 +1188,6 @@ pub struct ITensorStringStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, shape_array_size: u32, shape: *const i64, data_array_size: u32, data: *const ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorUInt16Bit(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt16Bit {
@@ -1256,7 +1207,6 @@ pub struct ITensorUInt16Bit_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorUInt16BitStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt16BitStatics {
@@ -1281,7 +1231,6 @@ pub struct ITensorUInt16BitStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorUInt16BitStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt16BitStatics2 {
@@ -1302,7 +1251,6 @@ pub struct ITensorUInt16BitStatics2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorUInt32Bit(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt32Bit {
@@ -1322,7 +1270,6 @@ pub struct ITensorUInt32Bit_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorUInt32BitStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt32BitStatics {
@@ -1347,7 +1294,6 @@ pub struct ITensorUInt32BitStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorUInt32BitStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt32BitStatics2 {
@@ -1368,7 +1314,6 @@ pub struct ITensorUInt32BitStatics2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorUInt64Bit(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt64Bit {
@@ -1388,7 +1333,6 @@ pub struct ITensorUInt64Bit_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorUInt64BitStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt64BitStatics {
@@ -1413,7 +1357,6 @@ pub struct ITensorUInt64BitStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorUInt64BitStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt64BitStatics2 {
@@ -1434,7 +1377,6 @@ pub struct ITensorUInt64BitStatics2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorUInt8Bit(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt8Bit {
@@ -1454,7 +1396,6 @@ pub struct ITensorUInt8Bit_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorUInt8BitStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt8BitStatics {
@@ -1479,7 +1420,6 @@ pub struct ITensorUInt8BitStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorUInt8BitStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorUInt8BitStatics2 {
@@ -2097,10 +2037,12 @@ impl ::std::convert::From<i32> for LearningModelDeviceKind {
 }
 unsafe impl ::windows::runtime::Abi for LearningModelDeviceKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for LearningModelDeviceKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelDeviceKind;i4)");
+}
+impl ::windows::runtime::DefaultType for LearningModelDeviceKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
@@ -2170,10 +2112,12 @@ impl ::std::convert::From<i32> for LearningModelFeatureKind {
 }
 unsafe impl ::windows::runtime::Abi for LearningModelFeatureKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for LearningModelFeatureKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelFeatureKind;i4)");
+}
+impl ::windows::runtime::DefaultType for LearningModelFeatureKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2191,10 +2135,12 @@ impl ::std::convert::From<i32> for LearningModelPixelRange {
 }
 unsafe impl ::windows::runtime::Abi for LearningModelPixelRange {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for LearningModelPixelRange {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelPixelRange;i4)");
+}
+impl ::windows::runtime::DefaultType for LearningModelPixelRange {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
@@ -2633,7 +2579,7 @@ impl TensorBoolean {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
-    pub fn CreateFromArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<bool as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TensorBoolean> {
+    pub fn CreateFromArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<bool as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<TensorBoolean> {
         Self::ITensorBooleanStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), shape.into_param().abi(), data.len() as u32, ::std::mem::transmute(data.as_ptr()), &mut result__).from_abi::<TensorBoolean>(result__)
@@ -2648,7 +2594,7 @@ impl TensorBoolean {
         })
     }
     #[doc = "*Required features: `AI_MachineLearning`*"]
-    pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::runtime::Abi>::DefaultType], data: &[<bool as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TensorBoolean> {
+    pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::runtime::DefaultType>::DefaultType], data: &[<bool as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<TensorBoolean> {
         Self::ITensorBooleanStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), shape.len() as u32, ::std::mem::transmute(shape.as_ptr()), data.len() as u32, ::std::mem::transmute(data.as_ptr()), &mut result__).from_abi::<TensorBoolean>(result__)
@@ -2656,7 +2602,7 @@ impl TensorBoolean {
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `AI_MachineLearning`, `Storage_Streams`*"]
-    pub fn CreateFromBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::runtime::Abi>::DefaultType], buffer: Param1) -> ::windows::runtime::Result<TensorBoolean> {
+    pub fn CreateFromBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::runtime::DefaultType>::DefaultType], buffer: Param1) -> ::windows::runtime::Result<TensorBoolean> {
         Self::ITensorBooleanStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), shape.len() as u32, ::std::mem::transmute(shape.as_ptr()), buffer.into_param().abi(), &mut result__).from_abi::<TensorBoolean>(result__)
@@ -2850,7 +2796,7 @@ impl TensorDouble {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
-    pub fn CreateFromArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<f64 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TensorDouble> {
+    pub fn CreateFromArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<f64 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<TensorDouble> {
         Self::ITensorDoubleStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), shape.into_param().abi(), data.len() as u32, ::std::mem::transmute(data.as_ptr()), &mut result__).from_abi::<TensorDouble>(result__)
@@ -2865,7 +2811,7 @@ impl TensorDouble {
         })
     }
     #[doc = "*Required features: `AI_MachineLearning`*"]
-    pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::runtime::Abi>::DefaultType], data: &[<f64 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TensorDouble> {
+    pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::runtime::DefaultType>::DefaultType], data: &[<f64 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<TensorDouble> {
         Self::ITensorDoubleStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), shape.len() as u32, ::std::mem::transmute(shape.as_ptr()), data.len() as u32, ::std::mem::transmute(data.as_ptr()), &mut result__).from_abi::<TensorDouble>(result__)
@@ -2873,7 +2819,7 @@ impl TensorDouble {
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `AI_MachineLearning`, `Storage_Streams`*"]
-    pub fn CreateFromBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::runtime::Abi>::DefaultType], buffer: Param1) -> ::windows::runtime::Result<TensorDouble> {
+    pub fn CreateFromBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::runtime::DefaultType>::DefaultType], buffer: Param1) -> ::windows::runtime::Result<TensorDouble> {
         Self::ITensorDoubleStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), shape.len() as u32, ::std::mem::transmute(shape.as_ptr()), buffer.into_param().abi(), &mut result__).from_abi::<TensorDouble>(result__)
@@ -3156,7 +3102,7 @@ impl TensorFloat {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
-    pub fn CreateFromArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<f32 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TensorFloat> {
+    pub fn CreateFromArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<f32 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<TensorFloat> {
         Self::ITensorFloatStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), shape.into_param().abi(), data.len() as u32, ::std::mem::transmute(data.as_ptr()), &mut result__).from_abi::<TensorFloat>(result__)
@@ -3171,7 +3117,7 @@ impl TensorFloat {
         })
     }
     #[doc = "*Required features: `AI_MachineLearning`*"]
-    pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::runtime::Abi>::DefaultType], data: &[<f32 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TensorFloat> {
+    pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::runtime::DefaultType>::DefaultType], data: &[<f32 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<TensorFloat> {
         Self::ITensorFloatStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), shape.len() as u32, ::std::mem::transmute(shape.as_ptr()), data.len() as u32, ::std::mem::transmute(data.as_ptr()), &mut result__).from_abi::<TensorFloat>(result__)
@@ -3179,7 +3125,7 @@ impl TensorFloat {
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `AI_MachineLearning`, `Storage_Streams`*"]
-    pub fn CreateFromBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::runtime::Abi>::DefaultType], buffer: Param1) -> ::windows::runtime::Result<TensorFloat> {
+    pub fn CreateFromBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::runtime::DefaultType>::DefaultType], buffer: Param1) -> ::windows::runtime::Result<TensorFloat> {
         Self::ITensorFloatStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), shape.len() as u32, ::std::mem::transmute(shape.as_ptr()), buffer.into_param().abi(), &mut result__).from_abi::<TensorFloat>(result__)
@@ -3373,7 +3319,7 @@ impl TensorFloat16Bit {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
-    pub fn CreateFromArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<f32 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TensorFloat16Bit> {
+    pub fn CreateFromArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<f32 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<TensorFloat16Bit> {
         Self::ITensorFloat16BitStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), shape.into_param().abi(), data.len() as u32, ::std::mem::transmute(data.as_ptr()), &mut result__).from_abi::<TensorFloat16Bit>(result__)
@@ -3388,7 +3334,7 @@ impl TensorFloat16Bit {
         })
     }
     #[doc = "*Required features: `AI_MachineLearning`*"]
-    pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::runtime::Abi>::DefaultType], data: &[<f32 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TensorFloat16Bit> {
+    pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::runtime::DefaultType>::DefaultType], data: &[<f32 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<TensorFloat16Bit> {
         Self::ITensorFloat16BitStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), shape.len() as u32, ::std::mem::transmute(shape.as_ptr()), data.len() as u32, ::std::mem::transmute(data.as_ptr()), &mut result__).from_abi::<TensorFloat16Bit>(result__)
@@ -3396,7 +3342,7 @@ impl TensorFloat16Bit {
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `AI_MachineLearning`, `Storage_Streams`*"]
-    pub fn CreateFromBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::runtime::Abi>::DefaultType], buffer: Param1) -> ::windows::runtime::Result<TensorFloat16Bit> {
+    pub fn CreateFromBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::runtime::DefaultType>::DefaultType], buffer: Param1) -> ::windows::runtime::Result<TensorFloat16Bit> {
         Self::ITensorFloat16BitStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), shape.len() as u32, ::std::mem::transmute(shape.as_ptr()), buffer.into_param().abi(), &mut result__).from_abi::<TensorFloat16Bit>(result__)
@@ -3590,7 +3536,7 @@ impl TensorInt16Bit {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
-    pub fn CreateFromArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<i16 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TensorInt16Bit> {
+    pub fn CreateFromArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<i16 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<TensorInt16Bit> {
         Self::ITensorInt16BitStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), shape.into_param().abi(), data.len() as u32, ::std::mem::transmute(data.as_ptr()), &mut result__).from_abi::<TensorInt16Bit>(result__)
@@ -3605,7 +3551,7 @@ impl TensorInt16Bit {
         })
     }
     #[doc = "*Required features: `AI_MachineLearning`*"]
-    pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::runtime::Abi>::DefaultType], data: &[<i16 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TensorInt16Bit> {
+    pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::runtime::DefaultType>::DefaultType], data: &[<i16 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<TensorInt16Bit> {
         Self::ITensorInt16BitStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), shape.len() as u32, ::std::mem::transmute(shape.as_ptr()), data.len() as u32, ::std::mem::transmute(data.as_ptr()), &mut result__).from_abi::<TensorInt16Bit>(result__)
@@ -3613,7 +3559,7 @@ impl TensorInt16Bit {
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `AI_MachineLearning`, `Storage_Streams`*"]
-    pub fn CreateFromBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::runtime::Abi>::DefaultType], buffer: Param1) -> ::windows::runtime::Result<TensorInt16Bit> {
+    pub fn CreateFromBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::runtime::DefaultType>::DefaultType], buffer: Param1) -> ::windows::runtime::Result<TensorInt16Bit> {
         Self::ITensorInt16BitStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), shape.len() as u32, ::std::mem::transmute(shape.as_ptr()), buffer.into_param().abi(), &mut result__).from_abi::<TensorInt16Bit>(result__)
@@ -3807,7 +3753,7 @@ impl TensorInt32Bit {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
-    pub fn CreateFromArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<i32 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TensorInt32Bit> {
+    pub fn CreateFromArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<i32 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<TensorInt32Bit> {
         Self::ITensorInt32BitStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), shape.into_param().abi(), data.len() as u32, ::std::mem::transmute(data.as_ptr()), &mut result__).from_abi::<TensorInt32Bit>(result__)
@@ -3822,7 +3768,7 @@ impl TensorInt32Bit {
         })
     }
     #[doc = "*Required features: `AI_MachineLearning`*"]
-    pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::runtime::Abi>::DefaultType], data: &[<i32 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TensorInt32Bit> {
+    pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::runtime::DefaultType>::DefaultType], data: &[<i32 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<TensorInt32Bit> {
         Self::ITensorInt32BitStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), shape.len() as u32, ::std::mem::transmute(shape.as_ptr()), data.len() as u32, ::std::mem::transmute(data.as_ptr()), &mut result__).from_abi::<TensorInt32Bit>(result__)
@@ -3830,7 +3776,7 @@ impl TensorInt32Bit {
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `AI_MachineLearning`, `Storage_Streams`*"]
-    pub fn CreateFromBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::runtime::Abi>::DefaultType], buffer: Param1) -> ::windows::runtime::Result<TensorInt32Bit> {
+    pub fn CreateFromBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::runtime::DefaultType>::DefaultType], buffer: Param1) -> ::windows::runtime::Result<TensorInt32Bit> {
         Self::ITensorInt32BitStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), shape.len() as u32, ::std::mem::transmute(shape.as_ptr()), buffer.into_param().abi(), &mut result__).from_abi::<TensorInt32Bit>(result__)
@@ -4024,7 +3970,7 @@ impl TensorInt64Bit {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
-    pub fn CreateFromArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<i64 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TensorInt64Bit> {
+    pub fn CreateFromArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<i64 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<TensorInt64Bit> {
         Self::ITensorInt64BitStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), shape.into_param().abi(), data.len() as u32, ::std::mem::transmute(data.as_ptr()), &mut result__).from_abi::<TensorInt64Bit>(result__)
@@ -4039,7 +3985,7 @@ impl TensorInt64Bit {
         })
     }
     #[doc = "*Required features: `AI_MachineLearning`*"]
-    pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::runtime::Abi>::DefaultType], data: &[<i64 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TensorInt64Bit> {
+    pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::runtime::DefaultType>::DefaultType], data: &[<i64 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<TensorInt64Bit> {
         Self::ITensorInt64BitStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), shape.len() as u32, ::std::mem::transmute(shape.as_ptr()), data.len() as u32, ::std::mem::transmute(data.as_ptr()), &mut result__).from_abi::<TensorInt64Bit>(result__)
@@ -4047,7 +3993,7 @@ impl TensorInt64Bit {
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `AI_MachineLearning`, `Storage_Streams`*"]
-    pub fn CreateFromBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::runtime::Abi>::DefaultType], buffer: Param1) -> ::windows::runtime::Result<TensorInt64Bit> {
+    pub fn CreateFromBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::runtime::DefaultType>::DefaultType], buffer: Param1) -> ::windows::runtime::Result<TensorInt64Bit> {
         Self::ITensorInt64BitStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), shape.len() as u32, ::std::mem::transmute(shape.as_ptr()), buffer.into_param().abi(), &mut result__).from_abi::<TensorInt64Bit>(result__)
@@ -4241,7 +4187,7 @@ impl TensorInt8Bit {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
-    pub fn CreateFromArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TensorInt8Bit> {
+    pub fn CreateFromArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<TensorInt8Bit> {
         Self::ITensorInt8BitStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), shape.into_param().abi(), data.len() as u32, ::std::mem::transmute(data.as_ptr()), &mut result__).from_abi::<TensorInt8Bit>(result__)
@@ -4256,7 +4202,7 @@ impl TensorInt8Bit {
         })
     }
     #[doc = "*Required features: `AI_MachineLearning`*"]
-    pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::runtime::Abi>::DefaultType], data: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TensorInt8Bit> {
+    pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::runtime::DefaultType>::DefaultType], data: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<TensorInt8Bit> {
         Self::ITensorInt8BitStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), shape.len() as u32, ::std::mem::transmute(shape.as_ptr()), data.len() as u32, ::std::mem::transmute(data.as_ptr()), &mut result__).from_abi::<TensorInt8Bit>(result__)
@@ -4264,7 +4210,7 @@ impl TensorInt8Bit {
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `AI_MachineLearning`, `Storage_Streams`*"]
-    pub fn CreateFromBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::runtime::Abi>::DefaultType], buffer: Param1) -> ::windows::runtime::Result<TensorInt8Bit> {
+    pub fn CreateFromBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::runtime::DefaultType>::DefaultType], buffer: Param1) -> ::windows::runtime::Result<TensorInt8Bit> {
         Self::ITensorInt8BitStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), shape.len() as u32, ::std::mem::transmute(shape.as_ptr()), buffer.into_param().abi(), &mut result__).from_abi::<TensorInt8Bit>(result__)
@@ -4416,10 +4362,12 @@ impl ::std::convert::From<i32> for TensorKind {
 }
 unsafe impl ::windows::runtime::Abi for TensorKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TensorKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.TensorKind;i4)");
+}
+impl ::windows::runtime::DefaultType for TensorKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `AI_MachineLearning`*"]
 #[repr(transparent)]
@@ -4492,7 +4440,7 @@ impl TensorString {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
-    pub fn CreateFromArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<::windows::runtime::HSTRING as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TensorString> {
+    pub fn CreateFromArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<::windows::runtime::HSTRING as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<TensorString> {
         Self::ITensorStringStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), shape.into_param().abi(), data.len() as u32, ::std::mem::transmute(data.as_ptr()), &mut result__).from_abi::<TensorString>(result__)
@@ -4507,7 +4455,7 @@ impl TensorString {
         })
     }
     #[doc = "*Required features: `AI_MachineLearning`*"]
-    pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::runtime::Abi>::DefaultType], data: &[<::windows::runtime::HSTRING as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TensorString> {
+    pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::runtime::DefaultType>::DefaultType], data: &[<::windows::runtime::HSTRING as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<TensorString> {
         Self::ITensorStringStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), shape.len() as u32, ::std::mem::transmute(shape.as_ptr()), data.len() as u32, ::std::mem::transmute(data.as_ptr()), &mut result__).from_abi::<TensorString>(result__)
@@ -4701,7 +4649,7 @@ impl TensorUInt16Bit {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
-    pub fn CreateFromArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<u16 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TensorUInt16Bit> {
+    pub fn CreateFromArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<u16 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<TensorUInt16Bit> {
         Self::ITensorUInt16BitStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), shape.into_param().abi(), data.len() as u32, ::std::mem::transmute(data.as_ptr()), &mut result__).from_abi::<TensorUInt16Bit>(result__)
@@ -4716,7 +4664,7 @@ impl TensorUInt16Bit {
         })
     }
     #[doc = "*Required features: `AI_MachineLearning`*"]
-    pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::runtime::Abi>::DefaultType], data: &[<u16 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TensorUInt16Bit> {
+    pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::runtime::DefaultType>::DefaultType], data: &[<u16 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<TensorUInt16Bit> {
         Self::ITensorUInt16BitStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), shape.len() as u32, ::std::mem::transmute(shape.as_ptr()), data.len() as u32, ::std::mem::transmute(data.as_ptr()), &mut result__).from_abi::<TensorUInt16Bit>(result__)
@@ -4724,7 +4672,7 @@ impl TensorUInt16Bit {
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `AI_MachineLearning`, `Storage_Streams`*"]
-    pub fn CreateFromBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::runtime::Abi>::DefaultType], buffer: Param1) -> ::windows::runtime::Result<TensorUInt16Bit> {
+    pub fn CreateFromBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::runtime::DefaultType>::DefaultType], buffer: Param1) -> ::windows::runtime::Result<TensorUInt16Bit> {
         Self::ITensorUInt16BitStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), shape.len() as u32, ::std::mem::transmute(shape.as_ptr()), buffer.into_param().abi(), &mut result__).from_abi::<TensorUInt16Bit>(result__)
@@ -4918,7 +4866,7 @@ impl TensorUInt32Bit {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
-    pub fn CreateFromArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<u32 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TensorUInt32Bit> {
+    pub fn CreateFromArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<u32 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<TensorUInt32Bit> {
         Self::ITensorUInt32BitStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), shape.into_param().abi(), data.len() as u32, ::std::mem::transmute(data.as_ptr()), &mut result__).from_abi::<TensorUInt32Bit>(result__)
@@ -4933,7 +4881,7 @@ impl TensorUInt32Bit {
         })
     }
     #[doc = "*Required features: `AI_MachineLearning`*"]
-    pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::runtime::Abi>::DefaultType], data: &[<u32 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TensorUInt32Bit> {
+    pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::runtime::DefaultType>::DefaultType], data: &[<u32 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<TensorUInt32Bit> {
         Self::ITensorUInt32BitStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), shape.len() as u32, ::std::mem::transmute(shape.as_ptr()), data.len() as u32, ::std::mem::transmute(data.as_ptr()), &mut result__).from_abi::<TensorUInt32Bit>(result__)
@@ -4941,7 +4889,7 @@ impl TensorUInt32Bit {
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `AI_MachineLearning`, `Storage_Streams`*"]
-    pub fn CreateFromBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::runtime::Abi>::DefaultType], buffer: Param1) -> ::windows::runtime::Result<TensorUInt32Bit> {
+    pub fn CreateFromBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::runtime::DefaultType>::DefaultType], buffer: Param1) -> ::windows::runtime::Result<TensorUInt32Bit> {
         Self::ITensorUInt32BitStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), shape.len() as u32, ::std::mem::transmute(shape.as_ptr()), buffer.into_param().abi(), &mut result__).from_abi::<TensorUInt32Bit>(result__)
@@ -5135,7 +5083,7 @@ impl TensorUInt64Bit {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
-    pub fn CreateFromArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<u64 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TensorUInt64Bit> {
+    pub fn CreateFromArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<u64 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<TensorUInt64Bit> {
         Self::ITensorUInt64BitStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), shape.into_param().abi(), data.len() as u32, ::std::mem::transmute(data.as_ptr()), &mut result__).from_abi::<TensorUInt64Bit>(result__)
@@ -5150,7 +5098,7 @@ impl TensorUInt64Bit {
         })
     }
     #[doc = "*Required features: `AI_MachineLearning`*"]
-    pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::runtime::Abi>::DefaultType], data: &[<u64 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TensorUInt64Bit> {
+    pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::runtime::DefaultType>::DefaultType], data: &[<u64 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<TensorUInt64Bit> {
         Self::ITensorUInt64BitStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), shape.len() as u32, ::std::mem::transmute(shape.as_ptr()), data.len() as u32, ::std::mem::transmute(data.as_ptr()), &mut result__).from_abi::<TensorUInt64Bit>(result__)
@@ -5158,7 +5106,7 @@ impl TensorUInt64Bit {
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `AI_MachineLearning`, `Storage_Streams`*"]
-    pub fn CreateFromBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::runtime::Abi>::DefaultType], buffer: Param1) -> ::windows::runtime::Result<TensorUInt64Bit> {
+    pub fn CreateFromBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::runtime::DefaultType>::DefaultType], buffer: Param1) -> ::windows::runtime::Result<TensorUInt64Bit> {
         Self::ITensorUInt64BitStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), shape.len() as u32, ::std::mem::transmute(shape.as_ptr()), buffer.into_param().abi(), &mut result__).from_abi::<TensorUInt64Bit>(result__)
@@ -5352,7 +5300,7 @@ impl TensorUInt8Bit {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `AI_MachineLearning`, `Foundation_Collections`*"]
-    pub fn CreateFromArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TensorUInt8Bit> {
+    pub fn CreateFromArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IIterable<i64>>>(shape: Param0, data: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<TensorUInt8Bit> {
         Self::ITensorUInt8BitStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), shape.into_param().abi(), data.len() as u32, ::std::mem::transmute(data.as_ptr()), &mut result__).from_abi::<TensorUInt8Bit>(result__)
@@ -5367,7 +5315,7 @@ impl TensorUInt8Bit {
         })
     }
     #[doc = "*Required features: `AI_MachineLearning`*"]
-    pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::runtime::Abi>::DefaultType], data: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<TensorUInt8Bit> {
+    pub fn CreateFromShapeArrayAndDataArray(shape: &[<i64 as ::windows::runtime::DefaultType>::DefaultType], data: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<TensorUInt8Bit> {
         Self::ITensorUInt8BitStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), shape.len() as u32, ::std::mem::transmute(shape.as_ptr()), data.len() as u32, ::std::mem::transmute(data.as_ptr()), &mut result__).from_abi::<TensorUInt8Bit>(result__)
@@ -5375,7 +5323,7 @@ impl TensorUInt8Bit {
     }
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `AI_MachineLearning`, `Storage_Streams`*"]
-    pub fn CreateFromBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::runtime::Abi>::DefaultType], buffer: Param1) -> ::windows::runtime::Result<TensorUInt8Bit> {
+    pub fn CreateFromBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(shape: &[<i64 as ::windows::runtime::DefaultType>::DefaultType], buffer: Param1) -> ::windows::runtime::Result<TensorUInt8Bit> {
         Self::ITensorUInt8BitStatics2(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), shape.len() as u32, ::std::mem::transmute(shape.as_ptr()), buffer.into_param().abi(), &mut result__).from_abi::<TensorUInt8Bit>(result__)

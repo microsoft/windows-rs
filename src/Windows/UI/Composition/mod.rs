@@ -538,10 +538,12 @@ impl ::std::convert::From<i32> for AnimationControllerProgressBehavior {
 }
 unsafe impl ::windows::runtime::Abi for AnimationControllerProgressBehavior {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AnimationControllerProgressBehavior {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationControllerProgressBehavior;i4)");
+}
+impl ::windows::runtime::DefaultType for AnimationControllerProgressBehavior {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -558,10 +560,12 @@ impl ::std::convert::From<i32> for AnimationDelayBehavior {
 }
 unsafe impl ::windows::runtime::Abi for AnimationDelayBehavior {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AnimationDelayBehavior {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationDelayBehavior;i4)");
+}
+impl ::windows::runtime::DefaultType for AnimationDelayBehavior {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -580,10 +584,12 @@ impl ::std::convert::From<i32> for AnimationDirection {
 }
 unsafe impl ::windows::runtime::Abi for AnimationDirection {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AnimationDirection {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationDirection;i4)");
+}
+impl ::windows::runtime::DefaultType for AnimationDirection {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -600,10 +606,12 @@ impl ::std::convert::From<i32> for AnimationIterationBehavior {
 }
 unsafe impl ::windows::runtime::Abi for AnimationIterationBehavior {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AnimationIterationBehavior {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationIterationBehavior;i4)");
+}
+impl ::windows::runtime::DefaultType for AnimationIterationBehavior {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -622,10 +630,12 @@ impl ::std::convert::From<i32> for AnimationPropertyAccessMode {
 }
 unsafe impl ::windows::runtime::Abi for AnimationPropertyAccessMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AnimationPropertyAccessMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationPropertyAccessMode;i4)");
+}
+impl ::windows::runtime::DefaultType for AnimationPropertyAccessMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
@@ -857,10 +867,12 @@ impl ::std::convert::From<i32> for AnimationStopBehavior {
 }
 unsafe impl ::windows::runtime::Abi for AnimationStopBehavior {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AnimationStopBehavior {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationStopBehavior;i4)");
+}
+impl ::windows::runtime::DefaultType for AnimationStopBehavior {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
@@ -4675,10 +4687,12 @@ impl ::std::convert::From<i32> for CompositionBackfaceVisibility {
 }
 unsafe impl ::windows::runtime::Abi for CompositionBackfaceVisibility {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CompositionBackfaceVisibility {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBackfaceVisibility;i4)");
+}
+impl ::windows::runtime::DefaultType for CompositionBackfaceVisibility {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
@@ -4883,10 +4897,12 @@ impl ::std::convert::From<u32> for CompositionBatchTypes {
 }
 unsafe impl ::windows::runtime::Abi for CompositionBatchTypes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CompositionBatchTypes {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBatchTypes;u4)");
+}
+impl ::windows::runtime::DefaultType for CompositionBatchTypes {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CompositionBatchTypes {
     type Output = Self;
@@ -4939,10 +4955,12 @@ impl ::std::convert::From<i32> for CompositionBitmapInterpolationMode {
 }
 unsafe impl ::windows::runtime::Abi for CompositionBitmapInterpolationMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CompositionBitmapInterpolationMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBitmapInterpolationMode;i4)");
+}
+impl ::windows::runtime::DefaultType for CompositionBitmapInterpolationMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4960,10 +4978,12 @@ impl ::std::convert::From<i32> for CompositionBorderMode {
 }
 unsafe impl ::windows::runtime::Abi for CompositionBorderMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CompositionBorderMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBorderMode;i4)");
+}
+impl ::windows::runtime::DefaultType for CompositionBorderMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
@@ -6013,7 +6033,7 @@ impl CompositionColorGradientStopCollection {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_Composition`, `Foundation_Collections`*"]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<CompositionColorGradientStop as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [<CompositionColorGradientStop as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -6022,7 +6042,7 @@ impl CompositionColorGradientStopCollection {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_Composition`, `Foundation_Collections`*"]
-    pub fn ReplaceAll(&self, items: &[<CompositionColorGradientStop as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn ReplaceAll(&self, items: &[<CompositionColorGradientStop as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), items.len() as u32, ::std::mem::transmute(items.as_ptr())).ok() }
     }
@@ -6125,10 +6145,12 @@ impl ::std::convert::From<i32> for CompositionColorSpace {
 }
 unsafe impl ::windows::runtime::Abi for CompositionColorSpace {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CompositionColorSpace {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionColorSpace;i4)");
+}
+impl ::windows::runtime::DefaultType for CompositionColorSpace {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
@@ -6363,10 +6385,12 @@ impl ::std::convert::From<i32> for CompositionCompositeMode {
 }
 unsafe impl ::windows::runtime::Abi for CompositionCompositeMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CompositionCompositeMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionCompositeMode;i4)");
+}
+impl ::windows::runtime::DefaultType for CompositionCompositeMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
@@ -6956,10 +6980,12 @@ impl ::std::convert::From<i32> for CompositionDropShadowSourcePolicy {
 }
 unsafe impl ::windows::runtime::Abi for CompositionDropShadowSourcePolicy {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CompositionDropShadowSourcePolicy {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionDropShadowSourcePolicy;i4)");
+}
+impl ::windows::runtime::DefaultType for CompositionDropShadowSourcePolicy {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
@@ -7244,10 +7270,12 @@ impl ::std::convert::From<i32> for CompositionEasingFunctionMode {
 }
 unsafe impl ::windows::runtime::Abi for CompositionEasingFunctionMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CompositionEasingFunctionMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionEasingFunctionMode;i4)");
+}
+impl ::windows::runtime::DefaultType for CompositionEasingFunctionMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
@@ -7693,10 +7721,12 @@ impl ::std::convert::From<i32> for CompositionEffectFactoryLoadStatus {
 }
 unsafe impl ::windows::runtime::Abi for CompositionEffectFactoryLoadStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CompositionEffectFactoryLoadStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionEffectFactoryLoadStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for CompositionEffectFactoryLoadStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
@@ -8607,10 +8637,12 @@ impl ::std::convert::From<i32> for CompositionGetValueStatus {
 }
 unsafe impl ::windows::runtime::Abi for CompositionGetValueStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CompositionGetValueStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionGetValueStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for CompositionGetValueStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
@@ -8981,10 +9013,12 @@ impl ::std::convert::From<i32> for CompositionGradientExtendMode {
 }
 unsafe impl ::windows::runtime::Abi for CompositionGradientExtendMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CompositionGradientExtendMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionGradientExtendMode;i4)");
+}
+impl ::windows::runtime::DefaultType for CompositionGradientExtendMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
@@ -10142,10 +10176,12 @@ impl ::std::convert::From<i32> for CompositionMappingMode {
 }
 unsafe impl ::windows::runtime::Abi for CompositionMappingMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CompositionMappingMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionMappingMode;i4)");
+}
+impl ::windows::runtime::DefaultType for CompositionMappingMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
@@ -14742,7 +14778,7 @@ impl CompositionShapeCollection {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_Composition`, `Foundation_Collections`*"]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<CompositionShape as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [<CompositionShape as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -14751,7 +14787,7 @@ impl CompositionShapeCollection {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_Composition`, `Foundation_Collections`*"]
-    pub fn ReplaceAll(&self, items: &[<CompositionShape as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn ReplaceAll(&self, items: &[<CompositionShape as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), items.len() as u32, ::std::mem::transmute(items.as_ptr())).ok() }
     }
@@ -15483,10 +15519,12 @@ impl ::std::convert::From<i32> for CompositionStretch {
 }
 unsafe impl ::windows::runtime::Abi for CompositionStretch {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CompositionStretch {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionStretch;i4)");
+}
+impl ::windows::runtime::DefaultType for CompositionStretch {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -15505,10 +15543,12 @@ impl ::std::convert::From<i32> for CompositionStrokeCap {
 }
 unsafe impl ::windows::runtime::Abi for CompositionStrokeCap {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CompositionStrokeCap {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionStrokeCap;i4)");
+}
+impl ::windows::runtime::DefaultType for CompositionStrokeCap {
+    type DefaultType = Self;
 }
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `UI_Composition`, `Foundation_Collections`*"]
@@ -15591,7 +15631,7 @@ impl CompositionStrokeDashArray {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_Composition`, `Foundation_Collections`*"]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<f32 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [<f32 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -15600,7 +15640,7 @@ impl CompositionStrokeDashArray {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_Composition`, `Foundation_Collections`*"]
-    pub fn ReplaceAll(&self, items: &[<f32 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn ReplaceAll(&self, items: &[<f32 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), items.len() as u32, ::std::mem::transmute(items.as_ptr())).ok() }
     }
@@ -15889,10 +15929,12 @@ impl ::std::convert::From<i32> for CompositionStrokeLineJoin {
 }
 unsafe impl ::windows::runtime::Abi for CompositionStrokeLineJoin {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CompositionStrokeLineJoin {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionStrokeLineJoin;i4)");
+}
+impl ::windows::runtime::DefaultType for CompositionStrokeLineJoin {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]
@@ -16922,7 +16964,7 @@ pub struct CompositionVirtualDrawingSurface(::windows::runtime::IInspectable);
 impl CompositionVirtualDrawingSurface {
     #[cfg(feature = "Graphics")]
     #[doc = "*Required features: `UI_Composition`, `Graphics`*"]
-    pub fn Trim(&self, rects: &[<super::super::Graphics::RectInt32 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn Trim(&self, rects: &[<super::super::Graphics::RectInt32 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), rects.len() as u32, ::std::mem::transmute(rects.as_ptr())).ok() }
     }
@@ -18933,7 +18975,7 @@ pub struct DelegatedInkTrailVisual(::windows::runtime::IInspectable);
 impl DelegatedInkTrailVisual {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Composition`, `Foundation`*"]
-    pub fn AddTrailPoints(&self, inkpoints: &[<InkTrailPoint as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn AddTrailPoints(&self, inkpoints: &[<InkTrailPoint as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -18942,7 +18984,7 @@ impl DelegatedInkTrailVisual {
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Composition`, `Foundation`*"]
-    pub fn AddTrailPointsWithPrediction(&self, inkpoints: &[<InkTrailPoint as ::windows::runtime::Abi>::DefaultType], predictedinkpoints: &[<InkTrailPoint as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn AddTrailPointsWithPrediction(&self, inkpoints: &[<InkTrailPoint as ::windows::runtime::DefaultType>::DefaultType], predictedinkpoints: &[<InkTrailPoint as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -20835,7 +20877,6 @@ impl<'a> ::windows::runtime::IntoParam<'a, CompositionObject> for &ExpressionAni
 unsafe impl ::std::marker::Send for ExpressionAnimation {}
 unsafe impl ::std::marker::Sync for ExpressionAnimation {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAmbientLight(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAmbientLight {
@@ -20855,7 +20896,6 @@ pub struct IAmbientLight_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: super::Color) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAmbientLight2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAmbientLight2 {
@@ -20875,7 +20915,6 @@ pub struct IAmbientLight2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAnimationController(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAnimationController {
@@ -20901,7 +20940,6 @@ pub struct IAnimationController_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAnimationControllerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAnimationControllerStatics {
@@ -20950,7 +20988,6 @@ pub struct IAnimationObject_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propertyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, propertyinfo: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAnimationPropertyInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAnimationPropertyInfo {
@@ -20970,7 +21007,6 @@ pub struct IAnimationPropertyInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: AnimationPropertyAccessMode) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAnimationPropertyInfo2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAnimationPropertyInfo2 {
@@ -20990,7 +21026,6 @@ pub struct IAnimationPropertyInfo2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackEasingFunction(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackEasingFunction {
@@ -21010,7 +21045,6 @@ pub struct IBackEasingFunction_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBooleanKeyFrameAnimation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBooleanKeyFrameAnimation {
@@ -21029,7 +21063,6 @@ pub struct IBooleanKeyFrameAnimation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, normalizedprogresskey: f32, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBounceEasingFunction(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBounceEasingFunction {
@@ -21050,7 +21083,6 @@ pub struct IBounceEasingFunction_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBounceScalarNaturalMotionAnimation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBounceScalarNaturalMotionAnimation {
@@ -21072,7 +21104,6 @@ pub struct IBounceScalarNaturalMotionAnimation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBounceVector2NaturalMotionAnimation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBounceVector2NaturalMotionAnimation {
@@ -21094,7 +21125,6 @@ pub struct IBounceVector2NaturalMotionAnimation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBounceVector3NaturalMotionAnimation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBounceVector3NaturalMotionAnimation {
@@ -21116,7 +21146,6 @@ pub struct IBounceVector3NaturalMotionAnimation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICircleEasingFunction(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICircleEasingFunction {
@@ -21135,7 +21164,6 @@ pub struct ICircleEasingFunction_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut CompositionEasingFunctionMode) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IColorKeyFrameAnimation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IColorKeyFrameAnimation {
@@ -21157,7 +21185,6 @@ pub struct IColorKeyFrameAnimation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, normalizedprogresskey: f32, value: super::Color, easingfunction: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionAnimation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionAnimation {
@@ -21192,7 +21219,6 @@ pub struct ICompositionAnimation_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionAnimation2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionAnimation2 {
@@ -21213,7 +21239,6 @@ pub struct ICompositionAnimation2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionAnimation3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionAnimation3 {
@@ -21233,7 +21258,6 @@ pub struct ICompositionAnimation3_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionAnimation4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionAnimation4 {
@@ -21274,7 +21298,6 @@ pub struct ICompositionAnimationBase_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionAnimationFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionAnimationFactory {
@@ -21292,7 +21315,6 @@ pub struct ICompositionAnimationFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionAnimationGroup(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionAnimationGroup {
@@ -21314,7 +21336,6 @@ pub struct ICompositionAnimationGroup_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionBackdropBrush(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionBackdropBrush {
@@ -21332,7 +21353,6 @@ pub struct ICompositionBackdropBrush_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionBatchCompletedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionBatchCompletedEventArgs {
@@ -21350,7 +21370,6 @@ pub struct ICompositionBatchCompletedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionBrush(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionBrush {
@@ -21368,7 +21387,6 @@ pub struct ICompositionBrush_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionBrushFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionBrushFactory {
@@ -21386,7 +21404,6 @@ pub struct ICompositionBrushFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionCapabilities {
@@ -21410,7 +21427,6 @@ pub struct ICompositionCapabilities_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionCapabilitiesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionCapabilitiesStatics {
@@ -21429,7 +21445,6 @@ pub struct ICompositionCapabilitiesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionClip(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionClip {
@@ -21447,7 +21462,6 @@ pub struct ICompositionClip_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionClip2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionClip2 {
@@ -21489,7 +21503,6 @@ pub struct ICompositionClip2_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionClipFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionClipFactory {
@@ -21507,7 +21520,6 @@ pub struct ICompositionClipFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionColorBrush(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionColorBrush {
@@ -21527,7 +21539,6 @@ pub struct ICompositionColorBrush_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: super::Color) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionColorGradientStop(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionColorGradientStop {
@@ -21549,7 +21560,6 @@ pub struct ICompositionColorGradientStop_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionColorGradientStopCollection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionColorGradientStopCollection {
@@ -21567,7 +21577,6 @@ pub struct ICompositionColorGradientStopCollection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionCommitBatch(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionCommitBatch {
@@ -21591,7 +21600,6 @@ pub struct ICompositionCommitBatch_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionContainerShape(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionContainerShape {
@@ -21611,7 +21619,6 @@ pub struct ICompositionContainerShape_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionDrawingSurface(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionDrawingSurface {
@@ -21635,7 +21642,6 @@ pub struct ICompositionDrawingSurface_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionDrawingSurface2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionDrawingSurface2 {
@@ -21665,7 +21671,6 @@ pub struct ICompositionDrawingSurface2_abi(
     #[cfg(not(feature = "Graphics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionDrawingSurfaceFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionDrawingSurfaceFactory {
@@ -21683,7 +21688,6 @@ pub struct ICompositionDrawingSurfaceFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionEasingFunction(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionEasingFunction {
@@ -21701,7 +21705,6 @@ pub struct ICompositionEasingFunction_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionEasingFunctionFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionEasingFunctionFactory {
@@ -21719,7 +21722,6 @@ pub struct ICompositionEasingFunctionFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionEasingFunctionStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionEasingFunctionStatics {
@@ -21749,7 +21751,6 @@ pub struct ICompositionEasingFunctionStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, owner: ::windows::runtime::RawPtr, mode: CompositionEasingFunctionMode, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionEffectBrush(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionEffectBrush {
@@ -21769,7 +21770,6 @@ pub struct ICompositionEffectBrush_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, source: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionEffectFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionEffectFactory {
@@ -21790,7 +21790,6 @@ pub struct ICompositionEffectFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut CompositionEffectFactoryLoadStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionEffectSourceParameter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionEffectSourceParameter {
@@ -21809,7 +21808,6 @@ pub struct ICompositionEffectSourceParameter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionEffectSourceParameterFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionEffectSourceParameterFactory {
@@ -21828,7 +21826,6 @@ pub struct ICompositionEffectSourceParameterFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionEllipseGeometry(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionEllipseGeometry {
@@ -21854,7 +21851,6 @@ pub struct ICompositionEllipseGeometry_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionGeometricClip(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionGeometricClip {
@@ -21876,7 +21872,6 @@ pub struct ICompositionGeometricClip_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionGeometry(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionGeometry {
@@ -21900,7 +21895,6 @@ pub struct ICompositionGeometry_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionGeometryFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionGeometryFactory {
@@ -21918,7 +21912,6 @@ pub struct ICompositionGeometryFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionGradientBrush(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionGradientBrush {
@@ -21965,7 +21958,6 @@ pub struct ICompositionGradientBrush_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionGradientBrush2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionGradientBrush2 {
@@ -21985,7 +21977,6 @@ pub struct ICompositionGradientBrush2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: CompositionMappingMode) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionGradientBrushFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionGradientBrushFactory {
@@ -22003,7 +21994,6 @@ pub struct ICompositionGradientBrushFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionGraphicsDevice(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionGraphicsDevice {
@@ -22027,7 +22017,6 @@ pub struct ICompositionGraphicsDevice_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionGraphicsDevice2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionGraphicsDevice2 {
@@ -22049,7 +22038,6 @@ pub struct ICompositionGraphicsDevice2_abi(
     #[cfg(not(all(feature = "Graphics", feature = "Graphics_DirectX")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionGraphicsDevice3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionGraphicsDevice3 {
@@ -22070,7 +22058,6 @@ pub struct ICompositionGraphicsDevice3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionGraphicsDevice4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionGraphicsDevice4 {
@@ -22090,7 +22077,6 @@ pub struct ICompositionGraphicsDevice4_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Graphics", feature = "Graphics_DirectX")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionLight(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionLight {
@@ -22109,7 +22095,6 @@ pub struct ICompositionLight_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionLight2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionLight2 {
@@ -22128,7 +22113,6 @@ pub struct ICompositionLight2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionLight3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionLight3 {
@@ -22148,7 +22132,6 @@ pub struct ICompositionLight3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionLightFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionLightFactory {
@@ -22166,7 +22149,6 @@ pub struct ICompositionLightFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionLineGeometry(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionLineGeometry {
@@ -22192,7 +22174,6 @@ pub struct ICompositionLineGeometry_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionLinearGradientBrush(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionLinearGradientBrush {
@@ -22218,7 +22199,6 @@ pub struct ICompositionLinearGradientBrush_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionMaskBrush(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionMaskBrush {
@@ -22240,7 +22220,6 @@ pub struct ICompositionMaskBrush_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionMipmapSurface(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionMipmapSurface {
@@ -22266,7 +22245,6 @@ pub struct ICompositionMipmapSurface_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, level: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionNineGridBrush(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionNineGridBrush {
@@ -22308,7 +22286,6 @@ pub struct ICompositionNineGridBrush_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, left: f32, top: f32, right: f32, bottom: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionObject(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionObject {
@@ -22332,7 +22309,6 @@ pub struct ICompositionObject_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propertyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionObject2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionObject2 {
@@ -22356,7 +22332,6 @@ pub struct ICompositionObject2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionObject3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionObject3 {
@@ -22376,7 +22351,6 @@ pub struct ICompositionObject3_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionObject4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionObject4 {
@@ -22395,7 +22369,6 @@ pub struct ICompositionObject4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propertyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionObjectFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionObjectFactory {
@@ -22413,7 +22386,6 @@ pub struct ICompositionObjectFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionObjectStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionObjectStatics {
@@ -22433,7 +22405,6 @@ pub struct ICompositionObjectStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, target: ::windows::runtime::RawPtr, animation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionPath(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionPath {
@@ -22451,7 +22422,6 @@ pub struct ICompositionPath_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionPathFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionPathFactory {
@@ -22471,7 +22441,6 @@ pub struct ICompositionPathFactory_abi(
     #[cfg(not(feature = "Graphics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionPathGeometry(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionPathGeometry {
@@ -22491,7 +22460,6 @@ pub struct ICompositionPathGeometry_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionProjectedShadow(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionProjectedShadow {
@@ -22519,7 +22487,6 @@ pub struct ICompositionProjectedShadow_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionProjectedShadowCaster(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionProjectedShadowCaster {
@@ -22541,7 +22508,6 @@ pub struct ICompositionProjectedShadowCaster_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionProjectedShadowCasterCollection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionProjectedShadowCasterCollection {
@@ -22566,7 +22532,6 @@ pub struct ICompositionProjectedShadowCasterCollection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionProjectedShadowCasterCollectionStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionProjectedShadowCasterCollectionStatics {
@@ -22585,7 +22550,6 @@ pub struct ICompositionProjectedShadowCasterCollectionStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionProjectedShadowReceiver(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionProjectedShadowReceiver {
@@ -22605,7 +22569,6 @@ pub struct ICompositionProjectedShadowReceiver_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionProjectedShadowReceiverUnorderedCollection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionProjectedShadowReceiverUnorderedCollection {
@@ -22627,7 +22590,6 @@ pub struct ICompositionProjectedShadowReceiverUnorderedCollection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionPropertySet(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionPropertySet {
@@ -22673,7 +22635,6 @@ pub struct ICompositionPropertySet_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionPropertySet2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionPropertySet2 {
@@ -22693,7 +22654,6 @@ pub struct ICompositionPropertySet2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propertyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, value: *mut bool, result__: *mut CompositionGetValueStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionRadialGradientBrush(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionRadialGradientBrush {
@@ -22723,7 +22683,6 @@ pub struct ICompositionRadialGradientBrush_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionRectangleGeometry(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionRectangleGeometry {
@@ -22749,7 +22708,6 @@ pub struct ICompositionRectangleGeometry_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionRoundedRectangleGeometry(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionRoundedRectangleGeometry {
@@ -22779,7 +22737,6 @@ pub struct ICompositionRoundedRectangleGeometry_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionScopedBatch(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionScopedBatch {
@@ -22806,7 +22763,6 @@ pub struct ICompositionScopedBatch_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionShadow(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionShadow {
@@ -22824,7 +22780,6 @@ pub struct ICompositionShadow_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionShadowFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionShadowFactory {
@@ -22842,7 +22797,6 @@ pub struct ICompositionShadowFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionShape(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionShape {
@@ -22880,7 +22834,6 @@ pub struct ICompositionShape_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionShapeFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionShapeFactory {
@@ -22898,7 +22851,6 @@ pub struct ICompositionShapeFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionSpriteShape(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionSpriteShape {
@@ -23000,7 +22952,6 @@ pub struct ICompositionSurface_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionSurfaceBrush(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionSurfaceBrush {
@@ -23028,7 +22979,6 @@ pub struct ICompositionSurfaceBrush_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionSurfaceBrush2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionSurfaceBrush2 {
@@ -23070,7 +23020,6 @@ pub struct ICompositionSurfaceBrush2_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionSurfaceBrush3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionSurfaceBrush3 {
@@ -23122,7 +23071,6 @@ pub struct ICompositionSurfaceFacade_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionTarget(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionTarget {
@@ -23142,7 +23090,6 @@ pub struct ICompositionTarget_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionTargetFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionTargetFactory {
@@ -23160,7 +23107,6 @@ pub struct ICompositionTargetFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionTransform(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionTransform {
@@ -23178,7 +23124,6 @@ pub struct ICompositionTransform_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionTransformFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionTransformFactory {
@@ -23196,7 +23141,6 @@ pub struct ICompositionTransformFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionViewBox(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionViewBox {
@@ -23228,7 +23172,6 @@ pub struct ICompositionViewBox_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionVirtualDrawingSurface(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionVirtualDrawingSurface {
@@ -23248,7 +23191,6 @@ pub struct ICompositionVirtualDrawingSurface_abi(
     #[cfg(not(feature = "Graphics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionVirtualDrawingSurfaceFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionVirtualDrawingSurfaceFactory {
@@ -23266,7 +23208,6 @@ pub struct ICompositionVirtualDrawingSurfaceFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionVisualSurface(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionVisualSurface {
@@ -23294,7 +23235,6 @@ pub struct ICompositionVisualSurface_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositor {
@@ -23339,7 +23279,6 @@ pub struct ICompositor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, batchtype: CompositionBatchTypes, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositor2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositor2 {
@@ -23370,7 +23309,6 @@ pub struct ICompositor2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, stepcount: i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositor3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositor3 {
@@ -23389,7 +23327,6 @@ pub struct ICompositor3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositor4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositor4 {
@@ -23413,7 +23350,6 @@ pub struct ICompositor4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositor5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositor5 {
@@ -23452,7 +23388,6 @@ pub struct ICompositor5_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositor6(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositor6 {
@@ -23475,7 +23410,6 @@ pub struct ICompositor6_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositor7(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositor7 {
@@ -23500,7 +23434,6 @@ pub struct ICompositor7_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositorStatics {
@@ -23520,7 +23453,6 @@ pub struct ICompositorStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositorWithBlurredWallpaperBackdropBrush(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositorWithBlurredWallpaperBackdropBrush {
@@ -23539,7 +23471,6 @@ pub struct ICompositorWithBlurredWallpaperBackdropBrush_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositorWithProjectedShadow(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositorWithProjectedShadow {
@@ -23560,7 +23491,6 @@ pub struct ICompositorWithProjectedShadow_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositorWithRadialGradient(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositorWithRadialGradient {
@@ -23579,7 +23509,6 @@ pub struct ICompositorWithRadialGradient_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositorWithVisualSurface(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositorWithVisualSurface {
@@ -23598,7 +23527,6 @@ pub struct ICompositorWithVisualSurface_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContainerVisual(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContainerVisual {
@@ -23617,7 +23545,6 @@ pub struct IContainerVisual_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContainerVisualFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContainerVisualFactory {
@@ -23635,7 +23562,6 @@ pub struct IContainerVisualFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICubicBezierEasingFunction(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICubicBezierEasingFunction {
@@ -23657,7 +23583,6 @@ pub struct ICubicBezierEasingFunction_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDelegatedInkTrailVisual(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDelegatedInkTrailVisual {
@@ -23681,7 +23606,6 @@ pub struct IDelegatedInkTrailVisual_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, color: super::Color) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDelegatedInkTrailVisualStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDelegatedInkTrailVisualStatics {
@@ -23701,7 +23625,6 @@ pub struct IDelegatedInkTrailVisualStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, compositor: ::windows::runtime::RawPtr, swapchain: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDistantLight(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDistantLight {
@@ -23727,7 +23650,6 @@ pub struct IDistantLight_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDistantLight2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDistantLight2 {
@@ -23747,7 +23669,6 @@ pub struct IDistantLight2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDropShadow(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDropShadow {
@@ -23777,7 +23698,6 @@ pub struct IDropShadow_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDropShadow2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDropShadow2 {
@@ -23797,7 +23717,6 @@ pub struct IDropShadow2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: CompositionDropShadowSourcePolicy) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IElasticEasingFunction(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IElasticEasingFunction {
@@ -23818,7 +23737,6 @@ pub struct IElasticEasingFunction_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IExponentialEasingFunction(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExponentialEasingFunction {
@@ -23838,7 +23756,6 @@ pub struct IExponentialEasingFunction_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IExpressionAnimation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExpressionAnimation {
@@ -23858,7 +23775,6 @@ pub struct IExpressionAnimation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IImplicitAnimationCollection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImplicitAnimationCollection {
@@ -23876,7 +23792,6 @@ pub struct IImplicitAnimationCollection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInsetClip(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInsetClip {
@@ -23902,7 +23817,6 @@ pub struct IInsetClip_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyFrameAnimation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyFrameAnimation {
@@ -23937,7 +23851,6 @@ pub struct IKeyFrameAnimation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, normalizedprogresskey: f32, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, easingfunction: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyFrameAnimation2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyFrameAnimation2 {
@@ -23957,7 +23870,6 @@ pub struct IKeyFrameAnimation2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: AnimationDirection) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyFrameAnimation3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyFrameAnimation3 {
@@ -23977,7 +23889,6 @@ pub struct IKeyFrameAnimation3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: AnimationDelayBehavior) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyFrameAnimationFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyFrameAnimationFactory {
@@ -23995,7 +23906,6 @@ pub struct IKeyFrameAnimationFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILayerVisual(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILayerVisual {
@@ -24015,7 +23925,6 @@ pub struct ILayerVisual_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILayerVisual2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILayerVisual2 {
@@ -24035,7 +23944,6 @@ pub struct ILayerVisual2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILinearEasingFunction(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILinearEasingFunction {
@@ -24053,7 +23961,6 @@ pub struct ILinearEasingFunction_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INaturalMotionAnimation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INaturalMotionAnimation {
@@ -24079,7 +23986,6 @@ pub struct INaturalMotionAnimation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: AnimationStopBehavior) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INaturalMotionAnimationFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INaturalMotionAnimationFactory {
@@ -24097,7 +24003,6 @@ pub struct INaturalMotionAnimationFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPathKeyFrameAnimation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPathKeyFrameAnimation {
@@ -24117,7 +24022,6 @@ pub struct IPathKeyFrameAnimation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, normalizedprogresskey: f32, path: ::windows::runtime::RawPtr, easingfunction: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPointLight(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointLight {
@@ -24149,7 +24053,6 @@ pub struct IPointLight_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPointLight2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointLight2 {
@@ -24169,7 +24072,6 @@ pub struct IPointLight2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPointLight3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointLight3 {
@@ -24191,7 +24093,6 @@ pub struct IPointLight3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPowerEasingFunction(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPowerEasingFunction {
@@ -24211,7 +24112,6 @@ pub struct IPowerEasingFunction_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IQuaternionKeyFrameAnimation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IQuaternionKeyFrameAnimation {
@@ -24233,7 +24133,6 @@ pub struct IQuaternionKeyFrameAnimation_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRectangleClip(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRectangleClip {
@@ -24275,7 +24174,6 @@ pub struct IRectangleClip_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRedirectVisual(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRedirectVisual {
@@ -24295,7 +24193,6 @@ pub struct IRedirectVisual_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRenderingDeviceReplacedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRenderingDeviceReplacedEventArgs {
@@ -24314,7 +24211,6 @@ pub struct IRenderingDeviceReplacedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IScalarKeyFrameAnimation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScalarKeyFrameAnimation {
@@ -24334,7 +24230,6 @@ pub struct IScalarKeyFrameAnimation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, normalizedprogresskey: f32, value: f32, easingfunction: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IScalarNaturalMotionAnimation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScalarNaturalMotionAnimation {
@@ -24362,7 +24257,6 @@ pub struct IScalarNaturalMotionAnimation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IScalarNaturalMotionAnimationFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScalarNaturalMotionAnimationFactory {
@@ -24380,7 +24274,6 @@ pub struct IScalarNaturalMotionAnimationFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IShapeVisual(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShapeVisual {
@@ -24402,7 +24295,6 @@ pub struct IShapeVisual_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISineEasingFunction(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISineEasingFunction {
@@ -24421,7 +24313,6 @@ pub struct ISineEasingFunction_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut CompositionEasingFunctionMode) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpotLight(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpotLight {
@@ -24467,7 +24358,6 @@ pub struct ISpotLight_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpotLight2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpotLight2 {
@@ -24489,7 +24379,6 @@ pub struct ISpotLight2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpotLight3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpotLight3 {
@@ -24511,7 +24400,6 @@ pub struct ISpotLight3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpringScalarNaturalMotionAnimation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpringScalarNaturalMotionAnimation {
@@ -24535,7 +24423,6 @@ pub struct ISpringScalarNaturalMotionAnimation_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpringVector2NaturalMotionAnimation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpringVector2NaturalMotionAnimation {
@@ -24559,7 +24446,6 @@ pub struct ISpringVector2NaturalMotionAnimation_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpringVector3NaturalMotionAnimation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpringVector3NaturalMotionAnimation {
@@ -24583,7 +24469,6 @@ pub struct ISpringVector3NaturalMotionAnimation_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpriteVisual(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpriteVisual {
@@ -24603,7 +24488,6 @@ pub struct ISpriteVisual_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpriteVisual2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpriteVisual2 {
@@ -24623,7 +24507,6 @@ pub struct ISpriteVisual2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStepEasingFunction(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStepEasingFunction {
@@ -24651,7 +24534,6 @@ pub struct IStepEasingFunction_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVector2KeyFrameAnimation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVector2KeyFrameAnimation {
@@ -24673,7 +24555,6 @@ pub struct IVector2KeyFrameAnimation_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVector2NaturalMotionAnimation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVector2NaturalMotionAnimation {
@@ -24703,7 +24584,6 @@ pub struct IVector2NaturalMotionAnimation_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVector2NaturalMotionAnimationFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVector2NaturalMotionAnimationFactory {
@@ -24721,7 +24601,6 @@ pub struct IVector2NaturalMotionAnimationFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVector3KeyFrameAnimation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVector3KeyFrameAnimation {
@@ -24743,7 +24622,6 @@ pub struct IVector3KeyFrameAnimation_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVector3NaturalMotionAnimation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVector3NaturalMotionAnimation {
@@ -24773,7 +24651,6 @@ pub struct IVector3NaturalMotionAnimation_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVector3NaturalMotionAnimationFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVector3NaturalMotionAnimationFactory {
@@ -24791,7 +24668,6 @@ pub struct IVector3NaturalMotionAnimationFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVector4KeyFrameAnimation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVector4KeyFrameAnimation {
@@ -24813,7 +24689,6 @@ pub struct IVector4KeyFrameAnimation_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVisual(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisual {
@@ -24880,7 +24755,6 @@ pub struct IVisual_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVisual2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisual2 {
@@ -24908,7 +24782,6 @@ pub struct IVisual2_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVisual3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisual3 {
@@ -24928,7 +24801,6 @@ pub struct IVisual3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVisual4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisual4 {
@@ -24948,7 +24820,6 @@ pub struct IVisual4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVisualCollection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisualCollection {
@@ -25027,7 +24898,6 @@ pub struct IVisualElement2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVisualFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisualFactory {
@@ -25045,7 +24915,6 @@ pub struct IVisualFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVisualUnorderedCollection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisualUnorderedCollection {
@@ -25750,11 +25619,13 @@ impl ::std::cmp::Eq for InkTrailPoint {}
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::runtime::Abi for InkTrailPoint {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::runtime::RuntimeType for InkTrailPoint {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.Composition.InkTrailPoint;struct(Windows.Foundation.Point;f4;f4);f4)");
+}
+impl ::windows::runtime::DefaultType for InkTrailPoint {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Composition`*"]
 #[repr(transparent)]

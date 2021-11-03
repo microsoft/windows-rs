@@ -70,8 +70,8 @@ impl<F: FnMut(&::std::option::Option<IBindableObservableVector>, &::std::option:
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, vector: ::windows::runtime::RawPtr, e: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         ((*this).invoke)(
-            &*(&vector as *const <IBindableObservableVector as ::windows::runtime::Abi>::Abi as *const <IBindableObservableVector as ::windows::runtime::Abi>::DefaultType),
-            &*(&e as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::DefaultType),
+            &*(&vector as *const <IBindableObservableVector as ::windows::runtime::Abi>::Abi as *const <IBindableObservableVector as ::windows::runtime::DefaultType>::DefaultType),
+            &*(&e as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::DefaultType>::DefaultType),
         )
         .into()
     }
@@ -562,7 +562,6 @@ pub struct INotifyCollectionChanged_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INotifyCollectionChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INotifyCollectionChangedEventArgs {
@@ -585,7 +584,6 @@ pub struct INotifyCollectionChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INotifyCollectionChangedEventArgsFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INotifyCollectionChangedEventArgsFactory {
@@ -621,10 +619,12 @@ impl ::std::convert::From<i32> for NotifyCollectionChangedAction {
 }
 unsafe impl ::windows::runtime::Abi for NotifyCollectionChangedAction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for NotifyCollectionChangedAction {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Interop.NotifyCollectionChangedAction;i4)");
+}
+impl ::windows::runtime::DefaultType for NotifyCollectionChangedAction {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Interop`*"]
 #[repr(transparent)]
@@ -766,8 +766,8 @@ impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, e: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         ((*this).invoke)(
-            &*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::DefaultType),
-            &*(&e as *const <NotifyCollectionChangedEventArgs as ::windows::runtime::Abi>::Abi as *const <NotifyCollectionChangedEventArgs as ::windows::runtime::Abi>::DefaultType),
+            &*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::DefaultType>::DefaultType),
+            &*(&e as *const <NotifyCollectionChangedEventArgs as ::windows::runtime::Abi>::Abi as *const <NotifyCollectionChangedEventArgs as ::windows::runtime::DefaultType>::DefaultType),
         )
         .into()
     }
@@ -788,10 +788,12 @@ impl ::std::convert::From<i32> for TypeKind {
 }
 unsafe impl ::windows::runtime::Abi for TypeKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TypeKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Interop.TypeKind;i4)");
+}
+impl ::windows::runtime::DefaultType for TypeKind {
+    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -819,8 +821,10 @@ impl ::std::cmp::PartialEq for TypeName {
 impl ::std::cmp::Eq for TypeName {}
 unsafe impl ::windows::runtime::Abi for TypeName {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TypeName {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.Xaml.Interop.TypeName;string;enum(Windows.UI.Xaml.Interop.TypeKind;i4))");
+}
+impl ::windows::runtime::DefaultType for TypeName {
+    type DefaultType = Self;
 }

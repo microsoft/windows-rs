@@ -104,10 +104,12 @@ impl ::std::convert::From<i32> for AdvancedPhotoMode {
 }
 unsafe impl ::windows::runtime::Abi for AdvancedPhotoMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AdvancedPhotoMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.AdvancedPhotoMode;i4)");
+}
+impl ::windows::runtime::DefaultType for AdvancedPhotoMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Devices`*"]
 #[repr(transparent)]
@@ -377,10 +379,12 @@ impl ::std::convert::From<i32> for AudioDeviceRole {
 }
 unsafe impl ::windows::runtime::Abi for AudioDeviceRole {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AudioDeviceRole {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.AudioDeviceRole;i4)");
+}
+impl ::windows::runtime::DefaultType for AudioDeviceRole {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Devices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -398,10 +402,12 @@ impl ::std::convert::From<i32> for AutoFocusRange {
 }
 unsafe impl ::windows::runtime::Abi for AutoFocusRange {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AutoFocusRange {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.AutoFocusRange;i4)");
+}
+impl ::windows::runtime::DefaultType for AutoFocusRange {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Devices`*"]
 #[repr(transparent)]
@@ -636,7 +642,7 @@ impl<F: FnMut(&::std::option::Option<CallControl>) -> ::windows::runtime::Result
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <CallControl as ::windows::runtime::Abi>::Abi as *const <CallControl as ::windows::runtime::Abi>::DefaultType)).into()
+        ((*this).invoke)(&*(&sender as *const <CallControl as ::windows::runtime::Abi>::Abi as *const <CallControl as ::windows::runtime::DefaultType>::DefaultType)).into()
     }
 }
 #[doc = "*Required features: `Media_Devices`*"]
@@ -703,10 +709,12 @@ impl ::std::convert::From<i32> for CameraOcclusionKind {
 }
 unsafe impl ::windows::runtime::Abi for CameraOcclusionKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CameraOcclusionKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CameraOcclusionKind;i4)");
+}
+impl ::windows::runtime::DefaultType for CameraOcclusionKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Devices`*"]
 #[repr(transparent)]
@@ -785,10 +793,12 @@ impl ::std::convert::From<i32> for CameraStreamState {
 }
 unsafe impl ::windows::runtime::Abi for CameraStreamState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CameraStreamState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CameraStreamState;i4)");
+}
+impl ::windows::runtime::DefaultType for CameraStreamState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Devices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -816,10 +826,12 @@ impl ::std::convert::From<i32> for CaptureSceneMode {
 }
 unsafe impl ::windows::runtime::Abi for CaptureSceneMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CaptureSceneMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CaptureSceneMode;i4)");
+}
+impl ::windows::runtime::DefaultType for CaptureSceneMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Devices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -837,10 +849,12 @@ impl ::std::convert::From<i32> for CaptureUse {
 }
 unsafe impl ::windows::runtime::Abi for CaptureUse {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CaptureUse {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CaptureUse;i4)");
+}
+impl ::windows::runtime::DefaultType for CaptureUse {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Devices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -863,10 +877,12 @@ impl ::std::convert::From<i32> for ColorTemperaturePreset {
 }
 unsafe impl ::windows::runtime::Abi for ColorTemperaturePreset {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ColorTemperaturePreset {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.ColorTemperaturePreset;i4)");
+}
+impl ::windows::runtime::DefaultType for ColorTemperaturePreset {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Devices`*"]
 #[repr(transparent)]
@@ -1077,7 +1093,7 @@ impl<F: FnMut(&::std::option::Option<CallControl>, &::std::option::Option<DialRe
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, e: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <CallControl as ::windows::runtime::Abi>::Abi as *const <CallControl as ::windows::runtime::Abi>::DefaultType), &*(&e as *const <DialRequestedEventArgs as ::windows::runtime::Abi>::Abi as *const <DialRequestedEventArgs as ::windows::runtime::Abi>::DefaultType)).into()
+        ((*this).invoke)(&*(&sender as *const <CallControl as ::windows::runtime::Abi>::Abi as *const <CallControl as ::windows::runtime::DefaultType>::DefaultType), &*(&e as *const <DialRequestedEventArgs as ::windows::runtime::Abi>::Abi as *const <DialRequestedEventArgs as ::windows::runtime::DefaultType>::DefaultType)).into()
     }
 }
 #[doc = "*Required features: `Media_Devices`*"]
@@ -1304,10 +1320,12 @@ impl ::std::convert::From<i32> for DigitalWindowMode {
 }
 unsafe impl ::windows::runtime::Abi for DigitalWindowMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DigitalWindowMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.DigitalWindowMode;i4)");
+}
+impl ::windows::runtime::DefaultType for DigitalWindowMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Devices`*"]
 #[repr(transparent)]
@@ -1820,10 +1838,12 @@ impl ::std::convert::From<i32> for FocusMode {
 }
 unsafe impl ::windows::runtime::Abi for FocusMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for FocusMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.FocusMode;i4)");
+}
+impl ::windows::runtime::DefaultType for FocusMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Devices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1844,10 +1864,12 @@ impl ::std::convert::From<i32> for FocusPreset {
 }
 unsafe impl ::windows::runtime::Abi for FocusPreset {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for FocusPreset {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.FocusPreset;i4)");
+}
+impl ::windows::runtime::DefaultType for FocusPreset {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Devices`*"]
 #[repr(transparent)]
@@ -2020,13 +2042,14 @@ impl ::std::convert::From<i32> for HdrVideoMode {
 }
 unsafe impl ::windows::runtime::Abi for HdrVideoMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for HdrVideoMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.HdrVideoMode;i4)");
 }
+impl ::windows::runtime::DefaultType for HdrVideoMode {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdvancedPhotoCaptureSettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedPhotoCaptureSettings {
@@ -2046,7 +2069,6 @@ pub struct IAdvancedPhotoCaptureSettings_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: AdvancedPhotoMode) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdvancedPhotoControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedPhotoControl {
@@ -2069,7 +2091,6 @@ pub struct IAdvancedPhotoControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, settings: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdvancedVideoCaptureDeviceController(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedVideoCaptureDeviceController {
@@ -2089,7 +2110,6 @@ pub struct IAdvancedVideoCaptureDeviceController_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propertyid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdvancedVideoCaptureDeviceController10(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedVideoCaptureDeviceController10 {
@@ -2108,7 +2128,6 @@ pub struct IAdvancedVideoCaptureDeviceController10_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdvancedVideoCaptureDeviceController2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedVideoCaptureDeviceController2 {
@@ -2139,7 +2158,6 @@ pub struct IAdvancedVideoCaptureDeviceController2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: CaptureUse) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdvancedVideoCaptureDeviceController3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedVideoCaptureDeviceController3 {
@@ -2161,7 +2179,6 @@ pub struct IAdvancedVideoCaptureDeviceController3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdvancedVideoCaptureDeviceController4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedVideoCaptureDeviceController4 {
@@ -2185,7 +2202,6 @@ pub struct IAdvancedVideoCaptureDeviceController4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdvancedVideoCaptureDeviceController5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedVideoCaptureDeviceController5 {
@@ -2210,7 +2226,6 @@ pub struct IAdvancedVideoCaptureDeviceController5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, extendedPropertyId_array_size: u32, extendedpropertyid: *const u8, propertyValue_array_size: u32, propertyvalue: *const u8, result__: *mut VideoDeviceControllerSetDevicePropertyStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdvancedVideoCaptureDeviceController6(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedVideoCaptureDeviceController6 {
@@ -2229,7 +2244,6 @@ pub struct IAdvancedVideoCaptureDeviceController6_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdvancedVideoCaptureDeviceController7(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedVideoCaptureDeviceController7 {
@@ -2248,7 +2262,6 @@ pub struct IAdvancedVideoCaptureDeviceController7_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdvancedVideoCaptureDeviceController8(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedVideoCaptureDeviceController8 {
@@ -2267,7 +2280,6 @@ pub struct IAdvancedVideoCaptureDeviceController8_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdvancedVideoCaptureDeviceController9(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedVideoCaptureDeviceController9 {
@@ -2286,7 +2298,6 @@ pub struct IAdvancedVideoCaptureDeviceController9_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAudioDeviceController(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioDeviceController {
@@ -2308,7 +2319,6 @@ pub struct IAudioDeviceController_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAudioDeviceModule(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioDeviceModule {
@@ -2333,7 +2343,6 @@ pub struct IAudioDeviceModule_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAudioDeviceModuleNotificationEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioDeviceModuleNotificationEventArgs {
@@ -2354,7 +2363,6 @@ pub struct IAudioDeviceModuleNotificationEventArgs_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAudioDeviceModulesManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioDeviceModulesManager {
@@ -2380,7 +2388,6 @@ pub struct IAudioDeviceModulesManager_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAudioDeviceModulesManagerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioDeviceModulesManagerFactory {
@@ -2399,7 +2406,6 @@ pub struct IAudioDeviceModulesManagerFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICallControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICallControl {
@@ -2446,7 +2452,6 @@ pub struct ICallControl_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICallControlStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICallControlStatics {
@@ -2466,7 +2471,6 @@ pub struct ICallControlStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICameraOcclusionInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICameraOcclusionInfo {
@@ -2490,7 +2494,6 @@ pub struct ICameraOcclusionInfo_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICameraOcclusionState(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICameraOcclusionState {
@@ -2510,7 +2513,6 @@ pub struct ICameraOcclusionState_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, occlusionkind: CameraOcclusionKind, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICameraOcclusionStateChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICameraOcclusionStateChangedEventArgs {
@@ -2570,7 +2572,6 @@ pub struct IDefaultAudioDeviceChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut AudioDeviceRole) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDialRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDialRequestedEventArgs {
@@ -2590,7 +2591,6 @@ pub struct IDialRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDigitalWindowBounds(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDigitalWindowBounds {
@@ -2614,7 +2614,6 @@ pub struct IDigitalWindowBounds_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDigitalWindowCapability(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDigitalWindowCapability {
@@ -2639,7 +2638,6 @@ pub struct IDigitalWindowCapability_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDigitalWindowControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDigitalWindowControl {
@@ -2666,7 +2664,6 @@ pub struct IDigitalWindowControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, width: i32, height: i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IExposureCompensationControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExposureCompensationControl {
@@ -2691,7 +2688,6 @@ pub struct IExposureCompensationControl_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IExposureControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExposureControl {
@@ -2723,7 +2719,6 @@ pub struct IExposureControl_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IExposurePriorityVideoControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExposurePriorityVideoControl {
@@ -2744,7 +2739,6 @@ pub struct IExposurePriorityVideoControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFlashControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFlashControl {
@@ -2773,7 +2767,6 @@ pub struct IFlashControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFlashControl2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFlashControl2 {
@@ -2794,7 +2787,6 @@ pub struct IFlashControl2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFocusControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFocusControl {
@@ -2828,7 +2820,6 @@ pub struct IFocusControl_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFocusControl2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFocusControl2 {
@@ -2861,7 +2852,6 @@ pub struct IFocusControl2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, settings: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFocusSettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFocusSettings {
@@ -2895,7 +2885,6 @@ pub struct IFocusSettings_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHdrVideoControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHdrVideoControl {
@@ -2918,7 +2907,6 @@ pub struct IHdrVideoControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: HdrVideoMode) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInfraredTorchControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInfraredTorchControl {
@@ -2946,7 +2934,6 @@ pub struct IInfraredTorchControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIsoSpeedControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsoSpeedControl {
@@ -2970,7 +2957,6 @@ pub struct IIsoSpeedControl_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIsoSpeedControl2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsoSpeedControl2 {
@@ -2997,7 +2983,6 @@ pub struct IIsoSpeedControl2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeypadPressedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeypadPressedEventArgs {
@@ -3016,7 +3001,6 @@ pub struct IKeypadPressedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut TelephonyKey) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILowLagPhotoControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILowLagPhotoControl {
@@ -3047,7 +3031,6 @@ pub struct ILowLagPhotoControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILowLagPhotoSequenceControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILowLagPhotoSequenceControl {
@@ -3085,7 +3068,6 @@ pub struct ILowLagPhotoSequenceControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaDeviceControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaDeviceControl {
@@ -3108,7 +3090,6 @@ pub struct IMediaDeviceControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaDeviceControlCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaDeviceControlCapabilities {
@@ -3188,7 +3169,6 @@ pub struct IMediaDeviceController_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaDeviceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaDeviceStatics {
@@ -3219,7 +3199,6 @@ pub struct IMediaDeviceStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IModuleCommandResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IModuleCommandResult {
@@ -3240,7 +3219,6 @@ pub struct IModuleCommandResult_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IOpticalImageStabilizationControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOpticalImageStabilizationControl {
@@ -3263,7 +3241,6 @@ pub struct IOpticalImageStabilizationControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: OpticalImageStabilizationMode) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPanelBasedOptimizationControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPanelBasedOptimizationControl {
@@ -3286,7 +3263,6 @@ pub struct IPanelBasedOptimizationControl_abi(
     #[cfg(not(feature = "Devices_Enumeration"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhotoConfirmationControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoConfirmationControl {
@@ -3311,7 +3287,6 @@ pub struct IPhotoConfirmationControl_abi(
     #[cfg(not(feature = "Media_MediaProperties"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRedialRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRedialRequestedEventArgs {
@@ -3330,7 +3305,6 @@ pub struct IRedialRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRegionOfInterest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRegionOfInterest {
@@ -3358,7 +3332,6 @@ pub struct IRegionOfInterest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRegionOfInterest2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRegionOfInterest2 {
@@ -3382,7 +3355,6 @@ pub struct IRegionOfInterest2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRegionsOfInterestControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRegionsOfInterestControl {
@@ -3410,7 +3382,6 @@ pub struct IRegionsOfInterestControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneModeControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneModeControl {
@@ -3433,7 +3404,6 @@ pub struct ISceneModeControl_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITorchControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITorchControl {
@@ -3457,7 +3427,6 @@ pub struct ITorchControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVideoDeviceController(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoDeviceController {
@@ -3490,7 +3459,6 @@ pub struct IVideoDeviceController_abi(
     #[cfg(not(feature = "Media_Capture"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVideoDeviceControllerGetDevicePropertyResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoDeviceControllerGetDevicePropertyResult {
@@ -3510,7 +3478,6 @@ pub struct IVideoDeviceControllerGetDevicePropertyResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVideoTemporalDenoisingControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoTemporalDenoisingControl {
@@ -3533,7 +3500,6 @@ pub struct IVideoTemporalDenoisingControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: VideoTemporalDenoisingMode) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWhiteBalanceControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWhiteBalanceControl {
@@ -3561,7 +3527,6 @@ pub struct IWhiteBalanceControl_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IZoomControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IZoomControl {
@@ -3585,7 +3550,6 @@ pub struct IZoomControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IZoomControl2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IZoomControl2 {
@@ -3607,7 +3571,6 @@ pub struct IZoomControl2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, settings: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IZoomSettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IZoomSettings {
@@ -3729,10 +3692,12 @@ impl ::std::convert::From<i32> for InfraredTorchMode {
 }
 unsafe impl ::windows::runtime::Abi for InfraredTorchMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for InfraredTorchMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.InfraredTorchMode;i4)");
+}
+impl ::windows::runtime::DefaultType for InfraredTorchMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Devices`*"]
 #[repr(transparent)]
@@ -3870,10 +3835,12 @@ impl ::std::convert::From<i32> for IsoSpeedPreset {
 }
 unsafe impl ::windows::runtime::Abi for IsoSpeedPreset {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for IsoSpeedPreset {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.IsoSpeedPreset;i4)");
+}
+impl ::windows::runtime::DefaultType for IsoSpeedPreset {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Devices`*"]
 #[repr(transparent)]
@@ -3971,7 +3938,7 @@ impl<F: FnMut(&::std::option::Option<CallControl>, &::std::option::Option<Keypad
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, e: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <CallControl as ::windows::runtime::Abi>::Abi as *const <CallControl as ::windows::runtime::Abi>::DefaultType), &*(&e as *const <KeypadPressedEventArgs as ::windows::runtime::Abi>::Abi as *const <KeypadPressedEventArgs as ::windows::runtime::Abi>::DefaultType)).into()
+        ((*this).invoke)(&*(&sender as *const <CallControl as ::windows::runtime::Abi>::Abi as *const <CallControl as ::windows::runtime::DefaultType>::DefaultType), &*(&e as *const <KeypadPressedEventArgs as ::windows::runtime::Abi>::Abi as *const <KeypadPressedEventArgs as ::windows::runtime::DefaultType>::DefaultType)).into()
     }
 }
 #[doc = "*Required features: `Media_Devices`*"]
@@ -4206,10 +4173,12 @@ impl ::std::convert::From<i32> for ManualFocusDistance {
 }
 unsafe impl ::windows::runtime::Abi for ManualFocusDistance {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ManualFocusDistance {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.ManualFocusDistance;i4)");
+}
+impl ::windows::runtime::DefaultType for ManualFocusDistance {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Devices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4229,10 +4198,12 @@ impl ::std::convert::From<i32> for MediaCaptureFocusState {
 }
 unsafe impl ::windows::runtime::Abi for MediaCaptureFocusState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MediaCaptureFocusState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.MediaCaptureFocusState;i4)");
+}
+impl ::windows::runtime::DefaultType for MediaCaptureFocusState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Devices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4254,10 +4225,12 @@ impl ::std::convert::From<i32> for MediaCaptureOptimization {
 }
 unsafe impl ::windows::runtime::Abi for MediaCaptureOptimization {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MediaCaptureOptimization {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.MediaCaptureOptimization;i4)");
+}
+impl ::windows::runtime::DefaultType for MediaCaptureOptimization {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Devices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4274,10 +4247,12 @@ impl ::std::convert::From<i32> for MediaCapturePauseBehavior {
 }
 unsafe impl ::windows::runtime::Abi for MediaCapturePauseBehavior {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MediaCapturePauseBehavior {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.MediaCapturePauseBehavior;i4)");
+}
+impl ::windows::runtime::DefaultType for MediaCapturePauseBehavior {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Devices`*"]
 pub struct MediaDevice {}
@@ -4568,10 +4543,12 @@ impl ::std::convert::From<i32> for OpticalImageStabilizationMode {
 }
 unsafe impl ::windows::runtime::Abi for OpticalImageStabilizationMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for OpticalImageStabilizationMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.OpticalImageStabilizationMode;i4)");
+}
+impl ::windows::runtime::DefaultType for OpticalImageStabilizationMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Devices`*"]
 #[repr(transparent)]
@@ -4759,7 +4736,11 @@ impl<F: FnMut(&::std::option::Option<CallControl>, &::std::option::Option<Redial
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, e: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <CallControl as ::windows::runtime::Abi>::Abi as *const <CallControl as ::windows::runtime::Abi>::DefaultType), &*(&e as *const <RedialRequestedEventArgs as ::windows::runtime::Abi>::Abi as *const <RedialRequestedEventArgs as ::windows::runtime::Abi>::DefaultType)).into()
+        ((*this).invoke)(
+            &*(&sender as *const <CallControl as ::windows::runtime::Abi>::Abi as *const <CallControl as ::windows::runtime::DefaultType>::DefaultType),
+            &*(&e as *const <RedialRequestedEventArgs as ::windows::runtime::Abi>::Abi as *const <RedialRequestedEventArgs as ::windows::runtime::DefaultType>::DefaultType),
+        )
+        .into()
     }
 }
 #[doc = "*Required features: `Media_Devices`*"]
@@ -4895,10 +4876,12 @@ impl ::std::convert::From<i32> for RegionOfInterestType {
 }
 unsafe impl ::windows::runtime::Abi for RegionOfInterestType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RegionOfInterestType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.RegionOfInterestType;i4)");
+}
+impl ::windows::runtime::DefaultType for RegionOfInterestType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Devices`*"]
 #[repr(transparent)]
@@ -5032,10 +5015,12 @@ impl ::std::convert::From<i32> for SendCommandStatus {
 }
 unsafe impl ::windows::runtime::Abi for SendCommandStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SendCommandStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.SendCommandStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for SendCommandStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Devices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5066,10 +5051,12 @@ impl ::std::convert::From<i32> for TelephonyKey {
 }
 unsafe impl ::windows::runtime::Abi for TelephonyKey {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TelephonyKey {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.TelephonyKey;i4)");
+}
+impl ::windows::runtime::DefaultType for TelephonyKey {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Devices`*"]
 #[repr(transparent)]
@@ -5478,7 +5465,7 @@ impl VideoDeviceController {
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Devices`, `Foundation`*"]
-    pub fn GetDevicePropertyByExtendedId<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<u32>>>(&self, extendedpropertyid: &[<u8 as ::windows::runtime::Abi>::DefaultType], maxpropertyvaluesize: Param1) -> ::windows::runtime::Result<VideoDeviceControllerGetDevicePropertyResult> {
+    pub fn GetDevicePropertyByExtendedId<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::IReference<u32>>>(&self, extendedpropertyid: &[<u8 as ::windows::runtime::DefaultType>::DefaultType], maxpropertyvaluesize: Param1) -> ::windows::runtime::Result<VideoDeviceControllerGetDevicePropertyResult> {
         let this = &::windows::runtime::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -5486,7 +5473,7 @@ impl VideoDeviceController {
         }
     }
     #[doc = "*Required features: `Media_Devices`*"]
-    pub fn SetDevicePropertyByExtendedId(&self, extendedpropertyid: &[<u8 as ::windows::runtime::Abi>::DefaultType], propertyvalue: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<VideoDeviceControllerSetDevicePropertyStatus> {
+    pub fn SetDevicePropertyByExtendedId(&self, extendedpropertyid: &[<u8 as ::windows::runtime::DefaultType>::DefaultType], propertyvalue: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<VideoDeviceControllerSetDevicePropertyStatus> {
         let this = &::windows::runtime::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
         unsafe {
             let mut result__: VideoDeviceControllerSetDevicePropertyStatus = ::std::mem::zeroed();
@@ -5620,10 +5607,12 @@ impl ::std::convert::From<i32> for VideoDeviceControllerGetDevicePropertyStatus 
 }
 unsafe impl ::windows::runtime::Abi for VideoDeviceControllerGetDevicePropertyStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VideoDeviceControllerGetDevicePropertyStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.VideoDeviceControllerGetDevicePropertyStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for VideoDeviceControllerGetDevicePropertyStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Devices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5644,10 +5633,12 @@ impl ::std::convert::From<i32> for VideoDeviceControllerSetDevicePropertyStatus 
 }
 unsafe impl ::windows::runtime::Abi for VideoDeviceControllerSetDevicePropertyStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VideoDeviceControllerSetDevicePropertyStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.VideoDeviceControllerSetDevicePropertyStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for VideoDeviceControllerSetDevicePropertyStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Devices`*"]
 #[repr(transparent)]
@@ -5713,10 +5704,12 @@ impl ::std::convert::From<i32> for VideoTemporalDenoisingMode {
 }
 unsafe impl ::windows::runtime::Abi for VideoTemporalDenoisingMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VideoTemporalDenoisingMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.VideoTemporalDenoisingMode;i4)");
+}
+impl ::windows::runtime::DefaultType for VideoTemporalDenoisingMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Devices`*"]
 #[repr(transparent)]
@@ -5950,8 +5943,10 @@ impl ::std::convert::From<i32> for ZoomTransitionMode {
 }
 unsafe impl ::windows::runtime::Abi for ZoomTransitionMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ZoomTransitionMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.ZoomTransitionMode;i4)");
+}
+impl ::windows::runtime::DefaultType for ZoomTransitionMode {
+    type DefaultType = Self;
 }

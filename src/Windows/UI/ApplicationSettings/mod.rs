@@ -314,11 +314,10 @@ impl<F: FnMut(&::std::option::Option<CredentialCommand>) -> ::windows::runtime::
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, command: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&command as *const <CredentialCommand as ::windows::runtime::Abi>::Abi as *const <CredentialCommand as ::windows::runtime::Abi>::DefaultType)).into()
+        ((*this).invoke)(&*(&command as *const <CredentialCommand as ::windows::runtime::Abi>::Abi as *const <CredentialCommand as ::windows::runtime::DefaultType>::DefaultType)).into()
     }
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAccountsSettingsPane(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccountsSettingsPane {
@@ -340,7 +339,6 @@ pub struct IAccountsSettingsPane_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAccountsSettingsPaneCommandsRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccountsSettingsPaneCommandsRequestedEventArgs {
@@ -369,7 +367,6 @@ pub struct IAccountsSettingsPaneCommandsRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAccountsSettingsPaneCommandsRequestedEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccountsSettingsPaneCommandsRequestedEventArgs2 {
@@ -389,7 +386,6 @@ pub struct IAccountsSettingsPaneCommandsRequestedEventArgs2_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAccountsSettingsPaneEventDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccountsSettingsPaneEventDeferral {
@@ -408,7 +404,6 @@ pub struct IAccountsSettingsPaneEventDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAccountsSettingsPaneStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccountsSettingsPaneStatics {
@@ -428,7 +423,6 @@ pub struct IAccountsSettingsPaneStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAccountsSettingsPaneStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccountsSettingsPaneStatics2 {
@@ -450,7 +444,6 @@ pub struct IAccountsSettingsPaneStatics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAccountsSettingsPaneStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccountsSettingsPaneStatics3 {
@@ -472,7 +465,6 @@ pub struct IAccountsSettingsPaneStatics3_abi(
     #[cfg(not(all(feature = "Foundation", feature = "System")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICredentialCommand(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICredentialCommand {
@@ -493,7 +485,6 @@ pub struct ICredentialCommand_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICredentialCommandFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICredentialCommandFactory {
@@ -515,7 +506,6 @@ pub struct ICredentialCommandFactory_abi(
     #[cfg(not(feature = "Security_Credentials"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISettingsCommandFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISettingsCommandFactory {
@@ -535,7 +525,6 @@ pub struct ISettingsCommandFactory_abi(
     #[cfg(not(feature = "UI_Popups"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISettingsCommandStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISettingsCommandStatics {
@@ -555,7 +544,6 @@ pub struct ISettingsCommandStatics_abi(
     #[cfg(not(feature = "UI_Popups"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISettingsPane(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISettingsPane {
@@ -577,7 +565,6 @@ pub struct ISettingsPane_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISettingsPaneCommandsRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISettingsPaneCommandsRequest {
@@ -597,7 +584,6 @@ pub struct ISettingsPaneCommandsRequest_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Popups")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISettingsPaneCommandsRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISettingsPaneCommandsRequestedEventArgs {
@@ -616,7 +602,6 @@ pub struct ISettingsPaneCommandsRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISettingsPaneStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISettingsPaneStatics {
@@ -637,7 +622,6 @@ pub struct ISettingsPaneStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SettingsEdgeLocation) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebAccountCommand(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountCommand {
@@ -659,7 +643,6 @@ pub struct IWebAccountCommand_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SupportedWebAccountActions) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebAccountCommandFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountCommandFactory {
@@ -679,7 +662,6 @@ pub struct IWebAccountCommandFactory_abi(
     #[cfg(not(feature = "Security_Credentials"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebAccountInvokedArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountInvokedArgs {
@@ -698,7 +680,6 @@ pub struct IWebAccountInvokedArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut WebAccountAction) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebAccountProviderCommand(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderCommand {
@@ -719,7 +700,6 @@ pub struct IWebAccountProviderCommand_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebAccountProviderCommandFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderCommandFactory {
@@ -867,10 +847,12 @@ impl ::std::convert::From<i32> for SettingsEdgeLocation {
 }
 unsafe impl ::windows::runtime::Abi for SettingsEdgeLocation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SettingsEdgeLocation {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.ApplicationSettings.SettingsEdgeLocation;i4)");
+}
+impl ::windows::runtime::DefaultType for SettingsEdgeLocation {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]
@@ -1000,10 +982,12 @@ impl ::std::convert::From<u32> for SupportedWebAccountActions {
 }
 unsafe impl ::windows::runtime::Abi for SupportedWebAccountActions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SupportedWebAccountActions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.ApplicationSettings.SupportedWebAccountActions;u4)");
+}
+impl ::windows::runtime::DefaultType for SupportedWebAccountActions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SupportedWebAccountActions {
     type Output = Self;
@@ -1051,10 +1035,12 @@ impl ::std::convert::From<i32> for WebAccountAction {
 }
 unsafe impl ::windows::runtime::Abi for WebAccountAction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WebAccountAction {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.ApplicationSettings.WebAccountAction;i4)");
+}
+impl ::windows::runtime::DefaultType for WebAccountAction {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_ApplicationSettings`*"]
 #[repr(transparent)]
@@ -1179,7 +1165,11 @@ impl<F: FnMut(&::std::option::Option<WebAccountCommand>, &::std::option::Option<
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, command: ::windows::runtime::RawPtr, args: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&command as *const <WebAccountCommand as ::windows::runtime::Abi>::Abi as *const <WebAccountCommand as ::windows::runtime::Abi>::DefaultType), &*(&args as *const <WebAccountInvokedArgs as ::windows::runtime::Abi>::Abi as *const <WebAccountInvokedArgs as ::windows::runtime::Abi>::DefaultType)).into()
+        ((*this).invoke)(
+            &*(&command as *const <WebAccountCommand as ::windows::runtime::Abi>::Abi as *const <WebAccountCommand as ::windows::runtime::DefaultType>::DefaultType),
+            &*(&args as *const <WebAccountInvokedArgs as ::windows::runtime::Abi>::Abi as *const <WebAccountInvokedArgs as ::windows::runtime::DefaultType>::DefaultType),
+        )
+        .into()
     }
 }
 #[doc = "*Required features: `UI_ApplicationSettings`*"]
@@ -1321,6 +1311,6 @@ impl<F: FnMut(&::std::option::Option<WebAccountProviderCommand>) -> ::windows::r
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, command: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&command as *const <WebAccountProviderCommand as ::windows::runtime::Abi>::Abi as *const <WebAccountProviderCommand as ::windows::runtime::Abi>::DefaultType)).into()
+        ((*this).invoke)(&*(&command as *const <WebAccountProviderCommand as ::windows::runtime::Abi>::Abi as *const <WebAccountProviderCommand as ::windows::runtime::DefaultType>::DefaultType)).into()
     }
 }

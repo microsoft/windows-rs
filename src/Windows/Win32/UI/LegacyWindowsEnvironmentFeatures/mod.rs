@@ -402,5 +402,4 @@ impl ::std::convert::From<i32> for _reconcilef {
 }
 unsafe impl ::windows::runtime::Abi for _reconcilef {
     type Abi = Self;
-    type DefaultType = Self;
 }

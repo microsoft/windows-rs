@@ -34,11 +34,13 @@ impl ::std::cmp::Eq for GpioChangeCount {}
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::runtime::Abi for GpioChangeCount {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::runtime::RuntimeType for GpioChangeCount {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Devices.Gpio.GpioChangeCount;u8;struct(Windows.Foundation.TimeSpan;i8))");
+}
+impl ::windows::runtime::DefaultType for GpioChangeCount {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Gpio`*"]
 #[repr(transparent)]
@@ -166,10 +168,12 @@ impl ::std::convert::From<i32> for GpioChangePolarity {
 }
 unsafe impl ::windows::runtime::Abi for GpioChangePolarity {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GpioChangePolarity {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioChangePolarity;i4)");
+}
+impl ::windows::runtime::DefaultType for GpioChangePolarity {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Gpio`*"]
 #[repr(transparent)]
@@ -376,11 +380,13 @@ impl ::std::cmp::Eq for GpioChangeRecord {}
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::runtime::Abi for GpioChangeRecord {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::runtime::RuntimeType for GpioChangeRecord {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Devices.Gpio.GpioChangeRecord;struct(Windows.Foundation.TimeSpan;i8);enum(Windows.Devices.Gpio.GpioPinEdge;i4))");
+}
+impl ::windows::runtime::DefaultType for GpioChangeRecord {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Gpio`*"]
 #[repr(transparent)]
@@ -481,10 +487,12 @@ impl ::std::convert::From<i32> for GpioOpenStatus {
 }
 unsafe impl ::windows::runtime::Abi for GpioOpenStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GpioOpenStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioOpenStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for GpioOpenStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Gpio`*"]
 #[repr(transparent)]
@@ -637,10 +645,12 @@ impl ::std::convert::From<i32> for GpioPinDriveMode {
 }
 unsafe impl ::windows::runtime::Abi for GpioPinDriveMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GpioPinDriveMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioPinDriveMode;i4)");
+}
+impl ::windows::runtime::DefaultType for GpioPinDriveMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Gpio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -657,10 +667,12 @@ impl ::std::convert::From<i32> for GpioPinEdge {
 }
 unsafe impl ::windows::runtime::Abi for GpioPinEdge {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GpioPinEdge {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioPinEdge;i4)");
+}
+impl ::windows::runtime::DefaultType for GpioPinEdge {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Gpio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -677,10 +689,12 @@ impl ::std::convert::From<i32> for GpioPinValue {
 }
 unsafe impl ::windows::runtime::Abi for GpioPinValue {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GpioPinValue {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioPinValue;i4)");
+}
+impl ::windows::runtime::DefaultType for GpioPinValue {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Gpio`*"]
 #[repr(transparent)]
@@ -723,13 +737,14 @@ impl ::std::convert::From<i32> for GpioSharingMode {
 }
 unsafe impl ::windows::runtime::Abi for GpioSharingMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GpioSharingMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioSharingMode;i4)");
 }
+impl ::windows::runtime::DefaultType for GpioSharingMode {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGpioChangeCounter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioChangeCounter {
@@ -756,7 +771,6 @@ pub struct IGpioChangeCounter_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGpioChangeCounterFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioChangeCounterFactory {
@@ -775,7 +789,6 @@ pub struct IGpioChangeCounterFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pin: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGpioChangeReader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioChangeReader {
@@ -811,7 +824,6 @@ pub struct IGpioChangeReader_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGpioChangeReaderFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioChangeReaderFactory {
@@ -831,7 +843,6 @@ pub struct IGpioChangeReaderFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pin: ::windows::runtime::RawPtr, mincapacity: i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGpioController(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioController {
@@ -853,7 +864,6 @@ pub struct IGpioController_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pinnumber: i32, sharingmode: GpioSharingMode, pin: *mut ::windows::runtime::RawPtr, openstatus: *mut GpioOpenStatus, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGpioControllerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioControllerStatics {
@@ -872,7 +882,6 @@ pub struct IGpioControllerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGpioControllerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioControllerStatics2 {
@@ -894,7 +903,6 @@ pub struct IGpioControllerStatics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGpioPin(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioPin {
@@ -927,7 +935,6 @@ pub struct IGpioPin_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut GpioPinValue) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGpioPinValueChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioPinValueChangedEventArgs {

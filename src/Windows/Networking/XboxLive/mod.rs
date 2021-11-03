@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXboxLiveDeviceAddress(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveDeviceAddress {
@@ -30,7 +29,6 @@ pub struct IXboxLiveDeviceAddress_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut XboxLiveNetworkAccessKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXboxLiveDeviceAddressStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveDeviceAddressStatics {
@@ -54,7 +52,6 @@ pub struct IXboxLiveDeviceAddressStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXboxLiveEndpointPair(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveEndpointPair {
@@ -87,7 +84,6 @@ pub struct IXboxLiveEndpointPair_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXboxLiveEndpointPairCreationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveEndpointPairCreationResult {
@@ -109,7 +105,6 @@ pub struct IXboxLiveEndpointPairCreationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXboxLiveEndpointPairStateChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveEndpointPairStateChangedEventArgs {
@@ -129,7 +124,6 @@ pub struct IXboxLiveEndpointPairStateChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut XboxLiveEndpointPairState) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXboxLiveEndpointPairStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveEndpointPairStatics {
@@ -149,7 +143,6 @@ pub struct IXboxLiveEndpointPairStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, localhostname: ::windows::runtime::RawPtr, localport: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, remotehostname: ::windows::runtime::RawPtr, remoteport: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXboxLiveEndpointPairTemplate(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveEndpointPairTemplate {
@@ -187,7 +180,6 @@ pub struct IXboxLiveEndpointPairTemplate_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXboxLiveEndpointPairTemplateStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveEndpointPairTemplateStatics {
@@ -208,7 +200,6 @@ pub struct IXboxLiveEndpointPairTemplateStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXboxLiveInboundEndpointPairCreatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveInboundEndpointPairCreatedEventArgs {
@@ -227,7 +218,6 @@ pub struct IXboxLiveInboundEndpointPairCreatedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXboxLiveQualityOfServiceMeasurement(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveQualityOfServiceMeasurement {
@@ -268,7 +258,6 @@ pub struct IXboxLiveQualityOfServiceMeasurement_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXboxLiveQualityOfServiceMeasurementStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveQualityOfServiceMeasurementStatics {
@@ -299,7 +288,6 @@ pub struct IXboxLiveQualityOfServiceMeasurementStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXboxLiveQualityOfServiceMetricResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveQualityOfServiceMetricResult {
@@ -321,7 +309,6 @@ pub struct IXboxLiveQualityOfServiceMetricResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXboxLiveQualityOfServicePrivatePayloadResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveQualityOfServicePrivatePayloadResult {
@@ -380,7 +367,7 @@ impl XboxLiveDeviceAddress {
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
-    pub fn GetSnapshotAsBytes(&self, buffer: &mut [<u8 as ::windows::runtime::Abi>::DefaultType], byteswritten: &mut u32) -> ::windows::runtime::Result<()> {
+    pub fn GetSnapshotAsBytes(&self, buffer: &mut [<u8 as ::windows::runtime::DefaultType>::DefaultType], byteswritten: &mut u32) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), buffer.len() as u32, ::std::mem::transmute_copy(&buffer), byteswritten).ok() }
     }
@@ -432,7 +419,7 @@ impl XboxLiveDeviceAddress {
         })
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
-    pub fn CreateFromSnapshotBytes(buffer: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<XboxLiveDeviceAddress> {
+    pub fn CreateFromSnapshotBytes(buffer: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<XboxLiveDeviceAddress> {
         Self::IXboxLiveDeviceAddressStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), buffer.len() as u32, ::std::mem::transmute(buffer.as_ptr()), &mut result__).from_abi::<XboxLiveDeviceAddress>(result__)
@@ -499,12 +486,12 @@ impl XboxLiveEndpointPair {
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
-    pub fn GetRemoteSocketAddressBytes(&self, socketaddress: &mut [<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn GetRemoteSocketAddressBytes(&self, socketaddress: &mut [<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), socketaddress.len() as u32, ::std::mem::transmute_copy(&socketaddress)).ok() }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
-    pub fn GetLocalSocketAddressBytes(&self, socketaddress: &mut [<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn GetLocalSocketAddressBytes(&self, socketaddress: &mut [<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), socketaddress.len() as u32, ::std::mem::transmute_copy(&socketaddress)).ok() }
     }
@@ -565,7 +552,7 @@ impl XboxLiveEndpointPair {
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
-    pub fn FindEndpointPairBySocketAddressBytes(localsocketaddress: &[<u8 as ::windows::runtime::Abi>::DefaultType], remotesocketaddress: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<XboxLiveEndpointPair> {
+    pub fn FindEndpointPairBySocketAddressBytes(localsocketaddress: &[<u8 as ::windows::runtime::DefaultType>::DefaultType], remotesocketaddress: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<XboxLiveEndpointPair> {
         Self::IXboxLiveEndpointPairStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), localsocketaddress.len() as u32, ::std::mem::transmute(localsocketaddress.as_ptr()), remotesocketaddress.len() as u32, ::std::mem::transmute(remotesocketaddress.as_ptr()), &mut result__).from_abi::<XboxLiveEndpointPair>(result__)
@@ -610,10 +597,12 @@ impl ::std::convert::From<u32> for XboxLiveEndpointPairCreationBehaviors {
 }
 unsafe impl ::windows::runtime::Abi for XboxLiveEndpointPairCreationBehaviors {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for XboxLiveEndpointPairCreationBehaviors {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveEndpointPairCreationBehaviors;u4)");
+}
+impl ::windows::runtime::DefaultType for XboxLiveEndpointPairCreationBehaviors {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for XboxLiveEndpointPairCreationBehaviors {
     type Output = Self;
@@ -715,10 +704,12 @@ impl ::std::convert::From<i32> for XboxLiveEndpointPairCreationStatus {
 }
 unsafe impl ::windows::runtime::Abi for XboxLiveEndpointPairCreationStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for XboxLiveEndpointPairCreationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveEndpointPairCreationStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for XboxLiveEndpointPairCreationStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_XboxLive`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -740,10 +731,12 @@ impl ::std::convert::From<i32> for XboxLiveEndpointPairState {
 }
 unsafe impl ::windows::runtime::Abi for XboxLiveEndpointPairState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for XboxLiveEndpointPairState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveEndpointPairState;i4)");
+}
+impl ::windows::runtime::DefaultType for XboxLiveEndpointPairState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_XboxLive`*"]
 #[repr(transparent)]
@@ -972,10 +965,12 @@ impl ::std::convert::From<i32> for XboxLiveNetworkAccessKind {
 }
 unsafe impl ::windows::runtime::Abi for XboxLiveNetworkAccessKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for XboxLiveNetworkAccessKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveNetworkAccessKind;i4)");
+}
+impl ::windows::runtime::DefaultType for XboxLiveNetworkAccessKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_XboxLive`*"]
 #[repr(transparent)]
@@ -1116,7 +1111,7 @@ impl XboxLiveQualityOfServiceMeasurement {
         }
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
-    pub fn PublishPrivatePayloadBytes(payload: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn PublishPrivatePayloadBytes(payload: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), payload.len() as u32, ::std::mem::transmute(payload.as_ptr())).ok() })
     }
     #[doc = "*Required features: `Networking_XboxLive`*"]
@@ -1218,10 +1213,12 @@ impl ::std::convert::From<i32> for XboxLiveQualityOfServiceMeasurementStatus {
 }
 unsafe impl ::windows::runtime::Abi for XboxLiveQualityOfServiceMeasurementStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for XboxLiveQualityOfServiceMeasurementStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurementStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for XboxLiveQualityOfServiceMeasurementStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_XboxLive`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1245,10 +1242,12 @@ impl ::std::convert::From<i32> for XboxLiveQualityOfServiceMetric {
 }
 unsafe impl ::windows::runtime::Abi for XboxLiveQualityOfServiceMetric {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for XboxLiveQualityOfServiceMetric {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMetric;i4)");
+}
+impl ::windows::runtime::DefaultType for XboxLiveQualityOfServiceMetric {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_XboxLive`*"]
 #[repr(transparent)]
@@ -1362,8 +1361,10 @@ impl ::std::convert::From<i32> for XboxLiveSocketKind {
 }
 unsafe impl ::windows::runtime::Abi for XboxLiveSocketKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for XboxLiveSocketKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveSocketKind;i4)");
+}
+impl ::windows::runtime::DefaultType for XboxLiveSocketKind {
+    type DefaultType = Self;
 }

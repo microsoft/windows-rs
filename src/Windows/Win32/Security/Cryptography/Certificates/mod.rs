@@ -12,7 +12,6 @@ impl ::std::convert::From<u32> for ADDED_CERT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for ADDED_CERT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ADDED_CERT_TYPE {
     type Output = Self;
@@ -55,7 +54,6 @@ impl ::std::convert::From<i32> for AlgorithmFlags {
 }
 unsafe impl ::windows::runtime::Abi for AlgorithmFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -81,7 +79,6 @@ impl ::std::convert::From<i32> for AlgorithmOperationFlags {
 }
 unsafe impl ::windows::runtime::Abi for AlgorithmOperationFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -102,7 +99,6 @@ impl ::std::convert::From<i32> for AlgorithmType {
 }
 unsafe impl ::windows::runtime::Abi for AlgorithmType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -127,7 +123,6 @@ impl ::std::convert::From<i32> for AlternativeNameType {
 }
 unsafe impl ::windows::runtime::Abi for AlternativeNameType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CAIF_DSENTRY: u32 = 1u32;
@@ -184,7 +179,6 @@ impl ::std::cmp::PartialEq for CAINFO {
 impl ::std::cmp::Eq for CAINFO {}
 unsafe impl ::windows::runtime::Abi for CAINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CAPATHLENGTH_INFINITE: u32 = 4294967295u32;
@@ -267,7 +261,6 @@ impl ::std::convert::From<u32> for CERTADMIN_GET_ROLES_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CERTADMIN_GET_ROLES_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERTADMIN_GET_ROLES_FLAGS {
     type Output = Self;
@@ -748,7 +741,6 @@ impl ::std::convert::From<i32> for CERTENROLL_OBJECTID {
 }
 unsafe impl ::windows::runtime::Abi for CERTENROLL_OBJECTID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -861,7 +853,6 @@ impl ::std::convert::From<i32> for CERTENROLL_PROPERTYID {
 }
 unsafe impl ::windows::runtime::Abi for CERTENROLL_PROPERTYID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -889,7 +880,6 @@ impl ::std::cmp::PartialEq for CERTTRANSBLOB {
 impl ::std::cmp::Eq for CERTTRANSBLOB {}
 unsafe impl ::windows::runtime::Abi for CERTTRANSBLOB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -920,7 +910,6 @@ impl ::std::cmp::PartialEq for CERTVIEWRESTRICTION {
 impl ::std::cmp::Eq for CERTVIEWRESTRICTION {}
 unsafe impl ::windows::runtime::Abi for CERTVIEWRESTRICTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -940,7 +929,6 @@ impl ::std::convert::From<u32> for CERT_ALT_NAME {
 }
 unsafe impl ::windows::runtime::Abi for CERT_ALT_NAME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_ALT_NAME {
     type Output = Self;
@@ -985,7 +973,6 @@ impl ::std::convert::From<u32> for CERT_CREATE_REQUEST_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CERT_CREATE_REQUEST_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_CREATE_REQUEST_FLAGS {
     type Output = Self;
@@ -1028,7 +1015,6 @@ impl ::std::convert::From<u32> for CERT_DELETE_ROW_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CERT_DELETE_ROW_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_DELETE_ROW_FLAGS {
     type Output = Self;
@@ -1076,7 +1062,6 @@ impl ::std::convert::From<u32> for CERT_EXIT_EVENT_MASK {
 }
 unsafe impl ::windows::runtime::Abi for CERT_EXIT_EVENT_MASK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_EXIT_EVENT_MASK {
     type Output = Self;
@@ -1123,7 +1108,6 @@ impl ::std::convert::From<u32> for CERT_GET_CONFIG_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CERT_GET_CONFIG_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_GET_CONFIG_FLAGS {
     type Output = Self;
@@ -1167,7 +1151,6 @@ impl ::std::convert::From<u32> for CERT_IMPORT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CERT_IMPORT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_IMPORT_FLAGS {
     type Output = Self;
@@ -1212,7 +1195,6 @@ impl ::std::convert::From<u32> for CERT_PROPERTY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CERT_PROPERTY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_PROPERTY_TYPE {
     type Output = Self;
@@ -1256,7 +1238,6 @@ impl ::std::convert::From<u32> for CERT_REQUEST_OUT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CERT_REQUEST_OUT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_REQUEST_OUT_TYPE {
     type Output = Self;
@@ -1300,7 +1281,6 @@ impl ::std::convert::From<i32> for CERT_VIEW_COLUMN_INDEX {
 }
 unsafe impl ::windows::runtime::Abi for CERT_VIEW_COLUMN_INDEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1318,7 +1298,6 @@ impl ::std::convert::From<u32> for CERT_VIEW_SEEK_OPERATOR_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CERT_VIEW_SEEK_OPERATOR_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_VIEW_SEEK_OPERATOR_FLAGS {
     type Output = Self;
@@ -1451,7 +1430,6 @@ impl ::std::convert::From<i32> for CRLRevocationReason {
 }
 unsafe impl ::windows::runtime::Abi for CRLRevocationReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CRYPT_ENUM_ALL_PROVIDERS: u32 = 1u32;
@@ -1472,7 +1450,6 @@ impl ::std::convert::From<u32> for CR_DISP {
 }
 unsafe impl ::windows::runtime::Abi for CR_DISP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CR_DISP {
     type Output = Self;
@@ -1727,7 +1704,6 @@ impl ::std::convert::From<u32> for CSBACKUP_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CSBACKUP_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CSBACKUP_TYPE {
     type Output = Self;
@@ -1804,7 +1780,6 @@ impl ::std::cmp::Eq for CSEDB_RSTMAPW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CSEDB_RSTMAPW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const CSRESTORE_TYPE_CATCHUP: u32 = 4u32;
@@ -1884,7 +1859,6 @@ impl ::std::convert::From<u32> for CVRC_COLUMN {
 }
 unsafe impl ::windows::runtime::Abi for CVRC_COLUMN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CVRC_COLUMN {
     type Output = Self;
@@ -1929,7 +1903,6 @@ impl ::std::convert::From<u32> for CVRC_TABLE {
 }
 unsafe impl ::windows::runtime::Abi for CVRC_TABLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CVRC_TABLE {
     type Output = Self;
@@ -2332,7 +2305,6 @@ impl ::std::convert::From<i32> for CommitTemplateFlags {
 }
 unsafe impl ::windows::runtime::Abi for CommitTemplateFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const DBFLAGS_CHECKPOINTDEPTH60MB: u32 = 32u32;
@@ -2403,7 +2375,6 @@ impl ::std::convert::From<i32> for DelayRetryAction {
 }
 unsafe impl ::windows::runtime::Abi for DelayRetryAction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const EANR_SUPPRESS_IA5CONVERSION: u32 = 2147483648u32;
@@ -2483,7 +2454,6 @@ impl ::std::convert::From<i32> for ENUM_CATYPES {
 }
 unsafe impl ::windows::runtime::Abi for ENUM_CATYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2505,7 +2475,6 @@ impl ::std::convert::From<u32> for ENUM_CERT_COLUMN_VALUE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for ENUM_CERT_COLUMN_VALUE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ENUM_CERT_COLUMN_VALUE_FLAGS {
     type Output = Self;
@@ -2612,7 +2581,6 @@ impl ::std::convert::From<i32> for EncodingType {
 }
 unsafe impl ::windows::runtime::Abi for EncodingType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2637,7 +2605,6 @@ impl ::std::convert::From<i32> for EnrollmentCAProperty {
 }
 unsafe impl ::windows::runtime::Abi for EnrollmentCAProperty {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2652,7 +2619,6 @@ impl ::std::convert::From<i32> for EnrollmentDisplayStatus {
 }
 unsafe impl ::windows::runtime::Abi for EnrollmentDisplayStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2672,7 +2638,6 @@ impl ::std::convert::From<i32> for EnrollmentEnrollStatus {
 }
 unsafe impl ::windows::runtime::Abi for EnrollmentEnrollStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2687,7 +2652,6 @@ impl ::std::convert::From<i32> for EnrollmentPolicyFlags {
 }
 unsafe impl ::windows::runtime::Abi for EnrollmentPolicyFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2702,7 +2666,6 @@ impl ::std::convert::From<i32> for EnrollmentPolicyServerPropertyFlags {
 }
 unsafe impl ::windows::runtime::Abi for EnrollmentPolicyServerPropertyFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2717,7 +2680,6 @@ impl ::std::convert::From<i32> for EnrollmentSelectionStatus {
 }
 unsafe impl ::windows::runtime::Abi for EnrollmentSelectionStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2761,7 +2723,6 @@ impl ::std::convert::From<i32> for EnrollmentTemplateProperty {
 }
 unsafe impl ::windows::runtime::Abi for EnrollmentTemplateProperty {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type FNCERTSRVBACKUPCLOSE = unsafe extern "system" fn(hbc: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
 pub type FNCERTSRVBACKUPEND = unsafe extern "system" fn(hbc: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
@@ -2838,7 +2799,6 @@ impl ::std::convert::From<u32> for FULL_RESPONSE_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for FULL_RESPONSE_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for FULL_RESPONSE_PROPERTY_ID {
     type Output = Self;
@@ -28391,7 +28351,6 @@ impl ::std::convert::From<i32> for ImportPFXFlags {
 }
 unsafe impl ::windows::runtime::Abi for ImportPFXFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -28406,7 +28365,6 @@ impl ::std::convert::From<i32> for InnerRequestLevel {
 }
 unsafe impl ::windows::runtime::Abi for InnerRequestLevel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -28423,7 +28381,6 @@ impl ::std::convert::From<i32> for InstallResponseRestrictionFlags {
 }
 unsafe impl ::windows::runtime::Abi for InstallResponseRestrictionFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const KRAF_DISABLEUSEDEFAULTPROVIDER: u32 = 8u32;
@@ -28467,7 +28424,6 @@ impl ::std::convert::From<i32> for KeyAttestationClaimType {
 }
 unsafe impl ::windows::runtime::Abi for KeyAttestationClaimType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -28485,7 +28441,6 @@ impl ::std::convert::From<i32> for KeyIdentifierHashAlgorithm {
 }
 unsafe impl ::windows::runtime::Abi for KeyIdentifierHashAlgorithm {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const LDAPF_SIGNDISABLE: u32 = 2u32;
@@ -28505,7 +28460,6 @@ impl ::std::convert::From<i32> for OCSPRequestFlag {
 }
 unsafe impl ::windows::runtime::Abi for OCSPRequestFlag {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -28528,7 +28482,6 @@ impl ::std::convert::From<i32> for OCSPSigningFlag {
 }
 unsafe impl ::windows::runtime::Abi for OCSPSigningFlag {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -28561,7 +28514,6 @@ impl ::std::convert::From<i32> for ObjectIdGroupId {
 }
 unsafe impl ::windows::runtime::Abi for ObjectIdGroupId {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -28577,7 +28529,6 @@ impl ::std::convert::From<i32> for ObjectIdPublicKeyFlags {
 }
 unsafe impl ::windows::runtime::Abi for ObjectIdPublicKeyFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -28595,7 +28546,6 @@ impl ::std::convert::From<u32> for PENDING_REQUEST_DESIRED_PROPERTY {
 }
 unsafe impl ::windows::runtime::Abi for PENDING_REQUEST_DESIRED_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PENDING_REQUEST_DESIRED_PROPERTY {
     type Output = Self;
@@ -28639,7 +28589,6 @@ impl ::std::convert::From<i32> for PFXExportOptions {
 }
 unsafe impl ::windows::runtime::Abi for PFXExportOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const PROCFLG_ENFORCEGOODKEYS: u32 = 1u32;
@@ -28674,7 +28623,6 @@ impl ::std::convert::From<i32> for Pkcs10AllowedSignatureTypes {
 }
 unsafe impl ::windows::runtime::Abi for Pkcs10AllowedSignatureTypes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -28691,7 +28639,6 @@ impl ::std::convert::From<i32> for PolicyQualifierType {
 }
 unsafe impl ::windows::runtime::Abi for PolicyQualifierType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -28710,7 +28657,6 @@ impl ::std::convert::From<i32> for PolicyServerUrlFlags {
 }
 unsafe impl ::windows::runtime::Abi for PolicyServerUrlFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -28725,7 +28671,6 @@ impl ::std::convert::From<i32> for PolicyServerUrlPropertyID {
 }
 unsafe impl ::windows::runtime::Abi for PolicyServerUrlPropertyID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
@@ -28903,7 +28848,6 @@ impl ::std::convert::From<i32> for RequestClientInfoClientId {
 }
 unsafe impl ::windows::runtime::Abi for RequestClientInfoClientId {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const SETUP_ATTEMPT_VROOT_CREATE: u32 = 128u32;
@@ -28955,7 +28899,6 @@ impl ::std::convert::From<i32> for WebEnrollmentFlags {
 }
 unsafe impl ::windows::runtime::Abi for WebEnrollmentFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -28970,7 +28913,6 @@ impl ::std::convert::From<i32> for WebSecurityLevel {
 }
 unsafe impl ::windows::runtime::Abi for WebSecurityLevel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -29003,7 +28945,6 @@ impl ::std::convert::From<i32> for X500NameFlags {
 }
 unsafe impl ::windows::runtime::Abi for X500NameFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -29020,7 +28961,6 @@ impl ::std::convert::From<i32> for X509CertificateEnrollmentContext {
 }
 unsafe impl ::windows::runtime::Abi for X509CertificateEnrollmentContext {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -29052,7 +28992,6 @@ impl ::std::convert::From<i32> for X509CertificateTemplateEnrollmentFlag {
 }
 unsafe impl ::windows::runtime::Abi for X509CertificateTemplateEnrollmentFlag {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -29071,7 +29010,6 @@ impl ::std::convert::From<i32> for X509CertificateTemplateGeneralFlag {
 }
 unsafe impl ::windows::runtime::Abi for X509CertificateTemplateGeneralFlag {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -29104,7 +29042,6 @@ impl ::std::convert::From<i32> for X509CertificateTemplatePrivateKeyFlag {
 }
 unsafe impl ::windows::runtime::Abi for X509CertificateTemplatePrivateKeyFlag {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -29130,7 +29067,6 @@ impl ::std::convert::From<i32> for X509CertificateTemplateSubjectNameFlag {
 }
 unsafe impl ::windows::runtime::Abi for X509CertificateTemplateSubjectNameFlag {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -29148,7 +29084,6 @@ impl ::std::convert::From<i32> for X509EnrollmentAuthFlags {
 }
 unsafe impl ::windows::runtime::Abi for X509EnrollmentAuthFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -29164,7 +29099,6 @@ impl ::std::convert::From<i32> for X509EnrollmentPolicyExportFlags {
 }
 unsafe impl ::windows::runtime::Abi for X509EnrollmentPolicyExportFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -29181,7 +29115,6 @@ impl ::std::convert::From<i32> for X509EnrollmentPolicyLoadOption {
 }
 unsafe impl ::windows::runtime::Abi for X509EnrollmentPolicyLoadOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -29201,7 +29134,6 @@ impl ::std::convert::From<i32> for X509HardwareKeyUsageFlags {
 }
 unsafe impl ::windows::runtime::Abi for X509HardwareKeyUsageFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -29217,7 +29149,6 @@ impl ::std::convert::From<i32> for X509KeyParametersExportType {
 }
 unsafe impl ::windows::runtime::Abi for X509KeyParametersExportType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -29233,7 +29164,6 @@ impl ::std::convert::From<i32> for X509KeySpec {
 }
 unsafe impl ::windows::runtime::Abi for X509KeySpec {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -29257,7 +29187,6 @@ impl ::std::convert::From<i32> for X509KeyUsageFlags {
 }
 unsafe impl ::windows::runtime::Abi for X509KeyUsageFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -29275,7 +29204,6 @@ impl ::std::convert::From<i32> for X509PrivateKeyExportFlags {
 }
 unsafe impl ::windows::runtime::Abi for X509PrivateKeyExportFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -29293,7 +29221,6 @@ impl ::std::convert::From<i32> for X509PrivateKeyProtection {
 }
 unsafe impl ::windows::runtime::Abi for X509PrivateKeyProtection {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -29312,7 +29239,6 @@ impl ::std::convert::From<i32> for X509PrivateKeyUsageFlags {
 }
 unsafe impl ::windows::runtime::Abi for X509PrivateKeyUsageFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -29330,7 +29256,6 @@ impl ::std::convert::From<i32> for X509PrivateKeyVerify {
 }
 unsafe impl ::windows::runtime::Abi for X509PrivateKeyVerify {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -29362,7 +29287,6 @@ impl ::std::convert::From<i32> for X509ProviderType {
 }
 unsafe impl ::windows::runtime::Abi for X509ProviderType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -29389,7 +29313,6 @@ impl ::std::convert::From<i32> for X509RequestInheritOptions {
 }
 unsafe impl ::windows::runtime::Abi for X509RequestInheritOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -29407,7 +29330,6 @@ impl ::std::convert::From<i32> for X509RequestType {
 }
 unsafe impl ::windows::runtime::Abi for X509RequestType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -29425,7 +29347,6 @@ impl ::std::convert::From<i32> for X509SCEPDisposition {
 }
 unsafe impl ::windows::runtime::Abi for X509SCEPDisposition {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -29444,7 +29365,6 @@ impl ::std::convert::From<i32> for X509SCEPFailInfo {
 }
 unsafe impl ::windows::runtime::Abi for X509SCEPFailInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -29464,7 +29384,6 @@ impl ::std::convert::From<i32> for X509SCEPMessageType {
 }
 unsafe impl ::windows::runtime::Abi for X509SCEPMessageType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -29479,7 +29398,6 @@ impl ::std::convert::From<i32> for X509SCEPProcessMessageFlags {
 }
 unsafe impl ::windows::runtime::Abi for X509SCEPProcessMessageFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub const XECI_AUTOENROLL: u32 = 2u32;
@@ -29507,7 +29425,6 @@ impl ::std::convert::From<u32> for XEKL_KEYSIZE {
 }
 unsafe impl ::windows::runtime::Abi for XEKL_KEYSIZE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for XEKL_KEYSIZE {
     type Output = Self;
@@ -29552,7 +29469,6 @@ impl ::std::convert::From<u32> for XEKL_KEYSPEC {
 }
 unsafe impl ::windows::runtime::Abi for XEKL_KEYSPEC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for XEKL_KEYSPEC {
     type Output = Self;

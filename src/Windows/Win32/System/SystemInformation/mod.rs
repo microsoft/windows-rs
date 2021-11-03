@@ -28,7 +28,6 @@ impl ::std::cmp::PartialEq for CACHE_DESCRIPTOR {
 impl ::std::cmp::Eq for CACHE_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for CACHE_DESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -57,7 +56,6 @@ impl ::std::cmp::PartialEq for CACHE_RELATIONSHIP {
 impl ::std::cmp::Eq for CACHE_RELATIONSHIP {}
 unsafe impl ::windows::runtime::Abi for CACHE_RELATIONSHIP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -80,7 +78,6 @@ impl ::std::cmp::PartialEq for CACHE_RELATIONSHIP_0 {
 impl ::std::cmp::Eq for CACHE_RELATIONSHIP_0 {}
 unsafe impl ::windows::runtime::Abi for CACHE_RELATIONSHIP_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -102,7 +99,6 @@ impl ::std::convert::From<i32> for COMPUTER_NAME_FORMAT {
 }
 unsafe impl ::windows::runtime::Abi for COMPUTER_NAME_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -116,7 +112,6 @@ impl ::std::convert::From<i32> for CPU_SET_INFORMATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CPU_SET_INFORMATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -134,7 +129,6 @@ impl ::std::convert::From<i32> for DEP_SYSTEM_POLICY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DEP_SYSTEM_POLICY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
@@ -176,7 +170,6 @@ impl ::std::default::Default for FIRMWARE_TABLE_ID {
 unsafe impl ::windows::runtime::Handle for FIRMWARE_TABLE_ID {}
 unsafe impl ::windows::runtime::Abi for FIRMWARE_TABLE_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -192,7 +185,6 @@ impl ::std::convert::From<u32> for FIRMWARE_TABLE_PROVIDER {
 }
 unsafe impl ::windows::runtime::Abi for FIRMWARE_TABLE_PROVIDER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for FIRMWARE_TABLE_PROVIDER {
     type Output = Self;
@@ -237,7 +229,6 @@ impl ::std::convert::From<i32> for FIRMWARE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for FIRMWARE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -266,7 +257,6 @@ impl ::std::cmp::PartialEq for GROUP_AFFINITY {
 impl ::std::cmp::Eq for GROUP_AFFINITY {}
 unsafe impl ::windows::runtime::Abi for GROUP_AFFINITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -296,7 +286,6 @@ impl ::std::cmp::PartialEq for GROUP_RELATIONSHIP {
 impl ::std::cmp::Eq for GROUP_RELATIONSHIP {}
 unsafe impl ::windows::runtime::Abi for GROUP_RELATIONSHIP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
@@ -928,7 +917,6 @@ impl ::std::convert::From<i32> for LOGICAL_PROCESSOR_RELATIONSHIP {
 }
 unsafe impl ::windows::runtime::Abi for LOGICAL_PROCESSOR_RELATIONSHIP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -971,7 +959,6 @@ impl ::std::cmp::PartialEq for MEMORYSTATUS {
 impl ::std::cmp::Eq for MEMORYSTATUS {}
 unsafe impl ::windows::runtime::Abi for MEMORYSTATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1016,7 +1003,6 @@ impl ::std::cmp::PartialEq for MEMORYSTATUSEX {
 impl ::std::cmp::Eq for MEMORYSTATUSEX {}
 unsafe impl ::windows::runtime::Abi for MEMORYSTATUSEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const NTDDI_LONGHORN: u32 = 100663296u32;
@@ -1137,7 +1123,6 @@ impl ::std::cmp::PartialEq for NUMA_NODE_RELATIONSHIP {
 impl ::std::cmp::Eq for NUMA_NODE_RELATIONSHIP {}
 unsafe impl ::windows::runtime::Abi for NUMA_NODE_RELATIONSHIP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1160,7 +1145,6 @@ impl ::std::cmp::PartialEq for NUMA_NODE_RELATIONSHIP_0 {
 impl ::std::cmp::Eq for NUMA_NODE_RELATIONSHIP_0 {}
 unsafe impl ::windows::runtime::Abi for NUMA_NODE_RELATIONSHIP_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1206,7 +1190,6 @@ impl ::std::cmp::Eq for OSVERSIONINFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OSVERSIONINFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1272,7 +1255,6 @@ impl ::std::cmp::Eq for OSVERSIONINFOEXA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OSVERSIONINFOEXA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1331,7 +1313,6 @@ impl ::std::cmp::PartialEq for OSVERSIONINFOEXW {
 impl ::std::cmp::Eq for OSVERSIONINFOEXW {}
 unsafe impl ::windows::runtime::Abi for OSVERSIONINFOEXW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1370,7 +1351,6 @@ impl ::std::cmp::PartialEq for OSVERSIONINFOW {
 impl ::std::cmp::Eq for OSVERSIONINFOW {}
 unsafe impl ::windows::runtime::Abi for OSVERSIONINFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const OSVERSION_MASK: u32 = 4294901760u32;
@@ -1481,7 +1461,6 @@ impl ::std::convert::From<u32> for OS_PRODUCT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for OS_PRODUCT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for OS_PRODUCT_TYPE {
     type Output = Self;
@@ -1530,7 +1509,6 @@ impl ::std::convert::From<i32> for PROCESSOR_CACHE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PROCESSOR_CACHE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1560,7 +1538,6 @@ impl ::std::cmp::PartialEq for PROCESSOR_GROUP_INFO {
 impl ::std::cmp::Eq for PROCESSOR_GROUP_INFO {}
 unsafe impl ::windows::runtime::Abi for PROCESSOR_GROUP_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1591,7 +1568,6 @@ impl ::std::cmp::PartialEq for PROCESSOR_RELATIONSHIP {
 impl ::std::cmp::Eq for PROCESSOR_RELATIONSHIP {}
 unsafe impl ::windows::runtime::Abi for PROCESSOR_RELATIONSHIP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]
 pub const SCEX2_ALT_NETBIOS_NAME: u32 = 1u32;
@@ -1621,7 +1597,6 @@ impl ::std::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION {
 impl ::std::cmp::Eq for SYSTEM_CPU_SET_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_CPU_SET_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1643,7 +1618,6 @@ impl ::std::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION_0 {
 impl ::std::cmp::Eq for SYSTEM_CPU_SET_INFORMATION_0 {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_CPU_SET_INFORMATION_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1674,7 +1648,6 @@ impl ::std::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION_0_0 {
 impl ::std::cmp::Eq for SYSTEM_CPU_SET_INFORMATION_0_0 {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_CPU_SET_INFORMATION_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1697,7 +1670,6 @@ impl ::std::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION_0_0_0 {
 impl ::std::cmp::Eq for SYSTEM_CPU_SET_INFORMATION_0_0_0 {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_CPU_SET_INFORMATION_0_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1724,7 +1696,6 @@ impl ::std::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
 impl ::std::cmp::Eq for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1747,7 +1718,6 @@ impl ::std::cmp::PartialEq for SYSTEM_CPU_SET_INFORMATION_0_0_1 {
 impl ::std::cmp::Eq for SYSTEM_CPU_SET_INFORMATION_0_0_1 {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_CPU_SET_INFORMATION_0_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1784,7 +1754,6 @@ impl ::std::cmp::Eq for SYSTEM_INFO {}
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 unsafe impl ::windows::runtime::Abi for SYSTEM_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1813,7 +1782,6 @@ impl ::std::cmp::Eq for SYSTEM_INFO_0 {}
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 unsafe impl ::windows::runtime::Abi for SYSTEM_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1848,7 +1816,6 @@ impl ::std::cmp::Eq for SYSTEM_INFO_0_0 {}
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 unsafe impl ::windows::runtime::Abi for SYSTEM_INFO_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1872,7 +1839,6 @@ impl ::std::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
 impl ::std::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1897,7 +1863,6 @@ impl ::std::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
 impl ::std::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1924,7 +1889,6 @@ impl ::std::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
 impl ::std::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1951,7 +1915,6 @@ impl ::std::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
 impl ::std::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1975,7 +1938,6 @@ impl ::std::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
 impl ::std::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2000,7 +1962,6 @@ impl ::std::cmp::PartialEq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
 impl ::std::cmp::Eq for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2034,7 +1995,6 @@ impl ::std::cmp::Eq for SYSTEM_POOL_ZEROING_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SYSTEM_POOL_ZEROING_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2061,7 +2021,6 @@ impl ::std::cmp::PartialEq for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
 impl ::std::cmp::Eq for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2088,7 +2047,6 @@ impl ::std::cmp::PartialEq for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMAT
 impl ::std::cmp::Eq for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
@@ -2240,7 +2198,6 @@ impl ::std::convert::From<u32> for USER_CET_ENVIRONMENT {
 }
 unsafe impl ::windows::runtime::Abi for USER_CET_ENVIRONMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for USER_CET_ENVIRONMENT {
     type Output = Self;
@@ -2289,7 +2246,6 @@ impl ::std::convert::From<u32> for VER_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for VER_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for VER_FLAGS {
     type Output = Self;

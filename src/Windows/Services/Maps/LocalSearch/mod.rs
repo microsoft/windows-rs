@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILocalCategoriesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocalCategoriesStatics {
@@ -26,7 +25,6 @@ pub struct ILocalCategoriesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILocalLocation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocalLocation {
@@ -52,7 +50,6 @@ pub struct ILocalLocation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILocalLocation2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocalLocation2 {
@@ -74,7 +71,6 @@ pub struct ILocalLocation2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILocalLocationFinderResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocalLocationFinderResult {
@@ -95,7 +91,6 @@ pub struct ILocalLocationFinderResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut LocalLocationFinderStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILocalLocationFinderStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocalLocationFinderStatics {
@@ -115,7 +110,6 @@ pub struct ILocalLocationFinderStatics_abi(
     #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILocalLocationHoursOfOperationItem(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocalLocationHoursOfOperationItem {
@@ -139,7 +133,6 @@ pub struct ILocalLocationHoursOfOperationItem_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILocalLocationRatingInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocalLocationRatingInfo {
@@ -162,7 +155,6 @@ pub struct ILocalLocationRatingInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlaceInfoHelperStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlaceInfoHelperStatics {
@@ -422,10 +414,12 @@ impl ::std::convert::From<i32> for LocalLocationFinderStatus {
 }
 unsafe impl ::windows::runtime::Abi for LocalLocationFinderStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for LocalLocationFinderStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.LocalSearch.LocalLocationFinderStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for LocalLocationFinderStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_Maps_LocalSearch`*"]
 #[repr(transparent)]

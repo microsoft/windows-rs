@@ -123,7 +123,6 @@ impl ::std::cmp::Eq for DXGI_ADAPTER_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXGI_ADAPTER_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -177,7 +176,6 @@ impl ::std::cmp::Eq for DXGI_ADAPTER_DESC1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXGI_ADAPTER_DESC1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -246,7 +244,6 @@ impl ::std::cmp::Eq for DXGI_ADAPTER_DESC2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXGI_ADAPTER_DESC2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -315,7 +312,6 @@ impl ::std::cmp::Eq for DXGI_ADAPTER_DESC3 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXGI_ADAPTER_DESC3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -331,7 +327,6 @@ impl ::std::convert::From<u32> for DXGI_ADAPTER_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_ADAPTER_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DXGI_ADAPTER_FLAG {
     type Output = Self;
@@ -380,7 +375,6 @@ impl ::std::convert::From<u32> for DXGI_ADAPTER_FLAG3 {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_ADAPTER_FLAG3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DXGI_ADAPTER_FLAG3 {
     type Output = Self;
@@ -426,7 +420,6 @@ impl ::std::convert::From<u32> for DXGI_ALPHA_MODE {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_ALPHA_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DXGI_ALPHA_MODE {
     type Output = Self;
@@ -495,7 +488,6 @@ impl ::std::convert::From<i32> for DXGI_COLOR_SPACE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_COLOR_SPACE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -513,7 +505,6 @@ impl ::std::convert::From<i32> for DXGI_COMPUTE_PREEMPTION_GRANULARITY {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_COMPUTE_PREEMPTION_GRANULARITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 pub const DXGI_CPU_ACCESS_DYNAMIC: u32 = 1u32;
@@ -548,7 +539,6 @@ impl ::std::convert::From<u32> for DXGI_DEBUG_RLO_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_DEBUG_RLO_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DXGI_DEBUG_RLO_FLAGS {
     type Output = Self;
@@ -603,7 +593,6 @@ impl ::std::cmp::PartialEq for DXGI_DECODE_SWAP_CHAIN_DESC {
 impl ::std::cmp::Eq for DXGI_DECODE_SWAP_CHAIN_DESC {}
 unsafe impl ::windows::runtime::Abi for DXGI_DECODE_SWAP_CHAIN_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -631,7 +620,6 @@ impl ::std::cmp::PartialEq for DXGI_DISPLAY_COLOR_SPACE {
 impl ::std::cmp::Eq for DXGI_DISPLAY_COLOR_SPACE {}
 unsafe impl ::windows::runtime::Abi for DXGI_DISPLAY_COLOR_SPACE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 pub const DXGI_ENUM_MODES_DISABLED_STEREO: u32 = 8u32;
@@ -717,7 +705,6 @@ impl ::std::convert::From<i32> for DXGI_FEATURE {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_FEATURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -852,7 +839,6 @@ impl ::std::convert::From<u32> for DXGI_FORMAT {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DXGI_FORMAT {
     type Output = Self;
@@ -899,7 +885,6 @@ impl ::std::convert::From<i32> for DXGI_FRAME_PRESENTATION_MODE {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_FRAME_PRESENTATION_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -930,7 +915,6 @@ impl ::std::cmp::PartialEq for DXGI_FRAME_STATISTICS {
 impl ::std::cmp::Eq for DXGI_FRAME_STATISTICS {}
 unsafe impl ::windows::runtime::Abi for DXGI_FRAME_STATISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -971,7 +955,6 @@ impl ::std::cmp::PartialEq for DXGI_FRAME_STATISTICS_MEDIA {
 impl ::std::cmp::Eq for DXGI_FRAME_STATISTICS_MEDIA {}
 unsafe impl ::windows::runtime::Abi for DXGI_FRAME_STATISTICS_MEDIA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1000,7 +983,6 @@ impl ::std::cmp::PartialEq for DXGI_GAMMA_CONTROL {
 impl ::std::cmp::Eq for DXGI_GAMMA_CONTROL {}
 unsafe impl ::windows::runtime::Abi for DXGI_GAMMA_CONTROL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1044,7 +1026,6 @@ impl ::std::cmp::Eq for DXGI_GAMMA_CONTROL_CAPABILITIES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXGI_GAMMA_CONTROL_CAPABILITIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1060,7 +1041,6 @@ impl ::std::convert::From<i32> for DXGI_GPU_PREFERENCE {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_GPU_PREFERENCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1078,7 +1058,6 @@ impl ::std::convert::From<i32> for DXGI_GRAPHICS_PREEMPTION_GRANULARITY {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_GRAPHICS_PREEMPTION_GRANULARITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1094,7 +1073,6 @@ impl ::std::convert::From<u32> for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
     type Output = Self;
@@ -1165,7 +1143,6 @@ impl ::std::cmp::PartialEq for DXGI_HDR_METADATA_HDR10 {
 impl ::std::cmp::Eq for DXGI_HDR_METADATA_HDR10 {}
 unsafe impl ::windows::runtime::Abi for DXGI_HDR_METADATA_HDR10 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1192,7 +1169,6 @@ impl ::std::cmp::PartialEq for DXGI_HDR_METADATA_HDR10PLUS {
 impl ::std::cmp::Eq for DXGI_HDR_METADATA_HDR10PLUS {}
 unsafe impl ::windows::runtime::Abi for DXGI_HDR_METADATA_HDR10PLUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1208,7 +1184,6 @@ impl ::std::convert::From<i32> for DXGI_HDR_METADATA_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_HDR_METADATA_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 pub const DXGI_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: u32 = 1024u32;
@@ -1238,7 +1213,6 @@ impl ::std::cmp::PartialEq for DXGI_INFO_QUEUE_FILTER {
 impl ::std::cmp::Eq for DXGI_INFO_QUEUE_FILTER {}
 unsafe impl ::windows::runtime::Abi for DXGI_INFO_QUEUE_FILTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1270,7 +1244,6 @@ impl ::std::cmp::PartialEq for DXGI_INFO_QUEUE_FILTER_DESC {
 impl ::std::cmp::Eq for DXGI_INFO_QUEUE_FILTER_DESC {}
 unsafe impl ::windows::runtime::Abi for DXGI_INFO_QUEUE_FILTER_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1302,7 +1275,6 @@ impl ::std::cmp::PartialEq for DXGI_INFO_QUEUE_MESSAGE {
 impl ::std::cmp::Eq for DXGI_INFO_QUEUE_MESSAGE {}
 unsafe impl ::windows::runtime::Abi for DXGI_INFO_QUEUE_MESSAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1326,7 +1298,6 @@ impl ::std::convert::From<i32> for DXGI_INFO_QUEUE_MESSAGE_CATEGORY {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_INFO_QUEUE_MESSAGE_CATEGORY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 pub const DXGI_INFO_QUEUE_MESSAGE_ID_STRING_FROM_APPLICATION: u32 = 0u32;
@@ -1346,7 +1317,6 @@ impl ::std::convert::From<i32> for DXGI_INFO_QUEUE_MESSAGE_SEVERITY {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_INFO_QUEUE_MESSAGE_SEVERITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1374,7 +1344,6 @@ impl ::std::cmp::PartialEq for DXGI_JPEG_AC_HUFFMAN_TABLE {
 impl ::std::cmp::Eq for DXGI_JPEG_AC_HUFFMAN_TABLE {}
 unsafe impl ::windows::runtime::Abi for DXGI_JPEG_AC_HUFFMAN_TABLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1402,7 +1371,6 @@ impl ::std::cmp::PartialEq for DXGI_JPEG_DC_HUFFMAN_TABLE {
 impl ::std::cmp::Eq for DXGI_JPEG_DC_HUFFMAN_TABLE {}
 unsafe impl ::windows::runtime::Abi for DXGI_JPEG_DC_HUFFMAN_TABLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1429,7 +1397,6 @@ impl ::std::cmp::PartialEq for DXGI_JPEG_QUANTIZATION_TABLE {
 impl ::std::cmp::Eq for DXGI_JPEG_QUANTIZATION_TABLE {}
 unsafe impl ::windows::runtime::Abi for DXGI_JPEG_QUANTIZATION_TABLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1457,7 +1424,6 @@ impl ::std::cmp::PartialEq for DXGI_MAPPED_RECT {
 impl ::std::cmp::Eq for DXGI_MAPPED_RECT {}
 unsafe impl ::windows::runtime::Abi for DXGI_MAPPED_RECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 pub const DXGI_MAP_DISCARD: u32 = 4u32;
@@ -1495,7 +1461,6 @@ impl ::std::cmp::PartialEq for DXGI_MATRIX_3X2_F {
 impl ::std::cmp::Eq for DXGI_MATRIX_3X2_F {}
 unsafe impl ::windows::runtime::Abi for DXGI_MATRIX_3X2_F {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 pub const DXGI_MAX_SWAP_CHAIN_BUFFERS: u32 = 16u32;
@@ -1512,7 +1477,6 @@ impl ::std::convert::From<i32> for DXGI_MEMORY_SEGMENT_GROUP {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_MEMORY_SEGMENT_GROUP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1544,7 +1508,6 @@ impl ::std::cmp::PartialEq for DXGI_MODE_DESC {
 impl ::std::cmp::Eq for DXGI_MODE_DESC {}
 unsafe impl ::windows::runtime::Abi for DXGI_MODE_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1584,7 +1547,6 @@ impl ::std::cmp::Eq for DXGI_MODE_DESC1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXGI_MODE_DESC1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1602,7 +1564,6 @@ impl ::std::convert::From<i32> for DXGI_MODE_ROTATION {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_MODE_ROTATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1618,7 +1579,6 @@ impl ::std::convert::From<i32> for DXGI_MODE_SCALING {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_MODE_SCALING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1635,7 +1595,6 @@ impl ::std::convert::From<i32> for DXGI_MODE_SCANLINE_ORDER {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_MODE_SCANLINE_ORDER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1651,7 +1610,6 @@ impl ::std::convert::From<i32> for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 pub const DXGI_MWA_NO_ALT_ENTER: u32 = 2u32;
@@ -2003,7 +1961,6 @@ impl ::std::convert::From<i32> for DXGI_Message_Id {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_Message_Id {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2017,7 +1974,6 @@ impl ::std::convert::From<i32> for DXGI_OFFER_RESOURCE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_OFFER_RESOURCE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2033,7 +1989,6 @@ impl ::std::convert::From<i32> for DXGI_OFFER_RESOURCE_PRIORITY {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_OFFER_RESOURCE_PRIORITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2069,7 +2024,6 @@ impl ::std::cmp::Eq for DXGI_OUTDUPL_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXGI_OUTDUPL_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2083,7 +2037,6 @@ impl ::std::convert::From<i32> for DXGI_OUTDUPL_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_OUTDUPL_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2133,7 +2086,6 @@ impl ::std::cmp::Eq for DXGI_OUTDUPL_FRAME_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXGI_OUTDUPL_FRAME_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2168,7 +2120,6 @@ impl ::std::cmp::Eq for DXGI_OUTDUPL_MOVE_RECT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXGI_OUTDUPL_MOVE_RECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2203,7 +2154,6 @@ impl ::std::cmp::Eq for DXGI_OUTDUPL_POINTER_POSITION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXGI_OUTDUPL_POINTER_POSITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2241,7 +2191,6 @@ impl ::std::cmp::Eq for DXGI_OUTDUPL_POINTER_SHAPE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXGI_OUTDUPL_POINTER_SHAPE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2257,7 +2206,6 @@ impl ::std::convert::From<i32> for DXGI_OUTDUPL_POINTER_SHAPE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_OUTDUPL_POINTER_SHAPE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2295,7 +2243,6 @@ impl ::std::cmp::Eq for DXGI_OUTPUT_DESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for DXGI_OUTPUT_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2370,7 +2317,6 @@ impl ::std::cmp::Eq for DXGI_OUTPUT_DESC1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for DXGI_OUTPUT_DESC1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2384,7 +2330,6 @@ impl ::std::convert::From<i32> for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2399,7 +2344,6 @@ impl ::std::convert::From<i32> for DXGI_OVERLAY_SUPPORT_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_OVERLAY_SUPPORT_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 pub const DXGI_PRESENT_ALLOW_TEARING: u32 = 512u32;
@@ -2442,7 +2386,6 @@ impl ::std::cmp::Eq for DXGI_PRESENT_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXGI_PRESENT_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 pub const DXGI_PRESENT_RESTART: u32 = 4u32;
@@ -2484,7 +2427,6 @@ impl ::std::cmp::PartialEq for DXGI_QUERY_VIDEO_MEMORY_INFO {
 impl ::std::cmp::Eq for DXGI_QUERY_VIDEO_MEMORY_INFO {}
 unsafe impl ::windows::runtime::Abi for DXGI_QUERY_VIDEO_MEMORY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2512,7 +2454,6 @@ impl ::std::cmp::PartialEq for DXGI_RATIONAL {
 impl ::std::cmp::Eq for DXGI_RATIONAL {}
 unsafe impl ::windows::runtime::Abi for DXGI_RATIONAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2528,7 +2469,6 @@ impl ::std::convert::From<i32> for DXGI_RECLAIM_RESOURCE_RESULTS {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_RECLAIM_RESOURCE_RESULTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2544,7 +2484,6 @@ impl ::std::convert::From<i32> for DXGI_RESIDENCY {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_RESIDENCY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2562,7 +2501,6 @@ impl ::std::convert::From<u32> for DXGI_RESOURCE_PRIORITY {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_RESOURCE_PRIORITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DXGI_RESOURCE_PRIORITY {
     type Output = Self;
@@ -2619,7 +2557,6 @@ impl ::std::cmp::PartialEq for DXGI_RGB {
 impl ::std::cmp::Eq for DXGI_RGB {}
 unsafe impl ::windows::runtime::Abi for DXGI_RGB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2649,7 +2586,6 @@ impl ::std::cmp::PartialEq for DXGI_RGBA {
 impl ::std::cmp::Eq for DXGI_RGBA {}
 unsafe impl ::windows::runtime::Abi for DXGI_RGBA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2677,7 +2613,6 @@ impl ::std::cmp::PartialEq for DXGI_SAMPLE_DESC {
 impl ::std::cmp::Eq for DXGI_SAMPLE_DESC {}
 unsafe impl ::windows::runtime::Abi for DXGI_SAMPLE_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2693,7 +2628,6 @@ impl ::std::convert::From<i32> for DXGI_SCALING {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_SCALING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2727,7 +2661,6 @@ impl ::std::cmp::Eq for DXGI_SHARED_RESOURCE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXGI_SHARED_RESOURCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 pub const DXGI_SHARED_RESOURCE_READ: u32 = 2147483648u32;
@@ -2763,7 +2696,6 @@ impl ::std::cmp::PartialEq for DXGI_SURFACE_DESC {
 impl ::std::cmp::Eq for DXGI_SURFACE_DESC {}
 unsafe impl ::windows::runtime::Abi for DXGI_SURFACE_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2778,7 +2710,6 @@ impl ::std::convert::From<i32> for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2828,7 +2759,6 @@ impl ::std::cmp::Eq for DXGI_SWAP_CHAIN_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXGI_SWAP_CHAIN_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2884,7 +2814,6 @@ impl ::std::cmp::Eq for DXGI_SWAP_CHAIN_DESC1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXGI_SWAP_CHAIN_DESC1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2910,7 +2839,6 @@ impl ::std::convert::From<i32> for DXGI_SWAP_CHAIN_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_SWAP_CHAIN_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2947,7 +2875,6 @@ impl ::std::cmp::Eq for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2964,7 +2891,6 @@ impl ::std::convert::From<i32> for DXGI_SWAP_EFFECT {
 }
 unsafe impl ::windows::runtime::Abi for DXGI_SWAP_EFFECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dxgi`*"]
 pub const DXGI_USAGE_BACK_BUFFER: u32 = 64u32;

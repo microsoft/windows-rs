@@ -3,7 +3,6 @@
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct CallsBackgroundContract(pub u8);
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneCallBlockedTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallBlockedTriggerDetails {
@@ -24,7 +23,6 @@ pub struct IPhoneCallBlockedTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut PhoneCallBlockedReason) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneCallOriginDataRequestTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallOriginDataRequestTriggerDetails {
@@ -44,7 +42,6 @@ pub struct IPhoneCallOriginDataRequestTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneIncomingCallDismissedTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneIncomingCallDismissedTriggerDetails {
@@ -69,7 +66,6 @@ pub struct IPhoneIncomingCallDismissedTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut PhoneIncomingCallDismissedReason) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneIncomingCallNotificationTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneIncomingCallNotificationTriggerDetails {
@@ -89,7 +85,6 @@ pub struct IPhoneIncomingCallNotificationTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneLineChangedTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLineChangedTriggerDetails {
@@ -110,7 +105,6 @@ pub struct IPhoneLineChangedTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lineproperty: PhoneLineProperties, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneNewVoicemailMessageTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneNewVoicemailMessageTriggerDetails {
@@ -146,10 +140,12 @@ impl ::std::convert::From<i32> for PhoneCallBlockedReason {
 }
 unsafe impl ::windows::runtime::Abi for PhoneCallBlockedReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneCallBlockedReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneCallBlockedReason;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneCallBlockedReason {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Calls_Background`*"]
 #[repr(transparent)]
@@ -244,10 +240,12 @@ impl ::std::convert::From<i32> for PhoneIncomingCallDismissedReason {
 }
 unsafe impl ::windows::runtime::Abi for PhoneIncomingCallDismissedReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneIncomingCallDismissedReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneIncomingCallDismissedReason;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneIncomingCallDismissedReason {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Calls_Background`*"]
 #[repr(transparent)]
@@ -366,10 +364,12 @@ impl ::std::convert::From<i32> for PhoneLineChangeKind {
 }
 unsafe impl ::windows::runtime::Abi for PhoneLineChangeKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneLineChangeKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneLineChangeKind;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneLineChangeKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Calls_Background`*"]
 #[repr(transparent)]
@@ -436,10 +436,12 @@ impl ::std::convert::From<u32> for PhoneLineProperties {
 }
 unsafe impl ::windows::runtime::Abi for PhoneLineProperties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneLineProperties {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneLineProperties;u4)");
+}
+impl ::windows::runtime::DefaultType for PhoneLineProperties {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PhoneLineProperties {
     type Output = Self;
@@ -532,8 +534,10 @@ impl ::std::convert::From<i32> for PhoneTriggerType {
 }
 unsafe impl ::windows::runtime::Abi for PhoneTriggerType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneTriggerType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneTriggerType;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneTriggerType {
+    type DefaultType = Self;
 }

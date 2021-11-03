@@ -28,10 +28,12 @@ impl ::std::cmp::PartialEq for BackgroundDownloadProgress {
 impl ::std::cmp::Eq for BackgroundDownloadProgress {}
 unsafe impl ::windows::runtime::Abi for BackgroundDownloadProgress {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BackgroundDownloadProgress {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Networking.BackgroundTransfer.BackgroundDownloadProgress;u8;u8;enum(Windows.Networking.BackgroundTransfer.BackgroundTransferStatus;i4);b1;b1)");
+}
+impl ::windows::runtime::DefaultType for BackgroundDownloadProgress {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
 #[repr(transparent)]
@@ -336,10 +338,12 @@ impl ::std::convert::From<i32> for BackgroundTransferBehavior {
 }
 unsafe impl ::windows::runtime::Abi for BackgroundTransferBehavior {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BackgroundTransferBehavior {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferBehavior;i4)");
+}
+impl ::windows::runtime::DefaultType for BackgroundTransferBehavior {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
 #[repr(transparent)]
@@ -499,10 +503,12 @@ impl ::std::convert::From<i32> for BackgroundTransferCostPolicy {
 }
 unsafe impl ::windows::runtime::Abi for BackgroundTransferCostPolicy {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BackgroundTransferCostPolicy {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferCostPolicy;i4)");
+}
+impl ::windows::runtime::DefaultType for BackgroundTransferCostPolicy {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
 pub struct BackgroundTransferError {}
@@ -549,10 +555,12 @@ impl ::std::cmp::PartialEq for BackgroundTransferFileRange {
 impl ::std::cmp::Eq for BackgroundTransferFileRange {}
 unsafe impl ::windows::runtime::Abi for BackgroundTransferFileRange {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BackgroundTransferFileRange {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Networking.BackgroundTransfer.BackgroundTransferFileRange;u8;u8)");
+}
+impl ::windows::runtime::DefaultType for BackgroundTransferFileRange {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
 #[repr(transparent)]
@@ -620,10 +628,12 @@ impl ::std::convert::From<i32> for BackgroundTransferPriority {
 }
 unsafe impl ::windows::runtime::Abi for BackgroundTransferPriority {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BackgroundTransferPriority {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferPriority;i4)");
+}
+impl ::windows::runtime::DefaultType for BackgroundTransferPriority {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
 #[repr(transparent)]
@@ -692,10 +702,12 @@ impl ::std::convert::From<i32> for BackgroundTransferStatus {
 }
 unsafe impl ::windows::runtime::Abi for BackgroundTransferStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BackgroundTransferStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for BackgroundTransferStatus {
+    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -736,10 +748,12 @@ impl ::std::cmp::PartialEq for BackgroundUploadProgress {
 impl ::std::cmp::Eq for BackgroundUploadProgress {}
 unsafe impl ::windows::runtime::Abi for BackgroundUploadProgress {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BackgroundUploadProgress {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Networking.BackgroundTransfer.BackgroundUploadProgress;u8;u8;u8;u8;enum(Windows.Networking.BackgroundTransfer.BackgroundTransferStatus;i4);b1;b1)");
+}
+impl ::windows::runtime::DefaultType for BackgroundUploadProgress {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_BackgroundTransfer`*"]
 #[repr(transparent)]
@@ -1375,7 +1389,6 @@ impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTransferOperationPriority>
 unsafe impl ::std::marker::Send for DownloadOperation {}
 unsafe impl ::std::marker::Sync for DownloadOperation {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundDownloader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundDownloader {
@@ -1399,7 +1412,6 @@ pub struct IBackgroundDownloader_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundDownloader2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundDownloader2 {
@@ -1435,7 +1447,6 @@ pub struct IBackgroundDownloader2_abi(
     #[cfg(not(feature = "UI_Notifications"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundDownloader3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundDownloader3 {
@@ -1454,7 +1465,6 @@ pub struct IBackgroundDownloader3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundDownloaderFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundDownloaderFactory {
@@ -1473,7 +1483,6 @@ pub struct IBackgroundDownloaderFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, completiongroup: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundDownloaderStaticMethods(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundDownloaderStaticMethods {
@@ -1495,7 +1504,6 @@ pub struct IBackgroundDownloaderStaticMethods_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundDownloaderStaticMethods2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundDownloaderStaticMethods2 {
@@ -1515,7 +1523,6 @@ pub struct IBackgroundDownloaderStaticMethods2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundDownloaderUserConsent(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundDownloaderUserConsent {
@@ -1649,7 +1656,6 @@ pub struct IBackgroundTransferBase_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: BackgroundTransferCostPolicy) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundTransferCompletionGroup(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTransferCompletionGroup {
@@ -1671,7 +1677,6 @@ pub struct IBackgroundTransferCompletionGroup_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundTransferCompletionGroupTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTransferCompletionGroupTriggerDetails {
@@ -1693,7 +1698,6 @@ pub struct IBackgroundTransferCompletionGroupTriggerDetails_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundTransferContentPart(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTransferContentPart {
@@ -1756,7 +1760,6 @@ pub struct IBackgroundTransferContentPartFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, filename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundTransferErrorStaticMethods(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTransferErrorStaticMethods {
@@ -1776,7 +1779,6 @@ pub struct IBackgroundTransferErrorStaticMethods_abi(
     #[cfg(not(feature = "Web"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundTransferGroup(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTransferGroup {
@@ -1797,7 +1799,6 @@ pub struct IBackgroundTransferGroup_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: BackgroundTransferBehavior) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundTransferGroupStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTransferGroupStatics {
@@ -1951,7 +1952,6 @@ pub struct IBackgroundTransferOperationPriority_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: BackgroundTransferPriority) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundTransferRangesDownloadedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTransferRangesDownloadedEventArgs {
@@ -1974,7 +1974,6 @@ pub struct IBackgroundTransferRangesDownloadedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundUploader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundUploader {
@@ -2002,7 +2001,6 @@ pub struct IBackgroundUploader_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundUploader2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundUploader2 {
@@ -2038,7 +2036,6 @@ pub struct IBackgroundUploader2_abi(
     #[cfg(not(feature = "UI_Notifications"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundUploader3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundUploader3 {
@@ -2057,7 +2054,6 @@ pub struct IBackgroundUploader3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundUploaderFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundUploaderFactory {
@@ -2076,7 +2072,6 @@ pub struct IBackgroundUploaderFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, completiongroup: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundUploaderStaticMethods(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundUploaderStaticMethods {
@@ -2098,7 +2093,6 @@ pub struct IBackgroundUploaderStaticMethods_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundUploaderStaticMethods2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundUploaderStaticMethods2 {
@@ -2118,7 +2112,6 @@ pub struct IBackgroundUploaderStaticMethods2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundUploaderUserConsent(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundUploaderUserConsent {
@@ -2138,7 +2131,6 @@ pub struct IBackgroundUploaderUserConsent_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContentPrefetcher(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentPrefetcher {
@@ -2162,7 +2154,6 @@ pub struct IContentPrefetcher_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContentPrefetcherTime(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentPrefetcherTime {
@@ -2182,7 +2173,6 @@ pub struct IContentPrefetcherTime_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDownloadOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDownloadOperation {
@@ -2209,7 +2199,6 @@ pub struct IDownloadOperation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDownloadOperation2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDownloadOperation2 {
@@ -2228,7 +2217,6 @@ pub struct IDownloadOperation2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDownloadOperation3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDownloadOperation3 {
@@ -2262,7 +2250,6 @@ pub struct IDownloadOperation3_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Web")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDownloadOperation4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDownloadOperation4 {
@@ -2281,7 +2268,6 @@ pub struct IDownloadOperation4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDownloadOperation5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDownloadOperation5 {
@@ -2301,7 +2287,6 @@ pub struct IDownloadOperation5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, headername: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IResponseInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResponseInformation {
@@ -2325,7 +2310,6 @@ pub struct IResponseInformation_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUnconstrainedTransferRequestResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUnconstrainedTransferRequestResult {
@@ -2344,7 +2328,6 @@ pub struct IUnconstrainedTransferRequestResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUploadOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUploadOperation {
@@ -2369,7 +2352,6 @@ pub struct IUploadOperation_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUploadOperation2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUploadOperation2 {
@@ -2388,7 +2370,6 @@ pub struct IUploadOperation2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUploadOperation3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUploadOperation3 {
@@ -2407,7 +2388,6 @@ pub struct IUploadOperation3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUploadOperation4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUploadOperation4 {

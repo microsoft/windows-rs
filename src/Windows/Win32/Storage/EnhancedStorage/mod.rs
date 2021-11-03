@@ -24,7 +24,6 @@ impl ::std::cmp::PartialEq for ACT_AUTHORIZATION_STATE {
 impl ::std::cmp::Eq for ACT_AUTHORIZATION_STATE {}
 unsafe impl ::windows::runtime::Abi for ACT_AUTHORIZATION_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -39,7 +38,6 @@ impl ::std::convert::From<i32> for ACT_AUTHORIZATION_STATE_VALUE {
 }
 unsafe impl ::windows::runtime::Abi for ACT_AUTHORIZATION_STATE_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ACT_AUTHORIZE_ON_RESUME: u32 = 1u32;
@@ -224,7 +222,6 @@ impl ::std::cmp::Eq for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const ES_AUTHN_ERROR_END: u32 = 1279u32;
@@ -944,7 +941,6 @@ impl ::std::cmp::PartialEq for SILO_INFO {
 impl ::std::cmp::Eq for SILO_INFO {}
 unsafe impl ::windows::runtime::Abi for SILO_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_EnhancedStorage`*"]
 pub const STORAGE_PROVIDER_SHARINGSTATUS_NOTSHARED: u32 = 0u32;

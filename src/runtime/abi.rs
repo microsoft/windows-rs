@@ -1,17 +1,8 @@
 use super::*;
 
-// TODO: remove Clone constraint
-
 #[doc(hidden)]
-pub unsafe trait Abi: Sized + Clone {
+pub unsafe trait Abi: Sized {
     type Abi;
-    type DefaultType: Sized + Clone + PartialEq;
-
-    /// # Safety
-    unsafe fn from_default(value: &Self::DefaultType) -> Result<Self> {
-        let value = value as *const _ as *const Self;
-        Ok((*value).clone())
-    }
 
     /// # Safety
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
@@ -24,26 +15,14 @@ pub unsafe trait Abi: Sized + Clone {
 
 unsafe impl<T> Abi for *mut T {
     type Abi = Self;
-    type DefaultType = Self;
 }
 
 unsafe impl<T> Abi for *const T {
     type Abi = Self;
-    type DefaultType = Self;
 }
 
 unsafe impl<T: Interface> Abi for T {
     type Abi = RawPtr;
-    type DefaultType = Option<T>;
-
-    unsafe fn from_default(value: &Self::DefaultType) -> Result<Self> {
-        let value = value as *const _ as *const Option<Self>;
-
-        match &*value {
-            Some(value) => Ok(value.clone()),
-            None => Err(Error::OK),
-        }
-    }
 
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
         let abi: RawPtr = std::mem::transmute_copy(&abi);
@@ -58,5 +37,12 @@ unsafe impl<T: Interface> Abi for T {
 
 unsafe impl<T: Interface> Abi for Option<T> {
     type Abi = RawPtr;
-    type DefaultType = Self;
+}
+
+unsafe impl Abi for usize {
+    type Abi = Self;
+}
+
+unsafe impl Abi for isize {
+    type Abi = Self;
 }

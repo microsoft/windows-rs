@@ -39,7 +39,6 @@ impl ::std::cmp::PartialEq for COLUMNSTATUS {
 impl ::std::cmp::Eq for COLUMNSTATUS {}
 unsafe impl ::windows::runtime::Abi for COLUMNSTATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -71,7 +70,6 @@ impl ::std::cmp::Eq for CProperty {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CProperty {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -101,7 +99,6 @@ impl ::std::cmp::Eq for CProperty_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CProperty_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const E_ALL_WILD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479467i32 as _);
@@ -310,7 +307,6 @@ impl ::std::cmp::Eq for HHNTRACK {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 unsafe impl ::windows::runtime::Abi for HHNTRACK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -345,7 +341,6 @@ impl ::std::cmp::Eq for HHN_NOTIFY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 unsafe impl ::windows::runtime::Abi for HHN_NOTIFY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HHWIN_BUTTON_BACK: u32 = 4u32;
@@ -543,7 +538,6 @@ impl ::std::cmp::Eq for HH_AKLINK {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HH_AKLINK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_ALINK_LOOKUP: u32 = 19u32;
@@ -593,7 +587,6 @@ impl ::std::cmp::Eq for HH_ENUM_CAT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HH_ENUM_CAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_ENUM_CATEGORY: u32 = 21u32;
@@ -637,7 +630,6 @@ impl ::std::cmp::Eq for HH_ENUM_IT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HH_ENUM_IT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_FTS_DEFAULT_PROXIMITY: i32 = -1i32;
@@ -689,7 +681,6 @@ impl ::std::cmp::Eq for HH_FTS_QUERY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HH_FTS_QUERY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_GET_LAST_ERROR: u32 = 20u32;
@@ -729,7 +720,6 @@ impl ::std::cmp::Eq for HH_GLOBAL_PROPERTY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for HH_GLOBAL_PROPERTY {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -747,7 +737,6 @@ impl ::std::convert::From<i32> for HH_GPROPID {
 }
 unsafe impl ::windows::runtime::Abi for HH_GPROPID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_HELP_CONTEXT: u32 = 15u32;
@@ -809,7 +798,6 @@ impl ::std::cmp::Eq for HH_POPUP {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HH_POPUP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_PRETRANSLATEMESSAGE: u32 = 253u32;
@@ -863,7 +851,6 @@ impl ::std::cmp::Eq for HH_SET_INFOTYPE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HH_SET_INFOTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const HH_SET_INFO_TYPE: u32 = 8u32;
@@ -1034,7 +1021,6 @@ impl ::std::cmp::Eq for HH_WINTYPE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HH_WINTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const IDTB_BACK: u32 = 204u32;
@@ -1782,7 +1768,6 @@ impl ::std::convert::From<i32> for PRIORITY {
 }
 unsafe impl ::windows::runtime::Abi for PRIORITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const PROP_ADD: u32 = 0u32;
@@ -1818,7 +1803,6 @@ impl ::std::cmp::PartialEq for ROWSTATUS {
 impl ::std::cmp::Eq for ROWSTATUS {}
 unsafe impl ::windows::runtime::Abi for ROWSTATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const STDPROP_DISPLAYKEY: u32 = 101u32;
@@ -1870,7 +1854,6 @@ impl ::std::convert::From<u32> for WORD_WHEEL_OPEN_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for WORD_WHEEL_OPEN_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WORD_WHEEL_OPEN_FLAGS {
     type Output = Self;

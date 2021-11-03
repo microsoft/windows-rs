@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPnpObject(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPnpObject {
@@ -23,7 +22,6 @@ pub struct IPnpObject_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, updateinfo: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPnpObjectStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPnpObjectStatics {
@@ -51,7 +49,6 @@ pub struct IPnpObjectStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPnpObjectUpdate(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPnpObjectUpdate {
@@ -73,7 +70,6 @@ pub struct IPnpObjectUpdate_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPnpObjectWatcher(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPnpObjectWatcher {
@@ -241,7 +237,7 @@ impl PnpObjectCollection {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Devices_Enumeration_Pnp`, `Foundation_Collections`*"]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<PnpObject as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [<PnpObject as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -363,10 +359,12 @@ impl ::std::convert::From<i32> for PnpObjectType {
 }
 unsafe impl ::windows::runtime::Abi for PnpObjectType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PnpObjectType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.Pnp.PnpObjectType;i4)");
+}
+impl ::windows::runtime::DefaultType for PnpObjectType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]

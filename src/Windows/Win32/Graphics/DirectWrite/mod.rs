@@ -14,7 +14,6 @@ impl ::std::convert::From<u32> for DWRITE_AUTOMATIC_FONT_AXES {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_AUTOMATIC_FONT_AXES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DWRITE_AUTOMATIC_FONT_AXES {
     type Output = Self;
@@ -64,7 +63,6 @@ impl ::std::convert::From<i32> for DWRITE_BASELINE {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_BASELINE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -81,7 +79,6 @@ impl ::std::convert::From<i32> for DWRITE_BREAK_CONDITION {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_BREAK_CONDITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -110,7 +107,6 @@ impl ::std::cmp::PartialEq for DWRITE_CARET_METRICS {
 impl ::std::cmp::Eq for DWRITE_CARET_METRICS {}
 unsafe impl ::windows::runtime::Abi for DWRITE_CARET_METRICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -139,7 +135,6 @@ impl ::std::cmp::PartialEq for DWRITE_CLUSTER_METRICS {
 impl ::std::cmp::Eq for DWRITE_CLUSTER_METRICS {}
 unsafe impl ::windows::runtime::Abi for DWRITE_CLUSTER_METRICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -169,7 +164,6 @@ impl ::std::cmp::PartialEq for DWRITE_COLOR_F {
 impl ::std::cmp::Eq for DWRITE_COLOR_F {}
 unsafe impl ::windows::runtime::Abi for DWRITE_COLOR_F {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -215,7 +209,6 @@ impl ::std::cmp::Eq for DWRITE_COLOR_GLYPH_RUN {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DWRITE_COLOR_GLYPH_RUN {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -251,7 +244,6 @@ impl ::std::cmp::Eq for DWRITE_COLOR_GLYPH_RUN1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DWRITE_COLOR_GLYPH_RUN1 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -267,7 +259,6 @@ impl ::std::convert::From<i32> for DWRITE_CONTAINER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_CONTAINER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 pub const DWRITE_ERR_BASE: u32 = 20480u32;
@@ -292,7 +283,6 @@ impl ::std::convert::From<i32> for DWRITE_FACTORY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_FACTORY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -320,7 +310,6 @@ impl ::std::cmp::PartialEq for DWRITE_FILE_FRAGMENT {
 impl ::std::cmp::Eq for DWRITE_FILE_FRAGMENT {}
 unsafe impl ::windows::runtime::Abi for DWRITE_FILE_FRAGMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -337,7 +326,6 @@ impl ::std::convert::From<i32> for DWRITE_FLOW_DIRECTION {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_FLOW_DIRECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -353,7 +341,6 @@ impl ::std::convert::From<u32> for DWRITE_FONT_AXIS_ATTRIBUTES {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_FONT_AXIS_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DWRITE_FONT_AXIS_ATTRIBUTES {
     type Output = Self;
@@ -410,7 +397,6 @@ impl ::std::cmp::PartialEq for DWRITE_FONT_AXIS_RANGE {
 impl ::std::cmp::Eq for DWRITE_FONT_AXIS_RANGE {}
 unsafe impl ::windows::runtime::Abi for DWRITE_FONT_AXIS_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -428,7 +414,6 @@ impl ::std::convert::From<u32> for DWRITE_FONT_AXIS_TAG {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_FONT_AXIS_TAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DWRITE_FONT_AXIS_TAG {
     type Output = Self;
@@ -484,7 +469,6 @@ impl ::std::cmp::PartialEq for DWRITE_FONT_AXIS_VALUE {
 impl ::std::cmp::Eq for DWRITE_FONT_AXIS_VALUE {}
 unsafe impl ::windows::runtime::Abi for DWRITE_FONT_AXIS_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -506,7 +490,6 @@ impl ::std::convert::From<i32> for DWRITE_FONT_FACE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_FONT_FACE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -521,7 +504,6 @@ impl ::std::convert::From<i32> for DWRITE_FONT_FAMILY_MODEL {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_FONT_FAMILY_MODEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -549,7 +531,6 @@ impl ::std::cmp::PartialEq for DWRITE_FONT_FEATURE {
 impl ::std::cmp::Eq for DWRITE_FONT_FEATURE {}
 unsafe impl ::windows::runtime::Abi for DWRITE_FONT_FEATURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -643,7 +624,6 @@ impl ::std::convert::From<u32> for DWRITE_FONT_FEATURE_TAG {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_FONT_FEATURE_TAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DWRITE_FONT_FEATURE_TAG {
     type Output = Self;
@@ -693,7 +673,6 @@ impl ::std::convert::From<i32> for DWRITE_FONT_FILE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_FONT_FILE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -709,7 +688,6 @@ impl ::std::convert::From<i32> for DWRITE_FONT_LINE_GAP_USAGE {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_FONT_LINE_GAP_USAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -756,7 +734,6 @@ impl ::std::cmp::PartialEq for DWRITE_FONT_METRICS {
 impl ::std::cmp::Eq for DWRITE_FONT_METRICS {}
 unsafe impl ::windows::runtime::Abi for DWRITE_FONT_METRICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -831,7 +808,6 @@ impl ::std::cmp::Eq for DWRITE_FONT_METRICS1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DWRITE_FONT_METRICS1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -867,7 +843,6 @@ impl ::std::cmp::Eq for DWRITE_FONT_PROPERTY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DWRITE_FONT_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -899,7 +874,6 @@ impl ::std::convert::From<i32> for DWRITE_FONT_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_FONT_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -915,7 +889,6 @@ impl ::std::convert::From<u32> for DWRITE_FONT_SIMULATIONS {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_FONT_SIMULATIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DWRITE_FONT_SIMULATIONS {
     type Output = Self;
@@ -961,7 +934,6 @@ impl ::std::convert::From<i32> for DWRITE_FONT_SOURCE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_FONT_SOURCE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -985,7 +957,6 @@ impl ::std::convert::From<i32> for DWRITE_FONT_STRETCH {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_FONT_STRETCH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1001,7 +972,6 @@ impl ::std::convert::From<i32> for DWRITE_FONT_STYLE {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_FONT_STYLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1031,7 +1001,6 @@ impl ::std::convert::From<i32> for DWRITE_FONT_WEIGHT {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_FONT_WEIGHT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1083,7 +1052,6 @@ impl ::std::cmp::Eq for DWRITE_GLYPH_IMAGE_DATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D"))]
 unsafe impl ::windows::runtime::Abi for DWRITE_GLYPH_IMAGE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1105,7 +1073,6 @@ impl ::std::convert::From<u32> for DWRITE_GLYPH_IMAGE_FORMATS {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_GLYPH_IMAGE_FORMATS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DWRITE_GLYPH_IMAGE_FORMATS {
     type Output = Self;
@@ -1174,7 +1141,6 @@ impl ::std::cmp::PartialEq for DWRITE_GLYPH_METRICS {
 impl ::std::cmp::Eq for DWRITE_GLYPH_METRICS {}
 unsafe impl ::windows::runtime::Abi for DWRITE_GLYPH_METRICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1202,7 +1168,6 @@ impl ::std::cmp::PartialEq for DWRITE_GLYPH_OFFSET {
 impl ::std::cmp::Eq for DWRITE_GLYPH_OFFSET {}
 unsafe impl ::windows::runtime::Abi for DWRITE_GLYPH_OFFSET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1219,7 +1184,6 @@ impl ::std::convert::From<i32> for DWRITE_GLYPH_ORIENTATION_ANGLE {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_GLYPH_ORIENTATION_ANGLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1269,7 +1233,6 @@ impl ::std::cmp::Eq for DWRITE_GLYPH_RUN {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DWRITE_GLYPH_RUN {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1307,7 +1270,6 @@ impl ::std::cmp::Eq for DWRITE_GLYPH_RUN_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DWRITE_GLYPH_RUN_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1323,7 +1285,6 @@ impl ::std::convert::From<i32> for DWRITE_GRID_FIT_MODE {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_GRID_FIT_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1375,7 +1336,6 @@ impl ::std::cmp::Eq for DWRITE_HIT_TEST_METRICS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DWRITE_HIT_TEST_METRICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1413,7 +1373,6 @@ impl ::std::convert::From<i32> for DWRITE_INFORMATIONAL_STRING_ID {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_INFORMATIONAL_STRING_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1450,7 +1409,6 @@ impl ::std::cmp::Eq for DWRITE_INLINE_OBJECT_METRICS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DWRITE_INLINE_OBJECT_METRICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1480,7 +1438,6 @@ impl ::std::cmp::PartialEq for DWRITE_JUSTIFICATION_OPPORTUNITY {
 impl ::std::cmp::Eq for DWRITE_JUSTIFICATION_OPPORTUNITY {}
 unsafe impl ::windows::runtime::Abi for DWRITE_JUSTIFICATION_OPPORTUNITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1507,7 +1464,6 @@ impl ::std::cmp::PartialEq for DWRITE_LINE_BREAKPOINT {
 impl ::std::cmp::Eq for DWRITE_LINE_BREAKPOINT {}
 unsafe impl ::windows::runtime::Abi for DWRITE_LINE_BREAKPOINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1546,7 +1502,6 @@ impl ::std::cmp::Eq for DWRITE_LINE_METRICS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DWRITE_LINE_METRICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1582,7 +1537,6 @@ impl ::std::cmp::Eq for DWRITE_LINE_METRICS1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DWRITE_LINE_METRICS1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1613,7 +1567,6 @@ impl ::std::cmp::PartialEq for DWRITE_LINE_SPACING {
 impl ::std::cmp::Eq for DWRITE_LINE_SPACING {}
 unsafe impl ::windows::runtime::Abi for DWRITE_LINE_SPACING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1629,7 +1582,6 @@ impl ::std::convert::From<i32> for DWRITE_LINE_SPACING_METHOD {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_LINE_SPACING_METHOD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1645,7 +1597,6 @@ impl ::std::convert::From<i32> for DWRITE_LOCALITY {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_LOCALITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1677,7 +1628,6 @@ impl ::std::cmp::PartialEq for DWRITE_MATRIX {
 impl ::std::cmp::Eq for DWRITE_MATRIX {}
 unsafe impl ::windows::runtime::Abi for DWRITE_MATRIX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1693,7 +1643,6 @@ impl ::std::convert::From<i32> for DWRITE_MEASURING_MODE {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_MEASURING_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1711,7 +1660,6 @@ impl ::std::convert::From<i32> for DWRITE_NUMBER_SUBSTITUTION_METHOD {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_NUMBER_SUBSTITUTION_METHOD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1726,7 +1674,6 @@ impl ::std::convert::From<i32> for DWRITE_OPTICAL_ALIGNMENT {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_OPTICAL_ALIGNMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1741,7 +1688,6 @@ impl ::std::convert::From<i32> for DWRITE_OUTLINE_THRESHOLD {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_OUTLINE_THRESHOLD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1771,7 +1717,6 @@ impl ::std::cmp::PartialEq for DWRITE_OVERHANG_METRICS {
 impl ::std::cmp::Eq for DWRITE_OVERHANG_METRICS {}
 unsafe impl ::windows::runtime::Abi for DWRITE_OVERHANG_METRICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1798,7 +1743,6 @@ impl ::std::cmp::PartialEq for DWRITE_PANOSE {
 impl ::std::cmp::Eq for DWRITE_PANOSE {}
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1845,7 +1789,6 @@ impl ::std::cmp::PartialEq for DWRITE_PANOSE_0 {
 impl ::std::cmp::Eq for DWRITE_PANOSE_0 {}
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1892,7 +1835,6 @@ impl ::std::cmp::PartialEq for DWRITE_PANOSE_1 {
 impl ::std::cmp::Eq for DWRITE_PANOSE_1 {}
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1939,7 +1881,6 @@ impl ::std::cmp::PartialEq for DWRITE_PANOSE_2 {
 impl ::std::cmp::Eq for DWRITE_PANOSE_2 {}
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1986,7 +1927,6 @@ impl ::std::cmp::PartialEq for DWRITE_PANOSE_3 {
 impl ::std::cmp::Eq for DWRITE_PANOSE_3 {}
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2018,7 +1958,6 @@ impl ::std::convert::From<i32> for DWRITE_PANOSE_ARM_STYLE {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_ARM_STYLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2041,7 +1980,6 @@ impl ::std::convert::From<i32> for DWRITE_PANOSE_ASPECT {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_ASPECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2061,7 +1999,6 @@ impl ::std::convert::From<i32> for DWRITE_PANOSE_ASPECT_RATIO {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_ASPECT_RATIO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2080,7 +2017,6 @@ impl ::std::convert::From<i32> for DWRITE_PANOSE_CHARACTER_RANGES {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_CHARACTER_RANGES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2107,7 +2043,6 @@ impl ::std::convert::From<i32> for DWRITE_PANOSE_CONTRAST {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_CONTRAST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2133,7 +2068,6 @@ impl ::std::convert::From<i32> for DWRITE_PANOSE_DECORATIVE_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_DECORATIVE_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2162,7 +2096,6 @@ impl ::std::convert::From<i32> for DWRITE_PANOSE_DECORATIVE_TOPOLOGY {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_DECORATIVE_TOPOLOGY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2182,7 +2115,6 @@ impl ::std::convert::From<i32> for DWRITE_PANOSE_FAMILY {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_FAMILY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2203,7 +2135,6 @@ impl ::std::convert::From<i32> for DWRITE_PANOSE_FILL {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_FILL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2230,7 +2161,6 @@ impl ::std::convert::From<i32> for DWRITE_PANOSE_FINIALS {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_FINIALS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2259,7 +2189,6 @@ impl ::std::convert::From<i32> for DWRITE_PANOSE_LETTERFORM {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_LETTERFORM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2281,7 +2210,6 @@ impl ::std::convert::From<i32> for DWRITE_PANOSE_LINING {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_LINING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2308,7 +2236,6 @@ impl ::std::convert::From<i32> for DWRITE_PANOSE_MIDLINE {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_MIDLINE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2331,7 +2258,6 @@ impl ::std::convert::From<i32> for DWRITE_PANOSE_PROPORTION {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_PROPORTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2358,7 +2284,6 @@ impl ::std::convert::From<i32> for DWRITE_PANOSE_SCRIPT_FORM {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_SCRIPT_FORM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2382,7 +2307,6 @@ impl ::std::convert::From<i32> for DWRITE_PANOSE_SCRIPT_TOPOLOGY {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_SCRIPT_TOPOLOGY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2414,7 +2338,6 @@ impl ::std::convert::From<i32> for DWRITE_PANOSE_SERIF_STYLE {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_SERIF_STYLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2431,7 +2354,6 @@ impl ::std::convert::From<i32> for DWRITE_PANOSE_SPACING {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_SPACING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2455,7 +2377,6 @@ impl ::std::convert::From<i32> for DWRITE_PANOSE_STROKE_VARIATION {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_STROKE_VARIATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2478,7 +2399,6 @@ impl ::std::convert::From<i32> for DWRITE_PANOSE_SYMBOL_ASPECT_RATIO {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_SYMBOL_ASPECT_RATIO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2504,7 +2424,6 @@ impl ::std::convert::From<i32> for DWRITE_PANOSE_SYMBOL_KIND {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_SYMBOL_KIND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2527,7 +2446,6 @@ impl ::std::convert::From<i32> for DWRITE_PANOSE_TOOL_KIND {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_TOOL_KIND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2553,7 +2471,6 @@ impl ::std::convert::From<i32> for DWRITE_PANOSE_WEIGHT {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_WEIGHT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2573,7 +2490,6 @@ impl ::std::convert::From<i32> for DWRITE_PANOSE_XASCENT {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_XASCENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2596,7 +2512,6 @@ impl ::std::convert::From<i32> for DWRITE_PANOSE_XHEIGHT {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_PANOSE_XHEIGHT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2612,7 +2527,6 @@ impl ::std::convert::From<i32> for DWRITE_PARAGRAPH_ALIGNMENT {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_PARAGRAPH_ALIGNMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2628,7 +2542,6 @@ impl ::std::convert::From<i32> for DWRITE_PIXEL_GEOMETRY {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_PIXEL_GEOMETRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2645,7 +2558,6 @@ impl ::std::convert::From<i32> for DWRITE_READING_DIRECTION {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_READING_DIRECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2669,7 +2581,6 @@ impl ::std::convert::From<i32> for DWRITE_RENDERING_MODE {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_RENDERING_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2690,7 +2601,6 @@ impl ::std::convert::From<i32> for DWRITE_RENDERING_MODE1 {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_RENDERING_MODE1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2718,7 +2628,6 @@ impl ::std::cmp::PartialEq for DWRITE_SCRIPT_ANALYSIS {
 impl ::std::cmp::Eq for DWRITE_SCRIPT_ANALYSIS {}
 unsafe impl ::windows::runtime::Abi for DWRITE_SCRIPT_ANALYSIS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2749,7 +2658,6 @@ impl ::std::cmp::PartialEq for DWRITE_SCRIPT_PROPERTIES {
 impl ::std::cmp::Eq for DWRITE_SCRIPT_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for DWRITE_SCRIPT_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2764,7 +2672,6 @@ impl ::std::convert::From<u32> for DWRITE_SCRIPT_SHAPES {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_SCRIPT_SHAPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DWRITE_SCRIPT_SHAPES {
     type Output = Self;
@@ -2819,7 +2726,6 @@ impl ::std::cmp::PartialEq for DWRITE_SHAPING_GLYPH_PROPERTIES {
 impl ::std::cmp::Eq for DWRITE_SHAPING_GLYPH_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for DWRITE_SHAPING_GLYPH_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2846,7 +2752,6 @@ impl ::std::cmp::PartialEq for DWRITE_SHAPING_TEXT_PROPERTIES {
 impl ::std::cmp::Eq for DWRITE_SHAPING_TEXT_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for DWRITE_SHAPING_TEXT_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2894,7 +2799,6 @@ impl ::std::cmp::Eq for DWRITE_STRIKETHROUGH {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DWRITE_STRIKETHROUGH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2909,7 +2813,6 @@ impl ::std::convert::From<i32> for DWRITE_TEXTURE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_TEXTURE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2926,7 +2829,6 @@ impl ::std::convert::From<i32> for DWRITE_TEXT_ALIGNMENT {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_TEXT_ALIGNMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2941,7 +2843,6 @@ impl ::std::convert::From<i32> for DWRITE_TEXT_ANTIALIAS_MODE {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_TEXT_ANTIALIAS_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2986,7 +2887,6 @@ impl ::std::cmp::PartialEq for DWRITE_TEXT_METRICS {
 impl ::std::cmp::Eq for DWRITE_TEXT_METRICS {}
 unsafe impl ::windows::runtime::Abi for DWRITE_TEXT_METRICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3014,7 +2914,6 @@ impl ::std::cmp::PartialEq for DWRITE_TEXT_METRICS1 {
 impl ::std::cmp::Eq for DWRITE_TEXT_METRICS1 {}
 unsafe impl ::windows::runtime::Abi for DWRITE_TEXT_METRICS1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3042,7 +2941,6 @@ impl ::std::cmp::PartialEq for DWRITE_TEXT_RANGE {
 impl ::std::cmp::Eq for DWRITE_TEXT_RANGE {}
 unsafe impl ::windows::runtime::Abi for DWRITE_TEXT_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3071,7 +2969,6 @@ impl ::std::cmp::PartialEq for DWRITE_TRIMMING {
 impl ::std::cmp::Eq for DWRITE_TRIMMING {}
 unsafe impl ::windows::runtime::Abi for DWRITE_TRIMMING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3087,7 +2984,6 @@ impl ::std::convert::From<i32> for DWRITE_TRIMMING_GRANULARITY {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_TRIMMING_GRANULARITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3115,7 +3011,6 @@ impl ::std::cmp::PartialEq for DWRITE_TYPOGRAPHIC_FEATURES {
 impl ::std::cmp::Eq for DWRITE_TYPOGRAPHIC_FEATURES {}
 unsafe impl ::windows::runtime::Abi for DWRITE_TYPOGRAPHIC_FEATURES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3165,7 +3060,6 @@ impl ::std::cmp::Eq for DWRITE_UNDERLINE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DWRITE_UNDERLINE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3193,7 +3087,6 @@ impl ::std::cmp::PartialEq for DWRITE_UNICODE_RANGE {
 impl ::std::cmp::Eq for DWRITE_UNICODE_RANGE {}
 unsafe impl ::windows::runtime::Abi for DWRITE_UNICODE_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3208,7 +3101,6 @@ impl ::std::convert::From<i32> for DWRITE_VERTICAL_GLYPH_ORIENTATION {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_VERTICAL_GLYPH_ORIENTATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3226,7 +3118,6 @@ impl ::std::convert::From<i32> for DWRITE_WORD_WRAPPING {
 }
 unsafe impl ::windows::runtime::Abi for DWRITE_WORD_WRAPPING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectWrite`*"]
 #[inline]

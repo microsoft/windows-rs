@@ -209,7 +209,6 @@ impl ::std::cmp::Eq for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -244,7 +243,6 @@ impl ::std::cmp::Eq for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -280,7 +278,6 @@ impl ::std::cmp::Eq for AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BASIC_CONSTRAINTS_CERT_CHAIN_POLICY_CA_FLAG: u32 = 2147483648u32;
@@ -348,7 +345,6 @@ impl ::std::cmp::Eq for BCRYPT_ALGORITHM_IDENTIFIER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BCRYPT_ALGORITHM_IDENTIFIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -361,7 +357,6 @@ impl ::std::default::Default for BCRYPT_ALG_HANDLE {
 unsafe impl ::windows::runtime::Handle for BCRYPT_ALG_HANDLE {}
 unsafe impl ::windows::runtime::Abi for BCRYPT_ALG_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -414,7 +409,6 @@ impl ::std::cmp::PartialEq for BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
 impl ::std::cmp::Eq for BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {}
 unsafe impl ::windows::runtime::Abi for BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO_VERSION: u32 = 1u32;
@@ -472,7 +466,6 @@ impl ::std::cmp::PartialEq for BCRYPT_DH_KEY_BLOB {
 impl ::std::cmp::Eq for BCRYPT_DH_KEY_BLOB {}
 unsafe impl ::windows::runtime::Abi for BCRYPT_DH_KEY_BLOB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -487,7 +480,6 @@ impl ::std::convert::From<u32> for BCRYPT_DH_KEY_BLOB_MAGIC {
 }
 unsafe impl ::windows::runtime::Abi for BCRYPT_DH_KEY_BLOB_MAGIC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for BCRYPT_DH_KEY_BLOB_MAGIC {
     type Output = Self;
@@ -546,7 +538,6 @@ impl ::std::cmp::PartialEq for BCRYPT_DH_PARAMETER_HEADER {
 impl ::std::cmp::Eq for BCRYPT_DH_PARAMETER_HEADER {}
 unsafe impl ::windows::runtime::Abi for BCRYPT_DH_PARAMETER_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_DSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(721u32 as _);
@@ -579,7 +570,6 @@ impl ::std::cmp::PartialEq for BCRYPT_DSA_KEY_BLOB {
 impl ::std::cmp::Eq for BCRYPT_DSA_KEY_BLOB {}
 unsafe impl ::windows::runtime::Abi for BCRYPT_DSA_KEY_BLOB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -620,7 +610,6 @@ impl ::std::cmp::PartialEq for BCRYPT_DSA_KEY_BLOB_V2 {
 impl ::std::cmp::Eq for BCRYPT_DSA_KEY_BLOB_V2 {}
 unsafe impl ::windows::runtime::Abi for BCRYPT_DSA_KEY_BLOB_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -635,7 +624,6 @@ impl ::std::convert::From<u32> for BCRYPT_DSA_MAGIC {
 }
 unsafe impl ::windows::runtime::Abi for BCRYPT_DSA_MAGIC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for BCRYPT_DSA_MAGIC {
     type Output = Self;
@@ -699,7 +687,6 @@ impl ::std::cmp::PartialEq for BCRYPT_DSA_PARAMETER_HEADER {
 impl ::std::cmp::Eq for BCRYPT_DSA_PARAMETER_HEADER {}
 unsafe impl ::windows::runtime::Abi for BCRYPT_DSA_PARAMETER_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -742,7 +729,6 @@ impl ::std::cmp::PartialEq for BCRYPT_DSA_PARAMETER_HEADER_V2 {
 impl ::std::cmp::Eq for BCRYPT_DSA_PARAMETER_HEADER_V2 {}
 unsafe impl ::windows::runtime::Abi for BCRYPT_DSA_PARAMETER_HEADER_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_DSA_PRIVATE_MAGIC_V2: u32 = 844517444u32;
@@ -789,7 +775,6 @@ impl ::std::cmp::PartialEq for BCRYPT_ECCFULLKEY_BLOB {
 impl ::std::cmp::Eq for BCRYPT_ECCFULLKEY_BLOB {}
 unsafe impl ::windows::runtime::Abi for BCRYPT_ECCFULLKEY_BLOB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -817,7 +802,6 @@ impl ::std::cmp::PartialEq for BCRYPT_ECCKEY_BLOB {
 impl ::std::cmp::Eq for BCRYPT_ECCKEY_BLOB {}
 unsafe impl ::windows::runtime::Abi for BCRYPT_ECCKEY_BLOB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -852,7 +836,6 @@ impl ::std::cmp::Eq for BCRYPT_ECC_CURVE_NAMES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BCRYPT_ECC_CURVE_NAMES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_ECC_FULLKEY_BLOB_V1: u32 = 1u32;
@@ -927,7 +910,6 @@ impl ::std::convert::From<i32> for BCRYPT_HASH_OPERATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for BCRYPT_HASH_OPERATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_HKDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(913u32 as _);
@@ -965,7 +947,6 @@ impl ::std::convert::From<u32> for BCRYPT_INTERFACE {
 }
 unsafe impl ::windows::runtime::Abi for BCRYPT_INTERFACE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for BCRYPT_INTERFACE {
     type Output = Self;
@@ -1021,7 +1002,6 @@ impl ::std::cmp::PartialEq for BCRYPT_INTERFACE_VERSION {
 impl ::std::cmp::Eq for BCRYPT_INTERFACE_VERSION {}
 unsafe impl ::windows::runtime::Abi for BCRYPT_INTERFACE_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1048,7 +1028,6 @@ impl ::std::cmp::PartialEq for BCRYPT_KEY_BLOB {
 impl ::std::cmp::Eq for BCRYPT_KEY_BLOB {}
 unsafe impl ::windows::runtime::Abi for BCRYPT_KEY_BLOB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1077,7 +1056,6 @@ impl ::std::cmp::PartialEq for BCRYPT_KEY_DATA_BLOB_HEADER {
 impl ::std::cmp::Eq for BCRYPT_KEY_DATA_BLOB_HEADER {}
 unsafe impl ::windows::runtime::Abi for BCRYPT_KEY_DATA_BLOB_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_KEY_DATA_BLOB_MAGIC: u32 = 1296188491u32;
@@ -1098,7 +1076,6 @@ impl ::std::default::Default for BCRYPT_KEY_HANDLE {
 unsafe impl ::windows::runtime::Handle for BCRYPT_KEY_HANDLE {}
 unsafe impl ::windows::runtime::Abi for BCRYPT_KEY_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1127,7 +1104,6 @@ impl ::std::cmp::PartialEq for BCRYPT_KEY_LENGTHS_STRUCT {
 impl ::std::cmp::Eq for BCRYPT_KEY_LENGTHS_STRUCT {}
 unsafe impl ::windows::runtime::Abi for BCRYPT_KEY_LENGTHS_STRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_KEY_VALIDATION_RANGE: u32 = 16u32;
@@ -1171,7 +1147,6 @@ impl ::std::cmp::PartialEq for BCRYPT_MULTI_HASH_OPERATION {
 impl ::std::cmp::Eq for BCRYPT_MULTI_HASH_OPERATION {}
 unsafe impl ::windows::runtime::Abi for BCRYPT_MULTI_HASH_OPERATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1199,7 +1174,6 @@ impl ::std::cmp::PartialEq for BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
 impl ::std::cmp::Eq for BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {}
 unsafe impl ::windows::runtime::Abi for BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1213,7 +1187,6 @@ impl ::std::convert::From<i32> for BCRYPT_MULTI_OPERATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for BCRYPT_MULTI_OPERATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_NO_KEY_VALIDATION: u32 = 8u32;
@@ -1251,7 +1224,6 @@ impl ::std::cmp::Eq for BCRYPT_OAEP_PADDING_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BCRYPT_OAEP_PADDING_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_OBJECT_ALIGNMENT: u32 = 16u32;
@@ -1281,7 +1253,6 @@ impl ::std::cmp::PartialEq for BCRYPT_OID {
 impl ::std::cmp::Eq for BCRYPT_OID {}
 unsafe impl ::windows::runtime::Abi for BCRYPT_OID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1309,7 +1280,6 @@ impl ::std::cmp::PartialEq for BCRYPT_OID_LIST {
 impl ::std::cmp::Eq for BCRYPT_OID_LIST {}
 unsafe impl ::windows::runtime::Abi for BCRYPT_OID_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1325,7 +1295,6 @@ impl ::std::convert::From<u32> for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
     type Output = Self;
@@ -1372,7 +1341,6 @@ impl ::std::convert::From<u32> for BCRYPT_OPERATION {
 }
 unsafe impl ::windows::runtime::Abi for BCRYPT_OPERATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for BCRYPT_OPERATION {
     type Output = Self;
@@ -1438,7 +1406,6 @@ impl ::std::cmp::Eq for BCRYPT_PKCS1_PADDING_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BCRYPT_PKCS1_PADDING_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_PRIVATE_KEY_FLAG: u32 = 2u32;
@@ -1474,7 +1441,6 @@ impl ::std::cmp::Eq for BCRYPT_PROVIDER_NAME {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BCRYPT_PROVIDER_NAME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1509,7 +1475,6 @@ impl ::std::cmp::Eq for BCRYPT_PSS_PADDING_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BCRYPT_PSS_PADDING_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const BCRYPT_PUBLIC_KEY_FLAG: u32 = 1u32;
@@ -1528,7 +1493,6 @@ impl ::std::convert::From<u32> for BCRYPT_QUERY_PROVIDER_MODE {
 }
 unsafe impl ::windows::runtime::Abi for BCRYPT_QUERY_PROVIDER_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for BCRYPT_QUERY_PROVIDER_MODE {
     type Output = Self;
@@ -1579,7 +1543,6 @@ impl ::std::convert::From<u32> for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
     type Output = Self;
@@ -1643,7 +1606,6 @@ impl ::std::cmp::PartialEq for BCRYPT_RSAKEY_BLOB {
 impl ::std::cmp::Eq for BCRYPT_RSAKEY_BLOB {}
 unsafe impl ::windows::runtime::Abi for BCRYPT_RSAKEY_BLOB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1659,7 +1621,6 @@ impl ::std::convert::From<u32> for BCRYPT_RSAKEY_BLOB_MAGIC {
 }
 unsafe impl ::windows::runtime::Abi for BCRYPT_RSAKEY_BLOB_MAGIC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for BCRYPT_RSAKEY_BLOB_MAGIC {
     type Output = Self;
@@ -1728,7 +1689,6 @@ impl ::std::convert::From<u32> for BCRYPT_TABLE {
 }
 unsafe impl ::windows::runtime::Abi for BCRYPT_TABLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for BCRYPT_TABLE {
     type Output = Self;
@@ -1810,7 +1770,6 @@ impl ::std::cmp::PartialEq for BCryptBuffer {
 impl ::std::cmp::Eq for BCryptBuffer {}
 unsafe impl ::windows::runtime::Abi for BCryptBuffer {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1839,7 +1798,6 @@ impl ::std::cmp::PartialEq for BCryptBufferDesc {
 impl ::std::cmp::Eq for BCryptBufferDesc {}
 unsafe impl ::windows::runtime::Abi for BCryptBufferDesc {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
@@ -2686,7 +2644,6 @@ impl ::std::convert::From<i32> for CASetupProperty {
 }
 unsafe impl ::windows::runtime::Abi for CASetupProperty {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const CCertSrvSetup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518620175, 62812, 16701, [169, 179, 125, 42, 244, 216, 228, 47]);
 pub const CCertSrvSetupKeyInformation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(943143174, 21555, 17971, [176, 251, 41, 183, 231, 130, 98, 225]);
@@ -2707,7 +2664,6 @@ impl ::std::convert::From<i32> for CEPSetupProperty {
 }
 unsafe impl ::windows::runtime::Abi for CEPSetupProperty {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2735,7 +2691,6 @@ impl ::std::cmp::PartialEq for CERTIFICATE_CHAIN_BLOB {
 impl ::std::cmp::Eq for CERTIFICATE_CHAIN_BLOB {}
 unsafe impl ::windows::runtime::Abi for CERTIFICATE_CHAIN_BLOB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERTVIEW_CRYPTUI_LPARAM: u32 = 8388608u32;
@@ -2766,7 +2721,6 @@ impl ::std::cmp::Eq for CERT_ACCESS_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_ACCESS_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ACCESS_STATE_GP_SYSTEM_STORE_FLAG: u32 = 8u32;
@@ -2811,7 +2765,6 @@ impl ::std::cmp::Eq for CERT_ALT_NAME_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_ALT_NAME_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2845,7 +2798,6 @@ impl ::std::cmp::Eq for CERT_ALT_NAME_ENTRY_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_ALT_NAME_ENTRY_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ALT_NAME_ENTRY_ERR_INDEX_MASK: u32 = 255u32;
@@ -2884,7 +2836,6 @@ impl ::std::cmp::Eq for CERT_ALT_NAME_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_ALT_NAME_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ALT_NAME_VALUE_ERR_INDEX_MASK: u32 = 65535u32;
@@ -2929,7 +2880,6 @@ impl ::std::cmp::Eq for CERT_AUTHORITY_INFO_ACCESS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_AUTHORITY_INFO_ACCESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_AUTHORITY_INFO_ACCESS_PROP_ID: u32 = 68u32;
@@ -2967,7 +2917,6 @@ impl ::std::cmp::Eq for CERT_AUTHORITY_KEY_ID2_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_AUTHORITY_KEY_ID2_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2996,7 +2945,6 @@ impl ::std::cmp::PartialEq for CERT_AUTHORITY_KEY_ID_INFO {
 impl ::std::cmp::Eq for CERT_AUTHORITY_KEY_ID_INFO {}
 unsafe impl ::windows::runtime::Abi for CERT_AUTHORITY_KEY_ID_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_AUTH_ROOT_AUTO_UPDATE_DISABLE_PARTIAL_CHAIN_LOGGING_FLAG: u32 = 2u32;
@@ -3046,7 +2994,6 @@ impl ::std::cmp::Eq for CERT_BASIC_CONSTRAINTS2_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_BASIC_CONSTRAINTS2_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3090,7 +3037,6 @@ impl ::std::cmp::Eq for CERT_BASIC_CONSTRAINTS_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_BASIC_CONSTRAINTS_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3120,7 +3066,6 @@ impl ::std::cmp::Eq for CERT_BIOMETRIC_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_BIOMETRIC_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3149,7 +3094,6 @@ impl ::std::cmp::Eq for CERT_BIOMETRIC_DATA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_BIOMETRIC_DATA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3164,7 +3108,6 @@ impl ::std::convert::From<u32> for CERT_BIOMETRIC_DATA_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CERT_BIOMETRIC_DATA_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_BIOMETRIC_DATA_TYPE {
     type Output = Self;
@@ -3227,7 +3170,6 @@ impl ::std::cmp::Eq for CERT_BIOMETRIC_EXT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_BIOMETRIC_EXT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_BIOMETRIC_PICTURE_TYPE: u32 = 0u32;
@@ -3281,7 +3223,6 @@ impl ::std::cmp::Eq for CERT_CHAIN {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_CHAIN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_AUTO_CURRENT_USER: u32 = 1u32;
@@ -3372,7 +3313,6 @@ impl ::std::cmp::Eq for CERT_CHAIN_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_CHAIN_CONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_CRL_VALIDITY_EXT_PERIOD_HOURS_DEFAULT: u32 = 12u32;
@@ -3456,7 +3396,6 @@ impl ::std::cmp::Eq for CERT_CHAIN_ELEMENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_CHAIN_ELEMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_ENABLE_ALL_EKU_HYGIENE_FLAG: u32 = 131072u32;
@@ -3549,7 +3488,6 @@ impl ::std::cmp::PartialEq for CERT_CHAIN_ENGINE_CONFIG {
 impl ::std::cmp::Eq for CERT_CHAIN_ENGINE_CONFIG {}
 unsafe impl ::windows::runtime::Abi for CERT_CHAIN_ENGINE_CONFIG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_EXCLUSIVE_ENABLE_CA_FLAG: u32 = 1u32;
@@ -3602,7 +3540,6 @@ impl ::std::cmp::Eq for CERT_CHAIN_FIND_BY_ISSUER_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_CHAIN_FIND_BY_ISSUER_PARA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_HAS_MOTW: u32 = 16384u32;
@@ -3669,7 +3606,6 @@ impl ::std::cmp::Eq for CERT_CHAIN_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_CHAIN_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3700,7 +3636,6 @@ impl ::std::convert::From<u32> for CERT_CHAIN_POLICY_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CERT_CHAIN_POLICY_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_CHAIN_POLICY_FLAGS {
     type Output = Self;
@@ -3759,7 +3694,6 @@ impl ::std::cmp::PartialEq for CERT_CHAIN_POLICY_PARA {
 impl ::std::cmp::Eq for CERT_CHAIN_POLICY_PARA {}
 unsafe impl ::windows::runtime::Abi for CERT_CHAIN_POLICY_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_POLICY_SSL_F12_ERROR_LEVEL: u32 = 2u32;
@@ -3812,7 +3746,6 @@ impl ::std::cmp::PartialEq for CERT_CHAIN_POLICY_STATUS {
 impl ::std::cmp::Eq for CERT_CHAIN_POLICY_STATUS {}
 unsafe impl ::windows::runtime::Abi for CERT_CHAIN_POLICY_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CHAIN_RETURN_LOWER_QUALITY_CONTEXTS: u32 = 128u32;
@@ -3930,7 +3863,6 @@ impl ::std::cmp::Eq for CERT_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_CONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CONTEXT_REVOCATION_TYPE: u32 = 1u32;
@@ -3948,7 +3880,6 @@ impl ::std::convert::From<u32> for CERT_CONTROL_STORE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CERT_CONTROL_STORE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_CONTROL_STORE_FLAGS {
     type Output = Self;
@@ -4020,7 +3951,6 @@ impl ::std::cmp::Eq for CERT_CREATE_CONTEXT_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_CREATE_CONTEXT_PARA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CREATE_CONTEXT_SORTED_FLAG: u32 = 2u32;
@@ -4037,7 +3967,6 @@ impl ::std::convert::From<u32> for CERT_CREATE_SELFSIGN_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CERT_CREATE_SELFSIGN_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_CREATE_SELFSIGN_FLAGS {
     type Output = Self;
@@ -4102,7 +4031,6 @@ impl ::std::cmp::Eq for CERT_CRL_CONTEXT_PAIR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_CRL_CONTEXT_PAIR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_CRL_SIGN_KEY_USAGE: u32 = 2u32;
@@ -4144,7 +4072,6 @@ impl ::std::cmp::PartialEq for CERT_DH_PARAMETERS {
 impl ::std::cmp::Eq for CERT_DH_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for CERT_DH_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_DIGITAL_SIGNATURE_KEY_USAGE: u32 = 128u32;
@@ -4197,7 +4124,6 @@ impl ::std::cmp::PartialEq for CERT_DSS_PARAMETERS {
 impl ::std::cmp::Eq for CERT_DSS_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for CERT_DSS_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_DSS_R_LEN: u32 = 20u32;
@@ -4229,7 +4155,6 @@ impl ::std::cmp::PartialEq for CERT_ECC_SIGNATURE {
 impl ::std::cmp::Eq for CERT_ECC_SIGNATURE {}
 unsafe impl ::windows::runtime::Abi for CERT_ECC_SIGNATURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_EFS_PROP_ID: u32 = 17u32;
@@ -4281,7 +4206,6 @@ impl ::std::cmp::Eq for CERT_EXTENSION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_EXTENSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4316,7 +4240,6 @@ impl ::std::cmp::Eq for CERT_EXTENSIONS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_EXTENSIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_FILE_HASH_USE_TYPE: u32 = 1u32;
@@ -4357,7 +4280,6 @@ impl ::std::convert::From<u32> for CERT_FIND_CHAIN_IN_STORE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CERT_FIND_CHAIN_IN_STORE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_FIND_CHAIN_IN_STORE_FLAGS {
     type Output = Self;
@@ -4440,7 +4362,6 @@ impl ::std::convert::From<u32> for CERT_FIND_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CERT_FIND_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_FIND_FLAGS {
     type Output = Self;
@@ -4488,7 +4409,6 @@ impl ::std::convert::From<u32> for CERT_FIND_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CERT_FIND_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_FIND_TYPE {
     type Output = Self;
@@ -4549,7 +4469,6 @@ impl ::std::cmp::PartialEq for CERT_FORTEZZA_DATA_PROP {
 impl ::std::cmp::Eq for CERT_FORTEZZA_DATA_PROP {}
 unsafe impl ::windows::runtime::Abi for CERT_FORTEZZA_DATA_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_FORTEZZA_DATA_PROP_ID: u32 = 18u32;
@@ -4584,7 +4503,6 @@ impl ::std::cmp::Eq for CERT_GENERAL_SUBTREE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_GENERAL_SUBTREE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4620,7 +4538,6 @@ impl ::std::cmp::Eq for CERT_HASHED_URL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_HASHED_URL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_HASH_PROP_ID: u32 = 3u32;
@@ -4649,7 +4566,6 @@ impl ::std::cmp::PartialEq for CERT_ID {
 impl ::std::cmp::Eq for CERT_ID {}
 unsafe impl ::windows::runtime::Abi for CERT_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4673,7 +4589,6 @@ impl ::std::cmp::PartialEq for CERT_ID_0 {
 impl ::std::cmp::Eq for CERT_ID_0 {}
 unsafe impl ::windows::runtime::Abi for CERT_ID_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4689,7 +4604,6 @@ impl ::std::convert::From<u32> for CERT_ID_OPTION {
 }
 unsafe impl ::windows::runtime::Abi for CERT_ID_OPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_ID_OPTION {
     type Output = Self;
@@ -4788,7 +4702,6 @@ impl ::std::cmp::Eq for CERT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_INFO_EXTENSION_FLAG: u32 = 11u32;
@@ -4848,7 +4761,6 @@ impl ::std::cmp::PartialEq for CERT_ISSUER_SERIAL_NUMBER {
 impl ::std::cmp::Eq for CERT_ISSUER_SERIAL_NUMBER {}
 unsafe impl ::windows::runtime::Abi for CERT_ISSUER_SERIAL_NUMBER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_ISSUER_SERIAL_NUMBER_MD5_HASH_PROP_ID: u32 = 28u32;
@@ -4886,7 +4798,6 @@ impl ::std::cmp::Eq for CERT_KEYGEN_REQUEST_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_KEYGEN_REQUEST_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_KEYGEN_REQUEST_V1: u32 = 0u32;
@@ -4926,7 +4837,6 @@ impl ::std::cmp::Eq for CERT_KEY_ATTRIBUTES_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_KEY_ATTRIBUTES_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_KEY_CERT_SIGN_KEY_USAGE: u32 = 4u32;
@@ -4954,7 +4864,6 @@ impl ::std::cmp::PartialEq for CERT_KEY_CONTEXT {
 impl ::std::cmp::Eq for CERT_KEY_CONTEXT {}
 unsafe impl ::windows::runtime::Abi for CERT_KEY_CONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4977,7 +4886,6 @@ impl ::std::cmp::PartialEq for CERT_KEY_CONTEXT_0 {
 impl ::std::cmp::Eq for CERT_KEY_CONTEXT_0 {}
 unsafe impl ::windows::runtime::Abi for CERT_KEY_CONTEXT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_KEY_CONTEXT_PROP_ID: u32 = 5u32;
@@ -5005,7 +4913,6 @@ impl ::std::convert::From<u32> for CERT_KEY_SPEC {
 }
 unsafe impl ::windows::runtime::Abi for CERT_KEY_SPEC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_KEY_SPEC {
     type Output = Self;
@@ -5071,7 +4978,6 @@ impl ::std::cmp::Eq for CERT_KEY_USAGE_RESTRICTION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_KEY_USAGE_RESTRICTION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_LAST_RESERVED_PROP_ID: u32 = 32767u32;
@@ -5114,7 +5020,6 @@ impl ::std::cmp::Eq for CERT_LDAP_STORE_OPENED_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_LDAP_STORE_OPENED_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_LDAP_STORE_SIGN_FLAG: u32 = 65536u32;
@@ -5153,7 +5058,6 @@ impl ::std::cmp::Eq for CERT_LOGOTYPE_AUDIO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_AUDIO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5191,7 +5095,6 @@ impl ::std::cmp::Eq for CERT_LOGOTYPE_AUDIO_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_AUDIO_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5207,7 +5110,6 @@ impl ::std::convert::From<u32> for CERT_LOGOTYPE_CHOICE {
 }
 unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_CHOICE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_LOGOTYPE_CHOICE {
     type Output = Self;
@@ -5272,7 +5174,6 @@ impl ::std::cmp::Eq for CERT_LOGOTYPE_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5308,7 +5209,6 @@ impl ::std::cmp::Eq for CERT_LOGOTYPE_DETAILS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_DETAILS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5354,7 +5254,6 @@ impl ::std::cmp::Eq for CERT_LOGOTYPE_EXT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_EXT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5389,7 +5288,6 @@ impl ::std::cmp::Eq for CERT_LOGOTYPE_IMAGE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_IMAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5423,7 +5321,6 @@ impl ::std::cmp::Eq for CERT_LOGOTYPE_IMAGE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_IMAGE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5446,7 +5343,6 @@ impl ::std::cmp::PartialEq for CERT_LOGOTYPE_IMAGE_INFO_0 {
 impl ::std::cmp::Eq for CERT_LOGOTYPE_IMAGE_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_IMAGE_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5461,7 +5357,6 @@ impl ::std::convert::From<u32> for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
     type Output = Self;
@@ -5518,7 +5413,6 @@ impl ::std::cmp::Eq for CERT_LOGOTYPE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5547,7 +5441,6 @@ impl ::std::cmp::Eq for CERT_LOGOTYPE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5562,7 +5455,6 @@ impl ::std::convert::From<u32> for CERT_LOGOTYPE_OPTION {
 }
 unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_OPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_LOGOTYPE_OPTION {
     type Output = Self;
@@ -5625,7 +5517,6 @@ impl ::std::cmp::Eq for CERT_LOGOTYPE_REFERENCE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_REFERENCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_MD5_HASH_PROP_ID: u32 = 4u32;
@@ -5666,7 +5557,6 @@ impl ::std::cmp::Eq for CERT_NAME_CONSTRAINTS_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_NAME_CONSTRAINTS_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NAME_DISABLE_IE4_UTF8_FLAG: u32 = 65536u32;
@@ -5709,7 +5599,6 @@ impl ::std::cmp::Eq for CERT_NAME_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_NAME_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NAME_ISSUER_FLAG: u32 = 1u32;
@@ -5775,7 +5664,6 @@ impl ::std::cmp::PartialEq for CERT_NAME_VALUE {
 impl ::std::cmp::Eq for CERT_NAME_VALUE {}
 unsafe impl ::windows::runtime::Abi for CERT_NAME_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_NCRYPT_KEY_HANDLE_PROP_ID: u32 = 78u32;
@@ -5828,7 +5716,6 @@ impl ::std::convert::From<u32> for CERT_OPEN_STORE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CERT_OPEN_STORE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_OPEN_STORE_FLAGS {
     type Output = Self;
@@ -5885,7 +5772,6 @@ impl ::std::cmp::PartialEq for CERT_OR_CRL_BLOB {
 impl ::std::cmp::Eq for CERT_OR_CRL_BLOB {}
 unsafe impl ::windows::runtime::Abi for CERT_OR_CRL_BLOB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5913,7 +5799,6 @@ impl ::std::cmp::PartialEq for CERT_OR_CRL_BUNDLE {
 impl ::std::cmp::Eq for CERT_OR_CRL_BUNDLE {}
 unsafe impl ::windows::runtime::Abi for CERT_OR_CRL_BUNDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5942,7 +5827,6 @@ impl ::std::cmp::Eq for CERT_OTHER_LOGOTYPE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_OTHER_LOGOTYPE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5977,7 +5861,6 @@ impl ::std::cmp::Eq for CERT_OTHER_NAME {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_OTHER_NAME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6005,7 +5888,6 @@ impl ::std::cmp::PartialEq for CERT_PAIR {
 impl ::std::cmp::Eq for CERT_PAIR {}
 unsafe impl ::windows::runtime::Abi for CERT_PAIR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_PHYSICAL_STORE_ADD_ENABLE_FLAG: u32 = 1u32;
@@ -6055,7 +5937,6 @@ impl ::std::cmp::Eq for CERT_PHYSICAL_STORE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_PHYSICAL_STORE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_PHYSICAL_STORE_INSERT_COMPUTER_NAME_ENABLE_FLAG: u32 = 8u32;
@@ -6100,7 +5981,6 @@ impl ::std::cmp::Eq for CERT_POLICIES_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_POLICIES_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6144,7 +6024,6 @@ impl ::std::cmp::Eq for CERT_POLICY95_QUALIFIER1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_POLICY95_QUALIFIER1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6186,7 +6065,6 @@ impl ::std::cmp::Eq for CERT_POLICY_CONSTRAINTS_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_POLICY_CONSTRAINTS_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6221,7 +6099,6 @@ impl ::std::cmp::Eq for CERT_POLICY_ID {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_POLICY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6257,7 +6134,6 @@ impl ::std::cmp::Eq for CERT_POLICY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_POLICY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6292,7 +6168,6 @@ impl ::std::cmp::Eq for CERT_POLICY_MAPPING {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_POLICY_MAPPING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6327,7 +6202,6 @@ impl ::std::cmp::Eq for CERT_POLICY_MAPPINGS_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_POLICY_MAPPINGS_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6362,7 +6236,6 @@ impl ::std::cmp::Eq for CERT_POLICY_QUALIFIER_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_POLICY_QUALIFIER_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6398,7 +6271,6 @@ impl ::std::cmp::Eq for CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6433,7 +6305,6 @@ impl ::std::cmp::Eq for CERT_POLICY_QUALIFIER_USER_NOTICE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_POLICY_QUALIFIER_USER_NOTICE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6468,7 +6339,6 @@ impl ::std::cmp::Eq for CERT_PRIVATE_KEY_VALIDITY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_PRIVATE_KEY_VALIDITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_PROT_ROOT_DISABLE_CURRENT_USER_FLAG: u32 = 1u32;
@@ -6523,7 +6393,6 @@ impl ::std::cmp::Eq for CERT_PUBLIC_KEY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_PUBLIC_KEY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_PUB_KEY_CNG_ALG_BIT_LENGTH_PROP_ID: u32 = 93u32;
@@ -6562,7 +6431,6 @@ impl ::std::cmp::Eq for CERT_QC_STATEMENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_QC_STATEMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6597,7 +6465,6 @@ impl ::std::cmp::Eq for CERT_QC_STATEMENTS_EXT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_QC_STATEMENTS_EXT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6624,7 +6491,6 @@ impl ::std::convert::From<u32> for CERT_QUERY_CONTENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CERT_QUERY_CONTENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_QUERY_CONTENT_TYPE {
     type Output = Self;
@@ -6681,7 +6547,6 @@ impl ::std::convert::From<u32> for CERT_QUERY_CONTENT_TYPE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CERT_QUERY_CONTENT_TYPE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_QUERY_CONTENT_TYPE_FLAGS {
     type Output = Self;
@@ -6724,7 +6589,6 @@ impl ::std::convert::From<u32> for CERT_QUERY_ENCODING_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CERT_QUERY_ENCODING_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_QUERY_ENCODING_TYPE {
     type Output = Self;
@@ -6768,7 +6632,6 @@ impl ::std::convert::From<u32> for CERT_QUERY_FORMAT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CERT_QUERY_FORMAT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_QUERY_FORMAT_TYPE {
     type Output = Self;
@@ -6813,7 +6676,6 @@ impl ::std::convert::From<u32> for CERT_QUERY_FORMAT_TYPE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CERT_QUERY_FORMAT_TYPE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_QUERY_FORMAT_TYPE_FLAGS {
     type Output = Self;
@@ -6856,7 +6718,6 @@ impl ::std::convert::From<u32> for CERT_QUERY_OBJECT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CERT_QUERY_OBJECT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_QUERY_OBJECT_TYPE {
     type Output = Self;
@@ -6919,7 +6780,6 @@ impl ::std::cmp::Eq for CERT_RDN {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_RDN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6955,7 +6815,6 @@ impl ::std::cmp::Eq for CERT_RDN_ATTR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_RDN_ATTR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6986,7 +6845,6 @@ impl ::std::convert::From<u32> for CERT_RDN_ATTR_VALUE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CERT_RDN_ATTR_VALUE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_RDN_ATTR_VALUE_TYPE {
     type Output = Self;
@@ -7067,7 +6925,6 @@ impl ::std::cmp::Eq for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::runtime::Abi for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_REGISTRY_STORE_EXTERNAL_FLAG: u32 = 1048576u32;
@@ -7112,7 +6969,6 @@ impl ::std::cmp::Eq for CERT_REGISTRY_STORE_ROAMING_PARA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::runtime::Abi for CERT_REGISTRY_STORE_ROAMING_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_REGISTRY_STORE_SERIALIZED_FLAG: u32 = 131072u32;
@@ -7154,7 +7010,6 @@ impl ::std::cmp::Eq for CERT_REQUEST_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_REQUEST_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_REQUEST_ORIGINATOR_PROP_ID: u32 = 71u32;
@@ -7208,7 +7063,6 @@ impl ::std::cmp::Eq for CERT_REVOCATION_CHAIN_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_REVOCATION_CHAIN_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7246,7 +7100,6 @@ impl ::std::cmp::Eq for CERT_REVOCATION_CRL_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_REVOCATION_CRL_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7294,7 +7147,6 @@ impl ::std::cmp::Eq for CERT_REVOCATION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_REVOCATION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7333,7 +7185,6 @@ impl ::std::cmp::Eq for CERT_REVOCATION_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_REVOCATION_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7372,7 +7223,6 @@ impl ::std::cmp::Eq for CERT_REVOCATION_STATUS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_REVOCATION_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7393,7 +7243,6 @@ impl ::std::convert::From<u32> for CERT_REVOCATION_STATUS_REASON {
 }
 unsafe impl ::windows::runtime::Abi for CERT_REVOCATION_STATUS_REASON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_REVOCATION_STATUS_REASON {
     type Output = Self;
@@ -7441,7 +7290,6 @@ impl ::std::convert::From<u32> for CERT_ROOT_PROGRAM_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CERT_ROOT_PROGRAM_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_ROOT_PROGRAM_FLAGS {
     type Output = Self;
@@ -7533,7 +7381,6 @@ impl ::std::cmp::Eq for CERT_SELECTUI_INPUT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_SELECTUI_INPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SELECT_ALLOW_DUPLICATES: u32 = 128u32;
@@ -7581,7 +7428,6 @@ impl ::std::cmp::Eq for CERT_SELECT_CHAIN_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_SELECT_CHAIN_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7610,7 +7456,6 @@ impl ::std::cmp::PartialEq for CERT_SELECT_CRITERIA {
 impl ::std::cmp::Eq for CERT_SELECT_CRITERIA {}
 unsafe impl ::windows::runtime::Abi for CERT_SELECT_CRITERIA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7634,7 +7479,6 @@ impl ::std::convert::From<u32> for CERT_SELECT_CRITERIA_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CERT_SELECT_CRITERIA_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_SELECT_CRITERIA_TYPE {
     type Output = Self;
@@ -7758,7 +7602,6 @@ impl ::std::cmp::Eq for CERT_SELECT_STRUCT_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_SELECT_STRUCT_A {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7777,7 +7620,6 @@ impl ::std::convert::From<u32> for CERT_SELECT_STRUCT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CERT_SELECT_STRUCT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_SELECT_STRUCT_FLAGS {
     type Output = Self;
@@ -7887,7 +7729,6 @@ impl ::std::cmp::Eq for CERT_SELECT_STRUCT_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_SELECT_STRUCT_W {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SELECT_TRUSTED_ROOT: u32 = 2u32;
@@ -7926,7 +7767,6 @@ impl ::std::cmp::PartialEq for CERT_SERVER_OCSP_RESPONSE_CONTEXT {
 impl ::std::cmp::Eq for CERT_SERVER_OCSP_RESPONSE_CONTEXT {}
 unsafe impl ::windows::runtime::Abi for CERT_SERVER_OCSP_RESPONSE_CONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -7965,7 +7805,6 @@ impl ::std::cmp::Eq for CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SERVER_OCSP_RESPONSE_OPEN_PARA_READ_FLAG: u32 = 1u32;
@@ -8015,7 +7854,6 @@ impl ::std::cmp::Eq for CERT_SIGNED_CONTENT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_SIGNED_CONTENT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SIGN_HASH_CNG_ALG_PROP_ID: u32 = 89u32;
@@ -8065,7 +7903,6 @@ impl ::std::cmp::Eq for CERT_SIMPLE_CHAIN {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_SIMPLE_CHAIN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SMART_CARD_DATA_PROP_ID: u32 = 16u32;
@@ -8168,7 +8005,6 @@ impl ::std::cmp::PartialEq for CERT_STORE_PROV_FIND_INFO {
 impl ::std::cmp::Eq for CERT_STORE_PROV_FIND_INFO {}
 unsafe impl ::windows::runtime::Abi for CERT_STORE_PROV_FIND_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8186,7 +8022,6 @@ impl ::std::convert::From<u32> for CERT_STORE_PROV_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CERT_STORE_PROV_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_STORE_PROV_FLAGS {
     type Output = Self;
@@ -8267,7 +8102,6 @@ impl ::std::cmp::PartialEq for CERT_STORE_PROV_INFO {
 impl ::std::cmp::Eq for CERT_STORE_PROV_INFO {}
 unsafe impl ::windows::runtime::Abi for CERT_STORE_PROV_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STORE_PROV_READ_CERT_FUNC: u32 = 1u32;
@@ -8306,7 +8140,6 @@ impl ::std::convert::From<u32> for CERT_STORE_SAVE_AS {
 }
 unsafe impl ::windows::runtime::Abi for CERT_STORE_SAVE_AS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_STORE_SAVE_AS {
     type Output = Self;
@@ -8354,7 +8187,6 @@ impl ::std::convert::From<u32> for CERT_STORE_SAVE_TO {
 }
 unsafe impl ::windows::runtime::Abi for CERT_STORE_SAVE_TO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_STORE_SAVE_TO {
     type Output = Self;
@@ -8406,7 +8238,6 @@ impl ::std::convert::From<u32> for CERT_STRING_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CERT_STRING_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_STRING_TYPE {
     type Output = Self;
@@ -8449,7 +8280,6 @@ impl ::std::convert::From<u32> for CERT_STRONG_SIGN_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CERT_STRONG_SIGN_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_STRONG_SIGN_FLAGS {
     type Output = Self;
@@ -8509,7 +8339,6 @@ impl ::std::cmp::Eq for CERT_STRONG_SIGN_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_STRONG_SIGN_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8539,7 +8368,6 @@ impl ::std::cmp::Eq for CERT_STRONG_SIGN_PARA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_STRONG_SIGN_PARA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8575,7 +8403,6 @@ impl ::std::cmp::Eq for CERT_STRONG_SIGN_SERIALIZED_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_STRONG_SIGN_SERIALIZED_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_STRONG_SIGN_SERIALIZED_INFO_CHOICE: u32 = 1u32;
@@ -8625,7 +8452,6 @@ impl ::std::cmp::Eq for CERT_SUPPORTED_ALGORITHM_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_SUPPORTED_ALGORITHM_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SYSTEM_STORE_CURRENT_SERVICE_ID: u32 = 4u32;
@@ -8648,7 +8474,6 @@ impl ::std::convert::From<u32> for CERT_SYSTEM_STORE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CERT_SYSTEM_STORE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CERT_SYSTEM_STORE_FLAGS {
     type Output = Self;
@@ -8703,7 +8528,6 @@ impl ::std::cmp::PartialEq for CERT_SYSTEM_STORE_INFO {
 impl ::std::cmp::Eq for CERT_SYSTEM_STORE_INFO {}
 unsafe impl ::windows::runtime::Abi for CERT_SYSTEM_STORE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SYSTEM_STORE_LOCAL_MACHINE_ENTERPRISE_ID: u32 = 9u32;
@@ -8744,7 +8568,6 @@ impl ::std::cmp::Eq for CERT_SYSTEM_STORE_RELOCATE_PARA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::runtime::Abi for CERT_SYSTEM_STORE_RELOCATE_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8773,7 +8596,6 @@ impl ::std::cmp::Eq for CERT_SYSTEM_STORE_RELOCATE_PARA_0 {}
 #[cfg(feature = "Win32_System_Registry")]
 unsafe impl ::windows::runtime::Abi for CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8803,7 +8625,6 @@ impl ::std::cmp::Eq for CERT_SYSTEM_STORE_RELOCATE_PARA_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_SYSTEM_STORE_SERVICES_ID: u32 = 5u32;
@@ -8846,7 +8667,6 @@ impl ::std::cmp::Eq for CERT_TEMPLATE_EXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_TEMPLATE_EXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TIMESTAMP_HASH_USE_TYPE: u32 = 2u32;
@@ -8884,7 +8704,6 @@ impl ::std::cmp::Eq for CERT_TPM_SPECIFICATION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_TPM_SPECIFICATION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_AUTO_UPDATE_CA_REVOCATION: u32 = 16u32;
@@ -9006,7 +8825,6 @@ impl ::std::cmp::Eq for CERT_TRUST_LIST_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_TRUST_LIST_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_TRUST_MASK: u32 = 16777215u32;
@@ -9068,7 +8886,6 @@ impl ::std::cmp::PartialEq for CERT_TRUST_STATUS {
 impl ::std::cmp::Eq for CERT_TRUST_STATUS {}
 unsafe impl ::windows::runtime::Abi for CERT_TRUST_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_UNICODE_ATTR_ERR_INDEX_MASK: u32 = 63u32;
@@ -9117,7 +8934,6 @@ impl ::std::cmp::Eq for CERT_USAGE_MATCH {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_USAGE_MATCH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_V1: u32 = 0u32;
@@ -9256,7 +9072,6 @@ impl ::std::cmp::Eq for CERT_VERIFY_CERTIFICATE_TRUST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_VERIFY_CERTIFICATE_TRUST {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_VERIFY_INHIBIT_CTL_UPDATE_FLAG: u32 = 1u32;
@@ -9373,7 +9188,6 @@ impl ::std::cmp::Eq for CERT_VIEWPROPERTIES_STRUCT_A {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for CERT_VIEWPROPERTIES_STRUCT_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9472,7 +9286,6 @@ impl ::std::cmp::Eq for CERT_VIEWPROPERTIES_STRUCT_W {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for CERT_VIEWPROPERTIES_STRUCT_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9503,7 +9316,6 @@ impl ::std::cmp::PartialEq for CERT_X942_DH_PARAMETERS {
 impl ::std::cmp::Eq for CERT_X942_DH_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for CERT_X942_DH_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9531,7 +9343,6 @@ impl ::std::cmp::PartialEq for CERT_X942_DH_VALIDATION_PARAMS {
 impl ::std::cmp::Eq for CERT_X942_DH_VALIDATION_PARAMS {}
 unsafe impl ::windows::runtime::Abi for CERT_X942_DH_VALIDATION_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CERT_XML_NAME_STR: u32 = 4u32;
@@ -9553,7 +9364,6 @@ impl ::std::convert::From<i32> for CESSetupProperty {
 }
 unsafe impl ::windows::runtime::Abi for CESSetupProperty {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9588,7 +9398,6 @@ impl ::std::cmp::Eq for CLAIMLIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLAIMLIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9626,7 +9435,6 @@ impl ::std::cmp::Eq for CMC_ADD_ATTRIBUTES_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMC_ADD_ATTRIBUTES_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9664,7 +9472,6 @@ impl ::std::cmp::Eq for CMC_ADD_EXTENSIONS_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMC_ADD_EXTENSIONS_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9714,7 +9521,6 @@ impl ::std::cmp::Eq for CMC_DATA_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMC_DATA_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMC_FAIL_BAD_ALG: u32 = 0u32;
@@ -9781,7 +9587,6 @@ impl ::std::cmp::Eq for CMC_PEND_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMC_PEND_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9827,7 +9632,6 @@ impl ::std::cmp::Eq for CMC_RESPONSE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMC_RESPONSE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMC_STATUS_CONFIRM_REQUIRED: u32 = 5u32;
@@ -9864,7 +9668,6 @@ impl ::std::cmp::Eq for CMC_STATUS_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMC_STATUS_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9893,7 +9696,6 @@ impl ::std::cmp::Eq for CMC_STATUS_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMC_STATUS_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMC_STATUS_NO_SUPPORT: u32 = 4u32;
@@ -9934,7 +9736,6 @@ impl ::std::cmp::Eq for CMC_TAGGED_ATTRIBUTE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMC_TAGGED_ATTRIBUTE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9962,7 +9763,6 @@ impl ::std::cmp::PartialEq for CMC_TAGGED_CERT_REQUEST {
 impl ::std::cmp::Eq for CMC_TAGGED_CERT_REQUEST {}
 unsafe impl ::windows::runtime::Abi for CMC_TAGGED_CERT_REQUEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMC_TAGGED_CERT_REQUEST_CHOICE: u32 = 1u32;
@@ -9992,7 +9792,6 @@ impl ::std::cmp::PartialEq for CMC_TAGGED_CONTENT_INFO {
 impl ::std::cmp::Eq for CMC_TAGGED_CONTENT_INFO {}
 unsafe impl ::windows::runtime::Abi for CMC_TAGGED_CONTENT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10028,7 +9827,6 @@ impl ::std::cmp::Eq for CMC_TAGGED_OTHER_MSG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMC_TAGGED_OTHER_MSG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10051,7 +9849,6 @@ impl ::std::cmp::PartialEq for CMC_TAGGED_REQUEST {
 impl ::std::cmp::Eq for CMC_TAGGED_REQUEST {}
 unsafe impl ::windows::runtime::Abi for CMC_TAGGED_REQUEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10073,7 +9870,6 @@ impl ::std::cmp::PartialEq for CMC_TAGGED_REQUEST_0 {
 impl ::std::cmp::Eq for CMC_TAGGED_REQUEST_0 {}
 unsafe impl ::windows::runtime::Abi for CMC_TAGGED_REQUEST_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10110,7 +9906,6 @@ impl ::std::cmp::Eq for CMFLTR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMFLTR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10147,7 +9942,6 @@ impl ::std::cmp::Eq for CMOID {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMOID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const CMSCEPSetup: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2857327618, 36476, 18884, [148, 250, 103, 165, 204, 94, 173, 180]);
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
@@ -10201,7 +9995,6 @@ impl ::std::cmp::Eq for CMSG_CMS_RECIPIENT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_CMS_RECIPIENT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10231,7 +10024,6 @@ impl ::std::cmp::Eq for CMSG_CMS_RECIPIENT_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_CMS_RECIPIENT_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CMS_RECIPIENT_INFO_PARAM: u32 = 36u32;
@@ -10267,7 +10059,6 @@ impl ::std::cmp::Eq for CMSG_CMS_SIGNER_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_CMS_SIGNER_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CMS_SIGNER_INFO_PARAM: u32 = 39u32;
@@ -10327,7 +10118,6 @@ impl ::std::cmp::Eq for CMSG_CNG_CONTENT_DECRYPT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_CNG_CONTENT_DECRYPT_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_COMPUTED_HASH_PARAM: u32 = 22u32;
@@ -10382,7 +10172,6 @@ impl ::std::cmp::Eq for CMSG_CONTENT_ENCRYPT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_CONTENT_ENCRYPT_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10405,7 +10194,6 @@ impl ::std::cmp::PartialEq for CMSG_CONTENT_ENCRYPT_INFO_0 {
 impl ::std::cmp::Eq for CMSG_CONTENT_ENCRYPT_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for CMSG_CONTENT_ENCRYPT_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CONTENT_ENCRYPT_PAD_ENCODED_LEN_FLAG: u32 = 1u32;
@@ -10458,7 +10246,6 @@ impl ::std::cmp::PartialEq for CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {
 impl ::std::cmp::Eq for CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {}
 unsafe impl ::windows::runtime::Abi for CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CTRL_DECRYPT: u32 = 2u32;
@@ -10485,7 +10272,6 @@ impl ::std::cmp::PartialEq for CMSG_CTRL_DECRYPT_PARA {
 impl ::std::cmp::Eq for CMSG_CTRL_DECRYPT_PARA {}
 unsafe impl ::windows::runtime::Abi for CMSG_CTRL_DECRYPT_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10508,7 +10294,6 @@ impl ::std::cmp::PartialEq for CMSG_CTRL_DECRYPT_PARA_0 {
 impl ::std::cmp::Eq for CMSG_CTRL_DECRYPT_PARA_0 {}
 unsafe impl ::windows::runtime::Abi for CMSG_CTRL_DECRYPT_PARA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CTRL_DEL_ATTR_CERT: u32 = 15u32;
@@ -10547,7 +10332,6 @@ impl ::std::cmp::PartialEq for CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {
 impl ::std::cmp::Eq for CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {}
 unsafe impl ::windows::runtime::Abi for CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CTRL_ENABLE_STRONG_SIGNATURE: u32 = 21u32;
@@ -10585,7 +10369,6 @@ impl ::std::cmp::Eq for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10608,7 +10391,6 @@ impl ::std::cmp::PartialEq for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {
 impl ::std::cmp::Eq for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {}
 unsafe impl ::windows::runtime::Abi for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CTRL_KEY_TRANS_DECRYPT: u32 = 16u32;
@@ -10642,7 +10424,6 @@ impl ::std::cmp::Eq for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10665,7 +10446,6 @@ impl ::std::cmp::PartialEq for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {
 impl ::std::cmp::Eq for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {}
 unsafe impl ::windows::runtime::Abi for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CTRL_MAIL_LIST_DECRYPT: u32 = 18u32;
@@ -10700,7 +10480,6 @@ impl ::std::cmp::Eq for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10723,7 +10502,6 @@ impl ::std::cmp::PartialEq for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {
 impl ::std::cmp::Eq for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {}
 unsafe impl ::windows::runtime::Abi for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_CTRL_VERIFY_HASH: u32 = 5u32;
@@ -10760,7 +10538,6 @@ impl ::std::cmp::PartialEq for CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
 impl ::std::cmp::Eq for CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {}
 unsafe impl ::windows::runtime::Abi for CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_DETACHED_FLAG: u32 = 4u32;
@@ -10812,7 +10589,6 @@ impl ::std::cmp::Eq for CMSG_ENCRYPTED_ENCODE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_ENCRYPTED_ENCODE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_ENCRYPT_PARAM: u32 = 26u32;
@@ -10868,7 +10644,6 @@ impl ::std::cmp::Eq for CMSG_ENVELOPED_ENCODE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_ENVELOPED_ENCODE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_ENVELOPED_RECIPIENT_V0: u32 = 0u32;
@@ -10923,7 +10698,6 @@ impl ::std::cmp::Eq for CMSG_HASHED_ENCODE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_HASHED_ENCODE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_HASH_ALGORITHM_PARAM: u32 = 20u32;
@@ -10979,7 +10753,6 @@ impl ::std::cmp::Eq for CMSG_KEY_AGREE_ENCRYPT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_KEY_AGREE_ENCRYPT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11008,7 +10781,6 @@ impl ::std::cmp::Eq for CMSG_KEY_AGREE_ENCRYPT_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_KEY_AGREE_ENCRYPT_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11036,7 +10808,6 @@ impl ::std::cmp::PartialEq for CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {
 impl ::std::cmp::Eq for CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {}
 unsafe impl ::windows::runtime::Abi for CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11051,7 +10822,6 @@ impl ::std::convert::From<u32> for CMSG_KEY_AGREE_OPTION {
 }
 unsafe impl ::windows::runtime::Abi for CMSG_KEY_AGREE_OPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CMSG_KEY_AGREE_OPTION {
     type Output = Self;
@@ -11094,7 +10864,6 @@ impl ::std::convert::From<u32> for CMSG_KEY_AGREE_ORIGINATOR {
 }
 unsafe impl ::windows::runtime::Abi for CMSG_KEY_AGREE_ORIGINATOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CMSG_KEY_AGREE_ORIGINATOR {
     type Output = Self;
@@ -11163,7 +10932,6 @@ impl ::std::cmp::Eq for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11192,7 +10960,6 @@ impl ::std::cmp::Eq for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11226,7 +10993,6 @@ impl ::std::cmp::Eq for CMSG_KEY_AGREE_RECIPIENT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_KEY_AGREE_RECIPIENT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11255,7 +11021,6 @@ impl ::std::cmp::Eq for CMSG_KEY_AGREE_RECIPIENT_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_KEY_AGREE_RECIPIENT_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_KEY_AGREE_VERSION: u32 = 3u32;
@@ -11301,7 +11066,6 @@ impl ::std::cmp::Eq for CMSG_KEY_TRANS_ENCRYPT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_KEY_TRANS_ENCRYPT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_KEY_TRANS_PKCS_1_5_VERSION: u32 = 0u32;
@@ -11338,7 +11102,6 @@ impl ::std::cmp::Eq for CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11369,7 +11132,6 @@ impl ::std::cmp::Eq for CMSG_KEY_TRANS_RECIPIENT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_KEY_TRANS_RECIPIENT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_LENGTH_ONLY_FLAG: u32 = 2u32;
@@ -11413,7 +11175,6 @@ impl ::std::cmp::Eq for CMSG_MAIL_LIST_ENCRYPT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_MAIL_LIST_ENCRYPT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_MAIL_LIST_HANDLE_KEY_CHOICE: u32 = 1u32;
@@ -11453,7 +11214,6 @@ impl ::std::cmp::Eq for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11476,7 +11236,6 @@ impl ::std::cmp::PartialEq for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
 impl ::std::cmp::Eq for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11515,7 +11274,6 @@ impl ::std::cmp::Eq for CMSG_MAIL_LIST_RECIPIENT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_MAIL_LIST_RECIPIENT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_MAIL_LIST_VERSION: u32 = 4u32;
@@ -11547,7 +11305,6 @@ impl ::std::cmp::PartialEq for CMSG_RC2_AUX_INFO {
 impl ::std::cmp::Eq for CMSG_RC2_AUX_INFO {}
 unsafe impl ::windows::runtime::Abi for CMSG_RC2_AUX_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11575,7 +11332,6 @@ impl ::std::cmp::PartialEq for CMSG_RC4_AUX_INFO {
 impl ::std::cmp::Eq for CMSG_RC4_AUX_INFO {}
 unsafe impl ::windows::runtime::Abi for CMSG_RC4_AUX_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_RC4_NO_SALT_FLAG: u32 = 1073741824u32;
@@ -11608,7 +11364,6 @@ impl ::std::cmp::Eq for CMSG_RECIPIENT_ENCODE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_RECIPIENT_ENCODE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11638,7 +11393,6 @@ impl ::std::cmp::Eq for CMSG_RECIPIENT_ENCODE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_RECIPIENT_ENCODE_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11670,7 +11424,6 @@ impl ::std::cmp::Eq for CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11701,7 +11454,6 @@ impl ::std::cmp::Eq for CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_RECIPIENT_INDEX_PARAM: u32 = 18u32;
@@ -11741,7 +11493,6 @@ impl ::std::cmp::Eq for CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_SIGNED_DATA_CMS_VERSION: u32 = 3u32;
@@ -11799,7 +11550,6 @@ impl ::std::cmp::Eq for CMSG_SIGNED_ENCODE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_SIGNED_ENCODE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_SIGNER_AUTH_ATTR_PARAM: u32 = 9u32;
@@ -11844,7 +11594,6 @@ impl ::std::cmp::Eq for CMSG_SIGNER_ENCODE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_SIGNER_ENCODE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11867,7 +11616,6 @@ impl ::std::cmp::PartialEq for CMSG_SIGNER_ENCODE_INFO_0 {
 impl ::std::cmp::Eq for CMSG_SIGNER_ENCODE_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for CMSG_SIGNER_ENCODE_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_SIGNER_HASH_ALGORITHM_PARAM: u32 = 8u32;
@@ -11919,7 +11667,6 @@ impl ::std::cmp::Eq for CMSG_SIGNER_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_SIGNER_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_SIGNER_INFO_CMS_VERSION: u32 = 3u32;
@@ -11961,7 +11708,6 @@ impl ::std::cmp::PartialEq for CMSG_SP3_COMPATIBLE_AUX_INFO {
 impl ::std::cmp::Eq for CMSG_SP3_COMPATIBLE_AUX_INFO {}
 unsafe impl ::windows::runtime::Abi for CMSG_SP3_COMPATIBLE_AUX_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_SP3_COMPATIBLE_ENCRYPT_FLAG: u32 = 2147483648u32;
@@ -11999,7 +11745,6 @@ impl ::std::cmp::Eq for CMSG_STREAM_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_STREAM_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CMSG_TRUSTED_SIGNER_FLAG: u32 = 1u32;
@@ -12057,7 +11802,6 @@ impl ::std::cmp::Eq for CMS_DH_KEY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMS_DH_KEY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12087,7 +11831,6 @@ impl ::std::cmp::PartialEq for CMS_KEY_INFO {
 impl ::std::cmp::Eq for CMS_KEY_INFO {}
 unsafe impl ::windows::runtime::Abi for CMS_KEY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CM_VIEWFLAGS_MASK: u32 = 16777215u32;
@@ -12125,7 +11868,6 @@ impl ::std::cmp::Eq for CPS_URLS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CPS_URLS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12163,7 +11905,6 @@ impl ::std::cmp::Eq for CRL_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRL_CONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12193,7 +11934,6 @@ impl ::std::cmp::Eq for CRL_DIST_POINT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRL_DIST_POINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12228,7 +11968,6 @@ impl ::std::cmp::Eq for CRL_DIST_POINTS_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRL_DIST_POINTS_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_DIST_POINT_ERR_CRL_ISSUER_BIT: i32 = -2147483648i32;
@@ -12267,7 +12006,6 @@ impl ::std::cmp::Eq for CRL_DIST_POINT_NAME {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRL_DIST_POINT_NAME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12295,7 +12033,6 @@ impl ::std::cmp::Eq for CRL_DIST_POINT_NAME_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRL_DIST_POINT_NAME_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_DIST_POINT_NO_NAME: u32 = 0u32;
@@ -12334,7 +12071,6 @@ impl ::std::cmp::Eq for CRL_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRL_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_FIND_ANY: u32 = 0u32;
@@ -12385,7 +12121,6 @@ impl ::std::cmp::Eq for CRL_FIND_ISSUED_FOR_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRL_FIND_ISSUED_FOR_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_FIND_ISSUED_FOR_SET_STRONG_PROPERTIES_FLAG: u32 = 16u32;
@@ -12439,7 +12174,6 @@ impl ::std::cmp::Eq for CRL_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRL_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12471,7 +12205,6 @@ impl ::std::cmp::Eq for CRL_ISSUING_DIST_POINT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRL_ISSUING_DIST_POINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_REASON_AA_COMPROMISE: u32 = 10u32;
@@ -12529,7 +12262,6 @@ impl ::std::cmp::Eq for CRL_REVOCATION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRL_REVOCATION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRL_V1: u32 = 0u32;
@@ -12569,7 +12301,6 @@ impl ::std::cmp::Eq for CROSS_CERT_DIST_POINTS_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CROSS_CERT_DIST_POINTS_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CROSS_CERT_DIST_POINT_ERR_INDEX_MASK: u32 = 255u32;
@@ -12647,7 +12378,6 @@ impl ::std::cmp::Eq for CRYPTNET_URL_CACHE_FLUSH_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPTNET_URL_CACHE_FLUSH_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTNET_URL_CACHE_PRE_FETCH_AUTOROOT_CAB: u32 = 5u32;
@@ -12703,7 +12433,6 @@ impl ::std::cmp::Eq for CRYPTNET_URL_CACHE_PRE_FETCH_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPTNET_URL_CACHE_PRE_FETCH_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTNET_URL_CACHE_PRE_FETCH_NONE: u32 = 0u32;
@@ -12759,7 +12488,6 @@ impl ::std::cmp::Eq for CRYPTNET_URL_CACHE_RESPONSE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPTNET_URL_CACHE_RESPONSE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTNET_URL_CACHE_RESPONSE_NONE: u32 = 0u32;
@@ -12791,7 +12519,6 @@ impl ::std::cmp::PartialEq for CRYPTOAPI_BLOB {
 impl ::std::cmp::Eq for CRYPTOAPI_BLOB {}
 unsafe impl ::windows::runtime::Abi for CRYPTOAPI_BLOB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTPROTECTMEMORY_BLOCK_SIZE: u32 = 16u32;
@@ -12850,7 +12577,6 @@ impl ::std::cmp::Eq for CRYPTPROTECT_PROMPTSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPTPROTECT_PROMPTSTRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTPROTECT_PROMPT_ON_PROTECT: u32 = 2u32;
@@ -12906,7 +12632,6 @@ impl ::std::cmp::Eq for CRYPTUI_CERT_MGR_STRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPTUI_CERT_MGR_STRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTUI_CERT_MGR_TAB_MASK: u32 = 15u32;
@@ -12943,7 +12668,6 @@ impl ::std::cmp::Eq for CRYPTUI_INITDIALOG_STRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPTUI_INITDIALOG_STRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTUI_SELECT_EXPIRATION_COLUMN: u64 = 32u64;
@@ -12988,7 +12712,6 @@ impl ::std::convert::From<u32> for CRYPTUI_VIEWCERTIFICATE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CRYPTUI_VIEWCERTIFICATE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPTUI_VIEWCERTIFICATE_FLAGS {
     type Output = Self;
@@ -13061,7 +12784,6 @@ impl ::std::cmp::Eq for CRYPTUI_VIEWCERTIFICATE_STRUCTA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for CRYPTUI_VIEWCERTIFICATE_STRUCTA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13090,7 +12812,6 @@ impl ::std::cmp::Eq for CRYPTUI_VIEWCERTIFICATE_STRUCTA_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust"))]
 unsafe impl ::windows::runtime::Abi for CRYPTUI_VIEWCERTIFICATE_STRUCTA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13135,7 +12856,6 @@ impl ::std::cmp::Eq for CRYPTUI_VIEWCERTIFICATE_STRUCTW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for CRYPTUI_VIEWCERTIFICATE_STRUCTW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13164,7 +12884,6 @@ impl ::std::cmp::Eq for CRYPTUI_VIEWCERTIFICATE_STRUCTW_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust"))]
 unsafe impl ::windows::runtime::Abi for CRYPTUI_VIEWCERTIFICATE_STRUCTW_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13180,7 +12899,6 @@ impl ::std::convert::From<u32> for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
 }
 unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
     type Output = Self;
@@ -13225,7 +12943,6 @@ impl ::std::convert::From<u32> for CRYPTUI_WIZ_DIGITAL_SIGN {
 }
 unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_SIGN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPTUI_WIZ_DIGITAL_SIGN {
     type Output = Self;
@@ -13291,7 +13008,6 @@ impl ::std::cmp::Eq for CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13322,7 +13038,6 @@ impl ::std::cmp::Eq for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13351,7 +13066,6 @@ impl ::std::cmp::Eq for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13380,7 +13094,6 @@ impl ::std::cmp::PartialEq for CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
 impl ::std::cmp::Eq for CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {}
 unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_EXCLUDE_PAGE_HASHES: u32 = 2u32;
@@ -13434,7 +13147,6 @@ impl ::std::cmp::Eq for CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_INCLUDE_PAGE_HASHES: u32 = 4u32;
@@ -13471,7 +13183,6 @@ impl ::std::cmp::Eq for CRYPTUI_WIZ_DIGITAL_SIGN_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13500,7 +13211,6 @@ impl ::std::cmp::Eq for CRYPTUI_WIZ_DIGITAL_SIGN_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13530,7 +13240,6 @@ impl ::std::cmp::Eq for CRYPTUI_WIZ_DIGITAL_SIGN_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_INFO_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13567,7 +13276,6 @@ impl ::std::cmp::Eq for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13582,7 +13290,6 @@ impl ::std::convert::From<u32> for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
 }
 unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
     type Output = Self;
@@ -13625,7 +13332,6 @@ impl ::std::convert::From<u32> for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
     type Output = Self;
@@ -13691,7 +13397,6 @@ impl ::std::cmp::Eq for CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13707,7 +13412,6 @@ impl ::std::convert::From<u32> for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
 }
 unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
     type Output = Self;
@@ -13781,7 +13485,6 @@ impl ::std::cmp::Eq for CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13800,7 +13503,6 @@ impl ::std::convert::From<u32> for CRYPTUI_WIZ_EXPORT_FORMAT {
 }
 unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_EXPORT_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPTUI_WIZ_EXPORT_FORMAT {
     type Output = Self;
@@ -13863,7 +13565,6 @@ impl ::std::cmp::Eq for CRYPTUI_WIZ_EXPORT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_EXPORT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13894,7 +13595,6 @@ impl ::std::cmp::Eq for CRYPTUI_WIZ_EXPORT_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_EXPORT_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13912,7 +13612,6 @@ impl ::std::convert::From<u32> for CRYPTUI_WIZ_EXPORT_SUBJECT {
 }
 unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_EXPORT_SUBJECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPTUI_WIZ_EXPORT_SUBJECT {
     type Output = Self;
@@ -13965,7 +13664,6 @@ impl ::std::convert::From<u32> for CRYPTUI_WIZ_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPTUI_WIZ_FLAGS {
     type Output = Self;
@@ -14025,7 +13723,6 @@ impl ::std::cmp::Eq for CRYPTUI_WIZ_IMPORT_SRC_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_IMPORT_SRC_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14057,7 +13754,6 @@ impl ::std::cmp::Eq for CRYPTUI_WIZ_IMPORT_SRC_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_IMPORT_SRC_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14075,7 +13771,6 @@ impl ::std::convert::From<u32> for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {
 }
 unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {
     type Output = Self;
@@ -14132,7 +13827,6 @@ impl ::std::cmp::PartialEq for CRYPT_3DES_KEY_STATE {
 impl ::std::cmp::Eq for CRYPT_3DES_KEY_STATE {}
 unsafe impl ::windows::runtime::Abi for CRYPT_3DES_KEY_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_ACCUMULATIVE_TIMEOUT: u32 = 2048u32;
@@ -14154,7 +13848,6 @@ impl ::std::convert::From<u32> for CRYPT_ACQUIRE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_ACQUIRE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPT_ACQUIRE_FLAGS {
     type Output = Self;
@@ -14221,7 +13914,6 @@ impl ::std::cmp::PartialEq for CRYPT_AES_128_KEY_STATE {
 impl ::std::cmp::Eq for CRYPT_AES_128_KEY_STATE {}
 unsafe impl ::windows::runtime::Abi for CRYPT_AES_128_KEY_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14252,7 +13944,6 @@ impl ::std::cmp::PartialEq for CRYPT_AES_256_KEY_STATE {
 impl ::std::cmp::Eq for CRYPT_AES_256_KEY_STATE {}
 unsafe impl ::windows::runtime::Abi for CRYPT_AES_256_KEY_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_AIA_RETRIEVAL: u32 = 524288u32;
@@ -14289,7 +13980,6 @@ impl ::std::cmp::Eq for CRYPT_ALGORITHM_IDENTIFIER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_ALGORITHM_IDENTIFIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_ARCHIVE: u32 = 256u32;
@@ -14330,7 +14020,6 @@ impl ::std::cmp::Eq for CRYPT_ASYNC_RETRIEVAL_COMPLETION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_ASYNC_RETRIEVAL_COMPLETION {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14366,7 +14055,6 @@ impl ::std::cmp::Eq for CRYPT_ATTRIBUTE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_ATTRIBUTE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14401,7 +14089,6 @@ impl ::std::cmp::Eq for CRYPT_ATTRIBUTES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14436,7 +14123,6 @@ impl ::std::cmp::Eq for CRYPT_ATTRIBUTE_TYPE_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_ATTRIBUTE_TYPE_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14465,7 +14151,6 @@ impl ::std::cmp::PartialEq for CRYPT_BIT_BLOB {
 impl ::std::cmp::Eq for CRYPT_BIT_BLOB {}
 unsafe impl ::windows::runtime::Abi for CRYPT_BIT_BLOB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14493,7 +14178,6 @@ impl ::std::cmp::PartialEq for CRYPT_BLOB_ARRAY {
 impl ::std::cmp::Eq for CRYPT_BLOB_ARRAY {}
 unsafe impl ::windows::runtime::Abi for CRYPT_BLOB_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_CACHE_ONLY_RETRIEVAL: u32 = 2u32;
@@ -14532,7 +14216,6 @@ impl ::std::cmp::Eq for CRYPT_CONTENT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_CONTENT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14568,7 +14251,6 @@ impl ::std::cmp::Eq for CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14603,7 +14285,6 @@ impl ::std::cmp::Eq for CRYPT_CONTEXTS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_CONTEXTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14631,7 +14312,6 @@ impl ::std::cmp::PartialEq for CRYPT_CONTEXT_CONFIG {
 impl ::std::cmp::Eq for CRYPT_CONTEXT_CONFIG {}
 unsafe impl ::windows::runtime::Abi for CRYPT_CONTEXT_CONFIG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14646,7 +14326,6 @@ impl ::std::convert::From<u32> for CRYPT_CONTEXT_CONFIG_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_CONTEXT_CONFIG_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPT_CONTEXT_CONFIG_FLAGS {
     type Output = Self;
@@ -14709,7 +14388,6 @@ impl ::std::cmp::Eq for CRYPT_CONTEXT_FUNCTIONS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_CONTEXT_FUNCTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14737,7 +14415,6 @@ impl ::std::cmp::PartialEq for CRYPT_CONTEXT_FUNCTION_CONFIG {
 impl ::std::cmp::Eq for CRYPT_CONTEXT_FUNCTION_CONFIG {}
 unsafe impl ::windows::runtime::Abi for CRYPT_CONTEXT_FUNCTION_CONFIG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14772,7 +14449,6 @@ impl ::std::cmp::Eq for CRYPT_CONTEXT_FUNCTION_PROVIDERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_CONTEXT_FUNCTION_PROVIDERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_CREATE_NEW_FLUSH_ENTRY: u32 = 268435456u32;
@@ -14810,7 +14486,6 @@ impl ::std::cmp::Eq for CRYPT_CREDENTIALS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_CREDENTIALS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14846,7 +14521,6 @@ impl ::std::cmp::Eq for CRYPT_CSP_PROVIDER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_CSP_PROVIDER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_DECODE_ALLOC_FLAG: u32 = 32768u32;
@@ -14885,7 +14559,6 @@ impl ::std::cmp::PartialEq for CRYPT_DECODE_PARA {
 impl ::std::cmp::Eq for CRYPT_DECODE_PARA {}
 unsafe impl ::windows::runtime::Abi for CRYPT_DECODE_PARA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_DECODE_SHARE_OID_STRING_FLAG: u32 = 4u32;
@@ -14921,7 +14594,6 @@ impl ::std::cmp::PartialEq for CRYPT_DECRYPT_MESSAGE_PARA {
 impl ::std::cmp::Eq for CRYPT_DECRYPT_MESSAGE_PARA {}
 unsafe impl ::windows::runtime::Abi for CRYPT_DECRYPT_MESSAGE_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_DECRYPT_RSA_NO_PADDING_CHECK: u32 = 32u32;
@@ -14940,7 +14612,6 @@ impl ::std::convert::From<u32> for CRYPT_DEFAULT_CONTEXT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_DEFAULT_CONTEXT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPT_DEFAULT_CONTEXT_FLAGS {
     type Output = Self;
@@ -15003,7 +14674,6 @@ impl ::std::cmp::Eq for CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -15018,7 +14688,6 @@ impl ::std::convert::From<u32> for CRYPT_DEFAULT_CONTEXT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_DEFAULT_CONTEXT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPT_DEFAULT_CONTEXT_TYPE {
     type Output = Self;
@@ -15081,7 +14750,6 @@ impl ::std::cmp::PartialEq for CRYPT_DES_KEY_STATE {
 impl ::std::cmp::Eq for CRYPT_DES_KEY_STATE {}
 unsafe impl ::windows::runtime::Abi for CRYPT_DES_KEY_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_DONT_CACHE_RESULT: u32 = 8u32;
@@ -15123,7 +14791,6 @@ impl ::std::cmp::Eq for CRYPT_ECC_CMS_SHARED_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_ECC_CMS_SHARED_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_ECC_CMS_SHARED_INFO_SUPPPUBINFO_BYTE_LENGTH: u32 = 4u32;
@@ -15162,7 +14829,6 @@ impl ::std::cmp::Eq for CRYPT_ECC_PRIVATE_KEY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_ECC_PRIVATE_KEY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_ECC_PRIVATE_KEY_INFO_v1: u32 = 1u32;
@@ -15192,7 +14858,6 @@ impl ::std::convert::From<u32> for CRYPT_ENCODE_OBJECT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_ENCODE_OBJECT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPT_ENCODE_OBJECT_FLAGS {
     type Output = Self;
@@ -15249,7 +14914,6 @@ impl ::std::cmp::PartialEq for CRYPT_ENCODE_PARA {
 impl ::std::cmp::Eq for CRYPT_ENCODE_PARA {}
 unsafe impl ::windows::runtime::Abi for CRYPT_ENCODE_PARA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_ENCRYPT: u32 = 1u32;
@@ -15286,7 +14950,6 @@ impl ::std::cmp::Eq for CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_ENCRYPT_ALG_OID_GROUP_ID: u32 = 2u32;
@@ -15336,7 +14999,6 @@ impl ::std::cmp::Eq for CRYPT_ENCRYPT_MESSAGE_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_ENCRYPT_MESSAGE_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_ENHKEY_USAGE_OID_GROUP_ID: u32 = 7u32;
@@ -15373,7 +15035,6 @@ impl ::std::cmp::Eq for CRYPT_ENROLLMENT_NAME_VALUE_PAIR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_ENROLLMENT_NAME_VALUE_PAIR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_EXPORT: u32 = 4u32;
@@ -15399,7 +15060,6 @@ impl ::std::convert::From<u32> for CRYPT_FIND_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_FIND_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPT_FIND_FLAGS {
     type Output = Self;
@@ -15517,7 +15177,6 @@ impl ::std::cmp::Eq for CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -15534,7 +15193,6 @@ impl ::std::convert::From<u32> for CRYPT_GET_URL_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_GET_URL_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPT_GET_URL_FLAGS {
     type Output = Self;
@@ -15599,7 +15257,6 @@ impl ::std::cmp::Eq for CRYPT_HASH_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_HASH_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15637,7 +15294,6 @@ impl ::std::cmp::Eq for CRYPT_HASH_MESSAGE_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_HASH_MESSAGE_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_HTTP_POST_RETRIEVAL: u32 = 1048576u32;
@@ -15674,7 +15330,6 @@ impl ::std::cmp::Eq for CRYPT_IMAGE_REF {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_IMAGE_REF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -15689,7 +15344,6 @@ impl ::std::convert::From<u32> for CRYPT_IMAGE_REF_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_IMAGE_REF_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPT_IMAGE_REF_FLAGS {
     type Output = Self;
@@ -15753,7 +15407,6 @@ impl ::std::cmp::Eq for CRYPT_IMAGE_REG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_IMAGE_REG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_IMPL_HARDWARE: u32 = 1u32;
@@ -15780,7 +15433,6 @@ impl ::std::convert::From<u32> for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
     type Output = Self;
@@ -15849,7 +15501,6 @@ impl ::std::cmp::Eq for CRYPT_INTERFACE_REG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_INTERFACE_REG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_KDF_OID_GROUP_ID: u32 = 10u32;
@@ -15905,7 +15556,6 @@ impl ::std::convert::From<u32> for CRYPT_KEY_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_KEY_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPT_KEY_FLAGS {
     type Output = Self;
@@ -15954,7 +15604,6 @@ impl ::std::convert::From<u32> for CRYPT_KEY_PARAM_ID {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_KEY_PARAM_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPT_KEY_PARAM_ID {
     type Output = Self;
@@ -16030,7 +15679,6 @@ impl ::std::cmp::Eq for CRYPT_KEY_PROV_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_KEY_PROV_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16060,7 +15708,6 @@ impl ::std::cmp::PartialEq for CRYPT_KEY_PROV_PARAM {
 impl ::std::cmp::Eq for CRYPT_KEY_PROV_PARAM {}
 unsafe impl ::windows::runtime::Abi for CRYPT_KEY_PROV_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16094,7 +15741,6 @@ impl ::std::cmp::Eq for CRYPT_KEY_SIGN_MESSAGE_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_KEY_SIGN_MESSAGE_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16117,7 +15763,6 @@ impl ::std::cmp::PartialEq for CRYPT_KEY_SIGN_MESSAGE_PARA_0 {
 impl ::std::cmp::Eq for CRYPT_KEY_SIGN_MESSAGE_PARA_0 {}
 unsafe impl ::windows::runtime::Abi for CRYPT_KEY_SIGN_MESSAGE_PARA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16146,7 +15791,6 @@ impl ::std::cmp::PartialEq for CRYPT_KEY_VERIFY_MESSAGE_PARA {
 impl ::std::cmp::Eq for CRYPT_KEY_VERIFY_MESSAGE_PARA {}
 unsafe impl ::windows::runtime::Abi for CRYPT_KEY_VERIFY_MESSAGE_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_LAST_ALG_OID_GROUP_ID: u32 = 4u32;
@@ -16201,7 +15845,6 @@ impl ::std::cmp::Eq for CRYPT_MASK_GEN_ALGORITHM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_MASK_GEN_ALGORITHM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_MATCH_ANY_ENCODING_TYPE: u32 = 4294967295u32;
@@ -16251,7 +15894,6 @@ impl ::std::convert::From<u32> for CRYPT_MSG_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_MSG_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPT_MSG_TYPE {
     type Output = Self;
@@ -16338,7 +15980,6 @@ impl ::std::cmp::Eq for CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16355,7 +15996,6 @@ impl ::std::convert::From<u32> for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
     type Output = Self;
@@ -16420,7 +16060,6 @@ impl ::std::cmp::Eq for CRYPT_OBJID_TABLE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_OBJID_TABLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OCSP_ONLY_RETRIEVAL: u32 = 16777216u32;
@@ -16461,7 +16100,6 @@ impl ::std::cmp::Eq for CRYPT_OID_FUNC_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_OID_FUNC_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16494,7 +16132,6 @@ impl ::std::cmp::Eq for CRYPT_OID_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_OID_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16518,7 +16155,6 @@ impl ::std::cmp::PartialEq for CRYPT_OID_INFO_0 {
 impl ::std::cmp::Eq for CRYPT_OID_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for CRYPT_OID_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_OID_INFO_ALGID_KEY: u32 = 3u32;
@@ -16592,7 +16228,6 @@ impl ::std::cmp::Eq for CRYPT_PASSWORD_CREDENTIALSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_PASSWORD_CREDENTIALSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16628,7 +16263,6 @@ impl ::std::cmp::Eq for CRYPT_PASSWORD_CREDENTIALSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_PASSWORD_CREDENTIALSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16656,7 +16290,6 @@ impl ::std::cmp::PartialEq for CRYPT_PKCS12_PBE_PARAMS {
 impl ::std::cmp::Eq for CRYPT_PKCS12_PBE_PARAMS {}
 unsafe impl ::windows::runtime::Abi for CRYPT_PKCS12_PBE_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -16694,7 +16327,6 @@ impl ::std::cmp::Eq for CRYPT_PKCS8_EXPORT_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_PKCS8_EXPORT_PARAMS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -16732,7 +16364,6 @@ impl ::std::cmp::Eq for CRYPT_PKCS8_IMPORT_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_PKCS8_IMPORT_PARAMS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_POLICY_OID_GROUP_ID: u32 = 8u32;
@@ -16775,7 +16406,6 @@ impl ::std::cmp::Eq for CRYPT_PRIVATE_KEY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_PRIVATE_KEY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16811,7 +16441,6 @@ impl ::std::cmp::Eq for CRYPT_PROPERTY_REF {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_PROPERTY_REF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16846,7 +16475,6 @@ impl ::std::cmp::Eq for CRYPT_PROVIDERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_PROVIDERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16886,7 +16514,6 @@ impl ::std::cmp::Eq for CRYPT_PROVIDER_REF {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_PROVIDER_REF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16921,7 +16548,6 @@ impl ::std::cmp::Eq for CRYPT_PROVIDER_REFS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_PROVIDER_REFS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16958,7 +16584,6 @@ impl ::std::cmp::Eq for CRYPT_PROVIDER_REG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_PROVIDER_REG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_PROXY_CACHE_RETRIEVAL: u32 = 2097152u32;
@@ -16995,7 +16620,6 @@ impl ::std::cmp::Eq for CRYPT_PSOURCE_ALGORITHM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_PSOURCE_ALGORITHM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_PSTORE: u32 = 2u32;
@@ -17045,7 +16669,6 @@ impl ::std::cmp::Eq for CRYPT_RC2_CBC_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_RC2_CBC_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17075,7 +16698,6 @@ impl ::std::cmp::PartialEq for CRYPT_RC4_KEY_STATE {
 impl ::std::cmp::Eq for CRYPT_RC4_KEY_STATE {}
 unsafe impl ::windows::runtime::Abi for CRYPT_RC4_KEY_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_RDN_ATTR_OID_GROUP_ID: u32 = 5u32;
@@ -17152,7 +16774,6 @@ impl ::std::cmp::Eq for CRYPT_RETRIEVE_AUX_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_RETRIEVE_AUX_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_RETRIEVE_MAX_ERROR_CONTENT_LENGTH: u32 = 4096u32;
@@ -17192,7 +16813,6 @@ impl ::std::cmp::Eq for CRYPT_RSAES_OAEP_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_RSAES_OAEP_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17229,7 +16849,6 @@ impl ::std::cmp::Eq for CRYPT_RSA_SSA_PSS_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_RSA_SSA_PSS_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_SECRETDIGEST: u32 = 1u32;
@@ -17261,7 +16880,6 @@ impl ::std::cmp::PartialEq for CRYPT_SEQUENCE_OF_ANY {
 impl ::std::cmp::Eq for CRYPT_SEQUENCE_OF_ANY {}
 unsafe impl ::windows::runtime::Abi for CRYPT_SEQUENCE_OF_ANY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_SERVER: u32 = 1024u32;
@@ -17278,7 +16896,6 @@ impl ::std::convert::From<u32> for CRYPT_SET_HASH_PARAM {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_SET_HASH_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPT_SET_HASH_PARAM {
     type Output = Self;
@@ -17336,7 +16953,6 @@ impl ::std::convert::From<u32> for CRYPT_SET_PROV_PARAM_ID {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_SET_PROV_PARAM_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPT_SET_PROV_PARAM_ID {
     type Output = Self;
@@ -17448,7 +17064,6 @@ impl ::std::cmp::Eq for CRYPT_SIGN_MESSAGE_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_SIGN_MESSAGE_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_SILENT: u32 = 64u32;
@@ -17478,7 +17093,6 @@ impl ::std::cmp::PartialEq for CRYPT_SMART_CARD_ROOT_INFO {
 impl ::std::cmp::Eq for CRYPT_SMART_CARD_ROOT_INFO {}
 unsafe impl ::windows::runtime::Abi for CRYPT_SMART_CARD_ROOT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17513,7 +17127,6 @@ impl ::std::cmp::Eq for CRYPT_SMIME_CAPABILITIES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_SMIME_CAPABILITIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17548,7 +17161,6 @@ impl ::std::cmp::Eq for CRYPT_SMIME_CAPABILITY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_SMIME_CAPABILITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_SORTED_CTL_ENCODE_HASHED_SUBJECT_IDENTIFIER_FLAG: u32 = 65536u32;
@@ -17579,7 +17191,6 @@ impl ::std::convert::From<u32> for CRYPT_STRING {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_STRING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPT_STRING {
     type Output = Self;
@@ -17656,7 +17267,6 @@ impl ::std::cmp::PartialEq for CRYPT_TIMESTAMP_ACCURACY {
 impl ::std::cmp::Eq for CRYPT_TIMESTAMP_ACCURACY {}
 unsafe impl ::windows::runtime::Abi for CRYPT_TIMESTAMP_ACCURACY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17692,7 +17302,6 @@ impl ::std::cmp::Eq for CRYPT_TIMESTAMP_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_TIMESTAMP_CONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17750,7 +17359,6 @@ impl ::std::cmp::Eq for CRYPT_TIMESTAMP_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_TIMESTAMP_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17788,7 +17396,6 @@ impl ::std::cmp::Eq for CRYPT_TIMESTAMP_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_TIMESTAMP_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17838,7 +17445,6 @@ impl ::std::cmp::Eq for CRYPT_TIMESTAMP_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_TIMESTAMP_REQUEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17876,7 +17482,6 @@ impl ::std::cmp::Eq for CRYPT_TIMESTAMP_RESPONSE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_TIMESTAMP_RESPONSE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -17895,7 +17500,6 @@ impl ::std::convert::From<u32> for CRYPT_TIMESTAMP_RESPONSE_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_TIMESTAMP_RESPONSE_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPT_TIMESTAMP_RESPONSE_STATUS {
     type Output = Self;
@@ -17937,7 +17541,6 @@ impl ::std::convert::From<u32> for CRYPT_TIMESTAMP_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_TIMESTAMP_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPT_TIMESTAMP_VERSION {
     type Output = Self;
@@ -18003,7 +17606,6 @@ impl ::std::cmp::Eq for CRYPT_TIME_STAMP_REQUEST_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_TIME_STAMP_REQUEST_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_TYPE2_FORMAT: u32 = 2u32;
@@ -18048,7 +17650,6 @@ impl ::std::cmp::Eq for CRYPT_URL_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_URL_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -18078,7 +17679,6 @@ impl ::std::cmp::PartialEq for CRYPT_URL_INFO {
 impl ::std::cmp::Eq for CRYPT_URL_INFO {}
 unsafe impl ::windows::runtime::Abi for CRYPT_URL_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_USERDATA: u32 = 1u32;
@@ -18102,7 +17702,6 @@ impl ::std::convert::From<u32> for CRYPT_VERIFY_CERT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_VERIFY_CERT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPT_VERIFY_CERT_FLAGS {
     type Output = Self;
@@ -18168,7 +17767,6 @@ impl ::std::cmp::PartialEq for CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {
 impl ::std::cmp::Eq for CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {}
 unsafe impl ::windows::runtime::Abi for CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_VERIFY_CERT_SIGN_SUBJECT_BLOB: u32 = 1u32;
@@ -18212,7 +17810,6 @@ impl ::std::cmp::Eq for CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_VERIFY_CONTEXT_SIGNATURE: u32 = 32u32;
@@ -18254,7 +17851,6 @@ impl ::std::cmp::Eq for CRYPT_VERIFY_MESSAGE_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_VERIFY_MESSAGE_PARA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_WIRE_ONLY_RETRIEVAL: u32 = 4u32;
@@ -18301,7 +17897,6 @@ impl ::std::cmp::Eq for CRYPT_X942_OTHER_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_X942_OTHER_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -18337,7 +17932,6 @@ impl ::std::cmp::Eq for CRYPT_XML_ALGORITHM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_ALGORITHM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -18391,7 +17985,6 @@ impl ::std::cmp::Eq for CRYPT_XML_ALGORITHM_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_ALGORITHM_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_ALGORITHM_INFO_FIND_BY_CNG_ALGID: u32 = 3u32;
@@ -18428,7 +18021,6 @@ impl ::std::cmp::PartialEq for CRYPT_XML_BLOB {
 impl ::std::cmp::Eq for CRYPT_XML_BLOB {}
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_BLOB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_BLOB_MAX: u32 = 2147483640u32;
@@ -18447,7 +18039,6 @@ impl ::std::convert::From<i32> for CRYPT_XML_CHARSET {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_CHARSET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -18497,7 +18088,6 @@ impl ::std::cmp::Eq for CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -18525,7 +18115,6 @@ impl ::std::cmp::PartialEq for CRYPT_XML_DATA_BLOB {
 impl ::std::cmp::Eq for CRYPT_XML_DATA_BLOB {}
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_DATA_BLOB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -18555,7 +18144,6 @@ impl ::std::cmp::PartialEq for CRYPT_XML_DATA_PROVIDER {
 impl ::std::cmp::Eq for CRYPT_XML_DATA_PROVIDER {}
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_DATA_PROVIDER {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_DIGEST_REFERENCE_DATA_TRANSFORMED: u32 = 1u32;
@@ -18597,7 +18185,6 @@ impl ::std::cmp::Eq for CRYPT_XML_DOC_CTXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_DOC_CTXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_E_ALGORITHM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146885372i32 as _);
@@ -18653,7 +18240,6 @@ impl ::std::convert::From<u32> for CRYPT_XML_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPT_XML_FLAGS {
     type Output = Self;
@@ -18708,7 +18294,6 @@ impl ::std::convert::From<u32> for CRYPT_XML_GROUP_ID {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_GROUP_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPT_XML_GROUP_ID {
     type Output = Self;
@@ -18777,7 +18362,6 @@ impl ::std::cmp::Eq for CRYPT_XML_ISSUER_SERIAL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_ISSUER_SERIAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -18827,7 +18411,6 @@ impl ::std::cmp::Eq for CRYPT_XML_KEYINFO_PARAM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_KEYINFO_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -18843,7 +18426,6 @@ impl ::std::convert::From<i32> for CRYPT_XML_KEYINFO_SPEC {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_KEYINFO_SPEC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -18861,7 +18443,6 @@ impl ::std::convert::From<u32> for CRYPT_XML_KEYINFO_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_KEYINFO_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPT_XML_KEYINFO_TYPE {
     type Output = Self;
@@ -18922,7 +18503,6 @@ impl ::std::cmp::PartialEq for CRYPT_XML_KEY_DSA_KEY_VALUE {
 impl ::std::cmp::Eq for CRYPT_XML_KEY_DSA_KEY_VALUE {}
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_KEY_DSA_KEY_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -18959,7 +18539,6 @@ impl ::std::cmp::Eq for CRYPT_XML_KEY_ECDSA_KEY_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_KEY_ECDSA_KEY_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -18997,7 +18576,6 @@ impl ::std::cmp::Eq for CRYPT_XML_KEY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_KEY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19026,7 +18604,6 @@ impl ::std::cmp::Eq for CRYPT_XML_KEY_INFO_ITEM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_KEY_INFO_ITEM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19058,7 +18635,6 @@ impl ::std::cmp::Eq for CRYPT_XML_KEY_INFO_ITEM_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_KEY_INFO_ITEM_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19086,7 +18662,6 @@ impl ::std::cmp::PartialEq for CRYPT_XML_KEY_RSA_KEY_VALUE {
 impl ::std::cmp::Eq for CRYPT_XML_KEY_RSA_KEY_VALUE {}
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_KEY_RSA_KEY_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19115,7 +18690,6 @@ impl ::std::cmp::Eq for CRYPT_XML_KEY_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_KEY_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19146,7 +18720,6 @@ impl ::std::cmp::Eq for CRYPT_XML_KEY_VALUE_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_KEY_VALUE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -19163,7 +18736,6 @@ impl ::std::convert::From<u32> for CRYPT_XML_KEY_VALUE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_KEY_VALUE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPT_XML_KEY_VALUE_TYPE {
     type Output = Self;
@@ -19231,7 +18803,6 @@ impl ::std::cmp::Eq for CRYPT_XML_OBJECT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_OBJECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_OBJECTS_MAX: u32 = 256u32;
@@ -19262,7 +18833,6 @@ impl ::std::cmp::PartialEq for CRYPT_XML_PROPERTY {
 impl ::std::cmp::Eq for CRYPT_XML_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -19280,7 +18850,6 @@ impl ::std::convert::From<i32> for CRYPT_XML_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19332,7 +18901,6 @@ impl ::std::cmp::Eq for CRYPT_XML_REFERENCE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_REFERENCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19367,7 +18935,6 @@ impl ::std::cmp::Eq for CRYPT_XML_REFERENCES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_REFERENCES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_REFERENCES_MAX: u32 = 32760u32;
@@ -19419,7 +18986,6 @@ impl ::std::cmp::Eq for CRYPT_XML_SIGNATURE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_SIGNATURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_SIGNATURES_MAX: u32 = 16u32;
@@ -19471,7 +19037,6 @@ impl ::std::cmp::Eq for CRYPT_XML_SIGNED_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_SIGNED_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19500,7 +19065,6 @@ impl ::std::cmp::PartialEq for CRYPT_XML_STATUS {
 impl ::std::cmp::Eq for CRYPT_XML_STATUS {}
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -19519,7 +19083,6 @@ impl ::std::convert::From<u32> for CRYPT_XML_STATUS_ERROR_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_STATUS_ERROR_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPT_XML_STATUS_ERROR_STATUS {
     type Output = Self;
@@ -19566,7 +19129,6 @@ impl ::std::convert::From<u32> for CRYPT_XML_STATUS_INFO_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_STATUS_INFO_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPT_XML_STATUS_INFO_STATUS {
     type Output = Self;
@@ -19632,7 +19194,6 @@ impl ::std::cmp::Eq for CRYPT_XML_TRANSFORM_CHAIN_CONFIG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -19648,7 +19209,6 @@ impl ::std::convert::From<u32> for CRYPT_XML_TRANSFORM_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_TRANSFORM_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPT_XML_TRANSFORM_FLAGS {
     type Output = Self;
@@ -19714,7 +19274,6 @@ impl ::std::cmp::Eq for CRYPT_XML_TRANSFORM_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_TRANSFORM_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CRYPT_XML_TRANSFORM_MAX: u32 = 16u32;
@@ -19751,7 +19310,6 @@ impl ::std::cmp::Eq for CRYPT_XML_X509DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_X509DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19780,7 +19338,6 @@ impl ::std::cmp::Eq for CRYPT_XML_X509DATA_ITEM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_X509DATA_ITEM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19813,7 +19370,6 @@ impl ::std::cmp::Eq for CRYPT_XML_X509DATA_ITEM_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_X509DATA_ITEM_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -19832,7 +19388,6 @@ impl ::std::convert::From<u32> for CRYPT_XML_X509DATA_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CRYPT_XML_X509DATA_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPT_XML_X509DATA_TYPE {
     type Output = Self;
@@ -19899,7 +19454,6 @@ impl ::std::cmp::Eq for CTL_ANY_SUBJECT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CTL_ANY_SUBJECT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CTL_ANY_SUBJECT_TYPE: u32 = 1u32;
@@ -19953,7 +19507,6 @@ impl ::std::cmp::Eq for CTL_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CTL_CONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19989,7 +19542,6 @@ impl ::std::cmp::Eq for CTL_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CTL_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CTL_ENTRY_FROM_PROP_CHAIN_FLAG: u32 = 1u32;
@@ -20030,7 +19582,6 @@ impl ::std::cmp::Eq for CTL_FIND_SUBJECT_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CTL_FIND_SUBJECT_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -20067,7 +19618,6 @@ impl ::std::cmp::Eq for CTL_FIND_USAGE_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CTL_FIND_USAGE_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -20123,7 +19673,6 @@ impl ::std::cmp::Eq for CTL_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CTL_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -20159,7 +19708,6 @@ impl ::std::cmp::Eq for CTL_MODIFY_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CTL_MODIFY_REQUEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -20175,7 +19723,6 @@ impl ::std::convert::From<u32> for CTL_MODIFY_REQUEST_OPERATION {
 }
 unsafe impl ::windows::runtime::Abi for CTL_MODIFY_REQUEST_OPERATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CTL_MODIFY_REQUEST_OPERATION {
     type Output = Self;
@@ -20238,7 +19785,6 @@ impl ::std::cmp::Eq for CTL_USAGE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CTL_USAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -20273,7 +19819,6 @@ impl ::std::cmp::Eq for CTL_USAGE_MATCH {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CTL_USAGE_MATCH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CTL_V1: u32 = 0u32;
@@ -20307,7 +19852,6 @@ impl ::std::cmp::PartialEq for CTL_VERIFY_USAGE_PARA {
 impl ::std::cmp::Eq for CTL_VERIFY_USAGE_PARA {}
 unsafe impl ::windows::runtime::Abi for CTL_VERIFY_USAGE_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -20347,7 +19891,6 @@ impl ::std::cmp::Eq for CTL_VERIFY_USAGE_STATUS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CTL_VERIFY_USAGE_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const CUR_BLOB_VERSION: u32 = 2u32;
@@ -21666,7 +21209,6 @@ impl ::std::convert::From<u32> for CertKeyType {
 }
 unsafe impl ::windows::runtime::Abi for CertKeyType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CertKeyType {
     type Output = Self;
@@ -25119,7 +24661,6 @@ impl ::std::convert::From<i32> for DSAFIPSVERSION_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for DSAFIPSVERSION_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -25147,7 +24688,6 @@ impl ::std::cmp::PartialEq for DSSSEED {
 impl ::std::cmp::Eq for DSSSEED {}
 unsafe impl ::windows::runtime::Abi for DSSSEED {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
@@ -25177,7 +24717,6 @@ impl ::std::convert::From<i32> for Direction {
 }
 unsafe impl ::windows::runtime::Abi for Direction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -25191,7 +24730,6 @@ impl ::std::convert::From<i32> for ECC_CURVE_ALG_ID_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ECC_CURVE_ALG_ID_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -25207,7 +24745,6 @@ impl ::std::convert::From<i32> for ECC_CURVE_TYPE_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ECC_CURVE_TYPE_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -25243,7 +24780,6 @@ impl ::std::cmp::Eq for ENDPOINTADDRESS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ENDPOINTADDRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -25280,7 +24816,6 @@ impl ::std::cmp::Eq for ENDPOINTADDRESS2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ENDPOINTADDRESS2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -25308,7 +24843,6 @@ impl ::std::cmp::PartialEq for EV_EXTRA_CERT_CHAIN_POLICY_PARA {
 impl ::std::cmp::Eq for EV_EXTRA_CERT_CHAIN_POLICY_PARA {}
 unsafe impl ::windows::runtime::Abi for EV_EXTRA_CERT_CHAIN_POLICY_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -25337,7 +24871,6 @@ impl ::std::cmp::PartialEq for EV_EXTRA_CERT_CHAIN_POLICY_STATUS {
 impl ::std::cmp::Eq for EV_EXTRA_CERT_CHAIN_POLICY_STATUS {}
 unsafe impl ::windows::runtime::Abi for EV_EXTRA_CERT_CHAIN_POLICY_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const EXPORT_PRIVATE_KEYS: u32 = 4u32;
@@ -25472,7 +25005,6 @@ impl ::std::cmp::Eq for GENERIC_XML_TOKEN {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GENERIC_XML_TOKEN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
@@ -25574,7 +25106,6 @@ impl ::std::convert::From<i32> for HASHALGORITHM_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for HASHALGORITHM_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -25587,7 +25118,6 @@ impl ::std::default::Default for HCERTCHAINENGINE {
 unsafe impl ::windows::runtime::Handle for HCERTCHAINENGINE {}
 unsafe impl ::windows::runtime::Abi for HCERTCHAINENGINE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -25600,7 +25130,6 @@ impl ::std::default::Default for HCRYPTASYNC {
 unsafe impl ::windows::runtime::Handle for HCRYPTASYNC {}
 unsafe impl ::windows::runtime::Abi for HCRYPTASYNC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -25631,7 +25160,6 @@ impl ::std::cmp::PartialEq for HMAC_Info {
 impl ::std::cmp::Eq for HMAC_Info {}
 unsafe impl ::windows::runtime::Abi for HMAC_Info {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const HP_ALGID: u32 = 1u32;
@@ -25654,7 +25182,6 @@ impl ::std::convert::From<u32> for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
     type Output = Self;
@@ -25713,7 +25240,6 @@ impl ::std::cmp::Eq for HTTPSPolicyCallbackData {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTPSPolicyCallbackData {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -25736,7 +25262,6 @@ impl ::std::cmp::PartialEq for HTTPSPolicyCallbackData_0 {
 impl ::std::cmp::Eq for HTTPSPolicyCallbackData_0 {}
 unsafe impl ::windows::runtime::Abi for HTTPSPolicyCallbackData_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -25755,7 +25280,6 @@ impl ::std::convert::From<i32> for HandleType {
 }
 unsafe impl ::windows::runtime::Abi for HandleType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
@@ -26528,7 +26052,6 @@ impl ::std::cmp::Eq for INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -26557,7 +26080,6 @@ impl ::std::cmp::PartialEq for INFORMATIONCARD_CRYPTO_HANDLE {
 impl ::std::cmp::Eq for INFORMATIONCARD_CRYPTO_HANDLE {}
 unsafe impl ::windows::runtime::Abi for INFORMATIONCARD_CRYPTO_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -26592,7 +26114,6 @@ impl ::std::cmp::Eq for INFORMATIONCARD_HASH_CRYPTO_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INFORMATIONCARD_HASH_CRYPTO_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -26621,7 +26142,6 @@ impl ::std::cmp::PartialEq for INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS {
 impl ::std::cmp::Eq for INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -26658,7 +26178,6 @@ impl ::std::cmp::Eq for INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const INTERNATIONAL_USAGE: u32 = 1u32;
@@ -26752,7 +26271,6 @@ impl ::std::cmp::PartialEq for KEY_TYPE_SUBTYPE {
 impl ::std::cmp::Eq for KEY_TYPE_SUBTYPE {}
 unsafe impl ::windows::runtime::Abi for KEY_TYPE_SUBTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const KP_ADMIN_PIN: u32 = 31u32;
@@ -26859,7 +26377,6 @@ impl ::std::convert::From<i32> for MSCEPSetupProperty {
 }
 unsafe impl ::windows::runtime::Abi for MSCEPSetupProperty {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
@@ -26959,7 +26476,6 @@ impl ::std::convert::From<u32> for NCRYPT_ALGORITHM_NAME_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for NCRYPT_ALGORITHM_NAME_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for NCRYPT_ALGORITHM_NAME_CLASS {
     type Output = Self;
@@ -27016,7 +26532,6 @@ impl ::std::cmp::PartialEq for NCRYPT_ALLOC_PARA {
 impl ::std::cmp::Eq for NCRYPT_ALLOC_PARA {}
 unsafe impl ::windows::runtime::Abi for NCRYPT_ALLOC_PARA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_ALLOW_ALL_USAGES: u32 = 16777215u32;
@@ -27080,7 +26595,6 @@ impl ::std::cmp::PartialEq for NCRYPT_CIPHER_PADDING_INFO {
 impl ::std::cmp::Eq for NCRYPT_CIPHER_PADDING_INFO {}
 unsafe impl ::windows::runtime::Abi for NCRYPT_CIPHER_PADDING_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_CLAIM_AUTHORITY_AND_SUBJECT: u32 = 3u32;
@@ -27123,7 +26637,6 @@ impl ::std::cmp::PartialEq for NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {
 impl ::std::cmp::Eq for NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {}
 unsafe impl ::windows::runtime::Abi for NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -27166,7 +26679,6 @@ impl ::std::cmp::PartialEq for NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
 impl ::std::cmp::Eq for NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {}
 unsafe impl ::windows::runtime::Abi for NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_EXPORTED_ISOLATED_KEY_HEADER_CURRENT_VERSION: u32 = 0u32;
@@ -27203,7 +26715,6 @@ impl ::std::convert::From<u32> for NCRYPT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for NCRYPT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for NCRYPT_FLAGS {
     type Output = Self;
@@ -27272,7 +26783,6 @@ impl ::std::cmp::PartialEq for NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {
 impl ::std::cmp::Eq for NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES_CURRENT_VERSION: u32 = 0u32;
@@ -27312,7 +26822,6 @@ impl ::std::cmp::PartialEq for NCRYPT_KEY_ACCESS_POLICY_BLOB {
 impl ::std::cmp::Eq for NCRYPT_KEY_ACCESS_POLICY_BLOB {}
 unsafe impl ::windows::runtime::Abi for NCRYPT_KEY_ACCESS_POLICY_BLOB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_KEY_ACCESS_POLICY_VERSION: u32 = 1u32;
@@ -27347,7 +26856,6 @@ impl ::std::cmp::PartialEq for NCRYPT_KEY_ATTEST_PADDING_INFO {
 impl ::std::cmp::Eq for NCRYPT_KEY_ATTEST_PADDING_INFO {}
 unsafe impl ::windows::runtime::Abi for NCRYPT_KEY_ATTEST_PADDING_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -27377,7 +26885,6 @@ impl ::std::cmp::PartialEq for NCRYPT_KEY_BLOB_HEADER {
 impl ::std::cmp::Eq for NCRYPT_KEY_BLOB_HEADER {}
 unsafe impl ::windows::runtime::Abi for NCRYPT_KEY_BLOB_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_KEY_DERIVATION_INTERFACE: u32 = 7u32;
@@ -27413,7 +26920,6 @@ impl ::std::convert::From<u32> for NCRYPT_OPERATION {
 }
 unsafe impl ::windows::runtime::Abi for NCRYPT_OPERATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for NCRYPT_OPERATION {
     type Output = Self;
@@ -27478,7 +26984,6 @@ impl ::std::cmp::PartialEq for NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
 impl ::std::cmp::Eq for NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {}
 unsafe impl ::windows::runtime::Abi for NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_PCP_IDENTITY_KEY: u32 = 8u32;
@@ -27508,7 +27013,6 @@ impl ::std::cmp::PartialEq for NCRYPT_PCP_RAW_POLICYDIGEST {
 impl ::std::cmp::Eq for NCRYPT_PCP_RAW_POLICYDIGEST {}
 unsafe impl ::windows::runtime::Abi for NCRYPT_PCP_RAW_POLICYDIGEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_PCP_SIGNATURE_KEY: u32 = 1u32;
@@ -27542,7 +27046,6 @@ impl ::std::cmp::PartialEq for NCRYPT_PCP_TPM_FW_VERSION_INFO {
 impl ::std::cmp::Eq for NCRYPT_PCP_TPM_FW_VERSION_INFO {}
 unsafe impl ::windows::runtime::Abi for NCRYPT_PCP_TPM_FW_VERSION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_PIN_CACHE_APPLICATION_TICKET_BYTE_LENGTH: u32 = 90u32;
@@ -27580,7 +27083,6 @@ impl ::std::cmp::PartialEq for NCRYPT_PLATFORM_ATTEST_PADDING_INFO {
 impl ::std::cmp::Eq for NCRYPT_PLATFORM_ATTEST_PADDING_INFO {}
 unsafe impl ::windows::runtime::Abi for NCRYPT_PLATFORM_ATTEST_PADDING_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_PREFER_VIRTUAL_ISOLATION_FLAG: u32 = 65536u32;
@@ -27621,7 +27123,6 @@ impl ::std::cmp::Eq for NCRYPT_PROTECT_STREAM_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NCRYPT_PROTECT_STREAM_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -27656,7 +27157,6 @@ impl ::std::cmp::Eq for NCRYPT_PROTECT_STREAM_INFO_EX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NCRYPT_PROTECT_STREAM_INFO_EX {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_PROTECT_TO_LOCAL_SYSTEM: u32 = 32768u32;
@@ -27690,7 +27190,6 @@ impl ::std::cmp::PartialEq for NCRYPT_SUPPORTED_LENGTHS {
 impl ::std::cmp::Eq for NCRYPT_SUPPORTED_LENGTHS {}
 unsafe impl ::windows::runtime::Abi for NCRYPT_SUPPORTED_LENGTHS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_TPM12_PROVIDER: u32 = 65536u32;
@@ -27723,7 +27222,6 @@ impl ::std::cmp::PartialEq for NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
 impl ::std::cmp::Eq for NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {}
 unsafe impl ::windows::runtime::Abi for NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_TPM_LOADABLE_KEY_BLOB_MAGIC: u32 = 1297371211u32;
@@ -27759,7 +27257,6 @@ impl ::std::cmp::PartialEq for NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
 impl ::std::cmp::Eq for NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {}
 unsafe impl ::windows::runtime::Abi for NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT_CURRENT_VERSION: u32 = 0u32;
@@ -27815,7 +27312,6 @@ impl ::std::cmp::Eq for NCRYPT_UI_POLICY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NCRYPT_UI_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_UI_PROTECT_KEY_FLAG: u32 = 1u32;
@@ -27853,7 +27349,6 @@ impl ::std::cmp::PartialEq for NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {
 impl ::std::cmp::Eq for NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {}
 unsafe impl ::windows::runtime::Abi for NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS_CURRENT_VERSION: u32 = 0u32;
@@ -27888,7 +27383,6 @@ impl ::std::cmp::PartialEq for NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {
 impl ::std::cmp::Eq for NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {}
 unsafe impl ::windows::runtime::Abi for NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const NCRYPT_VSM_KEY_ATTESTATION_STATEMENT_CURRENT_VERSION: u32 = 0u32;
@@ -27929,7 +27423,6 @@ impl ::std::cmp::Eq for NCryptAlgorithmName {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NCryptAlgorithmName {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[inline]
@@ -28280,7 +27773,6 @@ impl ::std::cmp::Eq for NCryptKeyName {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NCryptKeyName {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
@@ -28375,7 +27867,6 @@ impl ::std::cmp::Eq for NCryptProviderName {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NCryptProviderName {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
@@ -28642,7 +28133,6 @@ impl ::std::cmp::Eq for OCSP_BASIC_RESPONSE_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OCSP_BASIC_RESPONSE_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -28670,7 +28160,6 @@ impl ::std::cmp::Eq for OCSP_BASIC_RESPONSE_ENTRY_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OCSP_BASIC_RESPONSE_ENTRY_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -28705,7 +28194,6 @@ impl ::std::cmp::Eq for OCSP_BASIC_RESPONSE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OCSP_BASIC_RESPONSE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -28728,7 +28216,6 @@ impl ::std::cmp::PartialEq for OCSP_BASIC_RESPONSE_INFO_0 {
 impl ::std::cmp::Eq for OCSP_BASIC_RESPONSE_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for OCSP_BASIC_RESPONSE_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const OCSP_BASIC_RESPONSE_V1: u32 = 0u32;
@@ -28767,7 +28254,6 @@ impl ::std::cmp::Eq for OCSP_BASIC_REVOKED_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OCSP_BASIC_REVOKED_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -28802,7 +28288,6 @@ impl ::std::cmp::Eq for OCSP_BASIC_SIGNED_RESPONSE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OCSP_BASIC_SIGNED_RESPONSE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const OCSP_BASIC_UNKNOWN_CERT_STATUS: u32 = 2u32;
@@ -28841,7 +28326,6 @@ impl ::std::cmp::Eq for OCSP_CERT_ID {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OCSP_CERT_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const OCSP_INTERNAL_ERROR_RESPONSE: u32 = 2u32;
@@ -28881,7 +28365,6 @@ impl ::std::cmp::Eq for OCSP_REQUEST_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OCSP_REQUEST_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -28920,7 +28403,6 @@ impl ::std::cmp::Eq for OCSP_REQUEST_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OCSP_REQUEST_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const OCSP_REQUEST_V1: u32 = 0u32;
@@ -28958,7 +28440,6 @@ impl ::std::cmp::Eq for OCSP_RESPONSE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OCSP_RESPONSE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -28995,7 +28476,6 @@ impl ::std::cmp::Eq for OCSP_SIGNATURE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OCSP_SIGNATURE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -29030,7 +28510,6 @@ impl ::std::cmp::Eq for OCSP_SIGNED_REQUEST_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OCSP_SIGNED_REQUEST_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const OCSP_SIG_REQUIRED_RESPONSE: u32 = 5u32;
@@ -29340,7 +28819,6 @@ impl ::std::cmp::Eq for PKCS12_PBES2_EXPORT_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PKCS12_PBES2_EXPORT_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PKCS12_PROTECT_TO_DOMAIN_SIDS: u32 = 32u32;
@@ -29398,7 +28876,6 @@ impl ::std::cmp::Eq for POLICY_ELEMENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for POLICY_ELEMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const POLICY_IGNORE_NON_CRITICAL_BC: u32 = 1u32;
@@ -29494,7 +28971,6 @@ impl ::std::cmp::PartialEq for PRIVKEYVER3 {
 impl ::std::cmp::Eq for PRIVKEYVER3 {}
 unsafe impl ::windows::runtime::Abi for PRIVKEYVER3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PROV_DH_SCHANNEL: u32 = 18u32;
@@ -29545,7 +29021,6 @@ impl ::std::cmp::Eq for PROV_ENUMALGS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PROV_ENUMALGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -29597,7 +29072,6 @@ impl ::std::cmp::Eq for PROV_ENUMALGS_EX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PROV_ENUMALGS_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PROV_FORTEZZA: u32 = 4u32;
@@ -29657,7 +29131,6 @@ impl ::std::cmp::PartialEq for PUBKEY {
 impl ::std::cmp::Eq for PUBKEY {}
 unsafe impl ::windows::runtime::Abi for PUBKEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -29688,7 +29161,6 @@ impl ::std::cmp::PartialEq for PUBKEYVER3 {
 impl ::std::cmp::Eq for PUBKEYVER3 {}
 unsafe impl ::windows::runtime::Abi for PUBKEYVER3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const PUBLICKEYBLOB: u32 = 6u32;
@@ -29722,7 +29194,6 @@ impl ::std::cmp::PartialEq for PUBLICKEYSTRUC {
 impl ::std::cmp::Eq for PUBLICKEYSTRUC {}
 unsafe impl ::windows::runtime::Abi for PUBLICKEYSTRUC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -29742,7 +29213,6 @@ impl ::std::convert::From<i32> for PaddingMode {
 }
 unsafe impl ::windows::runtime::Abi for PaddingMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const RANDOM_PADDING: u32 = 2u32;
@@ -29792,7 +29262,6 @@ impl ::std::cmp::Eq for RECIPIENTPOLICY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RECIPIENTPOLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -29840,7 +29309,6 @@ impl ::std::cmp::Eq for RECIPIENTPOLICY2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RECIPIENTPOLICY2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const RECIPIENTPOLICYV1: u32 = 1u32;
@@ -29876,7 +29344,6 @@ impl ::std::cmp::PartialEq for ROOT_INFO_LUID {
 impl ::std::cmp::Eq for ROOT_INFO_LUID {}
 unsafe impl ::windows::runtime::Abi for ROOT_INFO_LUID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const RSA1024BIT_KEY: u32 = 67108864u32;
@@ -29907,7 +29374,6 @@ impl ::std::cmp::PartialEq for RSAPUBKEY {
 impl ::std::cmp::Eq for RSAPUBKEY {}
 unsafe impl ::windows::runtime::Abi for RSAPUBKEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -29938,7 +29404,6 @@ impl ::std::cmp::PartialEq for SCHANNEL_ALG {
 impl ::std::cmp::Eq for SCHANNEL_ALG {}
 unsafe impl ::windows::runtime::Abi for SCHANNEL_ALG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const SCHANNEL_ENC_KEY: u32 = 1u32;
@@ -29994,7 +29459,6 @@ impl ::std::cmp::PartialEq for SSL_ECCKEY_BLOB {
 impl ::std::cmp::Eq for SSL_ECCKEY_BLOB {}
 unsafe impl ::windows::runtime::Abi for SSL_ECCKEY_BLOB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const SSL_F12_ERROR_TEXT_LENGTH: u32 = 256u32;
@@ -30027,7 +29491,6 @@ impl ::std::cmp::PartialEq for SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {
 impl ::std::cmp::Eq for SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {}
 unsafe impl ::windows::runtime::Abi for SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const SSL_HPKP_HEADER_COUNT: u32 = 2u32;
@@ -30066,7 +29529,6 @@ impl ::std::cmp::Eq for SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const SSL_HPKP_PKP_HEADER_INDEX: u32 = 0u32;
@@ -30108,7 +29570,6 @@ impl ::std::cmp::Eq for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -30137,7 +29598,6 @@ impl ::std::cmp::PartialEq for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {
 impl ::std::cmp::Eq for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {}
 unsafe impl ::windows::runtime::Abi for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography`*"]
 pub const SYMMETRICWRAPKEYBLOB: u32 = 11u32;
@@ -30260,5 +29720,4 @@ impl ::std::cmp::PartialEq for __NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT 
 impl ::std::cmp::Eq for __NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {}
 unsafe impl ::windows::runtime::Abi for __NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }

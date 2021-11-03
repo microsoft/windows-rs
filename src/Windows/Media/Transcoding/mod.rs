@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaTranscoder(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaTranscoder {
@@ -41,7 +40,6 @@ pub struct IMediaTranscoder_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaTranscoder2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaTranscoder2 {
@@ -63,7 +61,6 @@ pub struct IMediaTranscoder2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut MediaVideoProcessingAlgorithm) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrepareTranscodeResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrepareTranscodeResult {
@@ -247,10 +244,12 @@ impl ::std::convert::From<i32> for MediaVideoProcessingAlgorithm {
 }
 unsafe impl ::windows::runtime::Abi for MediaVideoProcessingAlgorithm {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MediaVideoProcessingAlgorithm {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Transcoding.MediaVideoProcessingAlgorithm;i4)");
+}
+impl ::windows::runtime::DefaultType for MediaVideoProcessingAlgorithm {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Transcoding`*"]
 #[repr(transparent)]
@@ -312,8 +311,10 @@ impl ::std::convert::From<i32> for TranscodeFailureReason {
 }
 unsafe impl ::windows::runtime::Abi for TranscodeFailureReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TranscodeFailureReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Transcoding.TranscodeFailureReason;i4)");
+}
+impl ::windows::runtime::DefaultType for TranscodeFailureReason {
+    type DefaultType = Self;
 }

@@ -74,7 +74,6 @@ impl ::std::cmp::Eq for CHOOSECOLORA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CHOOSECOLORA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -125,7 +124,6 @@ impl ::std::cmp::Eq for CHOOSECOLORW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CHOOSECOLORW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -205,7 +203,6 @@ impl ::std::cmp::Eq for CHOOSEFONTA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for CHOOSEFONTA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -285,7 +282,6 @@ impl ::std::cmp::Eq for CHOOSEFONTW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for CHOOSEFONTW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -327,7 +323,6 @@ impl ::std::convert::From<u32> for CHOOSEFONT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CHOOSEFONT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CHOOSEFONT_FLAGS {
     type Output = Self;
@@ -374,7 +369,6 @@ impl ::std::convert::From<u16> for CHOOSEFONT_FONT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CHOOSEFONT_FONT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CHOOSEFONT_FONT_TYPE {
     type Output = Self;
@@ -512,7 +506,6 @@ impl ::std::convert::From<u32> for COMMON_DLG_ERRORS {
 }
 unsafe impl ::windows::runtime::Abi for COMMON_DLG_ERRORS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for COMMON_DLG_ERRORS {
     type Output = Self;
@@ -644,7 +637,6 @@ impl ::std::cmp::PartialEq for DEVNAMES {
 impl ::std::cmp::Eq for DEVNAMES {}
 unsafe impl ::windows::runtime::Abi for DEVNAMES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
 pub const DLG_COLOR: u32 = 10u32;
@@ -703,7 +695,6 @@ impl ::std::cmp::Eq for FINDREPLACEA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FINDREPLACEA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -758,7 +749,6 @@ impl ::std::cmp::Eq for FINDREPLACEW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FINDREPLACEW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -788,7 +778,6 @@ impl ::std::convert::From<u32> for FINDREPLACE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for FINDREPLACE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for FINDREPLACE_FLAGS {
     type Output = Self;
@@ -1080,7 +1069,6 @@ impl ::std::cmp::Eq for OFNOTIFYA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OFNOTIFYA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1117,7 +1105,6 @@ impl ::std::cmp::Eq for OFNOTIFYEXA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OFNOTIFYEXA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1154,7 +1141,6 @@ impl ::std::cmp::Eq for OFNOTIFYEXW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OFNOTIFYEXW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1190,7 +1176,6 @@ impl ::std::cmp::Eq for OFNOTIFYW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OFNOTIFYW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
 pub const OFN_SHAREFALLTHROUGH: u32 = 2u32;
@@ -1297,7 +1282,6 @@ impl ::std::cmp::Eq for OPENFILENAMEA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OPENFILENAMEA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1398,7 +1382,6 @@ impl ::std::cmp::Eq for OPENFILENAMEW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OPENFILENAMEW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1490,7 +1473,6 @@ impl ::std::cmp::Eq for OPENFILENAME_NT4A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OPENFILENAME_NT4A {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1582,7 +1564,6 @@ impl ::std::cmp::Eq for OPENFILENAME_NT4W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OPENFILENAME_NT4W {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1621,7 +1602,6 @@ impl ::std::convert::From<u32> for OPEN_FILENAME_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for OPEN_FILENAME_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for OPEN_FILENAME_FLAGS {
     type Output = Self;
@@ -1664,7 +1644,6 @@ impl ::std::convert::From<u32> for OPEN_FILENAME_FLAGS_EX {
 }
 unsafe impl ::windows::runtime::Abi for OPEN_FILENAME_FLAGS_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for OPEN_FILENAME_FLAGS_EX {
     type Output = Self;
@@ -1765,7 +1744,6 @@ impl ::std::cmp::Eq for PAGESETUPDLGA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PAGESETUPDLGA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1838,7 +1816,6 @@ impl ::std::cmp::Eq for PAGESETUPDLGW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PAGESETUPDLGW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1870,7 +1847,6 @@ impl ::std::convert::From<u32> for PAGESETUPDLG_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PAGESETUPDLG_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PAGESETUPDLG_FLAGS {
     type Output = Self;
@@ -1992,7 +1968,6 @@ impl ::std::cmp::Eq for PRINTDLGA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for PRINTDLGA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2088,7 +2063,6 @@ impl ::std::cmp::Eq for PRINTDLGEXA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for PRINTDLGEXA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2184,7 +2158,6 @@ impl ::std::cmp::Eq for PRINTDLGEXW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for PRINTDLGEXW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2225,7 +2198,6 @@ impl ::std::convert::From<u32> for PRINTDLGEX_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PRINTDLGEX_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PRINTDLGEX_FLAGS {
     type Output = Self;
@@ -2341,7 +2313,6 @@ impl ::std::cmp::Eq for PRINTDLGW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for PRINTDLGW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2369,7 +2340,6 @@ impl ::std::cmp::PartialEq for PRINTPAGERANGE {
 impl ::std::cmp::Eq for PRINTPAGERANGE {}
 unsafe impl ::windows::runtime::Abi for PRINTPAGERANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
 pub const PS_OPENTYPE_FONTTYPE: u32 = 65536u32;

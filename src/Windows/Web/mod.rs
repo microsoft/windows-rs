@@ -42,7 +42,6 @@ pub struct IUriToStreamResolver_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebErrorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebErrorStatics {
@@ -146,8 +145,10 @@ impl ::std::convert::From<i32> for WebErrorStatus {
 }
 unsafe impl ::windows::runtime::Abi for WebErrorStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WebErrorStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Web.WebErrorStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for WebErrorStatus {
+    type DefaultType = Self;
 }

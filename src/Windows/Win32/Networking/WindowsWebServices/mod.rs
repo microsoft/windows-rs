@@ -109,7 +109,6 @@ impl ::std::cmp::Eq for WEBAUTHN_ASSERTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WEBAUTHN_ASSERTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_ASSERTION_CURRENT_VERSION: u32 = 2u32;
@@ -210,7 +209,6 @@ impl ::std::cmp::Eq for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_CURRENT_VERSION: u32 = 5u32;
@@ -297,7 +295,6 @@ impl ::std::cmp::Eq for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_CURRENT_VERSION: u32 = 4u32;
@@ -344,7 +341,6 @@ impl ::std::cmp::Eq for WEBAUTHN_CLIENT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WEBAUTHN_CLIENT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_CLIENT_DATA_CURRENT_VERSION: u32 = 1u32;
@@ -404,7 +400,6 @@ impl ::std::cmp::Eq for WEBAUTHN_COMMON_ATTESTATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WEBAUTHN_COMMON_ATTESTATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_COMMON_ATTESTATION_CURRENT_VERSION: u32 = 1u32;
@@ -460,7 +455,6 @@ impl ::std::cmp::Eq for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -495,7 +489,6 @@ impl ::std::cmp::Eq for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_COSE_CREDENTIAL_PARAMETER_CURRENT_VERSION: u32 = 1u32;
@@ -534,7 +527,6 @@ impl ::std::cmp::Eq for WEBAUTHN_CREDENTIAL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WEBAUTHN_CREDENTIAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -569,7 +561,6 @@ impl ::std::cmp::Eq for WEBAUTHN_CREDENTIALS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WEBAUTHN_CREDENTIALS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -653,7 +644,6 @@ impl ::std::cmp::Eq for WEBAUTHN_CREDENTIAL_ATTESTATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WEBAUTHN_CREDENTIAL_ATTESTATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_CURRENT_VERSION: u32 = 4u32;
@@ -703,7 +693,6 @@ impl ::std::cmp::Eq for WEBAUTHN_CREDENTIAL_EX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WEBAUTHN_CREDENTIAL_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_CREDENTIAL_EX_CURRENT_VERSION: u32 = 1u32;
@@ -740,7 +729,6 @@ impl ::std::cmp::Eq for WEBAUTHN_CREDENTIAL_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WEBAUTHN_CREDENTIAL_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -768,7 +756,6 @@ impl ::std::cmp::PartialEq for WEBAUTHN_CRED_BLOB_EXTENSION {
 impl ::std::cmp::Eq for WEBAUTHN_CRED_BLOB_EXTENSION {}
 unsafe impl ::windows::runtime::Abi for WEBAUTHN_CRED_BLOB_EXTENSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_CRED_LARGE_BLOB_OPERATION_DELETE: u32 = 3u32;
@@ -831,7 +818,6 @@ impl ::std::cmp::Eq for WEBAUTHN_CRED_PROTECT_EXTENSION_IN {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WEBAUTHN_CRED_PROTECT_EXTENSION_IN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_CTAP_TRANSPORT_BLE: u32 = 4u32;
@@ -885,7 +871,6 @@ impl ::std::cmp::Eq for WEBAUTHN_EXTENSION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WEBAUTHN_EXTENSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -920,7 +905,6 @@ impl ::std::cmp::Eq for WEBAUTHN_EXTENSIONS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WEBAUTHN_EXTENSIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_LARGE_BLOB_SUPPORT_NONE: u32 = 0u32;
@@ -965,7 +949,6 @@ impl ::std::cmp::Eq for WEBAUTHN_RP_ENTITY_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WEBAUTHN_RP_ENTITY_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_RP_ENTITY_INFORMATION_CURRENT_VERSION: u32 = 1u32;
@@ -1006,7 +989,6 @@ impl ::std::cmp::Eq for WEBAUTHN_USER_ENTITY_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WEBAUTHN_USER_ENTITY_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WEBAUTHN_USER_ENTITY_INFORMATION_CURRENT_VERSION: u32 = 1u32;
@@ -1052,7 +1034,6 @@ impl ::std::cmp::PartialEq for WEBAUTHN_X5C {
 impl ::std::cmp::Eq for WEBAUTHN_X5C {}
 unsafe impl ::windows::runtime::Abi for WEBAUTHN_X5C {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type WS_ABANDON_MESSAGE_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::std::ffi::c_void, message: *const WS_MESSAGE, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 pub type WS_ABORT_CHANNEL_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::std::ffi::c_void, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
@@ -1072,7 +1053,6 @@ impl ::std::convert::From<i32> for WS_ADDRESSING_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for WS_ADDRESSING_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1108,7 +1088,6 @@ impl ::std::cmp::Eq for WS_ANY_ATTRIBUTE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_ANY_ATTRIBUTE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1143,7 +1122,6 @@ impl ::std::cmp::Eq for WS_ANY_ATTRIBUTES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_ANY_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type WS_ASYNC_CALLBACK = unsafe extern "system" fn(errorcode: ::windows::runtime::HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const ::std::ffi::c_void);
 #[derive(:: std :: clone :: Clone)]
@@ -1172,7 +1150,6 @@ impl ::std::cmp::PartialEq for WS_ASYNC_CONTEXT {
 impl ::std::cmp::Eq for WS_ASYNC_CONTEXT {}
 unsafe impl ::windows::runtime::Abi for WS_ASYNC_CONTEXT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 pub type WS_ASYNC_FUNCTION = unsafe extern "system" fn(hr: ::windows::runtime::HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const ::std::ffi::c_void, next: *mut ::std::mem::ManuallyDrop<WS_ASYNC_OPERATION>, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone)]
@@ -1200,7 +1177,6 @@ impl ::std::cmp::PartialEq for WS_ASYNC_OPERATION {
 impl ::std::cmp::Eq for WS_ASYNC_OPERATION {}
 unsafe impl ::windows::runtime::Abi for WS_ASYNC_OPERATION {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1231,7 +1207,6 @@ impl ::std::cmp::PartialEq for WS_ASYNC_STATE {
 impl ::std::cmp::Eq for WS_ASYNC_STATE {}
 unsafe impl ::windows::runtime::Abi for WS_ASYNC_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1268,7 +1243,6 @@ impl ::std::cmp::Eq for WS_ATTRIBUTE_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_ATTRIBUTE_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1295,7 +1269,6 @@ impl ::std::convert::From<i32> for WS_BINDING_TEMPLATE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WS_BINDING_TEMPLATE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1329,7 +1302,6 @@ impl ::std::cmp::Eq for WS_BOOL_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_BOOL_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1357,7 +1329,6 @@ impl ::std::cmp::PartialEq for WS_BUFFERS {
 impl ::std::cmp::Eq for WS_BUFFERS {}
 unsafe impl ::windows::runtime::Abi for WS_BUFFERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1385,7 +1356,6 @@ impl ::std::cmp::PartialEq for WS_BYTES {
 impl ::std::cmp::Eq for WS_BYTES {}
 unsafe impl ::windows::runtime::Abi for WS_BYTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1413,7 +1383,6 @@ impl ::std::cmp::PartialEq for WS_BYTES_DESCRIPTION {
 impl ::std::cmp::Eq for WS_BYTES_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_BYTES_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1441,7 +1410,6 @@ impl ::std::cmp::PartialEq for WS_BYTE_ARRAY_DESCRIPTION {
 impl ::std::cmp::Eq for WS_BYTE_ARRAY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_BYTE_ARRAY_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1456,7 +1424,6 @@ impl ::std::convert::From<i32> for WS_CALLBACK_MODEL {
 }
 unsafe impl ::windows::runtime::Abi for WS_CALLBACK_MODEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1485,7 +1452,6 @@ impl ::std::cmp::PartialEq for WS_CALL_PROPERTY {
 impl ::std::cmp::Eq for WS_CALL_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for WS_CALL_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1502,7 +1468,6 @@ impl ::std::convert::From<i32> for WS_CALL_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for WS_CALL_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1531,7 +1496,6 @@ impl ::std::cmp::PartialEq for WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
 impl ::std::cmp::Eq for WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {}
 unsafe impl ::windows::runtime::Abi for WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub type WS_CERTIFICATE_VALIDATION_CALLBACK = unsafe extern "system" fn(certcontext: *const super::super::Security::Cryptography::CERT_CONTEXT, state: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
@@ -1568,7 +1532,6 @@ impl ::std::cmp::Eq for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1595,7 +1558,6 @@ impl ::std::cmp::PartialEq for WS_CERT_CREDENTIAL {
 impl ::std::cmp::Eq for WS_CERT_CREDENTIAL {}
 unsafe impl ::windows::runtime::Abi for WS_CERT_CREDENTIAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1611,7 +1573,6 @@ impl ::std::convert::From<i32> for WS_CERT_CREDENTIAL_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WS_CERT_CREDENTIAL_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1639,7 +1600,6 @@ impl ::std::cmp::PartialEq for WS_CERT_ENDPOINT_IDENTITY {
 impl ::std::cmp::Eq for WS_CERT_ENDPOINT_IDENTITY {}
 unsafe impl ::windows::runtime::Abi for WS_CERT_ENDPOINT_IDENTITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WS_CERT_FAILURE_CN_MISMATCH: i32 = 1i32;
@@ -1679,7 +1639,6 @@ impl ::std::cmp::PartialEq for WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
 impl ::std::cmp::Eq for WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {}
 unsafe impl ::windows::runtime::Abi for WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1724,7 +1683,6 @@ impl ::std::cmp::Eq for WS_CERT_SIGNED_SAML_AUTHENTICATOR {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -1745,7 +1703,6 @@ impl ::std::convert::From<i32> for WS_CHANNEL_BINDING {
 }
 unsafe impl ::windows::runtime::Abi for WS_CHANNEL_BINDING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1791,7 +1748,6 @@ impl ::std::cmp::Eq for WS_CHANNEL_DECODER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_CHANNEL_DECODER {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1837,7 +1793,6 @@ impl ::std::cmp::Eq for WS_CHANNEL_ENCODER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_CHANNEL_ENCODER {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1865,7 +1820,6 @@ impl ::std::cmp::PartialEq for WS_CHANNEL_PROPERTIES {
 impl ::std::cmp::Eq for WS_CHANNEL_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for WS_CHANNEL_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1894,7 +1848,6 @@ impl ::std::cmp::PartialEq for WS_CHANNEL_PROPERTY {
 impl ::std::cmp::Eq for WS_CHANNEL_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for WS_CHANNEL_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1924,7 +1877,6 @@ impl ::std::cmp::PartialEq for WS_CHANNEL_PROPERTY_CONSTRAINT {
 impl ::std::cmp::Eq for WS_CHANNEL_PROPERTY_CONSTRAINT {}
 unsafe impl ::windows::runtime::Abi for WS_CHANNEL_PROPERTY_CONSTRAINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1951,7 +1903,6 @@ impl ::std::cmp::PartialEq for WS_CHANNEL_PROPERTY_CONSTRAINT_0 {
 impl ::std::cmp::Eq for WS_CHANNEL_PROPERTY_CONSTRAINT_0 {}
 unsafe impl ::windows::runtime::Abi for WS_CHANNEL_PROPERTY_CONSTRAINT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2014,7 +1965,6 @@ impl ::std::convert::From<i32> for WS_CHANNEL_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for WS_CHANNEL_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2034,7 +1984,6 @@ impl ::std::convert::From<i32> for WS_CHANNEL_STATE {
 }
 unsafe impl ::windows::runtime::Abi for WS_CHANNEL_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2056,7 +2005,6 @@ impl ::std::convert::From<i32> for WS_CHANNEL_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WS_CHANNEL_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2073,7 +2021,6 @@ impl ::std::convert::From<i32> for WS_CHARSET {
 }
 unsafe impl ::windows::runtime::Abi for WS_CHARSET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2101,7 +2048,6 @@ impl ::std::cmp::PartialEq for WS_CHAR_ARRAY_DESCRIPTION {
 impl ::std::cmp::Eq for WS_CHAR_ARRAY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_CHAR_ARRAY_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type WS_CLOSE_CHANNEL_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::std::ffi::c_void, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 pub type WS_CLOSE_LISTENER_CALLBACK = unsafe extern "system" fn(listenerinstance: *const ::std::ffi::c_void, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
@@ -2138,7 +2084,6 @@ impl ::std::cmp::Eq for WS_CONTRACT_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_CONTRACT_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2153,7 +2098,6 @@ impl ::std::convert::From<i32> for WS_COOKIE_MODE {
 }
 unsafe impl ::windows::runtime::Abi for WS_COOKIE_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type WS_CREATE_CHANNEL_CALLBACK = unsafe extern "system" fn(channeltype: WS_CHANNEL_TYPE, channelparameters: *const ::std::ffi::c_void, channelparameterssize: u32, channelinstance: *mut *mut ::std::ffi::c_void, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 pub type WS_CREATE_CHANNEL_FOR_LISTENER_CALLBACK = unsafe extern "system" fn(listenerinstance: *const ::std::ffi::c_void, channelparameters: *const ::std::ffi::c_void, channelparameterssize: u32, channelinstance: *mut *mut ::std::ffi::c_void, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
@@ -2196,7 +2140,6 @@ impl ::std::cmp::Eq for WS_CUSTOM_CERT_CREDENTIAL {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for WS_CUSTOM_CERT_CREDENTIAL {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2256,7 +2199,6 @@ impl ::std::cmp::Eq for WS_CUSTOM_CHANNEL_CALLBACKS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_CUSTOM_CHANNEL_CALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2291,7 +2233,6 @@ impl ::std::cmp::Eq for WS_CUSTOM_HTTP_PROXY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_CUSTOM_HTTP_PROXY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2343,7 +2284,6 @@ impl ::std::cmp::Eq for WS_CUSTOM_LISTENER_CALLBACKS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_CUSTOM_LISTENER_CALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2382,7 +2322,6 @@ impl ::std::cmp::Eq for WS_CUSTOM_TYPE_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_CUSTOM_TYPE_DESCRIPTION {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2410,7 +2349,6 @@ impl ::std::cmp::PartialEq for WS_DATETIME {
 impl ::std::cmp::Eq for WS_DATETIME {}
 unsafe impl ::windows::runtime::Abi for WS_DATETIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2438,7 +2376,6 @@ impl ::std::cmp::PartialEq for WS_DATETIME_DESCRIPTION {
 impl ::std::cmp::Eq for WS_DATETIME_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_DATETIME_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2454,7 +2391,6 @@ impl ::std::convert::From<i32> for WS_DATETIME_FORMAT {
 }
 unsafe impl ::windows::runtime::Abi for WS_DATETIME_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2483,7 +2419,6 @@ impl ::std::cmp::Eq for WS_DECIMAL_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_DECIMAL_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type WS_DECODER_DECODE_CALLBACK = unsafe extern "system" fn(encodercontext: *const ::std::ffi::c_void, buffer: *mut ::std::ffi::c_void, maxlength: u32, length: *mut u32, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 pub type WS_DECODER_END_CALLBACK = unsafe extern "system" fn(encodercontext: *const ::std::ffi::c_void, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
@@ -2516,7 +2451,6 @@ impl ::std::cmp::PartialEq for WS_DEFAULT_VALUE {
 impl ::std::cmp::Eq for WS_DEFAULT_VALUE {}
 unsafe impl ::windows::runtime::Abi for WS_DEFAULT_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2543,7 +2477,6 @@ impl ::std::cmp::PartialEq for WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
 impl ::std::cmp::Eq for WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {}
 unsafe impl ::windows::runtime::Abi for WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2578,7 +2511,6 @@ impl ::std::cmp::Eq for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2613,7 +2545,6 @@ impl ::std::cmp::Eq for WS_DNS_ENDPOINT_IDENTITY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_DNS_ENDPOINT_IDENTITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2641,7 +2572,6 @@ impl ::std::cmp::PartialEq for WS_DOUBLE_DESCRIPTION {
 impl ::std::cmp::Eq for WS_DOUBLE_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_DOUBLE_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2693,7 +2623,6 @@ impl ::std::cmp::Eq for WS_DURATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_DURATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type WS_DURATION_COMPARISON_CALLBACK = unsafe extern "system" fn(duration1: *const WS_DURATION, duration2: *const WS_DURATION, result: *mut i32, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
@@ -2731,7 +2660,6 @@ impl ::std::cmp::Eq for WS_DURATION_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_DURATION_DESCRIPTION {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type WS_DYNAMIC_STRING_CALLBACK = unsafe extern "system" fn(callbackstate: *const ::std::ffi::c_void, string: *const WS_XML_STRING, found: *mut super::super::Foundation::BOOL, id: *mut u32, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
@@ -2770,7 +2698,6 @@ impl ::std::cmp::Eq for WS_ELEMENT_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_ELEMENT_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type WS_ENCODER_ENCODE_CALLBACK = unsafe extern "system" fn(encodercontext: *const ::std::ffi::c_void, buffers: *const WS_BYTES, count: u32, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 pub type WS_ENCODER_END_CALLBACK = unsafe extern "system" fn(encodercontext: *const ::std::ffi::c_void, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
@@ -2797,7 +2724,6 @@ impl ::std::convert::From<i32> for WS_ENCODING {
 }
 unsafe impl ::windows::runtime::Abi for WS_ENCODING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2834,7 +2760,6 @@ impl ::std::cmp::Eq for WS_ENDPOINT_ADDRESS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_ENDPOINT_ADDRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2861,7 +2786,6 @@ impl ::std::cmp::PartialEq for WS_ENDPOINT_ADDRESS_DESCRIPTION {
 impl ::std::cmp::Eq for WS_ENDPOINT_ADDRESS_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_ENDPOINT_ADDRESS_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2875,7 +2799,6 @@ impl ::std::convert::From<i32> for WS_ENDPOINT_ADDRESS_EXTENSION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WS_ENDPOINT_ADDRESS_EXTENSION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2902,7 +2825,6 @@ impl ::std::cmp::PartialEq for WS_ENDPOINT_IDENTITY {
 impl ::std::cmp::Eq for WS_ENDPOINT_IDENTITY {}
 unsafe impl ::windows::runtime::Abi for WS_ENDPOINT_IDENTITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2921,7 +2843,6 @@ impl ::std::convert::From<i32> for WS_ENDPOINT_IDENTITY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WS_ENDPOINT_IDENTITY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2958,7 +2879,6 @@ impl ::std::cmp::Eq for WS_ENDPOINT_POLICY_EXTENSION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_ENDPOINT_POLICY_EXTENSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2985,7 +2905,6 @@ impl ::std::cmp::PartialEq for WS_ENDPOINT_POLICY_EXTENSION_0 {
 impl ::std::cmp::Eq for WS_ENDPOINT_POLICY_EXTENSION_0 {}
 unsafe impl ::windows::runtime::Abi for WS_ENDPOINT_POLICY_EXTENSION_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3022,7 +2941,6 @@ impl ::std::cmp::Eq for WS_ENUM_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_ENUM_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3057,7 +2975,6 @@ impl ::std::cmp::Eq for WS_ENUM_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_ENUM_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3073,7 +2990,6 @@ impl ::std::convert::From<i32> for WS_ENVELOPE_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for WS_ENVELOPE_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -3105,7 +3021,6 @@ impl ::std::cmp::PartialEq for WS_ERROR_PROPERTY {
 impl ::std::cmp::Eq for WS_ERROR_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for WS_ERROR_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3121,7 +3036,6 @@ impl ::std::convert::From<i32> for WS_ERROR_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for WS_ERROR_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3136,7 +3050,6 @@ impl ::std::convert::From<i32> for WS_EXCEPTION_CODE {
 }
 unsafe impl ::windows::runtime::Abi for WS_EXCEPTION_CODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3152,7 +3065,6 @@ impl ::std::convert::From<i32> for WS_EXTENDED_PROTECTION_POLICY {
 }
 unsafe impl ::windows::runtime::Abi for WS_EXTENDED_PROTECTION_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3167,7 +3079,6 @@ impl ::std::convert::From<i32> for WS_EXTENDED_PROTECTION_SCENARIO {
 }
 unsafe impl ::windows::runtime::Abi for WS_EXTENDED_PROTECTION_SCENARIO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3206,7 +3117,6 @@ impl ::std::cmp::Eq for WS_FAULT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_FAULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3241,7 +3151,6 @@ impl ::std::cmp::Eq for WS_FAULT_CODE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_FAULT_CODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3268,7 +3177,6 @@ impl ::std::cmp::PartialEq for WS_FAULT_DESCRIPTION {
 impl ::std::cmp::Eq for WS_FAULT_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_FAULT_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3303,7 +3211,6 @@ impl ::std::cmp::Eq for WS_FAULT_DETAIL_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_FAULT_DETAIL_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3318,7 +3225,6 @@ impl ::std::convert::From<i32> for WS_FAULT_DISCLOSURE {
 }
 unsafe impl ::windows::runtime::Abi for WS_FAULT_DISCLOSURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3334,7 +3240,6 @@ impl ::std::convert::From<i32> for WS_FAULT_ERROR_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for WS_FAULT_ERROR_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3369,7 +3274,6 @@ impl ::std::cmp::Eq for WS_FAULT_REASON {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_FAULT_REASON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3427,7 +3331,6 @@ impl ::std::cmp::Eq for WS_FIELD_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_FIELD_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3453,7 +3356,6 @@ impl ::std::convert::From<i32> for WS_FIELD_MAPPING {
 }
 unsafe impl ::windows::runtime::Abi for WS_FIELD_MAPPING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WS_FIELD_NILLABLE: i32 = 4i32;
@@ -3491,7 +3393,6 @@ impl ::std::cmp::PartialEq for WS_FLOAT_DESCRIPTION {
 impl ::std::cmp::Eq for WS_FLOAT_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_FLOAT_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type WS_FREE_CHANNEL_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::std::ffi::c_void);
 pub type WS_FREE_DECODER_CALLBACK = unsafe extern "system" fn(decodercontext: *const ::std::ffi::c_void);
@@ -3526,7 +3427,6 @@ impl ::std::cmp::PartialEq for WS_GUID_DESCRIPTION {
 impl ::std::cmp::Eq for WS_GUID_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_GUID_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3546,7 +3446,6 @@ impl ::std::convert::From<i32> for WS_HEADER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WS_HEADER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -3577,7 +3476,6 @@ impl ::std::cmp::PartialEq for WS_HEAP_PROPERTIES {
 impl ::std::cmp::Eq for WS_HEAP_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for WS_HEAP_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3606,7 +3504,6 @@ impl ::std::cmp::PartialEq for WS_HEAP_PROPERTY {
 impl ::std::cmp::Eq for WS_HEAP_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for WS_HEAP_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3623,7 +3520,6 @@ impl ::std::convert::From<i32> for WS_HEAP_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for WS_HEAP_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3658,7 +3554,6 @@ impl ::std::cmp::Eq for WS_HOST_NAMES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_HOST_NAMES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3698,7 +3593,6 @@ impl ::std::cmp::Eq for WS_HTTPS_URL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_HTTPS_URL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3725,7 +3619,6 @@ impl ::std::cmp::PartialEq for WS_HTTP_BINDING_TEMPLATE {
 impl ::std::cmp::Eq for WS_HTTP_BINDING_TEMPLATE {}
 unsafe impl ::windows::runtime::Abi for WS_HTTP_BINDING_TEMPLATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3754,7 +3647,6 @@ impl ::std::cmp::PartialEq for WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE {
 impl ::std::cmp::Eq for WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE {}
 unsafe impl ::windows::runtime::Abi for WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3783,7 +3675,6 @@ impl ::std::cmp::PartialEq for WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION {
 impl ::std::cmp::Eq for WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WS_HTTP_HEADER_AUTH_SCHEME_BASIC: i32 = 2i32;
@@ -3823,7 +3714,6 @@ impl ::std::cmp::PartialEq for WS_HTTP_HEADER_AUTH_SECURITY_BINDING {
 impl ::std::cmp::Eq for WS_HTTP_HEADER_AUTH_SECURITY_BINDING {}
 unsafe impl ::windows::runtime::Abi for WS_HTTP_HEADER_AUTH_SECURITY_BINDING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3850,7 +3740,6 @@ impl ::std::cmp::PartialEq for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT {
 impl ::std::cmp::Eq for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT {}
 unsafe impl ::windows::runtime::Abi for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3877,7 +3766,6 @@ impl ::std::cmp::PartialEq for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCR
 impl ::std::cmp::Eq for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3905,7 +3793,6 @@ impl ::std::cmp::PartialEq for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {
 impl ::std::cmp::Eq for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {}
 unsafe impl ::windows::runtime::Abi for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3920,7 +3807,6 @@ impl ::std::convert::From<i32> for WS_HTTP_HEADER_AUTH_TARGET {
 }
 unsafe impl ::windows::runtime::Abi for WS_HTTP_HEADER_AUTH_TARGET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3955,7 +3841,6 @@ impl ::std::cmp::Eq for WS_HTTP_HEADER_MAPPING {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_HTTP_HEADER_MAPPING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WS_HTTP_HEADER_MAPPING_COMMA_SEPARATOR: i32 = 1i32;
@@ -4007,7 +3892,6 @@ impl ::std::cmp::Eq for WS_HTTP_MESSAGE_MAPPING {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_HTTP_MESSAGE_MAPPING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4034,7 +3918,6 @@ impl ::std::cmp::PartialEq for WS_HTTP_POLICY_DESCRIPTION {
 impl ::std::cmp::Eq for WS_HTTP_POLICY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_HTTP_POLICY_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4050,7 +3933,6 @@ impl ::std::convert::From<i32> for WS_HTTP_PROXY_SETTING_MODE {
 }
 unsafe impl ::windows::runtime::Abi for WS_HTTP_PROXY_SETTING_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type WS_HTTP_REDIRECT_CALLBACK = unsafe extern "system" fn(state: *const ::std::ffi::c_void, originalurl: *const WS_STRING, newurl: *const WS_STRING) -> ::windows::runtime::HRESULT;
@@ -4087,7 +3969,6 @@ impl ::std::cmp::Eq for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WS_HTTP_REQUEST_MAPPING_VERB: i32 = 2i32;
@@ -4122,7 +4003,6 @@ impl ::std::cmp::PartialEq for WS_HTTP_SSL_BINDING_TEMPLATE {
 impl ::std::cmp::Eq for WS_HTTP_SSL_BINDING_TEMPLATE {}
 unsafe impl ::windows::runtime::Abi for WS_HTTP_SSL_BINDING_TEMPLATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4157,7 +4037,6 @@ impl ::std::cmp::PartialEq for WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {
 impl ::std::cmp::Eq for WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {}
 unsafe impl ::windows::runtime::Abi for WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4192,7 +4071,6 @@ impl ::std::cmp::PartialEq for WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION {
 impl ::std::cmp::Eq for WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4227,7 +4105,6 @@ impl ::std::cmp::PartialEq for WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE {
 impl ::std::cmp::Eq for WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE {}
 unsafe impl ::windows::runtime::Abi for WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4262,7 +4139,6 @@ impl ::std::cmp::PartialEq for WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION {
 impl ::std::cmp::Eq for WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4299,7 +4175,6 @@ impl ::std::cmp::PartialEq for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDI
 impl ::std::cmp::Eq for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {}
 unsafe impl ::windows::runtime::Abi for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4336,7 +4211,6 @@ impl ::std::cmp::PartialEq for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLIC
 impl ::std::cmp::Eq for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4365,7 +4239,6 @@ impl ::std::cmp::PartialEq for WS_HTTP_SSL_POLICY_DESCRIPTION {
 impl ::std::cmp::Eq for WS_HTTP_SSL_POLICY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_HTTP_SSL_POLICY_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4407,7 +4280,6 @@ impl ::std::cmp::Eq for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4442,7 +4314,6 @@ impl ::std::cmp::PartialEq for WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {
 impl ::std::cmp::Eq for WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4486,7 +4357,6 @@ impl ::std::cmp::Eq for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4523,7 +4393,6 @@ impl ::std::cmp::PartialEq for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESC
 impl ::std::cmp::Eq for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4563,7 +4432,6 @@ impl ::std::cmp::Eq for WS_HTTP_URL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_HTTP_URL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4591,7 +4459,6 @@ impl ::std::cmp::PartialEq for WS_INT16_DESCRIPTION {
 impl ::std::cmp::Eq for WS_INT16_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_INT16_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4619,7 +4486,6 @@ impl ::std::cmp::PartialEq for WS_INT32_DESCRIPTION {
 impl ::std::cmp::Eq for WS_INT32_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_INT32_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4647,7 +4513,6 @@ impl ::std::cmp::PartialEq for WS_INT64_DESCRIPTION {
 impl ::std::cmp::Eq for WS_INT64_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_INT64_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4682,7 +4547,6 @@ impl ::std::cmp::Eq for WS_INT8_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_INT8_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4698,7 +4562,6 @@ impl ::std::convert::From<i32> for WS_IP_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for WS_IP_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4746,7 +4609,6 @@ impl ::std::cmp::Eq for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4781,7 +4643,6 @@ impl ::std::cmp::Eq for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type WS_IS_DEFAULT_VALUE_CALLBACK = unsafe extern "system" fn(descriptiondata: *const ::std::ffi::c_void, value: *const ::std::ffi::c_void, defaultvalue: *const ::std::ffi::c_void, valuesize: u32, isdefault: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
@@ -4811,7 +4672,6 @@ impl ::std::cmp::PartialEq for WS_ITEM_RANGE {
 impl ::std::cmp::Eq for WS_ITEM_RANGE {}
 unsafe impl ::windows::runtime::Abi for WS_ITEM_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4840,7 +4700,6 @@ impl ::std::cmp::PartialEq for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {
 impl ::std::cmp::Eq for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {}
 unsafe impl ::windows::runtime::Abi for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4868,7 +4727,6 @@ impl ::std::cmp::PartialEq for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTR
 impl ::std::cmp::Eq for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT {}
 unsafe impl ::windows::runtime::Abi for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4896,7 +4754,6 @@ impl ::std::cmp::PartialEq for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY
 impl ::std::cmp::Eq for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4924,7 +4781,6 @@ impl ::std::cmp::PartialEq for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLA
 impl ::std::cmp::Eq for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {}
 unsafe impl ::windows::runtime::Abi for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -4955,7 +4811,6 @@ impl ::std::cmp::PartialEq for WS_LISTENER_PROPERTIES {
 impl ::std::cmp::Eq for WS_LISTENER_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for WS_LISTENER_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4984,7 +4839,6 @@ impl ::std::cmp::PartialEq for WS_LISTENER_PROPERTY {
 impl ::std::cmp::Eq for WS_LISTENER_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for WS_LISTENER_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5014,7 +4868,6 @@ impl ::std::convert::From<i32> for WS_LISTENER_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for WS_LISTENER_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5033,7 +4886,6 @@ impl ::std::convert::From<i32> for WS_LISTENER_STATE {
 }
 unsafe impl ::windows::runtime::Abi for WS_LISTENER_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WS_MATCH_URL_DNS_FULLY_QUALIFIED_HOST: i32 = 2i32;
@@ -5091,7 +4943,6 @@ impl ::std::cmp::Eq for WS_MESSAGE_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_MESSAGE_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type WS_MESSAGE_DONE_CALLBACK = unsafe extern "system" fn(donecallbackstate: *const ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
@@ -5110,7 +4961,6 @@ impl ::std::convert::From<i32> for WS_MESSAGE_INITIALIZATION {
 }
 unsafe impl ::windows::runtime::Abi for WS_MESSAGE_INITIALIZATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5138,7 +4988,6 @@ impl ::std::cmp::PartialEq for WS_MESSAGE_PROPERTIES {
 impl ::std::cmp::Eq for WS_MESSAGE_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for WS_MESSAGE_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5167,7 +5016,6 @@ impl ::std::cmp::PartialEq for WS_MESSAGE_PROPERTY {
 impl ::std::cmp::Eq for WS_MESSAGE_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for WS_MESSAGE_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5202,7 +5050,6 @@ impl ::std::convert::From<i32> for WS_MESSAGE_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for WS_MESSAGE_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5216,7 +5063,6 @@ impl ::std::convert::From<i32> for WS_MESSAGE_SECURITY_USAGE {
 }
 unsafe impl ::windows::runtime::Abi for WS_MESSAGE_SECURITY_USAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5234,7 +5080,6 @@ impl ::std::convert::From<i32> for WS_MESSAGE_STATE {
 }
 unsafe impl ::windows::runtime::Abi for WS_MESSAGE_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -5289,7 +5134,6 @@ impl ::std::cmp::Eq for WS_METADATA_ENDPOINT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_METADATA_ENDPOINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5324,7 +5168,6 @@ impl ::std::cmp::Eq for WS_METADATA_ENDPOINTS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_METADATA_ENDPOINTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5340,7 +5183,6 @@ impl ::std::convert::From<i32> for WS_METADATA_EXCHANGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WS_METADATA_EXCHANGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5369,7 +5211,6 @@ impl ::std::cmp::PartialEq for WS_METADATA_PROPERTY {
 impl ::std::cmp::Eq for WS_METADATA_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for WS_METADATA_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5389,7 +5230,6 @@ impl ::std::convert::From<i32> for WS_METADATA_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for WS_METADATA_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5405,7 +5245,6 @@ impl ::std::convert::From<i32> for WS_METADATA_STATE {
 }
 unsafe impl ::windows::runtime::Abi for WS_METADATA_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5430,7 +5269,6 @@ impl ::std::convert::From<i32> for WS_MOVE_TO {
 }
 unsafe impl ::windows::runtime::Abi for WS_MOVE_TO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WS_MUST_UNDERSTAND_HEADER_ATTRIBUTE: i32 = 1i32;
@@ -5460,7 +5298,6 @@ impl ::std::cmp::PartialEq for WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {
 impl ::std::cmp::Eq for WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {}
 unsafe impl ::windows::runtime::Abi for WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5488,7 +5325,6 @@ impl ::std::cmp::PartialEq for WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {
 impl ::std::cmp::Eq for WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {}
 unsafe impl ::windows::runtime::Abi for WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5528,7 +5364,6 @@ impl ::std::cmp::Eq for WS_NETPIPE_URL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_NETPIPE_URL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5568,7 +5403,6 @@ impl ::std::cmp::Eq for WS_NETTCP_URL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_NETTCP_URL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5596,7 +5430,6 @@ impl ::std::cmp::PartialEq for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
 impl ::std::cmp::Eq for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {}
 unsafe impl ::windows::runtime::Abi for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type WS_OPEN_CHANNEL_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::std::ffi::c_void, endpointaddress: *const WS_ENDPOINT_ADDRESS, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
@@ -5626,7 +5459,6 @@ impl ::std::convert::From<i32> for WS_OPERATION_CONTEXT_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for WS_OPERATION_CONTEXT_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -5685,7 +5517,6 @@ impl ::std::cmp::Eq for WS_OPERATION_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_OPERATION_DESCRIPTION {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 pub type WS_OPERATION_FREE_STATE_CALLBACK = unsafe extern "system" fn(state: *const ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
@@ -5701,7 +5532,6 @@ impl ::std::convert::From<i32> for WS_OPERATION_STYLE {
 }
 unsafe impl ::windows::runtime::Abi for WS_OPERATION_STYLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5730,7 +5560,6 @@ impl ::std::cmp::PartialEq for WS_PARAMETER_DESCRIPTION {
 impl ::std::cmp::Eq for WS_PARAMETER_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_PARAMETER_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5747,7 +5576,6 @@ impl ::std::convert::From<i32> for WS_PARAMETER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WS_PARAMETER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -5789,7 +5617,6 @@ impl ::std::cmp::PartialEq for WS_POLICY_CONSTRAINTS {
 impl ::std::cmp::Eq for WS_POLICY_CONSTRAINTS {}
 unsafe impl ::windows::runtime::Abi for WS_POLICY_CONSTRAINTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5816,7 +5643,6 @@ impl ::std::cmp::PartialEq for WS_POLICY_EXTENSION {
 impl ::std::cmp::Eq for WS_POLICY_EXTENSION {}
 unsafe impl ::windows::runtime::Abi for WS_POLICY_EXTENSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5830,7 +5656,6 @@ impl ::std::convert::From<i32> for WS_POLICY_EXTENSION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WS_POLICY_EXTENSION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5858,7 +5683,6 @@ impl ::std::cmp::PartialEq for WS_POLICY_PROPERTIES {
 impl ::std::cmp::Eq for WS_POLICY_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for WS_POLICY_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5887,7 +5711,6 @@ impl ::std::cmp::PartialEq for WS_POLICY_PROPERTY {
 impl ::std::cmp::Eq for WS_POLICY_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for WS_POLICY_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5904,7 +5727,6 @@ impl ::std::convert::From<i32> for WS_POLICY_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for WS_POLICY_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5919,7 +5741,6 @@ impl ::std::convert::From<i32> for WS_POLICY_STATE {
 }
 unsafe impl ::windows::runtime::Abi for WS_POLICY_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5935,7 +5756,6 @@ impl ::std::convert::From<i32> for WS_PROTECTION_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for WS_PROTECTION_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type WS_PROXY_MESSAGE_CALLBACK = unsafe extern "system" fn(message: *const WS_MESSAGE, heap: *const WS_HEAP, state: *const ::std::ffi::c_void, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone)]
@@ -5964,7 +5784,6 @@ impl ::std::cmp::PartialEq for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
 impl ::std::cmp::Eq for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {}
 unsafe impl ::windows::runtime::Abi for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5993,7 +5812,6 @@ impl ::std::cmp::PartialEq for WS_PROXY_PROPERTY {
 impl ::std::cmp::Eq for WS_PROXY_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for WS_PROXY_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6013,7 +5831,6 @@ impl ::std::convert::From<i32> for WS_PROXY_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for WS_PROXY_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type WS_PULL_BYTES_CALLBACK = unsafe extern "system" fn(callbackstate: *const ::std::ffi::c_void, bytes: *mut ::std::ffi::c_void, maxsize: u32, actualsize: *mut u32, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 pub type WS_PUSH_BYTES_CALLBACK = unsafe extern "system" fn(callbackstate: *const ::std::ffi::c_void, writecallback: ::windows::runtime::RawPtr, writecallbackstate: *const ::std::ffi::c_void, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
@@ -6043,7 +5860,6 @@ impl ::std::cmp::PartialEq for WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {
 impl ::std::cmp::Eq for WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {}
 unsafe impl ::windows::runtime::Abi for WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type WS_READ_CALLBACK = unsafe extern "system" fn(callbackstate: *const ::std::ffi::c_void, bytes: *mut ::std::ffi::c_void, maxsize: u32, actualsize: *mut u32, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 pub type WS_READ_MESSAGE_END_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::std::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
@@ -6064,7 +5880,6 @@ impl ::std::convert::From<i32> for WS_READ_OPTION {
 }
 unsafe impl ::windows::runtime::Abi for WS_READ_OPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type WS_READ_TYPE_CALLBACK = unsafe extern "system" fn(reader: *const WS_XML_READER, typemapping: WS_TYPE_MAPPING, descriptiondata: *const ::std::ffi::c_void, heap: *const WS_HEAP, value: *mut ::std::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
@@ -6080,7 +5895,6 @@ impl ::std::convert::From<i32> for WS_RECEIVE_OPTION {
 }
 unsafe impl ::windows::runtime::Abi for WS_RECEIVE_OPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WS_RELAY_HEADER_ATTRIBUTE: i32 = 2i32;
@@ -6097,7 +5911,6 @@ impl ::std::convert::From<i32> for WS_REPEATING_HEADER_OPTION {
 }
 unsafe impl ::windows::runtime::Abi for WS_REPEATING_HEADER_OPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6113,7 +5926,6 @@ impl ::std::convert::From<i32> for WS_REQUEST_SECURITY_TOKEN_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for WS_REQUEST_SECURITY_TOKEN_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6142,7 +5954,6 @@ impl ::std::cmp::PartialEq for WS_REQUEST_SECURITY_TOKEN_PROPERTY {
 impl ::std::cmp::Eq for WS_REQUEST_SECURITY_TOKEN_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for WS_REQUEST_SECURITY_TOKEN_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6172,7 +5983,6 @@ impl ::std::cmp::PartialEq for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT {
 impl ::std::cmp::Eq for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT {}
 unsafe impl ::windows::runtime::Abi for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6199,7 +6009,6 @@ impl ::std::cmp::PartialEq for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0 {
 impl ::std::cmp::Eq for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0 {}
 unsafe impl ::windows::runtime::Abi for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6225,7 +6034,6 @@ impl ::std::convert::From<i32> for WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type WS_RESET_CHANNEL_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::std::ffi::c_void, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 pub type WS_RESET_LISTENER_CALLBACK = unsafe extern "system" fn(listenerinstance: *const ::std::ffi::c_void, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
@@ -6256,7 +6064,6 @@ impl ::std::cmp::PartialEq for WS_RSA_ENDPOINT_IDENTITY {
 impl ::std::cmp::Eq for WS_RSA_ENDPOINT_IDENTITY {}
 unsafe impl ::windows::runtime::Abi for WS_RSA_ENDPOINT_IDENTITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6283,7 +6090,6 @@ impl ::std::cmp::PartialEq for WS_SAML_AUTHENTICATOR {
 impl ::std::cmp::Eq for WS_SAML_AUTHENTICATOR {}
 unsafe impl ::windows::runtime::Abi for WS_SAML_AUTHENTICATOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6297,7 +6103,6 @@ impl ::std::convert::From<i32> for WS_SAML_AUTHENTICATOR_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WS_SAML_AUTHENTICATOR_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6326,7 +6131,6 @@ impl ::std::cmp::PartialEq for WS_SAML_MESSAGE_SECURITY_BINDING {
 impl ::std::cmp::Eq for WS_SAML_MESSAGE_SECURITY_BINDING {}
 unsafe impl ::windows::runtime::Abi for WS_SAML_MESSAGE_SECURITY_BINDING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6341,7 +6145,6 @@ impl ::std::convert::From<i32> for WS_SECURE_CONVERSATION_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for WS_SECURE_CONVERSATION_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6359,7 +6162,6 @@ impl ::std::convert::From<i32> for WS_SECURE_PROTOCOL {
 }
 unsafe impl ::windows::runtime::Abi for WS_SECURE_PROTOCOL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6391,7 +6193,6 @@ impl ::std::convert::From<i32> for WS_SECURITY_ALGORITHM_ID {
 }
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_ALGORITHM_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6420,7 +6221,6 @@ impl ::std::cmp::PartialEq for WS_SECURITY_ALGORITHM_PROPERTY {
 impl ::std::cmp::Eq for WS_SECURITY_ALGORITHM_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_ALGORITHM_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6433,7 +6233,6 @@ impl ::std::convert::From<i32> for WS_SECURITY_ALGORITHM_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_ALGORITHM_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6501,7 +6300,6 @@ impl ::std::cmp::PartialEq for WS_SECURITY_ALGORITHM_SUITE {
 impl ::std::cmp::Eq for WS_SECURITY_ALGORITHM_SUITE {}
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_ALGORITHM_SUITE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6526,7 +6324,6 @@ impl ::std::convert::From<i32> for WS_SECURITY_ALGORITHM_SUITE_NAME {
 }
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_ALGORITHM_SUITE_NAME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6542,7 +6339,6 @@ impl ::std::convert::From<i32> for WS_SECURITY_BEARER_KEY_TYPE_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_BEARER_KEY_TYPE_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6571,7 +6367,6 @@ impl ::std::cmp::PartialEq for WS_SECURITY_BINDING {
 impl ::std::cmp::Eq for WS_SECURITY_BINDING {}
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_BINDING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6600,7 +6395,6 @@ impl ::std::cmp::PartialEq for WS_SECURITY_BINDING_CONSTRAINT {
 impl ::std::cmp::Eq for WS_SECURITY_BINDING_CONSTRAINT {}
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_BINDING_CONSTRAINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6621,7 +6415,6 @@ impl ::std::convert::From<i32> for WS_SECURITY_BINDING_CONSTRAINT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_BINDING_CONSTRAINT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6649,7 +6442,6 @@ impl ::std::cmp::PartialEq for WS_SECURITY_BINDING_PROPERTIES {
 impl ::std::cmp::Eq for WS_SECURITY_BINDING_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_BINDING_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6678,7 +6470,6 @@ impl ::std::cmp::PartialEq for WS_SECURITY_BINDING_PROPERTY {
 impl ::std::cmp::Eq for WS_SECURITY_BINDING_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_BINDING_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6708,7 +6499,6 @@ impl ::std::cmp::PartialEq for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {
 impl ::std::cmp::Eq for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {}
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6735,7 +6525,6 @@ impl ::std::cmp::PartialEq for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {
 impl ::std::cmp::Eq for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {}
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6771,7 +6560,6 @@ impl ::std::convert::From<i32> for WS_SECURITY_BINDING_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_BINDING_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6793,7 +6581,6 @@ impl ::std::convert::From<i32> for WS_SECURITY_BINDING_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_BINDING_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6828,7 +6615,6 @@ impl ::std::cmp::PartialEq for WS_SECURITY_CONSTRAINTS {
 impl ::std::cmp::Eq for WS_SECURITY_CONSTRAINTS {}
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_CONSTRAINTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -6860,7 +6646,6 @@ impl ::std::cmp::PartialEq for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
 impl ::std::cmp::Eq for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {}
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6889,7 +6674,6 @@ impl ::std::cmp::PartialEq for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONS
 impl ::std::cmp::Eq for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT {}
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6917,7 +6701,6 @@ impl ::std::cmp::PartialEq for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLI
 impl ::std::cmp::Eq for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6944,7 +6727,6 @@ impl ::std::cmp::PartialEq for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMP
 impl ::std::cmp::Eq for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE {}
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6973,7 +6755,6 @@ impl ::std::cmp::PartialEq for WS_SECURITY_CONTEXT_PROPERTY {
 impl ::std::cmp::Eq for WS_SECURITY_CONTEXT_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_CONTEXT_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6990,7 +6771,6 @@ impl ::std::convert::From<i32> for WS_SECURITY_CONTEXT_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_CONTEXT_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7018,7 +6798,6 @@ impl ::std::cmp::PartialEq for WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCR
 impl ::std::cmp::Eq for WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7046,7 +6825,6 @@ impl ::std::cmp::PartialEq for WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE {
 impl ::std::cmp::Eq for WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE {}
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7076,7 +6854,6 @@ impl ::std::cmp::PartialEq for WS_SECURITY_DESCRIPTION {
 impl ::std::cmp::Eq for WS_SECURITY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7093,7 +6870,6 @@ impl ::std::convert::From<i32> for WS_SECURITY_HEADER_LAYOUT {
 }
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_HEADER_LAYOUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7108,7 +6884,6 @@ impl ::std::convert::From<i32> for WS_SECURITY_HEADER_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_HEADER_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7124,7 +6899,6 @@ impl ::std::convert::From<i32> for WS_SECURITY_KEY_ENTROPY_MODE {
 }
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_KEY_ENTROPY_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7151,7 +6925,6 @@ impl ::std::cmp::PartialEq for WS_SECURITY_KEY_HANDLE {
 impl ::std::cmp::Eq for WS_SECURITY_KEY_HANDLE {}
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_KEY_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7167,7 +6940,6 @@ impl ::std::convert::From<i32> for WS_SECURITY_KEY_HANDLE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_KEY_HANDLE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7183,7 +6955,6 @@ impl ::std::convert::From<i32> for WS_SECURITY_KEY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_KEY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7211,7 +6982,6 @@ impl ::std::cmp::PartialEq for WS_SECURITY_PROPERTIES {
 impl ::std::cmp::Eq for WS_SECURITY_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7240,7 +7010,6 @@ impl ::std::cmp::PartialEq for WS_SECURITY_PROPERTY {
 impl ::std::cmp::Eq for WS_SECURITY_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7270,7 +7039,6 @@ impl ::std::cmp::PartialEq for WS_SECURITY_PROPERTY_CONSTRAINT {
 impl ::std::cmp::Eq for WS_SECURITY_PROPERTY_CONSTRAINT {}
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_PROPERTY_CONSTRAINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7297,7 +7065,6 @@ impl ::std::cmp::PartialEq for WS_SECURITY_PROPERTY_CONSTRAINT_0 {
 impl ::std::cmp::Eq for WS_SECURITY_PROPERTY_CONSTRAINT_0 {}
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_PROPERTY_CONSTRAINT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7322,7 +7089,6 @@ impl ::std::convert::From<i32> for WS_SECURITY_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7338,7 +7104,6 @@ impl ::std::convert::From<i32> for WS_SECURITY_TIMESTAMP_USAGE {
 }
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_TIMESTAMP_USAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -7361,7 +7126,6 @@ impl ::std::convert::From<i32> for WS_SECURITY_TOKEN_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_TOKEN_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7379,7 +7143,6 @@ impl ::std::convert::From<i32> for WS_SECURITY_TOKEN_REFERENCE_MODE {
 }
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_TOKEN_REFERENCE_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type WS_SERVICE_ACCEPT_CHANNEL_CALLBACK = unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, channelstate: *mut *mut ::std::ffi::c_void, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
@@ -7395,7 +7158,6 @@ impl ::std::convert::From<i32> for WS_SERVICE_CANCEL_REASON {
 }
 unsafe impl ::windows::runtime::Abi for WS_SERVICE_CANCEL_REASON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type WS_SERVICE_CLOSE_CHANNEL_CALLBACK = unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone)]
@@ -7432,7 +7194,6 @@ impl ::std::cmp::Eq for WS_SERVICE_CONTRACT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_SERVICE_CONTRACT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -7483,7 +7244,6 @@ impl ::std::cmp::Eq for WS_SERVICE_ENDPOINT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_SERVICE_ENDPOINT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7519,7 +7279,6 @@ impl ::std::cmp::Eq for WS_SERVICE_ENDPOINT_METADATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_SERVICE_ENDPOINT_METADATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7548,7 +7307,6 @@ impl ::std::cmp::PartialEq for WS_SERVICE_ENDPOINT_PROPERTY {
 impl ::std::cmp::Eq for WS_SERVICE_ENDPOINT_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for WS_SERVICE_ENDPOINT_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7576,7 +7334,6 @@ impl ::std::convert::From<i32> for WS_SERVICE_ENDPOINT_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for WS_SERVICE_ENDPOINT_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -7598,7 +7355,6 @@ impl ::std::convert::From<i32> for WS_SERVICE_HOST_STATE {
 }
 unsafe impl ::windows::runtime::Abi for WS_SERVICE_HOST_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type WS_SERVICE_MESSAGE_RECEIVE_CALLBACK = unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -7636,7 +7392,6 @@ impl ::std::cmp::Eq for WS_SERVICE_METADATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_SERVICE_METADATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7671,7 +7426,6 @@ impl ::std::cmp::Eq for WS_SERVICE_METADATA_DOCUMENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_SERVICE_METADATA_DOCUMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WS_SERVICE_OPERATION_MESSAGE_NILLABLE_ELEMENT: i32 = 1i32;
@@ -7702,7 +7456,6 @@ impl ::std::cmp::PartialEq for WS_SERVICE_PROPERTY {
 impl ::std::cmp::Eq for WS_SERVICE_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for WS_SERVICE_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -7729,7 +7482,6 @@ impl ::std::cmp::PartialEq for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
 impl ::std::cmp::Eq for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {}
 unsafe impl ::windows::runtime::Abi for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -7756,7 +7508,6 @@ impl ::std::cmp::PartialEq for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
 impl ::std::cmp::Eq for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {}
 unsafe impl ::windows::runtime::Abi for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7775,7 +7526,6 @@ impl ::std::convert::From<i32> for WS_SERVICE_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for WS_SERVICE_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -7797,7 +7547,6 @@ impl ::std::convert::From<i32> for WS_SERVICE_PROXY_STATE {
 }
 unsafe impl ::windows::runtime::Abi for WS_SERVICE_PROXY_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type WS_SERVICE_SECURITY_CALLBACK = unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, authorized: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
@@ -7834,7 +7583,6 @@ impl ::std::cmp::Eq for WS_SERVICE_SECURITY_IDENTITIES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_SERVICE_SECURITY_IDENTITIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type WS_SERVICE_STUB_CALLBACK = unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, frame: *const ::std::ffi::c_void, callback: *const ::std::ffi::c_void, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 pub type WS_SET_CHANNEL_PROPERTY_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::std::ffi::c_void, id: WS_CHANNEL_PROPERTY_ID, value: *const ::std::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
@@ -7878,7 +7626,6 @@ impl ::std::cmp::Eq for WS_SOAPUDP_URL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_SOAPUDP_URL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7913,7 +7660,6 @@ impl ::std::cmp::Eq for WS_SPN_ENDPOINT_IDENTITY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_SPN_ENDPOINT_IDENTITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7941,7 +7687,6 @@ impl ::std::cmp::PartialEq for WS_SSL_TRANSPORT_SECURITY_BINDING {
 impl ::std::cmp::Eq for WS_SSL_TRANSPORT_SECURITY_BINDING {}
 unsafe impl ::windows::runtime::Abi for WS_SSL_TRANSPORT_SECURITY_BINDING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7976,7 +7721,6 @@ impl ::std::cmp::Eq for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8010,7 +7754,6 @@ impl ::std::cmp::Eq for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8037,7 +7780,6 @@ impl ::std::cmp::PartialEq for WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPT
 impl ::std::cmp::Eq for WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8065,7 +7807,6 @@ impl ::std::cmp::PartialEq for WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {
 impl ::std::cmp::Eq for WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {}
 unsafe impl ::windows::runtime::Abi for WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8092,7 +7833,6 @@ impl ::std::cmp::PartialEq for WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIP
 impl ::std::cmp::Eq for WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8127,7 +7867,6 @@ impl ::std::cmp::Eq for WS_STRING {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_STRING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8155,7 +7894,6 @@ impl ::std::cmp::PartialEq for WS_STRING_DESCRIPTION {
 impl ::std::cmp::Eq for WS_STRING_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_STRING_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8191,7 +7929,6 @@ impl ::std::cmp::Eq for WS_STRING_USERNAME_CREDENTIAL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_STRING_USERNAME_CREDENTIAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8228,7 +7965,6 @@ impl ::std::cmp::Eq for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WS_STRUCT_ABSTRACT: i32 = 1i32;
@@ -8284,7 +8020,6 @@ impl ::std::cmp::Eq for WS_STRUCT_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_STRUCT_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WS_STRUCT_IGNORE_TRAILING_ELEMENT_CONTENT: i32 = 2i32;
@@ -8325,7 +8060,6 @@ impl ::std::cmp::Eq for WS_SUBJECT_NAME_CERT_CREDENTIAL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_SUBJECT_NAME_CERT_CREDENTIAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8352,7 +8086,6 @@ impl ::std::cmp::PartialEq for WS_TCP_BINDING_TEMPLATE {
 impl ::std::cmp::Eq for WS_TCP_BINDING_TEMPLATE {}
 unsafe impl ::windows::runtime::Abi for WS_TCP_BINDING_TEMPLATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8379,7 +8112,6 @@ impl ::std::cmp::PartialEq for WS_TCP_POLICY_DESCRIPTION {
 impl ::std::cmp::Eq for WS_TCP_POLICY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_TCP_POLICY_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8408,7 +8140,6 @@ impl ::std::cmp::PartialEq for WS_TCP_SSPI_BINDING_TEMPLATE {
 impl ::std::cmp::Eq for WS_TCP_SSPI_BINDING_TEMPLATE {}
 unsafe impl ::windows::runtime::Abi for WS_TCP_SSPI_BINDING_TEMPLATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8443,7 +8174,6 @@ impl ::std::cmp::PartialEq for WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE {
 impl ::std::cmp::Eq for WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE {}
 unsafe impl ::windows::runtime::Abi for WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8478,7 +8208,6 @@ impl ::std::cmp::PartialEq for WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION {
 impl ::std::cmp::Eq for WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8515,7 +8244,6 @@ impl ::std::cmp::PartialEq for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDI
 impl ::std::cmp::Eq for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {}
 unsafe impl ::windows::runtime::Abi for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8552,7 +8280,6 @@ impl ::std::cmp::PartialEq for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLIC
 impl ::std::cmp::Eq for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8581,7 +8308,6 @@ impl ::std::cmp::PartialEq for WS_TCP_SSPI_POLICY_DESCRIPTION {
 impl ::std::cmp::Eq for WS_TCP_SSPI_POLICY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_TCP_SSPI_POLICY_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8609,7 +8335,6 @@ impl ::std::cmp::PartialEq for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {
 impl ::std::cmp::Eq for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {}
 unsafe impl ::windows::runtime::Abi for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8636,7 +8361,6 @@ impl ::std::cmp::PartialEq for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT
 impl ::std::cmp::Eq for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT {}
 unsafe impl ::windows::runtime::Abi for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8664,7 +8388,6 @@ impl ::std::cmp::PartialEq for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {
 impl ::std::cmp::Eq for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {}
 unsafe impl ::windows::runtime::Abi for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -8706,7 +8429,6 @@ impl ::std::cmp::Eq for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8741,7 +8463,6 @@ impl ::std::cmp::PartialEq for WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {
 impl ::std::cmp::Eq for WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -8785,7 +8506,6 @@ impl ::std::cmp::Eq for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8822,7 +8542,6 @@ impl ::std::cmp::PartialEq for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESC
 impl ::std::cmp::Eq for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8859,7 +8578,6 @@ impl ::std::cmp::Eq for WS_THUMBPRINT_CERT_CREDENTIAL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_THUMBPRINT_CERT_CREDENTIAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8886,7 +8604,6 @@ impl ::std::cmp::PartialEq for WS_TIMESPAN {
 impl ::std::cmp::Eq for WS_TIMESPAN {}
 unsafe impl ::windows::runtime::Abi for WS_TIMESPAN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8914,7 +8631,6 @@ impl ::std::cmp::PartialEq for WS_TIMESPAN_DESCRIPTION {
 impl ::std::cmp::Eq for WS_TIMESPAN_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_TIMESPAN_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9123,7 +8839,6 @@ impl ::std::convert::From<i32> for WS_TRACE_API {
 }
 unsafe impl ::windows::runtime::Abi for WS_TRACE_API {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9140,7 +8855,6 @@ impl ::std::convert::From<i32> for WS_TRANSFER_MODE {
 }
 unsafe impl ::windows::runtime::Abi for WS_TRANSFER_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9155,7 +8869,6 @@ impl ::std::convert::From<i32> for WS_TRUST_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for WS_TRUST_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9203,7 +8916,6 @@ impl ::std::convert::From<i32> for WS_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WS_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9220,7 +8932,6 @@ impl ::std::convert::From<i32> for WS_TYPE_MAPPING {
 }
 unsafe impl ::windows::runtime::Abi for WS_TYPE_MAPPING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9248,7 +8959,6 @@ impl ::std::cmp::PartialEq for WS_UINT16_DESCRIPTION {
 impl ::std::cmp::Eq for WS_UINT16_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_UINT16_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9276,7 +8986,6 @@ impl ::std::cmp::PartialEq for WS_UINT32_DESCRIPTION {
 impl ::std::cmp::Eq for WS_UINT32_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_UINT32_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9304,7 +9013,6 @@ impl ::std::cmp::PartialEq for WS_UINT64_DESCRIPTION {
 impl ::std::cmp::Eq for WS_UINT64_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_UINT64_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9332,7 +9040,6 @@ impl ::std::cmp::PartialEq for WS_UINT8_DESCRIPTION {
 impl ::std::cmp::Eq for WS_UINT8_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_UINT8_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9380,7 +9087,6 @@ impl ::std::cmp::Eq for WS_UNION_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_UNION_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9415,7 +9121,6 @@ impl ::std::cmp::Eq for WS_UNION_FIELD_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_UNION_FIELD_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9450,7 +9155,6 @@ impl ::std::cmp::Eq for WS_UNIQUE_ID {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_UNIQUE_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9478,7 +9182,6 @@ impl ::std::cmp::PartialEq for WS_UNIQUE_ID_DESCRIPTION {
 impl ::std::cmp::Eq for WS_UNIQUE_ID_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_UNIQUE_ID_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9506,7 +9209,6 @@ impl ::std::cmp::PartialEq for WS_UNKNOWN_ENDPOINT_IDENTITY {
 impl ::std::cmp::Eq for WS_UNKNOWN_ENDPOINT_IDENTITY {}
 unsafe impl ::windows::runtime::Abi for WS_UNKNOWN_ENDPOINT_IDENTITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9541,7 +9243,6 @@ impl ::std::cmp::Eq for WS_UPN_ENDPOINT_IDENTITY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_UPN_ENDPOINT_IDENTITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9568,7 +9269,6 @@ impl ::std::cmp::PartialEq for WS_URL {
 impl ::std::cmp::Eq for WS_URL {}
 unsafe impl ::windows::runtime::Abi for WS_URL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WS_URL_FLAGS_ALLOW_HOST_WILDCARDS: i32 = 1i32;
@@ -9592,7 +9292,6 @@ impl ::std::convert::From<i32> for WS_URL_SCHEME_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WS_URL_SCHEME_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9619,7 +9318,6 @@ impl ::std::cmp::PartialEq for WS_USERNAME_CREDENTIAL {
 impl ::std::cmp::Eq for WS_USERNAME_CREDENTIAL {}
 unsafe impl ::windows::runtime::Abi for WS_USERNAME_CREDENTIAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9633,7 +9331,6 @@ impl ::std::convert::From<i32> for WS_USERNAME_CREDENTIAL_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WS_USERNAME_CREDENTIAL_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -9671,7 +9368,6 @@ impl ::std::cmp::Eq for WS_USERNAME_MESSAGE_SECURITY_BINDING {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_USERNAME_MESSAGE_SECURITY_BINDING {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9699,7 +9395,6 @@ impl ::std::cmp::PartialEq for WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT {
 impl ::std::cmp::Eq for WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT {}
 unsafe impl ::windows::runtime::Abi for WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9727,7 +9422,6 @@ impl ::std::cmp::PartialEq for WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCR
 impl ::std::cmp::Eq for WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -9764,7 +9458,6 @@ impl ::std::cmp::Eq for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9792,7 +9485,6 @@ impl ::std::cmp::PartialEq for WS_UTF8_ARRAY_DESCRIPTION {
 impl ::std::cmp::Eq for WS_UTF8_ARRAY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_UTF8_ARRAY_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type WS_VALIDATE_PASSWORD_CALLBACK = unsafe extern "system" fn(passwordvalidatorcallbackstate: *const ::std::ffi::c_void, username: *const WS_STRING, password: *const WS_STRING, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
@@ -9824,7 +9516,6 @@ impl ::std::convert::From<i32> for WS_VALUE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WS_VALUE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9851,7 +9542,6 @@ impl ::std::cmp::PartialEq for WS_VOID_DESCRIPTION {
 impl ::std::cmp::Eq for WS_VOID_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_VOID_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9878,7 +9568,6 @@ impl ::std::cmp::PartialEq for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
 impl ::std::cmp::Eq for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {}
 unsafe impl ::windows::runtime::Abi for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9894,7 +9583,6 @@ impl ::std::convert::From<i32> for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9910,7 +9598,6 @@ impl ::std::convert::From<i32> for WS_WINDOWS_INTEGRATED_AUTH_PACKAGE {
 }
 unsafe impl ::windows::runtime::Abi for WS_WINDOWS_INTEGRATED_AUTH_PACKAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type WS_WRITE_CALLBACK = unsafe extern "system" fn(callbackstate: *const ::std::ffi::c_void, buffers: *const WS_BYTES, count: u32, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 pub type WS_WRITE_MESSAGE_END_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::std::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
@@ -9930,7 +9617,6 @@ impl ::std::convert::From<i32> for WS_WRITE_OPTION {
 }
 unsafe impl ::windows::runtime::Abi for WS_WRITE_OPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type WS_WRITE_TYPE_CALLBACK = unsafe extern "system" fn(writer: *const WS_XML_WRITER, typemapping: WS_TYPE_MAPPING, descriptiondata: *const ::std::ffi::c_void, value: *const ::std::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -9959,7 +9645,6 @@ impl ::std::cmp::PartialEq for WS_WSZ_DESCRIPTION {
 impl ::std::cmp::Eq for WS_WSZ_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_WSZ_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9998,7 +9683,6 @@ impl ::std::cmp::Eq for WS_XML_ATTRIBUTE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_XML_ATTRIBUTE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10027,7 +9711,6 @@ impl ::std::cmp::PartialEq for WS_XML_BASE64_TEXT {
 impl ::std::cmp::Eq for WS_XML_BASE64_TEXT {}
 unsafe impl ::windows::runtime::Abi for WS_XML_BASE64_TEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10062,7 +9745,6 @@ impl ::std::cmp::Eq for WS_XML_BOOL_TEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_XML_BOOL_TEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -10094,7 +9776,6 @@ impl ::std::cmp::PartialEq for WS_XML_BUFFER_PROPERTY {
 impl ::std::cmp::Eq for WS_XML_BUFFER_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for WS_XML_BUFFER_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10107,7 +9788,6 @@ impl ::std::convert::From<i32> for WS_XML_BUFFER_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for WS_XML_BUFFER_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10124,7 +9804,6 @@ impl ::std::convert::From<i32> for WS_XML_CANONICALIZATION_ALGORITHM {
 }
 unsafe impl ::windows::runtime::Abi for WS_XML_CANONICALIZATION_ALGORITHM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10159,7 +9838,6 @@ impl ::std::cmp::Eq for WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10188,7 +9866,6 @@ impl ::std::cmp::PartialEq for WS_XML_CANONICALIZATION_PROPERTY {
 impl ::std::cmp::Eq for WS_XML_CANONICALIZATION_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for WS_XML_CANONICALIZATION_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10205,7 +9882,6 @@ impl ::std::convert::From<i32> for WS_XML_CANONICALIZATION_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for WS_XML_CANONICALIZATION_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10240,7 +9916,6 @@ impl ::std::cmp::Eq for WS_XML_COMMENT_NODE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_XML_COMMENT_NODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10268,7 +9943,6 @@ impl ::std::cmp::PartialEq for WS_XML_DATETIME_TEXT {
 impl ::std::cmp::Eq for WS_XML_DATETIME_TEXT {}
 unsafe impl ::windows::runtime::Abi for WS_XML_DATETIME_TEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10297,7 +9971,6 @@ impl ::std::cmp::Eq for WS_XML_DECIMAL_TEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_XML_DECIMAL_TEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10334,7 +10007,6 @@ impl ::std::cmp::Eq for WS_XML_DICTIONARY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_XML_DICTIONARY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10362,7 +10034,6 @@ impl ::std::cmp::PartialEq for WS_XML_DOUBLE_TEXT {
 impl ::std::cmp::Eq for WS_XML_DOUBLE_TEXT {}
 unsafe impl ::windows::runtime::Abi for WS_XML_DOUBLE_TEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10402,7 +10073,6 @@ impl ::std::cmp::Eq for WS_XML_ELEMENT_NODE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_XML_ELEMENT_NODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10430,7 +10100,6 @@ impl ::std::cmp::PartialEq for WS_XML_FLOAT_TEXT {
 impl ::std::cmp::Eq for WS_XML_FLOAT_TEXT {}
 unsafe impl ::windows::runtime::Abi for WS_XML_FLOAT_TEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10458,7 +10127,6 @@ impl ::std::cmp::PartialEq for WS_XML_GUID_TEXT {
 impl ::std::cmp::Eq for WS_XML_GUID_TEXT {}
 unsafe impl ::windows::runtime::Abi for WS_XML_GUID_TEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10486,7 +10154,6 @@ impl ::std::cmp::PartialEq for WS_XML_INT32_TEXT {
 impl ::std::cmp::Eq for WS_XML_INT32_TEXT {}
 unsafe impl ::windows::runtime::Abi for WS_XML_INT32_TEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10514,7 +10181,6 @@ impl ::std::cmp::PartialEq for WS_XML_INT64_TEXT {
 impl ::std::cmp::Eq for WS_XML_INT64_TEXT {}
 unsafe impl ::windows::runtime::Abi for WS_XML_INT64_TEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10543,7 +10209,6 @@ impl ::std::cmp::PartialEq for WS_XML_LIST_TEXT {
 impl ::std::cmp::Eq for WS_XML_LIST_TEXT {}
 unsafe impl ::windows::runtime::Abi for WS_XML_LIST_TEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10570,7 +10235,6 @@ impl ::std::cmp::PartialEq for WS_XML_NODE {
 impl ::std::cmp::Eq for WS_XML_NODE {}
 unsafe impl ::windows::runtime::Abi for WS_XML_NODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10598,7 +10262,6 @@ impl ::std::cmp::PartialEq for WS_XML_NODE_POSITION {
 impl ::std::cmp::Eq for WS_XML_NODE_POSITION {}
 unsafe impl ::windows::runtime::Abi for WS_XML_NODE_POSITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10619,7 +10282,6 @@ impl ::std::convert::From<i32> for WS_XML_NODE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WS_XML_NODE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10654,7 +10316,6 @@ impl ::std::cmp::Eq for WS_XML_QNAME {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_XML_QNAME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10684,7 +10345,6 @@ impl ::std::cmp::PartialEq for WS_XML_QNAME_DESCRIPTION {
 impl ::std::cmp::Eq for WS_XML_QNAME_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_XML_QNAME_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10721,7 +10381,6 @@ impl ::std::cmp::Eq for WS_XML_QNAME_TEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_XML_QNAME_TEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -10760,7 +10419,6 @@ impl ::std::cmp::Eq for WS_XML_READER_BINARY_ENCODING {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_XML_READER_BINARY_ENCODING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10789,7 +10447,6 @@ impl ::std::cmp::PartialEq for WS_XML_READER_BUFFER_INPUT {
 impl ::std::cmp::Eq for WS_XML_READER_BUFFER_INPUT {}
 unsafe impl ::windows::runtime::Abi for WS_XML_READER_BUFFER_INPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10816,7 +10473,6 @@ impl ::std::cmp::PartialEq for WS_XML_READER_ENCODING {
 impl ::std::cmp::Eq for WS_XML_READER_ENCODING {}
 unsafe impl ::windows::runtime::Abi for WS_XML_READER_ENCODING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10833,7 +10489,6 @@ impl ::std::convert::From<i32> for WS_XML_READER_ENCODING_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WS_XML_READER_ENCODING_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10860,7 +10515,6 @@ impl ::std::cmp::PartialEq for WS_XML_READER_INPUT {
 impl ::std::cmp::Eq for WS_XML_READER_INPUT {}
 unsafe impl ::windows::runtime::Abi for WS_XML_READER_INPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10875,7 +10529,6 @@ impl ::std::convert::From<i32> for WS_XML_READER_INPUT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WS_XML_READER_INPUT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10914,7 +10567,6 @@ impl ::std::cmp::Eq for WS_XML_READER_MTOM_ENCODING {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_XML_READER_MTOM_ENCODING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10942,7 +10594,6 @@ impl ::std::cmp::PartialEq for WS_XML_READER_PROPERTIES {
 impl ::std::cmp::Eq for WS_XML_READER_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for WS_XML_READER_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10971,7 +10622,6 @@ impl ::std::cmp::PartialEq for WS_XML_READER_PROPERTY {
 impl ::std::cmp::Eq for WS_XML_READER_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for WS_XML_READER_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10999,7 +10649,6 @@ impl ::std::convert::From<i32> for WS_XML_READER_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for WS_XML_READER_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11026,7 +10675,6 @@ impl ::std::cmp::PartialEq for WS_XML_READER_RAW_ENCODING {
 impl ::std::cmp::Eq for WS_XML_READER_RAW_ENCODING {}
 unsafe impl ::windows::runtime::Abi for WS_XML_READER_RAW_ENCODING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -11055,7 +10703,6 @@ impl ::std::cmp::PartialEq for WS_XML_READER_STREAM_INPUT {
 impl ::std::cmp::Eq for WS_XML_READER_STREAM_INPUT {}
 unsafe impl ::windows::runtime::Abi for WS_XML_READER_STREAM_INPUT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11083,7 +10730,6 @@ impl ::std::cmp::PartialEq for WS_XML_READER_TEXT_ENCODING {
 impl ::std::cmp::Eq for WS_XML_READER_TEXT_ENCODING {}
 unsafe impl ::windows::runtime::Abi for WS_XML_READER_TEXT_ENCODING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11112,7 +10758,6 @@ impl ::std::cmp::PartialEq for WS_XML_SECURITY_TOKEN_PROPERTY {
 impl ::std::cmp::Eq for WS_XML_SECURITY_TOKEN_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for WS_XML_SECURITY_TOKEN_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11129,7 +10774,6 @@ impl ::std::convert::From<i32> for WS_XML_SECURITY_TOKEN_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for WS_XML_SECURITY_TOKEN_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11166,7 +10810,6 @@ impl ::std::cmp::Eq for WS_XML_STRING {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_XML_STRING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11194,7 +10837,6 @@ impl ::std::cmp::PartialEq for WS_XML_STRING_DESCRIPTION {
 impl ::std::cmp::Eq for WS_XML_STRING_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_XML_STRING_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11221,7 +10863,6 @@ impl ::std::cmp::PartialEq for WS_XML_TEXT {
 impl ::std::cmp::Eq for WS_XML_TEXT {}
 unsafe impl ::windows::runtime::Abi for WS_XML_TEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11249,7 +10890,6 @@ impl ::std::cmp::PartialEq for WS_XML_TEXT_NODE {
 impl ::std::cmp::Eq for WS_XML_TEXT_NODE {}
 unsafe impl ::windows::runtime::Abi for WS_XML_TEXT_NODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11278,7 +10918,6 @@ impl ::std::convert::From<i32> for WS_XML_TEXT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WS_XML_TEXT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11306,7 +10945,6 @@ impl ::std::cmp::PartialEq for WS_XML_TIMESPAN_TEXT {
 impl ::std::cmp::Eq for WS_XML_TIMESPAN_TEXT {}
 unsafe impl ::windows::runtime::Abi for WS_XML_TIMESPAN_TEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11335,7 +10973,6 @@ impl ::std::cmp::PartialEq for WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {
 impl ::std::cmp::Eq for WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {}
 unsafe impl ::windows::runtime::Abi for WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11363,7 +11000,6 @@ impl ::std::cmp::PartialEq for WS_XML_UINT64_TEXT {
 impl ::std::cmp::Eq for WS_XML_UINT64_TEXT {}
 unsafe impl ::windows::runtime::Abi for WS_XML_UINT64_TEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11391,7 +11027,6 @@ impl ::std::cmp::PartialEq for WS_XML_UNIQUE_ID_TEXT {
 impl ::std::cmp::Eq for WS_XML_UNIQUE_ID_TEXT {}
 unsafe impl ::windows::runtime::Abi for WS_XML_UNIQUE_ID_TEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11420,7 +11055,6 @@ impl ::std::cmp::PartialEq for WS_XML_UTF16_TEXT {
 impl ::std::cmp::Eq for WS_XML_UTF16_TEXT {}
 unsafe impl ::windows::runtime::Abi for WS_XML_UTF16_TEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11455,7 +11089,6 @@ impl ::std::cmp::Eq for WS_XML_UTF8_TEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_XML_UTF8_TEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -11495,7 +11128,6 @@ impl ::std::cmp::Eq for WS_XML_WRITER_BINARY_ENCODING {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_XML_WRITER_BINARY_ENCODING {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11522,7 +11154,6 @@ impl ::std::cmp::PartialEq for WS_XML_WRITER_BUFFER_OUTPUT {
 impl ::std::cmp::Eq for WS_XML_WRITER_BUFFER_OUTPUT {}
 unsafe impl ::windows::runtime::Abi for WS_XML_WRITER_BUFFER_OUTPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11549,7 +11180,6 @@ impl ::std::cmp::PartialEq for WS_XML_WRITER_ENCODING {
 impl ::std::cmp::Eq for WS_XML_WRITER_ENCODING {}
 unsafe impl ::windows::runtime::Abi for WS_XML_WRITER_ENCODING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11566,7 +11196,6 @@ impl ::std::convert::From<i32> for WS_XML_WRITER_ENCODING_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WS_XML_WRITER_ENCODING_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11614,7 +11243,6 @@ impl ::std::cmp::Eq for WS_XML_WRITER_MTOM_ENCODING {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_XML_WRITER_MTOM_ENCODING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11641,7 +11269,6 @@ impl ::std::cmp::PartialEq for WS_XML_WRITER_OUTPUT {
 impl ::std::cmp::Eq for WS_XML_WRITER_OUTPUT {}
 unsafe impl ::windows::runtime::Abi for WS_XML_WRITER_OUTPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11656,7 +11283,6 @@ impl ::std::convert::From<i32> for WS_XML_WRITER_OUTPUT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WS_XML_WRITER_OUTPUT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11684,7 +11310,6 @@ impl ::std::cmp::PartialEq for WS_XML_WRITER_PROPERTIES {
 impl ::std::cmp::Eq for WS_XML_WRITER_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for WS_XML_WRITER_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11713,7 +11338,6 @@ impl ::std::cmp::PartialEq for WS_XML_WRITER_PROPERTY {
 impl ::std::cmp::Eq for WS_XML_WRITER_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for WS_XML_WRITER_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11745,7 +11369,6 @@ impl ::std::convert::From<i32> for WS_XML_WRITER_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for WS_XML_WRITER_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11772,7 +11395,6 @@ impl ::std::cmp::PartialEq for WS_XML_WRITER_RAW_ENCODING {
 impl ::std::cmp::Eq for WS_XML_WRITER_RAW_ENCODING {}
 unsafe impl ::windows::runtime::Abi for WS_XML_WRITER_RAW_ENCODING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -11801,7 +11423,6 @@ impl ::std::cmp::PartialEq for WS_XML_WRITER_STREAM_OUTPUT {
 impl ::std::cmp::Eq for WS_XML_WRITER_STREAM_OUTPUT {}
 unsafe impl ::windows::runtime::Abi for WS_XML_WRITER_STREAM_OUTPUT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11829,7 +11450,6 @@ impl ::std::cmp::PartialEq for WS_XML_WRITER_TEXT_ENCODING {
 impl ::std::cmp::Eq for WS_XML_WRITER_TEXT_ENCODING {}
 unsafe impl ::windows::runtime::Abi for WS_XML_WRITER_TEXT_ENCODING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]

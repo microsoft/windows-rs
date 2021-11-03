@@ -17,7 +17,6 @@ impl ::std::convert::From<i32> for ACCESS_MODE {
 }
 unsafe impl ::windows::runtime::Abi for ACCESS_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -52,7 +51,6 @@ impl ::std::cmp::Eq for ACTRL_ACCESSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACTRL_ACCESSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -87,7 +85,6 @@ impl ::std::cmp::Eq for ACTRL_ACCESSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACTRL_ACCESSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -126,7 +123,6 @@ impl ::std::cmp::Eq for ACTRL_ACCESS_ENTRYA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACTRL_ACCESS_ENTRYA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -165,7 +161,6 @@ impl ::std::cmp::Eq for ACTRL_ACCESS_ENTRYW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACTRL_ACCESS_ENTRYW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -182,7 +177,6 @@ impl ::std::convert::From<u32> for ACTRL_ACCESS_ENTRY_ACCESS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for ACTRL_ACCESS_ENTRY_ACCESS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ACTRL_ACCESS_ENTRY_ACCESS_FLAGS {
     type Output = Self;
@@ -245,7 +239,6 @@ impl ::std::cmp::Eq for ACTRL_ACCESS_ENTRY_LISTA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACTRL_ACCESS_ENTRY_LISTA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -280,7 +273,6 @@ impl ::std::cmp::Eq for ACTRL_ACCESS_ENTRY_LISTW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACTRL_ACCESS_ENTRY_LISTW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -315,7 +307,6 @@ impl ::std::cmp::Eq for ACTRL_ACCESS_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACTRL_ACCESS_INFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -350,7 +341,6 @@ impl ::std::cmp::Eq for ACTRL_ACCESS_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACTRL_ACCESS_INFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const ACTRL_ACCESS_NO_OPTIONS: u32 = 0u32;
@@ -395,7 +385,6 @@ impl ::std::cmp::Eq for ACTRL_CONTROL_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACTRL_CONTROL_INFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -430,7 +419,6 @@ impl ::std::cmp::Eq for ACTRL_CONTROL_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACTRL_CONTROL_INFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const ACTRL_DELETE: u32 = 134217728u32;
@@ -522,7 +510,6 @@ impl ::std::cmp::Eq for ACTRL_OVERLAPPED {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACTRL_OVERLAPPED {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -545,7 +532,6 @@ impl ::std::cmp::PartialEq for ACTRL_OVERLAPPED_0 {
 impl ::std::cmp::Eq for ACTRL_OVERLAPPED_0 {}
 unsafe impl ::windows::runtime::Abi for ACTRL_OVERLAPPED_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const ACTRL_PERM_1: u32 = 1u32;
@@ -631,7 +617,6 @@ impl ::std::cmp::Eq for ACTRL_PROPERTY_ENTRYA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACTRL_PROPERTY_ENTRYA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -667,7 +652,6 @@ impl ::std::cmp::Eq for ACTRL_PROPERTY_ENTRYW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACTRL_PROPERTY_ENTRYW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const ACTRL_READ_CONTROL: u32 = 268435456u32;
@@ -762,7 +746,6 @@ impl ::std::cmp::PartialEq for AUDIT_IP_ADDRESS {
 impl ::std::cmp::Eq for AUDIT_IP_ADDRESS {}
 unsafe impl ::windows::runtime::Abi for AUDIT_IP_ADDRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -792,7 +775,6 @@ impl ::std::cmp::PartialEq for AUDIT_OBJECT_TYPE {
 impl ::std::cmp::Eq for AUDIT_OBJECT_TYPE {}
 unsafe impl ::windows::runtime::Abi for AUDIT_OBJECT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -821,7 +803,6 @@ impl ::std::cmp::PartialEq for AUDIT_OBJECT_TYPES {
 impl ::std::cmp::Eq for AUDIT_OBJECT_TYPES {}
 unsafe impl ::windows::runtime::Abi for AUDIT_OBJECT_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -853,7 +834,6 @@ impl ::std::cmp::Eq for AUDIT_PARAM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUDIT_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -888,7 +868,6 @@ impl ::std::cmp::Eq for AUDIT_PARAM_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUDIT_PARAM_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -911,7 +890,6 @@ impl ::std::cmp::PartialEq for AUDIT_PARAM_1 {
 impl ::std::cmp::Eq for AUDIT_PARAM_1 {}
 unsafe impl ::windows::runtime::Abi for AUDIT_PARAM_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -948,7 +926,6 @@ impl ::std::cmp::Eq for AUDIT_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUDIT_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -974,7 +951,6 @@ impl ::std::convert::From<i32> for AUDIT_PARAM_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for AUDIT_PARAM_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const AUDIT_TYPE_LEGACY: u32 = 1u32;
@@ -994,7 +970,6 @@ impl ::std::convert::From<u32> for AUTHZ_ACCESS_CHECK_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for AUTHZ_ACCESS_CHECK_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for AUTHZ_ACCESS_CHECK_FLAGS {
     type Output = Self;
@@ -1035,7 +1010,6 @@ impl ::std::default::Default for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
 unsafe impl ::windows::runtime::Handle for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {}
 unsafe impl ::windows::runtime::Abi for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1065,7 +1039,6 @@ impl ::std::cmp::PartialEq for AUTHZ_ACCESS_REPLY {
 impl ::std::cmp::Eq for AUTHZ_ACCESS_REPLY {}
 unsafe impl ::windows::runtime::Abi for AUTHZ_ACCESS_REPLY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1103,7 +1076,6 @@ impl ::std::cmp::Eq for AUTHZ_ACCESS_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUTHZ_ACCESS_REQUEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const AUTHZ_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1u32;
@@ -1118,7 +1090,6 @@ impl ::std::default::Default for AUTHZ_AUDIT_EVENT_HANDLE {
 unsafe impl ::windows::runtime::Handle for AUTHZ_AUDIT_EVENT_HANDLE {}
 unsafe impl ::windows::runtime::Abi for AUTHZ_AUDIT_EVENT_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1136,7 +1107,6 @@ impl ::std::convert::From<i32> for AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -1149,7 +1119,6 @@ impl ::std::default::Default for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
 unsafe impl ::windows::runtime::Handle for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {}
 unsafe impl ::windows::runtime::Abi for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1178,7 +1147,6 @@ impl ::std::cmp::PartialEq for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
 impl ::std::cmp::Eq for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {}
 unsafe impl ::windows::runtime::Abi for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1211,7 +1179,6 @@ impl ::std::cmp::Eq for AUTHZ_AUDIT_EVENT_TYPE_OLD {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUTHZ_AUDIT_EVENT_TYPE_OLD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1233,7 +1200,6 @@ impl ::std::cmp::PartialEq for AUTHZ_AUDIT_EVENT_TYPE_UNION {
 impl ::std::cmp::Eq for AUTHZ_AUDIT_EVENT_TYPE_UNION {}
 unsafe impl ::windows::runtime::Abi for AUTHZ_AUDIT_EVENT_TYPE_UNION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const AUTHZ_AUDIT_INSTANCE_INFORMATION: u32 = 2u32;
@@ -1262,7 +1228,6 @@ impl ::std::cmp::PartialEq for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {
 impl ::std::cmp::Eq for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {}
 unsafe impl ::windows::runtime::Abi for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -1275,7 +1240,6 @@ impl ::std::default::Default for AUTHZ_CLIENT_CONTEXT_HANDLE {
 unsafe impl ::windows::runtime::Handle for AUTHZ_CLIENT_CONTEXT_HANDLE {}
 unsafe impl ::windows::runtime::Abi for AUTHZ_CLIENT_CONTEXT_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const AUTHZ_COMPUTE_PRIVILEGES: u32 = 8u32;
@@ -1306,7 +1270,6 @@ impl ::std::convert::From<i32> for AUTHZ_CONTEXT_INFORMATION_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for AUTHZ_CONTEXT_INFORMATION_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const AUTHZ_FLAG_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1u32;
@@ -1323,7 +1286,6 @@ impl ::std::convert::From<u32> for AUTHZ_GENERATE_RESULTS {
 }
 unsafe impl ::windows::runtime::Abi for AUTHZ_GENERATE_RESULTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for AUTHZ_GENERATE_RESULTS {
     type Output = Self;
@@ -1367,7 +1329,6 @@ impl ::std::convert::From<u32> for AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FL
 }
 unsafe impl ::windows::runtime::Abi for AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS {
     type Output = Self;
@@ -1441,7 +1402,6 @@ impl ::std::cmp::Eq for AUTHZ_INIT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUTHZ_INIT_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const AUTHZ_INIT_INFO_VERSION_V1: u32 = 1u32;
@@ -1480,7 +1440,6 @@ impl ::std::cmp::Eq for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const AUTHZ_REQUIRE_S4U_LOGON: u32 = 4u32;
@@ -1498,7 +1457,6 @@ impl ::std::convert::From<u32> for AUTHZ_RESOURCE_MANAGER_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for AUTHZ_RESOURCE_MANAGER_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for AUTHZ_RESOURCE_MANAGER_FLAGS {
     type Output = Self;
@@ -1539,7 +1497,6 @@ impl ::std::default::Default for AUTHZ_RESOURCE_MANAGER_HANDLE {
 unsafe impl ::windows::runtime::Handle for AUTHZ_RESOURCE_MANAGER_HANDLE {}
 unsafe impl ::windows::runtime::Abi for AUTHZ_RESOURCE_MANAGER_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1579,7 +1536,6 @@ impl ::std::cmp::Eq for AUTHZ_RPC_INIT_INFO_CLIENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUTHZ_RPC_INIT_INFO_CLIENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const AUTHZ_RPC_INIT_INFO_CLIENT_VERSION_V1: u32 = 1u32;
@@ -1612,7 +1568,6 @@ impl ::std::cmp::Eq for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1640,7 +1595,6 @@ impl ::std::cmp::Eq for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION: u32 = 1u32;
@@ -1659,7 +1613,6 @@ impl ::std::convert::From<u32> for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
     type Output = Self;
@@ -1722,7 +1675,6 @@ impl ::std::cmp::Eq for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1750,7 +1702,6 @@ impl ::std::cmp::PartialEq for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
 impl ::std::cmp::Eq for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {}
 unsafe impl ::windows::runtime::Abi for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1768,7 +1719,6 @@ impl ::std::convert::From<i32> for AUTHZ_SECURITY_ATTRIBUTE_OPERATION {
 }
 unsafe impl ::windows::runtime::Abi for AUTHZ_SECURITY_ATTRIBUTE_OPERATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_BOOLEAN: u32 = 6u32;
@@ -1817,7 +1767,6 @@ impl ::std::cmp::Eq for AUTHZ_SECURITY_ATTRIBUTE_V1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUTHZ_SECURITY_ATTRIBUTE_V1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1849,7 +1798,6 @@ impl ::std::cmp::Eq for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -1862,7 +1810,6 @@ impl ::std::default::Default for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
 unsafe impl ::windows::runtime::Handle for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {}
 unsafe impl ::windows::runtime::Abi for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1880,7 +1827,6 @@ impl ::std::convert::From<i32> for AUTHZ_SID_OPERATION {
 }
 unsafe impl ::windows::runtime::Abi for AUTHZ_SID_OPERATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const AUTHZ_SKIP_TOKEN_GROUPS: u32 = 2u32;
@@ -1918,7 +1864,6 @@ impl ::std::cmp::Eq for AUTHZ_SOURCE_SCHEMA_REGISTRATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUTHZ_SOURCE_SCHEMA_REGISTRATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1941,7 +1886,6 @@ impl ::std::cmp::PartialEq for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
 impl ::std::cmp::Eq for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {}
 unsafe impl ::windows::runtime::Abi for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const AUTHZ_WPD_CATEGORY_FLAG: u32 = 16u32;
@@ -2054,7 +1998,6 @@ impl ::std::convert::From<i32> for AZ_PROP_CONSTANTS {
 }
 unsafe impl ::windows::runtime::Abi for AZ_PROP_CONSTANTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`*"]
@@ -3086,7 +3029,6 @@ impl ::std::cmp::Eq for EFFPERM_RESULT_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EFFPERM_RESULT_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3123,7 +3065,6 @@ impl ::std::cmp::Eq for EXPLICIT_ACCESS_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EXPLICIT_ACCESS_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3160,7 +3101,6 @@ impl ::std::cmp::Eq for EXPLICIT_ACCESS_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EXPLICIT_ACCESS_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`*"]
@@ -3217,7 +3157,6 @@ impl ::std::cmp::PartialEq for FN_OBJECT_MGR_FUNCTIONS {
 impl ::std::cmp::Eq for FN_OBJECT_MGR_FUNCTIONS {}
 unsafe impl ::windows::runtime::Abi for FN_OBJECT_MGR_FUNCTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type FN_PROGRESS = unsafe extern "system" fn(pobjectname: super::super::Foundation::PWSTR, status: u32, pinvokesetting: *mut PROG_INVOKE_SETTING, args: *const ::std::ffi::c_void, securityset: super::super::Foundation::BOOL);
@@ -11868,7 +11807,6 @@ impl ::std::cmp::Eq for INHERITED_FROMA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INHERITED_FROMA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11903,7 +11841,6 @@ impl ::std::cmp::Eq for INHERITED_FROMW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INHERITED_FROMW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const INHERITED_GRANDPARENT: u32 = 536870912u32;
@@ -12143,7 +12080,6 @@ impl ::std::convert::From<i32> for MULTIPLE_TRUSTEE_OPERATION {
 }
 unsafe impl ::windows::runtime::Abi for MULTIPLE_TRUSTEE_OPERATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12181,7 +12117,6 @@ impl ::std::cmp::Eq for OBJECTS_AND_NAME_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OBJECTS_AND_NAME_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12219,7 +12154,6 @@ impl ::std::cmp::Eq for OBJECTS_AND_NAME_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OBJECTS_AND_NAME_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12249,7 +12183,6 @@ impl ::std::cmp::PartialEq for OBJECTS_AND_SID {
 impl ::std::cmp::Eq for OBJECTS_AND_SID {}
 unsafe impl ::windows::runtime::Abi for OBJECTS_AND_SID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const OLESCRIPT_E_SYNTAX: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147352319i32 as _);
@@ -12279,7 +12212,6 @@ impl ::std::convert::From<i32> for PROG_INVOKE_SETTING {
 }
 unsafe impl ::windows::runtime::Abi for PROG_INVOKE_SETTING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const SDDL_ALIAS_SIZE: u32 = 2u32;
@@ -12301,7 +12233,6 @@ impl ::std::convert::From<u32> for SECURITY_INFO_PAGE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for SECURITY_INFO_PAGE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SECURITY_INFO_PAGE_FLAGS {
     type Output = Self;
@@ -12369,7 +12300,6 @@ impl ::std::cmp::Eq for SECURITY_OBJECT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SECURITY_OBJECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const SECURITY_OBJECT_ID_CENTRAL_ACCESS_RULE: u32 = 4u32;
@@ -12404,7 +12334,6 @@ impl ::std::convert::From<i32> for SE_OBJECT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SE_OBJECT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12441,7 +12370,6 @@ impl ::std::cmp::Eq for SID_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SID_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12476,7 +12404,6 @@ impl ::std::cmp::Eq for SID_INFO_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SID_INFO_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12513,7 +12440,6 @@ impl ::std::cmp::Eq for SI_ACCESS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SI_ACCESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const SI_ACCESS_CONTAINER: i32 = 262144i32;
@@ -12563,7 +12489,6 @@ impl ::std::cmp::Eq for SI_INHERIT_TYPE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SI_INHERIT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const SI_NO_ACL_PROTECT: i32 = 512i32;
@@ -12608,7 +12533,6 @@ impl ::std::cmp::Eq for SI_OBJECT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SI_OBJECT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12635,7 +12559,6 @@ impl ::std::convert::From<u32> for SI_OBJECT_INFO_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for SI_OBJECT_INFO_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SI_OBJECT_INFO_FLAGS {
     type Output = Self;
@@ -12687,7 +12610,6 @@ impl ::std::convert::From<i32> for SI_PAGE_ACTIVATED {
 }
 unsafe impl ::windows::runtime::Abi for SI_PAGE_ACTIVATED {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const SI_PAGE_TITLE: i32 = 2048i32;
@@ -12709,7 +12631,6 @@ impl ::std::convert::From<i32> for SI_PAGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SI_PAGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const SI_READONLY: i32 = 8i32;
@@ -12810,7 +12731,6 @@ impl ::std::convert::From<u32> for TREE_SEC_INFO {
 }
 unsafe impl ::windows::runtime::Abi for TREE_SEC_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for TREE_SEC_INFO {
     type Output = Self;
@@ -12876,7 +12796,6 @@ impl ::std::cmp::Eq for TRUSTEE_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TRUSTEE_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12913,7 +12832,6 @@ impl ::std::cmp::Eq for TRUSTEE_ACCESSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TRUSTEE_ACCESSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12950,7 +12868,6 @@ impl ::std::cmp::Eq for TRUSTEE_ACCESSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TRUSTEE_ACCESSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 pub const TRUSTEE_ACCESS_ALL: i32 = -1i32;
@@ -12978,7 +12895,6 @@ impl ::std::convert::From<i32> for TRUSTEE_FORM {
 }
 unsafe impl ::windows::runtime::Abi for TRUSTEE_FORM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13000,7 +12916,6 @@ impl ::std::convert::From<i32> for TRUSTEE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for TRUSTEE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13038,7 +12953,6 @@ impl ::std::cmp::Eq for TRUSTEE_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TRUSTEE_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`*"]

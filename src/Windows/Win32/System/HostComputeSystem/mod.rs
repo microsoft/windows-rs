@@ -11,7 +11,6 @@ impl ::std::convert::From<i32> for HCS_CREATE_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for HCS_CREATE_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -50,7 +49,6 @@ impl ::std::cmp::Eq for HCS_CREATE_OPTIONS_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for HCS_CREATE_OPTIONS_1 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -86,7 +84,6 @@ impl ::std::cmp::Eq for HCS_EVENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HCS_EVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type HCS_EVENT_CALLBACK = unsafe extern "system" fn(event: *const HCS_EVENT, context: *const ::std::ffi::c_void);
@@ -103,7 +100,6 @@ impl ::std::convert::From<u32> for HCS_EVENT_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for HCS_EVENT_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for HCS_EVENT_OPTIONS {
     type Output = Self;
@@ -154,7 +150,6 @@ impl ::std::convert::From<i32> for HCS_EVENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for HCS_EVENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_HostComputeSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -188,7 +183,6 @@ impl ::std::convert::From<i32> for HCS_NOTIFICATIONS {
 }
 unsafe impl ::windows::runtime::Abi for HCS_NOTIFICATIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type HCS_NOTIFICATION_CALLBACK = unsafe extern "system" fn(notificationtype: u32, context: *const ::std::ffi::c_void, notificationstatus: ::windows::runtime::HRESULT, notificationdata: super::super::Foundation::PWSTR);
@@ -205,7 +199,6 @@ impl ::std::convert::From<i32> for HCS_NOTIFICATION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for HCS_NOTIFICATION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -218,7 +211,6 @@ impl ::std::default::Default for HCS_OPERATION {
 unsafe impl ::windows::runtime::Handle for HCS_OPERATION {}
 unsafe impl ::windows::runtime::Abi for HCS_OPERATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type HCS_OPERATION_COMPLETION = unsafe extern "system" fn(operation: HCS_OPERATION, context: *const ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_System_HostComputeSystem`*"]
@@ -249,7 +241,6 @@ impl ::std::convert::From<i32> for HCS_OPERATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for HCS_OPERATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -262,7 +253,6 @@ impl ::std::default::Default for HCS_PROCESS {
 unsafe impl ::windows::runtime::Handle for HCS_PROCESS {}
 unsafe impl ::windows::runtime::Abi for HCS_PROCESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -300,7 +290,6 @@ impl ::std::cmp::Eq for HCS_PROCESS_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HCS_PROCESS_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -313,7 +302,6 @@ impl ::std::default::Default for HCS_SYSTEM {
 unsafe impl ::windows::runtime::Handle for HCS_SYSTEM {}
 unsafe impl ::windows::runtime::Abi for HCS_SYSTEM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]

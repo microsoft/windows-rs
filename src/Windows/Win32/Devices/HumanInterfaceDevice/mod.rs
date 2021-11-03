@@ -67,7 +67,6 @@ impl ::std::cmp::PartialEq for CPOINT {
 impl ::std::cmp::Eq for CPOINT {}
 unsafe impl ::windows::runtime::Abi for CPOINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_System_PropertiesSystem`*"]
@@ -299,7 +298,6 @@ impl ::std::cmp::Eq for DIACTIONA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIACTIONA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -328,7 +326,6 @@ impl ::std::cmp::Eq for DIACTIONA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIACTIONA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -403,7 +400,6 @@ impl ::std::cmp::Eq for DIACTIONFORMATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIACTIONFORMATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -478,7 +474,6 @@ impl ::std::cmp::Eq for DIACTIONFORMATW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIACTIONFORMATW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -512,7 +507,6 @@ impl ::std::cmp::Eq for DIACTIONW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIACTIONW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -541,7 +535,6 @@ impl ::std::cmp::Eq for DIACTIONW_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIACTIONW_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIAFTS_NEWDEVICEHIGH: u32 = 4294967295u32;
@@ -2272,7 +2265,6 @@ impl ::std::cmp::PartialEq for DICOLORSET {
 impl ::std::cmp::Eq for DICOLORSET {}
 unsafe impl ::windows::runtime::Abi for DICOLORSET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2311,7 +2303,6 @@ impl ::std::cmp::PartialEq for DICONDITION {
 impl ::std::cmp::Eq for DICONDITION {}
 unsafe impl ::windows::runtime::Abi for DICONDITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2361,7 +2352,6 @@ impl ::std::cmp::Eq for DICONFIGUREDEVICESPARAMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DICONFIGUREDEVICESPARAMSA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2411,7 +2401,6 @@ impl ::std::cmp::Eq for DICONFIGUREDEVICESPARAMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DICONFIGUREDEVICESPARAMSW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2438,7 +2427,6 @@ impl ::std::cmp::PartialEq for DICONSTANTFORCE {
 impl ::std::cmp::Eq for DICONSTANTFORCE {}
 unsafe impl ::windows::runtime::Abi for DICONSTANTFORCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2468,7 +2456,6 @@ impl ::std::cmp::PartialEq for DICUSTOMFORCE {
 impl ::std::cmp::Eq for DICUSTOMFORCE {}
 unsafe impl ::windows::runtime::Abi for DICUSTOMFORCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIDAL_BOTTOMALIGNED: u32 = 8u32;
@@ -2512,7 +2499,6 @@ impl ::std::cmp::PartialEq for DIDATAFORMAT {
 impl ::std::cmp::Eq for DIDATAFORMAT {}
 unsafe impl ::windows::runtime::Abi for DIDATAFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIDBAM_DEFAULT: u32 = 0u32;
@@ -2599,7 +2585,6 @@ impl ::std::cmp::PartialEq for DIDEVCAPS {
 impl ::std::cmp::Eq for DIDEVCAPS {}
 unsafe impl ::windows::runtime::Abi for DIDEVCAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2631,7 +2616,6 @@ impl ::std::cmp::PartialEq for DIDEVCAPS_DX3 {
 impl ::std::cmp::Eq for DIDEVCAPS_DX3 {}
 unsafe impl ::windows::runtime::Abi for DIDEVCAPS_DX3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2683,7 +2667,6 @@ impl ::std::cmp::Eq for DIDEVICEIMAGEINFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIDEVICEIMAGEINFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2735,7 +2718,6 @@ impl ::std::cmp::Eq for DIDEVICEIMAGEINFOHEADERA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIDEVICEIMAGEINFOHEADERA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2787,7 +2769,6 @@ impl ::std::cmp::Eq for DIDEVICEIMAGEINFOHEADERW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIDEVICEIMAGEINFOHEADERW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2839,7 +2820,6 @@ impl ::std::cmp::Eq for DIDEVICEIMAGEINFOW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIDEVICEIMAGEINFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2891,7 +2871,6 @@ impl ::std::cmp::Eq for DIDEVICEINSTANCEA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIDEVICEINSTANCEA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2936,7 +2915,6 @@ impl ::std::cmp::PartialEq for DIDEVICEINSTANCEW {
 impl ::std::cmp::Eq for DIDEVICEINSTANCEW {}
 unsafe impl ::windows::runtime::Abi for DIDEVICEINSTANCEW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2975,7 +2953,6 @@ impl ::std::cmp::Eq for DIDEVICEINSTANCE_DX3A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIDEVICEINSTANCE_DX3A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3007,7 +2984,6 @@ impl ::std::cmp::PartialEq for DIDEVICEINSTANCE_DX3W {
 impl ::std::cmp::Eq for DIDEVICEINSTANCE_DX3W {}
 unsafe impl ::windows::runtime::Abi for DIDEVICEINSTANCE_DX3W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3038,7 +3014,6 @@ impl ::std::cmp::PartialEq for DIDEVICEOBJECTDATA {
 impl ::std::cmp::Eq for DIDEVICEOBJECTDATA {}
 unsafe impl ::windows::runtime::Abi for DIDEVICEOBJECTDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3068,7 +3043,6 @@ impl ::std::cmp::PartialEq for DIDEVICEOBJECTDATA_DX3 {
 impl ::std::cmp::Eq for DIDEVICEOBJECTDATA_DX3 {}
 unsafe impl ::windows::runtime::Abi for DIDEVICEOBJECTDATA_DX3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3146,7 +3120,6 @@ impl ::std::cmp::Eq for DIDEVICEOBJECTINSTANCEA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIDEVICEOBJECTINSTANCEA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3217,7 +3190,6 @@ impl ::std::cmp::PartialEq for DIDEVICEOBJECTINSTANCEW {
 impl ::std::cmp::Eq for DIDEVICEOBJECTINSTANCEW {}
 unsafe impl ::windows::runtime::Abi for DIDEVICEOBJECTINSTANCEW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3256,7 +3228,6 @@ impl ::std::cmp::Eq for DIDEVICEOBJECTINSTANCE_DX3A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIDEVICEOBJECTINSTANCE_DX3A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3288,7 +3259,6 @@ impl ::std::cmp::PartialEq for DIDEVICEOBJECTINSTANCE_DX3W {
 impl ::std::cmp::Eq for DIDEVICEOBJECTINSTANCE_DX3W {}
 unsafe impl ::windows::runtime::Abi for DIDEVICEOBJECTINSTANCE_DX3W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3317,7 +3287,6 @@ impl ::std::cmp::PartialEq for DIDEVICESTATE {
 impl ::std::cmp::Eq for DIDEVICESTATE {}
 unsafe impl ::windows::runtime::Abi for DIDEVICESTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIDEVTYPEJOYSTICK_FLIGHTSTICK: u32 = 3u32;
@@ -3471,7 +3440,6 @@ impl ::std::cmp::PartialEq for DIDRIVERVERSIONS {
 impl ::std::cmp::Eq for DIDRIVERVERSIONS {}
 unsafe impl ::windows::runtime::Abi for DIDRIVERVERSIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIDSAM_DEFAULT: u32 = 0u32;
@@ -3581,7 +3549,6 @@ impl ::std::cmp::PartialEq for DIEFFECT {
 impl ::std::cmp::Eq for DIEFFECT {}
 unsafe impl ::windows::runtime::Abi for DIEFFECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3612,7 +3579,6 @@ impl ::std::cmp::PartialEq for DIEFFECTATTRIBUTES {
 impl ::std::cmp::Eq for DIEFFECTATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for DIEFFECTATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3651,7 +3617,6 @@ impl ::std::cmp::Eq for DIEFFECTINFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIEFFECTINFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3683,7 +3648,6 @@ impl ::std::cmp::PartialEq for DIEFFECTINFOW {
 impl ::std::cmp::Eq for DIEFFECTINFOW {}
 unsafe impl ::windows::runtime::Abi for DIEFFECTINFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3748,7 +3712,6 @@ impl ::std::cmp::PartialEq for DIEFFECT_DX5 {
 impl ::std::cmp::Eq for DIEFFECT_DX5 {}
 unsafe impl ::windows::runtime::Abi for DIEFFECT_DX5 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3780,7 +3743,6 @@ impl ::std::cmp::PartialEq for DIEFFESCAPE {
 impl ::std::cmp::Eq for DIEFFESCAPE {}
 unsafe impl ::windows::runtime::Abi for DIEFFESCAPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIEFF_CARTESIAN: u32 = 16u32;
@@ -3857,7 +3819,6 @@ impl ::std::cmp::PartialEq for DIENVELOPE {
 impl ::std::cmp::Eq for DIENVELOPE {}
 unsafe impl ::windows::runtime::Abi for DIENVELOPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIEP_ALLPARAMS: u32 = 1023u32;
@@ -4002,7 +3963,6 @@ impl ::std::cmp::PartialEq for DIFFDEVICEATTRIBUTES {
 impl ::std::cmp::Eq for DIFFDEVICEATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for DIFFDEVICEATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4030,7 +3990,6 @@ impl ::std::cmp::PartialEq for DIFFOBJECTATTRIBUTES {
 impl ::std::cmp::Eq for DIFFOBJECTATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for DIFFOBJECTATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4067,7 +4026,6 @@ impl ::std::cmp::Eq for DIFILEEFFECT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIFILEEFFECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIGDD_PEEK: u32 = 1u32;
@@ -4191,7 +4149,6 @@ impl ::std::cmp::Eq for DIHIDFFINITINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIHIDFFINITINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIJC_CALLOUT: u32 = 8u32;
@@ -4235,7 +4192,6 @@ impl ::std::cmp::Eq for DIJOYCONFIG {}
 #[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for DIJOYCONFIG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4268,7 +4224,6 @@ impl ::std::cmp::Eq for DIJOYCONFIG_DX5 {}
 #[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for DIJOYCONFIG_DX5 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4303,7 +4258,6 @@ impl ::std::cmp::PartialEq for DIJOYSTATE {
 impl ::std::cmp::Eq for DIJOYSTATE {}
 unsafe impl ::windows::runtime::Abi for DIJOYSTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4419,7 +4373,6 @@ impl ::std::cmp::PartialEq for DIJOYSTATE2 {
 impl ::std::cmp::Eq for DIJOYSTATE2 {}
 unsafe impl ::windows::runtime::Abi for DIJOYSTATE2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4455,7 +4408,6 @@ impl ::std::cmp::Eq for DIJOYTYPEINFO {}
 #[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for DIJOYTYPEINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4487,7 +4439,6 @@ impl ::std::cmp::Eq for DIJOYTYPEINFO_DX5 {}
 #[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for DIJOYTYPEINFO_DX5 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4521,7 +4472,6 @@ impl ::std::cmp::Eq for DIJOYTYPEINFO_DX6 {}
 #[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for DIJOYTYPEINFO_DX6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4552,7 +4502,6 @@ impl ::std::cmp::Eq for DIJOYUSERVALUES {}
 #[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for DIJOYUSERVALUES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIJU_GAMEPORTEMULATOR: u32 = 4u32;
@@ -5196,7 +5145,6 @@ impl ::std::cmp::PartialEq for DIMOUSESTATE {
 impl ::std::cmp::Eq for DIMOUSESTATE {}
 unsafe impl ::windows::runtime::Abi for DIMOUSESTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5226,7 +5174,6 @@ impl ::std::cmp::PartialEq for DIMOUSESTATE2 {
 impl ::std::cmp::Eq for DIMOUSESTATE2 {}
 unsafe impl ::windows::runtime::Abi for DIMOUSESTATE2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIMSGWP_DX8APPSTART: u32 = 2u32;
@@ -5261,7 +5208,6 @@ impl ::std::cmp::PartialEq for DIOBJECTATTRIBUTES {
 impl ::std::cmp::Eq for DIOBJECTATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for DIOBJECTATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5290,7 +5236,6 @@ impl ::std::cmp::PartialEq for DIOBJECTCALIBRATION {
 impl ::std::cmp::Eq for DIOBJECTCALIBRATION {}
 unsafe impl ::windows::runtime::Abi for DIOBJECTCALIBRATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5320,7 +5265,6 @@ impl ::std::cmp::PartialEq for DIOBJECTDATAFORMAT {
 impl ::std::cmp::Eq for DIOBJECTDATAFORMAT {}
 unsafe impl ::windows::runtime::Abi for DIOBJECTDATAFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5350,7 +5294,6 @@ impl ::std::cmp::PartialEq for DIPERIODIC {
 impl ::std::cmp::Eq for DIPERIODIC {}
 unsafe impl ::windows::runtime::Abi for DIPERIODIC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIPH_BYID: u32 = 2u32;
@@ -5386,7 +5329,6 @@ impl ::std::cmp::PartialEq for DIPOVCALIBRATION {
 impl ::std::cmp::Eq for DIPOVCALIBRATION {}
 unsafe impl ::windows::runtime::Abi for DIPOVCALIBRATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIPOV_ANY_1: u32 = 4278208001u32;
@@ -5432,7 +5374,6 @@ impl ::std::cmp::PartialEq for DIPROPCAL {
 impl ::std::cmp::Eq for DIPROPCAL {}
 unsafe impl ::windows::runtime::Abi for DIPROPCAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIPROPCALIBRATIONMODE_COOKED: u32 = 0u32;
@@ -5465,7 +5406,6 @@ impl ::std::cmp::PartialEq for DIPROPCALPOV {
 impl ::std::cmp::Eq for DIPROPCALPOV {}
 unsafe impl ::windows::runtime::Abi for DIPROPCALPOV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5494,7 +5434,6 @@ impl ::std::cmp::PartialEq for DIPROPCPOINTS {
 impl ::std::cmp::Eq for DIPROPCPOINTS {}
 unsafe impl ::windows::runtime::Abi for DIPROPCPOINTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5522,7 +5461,6 @@ impl ::std::cmp::PartialEq for DIPROPDWORD {
 impl ::std::cmp::Eq for DIPROPDWORD {}
 unsafe impl ::windows::runtime::Abi for DIPROPDWORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5551,7 +5489,6 @@ impl ::std::cmp::PartialEq for DIPROPGUIDANDPATH {
 impl ::std::cmp::Eq for DIPROPGUIDANDPATH {}
 unsafe impl ::windows::runtime::Abi for DIPROPGUIDANDPATH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5581,7 +5518,6 @@ impl ::std::cmp::PartialEq for DIPROPHEADER {
 impl ::std::cmp::Eq for DIPROPHEADER {}
 unsafe impl ::windows::runtime::Abi for DIPROPHEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5609,7 +5545,6 @@ impl ::std::cmp::PartialEq for DIPROPPOINTER {
 impl ::std::cmp::Eq for DIPROPPOINTER {}
 unsafe impl ::windows::runtime::Abi for DIPROPPOINTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5638,7 +5573,6 @@ impl ::std::cmp::PartialEq for DIPROPRANGE {
 impl ::std::cmp::Eq for DIPROPRANGE {}
 unsafe impl ::windows::runtime::Abi for DIPROPRANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5666,7 +5600,6 @@ impl ::std::cmp::PartialEq for DIPROPSTRING {
 impl ::std::cmp::Eq for DIPROPSTRING {}
 unsafe impl ::windows::runtime::Abi for DIPROPSTRING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5694,7 +5627,6 @@ impl ::std::cmp::PartialEq for DIRAMPFORCE {
 impl ::std::cmp::Eq for DIRAMPFORCE {}
 unsafe impl ::windows::runtime::Abi for DIRAMPFORCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DIRECTINPUT_HEADER_VERSION: u32 = 2048u32;
@@ -5924,7 +5856,6 @@ impl ::std::convert::From<i32> for GPIOBUTTONS_BUTTON_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for GPIOBUTTONS_BUTTON_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const GUID_Button: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741830384, 51699, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 pub const GUID_ConstantForce: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(324279328, 36403, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
@@ -5993,7 +5924,6 @@ impl ::std::cmp::PartialEq for HIDD_ATTRIBUTES {
 impl ::std::cmp::Eq for HIDD_ATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for HIDD_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
@@ -6017,7 +5947,6 @@ impl ::std::cmp::PartialEq for HIDD_CONFIGURATION {
 impl ::std::cmp::Eq for HIDD_CONFIGURATION {}
 unsafe impl ::windows::runtime::Abi for HIDD_CONFIGURATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6052,7 +5981,6 @@ impl ::std::cmp::Eq for HIDP_BUTTON_ARRAY_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HIDP_BUTTON_ARRAY_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6094,7 +6022,6 @@ impl ::std::cmp::Eq for HIDP_BUTTON_CAPS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HIDP_BUTTON_CAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6117,7 +6044,6 @@ impl ::std::cmp::PartialEq for HIDP_BUTTON_CAPS_0 {
 impl ::std::cmp::Eq for HIDP_BUTTON_CAPS_0 {}
 unsafe impl ::windows::runtime::Abi for HIDP_BUTTON_CAPS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6160,7 +6086,6 @@ impl ::std::cmp::PartialEq for HIDP_BUTTON_CAPS_0_0 {
 impl ::std::cmp::Eq for HIDP_BUTTON_CAPS_0_0 {}
 unsafe impl ::windows::runtime::Abi for HIDP_BUTTON_CAPS_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6203,7 +6128,6 @@ impl ::std::cmp::PartialEq for HIDP_BUTTON_CAPS_0_1 {
 impl ::std::cmp::Eq for HIDP_BUTTON_CAPS_0_1 {}
 unsafe impl ::windows::runtime::Abi for HIDP_BUTTON_CAPS_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6277,7 +6201,6 @@ impl ::std::cmp::PartialEq for HIDP_CAPS {
 impl ::std::cmp::Eq for HIDP_CAPS {}
 unsafe impl ::windows::runtime::Abi for HIDP_CAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6307,7 +6230,6 @@ impl ::std::cmp::Eq for HIDP_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HIDP_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6336,7 +6258,6 @@ impl ::std::cmp::Eq for HIDP_DATA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HIDP_DATA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
@@ -6361,7 +6282,6 @@ impl ::std::cmp::PartialEq for HIDP_EXTENDED_ATTRIBUTES {
 impl ::std::cmp::Eq for HIDP_EXTENDED_ATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for HIDP_EXTENDED_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6376,7 +6296,6 @@ impl ::std::convert::From<i32> for HIDP_KEYBOARD_DIRECTION {
 }
 unsafe impl ::windows::runtime::Abi for HIDP_KEYBOARD_DIRECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6398,7 +6317,6 @@ impl ::std::cmp::PartialEq for HIDP_KEYBOARD_MODIFIER_STATE {
 impl ::std::cmp::Eq for HIDP_KEYBOARD_MODIFIER_STATE {}
 unsafe impl ::windows::runtime::Abi for HIDP_KEYBOARD_MODIFIER_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6421,7 +6339,6 @@ impl ::std::cmp::PartialEq for HIDP_KEYBOARD_MODIFIER_STATE_0 {
 impl ::std::cmp::Eq for HIDP_KEYBOARD_MODIFIER_STATE_0 {}
 unsafe impl ::windows::runtime::Abi for HIDP_KEYBOARD_MODIFIER_STATE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6448,7 +6365,6 @@ impl ::std::cmp::PartialEq for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
 impl ::std::cmp::Eq for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {}
 unsafe impl ::windows::runtime::Abi for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
@@ -6477,7 +6393,6 @@ impl ::std::cmp::PartialEq for HIDP_LINK_COLLECTION_NODE {
 impl ::std::cmp::Eq for HIDP_LINK_COLLECTION_NODE {}
 unsafe impl ::windows::runtime::Abi for HIDP_LINK_COLLECTION_NODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6493,7 +6408,6 @@ impl ::std::convert::From<i32> for HIDP_REPORT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for HIDP_REPORT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6522,7 +6436,6 @@ impl ::std::cmp::PartialEq for HIDP_UNKNOWN_TOKEN {
 impl ::std::cmp::Eq for HIDP_UNKNOWN_TOKEN {}
 unsafe impl ::windows::runtime::Abi for HIDP_UNKNOWN_TOKEN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6572,7 +6485,6 @@ impl ::std::cmp::Eq for HIDP_VALUE_CAPS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HIDP_VALUE_CAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6595,7 +6507,6 @@ impl ::std::cmp::PartialEq for HIDP_VALUE_CAPS_0 {
 impl ::std::cmp::Eq for HIDP_VALUE_CAPS_0 {}
 unsafe impl ::windows::runtime::Abi for HIDP_VALUE_CAPS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6638,7 +6549,6 @@ impl ::std::cmp::PartialEq for HIDP_VALUE_CAPS_0_0 {
 impl ::std::cmp::Eq for HIDP_VALUE_CAPS_0_0 {}
 unsafe impl ::windows::runtime::Abi for HIDP_VALUE_CAPS_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6681,7 +6591,6 @@ impl ::std::cmp::PartialEq for HIDP_VALUE_CAPS_0_1 {
 impl ::std::cmp::Eq for HIDP_VALUE_CAPS_0_1 {}
 unsafe impl ::windows::runtime::Abi for HIDP_VALUE_CAPS_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6720,7 +6629,6 @@ impl ::std::cmp::Eq for HID_COLLECTION_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HID_COLLECTION_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6748,7 +6656,6 @@ impl ::std::cmp::PartialEq for HID_DRIVER_CONFIG {
 impl ::std::cmp::Eq for HID_DRIVER_CONFIG {}
 unsafe impl ::windows::runtime::Abi for HID_DRIVER_CONFIG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const HID_REVISION: u32 = 1u32;
@@ -8003,7 +7910,6 @@ impl ::std::cmp::PartialEq for HID_XFER_PACKET {
 impl ::std::cmp::Eq for HID_XFER_PACKET {}
 unsafe impl ::windows::runtime::Abi for HID_XFER_PACKET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const HORIZONTAL_WHEEL_PRESENT: u32 = 32768u32;
@@ -11066,7 +10972,6 @@ impl ::std::cmp::PartialEq for INDICATOR_LIST {
 impl ::std::cmp::Eq for INDICATOR_LIST {}
 unsafe impl ::windows::runtime::Abi for INDICATOR_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11101,7 +11006,6 @@ impl ::std::cmp::Eq for INPUT_BUTTON_ENABLE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INPUT_BUTTON_ENABLE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const IOCTL_BUTTON_GET_ENABLED_ON_IDLE: u32 = 721580u32;
@@ -11159,7 +11063,6 @@ impl ::std::cmp::Eq for JOYREGHWVALUES {}
 #[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for JOYREGHWVALUES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const JOYTYPE_ANALOGCOMPAT: i32 = 8i32;
@@ -11368,7 +11271,6 @@ impl ::std::cmp::PartialEq for KEYBOARD_ATTRIBUTES {
 impl ::std::cmp::Eq for KEYBOARD_ATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for KEYBOARD_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const KEYBOARD_CAPS_LOCK_ON: u32 = 4u32;
@@ -11413,7 +11315,6 @@ impl ::std::cmp::PartialEq for KEYBOARD_EXTENDED_ATTRIBUTES {
 impl ::std::cmp::Eq for KEYBOARD_EXTENDED_ATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for KEYBOARD_EXTENDED_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const KEYBOARD_EXTENDED_ATTRIBUTES_STRUCT_VERSION_1: u32 = 1u32;
@@ -11443,7 +11344,6 @@ impl ::std::cmp::PartialEq for KEYBOARD_ID {
 impl ::std::cmp::Eq for KEYBOARD_ID {}
 unsafe impl ::windows::runtime::Abi for KEYBOARD_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11472,7 +11372,6 @@ impl ::std::cmp::PartialEq for KEYBOARD_IME_STATUS {
 impl ::std::cmp::Eq for KEYBOARD_IME_STATUS {}
 unsafe impl ::windows::runtime::Abi for KEYBOARD_IME_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11500,7 +11399,6 @@ impl ::std::cmp::PartialEq for KEYBOARD_INDICATOR_PARAMETERS {
 impl ::std::cmp::Eq for KEYBOARD_INDICATOR_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for KEYBOARD_INDICATOR_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11528,7 +11426,6 @@ impl ::std::cmp::PartialEq for KEYBOARD_INDICATOR_TRANSLATION {
 impl ::std::cmp::Eq for KEYBOARD_INDICATOR_TRANSLATION {}
 unsafe impl ::windows::runtime::Abi for KEYBOARD_INDICATOR_TRANSLATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11559,7 +11456,6 @@ impl ::std::cmp::PartialEq for KEYBOARD_INPUT_DATA {
 impl ::std::cmp::Eq for KEYBOARD_INPUT_DATA {}
 unsafe impl ::windows::runtime::Abi for KEYBOARD_INPUT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const KEYBOARD_KANA_LOCK_ON: u32 = 8u32;
@@ -11600,7 +11496,6 @@ impl ::std::cmp::PartialEq for KEYBOARD_TYPEMATIC_PARAMETERS {
 impl ::std::cmp::Eq for KEYBOARD_TYPEMATIC_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for KEYBOARD_TYPEMATIC_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11627,7 +11522,6 @@ impl ::std::cmp::PartialEq for KEYBOARD_UNIT_ID_PARAMETER {
 impl ::std::cmp::Eq for KEYBOARD_UNIT_ID_PARAMETER {}
 unsafe impl ::windows::runtime::Abi for KEYBOARD_UNIT_ID_PARAMETER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const KEY_BREAK: u32 = 1u32;
@@ -11711,7 +11605,6 @@ impl ::std::cmp::PartialEq for MOUSE_ATTRIBUTES {
 impl ::std::cmp::Eq for MOUSE_ATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for MOUSE_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const MOUSE_ATTRIBUTES_CHANGED: u32 = 4u32;
@@ -11771,7 +11664,6 @@ impl ::std::cmp::PartialEq for MOUSE_INPUT_DATA {
 impl ::std::cmp::Eq for MOUSE_INPUT_DATA {}
 unsafe impl ::windows::runtime::Abi for MOUSE_INPUT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11794,7 +11686,6 @@ impl ::std::cmp::PartialEq for MOUSE_INPUT_DATA_0 {
 impl ::std::cmp::Eq for MOUSE_INPUT_DATA_0 {}
 unsafe impl ::windows::runtime::Abi for MOUSE_INPUT_DATA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11822,7 +11713,6 @@ impl ::std::cmp::PartialEq for MOUSE_INPUT_DATA_0_0 {
 impl ::std::cmp::Eq for MOUSE_INPUT_DATA_0_0 {}
 unsafe impl ::windows::runtime::Abi for MOUSE_INPUT_DATA_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const MOUSE_LEFT_BUTTON_DOWN: u32 = 1u32;
@@ -11871,7 +11761,6 @@ impl ::std::cmp::PartialEq for MOUSE_UNIT_ID_PARAMETER {
 impl ::std::cmp::Eq for MOUSE_UNIT_ID_PARAMETER {}
 unsafe impl ::windows::runtime::Abi for MOUSE_UNIT_ID_PARAMETER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const MOUSE_VIRTUAL_DESKTOP: u32 = 2u32;
@@ -11907,7 +11796,6 @@ impl ::std::cmp::PartialEq for USAGE_AND_PAGE {
 impl ::std::cmp::Eq for USAGE_AND_PAGE {}
 unsafe impl ::windows::runtime::Abi for USAGE_AND_PAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const WHEELMOUSE_HID_HARDWARE: u32 = 256u32;

@@ -32,10 +32,12 @@ impl ::std::convert::From<i32> for DomainNameType {
 }
 unsafe impl ::windows::runtime::Abi for DomainNameType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DomainNameType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.DomainNameType;i4)");
+}
+impl ::windows::runtime::DefaultType for DomainNameType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking`*"]
 #[repr(transparent)]
@@ -257,10 +259,12 @@ impl ::std::convert::From<u32> for HostNameSortOptions {
 }
 unsafe impl ::windows::runtime::Abi for HostNameSortOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for HostNameSortOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.HostNameSortOptions;u4)");
+}
+impl ::windows::runtime::DefaultType for HostNameSortOptions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for HostNameSortOptions {
     type Output = Self;
@@ -307,13 +311,14 @@ impl ::std::convert::From<i32> for HostNameType {
 }
 unsafe impl ::windows::runtime::Abi for HostNameType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for HostNameType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.HostNameType;i4)");
 }
+impl ::windows::runtime::DefaultType for HostNameType {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEndpointPair(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEndpointPair {
@@ -339,7 +344,6 @@ pub struct IEndpointPair_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEndpointPairFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEndpointPairFactory {
@@ -358,7 +362,6 @@ pub struct IEndpointPairFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, localhostname: ::windows::runtime::RawPtr, localservicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, remotehostname: ::windows::runtime::RawPtr, remoteservicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHostName(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHostName {
@@ -383,7 +386,6 @@ pub struct IHostName_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hostname: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHostNameFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHostNameFactory {
@@ -402,7 +404,6 @@ pub struct IHostNameFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hostname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHostNameStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHostNameStatics {

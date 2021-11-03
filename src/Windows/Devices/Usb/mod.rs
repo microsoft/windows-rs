@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbBulkInEndpointDescriptor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbBulkInEndpointDescriptor {
@@ -21,7 +20,6 @@ pub struct IUsbBulkInEndpointDescriptor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbBulkInPipe(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbBulkInPipe {
@@ -48,7 +46,6 @@ pub struct IUsbBulkInPipe_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbBulkOutEndpointDescriptor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbBulkOutEndpointDescriptor {
@@ -69,7 +66,6 @@ pub struct IUsbBulkOutEndpointDescriptor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbBulkOutPipe(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbBulkOutPipe {
@@ -94,7 +90,6 @@ pub struct IUsbBulkOutPipe_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbConfiguration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbConfiguration {
@@ -117,7 +112,6 @@ pub struct IUsbConfiguration_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbConfigurationDescriptor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbConfigurationDescriptor {
@@ -139,7 +133,6 @@ pub struct IUsbConfigurationDescriptor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbConfigurationDescriptorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbConfigurationDescriptorStatics {
@@ -159,7 +152,6 @@ pub struct IUsbConfigurationDescriptorStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, descriptor: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbControlRequestType(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbControlRequestType {
@@ -185,7 +177,6 @@ pub struct IUsbControlRequestType_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbDescriptor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbDescriptor {
@@ -207,7 +198,6 @@ pub struct IUsbDescriptor_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbDevice(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbDevice {
@@ -236,7 +226,6 @@ pub struct IUsbDevice_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbDeviceClass(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbDeviceClass {
@@ -264,7 +253,6 @@ pub struct IUsbDeviceClass_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbDeviceClasses(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbDeviceClasses {
@@ -282,7 +270,6 @@ pub struct IUsbDeviceClasses_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbDeviceClassesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbDeviceClassesStatics {
@@ -309,7 +296,6 @@ pub struct IUsbDeviceClassesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbDeviceDescriptor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbDeviceDescriptor {
@@ -333,7 +319,6 @@ pub struct IUsbDeviceDescriptor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbDeviceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbDeviceStatics {
@@ -357,7 +342,6 @@ pub struct IUsbDeviceStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbEndpointDescriptor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbEndpointDescriptor {
@@ -382,7 +366,6 @@ pub struct IUsbEndpointDescriptor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbEndpointDescriptorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbEndpointDescriptorStatics {
@@ -402,7 +385,6 @@ pub struct IUsbEndpointDescriptorStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, descriptor: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbInterface(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbInterface {
@@ -433,7 +415,6 @@ pub struct IUsbInterface_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbInterfaceDescriptor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbInterfaceDescriptor {
@@ -456,7 +437,6 @@ pub struct IUsbInterfaceDescriptor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbInterfaceDescriptorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbInterfaceDescriptorStatics {
@@ -476,7 +456,6 @@ pub struct IUsbInterfaceDescriptorStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, descriptor: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbInterfaceSetting(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbInterfaceSetting {
@@ -508,7 +487,6 @@ pub struct IUsbInterfaceSetting_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbInterruptInEndpointDescriptor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbInterruptInEndpointDescriptor {
@@ -531,7 +509,6 @@ pub struct IUsbInterruptInEndpointDescriptor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbInterruptInEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbInterruptInEventArgs {
@@ -551,7 +528,6 @@ pub struct IUsbInterruptInEventArgs_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbInterruptInPipe(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbInterruptInPipe {
@@ -576,7 +552,6 @@ pub struct IUsbInterruptInPipe_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbInterruptOutEndpointDescriptor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbInterruptOutEndpointDescriptor {
@@ -599,7 +574,6 @@ pub struct IUsbInterruptOutEndpointDescriptor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbInterruptOutPipe(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbInterruptOutPipe {
@@ -624,7 +598,6 @@ pub struct IUsbInterruptOutPipe_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbSetupPacket(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbSetupPacket {
@@ -652,7 +625,6 @@ pub struct IUsbSetupPacket_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUsbSetupPacketFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbSetupPacketFactory {
@@ -1012,10 +984,12 @@ impl ::std::convert::From<i32> for UsbControlRecipient {
 }
 unsafe impl ::windows::runtime::Abi for UsbControlRecipient {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UsbControlRecipient {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbControlRecipient;i4)");
+}
+impl ::windows::runtime::DefaultType for UsbControlRecipient {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Usb`*"]
 #[repr(transparent)]
@@ -1110,10 +1084,12 @@ impl ::std::convert::From<i32> for UsbControlTransferType {
 }
 unsafe impl ::windows::runtime::Abi for UsbControlTransferType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UsbControlTransferType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbControlTransferType;i4)");
+}
+impl ::windows::runtime::DefaultType for UsbControlTransferType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Usb`*"]
 #[repr(transparent)]
@@ -1633,10 +1609,12 @@ impl ::std::convert::From<i32> for UsbEndpointType {
 }
 unsafe impl ::windows::runtime::Abi for UsbEndpointType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UsbEndpointType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbEndpointType;i4)");
+}
+impl ::windows::runtime::DefaultType for UsbEndpointType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Usb`*"]
 #[repr(transparent)]
@@ -2136,10 +2114,12 @@ impl ::std::convert::From<u32> for UsbReadOptions {
 }
 unsafe impl ::windows::runtime::Abi for UsbReadOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UsbReadOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbReadOptions;u4)");
+}
+impl ::windows::runtime::DefaultType for UsbReadOptions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for UsbReadOptions {
     type Output = Self;
@@ -2286,10 +2266,12 @@ impl ::std::convert::From<i32> for UsbTransferDirection {
 }
 unsafe impl ::windows::runtime::Abi for UsbTransferDirection {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UsbTransferDirection {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbTransferDirection;i4)");
+}
+impl ::windows::runtime::DefaultType for UsbTransferDirection {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Usb`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2307,10 +2289,12 @@ impl ::std::convert::From<u32> for UsbWriteOptions {
 }
 unsafe impl ::windows::runtime::Abi for UsbWriteOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UsbWriteOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbWriteOptions;u4)");
+}
+impl ::windows::runtime::DefaultType for UsbWriteOptions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for UsbWriteOptions {
     type Output = Self;

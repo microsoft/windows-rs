@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhotoImportDeleteImportedItemsFromSourceResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportDeleteImportedItemsFromSourceResult {
@@ -32,7 +31,6 @@ pub struct IPhotoImportDeleteImportedItemsFromSourceResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhotoImportFindItemsResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportFindItemsResult {
@@ -90,7 +88,6 @@ pub struct IPhotoImportFindItemsResult_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhotoImportFindItemsResult2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportFindItemsResult2 {
@@ -110,7 +107,6 @@ pub struct IPhotoImportFindItemsResult2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhotoImportImportItemsResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportImportItemsResult {
@@ -144,7 +140,6 @@ pub struct IPhotoImportImportItemsResult_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhotoImportItem(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportItem {
@@ -181,7 +176,6 @@ pub struct IPhotoImportItem_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhotoImportItem2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportItem2 {
@@ -200,7 +194,6 @@ pub struct IPhotoImportItem2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhotoImportItemImportedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportItemImportedEventArgs {
@@ -219,7 +212,6 @@ pub struct IPhotoImportItemImportedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhotoImportManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportManagerStatics {
@@ -243,7 +235,6 @@ pub struct IPhotoImportManagerStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhotoImportOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportOperation {
@@ -269,7 +260,6 @@ pub struct IPhotoImportOperation_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhotoImportSelectionChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportSelectionChangedEventArgs {
@@ -288,7 +278,6 @@ pub struct IPhotoImportSelectionChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhotoImportSession(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportSession {
@@ -320,7 +309,6 @@ pub struct IPhotoImportSession_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhotoImportSession2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportSession2 {
@@ -342,7 +330,6 @@ pub struct IPhotoImportSession2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhotoImportSidecar(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportSidecar {
@@ -364,7 +351,6 @@ pub struct IPhotoImportSidecar_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhotoImportSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportSource {
@@ -404,7 +390,6 @@ pub struct IPhotoImportSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhotoImportSourceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportSourceStatics {
@@ -426,7 +411,6 @@ pub struct IPhotoImportSourceStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhotoImportStorageMedium(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportStorageMedium {
@@ -452,7 +436,6 @@ pub struct IPhotoImportStorageMedium_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhotoImportVideoSegment(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhotoImportVideoSegment {
@@ -492,10 +475,12 @@ impl ::std::convert::From<i32> for PhotoImportAccessMode {
 }
 unsafe impl ::windows::runtime::Abi for PhotoImportAccessMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhotoImportAccessMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportAccessMode;i4)");
+}
+impl ::windows::runtime::DefaultType for PhotoImportAccessMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Import`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -514,10 +499,12 @@ impl ::std::convert::From<i32> for PhotoImportConnectionTransport {
 }
 unsafe impl ::windows::runtime::Abi for PhotoImportConnectionTransport {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhotoImportConnectionTransport {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportConnectionTransport;i4)");
+}
+impl ::windows::runtime::DefaultType for PhotoImportConnectionTransport {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Import`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -535,10 +522,12 @@ impl ::std::convert::From<i32> for PhotoImportContentType {
 }
 unsafe impl ::windows::runtime::Abi for PhotoImportContentType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhotoImportContentType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportContentType;i4)");
+}
+impl ::windows::runtime::DefaultType for PhotoImportContentType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Import`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -557,10 +546,12 @@ impl ::std::convert::From<i32> for PhotoImportContentTypeFilter {
 }
 unsafe impl ::windows::runtime::Abi for PhotoImportContentTypeFilter {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhotoImportContentTypeFilter {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportContentTypeFilter;i4)");
+}
+impl ::windows::runtime::DefaultType for PhotoImportContentTypeFilter {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Import`*"]
 #[repr(transparent)]
@@ -1114,10 +1105,12 @@ impl ::std::convert::From<i32> for PhotoImportImportMode {
 }
 unsafe impl ::windows::runtime::Abi for PhotoImportImportMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhotoImportImportMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportImportMode;i4)");
+}
+impl ::windows::runtime::DefaultType for PhotoImportImportMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Import`*"]
 #[repr(transparent)]
@@ -1294,10 +1287,12 @@ impl ::std::convert::From<i32> for PhotoImportItemSelectionMode {
 }
 unsafe impl ::windows::runtime::Abi for PhotoImportItemSelectionMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhotoImportItemSelectionMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportItemSelectionMode;i4)");
+}
+impl ::windows::runtime::DefaultType for PhotoImportItemSelectionMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Import`*"]
 pub struct PhotoImportManager {}
@@ -1411,10 +1406,12 @@ impl ::std::convert::From<i32> for PhotoImportPowerSource {
 }
 unsafe impl ::windows::runtime::Abi for PhotoImportPowerSource {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhotoImportPowerSource {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportPowerSource;i4)");
+}
+impl ::windows::runtime::DefaultType for PhotoImportPowerSource {
+    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1445,10 +1442,12 @@ impl ::std::cmp::PartialEq for PhotoImportProgress {
 impl ::std::cmp::Eq for PhotoImportProgress {}
 unsafe impl ::windows::runtime::Abi for PhotoImportProgress {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhotoImportProgress {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Media.Import.PhotoImportProgress;u4;u4;u8;u8;f8)");
+}
+impl ::windows::runtime::DefaultType for PhotoImportProgress {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Import`*"]
 #[repr(transparent)]
@@ -1873,10 +1872,12 @@ impl ::std::convert::From<i32> for PhotoImportSourceType {
 }
 unsafe impl ::windows::runtime::Abi for PhotoImportSourceType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhotoImportSourceType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSourceType;i4)");
+}
+impl ::windows::runtime::DefaultType for PhotoImportSourceType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Import`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1895,10 +1896,12 @@ impl ::std::convert::From<i32> for PhotoImportStage {
 }
 unsafe impl ::windows::runtime::Abi for PhotoImportStage {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhotoImportStage {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportStage;i4)");
+}
+impl ::windows::runtime::DefaultType for PhotoImportStage {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Import`*"]
 #[repr(transparent)]
@@ -1995,10 +1998,12 @@ impl ::std::convert::From<i32> for PhotoImportStorageMediumType {
 }
 unsafe impl ::windows::runtime::Abi for PhotoImportStorageMediumType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhotoImportStorageMediumType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportStorageMediumType;i4)");
+}
+impl ::windows::runtime::DefaultType for PhotoImportStorageMediumType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Import`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2017,10 +2022,12 @@ impl ::std::convert::From<i32> for PhotoImportSubfolderCreationMode {
 }
 unsafe impl ::windows::runtime::Abi for PhotoImportSubfolderCreationMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhotoImportSubfolderCreationMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSubfolderCreationMode;i4)");
+}
+impl ::windows::runtime::DefaultType for PhotoImportSubfolderCreationMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Import`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2038,10 +2045,12 @@ impl ::std::convert::From<i32> for PhotoImportSubfolderDateFormat {
 }
 unsafe impl ::windows::runtime::Abi for PhotoImportSubfolderDateFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhotoImportSubfolderDateFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSubfolderDateFormat;i4)");
+}
+impl ::windows::runtime::DefaultType for PhotoImportSubfolderDateFormat {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Import`*"]
 #[repr(transparent)]

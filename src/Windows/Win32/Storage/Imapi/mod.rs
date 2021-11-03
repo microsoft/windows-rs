@@ -449,7 +449,6 @@ impl ::std::convert::From<u32> for DISC_RECORDER_STATE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for DISC_RECORDER_STATE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DISC_RECORDER_STATE_FLAGS {
     type Output = Self;
@@ -895,7 +894,6 @@ impl ::std::convert::From<i32> for EmulationType {
 }
 unsafe impl ::windows::runtime::Abi for EmulationType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const EnumFsiItems: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904966, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
 pub const EnumProgressItems: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904970, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
@@ -918,7 +916,6 @@ impl ::std::convert::From<i32> for FsiFileSystems {
 }
 unsafe impl ::windows::runtime::Abi for FsiFileSystems {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -934,7 +931,6 @@ impl ::std::convert::From<i32> for FsiItemType {
 }
 unsafe impl ::windows::runtime::Abi for FsiItemType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const FsiNamedStreams: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3333880045, 27929, 17588, [181, 57, 177, 89, 183, 147, 163, 45]);
 pub const FsiStream: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904973, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
@@ -6343,7 +6339,6 @@ impl ::std::convert::From<i32> for IMAPI_BURN_VERIFICATION_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for IMAPI_BURN_VERIFICATION_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6366,7 +6361,6 @@ impl ::std::convert::From<i32> for IMAPI_CD_SECTOR_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for IMAPI_CD_SECTOR_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6382,7 +6376,6 @@ impl ::std::convert::From<i32> for IMAPI_CD_TRACK_DIGITAL_COPY_SETTING {
 }
 unsafe impl ::windows::runtime::Abi for IMAPI_CD_TRACK_DIGITAL_COPY_SETTING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 pub const IMAPI_E_ALREADYOPEN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220958i32 as _);
@@ -6518,7 +6511,6 @@ impl ::std::convert::From<i32> for IMAPI_FEATURE_PAGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for IMAPI_FEATURE_PAGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6545,7 +6537,6 @@ impl ::std::convert::From<i32> for IMAPI_FORMAT2_DATA_MEDIA_STATE {
 }
 unsafe impl ::windows::runtime::Abi for IMAPI_FORMAT2_DATA_MEDIA_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6566,7 +6557,6 @@ impl ::std::convert::From<i32> for IMAPI_FORMAT2_DATA_WRITE_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for IMAPI_FORMAT2_DATA_WRITE_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6582,7 +6572,6 @@ impl ::std::convert::From<i32> for IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6599,7 +6588,6 @@ impl ::std::convert::From<i32> for IMAPI_FORMAT2_RAW_CD_WRITE_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for IMAPI_FORMAT2_RAW_CD_WRITE_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6617,7 +6605,6 @@ impl ::std::convert::From<i32> for IMAPI_FORMAT2_TAO_WRITE_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for IMAPI_FORMAT2_TAO_WRITE_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6651,7 +6638,6 @@ impl ::std::convert::From<i32> for IMAPI_MEDIA_PHYSICAL_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for IMAPI_MEDIA_PHYSICAL_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6670,7 +6656,6 @@ impl ::std::convert::From<i32> for IMAPI_MEDIA_WRITE_PROTECT_STATE {
 }
 unsafe impl ::windows::runtime::Abi for IMAPI_MEDIA_WRITE_PROTECT_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6687,7 +6672,6 @@ impl ::std::convert::From<i32> for IMAPI_MODE_PAGE_REQUEST_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for IMAPI_MODE_PAGE_REQUEST_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6708,7 +6692,6 @@ impl ::std::convert::From<i32> for IMAPI_MODE_PAGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for IMAPI_MODE_PAGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6752,7 +6735,6 @@ impl ::std::convert::From<i32> for IMAPI_PROFILE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for IMAPI_PROFILE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6768,7 +6750,6 @@ impl ::std::convert::From<i32> for IMAPI_READ_TRACK_ADDRESS_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for IMAPI_READ_TRACK_ADDRESS_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 pub const IMAPI_SECTORS_PER_SECOND_AT_1X_BD: u32 = 2195u32;
@@ -6798,7 +6779,6 @@ impl ::std::convert::From<i32> for IMMPID_CPV_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for IMMPID_CPV_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6819,7 +6799,6 @@ impl ::std::convert::From<i32> for IMMPID_MPV_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for IMMPID_MPV_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6891,7 +6870,6 @@ impl ::std::convert::From<i32> for IMMPID_MP_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for IMMPID_MP_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6915,7 +6893,6 @@ impl ::std::convert::From<i32> for IMMPID_NMP_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for IMMPID_NMP_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6932,7 +6909,6 @@ impl ::std::convert::From<i32> for IMMPID_RPV_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for IMMPID_RPV_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6968,7 +6944,6 @@ impl ::std::convert::From<i32> for IMMPID_RP_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for IMMPID_RP_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6995,7 +6970,6 @@ impl ::std::cmp::PartialEq for IMMP_MPV_STORE_DRIVER_HANDLE {
 impl ::std::cmp::Eq for IMMP_MPV_STORE_DRIVER_HANDLE {}
 unsafe impl ::windows::runtime::Abi for IMMP_MPV_STORE_DRIVER_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[repr(transparent)]
@@ -8780,7 +8754,6 @@ impl ::std::convert::From<i32> for MEDIA_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MEDIA_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8799,7 +8772,6 @@ impl ::std::convert::From<i32> for MEDIA_TYPES {
 }
 unsafe impl ::windows::runtime::Abi for MEDIA_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 pub const MPV_INBOUND_CUTOFF_EXCEEDED: u32 = 1u32;
@@ -8938,7 +8910,6 @@ impl ::std::convert::From<i32> for PlatformId {
 }
 unsafe impl ::windows::runtime::Abi for PlatformId {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const ProgressItem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904971, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
 pub const ProgressItems: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904969, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
@@ -8955,7 +8926,6 @@ impl ::std::convert::From<i32> for RECORDER_TYPES {
 }
 unsafe impl ::windows::runtime::Abi for RECORDER_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 pub const RP_DELIVERED: u32 = 272u32;
@@ -9033,7 +9003,6 @@ impl ::std::cmp::PartialEq for SPropAttrArray {
 impl ::std::cmp::Eq for SPropAttrArray {}
 unsafe impl ::windows::runtime::Abi for SPropAttrArray {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_AddressBook")]
 #[doc = "*Required features: `Win32_Storage_Imapi`, `Win32_System_AddressBook`*"]
@@ -9081,7 +9050,6 @@ impl ::std::cmp::PartialEq for tagIMMPID_GUIDLIST_ITEM {
 impl ::std::cmp::Eq for tagIMMPID_GUIDLIST_ITEM {}
 unsafe impl ::windows::runtime::Abi for tagIMMPID_GUIDLIST_ITEM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const tagIMMPID_MPV_STRUCT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3420886790, 51645, 4561, [159, 242, 0, 192, 79, 163, 115, 72]);
 pub const tagIMMPID_MP_STRUCT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(322456816, 46020, 4561, [170, 146, 0, 170, 0, 107, 200, 11]);

@@ -104,7 +104,6 @@ impl ::windows::runtime::RuntimeName for AppointmentsProviderLaunchActionVerbs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.AppointmentsProviderLaunchActionVerbs";
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAddAppointmentOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAddAppointmentOperation {
@@ -128,7 +127,6 @@ pub struct IAddAppointmentOperation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentsProviderLaunchActionVerbsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentsProviderLaunchActionVerbsStatics {
@@ -150,7 +148,6 @@ pub struct IAppointmentsProviderLaunchActionVerbsStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentsProviderLaunchActionVerbsStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentsProviderLaunchActionVerbsStatics2 {
@@ -169,7 +166,6 @@ pub struct IAppointmentsProviderLaunchActionVerbsStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoveAppointmentOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoveAppointmentOperation {
@@ -195,7 +191,6 @@ pub struct IRemoveAppointmentOperation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IReplaceAppointmentOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IReplaceAppointmentOperation {

@@ -28,13 +28,14 @@ impl ::std::convert::From<i32> for FeatureElementKindPreview {
 }
 unsafe impl ::windows::runtime::Abi for FeatureElementKindPreview {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for FeatureElementKindPreview {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.Preview.FeatureElementKindPreview;i4)");
 }
+impl ::windows::runtime::DefaultType for FeatureElementKindPreview {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IImageVariableDescriptorPreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageVariableDescriptorPreview {
@@ -56,7 +57,6 @@ pub struct IImageVariableDescriptorPreview_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInferencingOptionsPreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInferencingOptionsPreview {
@@ -84,7 +84,6 @@ pub struct IInferencingOptionsPreview_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILearningModelBindingPreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelBindingPreview {
@@ -106,7 +105,6 @@ pub struct ILearningModelBindingPreview_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILearningModelBindingPreviewFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelBindingPreviewFactory {
@@ -125,7 +123,6 @@ pub struct ILearningModelBindingPreviewFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, model: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILearningModelDescriptionPreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelDescriptionPreview {
@@ -154,7 +151,6 @@ pub struct ILearningModelDescriptionPreview_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILearningModelEvaluationResultPreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelEvaluationResultPreview {
@@ -175,7 +171,6 @@ pub struct ILearningModelEvaluationResultPreview_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILearningModelPreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelPreview {
@@ -200,7 +195,6 @@ pub struct ILearningModelPreview_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILearningModelPreviewStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILearningModelPreviewStatics {
@@ -285,7 +279,6 @@ pub struct ILearningModelVariableDescriptorPreview_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapVariableDescriptorPreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapVariableDescriptorPreview {
@@ -309,7 +302,6 @@ pub struct IMapVariableDescriptorPreview_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISequenceVariableDescriptorPreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISequenceVariableDescriptorPreview {
@@ -328,7 +320,6 @@ pub struct ISequenceVariableDescriptorPreview_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITensorVariableDescriptorPreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITensorVariableDescriptorPreview {
@@ -810,10 +801,12 @@ impl ::std::convert::From<i32> for LearningModelDeviceKindPreview {
 }
 unsafe impl ::windows::runtime::Abi for LearningModelDeviceKindPreview {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for LearningModelDeviceKindPreview {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.Preview.LearningModelDeviceKindPreview;i4)");
+}
+impl ::windows::runtime::DefaultType for LearningModelDeviceKindPreview {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 #[repr(transparent)]
@@ -868,10 +861,12 @@ impl ::std::convert::From<i32> for LearningModelFeatureKindPreview {
 }
 unsafe impl ::windows::runtime::Abi for LearningModelFeatureKindPreview {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for LearningModelFeatureKindPreview {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.Preview.LearningModelFeatureKindPreview;i4)");
+}
+impl ::windows::runtime::DefaultType for LearningModelFeatureKindPreview {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `AI_MachineLearning_Preview`*"]
 #[repr(transparent)]

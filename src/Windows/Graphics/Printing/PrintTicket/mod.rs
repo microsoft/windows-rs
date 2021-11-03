@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintTicketCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTicketCapabilities {
@@ -39,7 +38,6 @@ pub struct IPrintTicketCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, xmlnamespace: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintTicketFeature(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTicketFeature {
@@ -68,7 +66,6 @@ pub struct IPrintTicketFeature_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut PrintTicketFeatureSelectionType) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintTicketOption(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTicketOption {
@@ -97,7 +94,6 @@ pub struct IPrintTicketOption_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, xmlnamespace: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintTicketParameterDefinition(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTicketParameterDefinition {
@@ -123,7 +119,6 @@ pub struct IPrintTicketParameterDefinition_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintTicketParameterInitializer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTicketParameterInitializer {
@@ -147,7 +142,6 @@ pub struct IPrintTicketParameterInitializer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintTicketValue(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTicketValue {
@@ -168,7 +162,6 @@ pub struct IPrintTicketValue_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWorkflowPrintTicket(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWorkflowPrintTicket {
@@ -215,7 +208,6 @@ pub struct IWorkflowPrintTicket_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deltashematicket: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWorkflowPrintTicketValidationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWorkflowPrintTicketValidationResult {
@@ -517,10 +509,12 @@ impl ::std::convert::From<i32> for PrintTicketFeatureSelectionType {
 }
 unsafe impl ::windows::runtime::Abi for PrintTicketFeatureSelectionType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PrintTicketFeatureSelectionType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketFeatureSelectionType;i4)");
+}
+impl ::windows::runtime::DefaultType for PrintTicketFeatureSelectionType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
 #[repr(transparent)]
@@ -623,10 +617,12 @@ impl ::std::convert::From<i32> for PrintTicketParameterDataType {
 }
 unsafe impl ::windows::runtime::Abi for PrintTicketParameterDataType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PrintTicketParameterDataType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDataType;i4)");
+}
+impl ::windows::runtime::DefaultType for PrintTicketParameterDataType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
 #[repr(transparent)]
@@ -817,10 +813,12 @@ impl ::std::convert::From<i32> for PrintTicketValueType {
 }
 unsafe impl ::windows::runtime::Abi for PrintTicketValueType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PrintTicketValueType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketValueType;i4)");
+}
+impl ::windows::runtime::DefaultType for PrintTicketValueType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing_PrintTicket`*"]
 #[repr(transparent)]

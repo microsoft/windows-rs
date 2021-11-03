@@ -274,7 +274,6 @@ impl ::std::cmp::PartialEq for CHARSETINFO {
 impl ::std::cmp::Eq for CHARSETINFO {}
 unsafe impl ::windows::runtime::Abi for CHARSETINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const CMLangConvertCharset: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3597496217, 52650, 4560, [184, 34, 0, 192, 79, 201, 179, 31]);
 pub const CMLangString: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3226297807, 46861, 4560, [177, 136, 0, 170, 0, 56, 201, 105]);
@@ -304,7 +303,6 @@ impl ::std::convert::From<u32> for COMPARE_STRING_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for COMPARE_STRING_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for COMPARE_STRING_FLAGS {
     type Output = Self;
@@ -349,7 +347,6 @@ impl ::std::convert::From<i32> for CORRECTIVE_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for CORRECTIVE_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -378,7 +375,6 @@ impl ::std::cmp::PartialEq for CPINFO {
 impl ::std::cmp::Eq for CPINFO {}
 unsafe impl ::windows::runtime::Abi for CPINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -417,7 +413,6 @@ impl ::std::cmp::Eq for CPINFOEXA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CPINFOEXA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -449,7 +444,6 @@ impl ::std::cmp::PartialEq for CPINFOEXW {
 impl ::std::cmp::Eq for CPINFOEXW {}
 unsafe impl ::windows::runtime::Abi for CPINFOEXW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const CPIOD_FORCE_PROMPT: i32 = -2147483648i32;
@@ -753,7 +747,6 @@ impl ::std::cmp::Eq for CURRENCYFMTA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CURRENCYFMTA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -803,7 +796,6 @@ impl ::std::cmp::Eq for CURRENCYFMTW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CURRENCYFMTW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[inline]
@@ -936,7 +928,6 @@ impl ::std::cmp::PartialEq for DetectEncodingInfo {
 impl ::std::cmp::Eq for DetectEncodingInfo {}
 unsafe impl ::windows::runtime::Abi for DetectEncodingInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const ELS_GUID_LANGUAGE_DETECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3481141425, 37019, 19861, [168, 244, 97, 31, 124, 55, 119, 2]);
 pub const ELS_GUID_SCRIPT_DETECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(761574457, 27823, 20331, [182, 136, 229, 208, 244, 250, 167, 215]);
@@ -980,7 +971,6 @@ impl ::std::cmp::Eq for ENUMTEXTMETRICA {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for ENUMTEXTMETRICA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1015,7 +1005,6 @@ impl ::std::cmp::Eq for ENUMTEXTMETRICW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for ENUMTEXTMETRICW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const ENUM_ALL_CALENDARS: u32 = 4294967295u32;
@@ -1038,7 +1027,6 @@ impl ::std::convert::From<u32> for ENUM_DATE_FORMATS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for ENUM_DATE_FORMATS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ENUM_DATE_FORMATS_FLAGS {
     type Output = Self;
@@ -1081,7 +1069,6 @@ impl ::std::convert::From<u32> for ENUM_SYSTEM_CODE_PAGES_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for ENUM_SYSTEM_CODE_PAGES_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ENUM_SYSTEM_CODE_PAGES_FLAGS {
     type Output = Self;
@@ -1124,7 +1111,6 @@ impl ::std::convert::From<u32> for ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS {
     type Output = Self;
@@ -1607,7 +1593,6 @@ impl ::std::cmp::PartialEq for FILEMUIINFO {
 impl ::std::cmp::Eq for FILEMUIINFO {}
 unsafe impl ::windows::runtime::Abi for FILEMUIINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const FIND_ENDSWITH: u32 = 2097152u32;
@@ -1633,7 +1618,6 @@ impl ::std::convert::From<u32> for FOLD_STRING_MAP_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for FOLD_STRING_MAP_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for FOLD_STRING_MAP_FLAGS {
     type Output = Self;
@@ -1689,7 +1673,6 @@ impl ::std::cmp::PartialEq for FONTSIGNATURE {
 impl ::std::cmp::Eq for FONTSIGNATURE {}
 unsafe impl ::windows::runtime::Abi for FONTSIGNATURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
@@ -1820,7 +1803,6 @@ impl ::std::cmp::PartialEq for GOFFSET {
 impl ::std::cmp::Eq for GOFFSET {}
 unsafe impl ::windows::runtime::Abi for GOFFSET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const GSS_ALLOW_INHERITED_COMMON: u32 = 1u32;
@@ -2686,7 +2668,6 @@ impl ::std::default::Default for HIMC {
 unsafe impl ::windows::runtime::Handle for HIMC {}
 unsafe impl ::windows::runtime::Abi for HIMC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -2699,7 +2680,6 @@ impl ::std::default::Default for HIMCC {
 unsafe impl ::windows::runtime::Handle for HIMCC {}
 unsafe impl ::windows::runtime::Abi for HIMCC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -2712,7 +2692,6 @@ impl ::std::default::Default for HSAVEDUILANGUAGES {
 unsafe impl ::windows::runtime::Handle for HSAVEDUILANGUAGES {}
 unsafe impl ::windows::runtime::Abi for HSAVEDUILANGUAGES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[repr(transparent)]
@@ -4234,7 +4213,6 @@ impl ::std::convert::From<u32> for IS_TEXT_UNICODE_RESULT {
 }
 unsafe impl ::windows::runtime::Abi for IS_TEXT_UNICODE_RESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for IS_TEXT_UNICODE_RESULT {
     type Output = Self;
@@ -4277,7 +4255,6 @@ impl ::std::convert::From<u32> for IS_VALID_LOCALE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for IS_VALID_LOCALE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for IS_VALID_LOCALE_FLAGS {
     type Output = Self;
@@ -5230,7 +5207,6 @@ impl ::std::cmp::PartialEq for LOCALESIGNATURE {
 impl ::std::cmp::Eq for LOCALESIGNATURE {}
 unsafe impl ::windows::runtime::Abi for LOCALESIGNATURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const LOCALE_ALL: u32 = 0u32;
@@ -5651,7 +5627,6 @@ impl ::std::cmp::Eq for MAPPING_DATA_RANGE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MAPPING_DATA_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5705,7 +5680,6 @@ impl ::std::cmp::Eq for MAPPING_ENUM_OPTIONS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MAPPING_ENUM_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -5784,7 +5758,6 @@ impl ::std::cmp::Eq for MAPPING_OPTIONS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MAPPING_OPTIONS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5834,7 +5807,6 @@ impl ::std::cmp::Eq for MAPPING_PROPERTY_BAG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MAPPING_PROPERTY_BAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5942,7 +5914,6 @@ impl ::std::cmp::Eq for MAPPING_SERVICE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MAPPING_SERVICE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const MAX_DEFAULTCHAR: u32 = 2u32;
@@ -5984,7 +5955,6 @@ impl ::std::convert::From<i32> for MIMECONTF {
 }
 unsafe impl ::windows::runtime::Abi for MIMECONTF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6031,7 +6001,6 @@ impl ::std::cmp::PartialEq for MIMECPINFO {
 impl ::std::cmp::Eq for MIMECPINFO {}
 unsafe impl ::windows::runtime::Abi for MIMECPINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6060,7 +6029,6 @@ impl ::std::cmp::PartialEq for MIMECSETINFO {
 impl ::std::cmp::Eq for MIMECSETINFO {}
 unsafe impl ::windows::runtime::Abi for MIMECSETINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const MIN_SPELLING_NTDDI: u32 = 100794368u32;
@@ -6081,7 +6049,6 @@ impl ::std::convert::From<i32> for MLDETECTCP {
 }
 unsafe impl ::windows::runtime::Abi for MLDETECTCP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6096,7 +6063,6 @@ impl ::std::convert::From<i32> for MLSTR_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MLSTR_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const MUI_COMPLEX_SCRIPT_FILTER: u32 = 512u32;
@@ -6179,7 +6145,6 @@ impl ::std::convert::From<u32> for MULTI_BYTE_TO_WIDE_CHAR_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MULTI_BYTE_TO_WIDE_CHAR_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MULTI_BYTE_TO_WIDE_CHAR_FLAGS {
     type Output = Self;
@@ -6332,7 +6297,6 @@ impl ::std::cmp::Eq for NEWTEXTMETRICEXA {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for NEWTEXTMETRICEXA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6367,7 +6331,6 @@ impl ::std::cmp::Eq for NEWTEXTMETRICEXW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for NEWTEXTMETRICEXW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6398,7 +6361,6 @@ impl ::std::cmp::PartialEq for NLSVERSIONINFO {
 impl ::std::cmp::Eq for NLSVERSIONINFO {}
 unsafe impl ::windows::runtime::Abi for NLSVERSIONINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6429,7 +6391,6 @@ impl ::std::cmp::PartialEq for NLSVERSIONINFOEX {
 impl ::std::cmp::Eq for NLSVERSIONINFOEX {}
 unsafe impl ::windows::runtime::Abi for NLSVERSIONINFOEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const NLS_CP_CPINFO: u32 = 268435456u32;
@@ -6453,7 +6414,6 @@ impl ::std::convert::From<i32> for NORM_FORM {
 }
 unsafe impl ::windows::runtime::Abi for NORM_FORM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6492,7 +6452,6 @@ impl ::std::cmp::Eq for NUMBERFMTA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NUMBERFMTA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6531,7 +6490,6 @@ impl ::std::cmp::Eq for NUMBERFMTW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NUMBERFMTW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const NUMSYS_NAME_CAPACITY: u32 = 8u32;
@@ -6598,7 +6556,6 @@ impl ::std::cmp::PartialEq for RFC1766INFO {
 impl ::std::cmp::Eq for RFC1766INFO {}
 unsafe impl ::windows::runtime::Abi for RFC1766INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
@@ -6684,7 +6641,6 @@ impl ::std::convert::From<i32> for SCRIPTCONTF {
 }
 unsafe impl ::windows::runtime::Abi for SCRIPTCONTF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6702,7 +6658,6 @@ impl ::std::convert::From<i32> for SCRIPTFONTCONTF {
 }
 unsafe impl ::windows::runtime::Abi for SCRIPTFONTCONTF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6733,7 +6688,6 @@ impl ::std::cmp::PartialEq for SCRIPTINFO {
 impl ::std::cmp::Eq for SCRIPTINFO {}
 unsafe impl ::windows::runtime::Abi for SCRIPTINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6761,7 +6715,6 @@ impl ::std::cmp::PartialEq for SCRIPT_ANALYSIS {
 impl ::std::cmp::Eq for SCRIPT_ANALYSIS {}
 unsafe impl ::windows::runtime::Abi for SCRIPT_ANALYSIS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6788,7 +6741,6 @@ impl ::std::cmp::PartialEq for SCRIPT_CONTROL {
 impl ::std::cmp::Eq for SCRIPT_CONTROL {}
 unsafe impl ::windows::runtime::Abi for SCRIPT_CONTROL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6817,7 +6769,6 @@ impl ::std::cmp::PartialEq for SCRIPT_DIGITSUBSTITUTE {
 impl ::std::cmp::Eq for SCRIPT_DIGITSUBSTITUTE {}
 unsafe impl ::windows::runtime::Abi for SCRIPT_DIGITSUBSTITUTE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const SCRIPT_DIGITSUBSTITUTE_CONTEXT: u32 = 0u32;
@@ -6857,7 +6808,6 @@ impl ::std::cmp::PartialEq for SCRIPT_FONTPROPERTIES {
 impl ::std::cmp::Eq for SCRIPT_FONTPROPERTIES {}
 unsafe impl ::windows::runtime::Abi for SCRIPT_FONTPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6873,7 +6823,6 @@ impl ::std::convert::From<u32> for SCRIPT_IS_COMPLEX_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for SCRIPT_IS_COMPLEX_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SCRIPT_IS_COMPLEX_FLAGS {
     type Output = Self;
@@ -6929,7 +6878,6 @@ impl ::std::cmp::PartialEq for SCRIPT_ITEM {
 impl ::std::cmp::Eq for SCRIPT_ITEM {}
 unsafe impl ::windows::runtime::Abi for SCRIPT_ITEM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6958,7 +6906,6 @@ impl ::std::convert::From<i32> for SCRIPT_JUSTIFY {
 }
 unsafe impl ::windows::runtime::Abi for SCRIPT_JUSTIFY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6985,7 +6932,6 @@ impl ::std::cmp::PartialEq for SCRIPT_LOGATTR {
 impl ::std::cmp::Eq for SCRIPT_LOGATTR {}
 unsafe impl ::windows::runtime::Abi for SCRIPT_LOGATTR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7013,7 +6959,6 @@ impl ::std::cmp::PartialEq for SCRIPT_PROPERTIES {
 impl ::std::cmp::Eq for SCRIPT_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for SCRIPT_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7040,7 +6985,6 @@ impl ::std::cmp::PartialEq for SCRIPT_STATE {
 impl ::std::cmp::Eq for SCRIPT_STATE {}
 unsafe impl ::windows::runtime::Abi for SCRIPT_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7070,7 +7014,6 @@ impl ::std::cmp::PartialEq for SCRIPT_TABDEF {
 impl ::std::cmp::Eq for SCRIPT_TABDEF {}
 unsafe impl ::windows::runtime::Abi for SCRIPT_TABDEF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const SCRIPT_TAG_UNKNOWN: u32 = 0u32;
@@ -7101,7 +7044,6 @@ impl ::std::cmp::PartialEq for SCRIPT_VISATTR {
 impl ::std::cmp::Eq for SCRIPT_VISATTR {}
 unsafe impl ::windows::runtime::Abi for SCRIPT_VISATTR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const SGCM_RTL: u32 = 1u32;
@@ -7165,7 +7107,6 @@ impl ::std::convert::From<i32> for SYSGEOCLASS {
 }
 unsafe impl ::windows::runtime::Abi for SYSGEOCLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7196,7 +7137,6 @@ impl ::std::convert::From<i32> for SYSGEOTYPE {
 }
 unsafe impl ::windows::runtime::Abi for SYSGEOTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7210,7 +7150,6 @@ impl ::std::convert::From<i32> for SYSNLS_FUNCTION {
 }
 unsafe impl ::windows::runtime::Abi for SYSNLS_FUNCTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[inline]
@@ -8149,7 +8088,6 @@ impl ::std::convert::From<u32> for TIME_FORMAT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for TIME_FORMAT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for TIME_FORMAT_FLAGS {
     type Output = Self;
@@ -8194,7 +8132,6 @@ impl ::std::convert::From<u32> for TRANSLATE_CHARSET_INFO_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for TRANSLATE_CHARSET_INFO_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for TRANSLATE_CHARSET_INFO_FLAGS {
     type Output = Self;
@@ -8257,7 +8194,6 @@ impl ::std::convert::From<i32> for UAcceptResult {
 }
 unsafe impl ::windows::runtime::Abi for UAcceptResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8274,7 +8210,6 @@ impl ::std::convert::From<i32> for UAlphabeticIndexLabelType {
 }
 unsafe impl ::windows::runtime::Abi for UAlphabeticIndexLabelType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const UBIDI_DEFAULT_LTR: u32 = 254u32;
@@ -8315,7 +8250,6 @@ impl ::std::convert::From<i32> for UBiDiDirection {
 }
 unsafe impl ::windows::runtime::Abi for UBiDiDirection {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8330,7 +8264,6 @@ impl ::std::convert::From<i32> for UBiDiMirroring {
 }
 unsafe impl ::windows::runtime::Abi for UBiDiMirroring {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8345,7 +8278,6 @@ impl ::std::convert::From<i32> for UBiDiOrder {
 }
 unsafe impl ::windows::runtime::Abi for UBiDiOrder {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8365,7 +8297,6 @@ impl ::std::convert::From<i32> for UBiDiReorderingMode {
 }
 unsafe impl ::windows::runtime::Abi for UBiDiReorderingMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8382,7 +8313,6 @@ impl ::std::convert::From<i32> for UBiDiReorderingOption {
 }
 unsafe impl ::windows::runtime::Abi for UBiDiReorderingOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -8401,7 +8331,6 @@ impl ::std::convert::From<i32> for UBidiPairedBracketType {
 }
 unsafe impl ::windows::runtime::Abi for UBidiPairedBracketType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8726,7 +8655,6 @@ impl ::std::convert::From<i32> for UBlockCode {
 }
 unsafe impl ::windows::runtime::Abi for UBlockCode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -8746,7 +8674,6 @@ impl ::std::convert::From<i32> for UBreakIteratorType {
 }
 unsafe impl ::windows::runtime::Abi for UBreakIteratorType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const UCHAR_MAX_VALUE: u32 = 1114111u32;
@@ -8899,7 +8826,6 @@ impl ::std::convert::From<i32> for UCPMapRangeOption {
 }
 unsafe impl ::windows::runtime::Abi for UCPMapRangeOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type UCPMapValueFilter = unsafe extern "system" fn(context: *const ::std::ffi::c_void, value: u32) -> u32;
 #[doc = "*Required features: `Win32_Globalization`*"]
@@ -8946,7 +8872,6 @@ impl ::std::cmp::PartialEq for UCPTrie {
 impl ::std::cmp::Eq for UCPTrie {}
 unsafe impl ::windows::runtime::Abi for UCPTrie {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8971,7 +8896,6 @@ impl ::std::cmp::PartialEq for UCPTrieData {
 impl ::std::cmp::Eq for UCPTrieData {}
 unsafe impl ::windows::runtime::Abi for UCPTrieData {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8987,7 +8911,6 @@ impl ::std::convert::From<i32> for UCPTrieType {
 }
 unsafe impl ::windows::runtime::Abi for UCPTrieType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9004,7 +8927,6 @@ impl ::std::convert::From<i32> for UCPTrieValueWidth {
 }
 unsafe impl ::windows::runtime::Abi for UCPTrieValueWidth {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9019,7 +8941,6 @@ impl ::std::convert::From<i32> for UCalendarAMPMs {
 }
 unsafe impl ::windows::runtime::Abi for UCalendarAMPMs {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9037,7 +8958,6 @@ impl ::std::convert::From<i32> for UCalendarAttribute {
 }
 unsafe impl ::windows::runtime::Abi for UCalendarAttribute {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9075,7 +8995,6 @@ impl ::std::convert::From<i32> for UCalendarDateFields {
 }
 unsafe impl ::windows::runtime::Abi for UCalendarDateFields {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9095,7 +9014,6 @@ impl ::std::convert::From<i32> for UCalendarDaysOfWeek {
 }
 unsafe impl ::windows::runtime::Abi for UCalendarDaysOfWeek {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9112,7 +9030,6 @@ impl ::std::convert::From<i32> for UCalendarDisplayNameType {
 }
 unsafe impl ::windows::runtime::Abi for UCalendarDisplayNameType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9131,7 +9048,6 @@ impl ::std::convert::From<i32> for UCalendarLimitType {
 }
 unsafe impl ::windows::runtime::Abi for UCalendarLimitType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9157,7 +9073,6 @@ impl ::std::convert::From<i32> for UCalendarMonths {
 }
 unsafe impl ::windows::runtime::Abi for UCalendarMonths {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9173,7 +9088,6 @@ impl ::std::convert::From<i32> for UCalendarType {
 }
 unsafe impl ::windows::runtime::Abi for UCalendarType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9189,7 +9103,6 @@ impl ::std::convert::From<i32> for UCalendarWallTimeOption {
 }
 unsafe impl ::windows::runtime::Abi for UCalendarWallTimeOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9206,7 +9119,6 @@ impl ::std::convert::From<i32> for UCalendarWeekdayType {
 }
 unsafe impl ::windows::runtime::Abi for UCalendarWeekdayType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -9254,7 +9166,6 @@ impl ::std::convert::From<i32> for UCharCategory {
 }
 unsafe impl ::windows::runtime::Abi for UCharCategory {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9290,7 +9201,6 @@ impl ::std::convert::From<i32> for UCharDirection {
 }
 unsafe impl ::windows::runtime::Abi for UCharDirection {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type UCharEnumTypeRange = unsafe extern "system" fn(context: *const ::std::ffi::c_void, start: i32, limit: i32, r#type: UCharCategory) -> i8;
 #[derive(:: std :: clone :: Clone)]
@@ -9348,7 +9258,6 @@ impl ::std::cmp::PartialEq for UCharIterator {
 impl ::std::cmp::Eq for UCharIterator {}
 unsafe impl ::windows::runtime::Abi for UCharIterator {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 pub type UCharIteratorCurrent = unsafe extern "system" fn(iter: *mut ::std::mem::ManuallyDrop<UCharIterator>) -> i32;
 pub type UCharIteratorGetIndex = unsafe extern "system" fn(iter: *mut ::std::mem::ManuallyDrop<UCharIterator>, origin: UCharIteratorOrigin) -> i32;
@@ -9373,7 +9282,6 @@ impl ::std::convert::From<i32> for UCharIteratorOrigin {
 }
 unsafe impl ::windows::runtime::Abi for UCharIteratorOrigin {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type UCharIteratorPrevious = unsafe extern "system" fn(iter: *mut ::std::mem::ManuallyDrop<UCharIterator>) -> i32;
 pub type UCharIteratorReserved = unsafe extern "system" fn(iter: *mut ::std::mem::ManuallyDrop<UCharIterator>, something: i32) -> i32;
@@ -9392,7 +9300,6 @@ impl ::std::convert::From<i32> for UCharNameChoice {
 }
 unsafe impl ::windows::runtime::Abi for UCharNameChoice {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -9420,7 +9327,6 @@ impl ::std::convert::From<i32> for UColAttribute {
 }
 unsafe impl ::windows::runtime::Abi for UColAttribute {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9448,7 +9354,6 @@ impl ::std::convert::From<i32> for UColAttributeValue {
 }
 unsafe impl ::windows::runtime::Abi for UColAttributeValue {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9464,7 +9369,6 @@ impl ::std::convert::From<i32> for UColBoundMode {
 }
 unsafe impl ::windows::runtime::Abi for UColBoundMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9486,7 +9390,6 @@ impl ::std::convert::From<i32> for UColReorderCode {
 }
 unsafe impl ::windows::runtime::Abi for UColReorderCode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9501,7 +9404,6 @@ impl ::std::convert::From<i32> for UColRuleOption {
 }
 unsafe impl ::windows::runtime::Abi for UColRuleOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -9520,7 +9422,6 @@ impl ::std::convert::From<i32> for UCollationResult {
 }
 unsafe impl ::windows::runtime::Abi for UCollationResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -9548,7 +9449,6 @@ impl ::std::convert::From<i32> for UConverterCallbackReason {
 }
 unsafe impl ::windows::runtime::Abi for UConverterCallbackReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type UConverterFromUCallback = unsafe extern "system" fn(context: *const ::std::ffi::c_void, args: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode);
@@ -9600,7 +9500,6 @@ impl ::std::cmp::Eq for UConverterFromUnicodeArgs {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for UConverterFromUnicodeArgs {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9615,7 +9514,6 @@ impl ::std::convert::From<i32> for UConverterPlatform {
 }
 unsafe impl ::windows::runtime::Abi for UConverterPlatform {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -9670,7 +9568,6 @@ impl ::std::cmp::Eq for UConverterToUnicodeArgs {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for UConverterToUnicodeArgs {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9720,7 +9617,6 @@ impl ::std::convert::From<i32> for UConverterType {
 }
 unsafe impl ::windows::runtime::Abi for UConverterType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9735,7 +9631,6 @@ impl ::std::convert::From<i32> for UConverterUnicodeSet {
 }
 unsafe impl ::windows::runtime::Abi for UConverterUnicodeSet {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9753,7 +9648,6 @@ impl ::std::convert::From<i32> for UCurrCurrencyType {
 }
 unsafe impl ::windows::runtime::Abi for UCurrCurrencyType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9769,7 +9663,6 @@ impl ::std::convert::From<i32> for UCurrNameStyle {
 }
 unsafe impl ::windows::runtime::Abi for UCurrNameStyle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9786,7 +9679,6 @@ impl ::std::convert::From<i32> for UCurrencySpacing {
 }
 unsafe impl ::windows::runtime::Abi for UCurrencySpacing {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9801,7 +9693,6 @@ impl ::std::convert::From<i32> for UCurrencyUsage {
 }
 unsafe impl ::windows::runtime::Abi for UCurrencyUsage {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9827,7 +9718,6 @@ impl ::std::convert::From<i32> for UDateAbsoluteUnit {
 }
 unsafe impl ::windows::runtime::Abi for UDateAbsoluteUnit {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9847,7 +9737,6 @@ impl ::std::convert::From<i32> for UDateDirection {
 }
 unsafe impl ::windows::runtime::Abi for UDateDirection {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9865,7 +9754,6 @@ impl ::std::convert::From<i32> for UDateFormatBooleanAttribute {
 }
 unsafe impl ::windows::runtime::Abi for UDateFormatBooleanAttribute {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9914,7 +9802,6 @@ impl ::std::convert::From<i32> for UDateFormatField {
 }
 unsafe impl ::windows::runtime::Abi for UDateFormatField {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9939,7 +9826,6 @@ impl ::std::convert::From<i32> for UDateFormatStyle {
 }
 unsafe impl ::windows::runtime::Abi for UDateFormatStyle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9980,7 +9866,6 @@ impl ::std::convert::From<i32> for UDateFormatSymbolType {
 }
 unsafe impl ::windows::runtime::Abi for UDateFormatSymbolType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -10002,7 +9887,6 @@ impl ::std::convert::From<i32> for UDateRelativeDateTimeFormatterStyle {
 }
 unsafe impl ::windows::runtime::Abi for UDateRelativeDateTimeFormatterStyle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10023,7 +9907,6 @@ impl ::std::convert::From<i32> for UDateRelativeUnit {
 }
 unsafe impl ::windows::runtime::Abi for UDateRelativeUnit {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10039,7 +9922,6 @@ impl ::std::convert::From<i32> for UDateTimePGDisplayWidth {
 }
 unsafe impl ::windows::runtime::Abi for UDateTimePGDisplayWidth {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10055,7 +9937,6 @@ impl ::std::convert::From<i32> for UDateTimePatternConflict {
 }
 unsafe impl ::windows::runtime::Abi for UDateTimePatternConflict {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10085,7 +9966,6 @@ impl ::std::convert::From<i32> for UDateTimePatternField {
 }
 unsafe impl ::windows::runtime::Abi for UDateTimePatternField {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10101,7 +9981,6 @@ impl ::std::convert::From<i32> for UDateTimePatternMatchOptions {
 }
 unsafe impl ::windows::runtime::Abi for UDateTimePatternMatchOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10124,7 +10003,6 @@ impl ::std::convert::From<i32> for UDateTimeScale {
 }
 unsafe impl ::windows::runtime::Abi for UDateTimeScale {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10155,7 +10033,6 @@ impl ::std::convert::From<i32> for UDecompositionType {
 }
 unsafe impl ::windows::runtime::Abi for UDecompositionType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10170,7 +10047,6 @@ impl ::std::convert::From<i32> for UDialectHandling {
 }
 unsafe impl ::windows::runtime::Abi for UDialectHandling {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10194,7 +10070,6 @@ impl ::std::convert::From<i32> for UDisplayContext {
 }
 unsafe impl ::windows::runtime::Abi for UDisplayContext {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10211,7 +10086,6 @@ impl ::std::convert::From<i32> for UDisplayContextType {
 }
 unsafe impl ::windows::runtime::Abi for UDisplayContextType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10230,7 +10104,6 @@ impl ::std::convert::From<i32> for UEastAsianWidth {
 }
 unsafe impl ::windows::runtime::Abi for UEastAsianWidth {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type UEnumCharNamesFn = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, code: i32, namechoice: UCharNameChoice, name: super::Foundation::PSTR, length: i32) -> i8;
@@ -10400,7 +10273,6 @@ impl ::std::convert::From<i32> for UErrorCode {
 }
 unsafe impl ::windows::runtime::Abi for UErrorCode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10421,7 +10293,6 @@ impl ::std::convert::From<i32> for UFieldCategory {
 }
 unsafe impl ::windows::runtime::Abi for UFieldCategory {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10450,7 +10321,6 @@ impl ::std::cmp::PartialEq for UFieldPosition {
 impl ::std::cmp::Eq for UFieldPosition {}
 unsafe impl ::windows::runtime::Abi for UFieldPosition {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -10473,7 +10343,6 @@ impl ::std::convert::From<i32> for UFormattableType {
 }
 unsafe impl ::windows::runtime::Abi for UFormattableType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -10507,7 +10376,6 @@ impl ::std::convert::From<i32> for UGender {
 }
 unsafe impl ::windows::runtime::Abi for UGender {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -10541,7 +10409,6 @@ impl ::std::convert::From<i32> for UGraphemeClusterBreak {
 }
 unsafe impl ::windows::runtime::Abi for UGraphemeClusterBreak {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10560,7 +10427,6 @@ impl ::std::convert::From<i32> for UHangulSyllableType {
 }
 unsafe impl ::windows::runtime::Abi for UHangulSyllableType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -10598,7 +10464,6 @@ impl ::std::cmp::PartialEq for UIDNAInfo {
 impl ::std::cmp::Eq for UIDNAInfo {}
 unsafe impl ::windows::runtime::Abi for UIDNAInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const UIDNA_CHECK_BIDI: i32 = 4i32;
@@ -10677,7 +10542,6 @@ impl ::std::convert::From<i32> for UIndicPositionalCategory {
 }
 unsafe impl ::windows::runtime::Abi for UIndicPositionalCategory {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10726,7 +10590,6 @@ impl ::std::convert::From<i32> for UIndicSyllabicCategory {
 }
 unsafe impl ::windows::runtime::Abi for UIndicSyllabicCategory {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10842,7 +10705,6 @@ impl ::std::convert::From<i32> for UJoiningGroup {
 }
 unsafe impl ::windows::runtime::Abi for UJoiningGroup {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10861,7 +10723,6 @@ impl ::std::convert::From<i32> for UJoiningType {
 }
 unsafe impl ::windows::runtime::Abi for UJoiningType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const ULOC_COUNTRY_CAPACITY: u32 = 4u32;
@@ -10897,7 +10758,6 @@ impl ::std::convert::From<i32> for ULayoutType {
 }
 unsafe impl ::windows::runtime::Abi for ULayoutType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10954,7 +10814,6 @@ impl ::std::convert::From<i32> for ULineBreak {
 }
 unsafe impl ::windows::runtime::Abi for ULineBreak {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10971,7 +10830,6 @@ impl ::std::convert::From<i32> for ULineBreakTag {
 }
 unsafe impl ::windows::runtime::Abi for ULineBreakTag {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -10989,7 +10847,6 @@ impl ::std::convert::From<i32> for UListFormatterField {
 }
 unsafe impl ::windows::runtime::Abi for UListFormatterField {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11005,7 +10862,6 @@ impl ::std::convert::From<i32> for UListFormatterType {
 }
 unsafe impl ::windows::runtime::Abi for UListFormatterType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11021,7 +10877,6 @@ impl ::std::convert::From<i32> for UListFormatterWidth {
 }
 unsafe impl ::windows::runtime::Abi for UListFormatterWidth {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11037,7 +10892,6 @@ impl ::std::convert::From<i32> for ULocAvailableType {
 }
 unsafe impl ::windows::runtime::Abi for ULocAvailableType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11052,7 +10906,6 @@ impl ::std::convert::From<i32> for ULocDataLocaleType {
 }
 unsafe impl ::windows::runtime::Abi for ULocDataLocaleType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -11072,7 +10925,6 @@ impl ::std::convert::From<i32> for ULocaleDataDelimiterType {
 }
 unsafe impl ::windows::runtime::Abi for ULocaleDataDelimiterType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11089,7 +10941,6 @@ impl ::std::convert::From<i32> for ULocaleDataExemplarSetType {
 }
 unsafe impl ::windows::runtime::Abi for ULocaleDataExemplarSetType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -11114,7 +10965,6 @@ impl ::std::convert::From<i32> for UMeasureFormatWidth {
 }
 unsafe impl ::windows::runtime::Abi for UMeasureFormatWidth {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11130,7 +10980,6 @@ impl ::std::convert::From<i32> for UMeasurementSystem {
 }
 unsafe impl ::windows::runtime::Abi for UMeasurementSystem {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type UMemAllocFn = unsafe extern "system" fn(context: *const ::std::ffi::c_void, size: usize) -> *mut ::std::ffi::c_void;
 pub type UMemFreeFn = unsafe extern "system" fn(context: *const ::std::ffi::c_void, mem: *mut ::std::ffi::c_void);
@@ -11148,7 +10997,6 @@ impl ::std::convert::From<i32> for UMessagePatternApostropheMode {
 }
 unsafe impl ::windows::runtime::Abi for UMessagePatternApostropheMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11167,7 +11015,6 @@ impl ::std::convert::From<i32> for UMessagePatternArgType {
 }
 unsafe impl ::windows::runtime::Abi for UMessagePatternArgType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11194,7 +11041,6 @@ impl ::std::convert::From<i32> for UMessagePatternPartType {
 }
 unsafe impl ::windows::runtime::Abi for UMessagePatternPartType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -11226,7 +11072,6 @@ impl ::std::cmp::PartialEq for UNICODERANGE {
 impl ::std::cmp::Eq for UNICODERANGE {}
 unsafe impl ::windows::runtime::Abi for UNICODERANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const UNISCRIBE_OPENTYPE: u32 = 256u32;
@@ -11247,7 +11092,6 @@ impl ::std::convert::From<i32> for UNormalization2Mode {
 }
 unsafe impl ::windows::runtime::Abi for UNormalization2Mode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11263,7 +11107,6 @@ impl ::std::convert::From<i32> for UNormalizationCheckResult {
 }
 unsafe impl ::windows::runtime::Abi for UNormalizationCheckResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11284,7 +11127,6 @@ impl ::std::convert::From<i32> for UNormalizationMode {
 }
 unsafe impl ::windows::runtime::Abi for UNormalizationMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -11302,7 +11144,6 @@ impl ::std::convert::From<i32> for UNumberCompactStyle {
 }
 unsafe impl ::windows::runtime::Abi for UNumberCompactStyle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11318,7 +11159,6 @@ impl ::std::convert::From<i32> for UNumberDecimalSeparatorDisplay {
 }
 unsafe impl ::windows::runtime::Abi for UNumberDecimalSeparatorDisplay {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11360,7 +11200,6 @@ impl ::std::convert::From<i32> for UNumberFormatAttribute {
 }
 unsafe impl ::windows::runtime::Abi for UNumberFormatAttribute {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11374,7 +11213,6 @@ impl ::std::convert::From<i32> for UNumberFormatAttributeValue {
 }
 unsafe impl ::windows::runtime::Abi for UNumberFormatAttributeValue {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11400,7 +11238,6 @@ impl ::std::convert::From<i32> for UNumberFormatFields {
 }
 unsafe impl ::windows::runtime::Abi for UNumberFormatFields {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11417,7 +11254,6 @@ impl ::std::convert::From<i32> for UNumberFormatPadPosition {
 }
 unsafe impl ::windows::runtime::Abi for UNumberFormatPadPosition {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11438,7 +11274,6 @@ impl ::std::convert::From<i32> for UNumberFormatRoundingMode {
 }
 unsafe impl ::windows::runtime::Abi for UNumberFormatRoundingMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11470,7 +11305,6 @@ impl ::std::convert::From<i32> for UNumberFormatStyle {
 }
 unsafe impl ::windows::runtime::Abi for UNumberFormatStyle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11511,7 +11345,6 @@ impl ::std::convert::From<i32> for UNumberFormatSymbol {
 }
 unsafe impl ::windows::runtime::Abi for UNumberFormatSymbol {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11532,7 +11365,6 @@ impl ::std::convert::From<i32> for UNumberFormatTextAttribute {
 }
 unsafe impl ::windows::runtime::Abi for UNumberFormatTextAttribute {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -11553,7 +11385,6 @@ impl ::std::convert::From<i32> for UNumberGroupingStrategy {
 }
 unsafe impl ::windows::runtime::Abi for UNumberGroupingStrategy {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11570,7 +11401,6 @@ impl ::std::convert::From<i32> for UNumberRangeCollapse {
 }
 unsafe impl ::windows::runtime::Abi for UNumberRangeCollapse {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11587,7 +11417,6 @@ impl ::std::convert::From<i32> for UNumberRangeIdentityFallback {
 }
 unsafe impl ::windows::runtime::Abi for UNumberRangeIdentityFallback {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11603,7 +11432,6 @@ impl ::std::convert::From<i32> for UNumberRangeIdentityResult {
 }
 unsafe impl ::windows::runtime::Abi for UNumberRangeIdentityResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11624,7 +11452,6 @@ impl ::std::convert::From<i32> for UNumberSignDisplay {
 }
 unsafe impl ::windows::runtime::Abi for UNumberSignDisplay {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11643,7 +11470,6 @@ impl ::std::convert::From<i32> for UNumberUnitWidth {
 }
 unsafe impl ::windows::runtime::Abi for UNumberUnitWidth {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -11663,7 +11489,6 @@ impl ::std::convert::From<i32> for UNumericType {
 }
 unsafe impl ::windows::runtime::Abi for UNumericType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11693,7 +11518,6 @@ impl ::std::cmp::PartialEq for UParseError {
 impl ::std::cmp::Eq for UParseError {}
 unsafe impl ::windows::runtime::Abi for UParseError {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -11711,7 +11535,6 @@ impl ::std::convert::From<i32> for UPluralType {
 }
 unsafe impl ::windows::runtime::Abi for UPluralType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11836,7 +11659,6 @@ impl ::std::convert::From<i32> for UProperty {
 }
 unsafe impl ::windows::runtime::Abi for UProperty {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11851,7 +11673,6 @@ impl ::std::convert::From<i32> for UPropertyNameChoice {
 }
 unsafe impl ::windows::runtime::Abi for UPropertyNameChoice {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type URegexFindProgressCallback = unsafe extern "system" fn(context: *const ::std::ffi::c_void, matchindex: i64) -> i8;
 pub type URegexMatchCallback = unsafe extern "system" fn(context: *const ::std::ffi::c_void, steps: i32) -> i8;
@@ -11874,7 +11695,6 @@ impl ::std::convert::From<i32> for URegexpFlag {
 }
 unsafe impl ::windows::runtime::Abi for URegexpFlag {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -11897,7 +11717,6 @@ impl ::std::convert::From<i32> for URegionType {
 }
 unsafe impl ::windows::runtime::Abi for URegionType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -11918,7 +11737,6 @@ impl ::std::convert::From<i32> for URelativeDateTimeFormatterField {
 }
 unsafe impl ::windows::runtime::Abi for URelativeDateTimeFormatterField {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11946,7 +11764,6 @@ impl ::std::convert::From<i32> for URelativeDateTimeUnit {
 }
 unsafe impl ::windows::runtime::Abi for URelativeDateTimeUnit {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11978,7 +11795,6 @@ impl ::std::cmp::PartialEq for UReplaceableCallbacks {
 impl ::std::cmp::Eq for UReplaceableCallbacks {}
 unsafe impl ::windows::runtime::Abi for UReplaceableCallbacks {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11999,7 +11815,6 @@ impl ::std::convert::From<i32> for UResType {
 }
 unsafe impl ::windows::runtime::Abi for UResType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -12022,7 +11837,6 @@ impl ::std::convert::From<i32> for URestrictionLevel {
 }
 unsafe impl ::windows::runtime::Abi for URestrictionLevel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const USEARCH_DONE: i32 = -1i32;
@@ -12250,7 +12064,6 @@ impl ::std::convert::From<i32> for UScriptCode {
 }
 unsafe impl ::windows::runtime::Abi for UScriptCode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12269,7 +12082,6 @@ impl ::std::convert::From<i32> for UScriptUsage {
 }
 unsafe impl ::windows::runtime::Abi for UScriptUsage {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -12287,7 +12099,6 @@ impl ::std::convert::From<i32> for USearchAttribute {
 }
 unsafe impl ::windows::runtime::Abi for USearchAttribute {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12306,7 +12117,6 @@ impl ::std::convert::From<i32> for USearchAttributeValue {
 }
 unsafe impl ::windows::runtime::Abi for USearchAttributeValue {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12334,7 +12144,6 @@ impl ::std::convert::From<i32> for USentenceBreak {
 }
 unsafe impl ::windows::runtime::Abi for USentenceBreak {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12351,7 +12160,6 @@ impl ::std::convert::From<i32> for USentenceBreakTag {
 }
 unsafe impl ::windows::runtime::Abi for USentenceBreakTag {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12381,7 +12189,6 @@ impl ::std::cmp::PartialEq for USerializedSet {
 impl ::std::cmp::Eq for USerializedSet {}
 unsafe impl ::windows::runtime::Abi for USerializedSet {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -12400,7 +12207,6 @@ impl ::std::convert::From<i32> for USetSpanCondition {
 }
 unsafe impl ::windows::runtime::Abi for USetSpanCondition {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -12430,7 +12236,6 @@ impl ::std::convert::From<i32> for USpoofChecks {
 }
 unsafe impl ::windows::runtime::Abi for USpoofChecks {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type UStringCaseMapper = unsafe extern "system" fn(csm: *const UCaseMap, dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> i32;
 #[repr(C)]
@@ -12461,7 +12266,6 @@ impl ::std::convert::From<i32> for UStringPrepProfileType {
 }
 unsafe impl ::windows::runtime::Abi for UStringPrepProfileType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -12479,7 +12283,6 @@ impl ::std::convert::From<i32> for UStringTrieBuildOption {
 }
 unsafe impl ::windows::runtime::Abi for UStringTrieBuildOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12496,7 +12299,6 @@ impl ::std::convert::From<i32> for UStringTrieResult {
 }
 unsafe impl ::windows::runtime::Abi for UStringTrieResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12512,7 +12314,6 @@ impl ::std::convert::From<i32> for USystemTimeZoneType {
 }
 unsafe impl ::windows::runtime::Abi for USystemTimeZoneType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const UTEXT_MAGIC: i32 = 878368812i32;
@@ -12638,7 +12439,6 @@ impl ::std::cmp::PartialEq for UText {
 impl ::std::cmp::Eq for UText {}
 unsafe impl ::windows::runtime::Abi for UText {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type UTextAccess = unsafe extern "system" fn(ut: *mut UText, nativeindex: i64, forward: i8) -> i8;
 pub type UTextClone = unsafe extern "system" fn(dest: *mut UText, src: *const UText, deep: i8, status: *mut UErrorCode) -> *mut UText;
@@ -12700,7 +12500,6 @@ impl ::std::cmp::PartialEq for UTextFuncs {
 impl ::std::cmp::Eq for UTextFuncs {}
 unsafe impl ::windows::runtime::Abi for UTextFuncs {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 pub type UTextMapNativeIndexToUTF16 = unsafe extern "system" fn(ut: *const UText, nativeindex: i64) -> i32;
 pub type UTextMapOffsetToNative = unsafe extern "system" fn(ut: *const UText) -> i64;
@@ -12723,7 +12522,6 @@ impl ::std::convert::From<i32> for UTimeScaleValue {
 }
 unsafe impl ::windows::runtime::Abi for UTimeScaleValue {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12743,7 +12541,6 @@ impl ::std::convert::From<i32> for UTimeZoneFormatGMTOffsetPatternType {
 }
 unsafe impl ::windows::runtime::Abi for UTimeZoneFormatGMTOffsetPatternType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12759,7 +12556,6 @@ impl ::std::convert::From<i32> for UTimeZoneFormatParseOption {
 }
 unsafe impl ::windows::runtime::Abi for UTimeZoneFormatParseOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12792,7 +12588,6 @@ impl ::std::convert::From<i32> for UTimeZoneFormatStyle {
 }
 unsafe impl ::windows::runtime::Abi for UTimeZoneFormatStyle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12808,7 +12603,6 @@ impl ::std::convert::From<i32> for UTimeZoneFormatTimeType {
 }
 unsafe impl ::windows::runtime::Abi for UTimeZoneFormatTimeType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12829,7 +12623,6 @@ impl ::std::convert::From<i32> for UTimeZoneNameType {
 }
 unsafe impl ::windows::runtime::Abi for UTimeZoneNameType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12846,7 +12639,6 @@ impl ::std::convert::From<i32> for UTimeZoneTransitionType {
 }
 unsafe impl ::windows::runtime::Abi for UTimeZoneTransitionType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type UTraceData = unsafe extern "system" fn(context: *const ::std::ffi::c_void, fnnumber: i32, level: i32, fmt: super::Foundation::PSTR, args: *mut i8);
@@ -12891,7 +12683,6 @@ impl ::std::convert::From<i32> for UTraceFunctionNumber {
 }
 unsafe impl ::windows::runtime::Abi for UTraceFunctionNumber {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12910,7 +12701,6 @@ impl ::std::convert::From<i32> for UTraceLevel {
 }
 unsafe impl ::windows::runtime::Abi for UTraceLevel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12925,7 +12715,6 @@ impl ::std::convert::From<i32> for UTransDirection {
 }
 unsafe impl ::windows::runtime::Abi for UTransDirection {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12955,7 +12744,6 @@ impl ::std::cmp::PartialEq for UTransPosition {
 impl ::std::cmp::Eq for UTransPosition {}
 unsafe impl ::windows::runtime::Abi for UTransPosition {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12972,7 +12760,6 @@ impl ::std::convert::From<i32> for UVerticalOrientation {
 }
 unsafe impl ::windows::runtime::Abi for UVerticalOrientation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12995,7 +12782,6 @@ impl ::std::convert::From<i32> for UWordBreak {
 }
 unsafe impl ::windows::runtime::Abi for UWordBreak {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13031,7 +12817,6 @@ impl ::std::convert::From<i32> for UWordBreakValues {
 }
 unsafe impl ::windows::runtime::Abi for UWordBreakValues {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const U_ASCII_FAMILY: u32 = 0u32;
@@ -13295,7 +13080,6 @@ impl ::std::convert::From<i32> for WORDLIST_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WORDLIST_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
@@ -13527,7 +13311,6 @@ impl ::std::cmp::PartialEq for opentype_feature_record {
 impl ::std::cmp::Eq for opentype_feature_record {}
 unsafe impl ::windows::runtime::Abi for opentype_feature_record {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13554,7 +13337,6 @@ impl ::std::cmp::PartialEq for script_charprop {
 impl ::std::cmp::Eq for script_charprop {}
 unsafe impl ::windows::runtime::Abi for script_charprop {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13582,7 +13364,6 @@ impl ::std::cmp::PartialEq for script_glyphprop {
 impl ::std::cmp::Eq for script_glyphprop {}
 unsafe impl ::windows::runtime::Abi for script_glyphprop {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13602,7 +13383,6 @@ impl ::std::convert::From<i32> for tagMLCONVCHARF {
 }
 unsafe impl ::windows::runtime::Abi for tagMLCONVCHARF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13623,7 +13403,6 @@ impl ::std::convert::From<i32> for tagMLCPF {
 }
 unsafe impl ::windows::runtime::Abi for tagMLCPF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13651,7 +13430,6 @@ impl ::std::cmp::PartialEq for tagSCRIPFONTINFO {
 impl ::std::cmp::Eq for tagSCRIPFONTINFO {}
 unsafe impl ::windows::runtime::Abi for tagSCRIPFONTINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13679,7 +13457,6 @@ impl ::std::cmp::PartialEq for textrange_properties {
 impl ::std::cmp::Eq for textrange_properties {}
 unsafe impl ::windows::runtime::Abi for textrange_properties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]

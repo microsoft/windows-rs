@@ -62,7 +62,6 @@ impl ::std::cmp::Eq for EMRPIXELFORMAT {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for EMRPIXELFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub const GLU_AUTO_LOAD_MATRIX: u32 = 100200u32;
@@ -346,7 +345,6 @@ impl ::std::cmp::PartialEq for GLYPHMETRICSFLOAT {
 impl ::std::cmp::Eq for GLYPHMETRICSFLOAT {}
 unsafe impl ::windows::runtime::Abi for GLYPHMETRICSFLOAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub const GL_2D: u32 = 1536u32;
@@ -1565,7 +1563,6 @@ impl ::std::default::Default for HGLRC {
 unsafe impl ::windows::runtime::Handle for HGLRC {}
 unsafe impl ::windows::runtime::Abi for HGLRC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1663,7 +1660,6 @@ impl ::std::cmp::PartialEq for LAYERPLANEDESCRIPTOR {
 impl ::std::cmp::Eq for LAYERPLANEDESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for LAYERPLANEDESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type PFNGLADDSWAPHINTRECTWINPROC = unsafe extern "system" fn(x: i32, y: i32, width: i32, height: i32);
 pub type PFNGLARRAYELEMENTARRAYEXTPROC = unsafe extern "system" fn(mode: u32, count: i32, pi: *const ::std::ffi::c_void);
@@ -1784,7 +1780,6 @@ impl ::std::cmp::PartialEq for PIXELFORMATDESCRIPTOR {
 impl ::std::cmp::Eq for PIXELFORMATDESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for PIXELFORMATDESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1812,7 +1807,6 @@ impl ::std::cmp::PartialEq for POINTFLOAT {
 impl ::std::cmp::Eq for POINTFLOAT {}
 unsafe impl ::windows::runtime::Abi for POINTFLOAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_OpenGL`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]

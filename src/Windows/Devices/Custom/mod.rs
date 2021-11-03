@@ -91,10 +91,12 @@ impl ::std::convert::From<i32> for DeviceAccessMode {
 }
 unsafe impl ::windows::runtime::Abi for DeviceAccessMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DeviceAccessMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.DeviceAccessMode;i4)");
+}
+impl ::windows::runtime::DefaultType for DeviceAccessMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Custom`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -111,13 +113,14 @@ impl ::std::convert::From<i32> for DeviceSharingMode {
 }
 unsafe impl ::windows::runtime::Abi for DeviceSharingMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DeviceSharingMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.DeviceSharingMode;i4)");
 }
+impl ::windows::runtime::DefaultType for DeviceSharingMode {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICustomDevice(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomDevice {
@@ -143,7 +146,6 @@ pub struct ICustomDevice_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICustomDeviceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomDeviceStatics {
@@ -232,7 +234,6 @@ pub struct IIOControlCode_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIOControlCodeFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIOControlCodeFactory {
@@ -251,7 +252,6 @@ pub struct IIOControlCodeFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, devicetype: u16, function: u16, accessmode: IOControlAccessMode, bufferingmethod: IOControlBufferingMethod, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKnownDeviceTypesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownDeviceTypesStatics {
@@ -286,10 +286,12 @@ impl ::std::convert::From<i32> for IOControlAccessMode {
 }
 unsafe impl ::windows::runtime::Abi for IOControlAccessMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for IOControlAccessMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.IOControlAccessMode;i4)");
+}
+impl ::windows::runtime::DefaultType for IOControlAccessMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Custom`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -308,10 +310,12 @@ impl ::std::convert::From<i32> for IOControlBufferingMethod {
 }
 unsafe impl ::windows::runtime::Abi for IOControlBufferingMethod {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for IOControlBufferingMethod {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.IOControlBufferingMethod;i4)");
+}
+impl ::windows::runtime::DefaultType for IOControlBufferingMethod {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Custom`*"]
 #[repr(transparent)]

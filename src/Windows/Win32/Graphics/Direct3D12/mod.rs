@@ -85,7 +85,6 @@ impl ::std::cmp::PartialEq for D3D11_RESOURCE_FLAGS {
 impl ::std::cmp::Eq for D3D11_RESOURCE_FLAGS {}
 unsafe impl ::windows::runtime::Abi for D3D11_RESOURCE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
@@ -280,7 +279,6 @@ impl ::std::cmp::Eq for D3D12_AUTO_BREADCRUMB_NODE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_AUTO_BREADCRUMB_NODE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -349,7 +347,6 @@ impl ::std::cmp::Eq for D3D12_AUTO_BREADCRUMB_NODE1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_AUTO_BREADCRUMB_NODE1 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -407,7 +404,6 @@ impl ::std::convert::From<i32> for D3D12_AUTO_BREADCRUMB_OP {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_AUTO_BREADCRUMB_OP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -423,7 +419,6 @@ impl ::std::convert::From<i32> for D3D12_AXIS_SHADING_RATE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_AXIS_SHADING_RATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -440,7 +435,6 @@ impl ::std::convert::From<i32> for D3D12_BACKGROUND_PROCESSING_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_BACKGROUND_PROCESSING_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -470,7 +464,6 @@ impl ::std::convert::From<i32> for D3D12_BLEND {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_BLEND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -506,7 +499,6 @@ impl ::std::cmp::Eq for D3D12_BLEND_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_BLEND_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -524,7 +516,6 @@ impl ::std::convert::From<i32> for D3D12_BLEND_OP {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_BLEND_OP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -556,7 +547,6 @@ impl ::std::cmp::PartialEq for D3D12_BOX {
 impl ::std::cmp::Eq for D3D12_BOX {}
 unsafe impl ::windows::runtime::Abi for D3D12_BOX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -584,7 +574,6 @@ impl ::std::cmp::PartialEq for D3D12_BUFFER_RTV {
 impl ::std::cmp::Eq for D3D12_BUFFER_RTV {}
 unsafe impl ::windows::runtime::Abi for D3D12_BUFFER_RTV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -614,7 +603,6 @@ impl ::std::cmp::PartialEq for D3D12_BUFFER_SRV {
 impl ::std::cmp::Eq for D3D12_BUFFER_SRV {}
 unsafe impl ::windows::runtime::Abi for D3D12_BUFFER_SRV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -629,7 +617,6 @@ impl ::std::convert::From<u32> for D3D12_BUFFER_SRV_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_BUFFER_SRV_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_BUFFER_SRV_FLAGS {
     type Output = Self;
@@ -688,7 +675,6 @@ impl ::std::cmp::PartialEq for D3D12_BUFFER_UAV {
 impl ::std::cmp::Eq for D3D12_BUFFER_UAV {}
 unsafe impl ::windows::runtime::Abi for D3D12_BUFFER_UAV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -703,7 +689,6 @@ impl ::std::convert::From<u32> for D3D12_BUFFER_UAV_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_BUFFER_UAV_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_BUFFER_UAV_FLAGS {
     type Output = Self;
@@ -762,7 +747,6 @@ impl ::std::cmp::Eq for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -794,7 +778,6 @@ impl ::std::cmp::Eq for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -824,7 +807,6 @@ impl ::std::cmp::Eq for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS_0 {
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -852,7 +834,6 @@ impl ::std::cmp::PartialEq for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_TOO
 impl ::std::cmp::Eq for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_TOOLS_VISUALIZATION_HEADER {}
 unsafe impl ::windows::runtime::Abi for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_TOOLS_VISUALIZATION_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -880,7 +861,6 @@ impl ::std::cmp::PartialEq for D3D12_CACHED_PIPELINE_STATE {
 impl ::std::cmp::Eq for D3D12_CACHED_PIPELINE_STATE {}
 unsafe impl ::windows::runtime::Abi for D3D12_CACHED_PIPELINE_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -895,7 +875,6 @@ impl ::std::convert::From<u32> for D3D12_CLEAR_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_CLEAR_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_CLEAR_FLAGS {
     type Output = Self;
@@ -952,7 +931,6 @@ impl ::std::cmp::Eq for D3D12_CLEAR_VALUE {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_CLEAR_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -975,7 +953,6 @@ impl ::std::cmp::PartialEq for D3D12_CLEAR_VALUE_0 {
 impl ::std::cmp::Eq for D3D12_CLEAR_VALUE_0 {}
 unsafe impl ::windows::runtime::Abi for D3D12_CLEAR_VALUE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_CLIP_OR_CULL_DISTANCE_COUNT: u32 = 8u32;
@@ -997,7 +974,6 @@ impl ::std::convert::From<i32> for D3D12_COLOR_WRITE_ENABLE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_COLOR_WRITE_ENABLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1011,7 +987,6 @@ impl ::std::convert::From<u32> for D3D12_COMMAND_LIST_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_COMMAND_LIST_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_COMMAND_LIST_FLAGS {
     type Output = Self;
@@ -1060,7 +1035,6 @@ impl ::std::convert::From<u32> for D3D12_COMMAND_LIST_SUPPORT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_COMMAND_LIST_SUPPORT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_COMMAND_LIST_SUPPORT_FLAGS {
     type Output = Self;
@@ -1108,7 +1082,6 @@ impl ::std::convert::From<i32> for D3D12_COMMAND_LIST_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_COMMAND_LIST_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1122,7 +1095,6 @@ impl ::std::convert::From<u32> for D3D12_COMMAND_POOL_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_COMMAND_POOL_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_COMMAND_POOL_FLAGS {
     type Output = Self;
@@ -1180,7 +1152,6 @@ impl ::std::cmp::PartialEq for D3D12_COMMAND_QUEUE_DESC {
 impl ::std::cmp::Eq for D3D12_COMMAND_QUEUE_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_COMMAND_QUEUE_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1195,7 +1166,6 @@ impl ::std::convert::From<u32> for D3D12_COMMAND_QUEUE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_COMMAND_QUEUE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_COMMAND_QUEUE_FLAGS {
     type Output = Self;
@@ -1239,7 +1209,6 @@ impl ::std::convert::From<i32> for D3D12_COMMAND_QUEUE_PRIORITY {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_COMMAND_QUEUE_PRIORITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1253,7 +1222,6 @@ impl ::std::convert::From<u32> for D3D12_COMMAND_RECORDER_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_COMMAND_RECORDER_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_COMMAND_RECORDER_FLAGS {
     type Output = Self;
@@ -1311,7 +1279,6 @@ impl ::std::cmp::PartialEq for D3D12_COMMAND_SIGNATURE_DESC {
 impl ::std::cmp::Eq for D3D12_COMMAND_SIGNATURE_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_COMMAND_SIGNATURE_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT: u32 = 14u32;
@@ -1402,7 +1369,6 @@ impl ::std::convert::From<i32> for D3D12_COMPARISON_FUNC {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_COMPARISON_FUNC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1419,7 +1385,6 @@ impl ::std::convert::From<u32> for D3D12_COMPATIBILITY_SHARED_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_COMPATIBILITY_SHARED_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_COMPATIBILITY_SHARED_FLAGS {
     type Output = Self;
@@ -1478,7 +1443,6 @@ impl ::std::cmp::PartialEq for D3D12_COMPUTE_PIPELINE_STATE_DESC {
 impl ::std::cmp::Eq for D3D12_COMPUTE_PIPELINE_STATE_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_COMPUTE_PIPELINE_STATE_DESC {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1493,7 +1457,6 @@ impl ::std::convert::From<i32> for D3D12_CONSERVATIVE_RASTERIZATION_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_CONSERVATIVE_RASTERIZATION_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1510,7 +1473,6 @@ impl ::std::convert::From<i32> for D3D12_CONSERVATIVE_RASTERIZATION_TIER {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_CONSERVATIVE_RASTERIZATION_TIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_CONSTANT_BUFFER_DATA_PLACEMENT_ALIGNMENT: u32 = 256u32;
@@ -1540,7 +1502,6 @@ impl ::std::cmp::PartialEq for D3D12_CONSTANT_BUFFER_VIEW_DESC {
 impl ::std::cmp::Eq for D3D12_CONSTANT_BUFFER_VIEW_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_CONSTANT_BUFFER_VIEW_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1567,7 +1528,6 @@ impl ::std::cmp::PartialEq for D3D12_CPU_DESCRIPTOR_HANDLE {
 impl ::std::cmp::Eq for D3D12_CPU_DESCRIPTOR_HANDLE {}
 unsafe impl ::windows::runtime::Abi for D3D12_CPU_DESCRIPTOR_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1584,7 +1544,6 @@ impl ::std::convert::From<i32> for D3D12_CPU_PAGE_PROPERTY {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_CPU_PAGE_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1602,7 +1561,6 @@ impl ::std::convert::From<i32> for D3D12_CROSS_NODE_SHARING_TIER {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_CROSS_NODE_SHARING_TIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_CS_4_X_BUCKET00_MAX_BYTES_TGSM_WRITABLE_PER_THREAD: u32 = 256u32;
@@ -1736,7 +1694,6 @@ impl ::std::convert::From<i32> for D3D12_CULL_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_CULL_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1763,7 +1720,6 @@ impl ::std::cmp::PartialEq for D3D12_DEBUG_COMMAND_LIST_GPU_BASED_VALIDATION_SET
 impl ::std::cmp::Eq for D3D12_DEBUG_COMMAND_LIST_GPU_BASED_VALIDATION_SETTINGS {}
 unsafe impl ::windows::runtime::Abi for D3D12_DEBUG_COMMAND_LIST_GPU_BASED_VALIDATION_SETTINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1777,7 +1733,6 @@ impl ::std::convert::From<i32> for D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1806,7 +1761,6 @@ impl ::std::cmp::PartialEq for D3D12_DEBUG_DEVICE_GPU_BASED_VALIDATION_SETTINGS 
 impl ::std::cmp::Eq for D3D12_DEBUG_DEVICE_GPU_BASED_VALIDATION_SETTINGS {}
 unsafe impl ::windows::runtime::Abi for D3D12_DEBUG_DEVICE_GPU_BASED_VALIDATION_SETTINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1833,7 +1787,6 @@ impl ::std::cmp::PartialEq for D3D12_DEBUG_DEVICE_GPU_SLOWDOWN_PERFORMANCE_FACTO
 impl ::std::cmp::Eq for D3D12_DEBUG_DEVICE_GPU_SLOWDOWN_PERFORMANCE_FACTOR {}
 unsafe impl ::windows::runtime::Abi for D3D12_DEBUG_DEVICE_GPU_SLOWDOWN_PERFORMANCE_FACTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1849,7 +1802,6 @@ impl ::std::convert::From<i32> for D3D12_DEBUG_DEVICE_PARAMETER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_DEBUG_DEVICE_PARAMETER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1867,7 +1819,6 @@ impl ::std::convert::From<i32> for D3D12_DEBUG_FEATURE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_DEBUG_FEATURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_DEFAULT_BLEND_FACTOR_ALPHA: f32 = 1f32;
@@ -1955,7 +1906,6 @@ impl ::std::cmp::PartialEq for D3D12_DEPTH_STENCILOP_DESC {
 impl ::std::cmp::Eq for D3D12_DEPTH_STENCILOP_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_DEPTH_STENCILOP_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2005,7 +1955,6 @@ impl ::std::cmp::Eq for D3D12_DEPTH_STENCIL_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_DEPTH_STENCIL_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2057,7 +2006,6 @@ impl ::std::cmp::Eq for D3D12_DEPTH_STENCIL_DESC1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_DEPTH_STENCIL_DESC1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2085,7 +2033,6 @@ impl ::std::cmp::PartialEq for D3D12_DEPTH_STENCIL_VALUE {
 impl ::std::cmp::Eq for D3D12_DEPTH_STENCIL_VALUE {}
 unsafe impl ::windows::runtime::Abi for D3D12_DEPTH_STENCIL_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2116,7 +2063,6 @@ impl ::std::cmp::Eq for D3D12_DEPTH_STENCIL_VIEW_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_DEPTH_STENCIL_VIEW_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2143,7 +2089,6 @@ impl ::std::cmp::PartialEq for D3D12_DEPTH_STENCIL_VIEW_DESC_0 {
 impl ::std::cmp::Eq for D3D12_DEPTH_STENCIL_VIEW_DESC_0 {}
 unsafe impl ::windows::runtime::Abi for D3D12_DEPTH_STENCIL_VIEW_DESC_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2158,7 +2103,6 @@ impl ::std::convert::From<i32> for D3D12_DEPTH_WRITE_MASK {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_DEPTH_WRITE_MASK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2188,7 +2132,6 @@ impl ::std::cmp::PartialEq for D3D12_DESCRIPTOR_HEAP_DESC {
 impl ::std::cmp::Eq for D3D12_DESCRIPTOR_HEAP_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_DESCRIPTOR_HEAP_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2203,7 +2146,6 @@ impl ::std::convert::From<u32> for D3D12_DESCRIPTOR_HEAP_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_DESCRIPTOR_HEAP_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_DESCRIPTOR_HEAP_FLAGS {
     type Output = Self;
@@ -2249,7 +2191,6 @@ impl ::std::convert::From<i32> for D3D12_DESCRIPTOR_HEAP_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_DESCRIPTOR_HEAP_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2286,7 +2227,6 @@ impl ::std::cmp::PartialEq for D3D12_DESCRIPTOR_RANGE {
 impl ::std::cmp::Eq for D3D12_DESCRIPTOR_RANGE {}
 unsafe impl ::windows::runtime::Abi for D3D12_DESCRIPTOR_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2325,7 +2265,6 @@ impl ::std::cmp::PartialEq for D3D12_DESCRIPTOR_RANGE1 {
 impl ::std::cmp::Eq for D3D12_DESCRIPTOR_RANGE1 {}
 unsafe impl ::windows::runtime::Abi for D3D12_DESCRIPTOR_RANGE1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2344,7 +2283,6 @@ impl ::std::convert::From<u32> for D3D12_DESCRIPTOR_RANGE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_DESCRIPTOR_RANGE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_DESCRIPTOR_RANGE_FLAGS {
     type Output = Self;
@@ -2391,7 +2329,6 @@ impl ::std::convert::From<i32> for D3D12_DESCRIPTOR_RANGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_DESCRIPTOR_RANGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2426,7 +2363,6 @@ impl ::std::cmp::Eq for D3D12_DEVICE_REMOVED_EXTENDED_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_DEVICE_REMOVED_EXTENDED_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2462,7 +2398,6 @@ impl ::std::cmp::Eq for D3D12_DEVICE_REMOVED_EXTENDED_DATA1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_DEVICE_REMOVED_EXTENDED_DATA1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2498,7 +2433,6 @@ impl ::std::cmp::Eq for D3D12_DEVICE_REMOVED_EXTENDED_DATA2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_DEVICE_REMOVED_EXTENDED_DATA2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2535,7 +2469,6 @@ impl ::std::cmp::Eq for D3D12_DEVICE_REMOVED_EXTENDED_DATA3 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_DEVICE_REMOVED_EXTENDED_DATA3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2572,7 +2505,6 @@ impl ::std::cmp::Eq for D3D12_DISCARD_REGION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_DISCARD_REGION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2601,7 +2533,6 @@ impl ::std::cmp::PartialEq for D3D12_DISPATCH_ARGUMENTS {
 impl ::std::cmp::Eq for D3D12_DISPATCH_ARGUMENTS {}
 unsafe impl ::windows::runtime::Abi for D3D12_DISPATCH_ARGUMENTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2630,7 +2561,6 @@ impl ::std::cmp::PartialEq for D3D12_DISPATCH_MESH_ARGUMENTS {
 impl ::std::cmp::Eq for D3D12_DISPATCH_MESH_ARGUMENTS {}
 unsafe impl ::windows::runtime::Abi for D3D12_DISPATCH_MESH_ARGUMENTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2671,7 +2601,6 @@ impl ::std::cmp::PartialEq for D3D12_DISPATCH_RAYS_DESC {
 impl ::std::cmp::Eq for D3D12_DISPATCH_RAYS_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_DISPATCH_RAYS_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2701,7 +2630,6 @@ impl ::std::cmp::PartialEq for D3D12_DRAW_ARGUMENTS {
 impl ::std::cmp::Eq for D3D12_DRAW_ARGUMENTS {}
 unsafe impl ::windows::runtime::Abi for D3D12_DRAW_ARGUMENTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2738,7 +2666,6 @@ impl ::std::cmp::PartialEq for D3D12_DRAW_INDEXED_ARGUMENTS {
 impl ::std::cmp::Eq for D3D12_DRAW_INDEXED_ARGUMENTS {}
 unsafe impl ::windows::runtime::Abi for D3D12_DRAW_INDEXED_ARGUMENTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2775,7 +2702,6 @@ impl ::std::cmp::Eq for D3D12_DRED_ALLOCATION_NODE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_DRED_ALLOCATION_NODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2813,7 +2739,6 @@ impl ::std::cmp::Eq for D3D12_DRED_ALLOCATION_NODE1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_DRED_ALLOCATION_NODE1 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2855,7 +2780,6 @@ impl ::std::convert::From<i32> for D3D12_DRED_ALLOCATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_DRED_ALLOCATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2889,7 +2813,6 @@ impl ::std::cmp::Eq for D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2923,7 +2846,6 @@ impl ::std::cmp::Eq for D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2958,7 +2880,6 @@ impl ::std::cmp::Eq for D3D12_DRED_BREADCRUMB_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_DRED_BREADCRUMB_CONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2975,7 +2896,6 @@ impl ::std::convert::From<i32> for D3D12_DRED_DEVICE_STATE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_DRED_DEVICE_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2991,7 +2911,6 @@ impl ::std::convert::From<i32> for D3D12_DRED_ENABLEMENT {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_DRED_ENABLEMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3007,7 +2926,6 @@ impl ::std::convert::From<u32> for D3D12_DRED_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_DRED_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_DRED_FLAGS {
     type Output = Self;
@@ -3049,7 +2967,6 @@ impl ::std::convert::From<u32> for D3D12_DRED_PAGE_FAULT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_DRED_PAGE_FAULT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_DRED_PAGE_FAULT_FLAGS {
     type Output = Self;
@@ -3113,7 +3030,6 @@ impl ::std::cmp::Eq for D3D12_DRED_PAGE_FAULT_OUTPUT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_DRED_PAGE_FAULT_OUTPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3149,7 +3065,6 @@ impl ::std::cmp::Eq for D3D12_DRED_PAGE_FAULT_OUTPUT1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_DRED_PAGE_FAULT_OUTPUT1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3186,7 +3101,6 @@ impl ::std::cmp::Eq for D3D12_DRED_PAGE_FAULT_OUTPUT2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_DRED_PAGE_FAULT_OUTPUT2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3203,7 +3117,6 @@ impl ::std::convert::From<i32> for D3D12_DRED_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_DRED_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3221,7 +3134,6 @@ impl ::std::convert::From<i32> for D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_DRIVER_RESERVED_REGISTER_SPACE_VALUES_END: u32 = 4294967287u32;
@@ -3245,7 +3157,6 @@ impl ::std::convert::From<i32> for D3D12_DSV_DIMENSION {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_DSV_DIMENSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3261,7 +3172,6 @@ impl ::std::convert::From<u32> for D3D12_DSV_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_DSV_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_DSV_FLAGS {
     type Output = Self;
@@ -3373,7 +3283,6 @@ impl ::std::cmp::Eq for D3D12_DXIL_LIBRARY_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_DXIL_LIBRARY_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3409,7 +3318,6 @@ impl ::std::cmp::Eq for D3D12_DXIL_SUBOBJECT_TO_EXPORTS_ASSOCIATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_DXIL_SUBOBJECT_TO_EXPORTS_ASSOCIATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3424,7 +3332,6 @@ impl ::std::convert::From<i32> for D3D12_ELEMENTS_LAYOUT {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_ELEMENTS_LAYOUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3460,7 +3367,6 @@ impl ::std::cmp::Eq for D3D12_EXISTING_COLLECTION_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_EXISTING_COLLECTION_DESC {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3496,7 +3402,6 @@ impl ::std::cmp::Eq for D3D12_EXPORT_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_EXPORT_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3510,7 +3415,6 @@ impl ::std::convert::From<u32> for D3D12_EXPORT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_EXPORT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_EXPORT_FLAGS {
     type Output = Self;
@@ -3582,7 +3486,6 @@ impl ::std::convert::From<i32> for D3D12_FEATURE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3619,7 +3522,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_ARCHITECTURE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_ARCHITECTURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3657,7 +3559,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_ARCHITECTURE1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_ARCHITECTURE1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3693,7 +3594,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_COMMAND_QUEUE_PRIORITY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_COMMAND_QUEUE_PRIORITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3728,7 +3628,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_CROSS_NODE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_CROSS_NODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3806,7 +3705,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_D3D12_OPTIONS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_D3D12_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3852,7 +3750,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_D3D12_OPTIONS1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_D3D12_OPTIONS1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3887,7 +3784,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_D3D12_OPTIONS10 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_D3D12_OPTIONS10 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3921,7 +3817,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_D3D12_OPTIONS11 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_D3D12_OPTIONS11 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3956,7 +3851,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_D3D12_OPTIONS2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_D3D12_OPTIONS2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4000,7 +3894,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_D3D12_OPTIONS3 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_D3D12_OPTIONS3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4036,7 +3929,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_D3D12_OPTIONS4 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_D3D12_OPTIONS4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4072,7 +3964,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_D3D12_OPTIONS5 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_D3D12_OPTIONS5 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4116,7 +4007,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_D3D12_OPTIONS6 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_D3D12_OPTIONS6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4144,7 +4034,6 @@ impl ::std::cmp::PartialEq for D3D12_FEATURE_DATA_D3D12_OPTIONS7 {
 impl ::std::cmp::Eq for D3D12_FEATURE_DATA_D3D12_OPTIONS7 {}
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_D3D12_OPTIONS7 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4178,7 +4067,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_D3D12_OPTIONS8 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_D3D12_OPTIONS8 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4229,7 +4117,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_D3D12_OPTIONS9 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_D3D12_OPTIONS9 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4264,7 +4151,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_DISPLAYABLE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_DISPLAYABLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4298,7 +4184,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_EXISTING_HEAPS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_EXISTING_HEAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4334,7 +4219,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_FEATURE_LEVELS {}
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_FEATURE_LEVELS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4369,7 +4253,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_FORMAT_INFO {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_FORMAT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4405,7 +4288,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_FORMAT_SUPPORT {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_FORMAT_SUPPORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4433,7 +4315,6 @@ impl ::std::cmp::PartialEq for D3D12_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT {
 impl ::std::cmp::Eq for D3D12_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT {}
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4470,7 +4351,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4498,7 +4378,6 @@ impl ::std::cmp::PartialEq for D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_SUP
 impl ::std::cmp::Eq for D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_SUPPORT {}
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_SUPPORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4527,7 +4406,6 @@ impl ::std::cmp::PartialEq for D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_TYP
 impl ::std::cmp::Eq for D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_TYPES {}
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4555,7 +4433,6 @@ impl ::std::cmp::PartialEq for D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_TYP
 impl ::std::cmp::Eq for D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_TYPE_COUNT {}
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_TYPE_COUNT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4594,7 +4471,6 @@ impl ::std::cmp::PartialEq for D3D12_FEATURE_DATA_QUERY_META_COMMAND {
 impl ::std::cmp::Eq for D3D12_FEATURE_DATA_QUERY_META_COMMAND {}
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_QUERY_META_COMMAND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4621,7 +4497,6 @@ impl ::std::cmp::PartialEq for D3D12_FEATURE_DATA_ROOT_SIGNATURE {
 impl ::std::cmp::Eq for D3D12_FEATURE_DATA_ROOT_SIGNATURE {}
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_ROOT_SIGNATURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4649,7 +4524,6 @@ impl ::std::cmp::PartialEq for D3D12_FEATURE_DATA_SERIALIZATION {
 impl ::std::cmp::Eq for D3D12_FEATURE_DATA_SERIALIZATION {}
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_SERIALIZATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4676,7 +4550,6 @@ impl ::std::cmp::PartialEq for D3D12_FEATURE_DATA_SHADER_CACHE {
 impl ::std::cmp::Eq for D3D12_FEATURE_DATA_SHADER_CACHE {}
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_SHADER_CACHE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4703,7 +4576,6 @@ impl ::std::cmp::PartialEq for D3D12_FEATURE_DATA_SHADER_MODEL {
 impl ::std::cmp::Eq for D3D12_FEATURE_DATA_SHADER_MODEL {}
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_SHADER_MODEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4720,7 +4592,6 @@ impl ::std::convert::From<u32> for D3D12_FENCE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_FENCE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_FENCE_FLAGS {
     type Output = Self;
@@ -4763,7 +4634,6 @@ impl ::std::convert::From<i32> for D3D12_FILL_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_FILL_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4812,7 +4682,6 @@ impl ::std::convert::From<i32> for D3D12_FILTER {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_FILTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4829,7 +4698,6 @@ impl ::std::convert::From<i32> for D3D12_FILTER_REDUCTION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_FILTER_REDUCTION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_FILTER_REDUCTION_TYPE_MASK: u32 = 3u32;
@@ -4848,7 +4716,6 @@ impl ::std::convert::From<i32> for D3D12_FILTER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_FILTER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_FILTER_TYPE_MASK: u32 = 3u32;
@@ -4911,7 +4778,6 @@ impl ::std::convert::From<u32> for D3D12_FORMAT_SUPPORT1 {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_FORMAT_SUPPORT1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_FORMAT_SUPPORT1 {
     type Output = Self;
@@ -4965,7 +4831,6 @@ impl ::std::convert::From<u32> for D3D12_FORMAT_SUPPORT2 {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_FORMAT_SUPPORT2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_FORMAT_SUPPORT2 {
     type Output = Self;
@@ -5133,7 +4998,6 @@ impl ::std::cmp::Eq for D3D12_FUNCTION_DESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 unsafe impl ::windows::runtime::Abi for D3D12_FUNCTION_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -5160,7 +5024,6 @@ impl ::std::cmp::PartialEq for D3D12_GLOBAL_ROOT_SIGNATURE {
 impl ::std::cmp::Eq for D3D12_GLOBAL_ROOT_SIGNATURE {}
 unsafe impl ::windows::runtime::Abi for D3D12_GLOBAL_ROOT_SIGNATURE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5175,7 +5038,6 @@ impl ::std::convert::From<i32> for D3D12_GPU_BASED_VALIDATION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_GPU_BASED_VALIDATION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5193,7 +5055,6 @@ impl ::std::convert::From<i32> for D3D12_GPU_BASED_VALIDATION_PIPELINE_STATE_CRE
 }
 unsafe impl ::windows::runtime::Abi for D3D12_GPU_BASED_VALIDATION_PIPELINE_STATE_CREATE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5211,7 +5072,6 @@ impl ::std::convert::From<i32> for D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE 
 }
 unsafe impl ::windows::runtime::Abi for D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5238,7 +5098,6 @@ impl ::std::cmp::PartialEq for D3D12_GPU_DESCRIPTOR_HANDLE {
 impl ::std::cmp::Eq for D3D12_GPU_DESCRIPTOR_HANDLE {}
 unsafe impl ::windows::runtime::Abi for D3D12_GPU_DESCRIPTOR_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5266,7 +5125,6 @@ impl ::std::cmp::PartialEq for D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE {
 impl ::std::cmp::Eq for D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE {}
 unsafe impl ::windows::runtime::Abi for D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5294,7 +5152,6 @@ impl ::std::cmp::PartialEq for D3D12_GPU_VIRTUAL_ADDRESS_RANGE {
 impl ::std::cmp::Eq for D3D12_GPU_VIRTUAL_ADDRESS_RANGE {}
 unsafe impl ::windows::runtime::Abi for D3D12_GPU_VIRTUAL_ADDRESS_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5323,7 +5180,6 @@ impl ::std::cmp::PartialEq for D3D12_GPU_VIRTUAL_ADDRESS_RANGE_AND_STRIDE {
 impl ::std::cmp::Eq for D3D12_GPU_VIRTUAL_ADDRESS_RANGE_AND_STRIDE {}
 unsafe impl ::windows::runtime::Abi for D3D12_GPU_VIRTUAL_ADDRESS_RANGE_AND_STRIDE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -5419,7 +5275,6 @@ impl ::std::cmp::Eq for D3D12_GRAPHICS_PIPELINE_STATE_DESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for D3D12_GRAPHICS_PIPELINE_STATE_DESC {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5450,7 +5305,6 @@ impl ::std::convert::From<u32> for D3D12_GRAPHICS_STATES {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_GRAPHICS_STATES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_GRAPHICS_STATES {
     type Output = Self;
@@ -5552,7 +5406,6 @@ impl ::std::cmp::PartialEq for D3D12_HEAP_DESC {
 impl ::std::cmp::Eq for D3D12_HEAP_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_HEAP_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5581,7 +5434,6 @@ impl ::std::convert::From<u32> for D3D12_HEAP_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_HEAP_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_HEAP_FLAGS {
     type Output = Self;
@@ -5640,7 +5492,6 @@ impl ::std::cmp::PartialEq for D3D12_HEAP_PROPERTIES {
 impl ::std::cmp::Eq for D3D12_HEAP_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for D3D12_HEAP_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5655,7 +5506,6 @@ impl ::std::convert::From<i32> for D3D12_HEAP_SERIALIZATION_TIER {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_HEAP_SERIALIZATION_TIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5672,7 +5522,6 @@ impl ::std::convert::From<i32> for D3D12_HEAP_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_HEAP_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5716,7 +5565,6 @@ impl ::std::cmp::Eq for D3D12_HIT_GROUP_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_HIT_GROUP_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5731,7 +5579,6 @@ impl ::std::convert::From<i32> for D3D12_HIT_GROUP_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_HIT_GROUP_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5746,7 +5593,6 @@ impl ::std::convert::From<i32> for D3D12_HIT_KIND {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_HIT_KIND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_HS_CONTROL_POINT_PHASE_INPUT_REGISTER_COUNT: u32 = 32u32;
@@ -5860,7 +5706,6 @@ impl ::std::convert::From<i32> for D3D12_INDEX_BUFFER_STRIP_CUT_VALUE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_INDEX_BUFFER_STRIP_CUT_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5896,7 +5741,6 @@ impl ::std::cmp::Eq for D3D12_INDEX_BUFFER_VIEW {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_INDEX_BUFFER_VIEW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5919,7 +5763,6 @@ impl ::std::cmp::PartialEq for D3D12_INDIRECT_ARGUMENT_DESC {
 impl ::std::cmp::Eq for D3D12_INDIRECT_ARGUMENT_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_INDIRECT_ARGUMENT_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5945,7 +5788,6 @@ impl ::std::cmp::PartialEq for D3D12_INDIRECT_ARGUMENT_DESC_0 {
 impl ::std::cmp::Eq for D3D12_INDIRECT_ARGUMENT_DESC_0 {}
 unsafe impl ::windows::runtime::Abi for D3D12_INDIRECT_ARGUMENT_DESC_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5972,7 +5814,6 @@ impl ::std::cmp::PartialEq for D3D12_INDIRECT_ARGUMENT_DESC_0_0 {
 impl ::std::cmp::Eq for D3D12_INDIRECT_ARGUMENT_DESC_0_0 {}
 unsafe impl ::windows::runtime::Abi for D3D12_INDIRECT_ARGUMENT_DESC_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6001,7 +5842,6 @@ impl ::std::cmp::PartialEq for D3D12_INDIRECT_ARGUMENT_DESC_0_1 {
 impl ::std::cmp::Eq for D3D12_INDIRECT_ARGUMENT_DESC_0_1 {}
 unsafe impl ::windows::runtime::Abi for D3D12_INDIRECT_ARGUMENT_DESC_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6028,7 +5868,6 @@ impl ::std::cmp::PartialEq for D3D12_INDIRECT_ARGUMENT_DESC_0_2 {
 impl ::std::cmp::Eq for D3D12_INDIRECT_ARGUMENT_DESC_0_2 {}
 unsafe impl ::windows::runtime::Abi for D3D12_INDIRECT_ARGUMENT_DESC_0_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6055,7 +5894,6 @@ impl ::std::cmp::PartialEq for D3D12_INDIRECT_ARGUMENT_DESC_0_3 {
 impl ::std::cmp::Eq for D3D12_INDIRECT_ARGUMENT_DESC_0_3 {}
 unsafe impl ::windows::runtime::Abi for D3D12_INDIRECT_ARGUMENT_DESC_0_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6082,7 +5920,6 @@ impl ::std::cmp::PartialEq for D3D12_INDIRECT_ARGUMENT_DESC_0_4 {
 impl ::std::cmp::Eq for D3D12_INDIRECT_ARGUMENT_DESC_0_4 {}
 unsafe impl ::windows::runtime::Abi for D3D12_INDIRECT_ARGUMENT_DESC_0_4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6106,7 +5943,6 @@ impl ::std::convert::From<i32> for D3D12_INDIRECT_ARGUMENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_INDIRECT_ARGUMENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: u32 = 1024u32;
@@ -6136,7 +5972,6 @@ impl ::std::cmp::PartialEq for D3D12_INFO_QUEUE_FILTER {
 impl ::std::cmp::Eq for D3D12_INFO_QUEUE_FILTER {}
 unsafe impl ::windows::runtime::Abi for D3D12_INFO_QUEUE_FILTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6168,7 +6003,6 @@ impl ::std::cmp::PartialEq for D3D12_INFO_QUEUE_FILTER_DESC {
 impl ::std::cmp::Eq for D3D12_INFO_QUEUE_FILTER_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_INFO_QUEUE_FILTER_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6183,7 +6017,6 @@ impl ::std::convert::From<i32> for D3D12_INPUT_CLASSIFICATION {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_INPUT_CLASSIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6231,7 +6064,6 @@ impl ::std::cmp::Eq for D3D12_INPUT_ELEMENT_DESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for D3D12_INPUT_ELEMENT_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6266,7 +6098,6 @@ impl ::std::cmp::Eq for D3D12_INPUT_LAYOUT_DESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for D3D12_INPUT_LAYOUT_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_INTEGER_DIVIDE_BY_ZERO_QUOTIENT: u32 = 4294967295u32;
@@ -6310,7 +6141,6 @@ impl ::std::cmp::Eq for D3D12_LIBRARY_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_LIBRARY_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6325,7 +6155,6 @@ impl ::std::convert::From<i32> for D3D12_LIFETIME_STATE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_LIFETIME_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_LINEAR_GAMMA: f32 = 1f32;
@@ -6354,7 +6183,6 @@ impl ::std::cmp::PartialEq for D3D12_LOCAL_ROOT_SIGNATURE {
 impl ::std::cmp::Eq for D3D12_LOCAL_ROOT_SIGNATURE {}
 unsafe impl ::windows::runtime::Abi for D3D12_LOCAL_ROOT_SIGNATURE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6383,7 +6211,6 @@ impl ::std::convert::From<i32> for D3D12_LOGIC_OP {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_LOGIC_OP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_MAG_FILTER_SHIFT: u32 = 2u32;
@@ -6428,7 +6255,6 @@ impl ::std::convert::From<i32> for D3D12_MEASUREMENTS_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_MEASUREMENTS_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6457,7 +6283,6 @@ impl ::std::cmp::PartialEq for D3D12_MEMCPY_DEST {
 impl ::std::cmp::Eq for D3D12_MEMCPY_DEST {}
 unsafe impl ::windows::runtime::Abi for D3D12_MEMCPY_DEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6473,7 +6298,6 @@ impl ::std::convert::From<i32> for D3D12_MEMORY_POOL {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_MEMORY_POOL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6488,7 +6312,6 @@ impl ::std::convert::From<i32> for D3D12_MESH_SHADER_TIER {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_MESH_SHADER_TIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6519,7 +6342,6 @@ impl ::std::cmp::PartialEq for D3D12_MESSAGE {
 impl ::std::cmp::Eq for D3D12_MESSAGE {}
 unsafe impl ::windows::runtime::Abi for D3D12_MESSAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6534,7 +6356,6 @@ impl ::std::convert::From<i32> for D3D12_MESSAGE_CALLBACK_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_MESSAGE_CALLBACK_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6558,7 +6379,6 @@ impl ::std::convert::From<i32> for D3D12_MESSAGE_CATEGORY {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_MESSAGE_CATEGORY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7463,7 +7283,6 @@ impl ::std::convert::From<i32> for D3D12_MESSAGE_ID {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_MESSAGE_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7481,7 +7300,6 @@ impl ::std::convert::From<i32> for D3D12_MESSAGE_SEVERITY {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_MESSAGE_SEVERITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7518,7 +7336,6 @@ impl ::std::cmp::Eq for D3D12_META_COMMAND_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_META_COMMAND_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7556,7 +7373,6 @@ impl ::std::cmp::Eq for D3D12_META_COMMAND_PARAMETER_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_META_COMMAND_PARAMETER_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7571,7 +7387,6 @@ impl ::std::convert::From<u32> for D3D12_META_COMMAND_PARAMETER_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_META_COMMAND_PARAMETER_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_META_COMMAND_PARAMETER_FLAGS {
     type Output = Self;
@@ -7615,7 +7430,6 @@ impl ::std::convert::From<i32> for D3D12_META_COMMAND_PARAMETER_STAGE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_META_COMMAND_PARAMETER_STAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7633,7 +7447,6 @@ impl ::std::convert::From<i32> for D3D12_META_COMMAND_PARAMETER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_META_COMMAND_PARAMETER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_MINOR_VERSION: u32 = 0u32;
@@ -7682,7 +7495,6 @@ impl ::std::cmp::PartialEq for D3D12_MIP_REGION {
 impl ::std::cmp::Eq for D3D12_MIP_REGION {}
 unsafe impl ::windows::runtime::Abi for D3D12_MIP_REGION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7698,7 +7510,6 @@ impl ::std::convert::From<u32> for D3D12_MULTIPLE_FENCE_WAIT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_MULTIPLE_FENCE_WAIT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_MULTIPLE_FENCE_WAIT_FLAGS {
     type Output = Self;
@@ -7743,7 +7554,6 @@ impl ::std::convert::From<u32> for D3D12_MULTISAMPLE_QUALITY_LEVEL_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_MULTISAMPLE_QUALITY_LEVEL_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_MULTISAMPLE_QUALITY_LEVEL_FLAGS {
     type Output = Self;
@@ -7798,7 +7608,6 @@ impl ::std::cmp::PartialEq for D3D12_NODE_MASK {
 impl ::std::cmp::Eq for D3D12_NODE_MASK {}
 unsafe impl ::windows::runtime::Abi for D3D12_NODE_MASK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_NONSAMPLE_FETCH_OUT_OF_RANGE_ACCESS_RESULT: u32 = 0u32;
@@ -7834,7 +7643,6 @@ impl ::std::cmp::PartialEq for D3D12_PACKED_MIP_INFO {
 impl ::std::cmp::Eq for D3D12_PACKED_MIP_INFO {}
 unsafe impl ::windows::runtime::Abi for D3D12_PACKED_MIP_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_PACKED_TILE: u32 = 4294967295u32;
@@ -7894,7 +7702,6 @@ impl ::std::cmp::Eq for D3D12_PARAMETER_DESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 unsafe impl ::windows::runtime::Abi for D3D12_PARAMETER_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7909,7 +7716,6 @@ impl ::std::convert::From<u32> for D3D12_PIPELINE_STATE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_PIPELINE_STATE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_PIPELINE_STATE_FLAGS {
     type Output = Self;
@@ -7965,7 +7771,6 @@ impl ::std::cmp::PartialEq for D3D12_PIPELINE_STATE_STREAM_DESC {
 impl ::std::cmp::Eq for D3D12_PIPELINE_STATE_STREAM_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_PIPELINE_STATE_STREAM_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8004,7 +7809,6 @@ impl ::std::convert::From<i32> for D3D12_PIPELINE_STATE_SUBOBJECT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_PIPELINE_STATE_SUBOBJECT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 15u32;
@@ -8041,7 +7845,6 @@ impl ::std::cmp::Eq for D3D12_PLACED_SUBRESOURCE_FOOTPRINT {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_PLACED_SUBRESOURCE_FOOTPRINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8056,7 +7859,6 @@ impl ::std::convert::From<i32> for D3D12_PREDICATION_OP {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_PREDICATION_OP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_PRE_SCISSOR_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 16u32;
@@ -8076,7 +7878,6 @@ impl ::std::convert::From<i32> for D3D12_PRIMITIVE_TOPOLOGY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_PRIMITIVE_TOPOLOGY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8092,7 +7893,6 @@ impl ::std::convert::From<i32> for D3D12_PROGRAMMABLE_SAMPLE_POSITIONS_TIER {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_PROGRAMMABLE_SAMPLE_POSITIONS_TIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const D3D12_PROTECTED_RESOURCES_SESSION_HARDWARE_PROTECTED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1655703630, 50958, 19882, [161, 9, 48, 255, 141, 90, 4, 130]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -8121,7 +7921,6 @@ impl ::std::cmp::PartialEq for D3D12_PROTECTED_RESOURCE_SESSION_DESC {
 impl ::std::cmp::Eq for D3D12_PROTECTED_RESOURCE_SESSION_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_PROTECTED_RESOURCE_SESSION_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8150,7 +7949,6 @@ impl ::std::cmp::PartialEq for D3D12_PROTECTED_RESOURCE_SESSION_DESC1 {
 impl ::std::cmp::Eq for D3D12_PROTECTED_RESOURCE_SESSION_DESC1 {}
 unsafe impl ::windows::runtime::Abi for D3D12_PROTECTED_RESOURCE_SESSION_DESC1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8164,7 +7962,6 @@ impl ::std::convert::From<u32> for D3D12_PROTECTED_RESOURCE_SESSION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_PROTECTED_RESOURCE_SESSION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_PROTECTED_RESOURCE_SESSION_FLAGS {
     type Output = Self;
@@ -8207,7 +8004,6 @@ impl ::std::convert::From<u32> for D3D12_PROTECTED_RESOURCE_SESSION_SUPPORT_FLAG
 }
 unsafe impl ::windows::runtime::Abi for D3D12_PROTECTED_RESOURCE_SESSION_SUPPORT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_PROTECTED_RESOURCE_SESSION_SUPPORT_FLAGS {
     type Output = Self;
@@ -8250,7 +8046,6 @@ impl ::std::convert::From<i32> for D3D12_PROTECTED_SESSION_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_PROTECTED_SESSION_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_PS_CS_UAV_REGISTER_COMPONENTS: u32 = 1u32;
@@ -8345,7 +8140,6 @@ impl ::std::cmp::PartialEq for D3D12_QUERY_DATA_PIPELINE_STATISTICS {
 impl ::std::cmp::Eq for D3D12_QUERY_DATA_PIPELINE_STATISTICS {}
 unsafe impl ::windows::runtime::Abi for D3D12_QUERY_DATA_PIPELINE_STATISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8413,7 +8207,6 @@ impl ::std::cmp::PartialEq for D3D12_QUERY_DATA_PIPELINE_STATISTICS1 {
 impl ::std::cmp::Eq for D3D12_QUERY_DATA_PIPELINE_STATISTICS1 {}
 unsafe impl ::windows::runtime::Abi for D3D12_QUERY_DATA_PIPELINE_STATISTICS1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8441,7 +8234,6 @@ impl ::std::cmp::PartialEq for D3D12_QUERY_DATA_SO_STATISTICS {
 impl ::std::cmp::Eq for D3D12_QUERY_DATA_SO_STATISTICS {}
 unsafe impl ::windows::runtime::Abi for D3D12_QUERY_DATA_SO_STATISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8470,7 +8262,6 @@ impl ::std::cmp::PartialEq for D3D12_QUERY_HEAP_DESC {
 impl ::std::cmp::Eq for D3D12_QUERY_HEAP_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_QUERY_HEAP_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8490,7 +8281,6 @@ impl ::std::convert::From<i32> for D3D12_QUERY_HEAP_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_QUERY_HEAP_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8513,7 +8303,6 @@ impl ::std::convert::From<i32> for D3D12_QUERY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_QUERY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8541,7 +8330,6 @@ impl ::std::cmp::PartialEq for D3D12_RANGE {
 impl ::std::cmp::Eq for D3D12_RANGE {}
 unsafe impl ::windows::runtime::Abi for D3D12_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8569,7 +8357,6 @@ impl ::std::cmp::PartialEq for D3D12_RANGE_UINT64 {
 impl ::std::cmp::Eq for D3D12_RANGE_UINT64 {}
 unsafe impl ::windows::runtime::Abi for D3D12_RANGE_UINT64 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8635,7 +8422,6 @@ impl ::std::cmp::Eq for D3D12_RASTERIZER_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_RASTERIZER_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_RAW_UAV_SRV_BYTE_ALIGNMENT: u32 = 16u32;
@@ -8669,7 +8455,6 @@ impl ::std::cmp::PartialEq for D3D12_RAYTRACING_AABB {
 impl ::std::cmp::Eq for D3D12_RAYTRACING_AABB {}
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_AABB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_RAYTRACING_AABB_BYTE_ALIGNMENT: u32 = 8u32;
@@ -8691,7 +8476,6 @@ impl ::std::convert::From<u32> for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD
 }
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAGS {
     type Output = Self;
@@ -8739,7 +8523,6 @@ impl ::std::convert::From<i32> for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_
 }
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8766,7 +8549,6 @@ impl ::std::cmp::PartialEq for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD
 impl ::std::cmp::Eq for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_COMPACTED_SIZE_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_COMPACTED_SIZE_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8793,7 +8575,6 @@ impl ::std::cmp::PartialEq for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD
 impl ::std::cmp::Eq for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_CURRENT_SIZE_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_CURRENT_SIZE_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8821,7 +8602,6 @@ impl ::std::cmp::PartialEq for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD
 impl ::std::cmp::Eq for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8849,7 +8629,6 @@ impl ::std::cmp::PartialEq for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD
 impl ::std::cmp::Eq for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_SERIALIZATION_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_SERIALIZATION_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8876,7 +8655,6 @@ impl ::std::cmp::PartialEq for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD
 impl ::std::cmp::Eq for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TOOLS_VISUALIZATION_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TOOLS_VISUALIZATION_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8893,7 +8671,6 @@ impl ::std::convert::From<i32> for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTB
 }
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8922,7 +8699,6 @@ impl ::std::cmp::PartialEq for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_
 impl ::std::cmp::Eq for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO {}
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8949,7 +8725,6 @@ impl ::std::cmp::PartialEq for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_SRV {
 impl ::std::cmp::Eq for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_SRV {}
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_SRV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8964,7 +8739,6 @@ impl ::std::convert::From<i32> for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE 
 }
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8992,7 +8766,6 @@ impl ::std::cmp::PartialEq for D3D12_RAYTRACING_GEOMETRY_AABBS_DESC {
 impl ::std::cmp::Eq for D3D12_RAYTRACING_GEOMETRY_AABBS_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_GEOMETRY_AABBS_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9022,7 +8795,6 @@ impl ::std::cmp::Eq for D3D12_RAYTRACING_GEOMETRY_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_GEOMETRY_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9051,7 +8823,6 @@ impl ::std::cmp::Eq for D3D12_RAYTRACING_GEOMETRY_DESC_0 {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_GEOMETRY_DESC_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9067,7 +8838,6 @@ impl ::std::convert::From<u32> for D3D12_RAYTRACING_GEOMETRY_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_GEOMETRY_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_RAYTRACING_GEOMETRY_FLAGS {
     type Output = Self;
@@ -9143,7 +8913,6 @@ impl ::std::cmp::Eq for D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9158,7 +8927,6 @@ impl ::std::convert::From<i32> for D3D12_RAYTRACING_GEOMETRY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_GEOMETRY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9188,7 +8956,6 @@ impl ::std::cmp::PartialEq for D3D12_RAYTRACING_INSTANCE_DESC {
 impl ::std::cmp::Eq for D3D12_RAYTRACING_INSTANCE_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_INSTANCE_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_RAYTRACING_INSTANCE_DESCS_BYTE_ALIGNMENT: u32 = 16u32;
@@ -9208,7 +8975,6 @@ impl ::std::convert::From<u32> for D3D12_RAYTRACING_INSTANCE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_INSTANCE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_RAYTRACING_INSTANCE_FLAGS {
     type Output = Self;
@@ -9277,7 +9043,6 @@ impl ::std::cmp::PartialEq for D3D12_RAYTRACING_PIPELINE_CONFIG {
 impl ::std::cmp::Eq for D3D12_RAYTRACING_PIPELINE_CONFIG {}
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_PIPELINE_CONFIG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9305,7 +9070,6 @@ impl ::std::cmp::PartialEq for D3D12_RAYTRACING_PIPELINE_CONFIG1 {
 impl ::std::cmp::Eq for D3D12_RAYTRACING_PIPELINE_CONFIG1 {}
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_PIPELINE_CONFIG1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9321,7 +9085,6 @@ impl ::std::convert::From<u32> for D3D12_RAYTRACING_PIPELINE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_PIPELINE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_RAYTRACING_PIPELINE_FLAGS {
     type Output = Self;
@@ -9377,7 +9140,6 @@ impl ::std::cmp::PartialEq for D3D12_RAYTRACING_SHADER_CONFIG {
 impl ::std::cmp::Eq for D3D12_RAYTRACING_SHADER_CONFIG {}
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_SHADER_CONFIG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_RAYTRACING_SHADER_RECORD_BYTE_ALIGNMENT: u32 = 32u32;
@@ -9397,7 +9159,6 @@ impl ::std::convert::From<i32> for D3D12_RAYTRACING_TIER {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_TIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_RAYTRACING_TRANSFORM3X4_BYTE_ALIGNMENT: u32 = 16u32;
@@ -9423,7 +9184,6 @@ impl ::std::convert::From<u32> for D3D12_RAY_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_RAY_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_RAY_FLAGS {
     type Output = Self;
@@ -9467,7 +9227,6 @@ impl ::std::convert::From<i32> for D3D12_REFLECT_SHARED_PROPERTY {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_REFLECT_SHARED_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9496,7 +9255,6 @@ impl ::std::cmp::Eq for D3D12_RENDER_PASS_BEGINNING_ACCESS {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_PASS_BEGINNING_ACCESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9524,7 +9282,6 @@ impl ::std::cmp::Eq for D3D12_RENDER_PASS_BEGINNING_ACCESS_0 {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_PASS_BEGINNING_ACCESS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9552,7 +9309,6 @@ impl ::std::cmp::Eq for D3D12_RENDER_PASS_BEGINNING_ACCESS_CLEAR_PARAMETERS {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_PASS_BEGINNING_ACCESS_CLEAR_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9569,7 +9325,6 @@ impl ::std::convert::From<i32> for D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 impl ::std::clone::Clone for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
@@ -9606,7 +9361,6 @@ impl ::std::cmp::Eq for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 impl ::std::clone::Clone for D3D12_RENDER_PASS_ENDING_ACCESS {
@@ -9640,7 +9394,6 @@ impl ::std::cmp::Eq for D3D12_RENDER_PASS_ENDING_ACCESS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_PASS_ENDING_ACCESS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 impl ::std::clone::Clone for D3D12_RENDER_PASS_ENDING_ACCESS_0 {
@@ -9673,7 +9426,6 @@ impl ::std::cmp::Eq for D3D12_RENDER_PASS_ENDING_ACCESS_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_PASS_ENDING_ACCESS_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -9721,7 +9473,6 @@ impl ::std::cmp::Eq for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9759,7 +9510,6 @@ impl ::std::cmp::Eq for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_SUBRESOURCE_PARA
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_SUBRESOURCE_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9776,7 +9526,6 @@ impl ::std::convert::From<i32> for D3D12_RENDER_PASS_ENDING_ACCESS_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_PASS_ENDING_ACCESS_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9793,7 +9542,6 @@ impl ::std::convert::From<u32> for D3D12_RENDER_PASS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_PASS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_RENDER_PASS_FLAGS {
     type Output = Self;
@@ -9856,7 +9604,6 @@ impl ::std::cmp::Eq for D3D12_RENDER_PASS_RENDER_TARGET_DESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_PASS_RENDER_TARGET_DESC {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9872,7 +9619,6 @@ impl ::std::convert::From<i32> for D3D12_RENDER_PASS_TIER {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_PASS_TIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9926,7 +9672,6 @@ impl ::std::cmp::Eq for D3D12_RENDER_TARGET_BLEND_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_TARGET_BLEND_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9956,7 +9701,6 @@ impl ::std::cmp::Eq for D3D12_RENDER_TARGET_VIEW_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_TARGET_VIEW_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9985,7 +9729,6 @@ impl ::std::cmp::PartialEq for D3D12_RENDER_TARGET_VIEW_DESC_0 {
 impl ::std::cmp::Eq for D3D12_RENDER_TARGET_VIEW_DESC_0 {}
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_TARGET_VIEW_DESC_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_REQ_BLEND_OBJECT_COUNT_PER_DEVICE: u32 = 4096u32;
@@ -10052,7 +9795,6 @@ impl ::std::convert::From<u32> for D3D12_RESIDENCY_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_RESIDENCY_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_RESIDENCY_FLAGS {
     type Output = Self;
@@ -10098,7 +9840,6 @@ impl ::std::convert::From<i32> for D3D12_RESIDENCY_PRIORITY {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_RESIDENCY_PRIORITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_RESINFO_INSTRUCTION_MISSING_COMPONENT_RETVAL: u32 = 0u32;
@@ -10119,7 +9860,6 @@ impl ::std::convert::From<i32> for D3D12_RESOLVE_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_RESOLVE_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -10147,7 +9887,6 @@ impl ::std::cmp::PartialEq for D3D12_RESOURCE_ALIASING_BARRIER {
 impl ::std::cmp::Eq for D3D12_RESOURCE_ALIASING_BARRIER {}
 unsafe impl ::windows::runtime::Abi for D3D12_RESOURCE_ALIASING_BARRIER {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10175,7 +9914,6 @@ impl ::std::cmp::PartialEq for D3D12_RESOURCE_ALLOCATION_INFO {
 impl ::std::cmp::Eq for D3D12_RESOURCE_ALLOCATION_INFO {}
 unsafe impl ::windows::runtime::Abi for D3D12_RESOURCE_ALLOCATION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10204,7 +9942,6 @@ impl ::std::cmp::PartialEq for D3D12_RESOURCE_ALLOCATION_INFO1 {
 impl ::std::cmp::Eq for D3D12_RESOURCE_ALLOCATION_INFO1 {}
 unsafe impl ::windows::runtime::Abi for D3D12_RESOURCE_ALLOCATION_INFO1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::clone::Clone for D3D12_RESOURCE_BARRIER {
     fn clone(&self) -> Self {
@@ -10232,7 +9969,6 @@ impl ::std::cmp::PartialEq for D3D12_RESOURCE_BARRIER {
 impl ::std::cmp::Eq for D3D12_RESOURCE_BARRIER {}
 unsafe impl ::windows::runtime::Abi for D3D12_RESOURCE_BARRIER {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 impl ::std::clone::Clone for D3D12_RESOURCE_BARRIER_0 {
     fn clone(&self) -> Self {
@@ -10260,7 +9996,6 @@ impl ::std::cmp::PartialEq for D3D12_RESOURCE_BARRIER_0 {
 impl ::std::cmp::Eq for D3D12_RESOURCE_BARRIER_0 {}
 unsafe impl ::windows::runtime::Abi for D3D12_RESOURCE_BARRIER_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES: u32 = 4294967295u32;
@@ -10278,7 +10013,6 @@ impl ::std::convert::From<u32> for D3D12_RESOURCE_BARRIER_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_RESOURCE_BARRIER_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_RESOURCE_BARRIER_FLAGS {
     type Output = Self;
@@ -10322,7 +10056,6 @@ impl ::std::convert::From<i32> for D3D12_RESOURCE_BARRIER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_RESOURCE_BARRIER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10338,7 +10071,6 @@ impl ::std::convert::From<i32> for D3D12_RESOURCE_BINDING_TIER {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_RESOURCE_BINDING_TIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10392,7 +10124,6 @@ impl ::std::cmp::Eq for D3D12_RESOURCE_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_RESOURCE_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10448,7 +10179,6 @@ impl ::std::cmp::Eq for D3D12_RESOURCE_DESC1 {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_RESOURCE_DESC1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10466,7 +10196,6 @@ impl ::std::convert::From<i32> for D3D12_RESOURCE_DIMENSION {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_RESOURCE_DIMENSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10488,7 +10217,6 @@ impl ::std::convert::From<u32> for D3D12_RESOURCE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_RESOURCE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_RESOURCE_FLAGS {
     type Output = Self;
@@ -10531,7 +10259,6 @@ impl ::std::convert::From<i32> for D3D12_RESOURCE_HEAP_TIER {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_RESOURCE_HEAP_TIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10571,7 +10298,6 @@ impl ::std::convert::From<u32> for D3D12_RESOURCE_STATES {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_RESOURCE_STATES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_RESOURCE_STATES {
     type Output = Self;
@@ -10629,7 +10355,6 @@ impl ::std::cmp::PartialEq for D3D12_RESOURCE_TRANSITION_BARRIER {
 impl ::std::cmp::Eq for D3D12_RESOURCE_TRANSITION_BARRIER {}
 unsafe impl ::windows::runtime::Abi for D3D12_RESOURCE_TRANSITION_BARRIER {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -10656,7 +10381,6 @@ impl ::std::cmp::PartialEq for D3D12_RESOURCE_UAV_BARRIER {
 impl ::std::cmp::Eq for D3D12_RESOURCE_UAV_BARRIER {}
 unsafe impl ::windows::runtime::Abi for D3D12_RESOURCE_UAV_BARRIER {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10673,7 +10397,6 @@ impl ::std::convert::From<i32> for D3D12_RLDO_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_RLDO_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10702,7 +10425,6 @@ impl ::std::cmp::PartialEq for D3D12_ROOT_CONSTANTS {
 impl ::std::cmp::Eq for D3D12_ROOT_CONSTANTS {}
 unsafe impl ::windows::runtime::Abi for D3D12_ROOT_CONSTANTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10730,7 +10452,6 @@ impl ::std::cmp::PartialEq for D3D12_ROOT_DESCRIPTOR {
 impl ::std::cmp::Eq for D3D12_ROOT_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for D3D12_ROOT_DESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10759,7 +10480,6 @@ impl ::std::cmp::PartialEq for D3D12_ROOT_DESCRIPTOR1 {
 impl ::std::cmp::Eq for D3D12_ROOT_DESCRIPTOR1 {}
 unsafe impl ::windows::runtime::Abi for D3D12_ROOT_DESCRIPTOR1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10776,7 +10496,6 @@ impl ::std::convert::From<u32> for D3D12_ROOT_DESCRIPTOR_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_ROOT_DESCRIPTOR_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_ROOT_DESCRIPTOR_FLAGS {
     type Output = Self;
@@ -10832,7 +10551,6 @@ impl ::std::cmp::PartialEq for D3D12_ROOT_DESCRIPTOR_TABLE {
 impl ::std::cmp::Eq for D3D12_ROOT_DESCRIPTOR_TABLE {}
 unsafe impl ::windows::runtime::Abi for D3D12_ROOT_DESCRIPTOR_TABLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10860,7 +10578,6 @@ impl ::std::cmp::PartialEq for D3D12_ROOT_DESCRIPTOR_TABLE1 {
 impl ::std::cmp::Eq for D3D12_ROOT_DESCRIPTOR_TABLE1 {}
 unsafe impl ::windows::runtime::Abi for D3D12_ROOT_DESCRIPTOR_TABLE1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10884,7 +10601,6 @@ impl ::std::cmp::PartialEq for D3D12_ROOT_PARAMETER {
 impl ::std::cmp::Eq for D3D12_ROOT_PARAMETER {}
 unsafe impl ::windows::runtime::Abi for D3D12_ROOT_PARAMETER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10908,7 +10624,6 @@ impl ::std::cmp::PartialEq for D3D12_ROOT_PARAMETER_0 {
 impl ::std::cmp::Eq for D3D12_ROOT_PARAMETER_0 {}
 unsafe impl ::windows::runtime::Abi for D3D12_ROOT_PARAMETER_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10932,7 +10647,6 @@ impl ::std::cmp::PartialEq for D3D12_ROOT_PARAMETER1 {
 impl ::std::cmp::Eq for D3D12_ROOT_PARAMETER1 {}
 unsafe impl ::windows::runtime::Abi for D3D12_ROOT_PARAMETER1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10956,7 +10670,6 @@ impl ::std::cmp::PartialEq for D3D12_ROOT_PARAMETER1_0 {
 impl ::std::cmp::Eq for D3D12_ROOT_PARAMETER1_0 {}
 unsafe impl ::windows::runtime::Abi for D3D12_ROOT_PARAMETER1_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10974,7 +10687,6 @@ impl ::std::convert::From<i32> for D3D12_ROOT_PARAMETER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_ROOT_PARAMETER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11005,7 +10717,6 @@ impl ::std::cmp::PartialEq for D3D12_ROOT_SIGNATURE_DESC {
 impl ::std::cmp::Eq for D3D12_ROOT_SIGNATURE_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_ROOT_SIGNATURE_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11036,7 +10747,6 @@ impl ::std::cmp::PartialEq for D3D12_ROOT_SIGNATURE_DESC1 {
 impl ::std::cmp::Eq for D3D12_ROOT_SIGNATURE_DESC1 {}
 unsafe impl ::windows::runtime::Abi for D3D12_ROOT_SIGNATURE_DESC1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11062,7 +10772,6 @@ impl ::std::convert::From<u32> for D3D12_ROOT_SIGNATURE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_ROOT_SIGNATURE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_ROOT_SIGNATURE_FLAGS {
     type Output = Self;
@@ -11114,7 +10823,6 @@ impl ::std::convert::From<i32> for D3D12_RTV_DIMENSION {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_RTV_DIMENSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11149,7 +10857,6 @@ impl ::std::cmp::Eq for D3D12_RT_FORMAT_ARRAY {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_RT_FORMAT_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11196,7 +10903,6 @@ impl ::std::cmp::PartialEq for D3D12_SAMPLER_DESC {
 impl ::std::cmp::Eq for D3D12_SAMPLER_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_SAMPLER_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11212,7 +10918,6 @@ impl ::std::convert::From<i32> for D3D12_SAMPLER_FEEDBACK_TIER {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_SAMPLER_FEEDBACK_TIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11240,7 +10945,6 @@ impl ::std::cmp::PartialEq for D3D12_SAMPLE_POSITION {
 impl ::std::cmp::Eq for D3D12_SAMPLE_POSITION {}
 unsafe impl ::windows::runtime::Abi for D3D12_SAMPLE_POSITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_SDK_VERSION: u32 = 5u32;
@@ -11270,7 +10974,6 @@ impl ::std::cmp::PartialEq for D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER 
 impl ::std::cmp::Eq for D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER {}
 unsafe impl ::windows::runtime::Abi for D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11284,7 +10987,6 @@ impl ::std::convert::From<i32> for D3D12_SERIALIZED_DATA_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_SERIALIZED_DATA_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11319,7 +11021,6 @@ impl ::std::cmp::PartialEq for D3D12_SERIALIZED_RAYTRACING_ACCELERATION_STRUCTUR
 impl ::std::cmp::Eq for D3D12_SERIALIZED_RAYTRACING_ACCELERATION_STRUCTURE_HEADER {}
 unsafe impl ::windows::runtime::Abi for D3D12_SERIALIZED_RAYTRACING_ACCELERATION_STRUCTURE_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11357,7 +11058,6 @@ impl ::std::cmp::Eq for D3D12_SHADER_BUFFER_DESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 unsafe impl ::windows::runtime::Abi for D3D12_SHADER_BUFFER_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11385,7 +11085,6 @@ impl ::std::cmp::PartialEq for D3D12_SHADER_BYTECODE {
 impl ::std::cmp::Eq for D3D12_SHADER_BYTECODE {}
 unsafe impl ::windows::runtime::Abi for D3D12_SHADER_BYTECODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11401,7 +11100,6 @@ impl ::std::convert::From<u32> for D3D12_SHADER_CACHE_CONTROL_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_SHADER_CACHE_CONTROL_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_SHADER_CACHE_CONTROL_FLAGS {
     type Output = Self;
@@ -11445,7 +11143,6 @@ impl ::std::convert::From<u32> for D3D12_SHADER_CACHE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_SHADER_CACHE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_SHADER_CACHE_FLAGS {
     type Output = Self;
@@ -11490,7 +11187,6 @@ impl ::std::convert::From<u32> for D3D12_SHADER_CACHE_KIND_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_SHADER_CACHE_KIND_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_SHADER_CACHE_KIND_FLAGS {
     type Output = Self;
@@ -11533,7 +11229,6 @@ impl ::std::convert::From<i32> for D3D12_SHADER_CACHE_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_SHADER_CACHE_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11574,7 +11269,6 @@ impl ::std::cmp::PartialEq for D3D12_SHADER_CACHE_SESSION_DESC {
 impl ::std::cmp::Eq for D3D12_SHADER_CACHE_SESSION_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_SHADER_CACHE_SESSION_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11595,7 +11289,6 @@ impl ::std::convert::From<u32> for D3D12_SHADER_CACHE_SUPPORT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_SHADER_CACHE_SUPPORT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_SHADER_CACHE_SUPPORT_FLAGS {
     type Output = Self;
@@ -11642,7 +11335,6 @@ impl ::std::convert::From<i32> for D3D12_SHADER_COMPONENT_MAPPING {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_SHADER_COMPONENT_MAPPING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_SHADER_COMPONENT_MAPPING_ALWAYS_SET_BIT_AVOIDING_ZEROMEM_MISTAKES: u32 = 4096u32;
@@ -11795,7 +11487,6 @@ impl ::std::cmp::Eq for D3D12_SHADER_DESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 unsafe impl ::windows::runtime::Abi for D3D12_SHADER_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_SHADER_IDENTIFIER_SIZE_IN_BYTES: u32 = 32u32;
@@ -11851,7 +11542,6 @@ impl ::std::cmp::Eq for D3D12_SHADER_INPUT_BIND_DESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 unsafe impl ::windows::runtime::Abi for D3D12_SHADER_INPUT_BIND_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_SHADER_MAJOR_VERSION: u32 = 5u32;
@@ -11879,7 +11569,6 @@ impl ::std::convert::From<u32> for D3D12_SHADER_MIN_PRECISION_SUPPORT {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_SHADER_MIN_PRECISION_SUPPORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_SHADER_MIN_PRECISION_SUPPORT {
     type Output = Self;
@@ -11938,7 +11627,6 @@ impl ::std::cmp::Eq for D3D12_SHADER_RESOURCE_VIEW_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_SHADER_RESOURCE_VIEW_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11970,7 +11658,6 @@ impl ::std::cmp::PartialEq for D3D12_SHADER_RESOURCE_VIEW_DESC_0 {
 impl ::std::cmp::Eq for D3D12_SHADER_RESOURCE_VIEW_DESC_0 {}
 unsafe impl ::windows::runtime::Abi for D3D12_SHADER_RESOURCE_VIEW_DESC_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12011,7 +11698,6 @@ impl ::std::cmp::Eq for D3D12_SHADER_TYPE_DESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 unsafe impl ::windows::runtime::Abi for D3D12_SHADER_TYPE_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12063,7 +11749,6 @@ impl ::std::cmp::Eq for D3D12_SHADER_VARIABLE_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_SHADER_VARIABLE_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12083,7 +11768,6 @@ impl ::std::convert::From<i32> for D3D12_SHADER_VERSION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_SHADER_VERSION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12104,7 +11788,6 @@ impl ::std::convert::From<i32> for D3D12_SHADER_VISIBILITY {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_SHADER_VISIBILITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12124,7 +11807,6 @@ impl ::std::convert::From<i32> for D3D12_SHADING_RATE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_SHADING_RATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12142,7 +11824,6 @@ impl ::std::convert::From<i32> for D3D12_SHADING_RATE_COMBINER {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_SHADING_RATE_COMBINER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_SHADING_RATE_VALID_MASK: u32 = 3u32;
@@ -12162,7 +11843,6 @@ impl ::std::convert::From<i32> for D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_SHIFT_INSTRUCTION_PAD_VALUE: u32 = 0u32;
@@ -12218,7 +11898,6 @@ impl ::std::cmp::Eq for D3D12_SIGNATURE_PARAMETER_DESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 unsafe impl ::windows::runtime::Abi for D3D12_SIGNATURE_PARAMETER_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_SIMULTANEOUS_RENDER_TARGET_COUNT: u32 = 8u32;
@@ -12278,7 +11957,6 @@ impl ::std::cmp::Eq for D3D12_SO_DECLARATION_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_SO_DECLARATION_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_SO_NO_RASTERIZED_STREAM: u32 = 4294967295u32;
@@ -12331,7 +12009,6 @@ impl ::std::convert::From<i32> for D3D12_SRV_DIMENSION {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_SRV_DIMENSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_STANDARD_COMPONENT_BIT_COUNT: u32 = 32u32;
@@ -12374,7 +12051,6 @@ impl ::std::cmp::PartialEq for D3D12_STATE_OBJECT_CONFIG {
 impl ::std::cmp::Eq for D3D12_STATE_OBJECT_CONFIG {}
 unsafe impl ::windows::runtime::Abi for D3D12_STATE_OBJECT_CONFIG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12403,7 +12079,6 @@ impl ::std::cmp::PartialEq for D3D12_STATE_OBJECT_DESC {
 impl ::std::cmp::Eq for D3D12_STATE_OBJECT_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_STATE_OBJECT_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12420,7 +12095,6 @@ impl ::std::convert::From<u32> for D3D12_STATE_OBJECT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_STATE_OBJECT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_STATE_OBJECT_FLAGS {
     type Output = Self;
@@ -12463,7 +12137,6 @@ impl ::std::convert::From<i32> for D3D12_STATE_OBJECT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_STATE_OBJECT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12491,7 +12164,6 @@ impl ::std::cmp::PartialEq for D3D12_STATE_SUBOBJECT {
 impl ::std::cmp::Eq for D3D12_STATE_SUBOBJECT {}
 unsafe impl ::windows::runtime::Abi for D3D12_STATE_SUBOBJECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12517,7 +12189,6 @@ impl ::std::convert::From<i32> for D3D12_STATE_SUBOBJECT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_STATE_SUBOBJECT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12533,7 +12204,6 @@ impl ::std::convert::From<i32> for D3D12_STATIC_BORDER_COLOR {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_STATIC_BORDER_COLOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12598,7 +12268,6 @@ impl ::std::cmp::PartialEq for D3D12_STATIC_SAMPLER_DESC {
 impl ::std::cmp::Eq for D3D12_STATIC_SAMPLER_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_STATIC_SAMPLER_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12619,7 +12288,6 @@ impl ::std::convert::From<i32> for D3D12_STENCIL_OP {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_STENCIL_OP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12648,7 +12316,6 @@ impl ::std::cmp::PartialEq for D3D12_STREAM_OUTPUT_BUFFER_VIEW {
 impl ::std::cmp::Eq for D3D12_STREAM_OUTPUT_BUFFER_VIEW {}
 unsafe impl ::windows::runtime::Abi for D3D12_STREAM_OUTPUT_BUFFER_VIEW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12686,7 +12353,6 @@ impl ::std::cmp::Eq for D3D12_STREAM_OUTPUT_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_STREAM_OUTPUT_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12722,7 +12388,6 @@ impl ::std::cmp::Eq for D3D12_SUBOBJECT_TO_EXPORTS_ASSOCIATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_SUBOBJECT_TO_EXPORTS_ASSOCIATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_SUBPIXEL_FRACTIONAL_BIT_COUNT: u32 = 8u32;
@@ -12753,7 +12418,6 @@ impl ::std::cmp::PartialEq for D3D12_SUBRESOURCE_DATA {
 impl ::std::cmp::Eq for D3D12_SUBRESOURCE_DATA {}
 unsafe impl ::windows::runtime::Abi for D3D12_SUBRESOURCE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12791,7 +12455,6 @@ impl ::std::cmp::Eq for D3D12_SUBRESOURCE_FOOTPRINT {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_SUBRESOURCE_FOOTPRINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12820,7 +12483,6 @@ impl ::std::cmp::PartialEq for D3D12_SUBRESOURCE_INFO {
 impl ::std::cmp::Eq for D3D12_SUBRESOURCE_INFO {}
 unsafe impl ::windows::runtime::Abi for D3D12_SUBRESOURCE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12848,7 +12510,6 @@ impl ::std::cmp::PartialEq for D3D12_SUBRESOURCE_RANGE_UINT64 {
 impl ::std::cmp::Eq for D3D12_SUBRESOURCE_RANGE_UINT64 {}
 unsafe impl ::windows::runtime::Abi for D3D12_SUBRESOURCE_RANGE_UINT64 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12878,7 +12539,6 @@ impl ::std::cmp::PartialEq for D3D12_SUBRESOURCE_TILING {
 impl ::std::cmp::Eq for D3D12_SUBRESOURCE_TILING {}
 unsafe impl ::windows::runtime::Abi for D3D12_SUBRESOURCE_TILING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_SUBTEXEL_FRACTIONAL_BIT_COUNT: u32 = 8u32;
@@ -12927,7 +12587,6 @@ impl ::std::cmp::PartialEq for D3D12_TEX1D_ARRAY_DSV {
 impl ::std::cmp::Eq for D3D12_TEX1D_ARRAY_DSV {}
 unsafe impl ::windows::runtime::Abi for D3D12_TEX1D_ARRAY_DSV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12956,7 +12615,6 @@ impl ::std::cmp::PartialEq for D3D12_TEX1D_ARRAY_RTV {
 impl ::std::cmp::Eq for D3D12_TEX1D_ARRAY_RTV {}
 unsafe impl ::windows::runtime::Abi for D3D12_TEX1D_ARRAY_RTV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12987,7 +12645,6 @@ impl ::std::cmp::PartialEq for D3D12_TEX1D_ARRAY_SRV {
 impl ::std::cmp::Eq for D3D12_TEX1D_ARRAY_SRV {}
 unsafe impl ::windows::runtime::Abi for D3D12_TEX1D_ARRAY_SRV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13016,7 +12673,6 @@ impl ::std::cmp::PartialEq for D3D12_TEX1D_ARRAY_UAV {
 impl ::std::cmp::Eq for D3D12_TEX1D_ARRAY_UAV {}
 unsafe impl ::windows::runtime::Abi for D3D12_TEX1D_ARRAY_UAV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13043,7 +12699,6 @@ impl ::std::cmp::PartialEq for D3D12_TEX1D_DSV {
 impl ::std::cmp::Eq for D3D12_TEX1D_DSV {}
 unsafe impl ::windows::runtime::Abi for D3D12_TEX1D_DSV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13070,7 +12725,6 @@ impl ::std::cmp::PartialEq for D3D12_TEX1D_RTV {
 impl ::std::cmp::Eq for D3D12_TEX1D_RTV {}
 unsafe impl ::windows::runtime::Abi for D3D12_TEX1D_RTV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13099,7 +12753,6 @@ impl ::std::cmp::PartialEq for D3D12_TEX1D_SRV {
 impl ::std::cmp::Eq for D3D12_TEX1D_SRV {}
 unsafe impl ::windows::runtime::Abi for D3D12_TEX1D_SRV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13126,7 +12779,6 @@ impl ::std::cmp::PartialEq for D3D12_TEX1D_UAV {
 impl ::std::cmp::Eq for D3D12_TEX1D_UAV {}
 unsafe impl ::windows::runtime::Abi for D3D12_TEX1D_UAV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13154,7 +12806,6 @@ impl ::std::cmp::PartialEq for D3D12_TEX2DMS_ARRAY_DSV {
 impl ::std::cmp::Eq for D3D12_TEX2DMS_ARRAY_DSV {}
 unsafe impl ::windows::runtime::Abi for D3D12_TEX2DMS_ARRAY_DSV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13182,7 +12833,6 @@ impl ::std::cmp::PartialEq for D3D12_TEX2DMS_ARRAY_RTV {
 impl ::std::cmp::Eq for D3D12_TEX2DMS_ARRAY_RTV {}
 unsafe impl ::windows::runtime::Abi for D3D12_TEX2DMS_ARRAY_RTV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13210,7 +12860,6 @@ impl ::std::cmp::PartialEq for D3D12_TEX2DMS_ARRAY_SRV {
 impl ::std::cmp::Eq for D3D12_TEX2DMS_ARRAY_SRV {}
 unsafe impl ::windows::runtime::Abi for D3D12_TEX2DMS_ARRAY_SRV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13237,7 +12886,6 @@ impl ::std::cmp::PartialEq for D3D12_TEX2DMS_DSV {
 impl ::std::cmp::Eq for D3D12_TEX2DMS_DSV {}
 unsafe impl ::windows::runtime::Abi for D3D12_TEX2DMS_DSV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13264,7 +12912,6 @@ impl ::std::cmp::PartialEq for D3D12_TEX2DMS_RTV {
 impl ::std::cmp::Eq for D3D12_TEX2DMS_RTV {}
 unsafe impl ::windows::runtime::Abi for D3D12_TEX2DMS_RTV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13291,7 +12938,6 @@ impl ::std::cmp::PartialEq for D3D12_TEX2DMS_SRV {
 impl ::std::cmp::Eq for D3D12_TEX2DMS_SRV {}
 unsafe impl ::windows::runtime::Abi for D3D12_TEX2DMS_SRV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13320,7 +12966,6 @@ impl ::std::cmp::PartialEq for D3D12_TEX2D_ARRAY_DSV {
 impl ::std::cmp::Eq for D3D12_TEX2D_ARRAY_DSV {}
 unsafe impl ::windows::runtime::Abi for D3D12_TEX2D_ARRAY_DSV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13350,7 +12995,6 @@ impl ::std::cmp::PartialEq for D3D12_TEX2D_ARRAY_RTV {
 impl ::std::cmp::Eq for D3D12_TEX2D_ARRAY_RTV {}
 unsafe impl ::windows::runtime::Abi for D3D12_TEX2D_ARRAY_RTV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13389,7 +13033,6 @@ impl ::std::cmp::PartialEq for D3D12_TEX2D_ARRAY_SRV {
 impl ::std::cmp::Eq for D3D12_TEX2D_ARRAY_SRV {}
 unsafe impl ::windows::runtime::Abi for D3D12_TEX2D_ARRAY_SRV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13419,7 +13062,6 @@ impl ::std::cmp::PartialEq for D3D12_TEX2D_ARRAY_UAV {
 impl ::std::cmp::Eq for D3D12_TEX2D_ARRAY_UAV {}
 unsafe impl ::windows::runtime::Abi for D3D12_TEX2D_ARRAY_UAV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13446,7 +13088,6 @@ impl ::std::cmp::PartialEq for D3D12_TEX2D_DSV {
 impl ::std::cmp::Eq for D3D12_TEX2D_DSV {}
 unsafe impl ::windows::runtime::Abi for D3D12_TEX2D_DSV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13474,7 +13115,6 @@ impl ::std::cmp::PartialEq for D3D12_TEX2D_RTV {
 impl ::std::cmp::Eq for D3D12_TEX2D_RTV {}
 unsafe impl ::windows::runtime::Abi for D3D12_TEX2D_RTV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13504,7 +13144,6 @@ impl ::std::cmp::PartialEq for D3D12_TEX2D_SRV {
 impl ::std::cmp::Eq for D3D12_TEX2D_SRV {}
 unsafe impl ::windows::runtime::Abi for D3D12_TEX2D_SRV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13532,7 +13171,6 @@ impl ::std::cmp::PartialEq for D3D12_TEX2D_UAV {
 impl ::std::cmp::Eq for D3D12_TEX2D_UAV {}
 unsafe impl ::windows::runtime::Abi for D3D12_TEX2D_UAV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13561,7 +13199,6 @@ impl ::std::cmp::PartialEq for D3D12_TEX3D_RTV {
 impl ::std::cmp::Eq for D3D12_TEX3D_RTV {}
 unsafe impl ::windows::runtime::Abi for D3D12_TEX3D_RTV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13590,7 +13227,6 @@ impl ::std::cmp::PartialEq for D3D12_TEX3D_SRV {
 impl ::std::cmp::Eq for D3D12_TEX3D_SRV {}
 unsafe impl ::windows::runtime::Abi for D3D12_TEX3D_SRV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13619,7 +13255,6 @@ impl ::std::cmp::PartialEq for D3D12_TEX3D_UAV {
 impl ::std::cmp::Eq for D3D12_TEX3D_UAV {}
 unsafe impl ::windows::runtime::Abi for D3D12_TEX3D_UAV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13650,7 +13285,6 @@ impl ::std::cmp::PartialEq for D3D12_TEXCUBE_ARRAY_SRV {
 impl ::std::cmp::Eq for D3D12_TEXCUBE_ARRAY_SRV {}
 unsafe impl ::windows::runtime::Abi for D3D12_TEXCUBE_ARRAY_SRV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13679,7 +13313,6 @@ impl ::std::cmp::PartialEq for D3D12_TEXCUBE_SRV {
 impl ::std::cmp::Eq for D3D12_TEXCUBE_SRV {}
 unsafe impl ::windows::runtime::Abi for D3D12_TEXCUBE_SRV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_TEXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 16u32;
@@ -13699,7 +13332,6 @@ impl ::std::convert::From<i32> for D3D12_TEXTURE_ADDRESS_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_TEXTURE_ADDRESS_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::clone::Clone for D3D12_TEXTURE_COPY_LOCATION {
@@ -13734,7 +13366,6 @@ impl ::std::cmp::Eq for D3D12_TEXTURE_COPY_LOCATION {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_TEXTURE_COPY_LOCATION {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13763,7 +13394,6 @@ impl ::std::cmp::Eq for D3D12_TEXTURE_COPY_LOCATION_0 {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_TEXTURE_COPY_LOCATION_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13778,7 +13408,6 @@ impl ::std::convert::From<i32> for D3D12_TEXTURE_COPY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_TEXTURE_COPY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_TEXTURE_DATA_PITCH_ALIGNMENT: u32 = 256u32;
@@ -13799,7 +13428,6 @@ impl ::std::convert::From<i32> for D3D12_TEXTURE_LAYOUT {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_TEXTURE_LAYOUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13817,7 +13445,6 @@ impl ::std::convert::From<i32> for D3D12_TILED_RESOURCES_TIER {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_TILED_RESOURCES_TIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13847,7 +13474,6 @@ impl ::std::cmp::PartialEq for D3D12_TILED_RESOURCE_COORDINATE {
 impl ::std::cmp::Eq for D3D12_TILED_RESOURCE_COORDINATE {}
 unsafe impl ::windows::runtime::Abi for D3D12_TILED_RESOURCE_COORDINATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_TILED_RESOURCE_TILE_SIZE_IN_BYTES: u32 = 65536u32;
@@ -13866,7 +13492,6 @@ impl ::std::convert::From<u32> for D3D12_TILE_COPY_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_TILE_COPY_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_TILE_COPY_FLAGS {
     type Output = Self;
@@ -13909,7 +13534,6 @@ impl ::std::convert::From<u32> for D3D12_TILE_MAPPING_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_TILE_MAPPING_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_TILE_MAPPING_FLAGS {
     type Output = Self;
@@ -13954,7 +13578,6 @@ impl ::std::convert::From<i32> for D3D12_TILE_RANGE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_TILE_RANGE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13992,7 +13615,6 @@ impl ::std::cmp::Eq for D3D12_TILE_REGION_SIZE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_TILE_REGION_SIZE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14021,7 +13643,6 @@ impl ::std::cmp::PartialEq for D3D12_TILE_SHAPE {
 impl ::std::cmp::Eq for D3D12_TILE_SHAPE {}
 unsafe impl ::windows::runtime::Abi for D3D12_TILE_SHAPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_TRACKED_WORKLOAD_MAX_INSTANCES: u32 = 32u32;
@@ -14045,7 +13666,6 @@ impl ::std::convert::From<i32> for D3D12_UAV_DIMENSION {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_UAV_DIMENSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_UAV_SLOT_COUNT: u32 = 64u32;
@@ -14079,7 +13699,6 @@ impl ::std::cmp::Eq for D3D12_UNORDERED_ACCESS_VIEW_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_UNORDERED_ACCESS_VIEW_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14106,7 +13725,6 @@ impl ::std::cmp::PartialEq for D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {
 impl ::std::cmp::Eq for D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {}
 unsafe impl ::windows::runtime::Abi for D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14122,7 +13740,6 @@ impl ::std::convert::From<i32> for D3D12_VARIABLE_SHADING_RATE_TIER {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VARIABLE_SHADING_RATE_TIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14151,7 +13768,6 @@ impl ::std::cmp::Eq for D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14182,7 +13798,6 @@ impl ::std::cmp::Eq for D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14205,7 +13820,6 @@ impl ::std::cmp::PartialEq for D3D12_VERSIONED_ROOT_SIGNATURE_DESC {
 impl ::std::cmp::Eq for D3D12_VERSIONED_ROOT_SIGNATURE_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_VERSIONED_ROOT_SIGNATURE_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14228,7 +13842,6 @@ impl ::std::cmp::PartialEq for D3D12_VERSIONED_ROOT_SIGNATURE_DESC_0 {
 impl ::std::cmp::Eq for D3D12_VERSIONED_ROOT_SIGNATURE_DESC_0 {}
 unsafe impl ::windows::runtime::Abi for D3D12_VERSIONED_ROOT_SIGNATURE_DESC_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14257,7 +13870,6 @@ impl ::std::cmp::PartialEq for D3D12_VERTEX_BUFFER_VIEW {
 impl ::std::cmp::Eq for D3D12_VERTEX_BUFFER_VIEW {}
 unsafe impl ::windows::runtime::Abi for D3D12_VERTEX_BUFFER_VIEW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_VIDEO_DECODE_MAX_ARGUMENTS: u32 = 10u32;
@@ -14303,7 +13915,6 @@ impl ::std::cmp::PartialEq for D3D12_VIEWPORT {
 impl ::std::cmp::Eq for D3D12_VIEWPORT {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIEWPORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_VIEWPORT_AND_SCISSORRECT_MAX_INDEX: u32 = 15u32;
@@ -14339,7 +13950,6 @@ impl ::std::cmp::PartialEq for D3D12_VIEW_INSTANCE_LOCATION {
 impl ::std::cmp::Eq for D3D12_VIEW_INSTANCE_LOCATION {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIEW_INSTANCE_LOCATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14368,7 +13978,6 @@ impl ::std::cmp::PartialEq for D3D12_VIEW_INSTANCING_DESC {
 impl ::std::cmp::Eq for D3D12_VIEW_INSTANCING_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIEW_INSTANCING_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14383,7 +13992,6 @@ impl ::std::convert::From<u32> for D3D12_VIEW_INSTANCING_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIEW_INSTANCING_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIEW_INSTANCING_FLAGS {
     type Output = Self;
@@ -14428,7 +14036,6 @@ impl ::std::convert::From<i32> for D3D12_VIEW_INSTANCING_TIER {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIEW_INSTANCING_TIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_VS_INPUT_REGISTER_COMPONENTS: u32 = 4u32;
@@ -14459,7 +14066,6 @@ impl ::std::convert::From<i32> for D3D12_WAVE_MMA_TIER {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_WAVE_MMA_TIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D12_WHQL_CONTEXT_COUNT_FOR_RESOURCE_LIMIT: u32 = 10u32;
@@ -14481,7 +14087,6 @@ impl ::std::convert::From<i32> for D3D12_WRITEBUFFERIMMEDIATE_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_WRITEBUFFERIMMEDIATE_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14509,7 +14114,6 @@ impl ::std::cmp::PartialEq for D3D12_WRITEBUFFERIMMEDIATE_PARAMETER {
 impl ::std::cmp::Eq for D3D12_WRITEBUFFERIMMEDIATE_PARAMETER {}
 unsafe impl ::windows::runtime::Abi for D3D12_WRITEBUFFERIMMEDIATE_PARAMETER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -14541,7 +14145,6 @@ impl ::std::cmp::Eq for D3D9ON12_ARGS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D9ON12_ARGS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[repr(transparent)]
@@ -14573,7 +14176,6 @@ impl ::std::convert::From<i32> for D3D_ROOT_SIGNATURE_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for D3D_ROOT_SIGNATURE_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14595,7 +14197,6 @@ impl ::std::convert::From<i32> for D3D_SHADER_MODEL {
 }
 unsafe impl ::windows::runtime::Abi for D3D_SHADER_MODEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D_SHADER_REQUIRES_ATOMIC_INT64_ON_DESCRIPTOR_HEAP_RESOURCE: u32 = 268435456u32;
@@ -29359,7 +28960,6 @@ impl ::std::convert::From<i32> for MF_MT_D3D_RESOURCE_VERSION_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for MF_MT_D3D_RESOURCE_VERSION_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_SA_D3D12_CLEAR_VALUE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2260376121, 1318, 18781, [154, 181, 84, 236, 159, 173, 111, 195]);
 pub const MF_SA_D3D12_HEAP_FLAGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1231762022, 53903, 20364, [147, 167, 74, 89, 107, 26, 49, 161]);

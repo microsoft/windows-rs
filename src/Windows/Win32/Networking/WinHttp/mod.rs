@@ -233,7 +233,6 @@ impl ::std::cmp::PartialEq for HTTP_VERSION_INFO {
 impl ::std::cmp::Eq for HTTP_VERSION_INFO {}
 unsafe impl ::windows::runtime::Abi for HTTP_VERSION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const ICU_BROWSER_MODE: u32 = 33554432u32;
@@ -261,7 +260,6 @@ impl ::std::convert::From<u32> for INTERNET_PORT {
 }
 unsafe impl ::windows::runtime::Abi for INTERNET_PORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for INTERNET_PORT {
     type Output = Self;
@@ -386,7 +384,6 @@ impl ::std::cmp::Eq for URL_COMPONENTS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for URL_COMPONENTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -403,7 +400,6 @@ impl ::std::convert::From<u32> for WINHTTP_ACCESS_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WINHTTP_ACCESS_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WINHTTP_ACCESS_TYPE {
     type Output = Self;
@@ -475,7 +471,6 @@ impl ::std::cmp::PartialEq for WINHTTP_ASYNC_RESULT {
 impl ::std::cmp::Eq for WINHTTP_ASYNC_RESULT {}
 unsafe impl ::windows::runtime::Abi for WINHTTP_ASYNC_RESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_AUTH_SCHEME_DIGEST: u32 = 8u32;
@@ -557,7 +552,6 @@ impl ::std::cmp::Eq for WINHTTP_AUTOPROXY_OPTIONS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINHTTP_AUTOPROXY_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_AUTOPROXY_RUN_INPROCESS: u32 = 65536u32;
@@ -711,7 +705,6 @@ impl ::std::cmp::Eq for WINHTTP_CERTIFICATE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINHTTP_CERTIFICATE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -739,7 +732,6 @@ impl ::std::cmp::PartialEq for WINHTTP_CONNECTION_GROUP {
 impl ::std::cmp::Eq for WINHTTP_CONNECTION_GROUP {}
 unsafe impl ::windows::runtime::Abi for WINHTTP_CONNECTION_GROUP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -775,7 +767,6 @@ impl ::std::cmp::Eq for WINHTTP_CONNECTION_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for WINHTTP_CONNECTION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_CONNECTION_RETRY_CONDITION_408: u32 = 1u32;
@@ -822,7 +813,6 @@ impl ::std::cmp::Eq for WINHTTP_CREDS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINHTTP_CREDS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -838,7 +828,6 @@ impl ::std::convert::From<u32> for WINHTTP_CREDS_AUTHSCHEME {
 }
 unsafe impl ::windows::runtime::Abi for WINHTTP_CREDS_AUTHSCHEME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WINHTTP_CREDS_AUTHSCHEME {
     type Output = Self;
@@ -914,7 +903,6 @@ impl ::std::cmp::Eq for WINHTTP_CREDS_EX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINHTTP_CREDS_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -951,7 +939,6 @@ impl ::std::cmp::Eq for WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_DECOMPRESSION_FLAG_DEFLATE: u32 = 2u32;
@@ -1012,7 +999,6 @@ impl ::std::cmp::Eq for WINHTTP_EXTENDED_HEADER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINHTTP_EXTENDED_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1041,7 +1027,6 @@ impl ::std::cmp::Eq for WINHTTP_EXTENDED_HEADER_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINHTTP_EXTENDED_HEADER_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1070,7 +1055,6 @@ impl ::std::cmp::Eq for WINHTTP_EXTENDED_HEADER_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINHTTP_EXTENDED_HEADER_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_EXTENDED_HEADER_FLAG_UNICODE: u32 = 1u32;
@@ -1100,7 +1084,6 @@ impl ::std::cmp::PartialEq for WINHTTP_FAILED_CONNECTION_RETRIES {
 impl ::std::cmp::Eq for WINHTTP_FAILED_CONNECTION_RETRIES {}
 unsafe impl ::windows::runtime::Abi for WINHTTP_FAILED_CONNECTION_RETRIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_FLAG_ASYNC: u32 = 268435456u32;
@@ -1151,7 +1134,6 @@ impl ::std::cmp::Eq for WINHTTP_HEADER_NAME {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINHTTP_HEADER_NAME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1187,7 +1169,6 @@ impl ::std::cmp::Eq for WINHTTP_HOST_CONNECTION_GROUP {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINHTTP_HOST_CONNECTION_GROUP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1215,7 +1196,6 @@ impl ::std::cmp::PartialEq for WINHTTP_HTTP2_RECEIVE_WINDOW {
 impl ::std::cmp::Eq for WINHTTP_HTTP2_RECEIVE_WINDOW {}
 unsafe impl ::windows::runtime::Abi for WINHTTP_HTTP2_RECEIVE_WINDOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_IGNORE_REQUEST_TOTAL_LENGTH: u32 = 0u32;
@@ -1234,7 +1214,6 @@ impl ::std::convert::From<u32> for WINHTTP_INTERNET_SCHEME {
 }
 unsafe impl ::windows::runtime::Abi for WINHTTP_INTERNET_SCHEME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WINHTTP_INTERNET_SCHEME {
     type Output = Self;
@@ -1292,7 +1271,6 @@ impl ::std::cmp::PartialEq for WINHTTP_MATCH_CONNECTION_GUID {
 impl ::std::cmp::Eq for WINHTTP_MATCH_CONNECTION_GUID {}
 unsafe impl ::windows::runtime::Abi for WINHTTP_MATCH_CONNECTION_GUID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_MATCH_CONNECTION_GUID_FLAGS_MASK: u32 = 1u32;
@@ -1316,7 +1294,6 @@ impl ::std::convert::From<u32> for WINHTTP_OPEN_REQUEST_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for WINHTTP_OPEN_REQUEST_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WINHTTP_OPEN_REQUEST_FLAGS {
     type Output = Self;
@@ -1632,7 +1609,6 @@ impl ::std::cmp::Eq for WINHTTP_PROXY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINHTTP_PROXY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1667,7 +1643,6 @@ impl ::std::cmp::Eq for WINHTTP_PROXY_RESULT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINHTTP_PROXY_RESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1705,7 +1680,6 @@ impl ::std::cmp::Eq for WINHTTP_PROXY_RESULT_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINHTTP_PROXY_RESULT_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1742,7 +1716,6 @@ impl ::std::cmp::Eq for WINHTTP_PROXY_RESULT_EX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINHTTP_PROXY_RESULT_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1823,7 +1796,6 @@ impl ::std::cmp::Eq for WINHTTP_PROXY_SETTINGS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINHTTP_PROXY_SETTINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_PROXY_TYPE_AUTO_DETECT: u32 = 8u32;
@@ -1888,7 +1860,6 @@ impl ::std::cmp::Eq for WINHTTP_QUERY_CONNECTION_GROUP_RESULT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_QUERY_CONTENT_BASE: u32 = 50u32;
@@ -2064,7 +2035,6 @@ impl ::std::cmp::PartialEq for WINHTTP_REQUEST_STATS {
 impl ::std::cmp::Eq for WINHTTP_REQUEST_STATS {}
 unsafe impl ::windows::runtime::Abi for WINHTTP_REQUEST_STATS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2095,7 +2065,6 @@ impl ::std::convert::From<i32> for WINHTTP_REQUEST_STAT_ENTRY {
 }
 unsafe impl ::windows::runtime::Abi for WINHTTP_REQUEST_STAT_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_REQUEST_STAT_FLAG_FIRST_REQUEST: u32 = 32u32;
@@ -2135,7 +2104,6 @@ impl ::std::cmp::PartialEq for WINHTTP_REQUEST_TIMES {
 impl ::std::cmp::Eq for WINHTTP_REQUEST_TIMES {}
 unsafe impl ::windows::runtime::Abi for WINHTTP_REQUEST_TIMES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2186,7 +2154,6 @@ impl ::std::convert::From<i32> for WINHTTP_REQUEST_TIME_ENTRY {
 }
 unsafe impl ::windows::runtime::Abi for WINHTTP_REQUEST_TIME_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_RESET_ALL: u32 = 65535u32;
@@ -2241,7 +2208,6 @@ impl ::std::cmp::PartialEq for WINHTTP_RESOLVER_CACHE_CONFIG {
 impl ::std::cmp::Eq for WINHTTP_RESOLVER_CACHE_CONFIG {}
 unsafe impl ::windows::runtime::Abi for WINHTTP_RESOLVER_CACHE_CONFIG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_BYPASS_CACHE: u32 = 2u32;
@@ -2267,7 +2233,6 @@ impl ::std::convert::From<i32> for WINHTTP_SECURE_DNS_SETTING {
 }
 unsafe impl ::windows::runtime::Abi for WINHTTP_SECURE_DNS_SETTING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type WINHTTP_STATUS_CALLBACK = unsafe extern "system" fn(hinternet: *mut ::std::ffi::c_void, dwcontext: usize, dwinternetstatus: u32, lpvstatusinformation: *mut ::std::ffi::c_void, dwstatusinformationlength: u32);
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
@@ -2298,7 +2263,6 @@ impl ::std::cmp::PartialEq for WINHTTP_WEB_SOCKET_ASYNC_RESULT {
 impl ::std::cmp::Eq for WINHTTP_WEB_SOCKET_ASYNC_RESULT {}
 unsafe impl ::windows::runtime::Abi for WINHTTP_WEB_SOCKET_ASYNC_RESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2316,7 +2280,6 @@ impl ::std::convert::From<i32> for WINHTTP_WEB_SOCKET_BUFFER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WINHTTP_WEB_SOCKET_BUFFER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2341,7 +2304,6 @@ impl ::std::convert::From<i32> for WINHTTP_WEB_SOCKET_CLOSE_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for WINHTTP_WEB_SOCKET_CLOSE_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: u32 = 123u32;
@@ -2362,7 +2324,6 @@ impl ::std::convert::From<i32> for WINHTTP_WEB_SOCKET_OPERATION {
 }
 unsafe impl ::windows::runtime::Abi for WINHTTP_WEB_SOCKET_OPERATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2390,7 +2351,6 @@ impl ::std::cmp::PartialEq for WINHTTP_WEB_SOCKET_STATUS {
 impl ::std::cmp::Eq for WINHTTP_WEB_SOCKET_STATUS {}
 unsafe impl ::windows::runtime::Abi for WINHTTP_WEB_SOCKET_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2406,7 +2366,6 @@ impl ::std::convert::From<u32> for WIN_HTTP_CREATE_URL_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for WIN_HTTP_CREATE_URL_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WIN_HTTP_CREATE_URL_FLAGS {
     type Output = Self;
@@ -3250,5 +3209,4 @@ impl ::std::cmp::PartialEq for _WinHttpProxyNetworkKey {
 impl ::std::cmp::Eq for _WinHttpProxyNetworkKey {}
 unsafe impl ::windows::runtime::Abi for _WinHttpProxyNetworkKey {
     type Abi = Self;
-    type DefaultType = Self;
 }

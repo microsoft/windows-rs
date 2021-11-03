@@ -74,7 +74,6 @@ impl ::std::cmp::Eq for BG_AUTH_CREDENTIALS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BG_AUTH_CREDENTIALS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -102,7 +101,6 @@ impl ::std::cmp::Eq for BG_AUTH_CREDENTIALS_UNION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BG_AUTH_CREDENTIALS_UNION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -120,7 +118,6 @@ impl ::std::convert::From<i32> for BG_AUTH_SCHEME {
 }
 unsafe impl ::windows::runtime::Abi for BG_AUTH_SCHEME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -135,7 +132,6 @@ impl ::std::convert::From<i32> for BG_AUTH_TARGET {
 }
 unsafe impl ::windows::runtime::Abi for BG_AUTH_TARGET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -170,7 +166,6 @@ impl ::std::cmp::Eq for BG_BASIC_CREDENTIALS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BG_BASIC_CREDENTIALS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -191,7 +186,6 @@ impl ::std::convert::From<i32> for BG_CERT_STORE_LOCATION {
 }
 unsafe impl ::windows::runtime::Abi for BG_CERT_STORE_LOCATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 pub const BG_COPY_FILE_ALL: u32 = 15u32;
@@ -229,7 +223,6 @@ impl ::std::convert::From<i32> for BG_ERROR_CONTEXT {
 }
 unsafe impl ::windows::runtime::Abi for BG_ERROR_CONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 pub const BG_E_APP_PACKAGE_NOT_FOUND: i32 = -2145386390i32;
@@ -518,7 +511,6 @@ impl ::std::cmp::Eq for BG_FILE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BG_FILE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -554,7 +546,6 @@ impl ::std::cmp::Eq for BG_FILE_PROGRESS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BG_FILE_PROGRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -582,7 +573,6 @@ impl ::std::cmp::PartialEq for BG_FILE_RANGE {
 impl ::std::cmp::Eq for BG_FILE_RANGE {}
 unsafe impl ::windows::runtime::Abi for BG_FILE_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 pub const BG_HTTP_REDIRECT_POLICY_ALLOW_HTTPS_TO_HTTP: u32 = 2048u32;
@@ -617,7 +607,6 @@ impl ::std::convert::From<i32> for BG_JOB_PRIORITY {
 }
 unsafe impl ::windows::runtime::Abi for BG_JOB_PRIORITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -647,7 +636,6 @@ impl ::std::cmp::PartialEq for BG_JOB_PROGRESS {
 impl ::std::cmp::Eq for BG_JOB_PROGRESS {}
 unsafe impl ::windows::runtime::Abi for BG_JOB_PROGRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -664,7 +652,6 @@ impl ::std::convert::From<i32> for BG_JOB_PROXY_USAGE {
 }
 unsafe impl ::windows::runtime::Abi for BG_JOB_PROXY_USAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -692,7 +679,6 @@ impl ::std::cmp::PartialEq for BG_JOB_REPLY_PROGRESS {
 impl ::std::cmp::Eq for BG_JOB_REPLY_PROGRESS {}
 unsafe impl ::windows::runtime::Abi for BG_JOB_REPLY_PROGRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -714,7 +700,6 @@ impl ::std::convert::From<i32> for BG_JOB_STATE {
 }
 unsafe impl ::windows::runtime::Abi for BG_JOB_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -750,7 +735,6 @@ impl ::std::cmp::Eq for BG_JOB_TIMES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BG_JOB_TIMES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -766,7 +750,6 @@ impl ::std::convert::From<i32> for BG_JOB_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for BG_JOB_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 pub const BG_NOTIFY_DISABLE: u32 = 4u32;
@@ -813,7 +796,6 @@ impl ::std::convert::From<u32> for BG_TOKEN {
 }
 unsafe impl ::windows::runtime::Abi for BG_TOKEN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for BG_TOKEN {
     type Output = Self;
@@ -876,7 +858,6 @@ impl ::std::convert::From<i32> for BITS_FILE_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for BITS_FILE_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -904,7 +885,6 @@ impl ::std::cmp::Eq for BITS_FILE_PROPERTY_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BITS_FILE_PROPERTY_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -925,7 +905,6 @@ impl ::std::convert::From<i32> for BITS_JOB_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for BITS_JOB_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -957,7 +936,6 @@ impl ::std::cmp::Eq for BITS_JOB_PROPERTY_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BITS_JOB_PROPERTY_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -975,7 +953,6 @@ impl ::std::convert::From<i32> for BITS_JOB_TRANSFER_POLICY {
 }
 unsafe impl ::windows::runtime::Abi for BITS_JOB_TRANSFER_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 pub const BITS_MC_FAILED_TO_START: i32 = -2145828856i32;
@@ -1046,7 +1023,6 @@ impl ::std::cmp::Eq for FILESETINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FILESETINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1072,7 +1048,6 @@ impl ::std::convert::From<i32> for GROUPPROP {
 }
 unsafe impl ::windows::runtime::Abi for GROUPPROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_BackgroundIntelligentTransferService`*"]
 #[repr(transparent)]

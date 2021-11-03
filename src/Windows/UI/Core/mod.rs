@@ -105,10 +105,12 @@ impl ::std::convert::From<i32> for AppViewBackButtonVisibility {
 }
 unsafe impl ::windows::runtime::Abi for AppViewBackButtonVisibility {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppViewBackButtonVisibility {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AppViewBackButtonVisibility;i4)");
+}
+impl ::windows::runtime::DefaultType for AppViewBackButtonVisibility {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Core`*"]
 #[repr(transparent)]
@@ -343,10 +345,12 @@ impl ::std::convert::From<i32> for CoreAcceleratorKeyEventType {
 }
 unsafe impl ::windows::runtime::Abi for CoreAcceleratorKeyEventType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CoreAcceleratorKeyEventType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreAcceleratorKeyEventType;i4)");
+}
+impl ::windows::runtime::DefaultType for CoreAcceleratorKeyEventType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Core`*"]
 #[repr(transparent)]
@@ -877,10 +881,12 @@ impl ::std::convert::From<i32> for CoreCursorType {
 }
 unsafe impl ::windows::runtime::Abi for CoreCursorType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CoreCursorType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreCursorType;i4)");
+}
+impl ::windows::runtime::DefaultType for CoreCursorType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Core`*"]
 #[repr(transparent)]
@@ -1037,10 +1043,12 @@ impl ::std::convert::From<i32> for CoreDispatcherPriority {
 }
 unsafe impl ::windows::runtime::Abi for CoreDispatcherPriority {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CoreDispatcherPriority {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreDispatcherPriority;i4)");
+}
+impl ::windows::runtime::DefaultType for CoreDispatcherPriority {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1061,10 +1069,12 @@ impl ::std::convert::From<u32> for CoreIndependentInputFilters {
 }
 unsafe impl ::windows::runtime::Abi for CoreIndependentInputFilters {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CoreIndependentInputFilters {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreIndependentInputFilters;u4)");
+}
+impl ::windows::runtime::DefaultType for CoreIndependentInputFilters {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CoreIndependentInputFilters {
     type Output = Self;
@@ -1564,10 +1574,12 @@ impl ::std::convert::From<u32> for CoreInputDeviceTypes {
 }
 unsafe impl ::windows::runtime::Abi for CoreInputDeviceTypes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CoreInputDeviceTypes {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreInputDeviceTypes;u4)");
+}
+impl ::windows::runtime::DefaultType for CoreInputDeviceTypes {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CoreInputDeviceTypes {
     type Output = Self;
@@ -1627,10 +1639,12 @@ impl ::std::cmp::PartialEq for CorePhysicalKeyStatus {
 impl ::std::cmp::Eq for CorePhysicalKeyStatus {}
 unsafe impl ::windows::runtime::Abi for CorePhysicalKeyStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CorePhysicalKeyStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.Core.CorePhysicalKeyStatus;u4;u4;b1;b1;b1;b1)");
+}
+impl ::windows::runtime::DefaultType for CorePhysicalKeyStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1649,10 +1663,12 @@ impl ::std::convert::From<i32> for CoreProcessEventsOption {
 }
 unsafe impl ::windows::runtime::Abi for CoreProcessEventsOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CoreProcessEventsOption {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreProcessEventsOption;i4)");
+}
+impl ::windows::runtime::DefaultType for CoreProcessEventsOption {
+    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1687,11 +1703,13 @@ impl ::std::cmp::Eq for CoreProximityEvaluation {}
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::runtime::Abi for CoreProximityEvaluation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::runtime::RuntimeType for CoreProximityEvaluation {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.Core.CoreProximityEvaluation;i4;struct(Windows.Foundation.Point;f4;f4))");
+}
+impl ::windows::runtime::DefaultType for CoreProximityEvaluation {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1708,10 +1726,12 @@ impl ::std::convert::From<i32> for CoreProximityEvaluationScore {
 }
 unsafe impl ::windows::runtime::Abi for CoreProximityEvaluationScore {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CoreProximityEvaluationScore {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreProximityEvaluationScore;i4)");
+}
+impl ::windows::runtime::DefaultType for CoreProximityEvaluationScore {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1729,10 +1749,12 @@ impl ::std::convert::From<u32> for CoreVirtualKeyStates {
 }
 unsafe impl ::windows::runtime::Abi for CoreVirtualKeyStates {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CoreVirtualKeyStates {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreVirtualKeyStates;u4)");
+}
+impl ::windows::runtime::DefaultType for CoreVirtualKeyStates {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CoreVirtualKeyStates {
     type Output = Self;
@@ -2360,10 +2382,12 @@ impl ::std::convert::From<i32> for CoreWindowActivationMode {
 }
 unsafe impl ::windows::runtime::Abi for CoreWindowActivationMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CoreWindowActivationMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreWindowActivationMode;i4)");
+}
+impl ::windows::runtime::DefaultType for CoreWindowActivationMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2381,10 +2405,12 @@ impl ::std::convert::From<i32> for CoreWindowActivationState {
 }
 unsafe impl ::windows::runtime::Abi for CoreWindowActivationState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CoreWindowActivationState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreWindowActivationState;i4)");
+}
+impl ::windows::runtime::DefaultType for CoreWindowActivationState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Core`*"]
 #[repr(transparent)]
@@ -2605,10 +2631,12 @@ impl ::std::convert::From<i32> for CoreWindowFlowDirection {
 }
 unsafe impl ::windows::runtime::Abi for CoreWindowFlowDirection {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CoreWindowFlowDirection {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreWindowFlowDirection;i4)");
+}
+impl ::windows::runtime::DefaultType for CoreWindowFlowDirection {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Core`*"]
 #[repr(transparent)]
@@ -2894,7 +2922,6 @@ impl<F: FnMut() -> ::windows::runtime::Result<()> + 'static> DispatchedHandler_b
     }
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAcceleratorKeyEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAcceleratorKeyEventArgs {
@@ -2916,7 +2943,6 @@ pub struct IAcceleratorKeyEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut CorePhysicalKeyStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAcceleratorKeyEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAcceleratorKeyEventArgs2 {
@@ -2935,7 +2961,6 @@ pub struct IAcceleratorKeyEventArgs2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationProviderRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationProviderRequestedEventArgs {
@@ -2955,7 +2980,6 @@ pub struct IAutomationProviderRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackRequestedEventArgs {
@@ -2975,7 +2999,6 @@ pub struct IBackRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICharacterReceivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICharacterReceivedEventArgs {
@@ -2995,7 +3018,6 @@ pub struct ICharacterReceivedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut CorePhysicalKeyStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClosestInteractiveBoundsRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClosestInteractiveBoundsRequestedEventArgs {
@@ -3063,7 +3085,6 @@ pub struct ICoreAcceleratorKeys_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreClosestInteractiveBoundsRequested(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreClosestInteractiveBoundsRequested {
@@ -3085,7 +3106,6 @@ pub struct ICoreClosestInteractiveBoundsRequested_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreComponentFocusable(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreComponentFocusable {
@@ -3112,7 +3132,6 @@ pub struct ICoreComponentFocusable_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreCursor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreCursor {
@@ -3132,7 +3151,6 @@ pub struct ICoreCursor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut CoreCursorType) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreCursorFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreCursorFactory {
@@ -3151,7 +3169,6 @@ pub struct ICoreCursorFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: CoreCursorType, id: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreDispatcher(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDispatcher {
@@ -3175,7 +3192,6 @@ pub struct ICoreDispatcher_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreDispatcher2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDispatcher2 {
@@ -3197,7 +3213,6 @@ pub struct ICoreDispatcher2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreDispatcherWithTaskPriority(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDispatcherWithTaskPriority {
@@ -3220,7 +3235,6 @@ pub struct ICoreDispatcherWithTaskPriority_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreIndependentInputSourceController(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreIndependentInputSourceController {
@@ -3245,7 +3259,6 @@ pub struct ICoreIndependentInputSourceController_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputtypes: CoreInputDeviceTypes, required: CoreIndependentInputFilters, excluded: CoreIndependentInputFilters) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreIndependentInputSourceControllerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreIndependentInputSourceControllerStatics {
@@ -3333,7 +3346,6 @@ pub struct ICoreInputSourceBase_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreKeyboardInputSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreKeyboardInputSource {
@@ -3365,7 +3377,6 @@ pub struct ICoreKeyboardInputSource_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreKeyboardInputSource2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreKeyboardInputSource2 {
@@ -3868,7 +3879,6 @@ pub struct ICorePointerRedirector_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreTouchHitTesting(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTouchHitTesting {
@@ -4387,7 +4397,6 @@ pub struct ICoreWindow_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreWindow2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreWindow2 {
@@ -4407,7 +4416,6 @@ pub struct ICoreWindow2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreWindow3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreWindow3 {
@@ -4430,7 +4438,6 @@ pub struct ICoreWindow3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreWindow4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreWindow4 {
@@ -4456,7 +4463,6 @@ pub struct ICoreWindow4_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreWindow5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreWindow5 {
@@ -4477,7 +4483,6 @@ pub struct ICoreWindow5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut CoreWindowActivationMode) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreWindowDialog(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreWindowDialog {
@@ -4519,7 +4524,6 @@ pub struct ICoreWindowDialog_abi(
     #[cfg(not(all(feature = "Foundation", feature = "UI_Popups")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreWindowDialogFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreWindowDialogFactory {
@@ -4576,7 +4580,6 @@ pub struct ICoreWindowEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreWindowFlyout(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreWindowFlyout {
@@ -4616,7 +4619,6 @@ pub struct ICoreWindowFlyout_abi(
     #[cfg(not(all(feature = "Foundation", feature = "UI_Popups")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreWindowFlyoutFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreWindowFlyoutFactory {
@@ -4638,7 +4640,6 @@ pub struct ICoreWindowFlyoutFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreWindowPopupShowingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreWindowPopupShowingEventArgs {
@@ -4658,7 +4659,6 @@ pub struct ICoreWindowPopupShowingEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreWindowResizeManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreWindowResizeManager {
@@ -4677,7 +4677,6 @@ pub struct ICoreWindowResizeManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreWindowResizeManagerLayoutCapability(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreWindowResizeManagerLayoutCapability {
@@ -4697,7 +4696,6 @@ pub struct ICoreWindowResizeManagerLayoutCapability_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreWindowResizeManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreWindowResizeManagerStatics {
@@ -4716,7 +4714,6 @@ pub struct ICoreWindowResizeManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreWindowStatic(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreWindowStatic {
@@ -4735,7 +4732,6 @@ pub struct ICoreWindowStatic_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreWindowWithContext(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreWindowWithContext {
@@ -4754,7 +4750,6 @@ pub struct ICoreWindowWithContext_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIdleDispatchedHandlerArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIdleDispatchedHandlerArgs {
@@ -4802,7 +4797,6 @@ pub struct IInitializeWithCoreWindow_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, window: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInputEnabledEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputEnabledEventArgs {
@@ -4821,7 +4815,6 @@ pub struct IInputEnabledEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyEventArgs {
@@ -4842,7 +4835,6 @@ pub struct IKeyEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut CorePhysicalKeyStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyEventArgs2 {
@@ -4861,7 +4853,6 @@ pub struct IKeyEventArgs2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPointerEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointerEventArgs {
@@ -4885,7 +4876,6 @@ pub struct IPointerEventArgs_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Input")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISystemNavigationManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemNavigationManager {
@@ -4907,7 +4897,6 @@ pub struct ISystemNavigationManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISystemNavigationManager2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemNavigationManager2 {
@@ -4927,7 +4916,6 @@ pub struct ISystemNavigationManager2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: AppViewBackButtonVisibility) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISystemNavigationManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemNavigationManagerStatics {
@@ -4946,7 +4934,6 @@ pub struct ISystemNavigationManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITouchHitTestingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITouchHitTestingEventArgs {
@@ -4976,7 +4963,6 @@ pub struct ITouchHitTestingEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVisibilityChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisibilityChangedEventArgs {
@@ -4995,7 +4981,6 @@ pub struct IVisibilityChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWindowActivatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowActivatedEventArgs {
@@ -5014,7 +4999,6 @@ pub struct IWindowActivatedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut CoreWindowActivationState) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWindowSizeChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowSizeChangedEventArgs {
@@ -5103,7 +5087,7 @@ impl<F: FnMut(&::std::option::Option<IdleDispatchedHandlerArgs>) -> ::windows::r
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, e: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&e as *const <IdleDispatchedHandlerArgs as ::windows::runtime::Abi>::Abi as *const <IdleDispatchedHandlerArgs as ::windows::runtime::Abi>::DefaultType)).into()
+        ((*this).invoke)(&*(&e as *const <IdleDispatchedHandlerArgs as ::windows::runtime::Abi>::Abi as *const <IdleDispatchedHandlerArgs as ::windows::runtime::DefaultType>::DefaultType)).into()
     }
 }
 #[doc = "*Required features: `UI_Core`*"]
@@ -5449,7 +5433,7 @@ impl TouchHitTestingEventArgs {
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Core`, `Foundation`*"]
-    pub fn EvaluateProximityToPolygon(&self, controlvertices: &[<super::super::Foundation::Point as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<CoreProximityEvaluation> {
+    pub fn EvaluateProximityToPolygon(&self, controlvertices: &[<super::super::Foundation::Point as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<CoreProximityEvaluation> {
         let this = self;
         unsafe {
             let mut result__: CoreProximityEvaluation = ::std::mem::zeroed();

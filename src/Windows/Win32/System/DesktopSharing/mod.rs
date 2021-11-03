@@ -15,7 +15,6 @@ impl ::std::convert::From<i32> for ATTENDEE_DISCONNECT_REASON {
 }
 unsafe impl ::windows::runtime::Abi for ATTENDEE_DISCONNECT_REASON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -30,7 +29,6 @@ impl ::std::convert::From<i32> for CHANNEL_ACCESS_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for CHANNEL_ACCESS_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -46,7 +44,6 @@ impl ::std::convert::From<i32> for CHANNEL_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CHANNEL_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -62,7 +59,6 @@ impl ::std::convert::From<i32> for CHANNEL_PRIORITY {
 }
 unsafe impl ::windows::runtime::Abi for CHANNEL_PRIORITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -83,7 +79,6 @@ impl ::std::convert::From<i32> for CTRL_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for CTRL_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 pub const DISPID_RDPAPI_EVENT_ON_BOUNDING_RECT_CHANGED: u32 = 340u32;
@@ -2292,7 +2287,6 @@ impl ::std::convert::From<i32> for RDPENCOMAPI_ATTENDEE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for RDPENCOMAPI_ATTENDEE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const RDPSRAPIApplication: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3239486596, 19237, 19359, [138, 84, 185, 52, 176, 110, 87, 250]);
 pub const RDPSRAPIApplicationFilter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3814379145, 51176, 17022, [164, 249, 185, 218, 7, 40, 38, 189]);
@@ -2319,7 +2313,6 @@ impl ::std::convert::From<i32> for RDPSRAPI_APP_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for RDPSRAPI_APP_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2334,7 +2327,6 @@ impl ::std::convert::From<i32> for RDPSRAPI_KBD_CODE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RDPSRAPI_KBD_CODE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2351,7 +2343,6 @@ impl ::std::convert::From<i32> for RDPSRAPI_KBD_SYNC_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for RDPSRAPI_KBD_SYNC_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2370,7 +2361,6 @@ impl ::std::convert::From<i32> for RDPSRAPI_MOUSE_BUTTON_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RDPSRAPI_MOUSE_BUTTON_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DesktopSharing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2384,7 +2374,6 @@ impl ::std::convert::From<i32> for RDPSRAPI_WND_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for RDPSRAPI_WND_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const RDPSession: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2608394470, 15877, 19035, [178, 232, 231, 67, 168, 149, 107, 101]);
 pub const RDPTransportStreamBuffer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2370444393, 61823, 17737, [166, 153, 118, 28, 110, 107, 92, 10]);
@@ -2456,7 +2445,6 @@ impl ::std::convert::From<i32> for __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 
 }
 unsafe impl ::windows::runtime::Abi for __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2499,5 +2487,4 @@ impl ::std::cmp::PartialEq for __ReferenceRemainingTypes__ {
 impl ::std::cmp::Eq for __ReferenceRemainingTypes__ {}
 unsafe impl ::windows::runtime::Abi for __ReferenceRemainingTypes__ {
     type Abi = Self;
-    type DefaultType = Self;
 }

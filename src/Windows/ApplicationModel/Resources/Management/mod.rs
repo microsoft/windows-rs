@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIndexedResourceCandidate(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIndexedResourceCandidate {
@@ -27,7 +26,6 @@ pub struct IIndexedResourceCandidate_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, qualifiername: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIndexedResourceQualifier(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIndexedResourceQualifier {
@@ -47,7 +45,6 @@ pub struct IIndexedResourceQualifier_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IResourceIndexer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceIndexer {
@@ -69,7 +66,6 @@ pub struct IResourceIndexer_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IResourceIndexerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceIndexerFactory {
@@ -89,7 +85,6 @@ pub struct IResourceIndexerFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IResourceIndexerFactory2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceIndexerFactory2 {
@@ -227,10 +222,12 @@ impl ::std::convert::From<i32> for IndexedResourceType {
 }
 unsafe impl ::windows::runtime::Abi for IndexedResourceType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for IndexedResourceType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Management.IndexedResourceType;i4)");
+}
+impl ::windows::runtime::DefaultType for IndexedResourceType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Resources_Management`*"]
 #[repr(transparent)]

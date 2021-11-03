@@ -136,13 +136,14 @@ impl ::std::convert::From<i32> for AppCapabilityAccessStatus {
 }
 unsafe impl ::windows::runtime::Abi for AppCapabilityAccessStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppCapabilityAccessStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessStatus;i4)");
 }
+impl ::windows::runtime::DefaultType for AppCapabilityAccessStatus {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppCapability(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCapability {
@@ -170,7 +171,6 @@ pub struct IAppCapability_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppCapabilityAccessChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCapabilityAccessChangedEventArgs {
@@ -188,7 +188,6 @@ pub struct IAppCapabilityAccessChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppCapabilityStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppCapabilityStatics {

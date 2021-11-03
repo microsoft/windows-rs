@@ -53,7 +53,6 @@ impl ::std::cmp::PartialEq for APOInitBaseStruct {
 impl ::std::cmp::Eq for APOInitBaseStruct {}
 unsafe impl ::windows::runtime::Abi for APOInitBaseStruct {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -97,7 +96,6 @@ impl ::std::cmp::Eq for APOInitSystemEffects {}
 #[cfg(all(feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_PropertiesSystem"))]
 unsafe impl ::windows::runtime::Abi for APOInitSystemEffects {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -157,7 +155,6 @@ impl ::std::cmp::Eq for APOInitSystemEffects2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_PropertiesSystem"))]
 unsafe impl ::windows::runtime::Abi for APOInitSystemEffects2 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -173,7 +170,6 @@ impl ::std::convert::From<i32> for APO_CONNECTION_BUFFER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for APO_CONNECTION_BUFFER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -204,7 +200,6 @@ impl ::std::cmp::PartialEq for APO_CONNECTION_DESCRIPTOR {
 impl ::std::cmp::Eq for APO_CONNECTION_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for APO_CONNECTION_DESCRIPTOR {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -224,7 +219,6 @@ impl ::std::convert::From<i32> for APO_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for APO_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -289,7 +283,6 @@ impl ::std::cmp::PartialEq for APO_REG_PROPERTIES {
 impl ::std::cmp::Eq for APO_REG_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for APO_REG_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const AUDIOMEDIATYPE_EQUAL_FORMAT_DATA: u32 = 4u32;
@@ -310,7 +303,6 @@ impl ::std::convert::From<i32> for AUDIO_FLOW_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for AUDIO_FLOW_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const AUDIO_MAX_CHANNELS: u32 = 4096u32;
@@ -354,7 +346,6 @@ impl ::std::cmp::Eq for AudioFXExtensionParams {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem"))]
 unsafe impl ::windows::runtime::Abi for AudioFXExtensionParams {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 pub const CLSID_DirectMusic: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1667997456, 3197, 4561, [149, 178, 0, 32, 175, 220, 116, 33]);
 pub const CLSID_DirectMusicCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1209005232, 10418, 4561, [190, 247, 0, 192, 79, 191, 143, 239]);
@@ -395,7 +386,6 @@ impl ::std::cmp::PartialEq for CONNECTION {
 impl ::std::cmp::Eq for CONNECTION {}
 unsafe impl ::windows::runtime::Abi for CONNECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -423,7 +413,6 @@ impl ::std::cmp::PartialEq for CONNECTIONLIST {
 impl ::std::cmp::Eq for CONNECTIONLIST {}
 unsafe impl ::windows::runtime::Abi for CONNECTIONLIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const CONN_DST_ATTENUATION: u32 = 1u32;
@@ -588,7 +577,6 @@ impl ::std::convert::From<i32> for DIRECTSOUNDDEVICE_DATAFLOW {
 }
 unsafe impl ::windows::runtime::Abi for DIRECTSOUNDDEVICE_DATAFLOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -604,7 +592,6 @@ impl ::std::convert::From<i32> for DIRECTSOUNDDEVICE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DIRECTSOUNDDEVICE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DIRECTSOUND_VERSION: u32 = 1792u32;
@@ -633,7 +620,6 @@ impl ::std::cmp::PartialEq for DLSHEADER {
 impl ::std::cmp::Eq for DLSHEADER {}
 unsafe impl ::windows::runtime::Abi for DLSHEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -663,7 +649,6 @@ impl ::std::cmp::PartialEq for DLSID {
 impl ::std::cmp::Eq for DLSID {}
 unsafe impl ::windows::runtime::Abi for DLSID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const DLSID_GMInHardware: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395259684, 50020, 4561, [167, 96, 0, 0, 248, 117, 172, 18]);
 pub const DLSID_GSInHardware: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395259685, 50020, 4561, [167, 96, 0, 0, 248, 117, 172, 18]);
@@ -700,7 +685,6 @@ impl ::std::cmp::PartialEq for DLSVERSION {
 impl ::std::cmp::Eq for DLSVERSION {}
 unsafe impl ::windows::runtime::Abi for DLSVERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DLS_CDL_ADD: u32 = 4u32;
@@ -766,7 +750,6 @@ impl ::std::cmp::PartialEq for DMUS_ARTICPARAMS {
 impl ::std::cmp::Eq for DMUS_ARTICPARAMS {}
 unsafe impl ::windows::runtime::Abi for DMUS_ARTICPARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -794,7 +777,6 @@ impl ::std::cmp::PartialEq for DMUS_ARTICULATION {
 impl ::std::cmp::Eq for DMUS_ARTICULATION {}
 unsafe impl ::windows::runtime::Abi for DMUS_ARTICULATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -823,7 +805,6 @@ impl ::std::cmp::PartialEq for DMUS_ARTICULATION2 {
 impl ::std::cmp::Eq for DMUS_ARTICULATION2 {}
 unsafe impl ::windows::runtime::Abi for DMUS_ARTICULATION2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -853,7 +834,6 @@ impl ::std::cmp::PartialEq for DMUS_BUFFERDESC {
 impl ::std::cmp::Eq for DMUS_BUFFERDESC {}
 unsafe impl ::windows::runtime::Abi for DMUS_BUFFERDESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_CLOCKF_GLOBAL: u32 = 1u32;
@@ -885,7 +865,6 @@ impl ::std::cmp::PartialEq for DMUS_CLOCKINFO7 {
 impl ::std::cmp::Eq for DMUS_CLOCKINFO7 {}
 unsafe impl ::windows::runtime::Abi for DMUS_CLOCKINFO7 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -916,7 +895,6 @@ impl ::std::cmp::PartialEq for DMUS_CLOCKINFO8 {
 impl ::std::cmp::Eq for DMUS_CLOCKINFO8 {}
 unsafe impl ::windows::runtime::Abi for DMUS_CLOCKINFO8 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -931,7 +909,6 @@ impl ::std::convert::From<i32> for DMUS_CLOCKTYPE {
 }
 unsafe impl ::windows::runtime::Abi for DMUS_CLOCKTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -959,7 +936,6 @@ impl ::std::cmp::PartialEq for DMUS_COPYRIGHT {
 impl ::std::cmp::Eq for DMUS_COPYRIGHT {}
 unsafe impl ::windows::runtime::Abi for DMUS_COPYRIGHT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_DEFAULT_SIZE_OFFSETTABLE: u32 = 1u32;
@@ -991,7 +967,6 @@ impl ::std::cmp::PartialEq for DMUS_DOWNLOADINFO {
 impl ::std::cmp::Eq for DMUS_DOWNLOADINFO {}
 unsafe impl ::windows::runtime::Abi for DMUS_DOWNLOADINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_DOWNLOADINFO_INSTRUMENT: u32 = 1u32;
@@ -1036,7 +1011,6 @@ impl ::std::cmp::PartialEq for DMUS_EVENTHEADER {
 impl ::std::cmp::Eq for DMUS_EVENTHEADER {}
 unsafe impl ::windows::runtime::Abi for DMUS_EVENTHEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_EVENT_STRUCTURED: u32 = 1u32;
@@ -1068,7 +1042,6 @@ impl ::std::cmp::PartialEq for DMUS_EXTENSIONCHUNK {
 impl ::std::cmp::Eq for DMUS_EXTENSIONCHUNK {}
 unsafe impl ::windows::runtime::Abi for DMUS_EXTENSIONCHUNK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1100,7 +1073,6 @@ impl ::std::cmp::PartialEq for DMUS_INSTRUMENT {
 impl ::std::cmp::Eq for DMUS_INSTRUMENT {}
 unsafe impl ::windows::runtime::Abi for DMUS_INSTRUMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_INSTRUMENT_GM_INSTRUMENT: u32 = 1u32;
@@ -1134,7 +1106,6 @@ impl ::std::cmp::PartialEq for DMUS_LFOPARAMS {
 impl ::std::cmp::Eq for DMUS_LFOPARAMS {}
 unsafe impl ::windows::runtime::Abi for DMUS_LFOPARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_MAX_DESCRIPTION: u32 = 128u32;
@@ -1167,7 +1138,6 @@ impl ::std::cmp::PartialEq for DMUS_MSCPARAMS {
 impl ::std::cmp::Eq for DMUS_MSCPARAMS {}
 unsafe impl ::windows::runtime::Abi for DMUS_MSCPARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1195,7 +1165,6 @@ impl ::std::cmp::PartialEq for DMUS_NOTERANGE {
 impl ::std::cmp::Eq for DMUS_NOTERANGE {}
 unsafe impl ::windows::runtime::Abi for DMUS_NOTERANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1222,7 +1191,6 @@ impl ::std::cmp::PartialEq for DMUS_OFFSETTABLE {
 impl ::std::cmp::Eq for DMUS_OFFSETTABLE {}
 unsafe impl ::windows::runtime::Abi for DMUS_OFFSETTABLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PC_AUDIOPATH: u32 = 1024u32;
@@ -1285,7 +1253,6 @@ impl ::std::cmp::PartialEq for DMUS_PEGPARAMS {
 impl ::std::cmp::Eq for DMUS_PEGPARAMS {}
 unsafe impl ::windows::runtime::Abi for DMUS_PEGPARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1334,7 +1301,6 @@ impl ::std::cmp::PartialEq for DMUS_PORTCAPS {
 impl ::std::cmp::Eq for DMUS_PORTCAPS {}
 unsafe impl ::windows::runtime::Abi for DMUS_PORTCAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1386,7 +1352,6 @@ impl ::std::cmp::Eq for DMUS_PORTPARAMS8 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DMUS_PORTPARAMS8 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_PORTPARAMS_AUDIOCHANNELS: u32 = 4u32;
@@ -1457,7 +1422,6 @@ impl ::std::cmp::PartialEq for DMUS_REGION {
 impl ::std::cmp::Eq for DMUS_REGION {}
 unsafe impl ::windows::runtime::Abi for DMUS_REGION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1500,7 +1464,6 @@ impl ::std::cmp::PartialEq for DMUS_SYNTHSTATS {
 impl ::std::cmp::Eq for DMUS_SYNTHSTATS {}
 unsafe impl ::windows::runtime::Abi for DMUS_SYNTHSTATS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1545,7 +1508,6 @@ impl ::std::cmp::PartialEq for DMUS_SYNTHSTATS8 {
 impl ::std::cmp::Eq for DMUS_SYNTHSTATS8 {}
 unsafe impl ::windows::runtime::Abi for DMUS_SYNTHSTATS8 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_SYNTHSTATS_CPU_PER_VOICE: u32 = 4u32;
@@ -1591,7 +1553,6 @@ impl ::std::cmp::PartialEq for DMUS_VEGPARAMS {
 impl ::std::cmp::Eq for DMUS_VEGPARAMS {}
 unsafe impl ::windows::runtime::Abi for DMUS_VEGPARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1626,7 +1587,6 @@ impl ::std::cmp::Eq for DMUS_VOICE_STATE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DMUS_VOICE_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DMUS_VOLUME_MAX: u32 = 2000u32;
@@ -1661,7 +1621,6 @@ impl ::std::cmp::Eq for DMUS_WAVE {}
 #[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for DMUS_WAVE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1692,7 +1651,6 @@ impl ::std::cmp::PartialEq for DMUS_WAVEARTDL {
 impl ::std::cmp::Eq for DMUS_WAVEARTDL {}
 unsafe impl ::windows::runtime::Abi for DMUS_WAVEARTDL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1720,7 +1678,6 @@ impl ::std::cmp::PartialEq for DMUS_WAVEDATA {
 impl ::std::cmp::Eq for DMUS_WAVEDATA {}
 unsafe impl ::windows::runtime::Abi for DMUS_WAVEDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1747,7 +1704,6 @@ impl ::std::cmp::PartialEq for DMUS_WAVEDL {
 impl ::std::cmp::Eq for DMUS_WAVEDL {}
 unsafe impl ::windows::runtime::Abi for DMUS_WAVEDL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1777,7 +1733,6 @@ impl ::std::cmp::PartialEq for DMUS_WAVES_REVERB_PARAMS {
 impl ::std::cmp::Eq for DMUS_WAVES_REVERB_PARAMS {}
 unsafe impl ::windows::runtime::Abi for DMUS_WAVES_REVERB_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const DS3DALG_HRTF_FULL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3259052864, 7195, 4562, [148, 245, 0, 192, 79, 194, 138, 202]);
 pub const DS3DALG_HRTF_LIGHT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3259052866, 7195, 4562, [148, 245, 0, 192, 79, 194, 138, 202]);
@@ -1834,7 +1789,6 @@ impl ::std::cmp::Eq for DS3DBUFFER {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 unsafe impl ::windows::runtime::Abi for DS3DBUFFER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1884,7 +1838,6 @@ impl ::std::cmp::Eq for DS3DLISTENER {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 unsafe impl ::windows::runtime::Abi for DS3DLISTENER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DS3DMODE_DISABLE: u32 = 2u32;
@@ -1951,7 +1904,6 @@ impl ::std::cmp::PartialEq for DSBCAPS {
 impl ::std::cmp::Eq for DSBCAPS {}
 unsafe impl ::windows::runtime::Abi for DSBCAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBCAPS_CTRL3D: u32 = 16u32;
@@ -2050,7 +2002,6 @@ impl ::std::cmp::Eq for DSBPOSITIONNOTIFY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DSBPOSITIONNOTIFY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBSIZE_FX_MIN: u32 = 150u32;
@@ -2107,7 +2058,6 @@ impl ::std::cmp::Eq for DSBUFFERDESC {}
 #[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for DSBUFFERDESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2145,7 +2095,6 @@ impl ::std::cmp::Eq for DSBUFFERDESC1 {}
 #[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for DSBUFFERDESC1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSBUSID_BACK_CENTER: u32 = 8u32;
@@ -2299,7 +2248,6 @@ impl ::std::cmp::PartialEq for DSCAPS {
 impl ::std::cmp::Eq for DSCAPS {}
 unsafe impl ::windows::runtime::Abi for DSCAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCAPS_CERTIFIED: u32 = 64u32;
@@ -2351,7 +2299,6 @@ impl ::std::cmp::PartialEq for DSCBCAPS {
 impl ::std::cmp::Eq for DSCBCAPS {}
 unsafe impl ::windows::runtime::Abi for DSCBCAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCBCAPS_CTRLFX: u32 = 512u32;
@@ -2411,7 +2358,6 @@ impl ::std::cmp::Eq for DSCBUFFERDESC {}
 #[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for DSCBUFFERDESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2449,7 +2395,6 @@ impl ::std::cmp::Eq for DSCBUFFERDESC1 {}
 #[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for DSCBUFFERDESC1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2479,7 +2424,6 @@ impl ::std::cmp::PartialEq for DSCCAPS {
 impl ::std::cmp::Eq for DSCCAPS {}
 unsafe impl ::windows::runtime::Abi for DSCCAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCCAPS_CERTIFIED: u32 = 64u32;
@@ -2517,7 +2461,6 @@ impl ::std::cmp::PartialEq for DSCEFFECTDESC {
 impl ::std::cmp::Eq for DSCEFFECTDESC {}
 unsafe impl ::windows::runtime::Abi for DSCEFFECTDESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2553,7 +2496,6 @@ impl ::std::cmp::Eq for DSCFXAec {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DSCFXAec {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2587,7 +2529,6 @@ impl ::std::cmp::Eq for DSCFXNoiseSuppress {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DSCFXNoiseSuppress {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSCFXR_LOCHARDWARE: u32 = 16u32;
@@ -2644,7 +2585,6 @@ impl ::std::cmp::PartialEq for DSEFFECTDESC {
 impl ::std::cmp::Eq for DSEFFECTDESC {}
 unsafe impl ::windows::runtime::Abi for DSEFFECTDESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXCHORUS_DELAY_MAX: f32 = 20f32;
@@ -2739,7 +2679,6 @@ impl ::std::cmp::PartialEq for DSFXChorus {
 impl ::std::cmp::Eq for DSFXChorus {}
 unsafe impl ::windows::runtime::Abi for DSFXChorus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2771,7 +2710,6 @@ impl ::std::cmp::PartialEq for DSFXCompressor {
 impl ::std::cmp::Eq for DSFXCompressor {}
 unsafe impl ::windows::runtime::Abi for DSFXCompressor {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXDISTORTION_EDGE_MAX: f32 = 100f32;
@@ -2822,7 +2760,6 @@ impl ::std::cmp::PartialEq for DSFXDistortion {
 impl ::std::cmp::Eq for DSFXDistortion {}
 unsafe impl ::windows::runtime::Abi for DSFXDistortion {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXECHO_FEEDBACK_MAX: f32 = 100f32;
@@ -2873,7 +2810,6 @@ impl ::std::cmp::PartialEq for DSFXEcho {
 impl ::std::cmp::Eq for DSFXEcho {}
 unsafe impl ::windows::runtime::Abi for DSFXEcho {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXFLANGER_DELAY_MAX: f32 = 4f32;
@@ -2944,7 +2880,6 @@ impl ::std::cmp::PartialEq for DSFXFlanger {
 impl ::std::cmp::Eq for DSFXFlanger {}
 unsafe impl ::windows::runtime::Abi for DSFXFlanger {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXGARGLE_RATEHZ_MAX: u32 = 1000u32;
@@ -2980,7 +2915,6 @@ impl ::std::cmp::PartialEq for DSFXGargle {
 impl ::std::cmp::Eq for DSFXGargle {}
 unsafe impl ::windows::runtime::Abi for DSFXGargle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3042,7 +2976,6 @@ impl ::std::cmp::PartialEq for DSFXI3DL2Reverb {
 impl ::std::cmp::Eq for DSFXI3DL2Reverb {}
 unsafe impl ::windows::runtime::Abi for DSFXI3DL2Reverb {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXPARAMEQ_BANDWIDTH_MAX: f32 = 36f32;
@@ -3083,7 +3016,6 @@ impl ::std::cmp::PartialEq for DSFXParamEq {
 impl ::std::cmp::Eq for DSFXParamEq {}
 unsafe impl ::windows::runtime::Abi for DSFXParamEq {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFXR_FAILED: i32 = 4i32;
@@ -3127,7 +3059,6 @@ impl ::std::cmp::PartialEq for DSFXWavesReverb {
 impl ::std::cmp::Eq for DSFXWavesReverb {}
 unsafe impl ::windows::runtime::Abi for DSFXWavesReverb {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const DSFX_I3DL2REVERB_DECAYHFRATIO_DEFAULT: f32 = 0.83f32;
@@ -3330,7 +3261,6 @@ impl ::std::convert::From<i32> for DSPROPERTY_DIRECTSOUNDDEVICE {
 }
 unsafe impl ::windows::runtime::Abi for DSPROPERTY_DIRECTSOUNDDEVICE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3382,7 +3312,6 @@ impl ::std::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3430,7 +3359,6 @@ impl ::std::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3478,7 +3406,6 @@ impl ::std::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3513,7 +3440,6 @@ impl ::std::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3548,7 +3474,6 @@ impl ::std::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3583,7 +3508,6 @@ impl ::std::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3619,7 +3543,6 @@ impl ::std::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3655,7 +3578,6 @@ impl ::std::cmp::Eq for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const DSPROPSETID_DirectSoundDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2221035394, 9708, 4561, [164, 216, 0, 192, 79, 194, 138, 202]);
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
@@ -3904,7 +3826,6 @@ impl ::std::convert::From<i32> for EAudioConstriction {
 }
 unsafe impl ::windows::runtime::Abi for EAudioConstriction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type FNAPONOTIFICATIONCALLBACK = unsafe extern "system" fn(pproperties: *mut APO_REG_PROPERTIES, pvrefdata: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
@@ -6549,7 +6470,6 @@ impl ::std::cmp::PartialEq for INSTHEADER {
 impl ::std::cmp::Eq for INSTHEADER {}
 unsafe impl ::windows::runtime::Abi for INSTHEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6563,7 +6483,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_AUDIOEFFECTSDISCOVERY {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_AUDIOEFFECTSDISCOVERY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const KSPROPERTY_SUPPORT_GET: u32 = 1u32;
@@ -6597,7 +6516,6 @@ impl ::std::cmp::Eq for KSP_PINMODE {}
 #[cfg(feature = "Win32_Media_Audio_CoreAudio")]
 unsafe impl ::windows::runtime::Abi for KSP_PINMODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDSENUMCALLBACKA = unsafe extern "system" fn(param0: *mut ::windows::runtime::GUID, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: *mut ::std::ffi::c_void) -> super::super::super::Foundation::BOOL;
@@ -6630,7 +6548,6 @@ impl ::std::cmp::PartialEq for MDEVICECAPSEX {
 impl ::std::cmp::Eq for MDEVICECAPSEX {}
 unsafe impl ::windows::runtime::Abi for MDEVICECAPSEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6658,7 +6575,6 @@ impl ::std::cmp::PartialEq for MIDILOCALE {
 impl ::std::cmp::Eq for MIDILOCALE {}
 unsafe impl ::windows::runtime::Abi for MIDILOCALE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -6691,7 +6607,6 @@ impl ::std::cmp::Eq for MIDIOPENDESC {}
 #[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for MIDIOPENDESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6718,7 +6633,6 @@ impl ::std::cmp::PartialEq for POOLCUE {
 impl ::std::cmp::Eq for POOLCUE {}
 unsafe impl ::windows::runtime::Abi for POOLCUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6746,7 +6660,6 @@ impl ::std::cmp::PartialEq for POOLTABLE {
 impl ::std::cmp::Eq for POOLTABLE {}
 unsafe impl ::windows::runtime::Abi for POOLTABLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const POOL_CUE_NULL: i32 = -1i32;
@@ -6780,7 +6693,6 @@ impl ::std::cmp::PartialEq for RGNHEADER {
 impl ::std::cmp::Eq for RGNHEADER {}
 unsafe impl ::windows::runtime::Abi for RGNHEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6808,7 +6720,6 @@ impl ::std::cmp::PartialEq for RGNRANGE {
 impl ::std::cmp::Eq for RGNRANGE {}
 unsafe impl ::windows::runtime::Abi for RGNRANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const SIZE_DVINFO: u32 = 32u32;
@@ -6851,7 +6762,6 @@ impl ::std::cmp::PartialEq for Tag_DVAudInfo {
 impl ::std::cmp::Eq for Tag_DVAudInfo {}
 unsafe impl ::windows::runtime::Abi for Tag_DVAudInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6890,7 +6800,6 @@ impl ::std::cmp::PartialEq for UNCOMPRESSEDAUDIOFORMAT {
 impl ::std::cmp::Eq for UNCOMPRESSEDAUDIOFORMAT {}
 unsafe impl ::windows::runtime::Abi for UNCOMPRESSEDAUDIOFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6920,7 +6829,6 @@ impl ::std::cmp::PartialEq for WAVELINK {
 impl ::std::cmp::Eq for WAVELINK {}
 unsafe impl ::windows::runtime::Abi for WAVELINK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const WAVELINK_CHANNEL_LEFT: i32 = 1i32;
@@ -6978,7 +6886,6 @@ impl ::std::cmp::Eq for _DMUS_PORTPARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for _DMUS_PORTPARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const _FACDS: u32 = 2168u32;
@@ -7010,7 +6917,6 @@ impl ::std::cmp::PartialEq for _rloop {
 impl ::std::cmp::Eq for _rloop {}
 unsafe impl ::windows::runtime::Abi for _rloop {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7042,5 +6948,4 @@ impl ::std::cmp::PartialEq for _rwsmp {
 impl ::std::cmp::Eq for _rwsmp {}
 unsafe impl ::windows::runtime::Abi for _rwsmp {
     type Abi = Self;
-    type DefaultType = Self;
 }

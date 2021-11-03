@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IJsonArray(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJsonArray {
@@ -23,7 +22,6 @@ pub struct IJsonArray_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IJsonArrayStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJsonArrayStatics {
@@ -43,7 +41,6 @@ pub struct IJsonArrayStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, input: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result: *mut ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IJsonErrorStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJsonErrorStatics2 {
@@ -62,7 +59,6 @@ pub struct IJsonErrorStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hresult: i32, result__: *mut JsonErrorStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IJsonObject(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJsonObject {
@@ -87,7 +83,6 @@ pub struct IJsonObject_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IJsonObjectStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJsonObjectStatics {
@@ -107,7 +102,6 @@ pub struct IJsonObjectStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, input: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result: *mut ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IJsonObjectWithDefaultValues(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJsonObjectWithDefaultValues {
@@ -217,7 +211,6 @@ pub struct IJsonValue_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IJsonValueStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJsonValueStatics {
@@ -240,7 +233,6 @@ pub struct IJsonValueStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, input: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IJsonValueStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJsonValueStatics2 {
@@ -458,7 +450,7 @@ impl JsonArray {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Data_Json`, `Foundation_Collections`*"]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<IJsonValue as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [<IJsonValue as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -467,7 +459,7 @@ impl JsonArray {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Data_Json`, `Foundation_Collections`*"]
-    pub fn ReplaceAll(&self, items: &[<IJsonValue as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn ReplaceAll(&self, items: &[<IJsonValue as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), items.len() as u32, ::std::mem::transmute(items.as_ptr())).ok() }
     }
@@ -654,10 +646,12 @@ impl ::std::convert::From<i32> for JsonErrorStatus {
 }
 unsafe impl ::windows::runtime::Abi for JsonErrorStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for JsonErrorStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Data.Json.JsonErrorStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for JsonErrorStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Data_Json`*"]
 #[repr(transparent)]
@@ -1248,8 +1242,10 @@ impl ::std::convert::From<i32> for JsonValueType {
 }
 unsafe impl ::windows::runtime::Abi for JsonValueType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for JsonValueType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Data.Json.JsonValueType;i4)");
+}
+impl ::windows::runtime::DefaultType for JsonValueType {
+    type DefaultType = Self;
 }

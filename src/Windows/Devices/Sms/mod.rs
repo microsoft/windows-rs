@@ -15,10 +15,12 @@ impl ::std::convert::From<i32> for CellularClass {
 }
 unsafe impl ::windows::runtime::Abi for CellularClass {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CellularClass {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.CellularClass;i4)");
+}
+impl ::windows::runtime::DefaultType for CellularClass {
+    type DefaultType = Self;
 }
 #[cfg(feature = "Foundation")]
 #[doc = "*Required features: `Devices_Sms`, `Foundation`*"]
@@ -835,7 +837,6 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncInfo>
     }
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmsAppMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsAppMessage {
@@ -912,7 +913,7 @@ impl ISmsBinaryMessage {
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Devices_Sms`*"]
-    pub fn SetData(&self, value: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn SetData(&self, value: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr())).ok() }
     }
@@ -973,7 +974,6 @@ pub struct ISmsBinaryMessage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value_array_size: u32, value: *const u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmsBroadcastMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsBroadcastMessage {
@@ -1129,7 +1129,6 @@ pub struct ISmsDevice_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmsDevice2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsDevice2 {
@@ -1161,7 +1160,6 @@ pub struct ISmsDevice2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmsDevice2Statics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsDevice2Statics {
@@ -1183,7 +1181,6 @@ pub struct ISmsDevice2Statics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parentdeviceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmsDeviceMessageStore(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsDeviceMessageStore {
@@ -1210,7 +1207,6 @@ pub struct ISmsDeviceMessageStore_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmsDeviceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsDeviceStatics {
@@ -1233,7 +1229,6 @@ pub struct ISmsDeviceStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmsDeviceStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsDeviceStatics2 {
@@ -1253,7 +1248,6 @@ pub struct ISmsDeviceStatics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmsFilterRule(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsFilterRule {
@@ -1296,7 +1290,6 @@ pub struct ISmsFilterRule_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmsFilterRuleFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsFilterRuleFactory {
@@ -1315,7 +1308,6 @@ pub struct ISmsFilterRuleFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, messagetype: SmsMessageType, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmsFilterRules(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsFilterRules {
@@ -1336,7 +1328,6 @@ pub struct ISmsFilterRules_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmsFilterRulesFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsFilterRulesFactory {
@@ -1464,7 +1455,6 @@ pub struct ISmsMessageBase_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmsMessageReceivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsMessageReceivedEventArgs {
@@ -1484,7 +1474,6 @@ pub struct ISmsMessageReceivedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmsMessageReceivedTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsMessageReceivedTriggerDetails {
@@ -1511,7 +1500,6 @@ pub struct ISmsMessageReceivedTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmsMessageRegistration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsMessageRegistration {
@@ -1535,7 +1523,6 @@ pub struct ISmsMessageRegistration_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmsMessageRegistrationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsMessageRegistrationStatics {
@@ -1556,7 +1543,6 @@ pub struct ISmsMessageRegistrationStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, filterrules: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmsReceivedEventDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsReceivedEventDetails {
@@ -1576,7 +1562,6 @@ pub struct ISmsReceivedEventDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmsReceivedEventDetails2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsReceivedEventDetails2 {
@@ -1596,7 +1581,6 @@ pub struct ISmsReceivedEventDetails2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmsSendMessageResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsSendMessageResult {
@@ -1622,7 +1606,6 @@ pub struct ISmsSendMessageResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmsStatusMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsStatusMessage {
@@ -1832,7 +1815,6 @@ pub struct ISmsTextMessage_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmsTextMessage2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsTextMessage2 {
@@ -1867,7 +1849,6 @@ pub struct ISmsTextMessage2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmsTextMessageStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsTextMessageStatics {
@@ -1887,7 +1868,6 @@ pub struct ISmsTextMessageStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, format: SmsDataFormat, value_array_size: u32, value: *const u8, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmsVoicemailMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsVoicemailMessage {
@@ -1911,7 +1891,6 @@ pub struct ISmsVoicemailMessage_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmsWapMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsWapMessage {
@@ -2373,7 +2352,7 @@ impl SmsBinaryMessage {
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Devices_Sms`*"]
-    pub fn SetData(&self, value: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn SetData(&self, value: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr())).ok() }
     }
@@ -2637,10 +2616,12 @@ impl ::std::convert::From<i32> for SmsBroadcastType {
 }
 unsafe impl ::windows::runtime::Abi for SmsBroadcastType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmsBroadcastType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsBroadcastType;i4)");
+}
+impl ::windows::runtime::DefaultType for SmsBroadcastType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Sms`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2660,10 +2641,12 @@ impl ::std::convert::From<i32> for SmsDataFormat {
 }
 unsafe impl ::windows::runtime::Abi for SmsDataFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmsDataFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsDataFormat;i4)");
+}
+impl ::windows::runtime::DefaultType for SmsDataFormat {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
@@ -3052,10 +3035,12 @@ impl ::std::convert::From<i32> for SmsDeviceStatus {
 }
 unsafe impl ::windows::runtime::Abi for SmsDeviceStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmsDeviceStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsDeviceStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for SmsDeviceStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
@@ -3127,7 +3112,7 @@ impl<F: FnMut(&::std::option::Option<SmsDevice>) -> ::windows::runtime::Result<(
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <SmsDevice as ::windows::runtime::Abi>::Abi as *const <SmsDevice as ::windows::runtime::Abi>::DefaultType)).into()
+        ((*this).invoke)(&*(&sender as *const <SmsDevice as ::windows::runtime::Abi>::Abi as *const <SmsDevice as ::windows::runtime::DefaultType>::DefaultType)).into()
     }
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -3165,10 +3150,12 @@ impl ::std::cmp::PartialEq for SmsEncodedLength {
 impl ::std::cmp::Eq for SmsEncodedLength {}
 unsafe impl ::windows::runtime::Abi for SmsEncodedLength {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmsEncodedLength {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Devices.Sms.SmsEncodedLength;u4;u4;u4;u4;u4)");
+}
+impl ::windows::runtime::DefaultType for SmsEncodedLength {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Sms`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3194,10 +3181,12 @@ impl ::std::convert::From<i32> for SmsEncoding {
 }
 unsafe impl ::windows::runtime::Abi for SmsEncoding {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmsEncoding {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsEncoding;i4)");
+}
+impl ::windows::runtime::DefaultType for SmsEncoding {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Sms`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3216,10 +3205,12 @@ impl ::std::convert::From<i32> for SmsFilterActionType {
 }
 unsafe impl ::windows::runtime::Abi for SmsFilterActionType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmsFilterActionType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsFilterActionType;i4)");
+}
+impl ::windows::runtime::DefaultType for SmsFilterActionType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
@@ -3434,10 +3425,12 @@ impl ::std::convert::From<i32> for SmsGeographicalScope {
 }
 unsafe impl ::windows::runtime::Abi for SmsGeographicalScope {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmsGeographicalScope {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsGeographicalScope;i4)");
+}
+impl ::windows::runtime::DefaultType for SmsGeographicalScope {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Sms`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3457,10 +3450,12 @@ impl ::std::convert::From<i32> for SmsMessageClass {
 }
 unsafe impl ::windows::runtime::Abi for SmsMessageClass {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmsMessageClass {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsMessageClass;i4)");
+}
+impl ::windows::runtime::DefaultType for SmsMessageClass {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Sms`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3480,10 +3475,12 @@ impl ::std::convert::From<i32> for SmsMessageFilter {
 }
 unsafe impl ::windows::runtime::Abi for SmsMessageFilter {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmsMessageFilter {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsMessageFilter;i4)");
+}
+impl ::windows::runtime::DefaultType for SmsMessageFilter {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
@@ -3589,7 +3586,11 @@ impl<F: FnMut(&::std::option::Option<SmsDevice>, &::std::option::Option<SmsMessa
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, e: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <SmsDevice as ::windows::runtime::Abi>::Abi as *const <SmsDevice as ::windows::runtime::Abi>::DefaultType), &*(&e as *const <SmsMessageReceivedEventArgs as ::windows::runtime::Abi>::Abi as *const <SmsMessageReceivedEventArgs as ::windows::runtime::Abi>::DefaultType)).into()
+        ((*this).invoke)(
+            &*(&sender as *const <SmsDevice as ::windows::runtime::Abi>::Abi as *const <SmsDevice as ::windows::runtime::DefaultType>::DefaultType),
+            &*(&e as *const <SmsMessageReceivedEventArgs as ::windows::runtime::Abi>::Abi as *const <SmsMessageReceivedEventArgs as ::windows::runtime::DefaultType>::DefaultType),
+        )
+        .into()
     }
 }
 #[doc = "*Required features: `Devices_Sms`*"]
@@ -3759,10 +3760,12 @@ impl ::std::convert::From<i32> for SmsMessageType {
 }
 unsafe impl ::windows::runtime::Abi for SmsMessageType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmsMessageType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsMessageType;i4)");
+}
+impl ::windows::runtime::DefaultType for SmsMessageType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Sms`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3789,10 +3792,12 @@ impl ::std::convert::From<i32> for SmsModemErrorCode {
 }
 unsafe impl ::windows::runtime::Abi for SmsModemErrorCode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmsModemErrorCode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsModemErrorCode;i4)");
+}
+impl ::windows::runtime::DefaultType for SmsModemErrorCode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Sms`*"]
 #[repr(transparent)]
@@ -4206,7 +4211,7 @@ impl SmsTextMessage {
     }
     #[cfg(feature = "deprecated")]
     #[doc = "*Required features: `Devices_Sms`*"]
-    pub fn FromBinaryData(format: SmsDataFormat, value: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<SmsTextMessage> {
+    pub fn FromBinaryData(format: SmsDataFormat, value: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<SmsTextMessage> {
         Self::ISmsTextMessageStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), format, value.len() as u32, ::std::mem::transmute(value.as_ptr()), &mut result__).from_abi::<SmsTextMessage>(result__)

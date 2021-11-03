@@ -2022,7 +2022,6 @@ impl ::std::convert::From<i32> for OPC_CANONICALIZATION_METHOD {
 }
 unsafe impl ::windows::runtime::Abi for OPC_CANONICALIZATION_METHOD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2038,7 +2037,6 @@ impl ::std::convert::From<i32> for OPC_CERTIFICATE_EMBEDDING_OPTION {
 }
 unsafe impl ::windows::runtime::Abi for OPC_CERTIFICATE_EMBEDDING_OPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2056,7 +2054,6 @@ impl ::std::convert::From<i32> for OPC_COMPRESSION_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for OPC_COMPRESSION_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 pub const OPC_E_CONFLICTING_SETTINGS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2142175212i32 as _);
@@ -2276,7 +2273,6 @@ impl ::std::convert::From<u32> for OPC_READ_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for OPC_READ_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for OPC_READ_FLAGS {
     type Output = Self;
@@ -2319,7 +2315,6 @@ impl ::std::convert::From<i32> for OPC_RELATIONSHIPS_SIGNING_OPTION {
 }
 unsafe impl ::windows::runtime::Abi for OPC_RELATIONSHIPS_SIGNING_OPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2334,7 +2329,6 @@ impl ::std::convert::From<i32> for OPC_RELATIONSHIP_SELECTOR {
 }
 unsafe impl ::windows::runtime::Abi for OPC_RELATIONSHIP_SELECTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2353,7 +2347,6 @@ impl ::std::convert::From<i32> for OPC_SIGNATURE_TIME_FORMAT {
 }
 unsafe impl ::windows::runtime::Abi for OPC_SIGNATURE_TIME_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2368,7 +2361,6 @@ impl ::std::convert::From<i32> for OPC_SIGNATURE_VALIDATION_RESULT {
 }
 unsafe impl ::windows::runtime::Abi for OPC_SIGNATURE_VALIDATION_RESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2383,7 +2375,6 @@ impl ::std::convert::From<i32> for OPC_STREAM_IO_MODE {
 }
 unsafe impl ::windows::runtime::Abi for OPC_STREAM_IO_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2398,7 +2389,6 @@ impl ::std::convert::From<i32> for OPC_URI_TARGET_MODE {
 }
 unsafe impl ::windows::runtime::Abi for OPC_URI_TARGET_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Opc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2413,7 +2403,6 @@ impl ::std::convert::From<u32> for OPC_WRITE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for OPC_WRITE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for OPC_WRITE_FLAGS {
     type Output = Self;

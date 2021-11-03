@@ -350,10 +350,12 @@ impl ::std::convert::From<i32> for HttpCacheReadBehavior {
 }
 unsafe impl ::windows::runtime::Abi for HttpCacheReadBehavior {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for HttpCacheReadBehavior {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCacheReadBehavior;i4)");
+}
+impl ::windows::runtime::DefaultType for HttpCacheReadBehavior {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Web_Http_Filters`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -370,10 +372,12 @@ impl ::std::convert::From<i32> for HttpCacheWriteBehavior {
 }
 unsafe impl ::windows::runtime::Abi for HttpCacheWriteBehavior {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for HttpCacheWriteBehavior {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCacheWriteBehavior;i4)");
+}
+impl ::windows::runtime::DefaultType for HttpCacheWriteBehavior {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Web_Http_Filters`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -390,10 +394,12 @@ impl ::std::convert::From<i32> for HttpCookieUsageBehavior {
 }
 unsafe impl ::windows::runtime::Abi for HttpCookieUsageBehavior {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for HttpCookieUsageBehavior {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCookieUsageBehavior;i4)");
+}
+impl ::windows::runtime::DefaultType for HttpCookieUsageBehavior {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Web_Http_Filters`*"]
 #[repr(transparent)]
@@ -472,7 +478,6 @@ impl ::windows::runtime::RuntimeName for HttpServerCustomValidationRequestedEven
 unsafe impl ::std::marker::Send for HttpServerCustomValidationRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for HttpServerCustomValidationRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpBaseProtocolFilter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpBaseProtocolFilter {
@@ -516,7 +521,6 @@ pub struct IHttpBaseProtocolFilter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpBaseProtocolFilter2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpBaseProtocolFilter2 {
@@ -536,7 +540,6 @@ pub struct IHttpBaseProtocolFilter2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: super::HttpVersion) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpBaseProtocolFilter3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpBaseProtocolFilter3 {
@@ -556,7 +559,6 @@ pub struct IHttpBaseProtocolFilter3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: HttpCookieUsageBehavior) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpBaseProtocolFilter4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpBaseProtocolFilter4 {
@@ -579,7 +581,6 @@ pub struct IHttpBaseProtocolFilter4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpBaseProtocolFilter5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpBaseProtocolFilter5 {
@@ -599,7 +600,6 @@ pub struct IHttpBaseProtocolFilter5_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpBaseProtocolFilterStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpBaseProtocolFilterStatics {
@@ -619,7 +619,6 @@ pub struct IHttpBaseProtocolFilterStatics_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpCacheControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpCacheControl {
@@ -707,7 +706,6 @@ pub struct IHttpFilter_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpServerCustomValidationRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpServerCustomValidationRequestedEventArgs {

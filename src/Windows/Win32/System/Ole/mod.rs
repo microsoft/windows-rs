@@ -13,7 +13,6 @@ impl ::std::convert::From<i32> for ACTIVATEFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for ACTIVATEFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -41,7 +40,6 @@ impl ::std::cmp::PartialEq for AspectInfo {
 impl ::std::cmp::Eq for AspectInfo {}
 unsafe impl ::windows::runtime::Abi for AspectInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -55,7 +53,6 @@ impl ::std::convert::From<i32> for AspectInfoFlag {
 }
 unsafe impl ::windows::runtime::Abi for AspectInfoFlag {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -71,7 +68,6 @@ impl ::std::convert::From<i32> for BINDSPEED {
 }
 unsafe impl ::windows::runtime::Abi for BINDSPEED {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const BZ_DISABLECANCELBUTTON: i32 = 1i32;
@@ -107,7 +103,6 @@ impl ::std::cmp::PartialEq for CADWORD {
 impl ::std::cmp::Eq for CADWORD {}
 unsafe impl ::windows::runtime::Abi for CADWORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -142,7 +137,6 @@ impl ::std::cmp::Eq for CALPOLESTR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CALPOLESTR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -170,7 +164,6 @@ impl ::std::cmp::PartialEq for CAUUID {
 impl ::std::cmp::Eq for CAUUID {}
 unsafe impl ::windows::runtime::Abi for CAUUID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CF_CONVERTONLY: i32 = 256i32;
@@ -258,7 +251,6 @@ impl ::std::cmp::Eq for CONTROLINFO {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 unsafe impl ::windows::runtime::Abi for CONTROLINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const CSF_EXPLORER: i32 = 8i32;
@@ -283,7 +275,6 @@ impl ::std::convert::From<i32> for CTRLINFO {
 }
 unsafe impl ::windows::runtime::Abi for CTRLINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[inline]
@@ -323,7 +314,6 @@ impl ::std::convert::From<i32> for DISCARDCACHE {
 }
 unsafe impl ::windows::runtime::Abi for DISCARDCACHE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DISPID_ABOUTBOX: i32 = -552i32;
@@ -554,7 +544,6 @@ impl ::std::convert::From<i32> for DOCMISC {
 }
 unsafe impl ::windows::runtime::Abi for DOCMISC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const DROPEFFECT_COPY: u32 = 1u32;
@@ -579,7 +568,6 @@ impl ::std::convert::From<i32> for DVASPECT2 {
 }
 unsafe impl ::windows::runtime::Abi for DVASPECT2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
@@ -633,7 +621,6 @@ impl ::std::convert::From<u32> for ENUM_CONTROLS_WHICH_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for ENUM_CONTROLS_WHICH_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ENUM_CONTROLS_WHICH_FLAGS {
     type Output = Self;
@@ -697,7 +684,6 @@ impl ::std::cmp::Eq for ExtentInfo {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ExtentInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -712,7 +698,6 @@ impl ::std::convert::From<i32> for ExtentMode {
 }
 unsafe impl ::windows::runtime::Abi for ExtentMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -747,7 +732,6 @@ impl ::std::cmp::Eq for FONTDESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for FONTDESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const GC_WCH_SIBLING: i32 = 1i32;
@@ -763,7 +747,6 @@ impl ::std::convert::From<i32> for GUIDKIND {
 }
 unsafe impl ::windows::runtime::Abi for GUIDKIND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const GUID_CHECKVALUEEXCLUSIVE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1716536076, 48655, 4122, [139, 187, 0, 170, 0, 48, 12, 171]);
 pub const GUID_COLOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1716536065, 48655, 4122, [139, 187, 0, 170, 0, 48, 12, 171]);
@@ -800,7 +783,6 @@ impl ::std::convert::From<i32> for HITRESULT {
 }
 unsafe impl ::windows::runtime::Abi for HITRESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
@@ -1928,7 +1910,6 @@ impl ::std::convert::From<i32> for IGNOREMIME {
 }
 unsafe impl ::windows::runtime::Abi for IGNOREMIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[repr(transparent)]
@@ -6539,7 +6520,6 @@ impl ::std::cmp::Eq for LICINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for LICINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNOLEUIHOOK = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> u32;
@@ -6566,7 +6546,6 @@ impl ::std::convert::From<i32> for MEDIAPLAYBACK_STATE {
 }
 unsafe impl ::windows::runtime::Abi for MEDIAPLAYBACK_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const MK_ALT: u32 = 32u32;
@@ -6597,7 +6576,6 @@ impl ::std::convert::From<u32> for MULTICLASSINFO_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MULTICLASSINFO_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MULTICLASSINFO_FLAGS {
     type Output = Self;
@@ -6675,7 +6653,6 @@ impl ::std::cmp::Eq for OBJECTDESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OBJECTDESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OCM__BASE: u32 = 8192u32;
@@ -6733,7 +6710,6 @@ impl ::std::cmp::Eq for OCPFIPARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OCPFIPARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OF_GET: u32 = 2u32;
@@ -6777,7 +6753,6 @@ impl ::std::cmp::Eq for OIFI {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for OIFI {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6793,7 +6768,6 @@ impl ::std::convert::From<i32> for OLECLOSE {
 }
 unsafe impl ::windows::runtime::Abi for OLECLOSE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6821,7 +6795,6 @@ impl ::std::cmp::PartialEq for OLECMD {
 impl ::std::cmp::Eq for OLECMD {}
 unsafe impl ::windows::runtime::Abi for OLECMD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLECMDARGINDEX_ACTIVEXINSTALL_CLSID: u32 = 2u32;
@@ -6866,7 +6839,6 @@ impl ::std::convert::From<i32> for OLECMDEXECOPT {
 }
 unsafe impl ::windows::runtime::Abi for OLECMDEXECOPT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6885,7 +6857,6 @@ impl ::std::convert::From<i32> for OLECMDF {
 }
 unsafe impl ::windows::runtime::Abi for OLECMDF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6981,7 +6952,6 @@ impl ::std::convert::From<i32> for OLECMDID {
 }
 unsafe impl ::windows::runtime::Abi for OLECMDID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7001,7 +6971,6 @@ impl ::std::convert::From<i32> for OLECMDID_BROWSERSTATEFLAG {
 }
 unsafe impl ::windows::runtime::Abi for OLECMDID_BROWSERSTATEFLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7018,7 +6987,6 @@ impl ::std::convert::From<i32> for OLECMDID_OPTICAL_ZOOMFLAG {
 }
 unsafe impl ::windows::runtime::Abi for OLECMDID_OPTICAL_ZOOMFLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7064,7 +7032,6 @@ impl ::std::convert::From<i32> for OLECMDID_PAGEACTIONFLAG {
 }
 unsafe impl ::windows::runtime::Abi for OLECMDID_PAGEACTIONFLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7100,7 +7067,6 @@ impl ::std::convert::From<i32> for OLECMDID_REFRESHFLAG {
 }
 unsafe impl ::windows::runtime::Abi for OLECMDID_REFRESHFLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7117,7 +7083,6 @@ impl ::std::convert::From<i32> for OLECMDID_VIEWPORT_MODE_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for OLECMDID_VIEWPORT_MODE_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7134,7 +7099,6 @@ impl ::std::convert::From<i32> for OLECMDID_WINDOWSTATE_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for OLECMDID_WINDOWSTATE_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7164,7 +7128,6 @@ impl ::std::cmp::PartialEq for OLECMDTEXT {
 impl ::std::cmp::Eq for OLECMDTEXT {}
 unsafe impl ::windows::runtime::Abi for OLECMDTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7180,7 +7143,6 @@ impl ::std::convert::From<i32> for OLECMDTEXTF {
 }
 unsafe impl ::windows::runtime::Abi for OLECMDTEXTF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLECMD_TASKDLGID_ONBEFOREUNLOAD: u32 = 1u32;
@@ -7200,7 +7162,6 @@ impl ::std::convert::From<i32> for OLECONTF {
 }
 unsafe impl ::windows::runtime::Abi for OLECONTF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLECREATE_LEAVERUNNING: u32 = 1u32;
@@ -7218,7 +7179,6 @@ impl ::std::convert::From<i32> for OLEDCFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for OLEDCFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7235,7 +7195,6 @@ impl ::std::convert::From<i32> for OLEGETMONIKER {
 }
 unsafe impl ::windows::runtime::Abi for OLEGETMONIKER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEIVERB_DISCARDUNDOSTATE: i32 = -6i32;
@@ -7265,7 +7224,6 @@ impl ::std::convert::From<i32> for OLELINKBIND {
 }
 unsafe impl ::windows::runtime::Abi for OLELINKBIND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7300,7 +7258,6 @@ impl ::std::convert::From<i32> for OLEMISC {
 }
 unsafe impl ::windows::runtime::Abi for OLEMISC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7317,7 +7274,6 @@ impl ::std::convert::From<i32> for OLERENDER {
 }
 unsafe impl ::windows::runtime::Abi for OLERENDER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -7372,7 +7328,6 @@ impl ::std::cmp::Eq for OLEUIBUSYA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_LibraryLoader"))]
 unsafe impl ::windows::runtime::Abi for OLEUIBUSYA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -7427,7 +7382,6 @@ impl ::std::cmp::Eq for OLEUIBUSYW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_LibraryLoader"))]
 unsafe impl ::windows::runtime::Abi for OLEUIBUSYW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -7498,7 +7452,6 @@ impl ::std::cmp::Eq for OLEUICHANGEICONA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
 unsafe impl ::windows::runtime::Abi for OLEUICHANGEICONA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -7569,7 +7522,6 @@ impl ::std::cmp::Eq for OLEUICHANGEICONW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
 unsafe impl ::windows::runtime::Abi for OLEUICHANGEICONW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -7652,7 +7604,6 @@ impl ::std::cmp::Eq for OLEUICHANGESOURCEA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader", feature = "Win32_UI_Controls_Dialogs"))]
 unsafe impl ::windows::runtime::Abi for OLEUICHANGESOURCEA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -7735,7 +7686,6 @@ impl ::std::cmp::Eq for OLEUICHANGESOURCEW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader", feature = "Win32_UI_Controls_Dialogs"))]
 unsafe impl ::windows::runtime::Abi for OLEUICHANGESOURCEW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -7833,7 +7783,6 @@ impl ::std::cmp::Eq for OLEUICONVERTA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
 unsafe impl ::windows::runtime::Abi for OLEUICONVERTA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -7931,7 +7880,6 @@ impl ::std::cmp::Eq for OLEUICONVERTW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
 unsafe impl ::windows::runtime::Abi for OLEUICONVERTW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -7984,7 +7932,6 @@ impl ::std::cmp::Eq for OLEUIEDITLINKSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
 unsafe impl ::windows::runtime::Abi for OLEUIEDITLINKSA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -8037,7 +7984,6 @@ impl ::std::cmp::Eq for OLEUIEDITLINKSW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
 unsafe impl ::windows::runtime::Abi for OLEUIEDITLINKSW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -8077,7 +8023,6 @@ impl ::std::cmp::Eq for OLEUIGNRLPROPSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for OLEUIGNRLPROPSA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -8117,7 +8062,6 @@ impl ::std::cmp::Eq for OLEUIGNRLPROPSW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for OLEUIGNRLPROPSW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -8215,7 +8159,6 @@ impl ::std::cmp::Eq for OLEUIINSERTOBJECTA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_LibraryLoader"))]
 unsafe impl ::windows::runtime::Abi for OLEUIINSERTOBJECTA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -8313,7 +8256,6 @@ impl ::std::cmp::Eq for OLEUIINSERTOBJECTW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_LibraryLoader"))]
 unsafe impl ::windows::runtime::Abi for OLEUIINSERTOBJECTW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -8353,7 +8295,6 @@ impl ::std::cmp::Eq for OLEUILINKPROPSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for OLEUILINKPROPSA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -8393,7 +8334,6 @@ impl ::std::cmp::Eq for OLEUILINKPROPSW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for OLEUILINKPROPSW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -8447,7 +8387,6 @@ impl ::std::cmp::Eq for OLEUIOBJECTPROPSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for OLEUIOBJECTPROPSA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -8501,7 +8440,6 @@ impl ::std::cmp::Eq for OLEUIOBJECTPROPSW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for OLEUIOBJECTPROPSW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8539,7 +8477,6 @@ impl ::std::cmp::Eq for OLEUIPASTEENTRYA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for OLEUIPASTEENTRYA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8577,7 +8514,6 @@ impl ::std::cmp::Eq for OLEUIPASTEENTRYW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for OLEUIPASTEENTRYW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8602,7 +8538,6 @@ impl ::std::convert::From<i32> for OLEUIPASTEFLAG {
 }
 unsafe impl ::windows::runtime::Abi for OLEUIPASTEFLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -8694,7 +8629,6 @@ impl ::std::cmp::Eq for OLEUIPASTESPECIALA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_LibraryLoader"))]
 unsafe impl ::windows::runtime::Abi for OLEUIPASTESPECIALA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -8786,7 +8720,6 @@ impl ::std::cmp::Eq for OLEUIPASTESPECIALW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_LibraryLoader"))]
 unsafe impl ::windows::runtime::Abi for OLEUIPASTESPECIALW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -8837,7 +8770,6 @@ impl ::std::cmp::Eq for OLEUIVIEWPROPSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for OLEUIVIEWPROPSA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -8888,7 +8820,6 @@ impl ::std::cmp::Eq for OLEUIVIEWPROPSW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for OLEUIVIEWPROPSW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEUI_BZERR_HTASKINVALID: u32 = 116u32;
@@ -9069,7 +9000,6 @@ impl ::std::convert::From<i32> for OLEUPDATE {
 }
 unsafe impl ::windows::runtime::Abi for OLEUPDATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9106,7 +9036,6 @@ impl ::std::cmp::Eq for OLEVERB {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OLEVERB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9121,7 +9050,6 @@ impl ::std::convert::From<i32> for OLEVERBATTRIB {
 }
 unsafe impl ::windows::runtime::Abi for OLEVERBATTRIB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OLEVERB_PRIMARY: u32 = 0u32;
@@ -9139,7 +9067,6 @@ impl ::std::convert::From<i32> for OLEWHICHMK {
 }
 unsafe impl ::windows::runtime::Abi for OLEWHICHMK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9155,7 +9082,6 @@ impl ::std::convert::From<i32> for OLE_TRISTATE {
 }
 unsafe impl ::windows::runtime::Abi for OLE_TRISTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const OPF_DISABLECONVERT: i32 = 8i32;
@@ -10024,7 +9950,6 @@ impl ::std::cmp::PartialEq for OleMenuGroupWidths {
 impl ::std::cmp::Eq for OleMenuGroupWidths {}
 unsafe impl ::windows::runtime::Abi for OleMenuGroupWidths {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
@@ -10709,7 +10634,6 @@ impl ::std::convert::From<i32> for PAGEACTION_UI {
 }
 unsafe impl ::windows::runtime::Abi for PAGEACTION_UI {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10737,7 +10661,6 @@ impl ::std::cmp::PartialEq for PAGERANGE {
 impl ::std::cmp::Eq for PAGERANGE {}
 unsafe impl ::windows::runtime::Abi for PAGERANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10775,7 +10698,6 @@ impl ::std::cmp::Eq for PAGESET {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PAGESET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const PERPROP_E_FIRST: i32 = -2147220992i32;
@@ -10815,7 +10737,6 @@ impl ::std::cmp::Eq for PICTDESC {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for PICTDESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10846,7 +10767,6 @@ impl ::std::cmp::Eq for PICTDESC_0 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for PICTDESC_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10881,7 +10801,6 @@ impl ::std::cmp::Eq for PICTDESC_0_0 {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for PICTDESC_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10915,7 +10834,6 @@ impl ::std::cmp::Eq for PICTDESC_0_1 {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for PICTDESC_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10949,7 +10867,6 @@ impl ::std::cmp::Eq for PICTDESC_0_2 {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 unsafe impl ::windows::runtime::Abi for PICTDESC_0_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10985,7 +10902,6 @@ impl ::std::cmp::Eq for PICTDESC_0_3 {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for PICTDESC_0_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const PICTYPE_BITMAP: u32 = 1u32;
@@ -11013,7 +10929,6 @@ impl ::std::convert::From<i32> for POINTERINACTIVE {
 }
 unsafe impl ::windows::runtime::Abi for POINTERINACTIVE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11041,7 +10956,6 @@ impl ::std::cmp::PartialEq for POINTF {
 impl ::std::cmp::Eq for POINTF {}
 unsafe impl ::windows::runtime::Abi for POINTF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11061,7 +10975,6 @@ impl ::std::convert::From<u32> for PRINTFLAG {
 }
 unsafe impl ::windows::runtime::Abi for PRINTFLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PRINTFLAG {
     type Output = Self;
@@ -11128,7 +11041,6 @@ impl ::std::cmp::Eq for PROPBAG2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PROPBAG2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11148,7 +11060,6 @@ impl ::std::convert::From<i32> for PROPBAG2_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PROPBAG2_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11187,7 +11098,6 @@ impl ::std::cmp::Eq for PROPPAGEINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PROPPAGEINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11203,7 +11113,6 @@ impl ::std::convert::From<i32> for PROPPAGESTATUS {
 }
 unsafe impl ::windows::runtime::Abi for PROPPAGESTATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const PSF_CHECKDISPLAYASICON: i32 = 8i32;
@@ -11236,7 +11145,6 @@ impl ::std::convert::From<i32> for PictureAttributes {
 }
 unsafe impl ::windows::runtime::Abi for PictureAttributes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -11317,7 +11225,6 @@ impl ::std::cmp::Eq for QACONTAINER {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for QACONTAINER {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11338,7 +11245,6 @@ impl ::std::convert::From<i32> for QACONTAINERFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for QACONTAINERFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11377,7 +11283,6 @@ impl ::std::cmp::PartialEq for QACONTROL {
 impl ::std::cmp::Eq for QACONTROL {}
 unsafe impl ::windows::runtime::Abi for QACONTROL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11395,7 +11300,6 @@ impl ::std::convert::From<i32> for READYSTATE {
 }
 unsafe impl ::windows::runtime::Abi for READYSTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
@@ -11471,7 +11375,6 @@ impl ::std::convert::From<i32> for UASFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for UASFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11493,7 +11396,6 @@ impl ::std::convert::From<u32> for UPDFCACHE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for UPDFCACHE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for UPDFCACHE_FLAGS {
     type Output = Self;
@@ -11537,7 +11439,6 @@ impl ::std::convert::From<i32> for USERCLASSTYPE {
 }
 unsafe impl ::windows::runtime::Abi for USERCLASSTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11556,7 +11457,6 @@ impl ::std::convert::From<i32> for VIEWSTATUS {
 }
 unsafe impl ::windows::runtime::Abi for VIEWSTATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 pub const VPF_DISABLERELATIVE: i32 = 2i32;
@@ -11587,7 +11487,6 @@ impl ::std::convert::From<i32> for WPCSETTING {
 }
 unsafe impl ::windows::runtime::Abi for WPCSETTING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Ole`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11605,5 +11504,4 @@ impl ::std::convert::From<i32> for XFORMCOORDS {
 }
 unsafe impl ::windows::runtime::Abi for XFORMCOORDS {
     type Abi = Self;
-    type DefaultType = Self;
 }

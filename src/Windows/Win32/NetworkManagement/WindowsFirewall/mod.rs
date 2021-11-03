@@ -12,7 +12,6 @@ impl ::std::convert::From<i32> for ICS_TARGETTYPE {
 }
 unsafe impl ::windows::runtime::Abi for ICS_TARGETTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
@@ -611,7 +610,6 @@ impl ::std::cmp::Eq for INET_FIREWALL_AC_BINARIES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INET_FIREWALL_AC_BINARIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -646,7 +644,6 @@ impl ::std::cmp::Eq for INET_FIREWALL_AC_CAPABILITIES {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for INET_FIREWALL_AC_CAPABILITIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -679,7 +676,6 @@ impl ::std::cmp::Eq for INET_FIREWALL_AC_CHANGE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for INET_FIREWALL_AC_CHANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -708,7 +704,6 @@ impl ::std::cmp::Eq for INET_FIREWALL_AC_CHANGE_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for INET_FIREWALL_AC_CHANGE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -725,7 +720,6 @@ impl ::std::convert::From<i32> for INET_FIREWALL_AC_CHANGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for INET_FIREWALL_AC_CHANGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -742,7 +736,6 @@ impl ::std::convert::From<i32> for INET_FIREWALL_AC_CREATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for INET_FIREWALL_AC_CREATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -794,7 +787,6 @@ impl ::std::cmp::Eq for INET_FIREWALL_APP_CONTAINER {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for INET_FIREWALL_APP_CONTAINER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[repr(transparent)]
@@ -4643,7 +4635,6 @@ impl ::std::convert::From<i32> for NETCONMGR_ENUM_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for NETCONMGR_ENUM_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4659,7 +4650,6 @@ impl ::std::convert::From<i32> for NETCONUI_CONNECT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for NETCONUI_CONNECT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4693,7 +4683,6 @@ impl ::std::convert::From<i32> for NETCON_CHARACTERISTIC_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for NETCON_CHARACTERISTIC_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 pub const NETCON_MAX_NAME_LEN: u32 = 256u32;
@@ -4718,7 +4707,6 @@ impl ::std::convert::From<i32> for NETCON_MEDIATYPE {
 }
 unsafe impl ::windows::runtime::Abi for NETCON_MEDIATYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4768,7 +4756,6 @@ impl ::std::cmp::Eq for NETCON_PROPERTIES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NETCON_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4797,7 +4784,6 @@ impl ::std::convert::From<i32> for NETCON_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for NETCON_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4817,7 +4803,6 @@ impl ::std::convert::From<i32> for NETCON_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for NETCON_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4835,7 +4820,6 @@ impl ::std::convert::From<i32> for NETISO_ERROR_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for NETISO_ERROR_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4850,7 +4834,6 @@ impl ::std::convert::From<i32> for NETISO_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for NETISO_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 pub const NETISO_GEID_FOR_NEUTRAL_AWARE: u32 = 2u32;
@@ -4870,7 +4853,6 @@ impl ::std::convert::From<i32> for NET_FW_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for NET_FW_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4888,7 +4870,6 @@ impl ::std::convert::From<i32> for NET_FW_AUTHENTICATE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for NET_FW_AUTHENTICATE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4905,7 +4886,6 @@ impl ::std::convert::From<i32> for NET_FW_EDGE_TRAVERSAL_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for NET_FW_EDGE_TRAVERSAL_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4921,7 +4901,6 @@ impl ::std::convert::From<i32> for NET_FW_IP_PROTOCOL {
 }
 unsafe impl ::windows::runtime::Abi for NET_FW_IP_PROTOCOL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4938,7 +4917,6 @@ impl ::std::convert::From<i32> for NET_FW_IP_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for NET_FW_IP_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4954,7 +4932,6 @@ impl ::std::convert::From<i32> for NET_FW_MODIFY_STATE {
 }
 unsafe impl ::windows::runtime::Abi for NET_FW_MODIFY_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4971,7 +4948,6 @@ impl ::std::convert::From<i32> for NET_FW_POLICY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for NET_FW_POLICY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4988,7 +4964,6 @@ impl ::std::convert::From<i32> for NET_FW_PROFILE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for NET_FW_PROFILE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5005,7 +4980,6 @@ impl ::std::convert::From<i32> for NET_FW_PROFILE_TYPE2 {
 }
 unsafe impl ::windows::runtime::Abi for NET_FW_PROFILE_TYPE2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5023,7 +4997,6 @@ impl ::std::convert::From<i32> for NET_FW_RULE_CATEGORY {
 }
 unsafe impl ::windows::runtime::Abi for NET_FW_RULE_CATEGORY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5039,7 +5012,6 @@ impl ::std::convert::From<i32> for NET_FW_RULE_DIRECTION {
 }
 unsafe impl ::windows::runtime::Abi for NET_FW_RULE_DIRECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5056,7 +5028,6 @@ impl ::std::convert::From<i32> for NET_FW_SCOPE {
 }
 unsafe impl ::windows::runtime::Abi for NET_FW_SCOPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5074,7 +5045,6 @@ impl ::std::convert::From<i32> for NET_FW_SERVICE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for NET_FW_SERVICE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const NetFwAuthorizedApplication: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3969402547, 10082, 19051, [162, 20, 106, 203, 96, 52, 98, 210]);
 pub const NetFwMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(810346818, 28217, 16600, [148, 58, 185, 19, 196, 12, 156, 212]);
@@ -5240,7 +5210,6 @@ impl ::std::convert::From<i32> for SHARINGCONNECTIONTYPE {
 }
 unsafe impl ::windows::runtime::Abi for SHARINGCONNECTIONTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5255,7 +5224,6 @@ impl ::std::convert::From<i32> for SHARINGCONNECTION_ENUM_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for SHARINGCONNECTION_ENUM_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 pub const S_OBJECT_NO_LONGER_VALID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(2i32 as _);
@@ -5295,7 +5263,6 @@ impl ::std::cmp::Eq for _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5332,7 +5299,6 @@ impl ::std::cmp::Eq for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5348,7 +5314,6 @@ impl ::std::convert::From<i32> for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5362,7 +5327,6 @@ impl ::std::convert::From<i32> for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5378,5 +5342,4 @@ impl ::std::convert::From<i32> for _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }

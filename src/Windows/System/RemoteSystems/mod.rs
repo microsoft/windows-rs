@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKnownRemoteSystemCapabilitiesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownRemoteSystemCapabilitiesStatics {
@@ -22,7 +21,6 @@ pub struct IKnownRemoteSystemCapabilitiesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystem(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystem {
@@ -45,7 +43,6 @@ pub struct IRemoteSystem_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystem2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystem2 {
@@ -66,7 +63,6 @@ pub struct IRemoteSystem2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystem3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystem3 {
@@ -86,7 +82,6 @@ pub struct IRemoteSystem3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystem4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystem4 {
@@ -105,7 +100,6 @@ pub struct IRemoteSystem4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut RemoteSystemPlatform) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystem5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystem5 {
@@ -125,7 +119,6 @@ pub struct IRemoteSystem5_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystem6(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystem6 {
@@ -144,7 +137,6 @@ pub struct IRemoteSystem6_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemAddedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemAddedEventArgs {
@@ -163,7 +155,6 @@ pub struct IRemoteSystemAddedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemApp(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemApp {
@@ -187,7 +178,6 @@ pub struct IRemoteSystemApp_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemApp2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemApp2 {
@@ -207,7 +197,6 @@ pub struct IRemoteSystemApp2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemAppRegistration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemAppRegistration {
@@ -230,7 +219,6 @@ pub struct IRemoteSystemAppRegistration_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemAppRegistrationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemAppRegistrationStatics {
@@ -250,7 +238,6 @@ pub struct IRemoteSystemAppRegistrationStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, user: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemAuthorizationKindFilter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemAuthorizationKindFilter {
@@ -269,7 +256,6 @@ pub struct IRemoteSystemAuthorizationKindFilter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut RemoteSystemAuthorizationKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemAuthorizationKindFilterFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemAuthorizationKindFilterFactory {
@@ -288,7 +274,6 @@ pub struct IRemoteSystemAuthorizationKindFilterFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, remotesystemauthorizationkind: RemoteSystemAuthorizationKind, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemConnectionInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemConnectionInfo {
@@ -307,7 +292,6 @@ pub struct IRemoteSystemConnectionInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemConnectionInfoStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemConnectionInfoStatics {
@@ -327,7 +311,6 @@ pub struct IRemoteSystemConnectionInfoStatics_abi(
     #[cfg(not(feature = "ApplicationModel_AppService"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemConnectionRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemConnectionRequest {
@@ -346,7 +329,6 @@ pub struct IRemoteSystemConnectionRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemConnectionRequest2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemConnectionRequest2 {
@@ -365,7 +347,6 @@ pub struct IRemoteSystemConnectionRequest2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemConnectionRequest3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemConnectionRequest3 {
@@ -384,7 +365,6 @@ pub struct IRemoteSystemConnectionRequest3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemConnectionRequestFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemConnectionRequestFactory {
@@ -403,7 +383,6 @@ pub struct IRemoteSystemConnectionRequestFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, remotesystem: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemConnectionRequestStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemConnectionRequestStatics {
@@ -422,7 +401,6 @@ pub struct IRemoteSystemConnectionRequestStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, remotesystemapp: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemConnectionRequestStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemConnectionRequestStatics2 {
@@ -442,7 +420,6 @@ pub struct IRemoteSystemConnectionRequestStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, user: ::windows::runtime::RawPtr, connectiontoken: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemDiscoveryTypeFilter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemDiscoveryTypeFilter {
@@ -461,7 +438,6 @@ pub struct IRemoteSystemDiscoveryTypeFilter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut RemoteSystemDiscoveryType) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemDiscoveryTypeFilterFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemDiscoveryTypeFilterFactory {
@@ -480,7 +456,6 @@ pub struct IRemoteSystemDiscoveryTypeFilterFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, discoverytype: RemoteSystemDiscoveryType, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemEnumerationCompletedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemEnumerationCompletedEventArgs {
@@ -520,7 +495,6 @@ pub struct IRemoteSystemFilter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemKindFilter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemKindFilter {
@@ -540,7 +514,6 @@ pub struct IRemoteSystemKindFilter_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemKindFilterFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemKindFilterFactory {
@@ -560,7 +533,6 @@ pub struct IRemoteSystemKindFilterFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemKindStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemKindStatics {
@@ -583,7 +555,6 @@ pub struct IRemoteSystemKindStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemKindStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemKindStatics2 {
@@ -604,7 +575,6 @@ pub struct IRemoteSystemKindStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemRemovedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemRemovedEventArgs {
@@ -623,7 +593,6 @@ pub struct IRemoteSystemRemovedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemSession(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSession {
@@ -651,7 +620,6 @@ pub struct IRemoteSystemSession_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionAddedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionAddedEventArgs {
@@ -670,7 +638,6 @@ pub struct IRemoteSystemSessionAddedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionController(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionController {
@@ -696,7 +663,6 @@ pub struct IRemoteSystemSessionController_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionControllerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionControllerFactory {
@@ -716,7 +682,6 @@ pub struct IRemoteSystemSessionControllerFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, displayname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, options: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionCreationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionCreationResult {
@@ -736,7 +701,6 @@ pub struct IRemoteSystemSessionCreationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionDisconnectedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionDisconnectedEventArgs {
@@ -755,7 +719,6 @@ pub struct IRemoteSystemSessionDisconnectedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut RemoteSystemSessionDisconnectedReason) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionInfo {
@@ -777,7 +740,6 @@ pub struct IRemoteSystemSessionInfo_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionInvitation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionInvitation {
@@ -797,7 +759,6 @@ pub struct IRemoteSystemSessionInvitation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionInvitationListener(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionInvitationListener {
@@ -819,7 +780,6 @@ pub struct IRemoteSystemSessionInvitationListener_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionInvitationReceivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionInvitationReceivedEventArgs {
@@ -838,7 +798,6 @@ pub struct IRemoteSystemSessionInvitationReceivedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionJoinRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionJoinRequest {
@@ -858,7 +817,6 @@ pub struct IRemoteSystemSessionJoinRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionJoinRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionJoinRequestedEventArgs {
@@ -879,7 +837,6 @@ pub struct IRemoteSystemSessionJoinRequestedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionJoinResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionJoinResult {
@@ -899,7 +856,6 @@ pub struct IRemoteSystemSessionJoinResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionMessageChannel(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionMessageChannel {
@@ -928,7 +884,6 @@ pub struct IRemoteSystemSessionMessageChannel_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionMessageChannelFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionMessageChannelFactory {
@@ -948,7 +903,6 @@ pub struct IRemoteSystemSessionMessageChannelFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, session: ::windows::runtime::RawPtr, channelname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, reliability: RemoteSystemSessionMessageChannelReliability, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionOptions {
@@ -968,7 +922,6 @@ pub struct IRemoteSystemSessionOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionParticipant(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionParticipant {
@@ -989,7 +942,6 @@ pub struct IRemoteSystemSessionParticipant_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Networking")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionParticipantAddedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionParticipantAddedEventArgs {
@@ -1008,7 +960,6 @@ pub struct IRemoteSystemSessionParticipantAddedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionParticipantRemovedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionParticipantRemovedEventArgs {
@@ -1027,7 +978,6 @@ pub struct IRemoteSystemSessionParticipantRemovedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionParticipantWatcher(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionParticipantWatcher {
@@ -1060,7 +1010,6 @@ pub struct IRemoteSystemSessionParticipantWatcher_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionRemovedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionRemovedEventArgs {
@@ -1079,7 +1028,6 @@ pub struct IRemoteSystemSessionRemovedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionStatics {
@@ -1098,7 +1046,6 @@ pub struct IRemoteSystemSessionStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionUpdatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionUpdatedEventArgs {
@@ -1117,7 +1064,6 @@ pub struct IRemoteSystemSessionUpdatedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionValueSetReceivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionValueSetReceivedEventArgs {
@@ -1138,7 +1084,6 @@ pub struct IRemoteSystemSessionValueSetReceivedEventArgs_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemSessionWatcher(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemSessionWatcher {
@@ -1171,7 +1116,6 @@ pub struct IRemoteSystemSessionWatcher_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemStatics {
@@ -1196,7 +1140,6 @@ pub struct IRemoteSystemStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemStatics2 {
@@ -1215,7 +1158,6 @@ pub struct IRemoteSystemStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, kind: RemoteSystemAuthorizationKind, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemStatics3 {
@@ -1236,7 +1178,6 @@ pub struct IRemoteSystemStatics3_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemStatusTypeFilter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemStatusTypeFilter {
@@ -1255,7 +1196,6 @@ pub struct IRemoteSystemStatusTypeFilter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut RemoteSystemStatusType) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemStatusTypeFilterFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemStatusTypeFilterFactory {
@@ -1274,7 +1214,6 @@ pub struct IRemoteSystemStatusTypeFilterFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, remotesystemstatustype: RemoteSystemStatusType, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemUpdatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemUpdatedEventArgs {
@@ -1293,7 +1232,6 @@ pub struct IRemoteSystemUpdatedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemWatcher(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemWatcher {
@@ -1325,7 +1263,6 @@ pub struct IRemoteSystemWatcher_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemWatcher2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemWatcher2 {
@@ -1351,7 +1288,6 @@ pub struct IRemoteSystemWatcher2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemWatcher3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemWatcher3 {
@@ -1370,7 +1306,6 @@ pub struct IRemoteSystemWatcher3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemWatcherErrorOccurredEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemWatcherErrorOccurredEventArgs {
@@ -1389,7 +1324,6 @@ pub struct IRemoteSystemWatcherErrorOccurredEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut RemoteSystemWatcherError) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemWebAccountFilter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemWebAccountFilter {
@@ -1409,7 +1343,6 @@ pub struct IRemoteSystemWebAccountFilter_abi(
     #[cfg(not(feature = "Security_Credentials"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteSystemWebAccountFilterFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteSystemWebAccountFilterFactory {
@@ -1665,10 +1598,12 @@ impl ::std::convert::From<i32> for RemoteSystemAccessStatus {
 }
 unsafe impl ::windows::runtime::Abi for RemoteSystemAccessStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RemoteSystemAccessStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemAccessStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for RemoteSystemAccessStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
@@ -1848,10 +1783,12 @@ impl ::std::convert::From<i32> for RemoteSystemAuthorizationKind {
 }
 unsafe impl ::windows::runtime::Abi for RemoteSystemAuthorizationKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RemoteSystemAuthorizationKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemAuthorizationKind;i4)");
+}
+impl ::windows::runtime::DefaultType for RemoteSystemAuthorizationKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
@@ -2049,10 +1986,12 @@ impl ::std::convert::From<i32> for RemoteSystemDiscoveryType {
 }
 unsafe impl ::windows::runtime::Abi for RemoteSystemDiscoveryType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RemoteSystemDiscoveryType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemDiscoveryType;i4)");
+}
+impl ::windows::runtime::DefaultType for RemoteSystemDiscoveryType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
@@ -2280,10 +2219,12 @@ impl ::std::convert::From<i32> for RemoteSystemPlatform {
 }
 unsafe impl ::windows::runtime::Abi for RemoteSystemPlatform {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RemoteSystemPlatform {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemPlatform;i4)");
+}
+impl ::windows::runtime::DefaultType for RemoteSystemPlatform {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
@@ -2573,10 +2514,12 @@ impl ::std::convert::From<i32> for RemoteSystemSessionCreationStatus {
 }
 unsafe impl ::windows::runtime::Abi for RemoteSystemSessionCreationStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSessionCreationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionCreationStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for RemoteSystemSessionCreationStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
@@ -2620,10 +2563,12 @@ impl ::std::convert::From<i32> for RemoteSystemSessionDisconnectedReason {
 }
 unsafe impl ::windows::runtime::Abi for RemoteSystemSessionDisconnectedReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSessionDisconnectedReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionDisconnectedReason;i4)");
+}
+impl ::windows::runtime::DefaultType for RemoteSystemSessionDisconnectedReason {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
@@ -2886,10 +2831,12 @@ impl ::std::convert::From<i32> for RemoteSystemSessionJoinStatus {
 }
 unsafe impl ::windows::runtime::Abi for RemoteSystemSessionJoinStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSessionJoinStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionJoinStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for RemoteSystemSessionJoinStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
@@ -2992,10 +2939,12 @@ impl ::std::convert::From<i32> for RemoteSystemSessionMessageChannelReliability 
 }
 unsafe impl ::windows::runtime::Abi for RemoteSystemSessionMessageChannelReliability {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSessionMessageChannelReliability {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionMessageChannelReliability;i4)");
+}
+impl ::windows::runtime::DefaultType for RemoteSystemSessionMessageChannelReliability {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
@@ -3222,10 +3171,12 @@ impl ::std::convert::From<i32> for RemoteSystemSessionParticipantWatcherStatus {
 }
 unsafe impl ::windows::runtime::Abi for RemoteSystemSessionParticipantWatcherStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSessionParticipantWatcherStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionParticipantWatcherStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for RemoteSystemSessionParticipantWatcherStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
@@ -3414,10 +3365,12 @@ impl ::std::convert::From<i32> for RemoteSystemSessionWatcherStatus {
 }
 unsafe impl ::windows::runtime::Abi for RemoteSystemSessionWatcherStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RemoteSystemSessionWatcherStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionWatcherStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for RemoteSystemSessionWatcherStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3436,10 +3389,12 @@ impl ::std::convert::From<i32> for RemoteSystemStatus {
 }
 unsafe impl ::windows::runtime::Abi for RemoteSystemStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RemoteSystemStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for RemoteSystemStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3456,10 +3411,12 @@ impl ::std::convert::From<i32> for RemoteSystemStatusType {
 }
 unsafe impl ::windows::runtime::Abi for RemoteSystemStatusType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RemoteSystemStatusType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemStatusType;i4)");
+}
+impl ::windows::runtime::DefaultType for RemoteSystemStatusType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]
@@ -3673,10 +3630,12 @@ impl ::std::convert::From<i32> for RemoteSystemWatcherError {
 }
 unsafe impl ::windows::runtime::Abi for RemoteSystemWatcherError {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RemoteSystemWatcherError {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemWatcherError;i4)");
+}
+impl ::windows::runtime::DefaultType for RemoteSystemWatcherError {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System_RemoteSystems`*"]
 #[repr(transparent)]

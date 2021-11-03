@@ -55,7 +55,6 @@ impl ::std::cmp::Eq for SAFER_CODE_PROPERTIES_V1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SAFER_CODE_PROPERTIES_V1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -139,7 +138,6 @@ impl ::std::cmp::Eq for SAFER_CODE_PROPERTIES_V2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SAFER_CODE_PROPERTIES_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_AppLocker`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -156,7 +154,6 @@ impl ::std::convert::From<u32> for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
     type Output = Self;
@@ -248,7 +245,6 @@ impl ::std::cmp::Eq for SAFER_HASH_IDENTIFICATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SAFER_HASH_IDENTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -285,7 +281,6 @@ impl ::std::cmp::Eq for SAFER_HASH_IDENTIFICATION2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SAFER_HASH_IDENTIFICATION2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -322,7 +317,6 @@ impl ::std::cmp::Eq for SAFER_IDENTIFICATION_HEADER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SAFER_IDENTIFICATION_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_AppLocker`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -340,7 +334,6 @@ impl ::std::convert::From<i32> for SAFER_IDENTIFICATION_TYPES {
 }
 unsafe impl ::windows::runtime::Abi for SAFER_IDENTIFICATION_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_LEVELID_CONSTRAINED: u32 = 65536u32;
@@ -387,7 +380,6 @@ impl ::std::convert::From<i32> for SAFER_OBJECT_INFO_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for SAFER_OBJECT_INFO_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -424,7 +416,6 @@ impl ::std::cmp::Eq for SAFER_PATHNAME_IDENTIFICATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SAFER_PATHNAME_IDENTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_POLICY_BLOCK_CLIENT_UI: u32 = 8192u32;
@@ -448,7 +439,6 @@ impl ::std::convert::From<i32> for SAFER_POLICY_INFO_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for SAFER_POLICY_INFO_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_AppLocker`*"]
 pub const SAFER_POLICY_JOBID_CONSTRAINED: u32 = 67108864u32;
@@ -508,7 +498,6 @@ impl ::std::cmp::Eq for SAFER_URLZONE_IDENTIFICATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SAFER_URLZONE_IDENTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_AppLocker`, `Win32_Foundation`*"]

@@ -101,10 +101,12 @@ impl ::std::convert::From<i32> for GameListCategory {
 }
 unsafe impl ::windows::runtime::Abi for GameListCategory {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GameListCategory {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.Preview.GamesEnumeration.GameListCategory;i4)");
+}
+impl ::windows::runtime::DefaultType for GameListCategory {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
 #[repr(transparent)]
@@ -176,7 +178,7 @@ impl<F: FnMut(&::std::option::Option<GameListEntry>) -> ::windows::runtime::Resu
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, game: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&game as *const <GameListEntry as ::windows::runtime::Abi>::Abi as *const <GameListEntry as ::windows::runtime::Abi>::DefaultType)).into()
+        ((*this).invoke)(&*(&game as *const <GameListEntry as ::windows::runtime::Abi>::Abi as *const <GameListEntry as ::windows::runtime::DefaultType>::DefaultType)).into()
     }
 }
 #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
@@ -346,10 +348,12 @@ impl ::std::convert::From<i32> for GameListEntryLaunchableState {
 }
 unsafe impl ::windows::runtime::Abi for GameListEntryLaunchableState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GameListEntryLaunchableState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.Preview.GamesEnumeration.GameListEntryLaunchableState;i4)");
+}
+impl ::windows::runtime::DefaultType for GameListEntryLaunchableState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
 #[repr(transparent)]
@@ -421,7 +425,7 @@ impl<F: FnMut(&::windows::runtime::HSTRING) -> ::windows::runtime::Result<()> + 
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, identifier: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&identifier as *const <::windows::runtime::HSTRING as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::HSTRING as ::windows::runtime::Abi>::DefaultType)).into()
+        ((*this).invoke)(&*(&identifier as *const <::windows::runtime::HSTRING as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::HSTRING as ::windows::runtime::DefaultType>::DefaultType)).into()
     }
 }
 #[doc = "*Required features: `Gaming_Preview_GamesEnumeration`*"]
@@ -700,7 +704,6 @@ pub struct IGameListEntry_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGameListEntry2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameListEntry2 {
@@ -730,7 +733,6 @@ pub struct IGameListEntry2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGameListStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameListStatics {
@@ -764,7 +766,6 @@ pub struct IGameListStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGameListStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameListStatics2 {
@@ -786,7 +787,6 @@ pub struct IGameListStatics2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGameModeConfiguration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameModeConfiguration {
@@ -836,7 +836,6 @@ pub struct IGameModeConfiguration_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGameModeUserConfiguration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameModeUserConfiguration {
@@ -858,7 +857,6 @@ pub struct IGameModeUserConfiguration_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGameModeUserConfigurationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameModeUserConfigurationStatics {

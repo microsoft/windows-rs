@@ -2,7 +2,6 @@
 #[cfg(feature = "Devices_Perception_Provider")]
 pub mod Provider;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKnownCameraIntrinsicsPropertiesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownCameraIntrinsicsPropertiesStatics {
@@ -24,7 +23,6 @@ pub struct IKnownCameraIntrinsicsPropertiesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKnownPerceptionColorFrameSourcePropertiesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownPerceptionColorFrameSourcePropertiesStatics {
@@ -45,7 +43,6 @@ pub struct IKnownPerceptionColorFrameSourcePropertiesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKnownPerceptionDepthFrameSourcePropertiesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownPerceptionDepthFrameSourcePropertiesStatics {
@@ -65,7 +62,6 @@ pub struct IKnownPerceptionDepthFrameSourcePropertiesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKnownPerceptionFrameSourcePropertiesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownPerceptionFrameSourcePropertiesStatics {
@@ -88,7 +84,6 @@ pub struct IKnownPerceptionFrameSourcePropertiesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKnownPerceptionFrameSourcePropertiesStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownPerceptionFrameSourcePropertiesStatics2 {
@@ -107,7 +102,6 @@ pub struct IKnownPerceptionFrameSourcePropertiesStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKnownPerceptionInfraredFrameSourcePropertiesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownPerceptionInfraredFrameSourcePropertiesStatics {
@@ -132,7 +126,6 @@ pub struct IKnownPerceptionInfraredFrameSourcePropertiesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKnownPerceptionVideoFrameSourcePropertiesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownPerceptionVideoFrameSourcePropertiesStatics {
@@ -155,7 +148,6 @@ pub struct IKnownPerceptionVideoFrameSourcePropertiesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKnownPerceptionVideoProfilePropertiesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownPerceptionVideoProfilePropertiesStatics {
@@ -178,7 +170,6 @@ pub struct IKnownPerceptionVideoProfilePropertiesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionColorFrame(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionColorFrame {
@@ -198,7 +189,6 @@ pub struct IPerceptionColorFrame_abi(
     #[cfg(not(feature = "Media"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionColorFrameArrivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionColorFrameArrivedEventArgs {
@@ -219,7 +209,6 @@ pub struct IPerceptionColorFrameArrivedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionColorFrameReader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionColorFrameReader {
@@ -245,7 +234,6 @@ pub struct IPerceptionColorFrameReader_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionColorFrameSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionColorFrameSource {
@@ -310,7 +298,6 @@ pub struct IPerceptionColorFrameSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionColorFrameSource2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionColorFrameSource2 {
@@ -329,7 +316,6 @@ pub struct IPerceptionColorFrameSource2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionColorFrameSourceAddedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionColorFrameSourceAddedEventArgs {
@@ -348,7 +334,6 @@ pub struct IPerceptionColorFrameSourceAddedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionColorFrameSourceRemovedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionColorFrameSourceRemovedEventArgs {
@@ -367,7 +352,6 @@ pub struct IPerceptionColorFrameSourceRemovedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionColorFrameSourceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionColorFrameSourceStatics {
@@ -392,7 +376,6 @@ pub struct IPerceptionColorFrameSourceStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionColorFrameSourceWatcher(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionColorFrameSourceWatcher {
@@ -430,7 +413,6 @@ pub struct IPerceptionColorFrameSourceWatcher_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionControlSession(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionControlSession {
@@ -454,7 +436,6 @@ pub struct IPerceptionControlSession_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionDepthCorrelatedCameraIntrinsics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionDepthCorrelatedCameraIntrinsics {
@@ -480,7 +461,6 @@ pub struct IPerceptionDepthCorrelatedCameraIntrinsics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionDepthCorrelatedCoordinateMapper(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionDepthCorrelatedCoordinateMapper {
@@ -506,7 +486,6 @@ pub struct IPerceptionDepthCorrelatedCoordinateMapper_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionDepthFrame(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionDepthFrame {
@@ -526,7 +505,6 @@ pub struct IPerceptionDepthFrame_abi(
     #[cfg(not(feature = "Media"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionDepthFrameArrivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionDepthFrameArrivedEventArgs {
@@ -547,7 +525,6 @@ pub struct IPerceptionDepthFrameArrivedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionDepthFrameReader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionDepthFrameReader {
@@ -573,7 +550,6 @@ pub struct IPerceptionDepthFrameReader_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionDepthFrameSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionDepthFrameSource {
@@ -638,7 +614,6 @@ pub struct IPerceptionDepthFrameSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionDepthFrameSource2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionDepthFrameSource2 {
@@ -657,7 +632,6 @@ pub struct IPerceptionDepthFrameSource2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionDepthFrameSourceAddedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionDepthFrameSourceAddedEventArgs {
@@ -676,7 +650,6 @@ pub struct IPerceptionDepthFrameSourceAddedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionDepthFrameSourceRemovedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionDepthFrameSourceRemovedEventArgs {
@@ -695,7 +668,6 @@ pub struct IPerceptionDepthFrameSourceRemovedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionDepthFrameSourceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionDepthFrameSourceStatics {
@@ -720,7 +692,6 @@ pub struct IPerceptionDepthFrameSourceStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionDepthFrameSourceWatcher(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionDepthFrameSourceWatcher {
@@ -758,7 +729,6 @@ pub struct IPerceptionDepthFrameSourceWatcher_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionFrameSourcePropertiesChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionFrameSourcePropertiesChangedEventArgs {
@@ -779,7 +749,6 @@ pub struct IPerceptionFrameSourcePropertiesChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionFrameSourcePropertyChangeResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionFrameSourcePropertyChangeResult {
@@ -799,7 +768,6 @@ pub struct IPerceptionFrameSourcePropertyChangeResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionInfraredFrame(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionInfraredFrame {
@@ -819,7 +787,6 @@ pub struct IPerceptionInfraredFrame_abi(
     #[cfg(not(feature = "Media"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionInfraredFrameArrivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionInfraredFrameArrivedEventArgs {
@@ -840,7 +807,6 @@ pub struct IPerceptionInfraredFrameArrivedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionInfraredFrameReader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionInfraredFrameReader {
@@ -866,7 +832,6 @@ pub struct IPerceptionInfraredFrameReader_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionInfraredFrameSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionInfraredFrameSource {
@@ -931,7 +896,6 @@ pub struct IPerceptionInfraredFrameSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionInfraredFrameSource2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionInfraredFrameSource2 {
@@ -950,7 +914,6 @@ pub struct IPerceptionInfraredFrameSource2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionInfraredFrameSourceAddedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionInfraredFrameSourceAddedEventArgs {
@@ -969,7 +932,6 @@ pub struct IPerceptionInfraredFrameSourceAddedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionInfraredFrameSourceRemovedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionInfraredFrameSourceRemovedEventArgs {
@@ -988,7 +950,6 @@ pub struct IPerceptionInfraredFrameSourceRemovedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionInfraredFrameSourceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionInfraredFrameSourceStatics {
@@ -1013,7 +974,6 @@ pub struct IPerceptionInfraredFrameSourceStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionInfraredFrameSourceWatcher(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionInfraredFrameSourceWatcher {
@@ -1051,7 +1011,6 @@ pub struct IPerceptionInfraredFrameSourceWatcher_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionVideoProfile(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionVideoProfile {
@@ -2198,14 +2157,14 @@ impl PerceptionDepthCorrelatedCameraIntrinsics {
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
     #[doc = "*Required features: `Devices_Perception`, `Foundation`, `Foundation_Numerics`*"]
-    pub fn UnprojectPixelsAtCorrelatedDepth<'a, Param1: ::windows::runtime::IntoParam<'a, PerceptionDepthFrame>>(&self, sourcecoordinates: &[<super::super::Foundation::Point as ::windows::runtime::Abi>::DefaultType], depthframe: Param1, results: &mut [<super::super::Foundation::Numerics::Vector3 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn UnprojectPixelsAtCorrelatedDepth<'a, Param1: ::windows::runtime::IntoParam<'a, PerceptionDepthFrame>>(&self, sourcecoordinates: &[<super::super::Foundation::Point as ::windows::runtime::DefaultType>::DefaultType], depthframe: Param1, results: &mut [<super::super::Foundation::Numerics::Vector3 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), sourcecoordinates.len() as u32, ::std::mem::transmute(sourcecoordinates.as_ptr()), depthframe.into_param().abi(), results.len() as u32, ::std::mem::transmute_copy(&results)).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
     #[doc = "*Required features: `Devices_Perception`, `Foundation`, `Foundation_Numerics`*"]
-    pub fn UnprojectRegionPixelsAtCorrelatedDepthAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Rect>, Param1: ::windows::runtime::IntoParam<'a, PerceptionDepthFrame>>(&self, region: Param0, depthframe: Param1, results: &mut [<super::super::Foundation::Numerics::Vector3 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
+    pub fn UnprojectRegionPixelsAtCorrelatedDepthAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Rect>, Param1: ::windows::runtime::IntoParam<'a, PerceptionDepthFrame>>(&self, region: Param0, depthframe: Param1, results: &mut [<super::super::Foundation::Numerics::Vector3 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2215,7 +2174,7 @@ impl PerceptionDepthCorrelatedCameraIntrinsics {
     #[cfg(feature = "deprecated")]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
     #[doc = "*Required features: `Devices_Perception`, `Foundation`, `Foundation_Numerics`*"]
-    pub fn UnprojectAllPixelsAtCorrelatedDepthAsync<'a, Param0: ::windows::runtime::IntoParam<'a, PerceptionDepthFrame>>(&self, depthframe: Param0, results: &mut [<super::super::Foundation::Numerics::Vector3 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
+    pub fn UnprojectAllPixelsAtCorrelatedDepthAsync<'a, Param0: ::windows::runtime::IntoParam<'a, PerceptionDepthFrame>>(&self, depthframe: Param0, results: &mut [<super::super::Foundation::Numerics::Vector3 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2253,14 +2212,14 @@ impl PerceptionDepthCorrelatedCoordinateMapper {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Perception`, `Foundation`*"]
-    pub fn MapPixelsToTarget<'a, Param1: ::windows::runtime::IntoParam<'a, PerceptionDepthFrame>>(&self, sourcecoordinates: &[<super::super::Foundation::Point as ::windows::runtime::Abi>::DefaultType], depthframe: Param1, results: &mut [<super::super::Foundation::Point as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn MapPixelsToTarget<'a, Param1: ::windows::runtime::IntoParam<'a, PerceptionDepthFrame>>(&self, sourcecoordinates: &[<super::super::Foundation::Point as ::windows::runtime::DefaultType>::DefaultType], depthframe: Param1, results: &mut [<super::super::Foundation::Point as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), sourcecoordinates.len() as u32, ::std::mem::transmute(sourcecoordinates.as_ptr()), depthframe.into_param().abi(), results.len() as u32, ::std::mem::transmute_copy(&results)).ok() }
     }
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Perception`, `Foundation`*"]
-    pub fn MapRegionOfPixelsToTargetAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Rect>, Param1: ::windows::runtime::IntoParam<'a, PerceptionDepthFrame>>(&self, region: Param0, depthframe: Param1, targetcoordinates: &mut [<super::super::Foundation::Point as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
+    pub fn MapRegionOfPixelsToTargetAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::Rect>, Param1: ::windows::runtime::IntoParam<'a, PerceptionDepthFrame>>(&self, region: Param0, depthframe: Param1, targetcoordinates: &mut [<super::super::Foundation::Point as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2270,7 +2229,7 @@ impl PerceptionDepthCorrelatedCoordinateMapper {
     #[cfg(feature = "deprecated")]
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Perception`, `Foundation`*"]
-    pub fn MapAllPixelsToTargetAsync<'a, Param0: ::windows::runtime::IntoParam<'a, PerceptionDepthFrame>>(&self, depthframe: Param0, targetcoordinates: &mut [<super::super::Foundation::Point as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
+    pub fn MapAllPixelsToTargetAsync<'a, Param0: ::windows::runtime::IntoParam<'a, PerceptionDepthFrame>>(&self, depthframe: Param0, targetcoordinates: &mut [<super::super::Foundation::Point as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -2996,10 +2955,12 @@ impl ::std::convert::From<i32> for PerceptionFrameSourceAccessStatus {
 }
 unsafe impl ::windows::runtime::Abi for PerceptionFrameSourceAccessStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PerceptionFrameSourceAccessStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Perception.PerceptionFrameSourceAccessStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for PerceptionFrameSourceAccessStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]
@@ -3093,10 +3054,12 @@ impl ::std::convert::From<i32> for PerceptionFrameSourcePropertyChangeStatus {
 }
 unsafe impl ::windows::runtime::Abi for PerceptionFrameSourcePropertyChangeStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PerceptionFrameSourcePropertyChangeStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Perception.PerceptionFrameSourcePropertyChangeStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for PerceptionFrameSourcePropertyChangeStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Perception`*"]
 #[repr(transparent)]

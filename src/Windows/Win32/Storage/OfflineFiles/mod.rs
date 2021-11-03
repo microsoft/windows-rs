@@ -2831,7 +2831,6 @@ impl ::std::convert::From<i32> for OFFLINEFILES_CACHING_MODE {
 }
 unsafe impl ::windows::runtime::Abi for OFFLINEFILES_CACHING_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 pub const OFFLINEFILES_CHANGES_LOCAL_ATTRIBUTES: u32 = 2u32;
@@ -2864,7 +2863,6 @@ impl ::std::convert::From<i32> for OFFLINEFILES_COMPARE {
 }
 unsafe impl ::windows::runtime::Abi for OFFLINEFILES_COMPARE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2882,7 +2880,6 @@ impl ::std::convert::From<i32> for OFFLINEFILES_CONNECT_STATE {
 }
 unsafe impl ::windows::runtime::Abi for OFFLINEFILES_CONNECT_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 pub const OFFLINEFILES_DELETE_FLAG_ADMIN: u32 = 2147483648u32;
@@ -2957,7 +2954,6 @@ impl ::std::convert::From<i32> for OFFLINEFILES_EVENTS {
 }
 unsafe impl ::windows::runtime::Abi for OFFLINEFILES_EVENTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2973,7 +2969,6 @@ impl ::std::convert::From<i32> for OFFLINEFILES_ITEM_COPY {
 }
 unsafe impl ::windows::runtime::Abi for OFFLINEFILES_ITEM_COPY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 pub const OFFLINEFILES_ITEM_FILTER_FLAG_CREATED: u32 = 8u32;
@@ -3055,7 +3050,6 @@ impl ::std::convert::From<i32> for OFFLINEFILES_ITEM_TIME {
 }
 unsafe impl ::windows::runtime::Abi for OFFLINEFILES_ITEM_TIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3072,7 +3066,6 @@ impl ::std::convert::From<i32> for OFFLINEFILES_ITEM_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for OFFLINEFILES_ITEM_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3092,7 +3085,6 @@ impl ::std::convert::From<i32> for OFFLINEFILES_OFFLINE_REASON {
 }
 unsafe impl ::windows::runtime::Abi for OFFLINEFILES_OFFLINE_REASON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3108,7 +3100,6 @@ impl ::std::convert::From<i32> for OFFLINEFILES_OP_RESPONSE {
 }
 unsafe impl ::windows::runtime::Abi for OFFLINEFILES_OP_RESPONSE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3126,7 +3117,6 @@ impl ::std::convert::From<i32> for OFFLINEFILES_PATHFILTER_MATCH {
 }
 unsafe impl ::windows::runtime::Abi for OFFLINEFILES_PATHFILTER_MATCH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 pub const OFFLINEFILES_PINLINKTARGETS_ALWAYS: u32 = 2u32;
@@ -3176,7 +3166,6 @@ impl ::std::convert::From<i32> for OFFLINEFILES_SETTING_VALUE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for OFFLINEFILES_SETTING_VALUE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3198,7 +3187,6 @@ impl ::std::convert::From<i32> for OFFLINEFILES_SYNC_CONFLICT_RESOLVE {
 }
 unsafe impl ::windows::runtime::Abi for OFFLINEFILES_SYNC_CONFLICT_RESOLVE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 pub const OFFLINEFILES_SYNC_CONTROL_CR_DEFAULT: u32 = 0u32;
@@ -3271,7 +3259,6 @@ impl ::std::convert::From<i32> for OFFLINEFILES_SYNC_OPERATION {
 }
 unsafe impl ::windows::runtime::Abi for OFFLINEFILES_SYNC_OPERATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3339,7 +3326,6 @@ impl ::std::convert::From<i32> for OFFLINEFILES_SYNC_STATE {
 }
 unsafe impl ::windows::runtime::Abi for OFFLINEFILES_SYNC_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 pub const OFFLINEFILES_SYNC_STATE_LOCAL_KNOWN: u32 = 1u32;

@@ -66,7 +66,6 @@ impl ::std::cmp::Eq for CALLFRAMEINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CALLFRAMEINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -103,7 +102,6 @@ impl ::std::cmp::Eq for CALLFRAMEPARAMINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CALLFRAMEPARAMINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_CallObj`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -118,7 +116,6 @@ impl ::std::convert::From<i32> for CALLFRAME_COPY {
 }
 unsafe impl ::windows::runtime::Abi for CALLFRAME_COPY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_CallObj`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -138,7 +135,6 @@ impl ::std::convert::From<i32> for CALLFRAME_FREE {
 }
 unsafe impl ::windows::runtime::Abi for CALLFRAME_FREE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -176,7 +172,6 @@ impl ::std::cmp::Eq for CALLFRAME_MARSHALCONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CALLFRAME_MARSHALCONTEXT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_CallObj`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -193,7 +188,6 @@ impl ::std::convert::From<i32> for CALLFRAME_NULL {
 }
 unsafe impl ::windows::runtime::Abi for CALLFRAME_NULL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_CallObj`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -209,7 +203,6 @@ impl ::std::convert::From<i32> for CALLFRAME_WALK {
 }
 unsafe impl ::windows::runtime::Abi for CALLFRAME_WALK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_CallObj`*"]
 #[inline]

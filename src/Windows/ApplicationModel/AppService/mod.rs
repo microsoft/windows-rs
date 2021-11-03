@@ -61,10 +61,12 @@ impl ::std::convert::From<i32> for AppServiceClosedStatus {
 }
 unsafe impl ::windows::runtime::Abi for AppServiceClosedStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppServiceClosedStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceClosedStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for AppServiceClosedStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_AppService`*"]
 #[repr(transparent)]
@@ -258,10 +260,12 @@ impl ::std::convert::From<i32> for AppServiceConnectionStatus {
 }
 unsafe impl ::windows::runtime::Abi for AppServiceConnectionStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppServiceConnectionStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceConnectionStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for AppServiceConnectionStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_AppService`*"]
 #[repr(transparent)]
@@ -415,10 +419,12 @@ impl ::std::convert::From<i32> for AppServiceResponseStatus {
 }
 unsafe impl ::windows::runtime::Abi for AppServiceResponseStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppServiceResponseStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceResponseStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for AppServiceResponseStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_AppService`*"]
 #[repr(transparent)]
@@ -488,7 +494,6 @@ impl ::windows::runtime::RuntimeName for AppServiceTriggerDetails {
 unsafe impl ::std::marker::Send for AppServiceTriggerDetails {}
 unsafe impl ::std::marker::Sync for AppServiceTriggerDetails {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppServiceCatalogStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppServiceCatalogStatics {
@@ -508,7 +513,6 @@ pub struct IAppServiceCatalogStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppServiceClosedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppServiceClosedEventArgs {
@@ -527,7 +531,6 @@ pub struct IAppServiceClosedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut AppServiceClosedStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppServiceConnection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppServiceConnection {
@@ -561,7 +564,6 @@ pub struct IAppServiceConnection_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppServiceConnection2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppServiceConnection2 {
@@ -585,7 +587,6 @@ pub struct IAppServiceConnection2_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppServiceConnectionStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppServiceConnectionStatics {
@@ -605,7 +606,6 @@ pub struct IAppServiceConnectionStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System_RemoteSystems")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppServiceDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppServiceDeferral {
@@ -624,7 +624,6 @@ pub struct IAppServiceDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppServiceRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppServiceRequest {
@@ -646,7 +645,6 @@ pub struct IAppServiceRequest_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppServiceRequestReceivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppServiceRequestReceivedEventArgs {
@@ -666,7 +664,6 @@ pub struct IAppServiceRequestReceivedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppServiceResponse(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppServiceResponse {
@@ -687,7 +684,6 @@ pub struct IAppServiceResponse_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut AppServiceResponseStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppServiceTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppServiceTriggerDetails {
@@ -708,7 +704,6 @@ pub struct IAppServiceTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppServiceTriggerDetails2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppServiceTriggerDetails2 {
@@ -727,7 +722,6 @@ pub struct IAppServiceTriggerDetails2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppServiceTriggerDetails3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppServiceTriggerDetails3 {
@@ -747,7 +741,6 @@ pub struct IAppServiceTriggerDetails3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppServiceTriggerDetails4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppServiceTriggerDetails4 {
@@ -766,7 +759,6 @@ pub struct IAppServiceTriggerDetails4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStatelessAppServiceResponse(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStatelessAppServiceResponse {
@@ -849,8 +841,10 @@ impl ::std::convert::From<i32> for StatelessAppServiceResponseStatus {
 }
 unsafe impl ::windows::runtime::Abi for StatelessAppServiceResponseStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for StatelessAppServiceResponseStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.StatelessAppServiceResponseStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for StatelessAppServiceResponseStatus {
+    type DefaultType = Self;
 }

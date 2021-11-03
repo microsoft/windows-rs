@@ -45,7 +45,6 @@ impl ::std::convert::From<u32> for TBS_COMMAND_LOCALITY {
 }
 unsafe impl ::windows::runtime::Abi for TBS_COMMAND_LOCALITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for TBS_COMMAND_LOCALITY {
     type Output = Self;
@@ -91,7 +90,6 @@ impl ::std::convert::From<u32> for TBS_COMMAND_PRIORITY {
 }
 unsafe impl ::windows::runtime::Abi for TBS_COMMAND_PRIORITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for TBS_COMMAND_PRIORITY {
     type Output = Self;
@@ -146,7 +144,6 @@ impl ::std::cmp::PartialEq for TBS_CONTEXT_PARAMS {
 impl ::std::cmp::Eq for TBS_CONTEXT_PARAMS {}
 unsafe impl ::windows::runtime::Abi for TBS_CONTEXT_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -169,7 +166,6 @@ impl ::std::cmp::PartialEq for TBS_CONTEXT_PARAMS2 {
 impl ::std::cmp::Eq for TBS_CONTEXT_PARAMS2 {}
 unsafe impl ::windows::runtime::Abi for TBS_CONTEXT_PARAMS2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -192,7 +188,6 @@ impl ::std::cmp::PartialEq for TBS_CONTEXT_PARAMS2_0 {
 impl ::std::cmp::Eq for TBS_CONTEXT_PARAMS2_0 {}
 unsafe impl ::windows::runtime::Abi for TBS_CONTEXT_PARAMS2_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -219,7 +214,6 @@ impl ::std::cmp::PartialEq for TBS_CONTEXT_PARAMS2_0_0 {
 impl ::std::cmp::Eq for TBS_CONTEXT_PARAMS2_0_0 {}
 unsafe impl ::windows::runtime::Abi for TBS_CONTEXT_PARAMS2_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_TpmBaseServices`*"]
 pub const TBS_CONTEXT_VERSION_ONE: u32 = 1u32;
@@ -279,7 +273,6 @@ impl ::std::cmp::PartialEq for TPM_DEVICE_INFO {
 impl ::std::cmp::Eq for TPM_DEVICE_INFO {}
 unsafe impl ::windows::runtime::Abi for TPM_DEVICE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_TpmBaseServices`*"]
 pub const TPM_IFTYPE_1: u32 = 1u32;
@@ -485,5 +478,4 @@ impl ::std::cmp::PartialEq for tdTPM_WNF_PROVISIONING {
 impl ::std::cmp::Eq for tdTPM_WNF_PROVISIONING {}
 unsafe impl ::windows::runtime::Abi for tdTPM_WNF_PROVISIONING {
     type Abi = Self;
-    type DefaultType = Self;
 }

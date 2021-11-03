@@ -22,7 +22,6 @@ impl ::std::convert::From<i32> for EC_SUBSCRIPTION_CONFIGURATION_MODE {
 }
 unsafe impl ::windows::runtime::Abi for EC_SUBSCRIPTION_CONFIGURATION_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventCollector`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -37,7 +36,6 @@ impl ::std::convert::From<i32> for EC_SUBSCRIPTION_CONTENT_FORMAT {
 }
 unsafe impl ::windows::runtime::Abi for EC_SUBSCRIPTION_CONTENT_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventCollector`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -55,7 +53,6 @@ impl ::std::convert::From<i32> for EC_SUBSCRIPTION_CREDENTIALS_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for EC_SUBSCRIPTION_CREDENTIALS_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventCollector`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -70,7 +67,6 @@ impl ::std::convert::From<i32> for EC_SUBSCRIPTION_DELIVERY_MODE {
 }
 unsafe impl ::windows::runtime::Abi for EC_SUBSCRIPTION_DELIVERY_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventCollector`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -116,7 +112,6 @@ impl ::std::convert::From<i32> for EC_SUBSCRIPTION_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for EC_SUBSCRIPTION_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventCollector`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -133,7 +128,6 @@ impl ::std::convert::From<i32> for EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS 
 }
 unsafe impl ::windows::runtime::Abi for EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventCollector`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -154,7 +148,6 @@ impl ::std::convert::From<i32> for EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID {
 }
 unsafe impl ::windows::runtime::Abi for EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventCollector`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -169,7 +162,6 @@ impl ::std::convert::From<i32> for EC_SUBSCRIPTION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for EC_SUBSCRIPTION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -199,7 +191,6 @@ impl ::std::cmp::Eq for EC_VARIANT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EC_VARIANT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -235,7 +226,6 @@ impl ::std::cmp::Eq for EC_VARIANT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EC_VARIANT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventCollector`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -254,7 +244,6 @@ impl ::std::convert::From<i32> for EC_VARIANT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for EC_VARIANT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventCollector`*"]
 pub const EC_VARIANT_TYPE_ARRAY: u32 = 128u32;

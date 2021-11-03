@@ -292,10 +292,12 @@ impl ::std::convert::From<i32> for DayFormat {
 }
 unsafe impl ::windows::runtime::Abi for DayFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DayFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.DayFormat;i4)");
+}
+impl ::windows::runtime::DefaultType for DayFormat {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -314,10 +316,12 @@ impl ::std::convert::From<i32> for DayOfWeekFormat {
 }
 unsafe impl ::windows::runtime::Abi for DayOfWeekFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DayOfWeekFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.DayOfWeekFormat;i4)");
+}
+impl ::windows::runtime::DefaultType for DayOfWeekFormat {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -334,13 +338,14 @@ impl ::std::convert::From<i32> for HourFormat {
 }
 unsafe impl ::windows::runtime::Abi for HourFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for HourFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.HourFormat;i4)");
 }
+impl ::windows::runtime::DefaultType for HourFormat {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDateTimeFormatter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDateTimeFormatter {
@@ -379,7 +384,6 @@ pub struct IDateTimeFormatter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDateTimeFormatter2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDateTimeFormatter2 {
@@ -399,7 +403,6 @@ pub struct IDateTimeFormatter2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDateTimeFormatterFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDateTimeFormatterFactory {
@@ -443,7 +446,6 @@ pub struct IDateTimeFormatterFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDateTimeFormatterStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDateTimeFormatterStatics {
@@ -479,10 +481,12 @@ impl ::std::convert::From<i32> for MinuteFormat {
 }
 unsafe impl ::windows::runtime::Abi for MinuteFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MinuteFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.MinuteFormat;i4)");
+}
+impl ::windows::runtime::DefaultType for MinuteFormat {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -502,10 +506,12 @@ impl ::std::convert::From<i32> for MonthFormat {
 }
 unsafe impl ::windows::runtime::Abi for MonthFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MonthFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.MonthFormat;i4)");
+}
+impl ::windows::runtime::DefaultType for MonthFormat {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -522,10 +528,12 @@ impl ::std::convert::From<i32> for SecondFormat {
 }
 unsafe impl ::windows::runtime::Abi for SecondFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SecondFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.SecondFormat;i4)");
+}
+impl ::windows::runtime::DefaultType for SecondFormat {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -544,8 +552,10 @@ impl ::std::convert::From<i32> for YearFormat {
 }
 unsafe impl ::windows::runtime::Abi for YearFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for YearFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.YearFormat;i4)");
+}
+impl ::windows::runtime::DefaultType for YearFormat {
+    type DefaultType = Self;
 }

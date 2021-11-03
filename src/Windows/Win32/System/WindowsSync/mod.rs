@@ -14,7 +14,6 @@ impl ::std::convert::From<i32> for CONFLICT_RESOLUTION_POLICY {
 }
 unsafe impl ::windows::runtime::Abi for CONFLICT_RESOLUTION_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WindowsSync`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -31,7 +30,6 @@ impl ::std::convert::From<i32> for CONSTRAINT_CONFLICT_REASON {
 }
 unsafe impl ::windows::runtime::Abi for CONSTRAINT_CONFLICT_REASON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WindowsSync`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -46,7 +44,6 @@ impl ::std::convert::From<i32> for FILTERING_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for FILTERING_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WindowsSync`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -60,7 +57,6 @@ impl ::std::convert::From<i32> for FILTER_COMBINATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for FILTER_COMBINATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WindowsSync`*"]
 #[repr(transparent)]
@@ -620,7 +616,6 @@ impl ::std::cmp::Eq for ID_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ID_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -655,7 +650,6 @@ impl ::std::cmp::Eq for ID_PARAMETER_PAIR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ID_PARAMETER_PAIR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WindowsSync`*"]
 #[repr(transparent)]
@@ -4492,7 +4486,6 @@ impl ::std::convert::From<i32> for KNOWLEDGE_COOKIE_COMPARISON_RESULT {
 }
 unsafe impl ::windows::runtime::Abi for KNOWLEDGE_COOKIE_COMPARISON_RESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WindowsSync`*"]
 pub const SYNC_CHANGE_FLAG_DELETED: u32 = 1u32;
@@ -4518,7 +4511,6 @@ impl ::std::convert::From<i32> for SYNC_CONSTRAINT_RESOLVE_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for SYNC_CONSTRAINT_RESOLVE_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4553,7 +4545,6 @@ impl ::std::cmp::Eq for SYNC_FILTER_CHANGE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SYNC_FILTER_CHANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WindowsSync`*"]
 pub const SYNC_FILTER_INFO_COMBINED: u32 = 8u32;
@@ -4577,7 +4568,6 @@ impl ::std::convert::From<i32> for SYNC_FULL_ENUMERATION_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for SYNC_FULL_ENUMERATION_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WindowsSync`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4593,7 +4583,6 @@ impl ::std::convert::From<i32> for SYNC_PROGRESS_STAGE {
 }
 unsafe impl ::windows::runtime::Abi for SYNC_PROGRESS_STAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WindowsSync`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4608,7 +4597,6 @@ impl ::std::convert::From<i32> for SYNC_PROVIDER_ROLE {
 }
 unsafe impl ::windows::runtime::Abi for SYNC_PROVIDER_ROLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4636,7 +4624,6 @@ impl ::std::cmp::PartialEq for SYNC_RANGE {
 impl ::std::cmp::Eq for SYNC_RANGE {}
 unsafe impl ::windows::runtime::Abi for SYNC_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WindowsSync`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4656,7 +4643,6 @@ impl ::std::convert::From<i32> for SYNC_REGISTRATION_EVENT {
 }
 unsafe impl ::windows::runtime::Abi for SYNC_REGISTRATION_EVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WindowsSync`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4675,7 +4661,6 @@ impl ::std::convert::From<i32> for SYNC_RESOLVE_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for SYNC_RESOLVE_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WindowsSync`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4691,7 +4676,6 @@ impl ::std::convert::From<i32> for SYNC_SERIALIZATION_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for SYNC_SERIALIZATION_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WindowsSync`*"]
 pub const SYNC_SERIALIZE_REPLICA_KEY_MAP: u32 = 1u32;
@@ -4721,7 +4705,6 @@ impl ::std::cmp::PartialEq for SYNC_SESSION_STATISTICS {
 impl ::std::cmp::Eq for SYNC_SESSION_STATISTICS {}
 unsafe impl ::windows::runtime::Abi for SYNC_SESSION_STATISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WindowsSync`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4735,7 +4718,6 @@ impl ::std::convert::From<i32> for SYNC_STATISTICS {
 }
 unsafe impl ::windows::runtime::Abi for SYNC_STATISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4763,7 +4745,6 @@ impl ::std::cmp::PartialEq for SYNC_TIME {
 impl ::std::cmp::Eq for SYNC_TIME {}
 unsafe impl ::windows::runtime::Abi for SYNC_TIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4791,7 +4772,6 @@ impl ::std::cmp::PartialEq for SYNC_VERSION {
 impl ::std::cmp::Eq for SYNC_VERSION {}
 unsafe impl ::windows::runtime::Abi for SYNC_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WindowsSync`*"]
 pub const SYNC_VERSION_FLAG_FROM_FEED: u32 = 1u32;
@@ -4843,7 +4823,6 @@ impl ::std::cmp::Eq for SyncProviderConfigUIConfiguration {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SyncProviderConfigUIConfiguration {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4884,6 +4863,5 @@ impl ::std::cmp::PartialEq for SyncProviderConfiguration {
 impl ::std::cmp::Eq for SyncProviderConfiguration {}
 unsafe impl ::windows::runtime::Abi for SyncProviderConfiguration {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const SyncProviderRegistration: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4163587825, 37801, 19934, [128, 21, 247, 149, 10, 26, 110, 49]);

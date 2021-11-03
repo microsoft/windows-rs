@@ -176,7 +176,6 @@ impl ::std::cmp::Eq for DEVICEDIALOGDATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DEVICEDIALOGDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -228,7 +227,6 @@ impl ::std::cmp::Eq for DEVICEDIALOGDATA2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DEVICEDIALOGDATA2 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const DEVICE_ATTENTION: u32 = 1024u32;
@@ -2340,7 +2338,6 @@ impl ::std::cmp::Eq for MINIDRV_TRANSFER_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MINIDRV_TRANSFER_CONTEXT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const MIRRORED: u32 = 1u32;
@@ -2391,7 +2388,6 @@ impl ::std::cmp::PartialEq for RANGEVALUE {
 impl ::std::cmp::Eq for RANGEVALUE {}
 unsafe impl ::windows::runtime::Abi for RANGEVALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const RIGHT_JUSTIFIED: u32 = 2u32;
@@ -2538,7 +2534,6 @@ impl ::std::cmp::Eq for SCANINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SCANINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const SCANMODE_FINALSCAN: u32 = 0u32;
@@ -2572,7 +2567,6 @@ impl ::std::cmp::PartialEq for SCANWINDOW {
 impl ::std::cmp::Eq for SCANWINDOW {}
 unsafe impl ::windows::runtime::Abi for SCANWINDOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const SCAN_FINISHED: u32 = 30u32;
@@ -2630,7 +2624,6 @@ impl ::std::cmp::PartialEq for TWAIN_CAPABILITY {
 impl ::std::cmp::Eq for TWAIN_CAPABILITY {}
 unsafe impl ::windows::runtime::Abi for TWAIN_CAPABILITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const TYMED_CALLBACK: u32 = 128u32;
@@ -2688,7 +2681,6 @@ impl ::std::cmp::Eq for VAL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WHITEBALANCE_AUTO: u32 = 2u32;
@@ -2738,7 +2730,6 @@ impl ::std::cmp::Eq for WIAS_CHANGED_VALUE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WIAS_CHANGED_VALUE_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for WIAS_CHANGED_VALUE_INFO_0 {
@@ -2774,7 +2765,6 @@ impl ::std::cmp::Eq for WIAS_CHANGED_VALUE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WIAS_CHANGED_VALUE_INFO_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for WIAS_CHANGED_VALUE_INFO_1 {
@@ -2810,7 +2800,6 @@ impl ::std::cmp::Eq for WIAS_CHANGED_VALUE_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WIAS_CHANGED_VALUE_INFO_1 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2872,7 +2861,6 @@ impl ::std::cmp::PartialEq for WIAS_DOWN_SAMPLE_INFO {
 impl ::std::cmp::Eq for WIAS_DOWN_SAMPLE_INFO {}
 unsafe impl ::windows::runtime::Abi for WIAS_DOWN_SAMPLE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2908,7 +2896,6 @@ impl ::std::cmp::Eq for WIAS_ENDORSER_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WIAS_ENDORSER_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2943,7 +2930,6 @@ impl ::std::cmp::Eq for WIAS_ENDORSER_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WIAS_ENDORSER_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2962,7 +2948,6 @@ impl ::std::convert::From<i32> for WIAVIDEO_STATE {
 }
 unsafe impl ::windows::runtime::Abi for WIAVIDEO_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_ACTION_EVENT: u32 = 2u32;
@@ -3029,7 +3014,6 @@ impl ::std::cmp::PartialEq for WIA_BARCODES {
 impl ::std::cmp::Eq for WIA_BARCODES {}
 unsafe impl ::windows::runtime::Abi for WIA_BARCODES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_AUTO_SEARCH: u32 = 4u32;
@@ -3122,7 +3106,6 @@ impl ::std::cmp::PartialEq for WIA_BARCODE_INFO {
 impl ::std::cmp::Eq for WIA_BARCODE_INFO {}
 unsafe impl ::windows::runtime::Abi for WIA_BARCODE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_BARCODE_INTELLIGENT_MAIL: u32 = 23u32;
@@ -3282,7 +3265,6 @@ impl ::std::cmp::PartialEq for WIA_DATA_CALLBACK_HEADER {
 impl ::std::cmp::Eq for WIA_DATA_CALLBACK_HEADER {}
 unsafe impl ::windows::runtime::Abi for WIA_DATA_CALLBACK_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DATA_COLOR: u32 = 3u32;
@@ -3354,7 +3336,6 @@ impl ::std::cmp::Eq for WIA_DATA_TRANSFER_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WIA_DATA_TRANSFER_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DEPTH_AUTO: u32 = 0u32;
@@ -3411,7 +3392,6 @@ impl ::std::cmp::Eq for WIA_DEV_CAP {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WIA_DEV_CAP {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3449,7 +3429,6 @@ impl ::std::cmp::Eq for WIA_DEV_CAP_DRV {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WIA_DEV_CAP_DRV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DIP_BAUDRATE: u32 = 12u32;
@@ -3522,7 +3501,6 @@ impl ::std::cmp::Eq for WIA_DITHER_PATTERN_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WIA_DITHER_PATTERN_DATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_DONT_SHOW_PREVIEW_CONTROL: u32 = 1u32;
@@ -3812,7 +3790,6 @@ impl ::std::cmp::PartialEq for WIA_EXTENDED_TRANSFER_INFO {
 impl ::std::cmp::Eq for WIA_EXTENDED_TRANSFER_INFO {}
 unsafe impl ::windows::runtime::Abi for WIA_EXTENDED_TRANSFER_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_FEEDER_CONTROL_AUTO: u32 = 0u32;
@@ -3858,7 +3835,6 @@ impl ::std::cmp::PartialEq for WIA_FORMAT_INFO {
 impl ::std::cmp::Eq for WIA_FORMAT_INFO {}
 unsafe impl ::windows::runtime::Abi for WIA_FORMAT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_INTENT_BEST_PREVIEW: u32 = 262144u32;
@@ -4243,7 +4219,6 @@ impl ::std::cmp::PartialEq for WIA_MICR {
 impl ::std::cmp::Eq for WIA_MICR {}
 unsafe impl ::windows::runtime::Abi for WIA_MICR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4273,7 +4248,6 @@ impl ::std::cmp::PartialEq for WIA_MICR_INFO {
 impl ::std::cmp::Eq for WIA_MICR_INFO {}
 unsafe impl ::windows::runtime::Abi for WIA_MICR_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_MICR_READER_AUTO: u32 = 1u32;
@@ -4464,7 +4438,6 @@ impl ::std::cmp::PartialEq for WIA_PATCH_CODES {
 impl ::std::cmp::Eq for WIA_PATCH_CODES {}
 unsafe impl ::windows::runtime::Abi for WIA_PATCH_CODES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PATCH_CODE_1: u32 = 1u32;
@@ -4519,7 +4492,6 @@ impl ::std::cmp::PartialEq for WIA_PATCH_CODE_INFO {
 impl ::std::cmp::Eq for WIA_PATCH_CODE_INFO {}
 unsafe impl ::windows::runtime::Abi for WIA_PATCH_CODE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PATCH_CODE_READER_AUTO: u32 = 1u32;
@@ -4699,7 +4671,6 @@ impl ::std::cmp::Eq for WIA_PROPERTY_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_CONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for WIA_PROPERTY_INFO {
@@ -4734,7 +4705,6 @@ impl ::std::cmp::Eq for WIA_PROPERTY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for WIA_PROPERTY_INFO_0 {
@@ -4774,7 +4744,6 @@ impl ::std::cmp::Eq for WIA_PROPERTY_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4802,7 +4771,6 @@ impl ::std::cmp::PartialEq for WIA_PROPERTY_INFO_0_0 {
 impl ::std::cmp::Eq for WIA_PROPERTY_INFO_0_0 {}
 unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4838,7 +4806,6 @@ impl ::std::cmp::Eq for WIA_PROPERTY_INFO_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO_0_1 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4867,7 +4834,6 @@ impl ::std::cmp::PartialEq for WIA_PROPERTY_INFO_0_2 {
 impl ::std::cmp::Eq for WIA_PROPERTY_INFO_0_2 {}
 unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO_0_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4896,7 +4862,6 @@ impl ::std::cmp::PartialEq for WIA_PROPERTY_INFO_0_3 {
 impl ::std::cmp::Eq for WIA_PROPERTY_INFO_0_3 {}
 unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO_0_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4925,7 +4890,6 @@ impl ::std::cmp::PartialEq for WIA_PROPERTY_INFO_0_4 {
 impl ::std::cmp::Eq for WIA_PROPERTY_INFO_0_4 {}
 unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO_0_4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4952,7 +4916,6 @@ impl ::std::cmp::PartialEq for WIA_PROPERTY_INFO_0_5 {
 impl ::std::cmp::Eq for WIA_PROPERTY_INFO_0_5 {}
 unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO_0_5 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4982,7 +4945,6 @@ impl ::std::cmp::PartialEq for WIA_PROPERTY_INFO_0_6 {
 impl ::std::cmp::Eq for WIA_PROPERTY_INFO_0_6 {}
 unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO_0_6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5012,7 +4974,6 @@ impl ::std::cmp::PartialEq for WIA_PROPERTY_INFO_0_7 {
 impl ::std::cmp::Eq for WIA_PROPERTY_INFO_0_7 {}
 unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO_0_7 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5047,7 +5008,6 @@ impl ::std::cmp::Eq for WIA_PROPID_TO_NAME {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WIA_PROPID_TO_NAME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_PROPPAGE_CAMERA_ITEM_GENERAL: u32 = 2u32;
@@ -5162,7 +5122,6 @@ impl ::std::cmp::PartialEq for WIA_RAW_HEADER {
 impl ::std::cmp::Eq for WIA_RAW_HEADER {}
 unsafe impl ::windows::runtime::Abi for WIA_RAW_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const WIA_REGISTER_EVENT_CALLBACK: u32 = 1u32;
@@ -5369,6 +5328,5 @@ impl ::std::cmp::PartialEq for WiaTransferParams {
 impl ::std::cmp::Eq for WiaTransferParams {}
 unsafe impl ::windows::runtime::Abi for WiaTransferParams {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WiaVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(956875725, 17528, 17718, [175, 47, 16, 194, 93, 78, 248, 154]);

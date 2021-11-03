@@ -183,7 +183,6 @@ impl ::std::cmp::Eq for MANAGEMENT_REGISTRATION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MANAGEMENT_REGISTRATION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -218,7 +217,6 @@ impl ::std::cmp::Eq for MANAGEMENT_SERVICE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MANAGEMENT_SERVICE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`*"]
 pub const MDM_REGISTRATION_FACILITY_CODE: u32 = 25u32;
@@ -355,7 +353,6 @@ impl ::std::convert::From<i32> for REGISTRATION_INFORMATION_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for REGISTRATION_INFORMATION_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Management_MobileDeviceManagementRegistration`, `Win32_Foundation`*"]

@@ -80,7 +80,6 @@ impl ::std::convert::From<i32> for GAMESTATS_OPEN_RESULT {
 }
 unsafe impl ::windows::runtime::Abi for GAMESTATS_OPEN_RESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -95,7 +94,6 @@ impl ::std::convert::From<i32> for GAMESTATS_OPEN_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for GAMESTATS_OPEN_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -111,7 +109,6 @@ impl ::std::convert::From<i32> for GAME_INSTALL_SCOPE {
 }
 unsafe impl ::windows::runtime::Abi for GAME_INSTALL_SCOPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -129,7 +126,6 @@ impl ::std::convert::From<i32> for GAMING_DEVICE_DEVICE_ID {
 }
 unsafe impl ::windows::runtime::Abi for GAMING_DEVICE_DEVICE_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -157,7 +153,6 @@ impl ::std::cmp::PartialEq for GAMING_DEVICE_MODEL_INFORMATION {
 impl ::std::cmp::Eq for GAMING_DEVICE_MODEL_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for GAMING_DEVICE_MODEL_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -172,7 +167,6 @@ impl ::std::convert::From<i32> for GAMING_DEVICE_VENDOR_ID {
 }
 unsafe impl ::windows::runtime::Abi for GAMING_DEVICE_VENDOR_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const GameExplorer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2589895056, 12340, 19823, [145, 40, 1, 243, 198, 16, 34, 188]);
 pub const GameStatistics: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3687340588, 49372, 18785, [182, 226, 210, 139, 98, 193, 26, 212]);
@@ -774,7 +768,6 @@ impl ::std::convert::From<i32> for KnownGamingPrivileges {
 }
 unsafe impl ::windows::runtime::Abi for KnownGamingPrivileges {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type PlayerPickerUICompletionRoutine = unsafe extern "system" fn(returncode: ::windows::runtime::HRESULT, context: *const ::std::ffi::c_void, selectedxuids: *const ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, selectedxuidscount: usize);
 #[cfg(feature = "Win32_Foundation")]
@@ -1215,7 +1208,6 @@ impl ::std::convert::From<i32> for XBL_IDP_AUTH_TOKEN_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for XBL_IDP_AUTH_TOKEN_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const XblIdpAuthManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3458421579, 22232, 18808, [134, 162, 126, 229, 112, 100, 4, 104]);
 pub const XblIdpAuthTokenResult: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2672374849, 29770, 16652, [174, 43, 154, 34, 247, 199, 115, 31]);

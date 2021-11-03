@@ -656,7 +656,7 @@ impl BlockCollection {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<Block as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [<Block as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -665,7 +665,7 @@ impl BlockCollection {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
-    pub fn ReplaceAll(&self, items: &[<Block as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn ReplaceAll(&self, items: &[<Block as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), items.len() as u32, ::std::mem::transmute(items.as_ptr())).ok() }
     }
@@ -2496,7 +2496,7 @@ impl ContentLinkProviderCollection {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<ContentLinkProvider as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [<ContentLinkProvider as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVector<ContentLinkProvider>>(self)?;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -2505,7 +2505,7 @@ impl ContentLinkProviderCollection {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
-    pub fn ReplaceAll(&self, items: &[<ContentLinkProvider as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn ReplaceAll(&self, items: &[<ContentLinkProvider as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVector<ContentLinkProvider>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), items.len() as u32, ::std::mem::transmute(items.as_ptr())).ok() }
     }
@@ -5940,7 +5940,6 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::RoutedEventArgs> for &Hyperlin
 unsafe impl ::std::marker::Send for HyperlinkClickEventArgs {}
 unsafe impl ::std::marker::Sync for HyperlinkClickEventArgs {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBlock(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBlock {
@@ -5966,7 +5965,6 @@ pub struct IBlock_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: super::Thickness) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBlock2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBlock2 {
@@ -5986,7 +5984,6 @@ pub struct IBlock2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: super::TextAlignment) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBlockFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBlockFactory {
@@ -6005,7 +6002,6 @@ pub struct IBlockFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baseinterface: ::windows::runtime::RawPtr, innerinterface: *mut ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBlockStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBlockStatics {
@@ -6027,7 +6023,6 @@ pub struct IBlockStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBlockStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBlockStatics2 {
@@ -6046,7 +6041,6 @@ pub struct IBlockStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBold(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBold {
@@ -6064,7 +6058,6 @@ pub struct IBold_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactContentLinkProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactContentLinkProvider {
@@ -6082,7 +6075,6 @@ pub struct IContactContentLinkProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContentLink(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentLink {
@@ -6156,7 +6148,6 @@ pub struct IContentLink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: super::FocusState, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContentLinkInvokedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentLinkInvokedEventArgs {
@@ -6178,7 +6169,6 @@ pub struct IContentLinkInvokedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContentLinkProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentLinkProvider {
@@ -6196,7 +6186,6 @@ pub struct IContentLinkProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContentLinkProviderCollection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentLinkProviderCollection {
@@ -6214,7 +6203,6 @@ pub struct IContentLinkProviderCollection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContentLinkProviderFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentLinkProviderFactory {
@@ -6233,7 +6221,6 @@ pub struct IContentLinkProviderFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baseinterface: ::windows::runtime::RawPtr, innerinterface: *mut ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContentLinkStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentLinkStatics {
@@ -6265,7 +6252,6 @@ pub struct IContentLinkStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGlyphs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlyphs {
@@ -6305,7 +6291,6 @@ pub struct IGlyphs_abi(
     #[cfg(not(feature = "UI_Xaml_Media"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGlyphs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlyphs2 {
@@ -6327,7 +6312,6 @@ pub struct IGlyphs2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGlyphsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlyphsStatics {
@@ -6353,7 +6337,6 @@ pub struct IGlyphsStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGlyphsStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlyphsStatics2 {
@@ -6373,7 +6356,6 @@ pub struct IGlyphsStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHyperlink(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHyperlink {
@@ -6399,7 +6381,6 @@ pub struct IHyperlink_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHyperlink2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHyperlink2 {
@@ -6419,7 +6400,6 @@ pub struct IHyperlink2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: UnderlineStyle) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHyperlink3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHyperlink3 {
@@ -6447,7 +6427,6 @@ pub struct IHyperlink3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: super::ElementSoundMode) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHyperlink4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHyperlink4 {
@@ -6491,7 +6470,6 @@ pub struct IHyperlink4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: super::FocusState, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHyperlink5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHyperlink5 {
@@ -6513,7 +6491,6 @@ pub struct IHyperlink5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHyperlinkClickEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHyperlinkClickEventArgs {
@@ -6531,7 +6508,6 @@ pub struct IHyperlinkClickEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHyperlinkStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHyperlinkStatics {
@@ -6550,7 +6526,6 @@ pub struct IHyperlinkStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHyperlinkStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHyperlinkStatics2 {
@@ -6569,7 +6544,6 @@ pub struct IHyperlinkStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHyperlinkStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHyperlinkStatics3 {
@@ -6592,7 +6566,6 @@ pub struct IHyperlinkStatics3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHyperlinkStatics4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHyperlinkStatics4 {
@@ -6615,7 +6588,6 @@ pub struct IHyperlinkStatics4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHyperlinkStatics5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHyperlinkStatics5 {
@@ -6635,7 +6607,6 @@ pub struct IHyperlinkStatics5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInline(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInline {
@@ -6653,7 +6624,6 @@ pub struct IInline_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInlineFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInlineFactory {
@@ -6672,7 +6642,6 @@ pub struct IInlineFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baseinterface: ::windows::runtime::RawPtr, innerinterface: *mut ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInlineUIContainer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInlineUIContainer {
@@ -6692,7 +6661,6 @@ pub struct IInlineUIContainer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IItalic(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IItalic {
@@ -6710,7 +6678,6 @@ pub struct IItalic_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILineBreak(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILineBreak {
@@ -6728,7 +6695,6 @@ pub struct ILineBreak_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IParagraph(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IParagraph {
@@ -6750,7 +6716,6 @@ pub struct IParagraph_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IParagraphStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IParagraphStatics {
@@ -6769,7 +6734,6 @@ pub struct IParagraphStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlaceContentLinkProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlaceContentLinkProvider {
@@ -6787,7 +6751,6 @@ pub struct IPlaceContentLinkProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRun(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRun {
@@ -6809,7 +6772,6 @@ pub struct IRun_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: super::FlowDirection) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRunStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRunStatics {
@@ -6828,7 +6790,6 @@ pub struct IRunStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpan(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpan {
@@ -6850,7 +6811,6 @@ pub struct ISpan_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpanFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpanFactory {
@@ -6869,7 +6829,6 @@ pub struct ISpanFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baseinterface: ::windows::runtime::RawPtr, innerinterface: *mut ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITextElement(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextElement {
@@ -6919,7 +6878,6 @@ pub struct ITextElement_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITextElement2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextElement2 {
@@ -6939,7 +6897,6 @@ pub struct ITextElement2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITextElement3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextElement3 {
@@ -6963,7 +6920,6 @@ pub struct ITextElement3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITextElement4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextElement4 {
@@ -7009,7 +6965,6 @@ pub struct ITextElement4_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITextElement5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextElement5 {
@@ -7029,7 +6984,6 @@ pub struct ITextElement5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITextElementFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextElementFactory {
@@ -7047,7 +7001,6 @@ pub struct ITextElementFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITextElementOverrides(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextElementOverrides {
@@ -7066,7 +7019,6 @@ pub struct ITextElementOverrides_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITextElementStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextElementStatics {
@@ -7092,7 +7044,6 @@ pub struct ITextElementStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITextElementStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextElementStatics2 {
@@ -7111,7 +7062,6 @@ pub struct ITextElementStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITextElementStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextElementStatics3 {
@@ -7132,7 +7082,6 @@ pub struct ITextElementStatics3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITextElementStatics4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextElementStatics4 {
@@ -7156,7 +7105,6 @@ pub struct ITextElementStatics4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITextHighlighter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextHighlighter {
@@ -7184,7 +7132,6 @@ pub struct ITextHighlighter_abi(
     #[cfg(not(feature = "UI_Xaml_Media"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITextHighlighterBase(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextHighlighterBase {
@@ -7202,7 +7149,6 @@ pub struct ITextHighlighterBase_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITextHighlighterBaseFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextHighlighterBaseFactory {
@@ -7220,7 +7166,6 @@ pub struct ITextHighlighterBaseFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITextHighlighterFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextHighlighterFactory {
@@ -7239,7 +7184,6 @@ pub struct ITextHighlighterFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baseinterface: ::windows::runtime::RawPtr, innerinterface: *mut ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITextHighlighterStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextHighlighterStatics {
@@ -7259,7 +7203,6 @@ pub struct ITextHighlighterStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITextPointer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextPointer {
@@ -7284,7 +7227,6 @@ pub struct ITextPointer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, offset: i32, direction: LogicalDirection, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITypography(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITypography {
@@ -7302,7 +7244,6 @@ pub struct ITypography_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITypographyStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITypographyStatics {
@@ -7449,7 +7390,6 @@ pub struct ITypographyStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, element: ::windows::runtime::RawPtr, value: super::FontVariants) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUnderline(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUnderline {
@@ -8015,7 +7955,7 @@ impl InlineCollection {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<Inline as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [<Inline as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -8024,7 +7964,7 @@ impl InlineCollection {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_Xaml_Documents`, `Foundation_Collections`*"]
-    pub fn ReplaceAll(&self, items: &[<Inline as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn ReplaceAll(&self, items: &[<Inline as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), items.len() as u32, ::std::mem::transmute(items.as_ptr())).ok() }
     }
@@ -9669,10 +9609,12 @@ impl ::std::convert::From<i32> for LogicalDirection {
 }
 unsafe impl ::windows::runtime::Abi for LogicalDirection {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for LogicalDirection {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Documents.LogicalDirection;i4)");
+}
+impl ::windows::runtime::DefaultType for LogicalDirection {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
@@ -12297,10 +12239,12 @@ impl ::std::cmp::PartialEq for TextRange {
 impl ::std::cmp::Eq for TextRange {}
 unsafe impl ::windows::runtime::Abi for TextRange {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TextRange {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.Xaml.Documents.TextRange;i4;i4)");
+}
+impl ::windows::runtime::DefaultType for TextRange {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Documents`*"]
 #[repr(transparent)]
@@ -13643,8 +13587,10 @@ impl ::std::convert::From<i32> for UnderlineStyle {
 }
 unsafe impl ::windows::runtime::Abi for UnderlineStyle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UnderlineStyle {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Documents.UnderlineStyle;i4)");
+}
+impl ::windows::runtime::DefaultType for UnderlineStyle {
+    type DefaultType = Self;
 }

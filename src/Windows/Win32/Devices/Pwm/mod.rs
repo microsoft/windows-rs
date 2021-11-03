@@ -45,7 +45,6 @@ impl ::std::cmp::PartialEq for PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {
 impl ::std::cmp::Eq for PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {}
 unsafe impl ::windows::runtime::Abi for PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -75,7 +74,6 @@ impl ::std::cmp::PartialEq for PWM_CONTROLLER_INFO {
 impl ::std::cmp::Eq for PWM_CONTROLLER_INFO {}
 unsafe impl ::windows::runtime::Abi for PWM_CONTROLLER_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -102,7 +100,6 @@ impl ::std::cmp::PartialEq for PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {
 impl ::std::cmp::Eq for PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {}
 unsafe impl ::windows::runtime::Abi for PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -129,7 +126,6 @@ impl ::std::cmp::PartialEq for PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {
 impl ::std::cmp::Eq for PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {}
 unsafe impl ::windows::runtime::Abi for PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Pwm`*"]
 pub const PWM_IOCTL_ID_CONTROLLER_GET_ACTUAL_PERIOD: i32 = 1i32;
@@ -176,7 +172,6 @@ impl ::std::cmp::PartialEq for PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT {
 impl ::std::cmp::Eq for PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT {}
 unsafe impl ::windows::runtime::Abi for PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -203,7 +198,6 @@ impl ::std::cmp::PartialEq for PWM_PIN_GET_POLARITY_OUTPUT {
 impl ::std::cmp::Eq for PWM_PIN_GET_POLARITY_OUTPUT {}
 unsafe impl ::windows::runtime::Abi for PWM_PIN_GET_POLARITY_OUTPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -237,7 +231,6 @@ impl ::std::cmp::Eq for PWM_PIN_IS_STARTED_OUTPUT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PWM_PIN_IS_STARTED_OUTPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -264,7 +257,6 @@ impl ::std::cmp::PartialEq for PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT {
 impl ::std::cmp::Eq for PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT {}
 unsafe impl ::windows::runtime::Abi for PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -291,7 +283,6 @@ impl ::std::cmp::PartialEq for PWM_PIN_SET_POLARITY_INPUT {
 impl ::std::cmp::Eq for PWM_PIN_SET_POLARITY_INPUT {}
 unsafe impl ::windows::runtime::Abi for PWM_PIN_SET_POLARITY_INPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Pwm`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -306,5 +297,4 @@ impl ::std::convert::From<i32> for PWM_POLARITY {
 }
 unsafe impl ::windows::runtime::Abi for PWM_POLARITY {
     type Abi = Self;
-    type DefaultType = Self;
 }

@@ -12,7 +12,6 @@ impl ::std::convert::From<i32> for COMPARTMENT_ID {
 }
 unsafe impl ::windows::runtime::Abi for COMPARTMENT_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -48,7 +47,6 @@ impl ::std::cmp::Eq for CSTRING {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CSTRING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Kernel`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -63,7 +61,6 @@ impl ::std::convert::From<i32> for EVENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for EVENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Kernel`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -80,7 +77,6 @@ impl ::std::convert::From<i32> for EXCEPTION_DISPOSITION {
 }
 unsafe impl ::windows::runtime::Abi for EXCEPTION_DISPOSITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
 pub type EXCEPTION_ROUTINE = unsafe extern "system" fn(exceptionrecord: *mut super::Diagnostics::Debug::EXCEPTION_RECORD, establisherframe: *const ::std::ffi::c_void, contextrecord: *mut super::Diagnostics::Debug::CONTEXT, dispatchercontext: *const ::std::ffi::c_void) -> EXCEPTION_DISPOSITION;
@@ -127,7 +123,6 @@ impl ::std::cmp::PartialEq for FLOATING_SAVE_AREA {
 impl ::std::cmp::Eq for FLOATING_SAVE_AREA {}
 unsafe impl ::windows::runtime::Abi for FLOATING_SAVE_AREA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -155,7 +150,6 @@ impl ::std::cmp::PartialEq for LIST_ENTRY {
 impl ::std::cmp::Eq for LIST_ENTRY {}
 unsafe impl ::windows::runtime::Abi for LIST_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -183,7 +177,6 @@ impl ::std::cmp::PartialEq for LIST_ENTRY32 {
 impl ::std::cmp::Eq for LIST_ENTRY32 {}
 unsafe impl ::windows::runtime::Abi for LIST_ENTRY32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -211,7 +204,6 @@ impl ::std::cmp::PartialEq for LIST_ENTRY64 {
 impl ::std::cmp::Eq for LIST_ENTRY64 {}
 unsafe impl ::windows::runtime::Abi for LIST_ENTRY64 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Kernel`*"]
 pub const MAXUCHAR: u32 = 255u32;
@@ -233,7 +225,6 @@ impl ::std::convert::From<i32> for NT_PRODUCT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for NT_PRODUCT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Kernel`*"]
 pub const NULL64: u32 = 0u32;
@@ -263,7 +254,6 @@ impl ::std::cmp::PartialEq for OBJECTID {
 impl ::std::cmp::Eq for OBJECTID {}
 unsafe impl ::windows::runtime::Abi for OBJECTID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -302,7 +292,6 @@ impl ::std::cmp::PartialEq for OBJECT_ATTRIBUTES32 {
 impl ::std::cmp::Eq for OBJECT_ATTRIBUTES32 {}
 unsafe impl ::windows::runtime::Abi for OBJECT_ATTRIBUTES32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -341,7 +330,6 @@ impl ::std::cmp::PartialEq for OBJECT_ATTRIBUTES64 {
 impl ::std::cmp::Eq for OBJECT_ATTRIBUTES64 {}
 unsafe impl ::windows::runtime::Abi for OBJECT_ATTRIBUTES64 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Kernel`*"]
 pub const OBJ_CASE_INSENSITIVE: i32 = 64i32;
@@ -394,7 +382,6 @@ impl ::std::cmp::PartialEq for PROCESSOR_NUMBER {
 impl ::std::cmp::Eq for PROCESSOR_NUMBER {}
 unsafe impl ::windows::runtime::Abi for PROCESSOR_NUMBER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -416,7 +403,6 @@ impl ::std::cmp::PartialEq for QUAD {
 impl ::std::cmp::Eq for QUAD {}
 unsafe impl ::windows::runtime::Abi for QUAD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -439,7 +425,6 @@ impl ::std::cmp::PartialEq for QUAD_0 {
 impl ::std::cmp::Eq for QUAD_0 {}
 unsafe impl ::windows::runtime::Abi for QUAD_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -462,7 +447,6 @@ impl ::std::cmp::PartialEq for RTL_BALANCED_NODE {
 impl ::std::cmp::Eq for RTL_BALANCED_NODE {}
 unsafe impl ::windows::runtime::Abi for RTL_BALANCED_NODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -485,7 +469,6 @@ impl ::std::cmp::PartialEq for RTL_BALANCED_NODE_0 {
 impl ::std::cmp::Eq for RTL_BALANCED_NODE_0 {}
 unsafe impl ::windows::runtime::Abi for RTL_BALANCED_NODE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -513,7 +496,6 @@ impl ::std::cmp::PartialEq for RTL_BALANCED_NODE_0_0 {
 impl ::std::cmp::Eq for RTL_BALANCED_NODE_0_0 {}
 unsafe impl ::windows::runtime::Abi for RTL_BALANCED_NODE_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -536,7 +518,6 @@ impl ::std::cmp::PartialEq for RTL_BALANCED_NODE_1 {
 impl ::std::cmp::Eq for RTL_BALANCED_NODE_1 {}
 unsafe impl ::windows::runtime::Abi for RTL_BALANCED_NODE_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Kernel`*"]
 pub const RTL_BALANCED_NODE_RESERVED_PARENT_MASK: u32 = 3u32;
@@ -565,7 +546,6 @@ impl ::std::cmp::PartialEq for SINGLE_LIST_ENTRY {
 impl ::std::cmp::Eq for SINGLE_LIST_ENTRY {}
 unsafe impl ::windows::runtime::Abi for SINGLE_LIST_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -592,7 +572,6 @@ impl ::std::cmp::PartialEq for SINGLE_LIST_ENTRY32 {
 impl ::std::cmp::Eq for SINGLE_LIST_ENTRY32 {}
 unsafe impl ::windows::runtime::Abi for SINGLE_LIST_ENTRY32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -619,7 +598,6 @@ impl ::std::cmp::PartialEq for SLIST_ENTRY {
 impl ::std::cmp::Eq for SLIST_ENTRY {}
 unsafe impl ::windows::runtime::Abi for SLIST_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -642,7 +620,6 @@ impl ::std::cmp::PartialEq for SLIST_HEADER {
 impl ::std::cmp::Eq for SLIST_HEADER {}
 unsafe impl ::windows::runtime::Abi for SLIST_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -670,7 +647,6 @@ impl ::std::cmp::PartialEq for SLIST_HEADER_0 {
 impl ::std::cmp::Eq for SLIST_HEADER_0 {}
 unsafe impl ::windows::runtime::Abi for SLIST_HEADER_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -698,7 +674,6 @@ impl ::std::cmp::PartialEq for SLIST_HEADER_1 {
 impl ::std::cmp::Eq for SLIST_HEADER_1 {}
 unsafe impl ::windows::runtime::Abi for SLIST_HEADER_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -734,7 +709,6 @@ impl ::std::cmp::Eq for STRING {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for STRING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -763,7 +737,6 @@ impl ::std::cmp::PartialEq for STRING32 {
 impl ::std::cmp::Eq for STRING32 {}
 unsafe impl ::windows::runtime::Abi for STRING32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -792,7 +765,6 @@ impl ::std::cmp::PartialEq for STRING64 {
 impl ::std::cmp::Eq for STRING64 {}
 unsafe impl ::windows::runtime::Abi for STRING64 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Kernel`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -824,7 +796,6 @@ impl ::std::convert::From<i32> for SUITE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SUITE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Kernel`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -839,7 +810,6 @@ impl ::std::convert::From<i32> for TIMER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for TIMER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Kernel`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -857,7 +827,6 @@ impl ::std::convert::From<i32> for WAIT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WAIT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -884,5 +853,4 @@ impl ::std::cmp::PartialEq for WNF_STATE_NAME {
 impl ::std::cmp::Eq for WNF_STATE_NAME {}
 unsafe impl ::windows::runtime::Abi for WNF_STATE_NAME {
     type Abi = Self;
-    type DefaultType = Self;
 }

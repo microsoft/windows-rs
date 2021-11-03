@@ -2,7 +2,6 @@
 #[cfg(feature = "ApplicationModel_UserActivities_Core")]
 pub mod Core;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserActivity(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivity {
@@ -42,7 +41,6 @@ pub struct IUserActivity_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserActivity2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivity2 {
@@ -61,7 +59,6 @@ pub struct IUserActivity2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserActivity3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivity3 {
@@ -81,7 +78,6 @@ pub struct IUserActivity3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserActivityAttribution(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityAttribution {
@@ -107,7 +103,6 @@ pub struct IUserActivityAttribution_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserActivityAttributionFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityAttributionFactory {
@@ -127,7 +122,6 @@ pub struct IUserActivityAttributionFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserActivityChannel(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityChannel {
@@ -151,7 +145,6 @@ pub struct IUserActivityChannel_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserActivityChannel2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityChannel2 {
@@ -173,7 +166,6 @@ pub struct IUserActivityChannel2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserActivityChannelStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityChannelStatics {
@@ -192,7 +184,6 @@ pub struct IUserActivityChannelStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserActivityChannelStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityChannelStatics2 {
@@ -213,7 +204,6 @@ pub struct IUserActivityChannelStatics2_abi(
     #[cfg(not(feature = "Security_Credentials"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserActivityChannelStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityChannelStatics3 {
@@ -265,7 +255,6 @@ pub struct IUserActivityContentInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserActivityContentInfoStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityContentInfoStatics {
@@ -284,7 +273,6 @@ pub struct IUserActivityContentInfoStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserActivityFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityFactory {
@@ -303,7 +291,6 @@ pub struct IUserActivityFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, activityid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserActivityRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityRequest {
@@ -322,7 +309,6 @@ pub struct IUserActivityRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, activity: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserActivityRequestManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityRequestManager {
@@ -344,7 +330,6 @@ pub struct IUserActivityRequestManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserActivityRequestManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityRequestManagerStatics {
@@ -363,7 +348,6 @@ pub struct IUserActivityRequestManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserActivityRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityRequestedEventArgs {
@@ -384,7 +368,6 @@ pub struct IUserActivityRequestedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserActivitySession(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivitySession {
@@ -403,7 +386,6 @@ pub struct IUserActivitySession_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserActivitySessionHistoryItem(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivitySessionHistoryItem {
@@ -426,7 +408,6 @@ pub struct IUserActivitySessionHistoryItem_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserActivityStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityStatics {
@@ -449,7 +430,6 @@ pub struct IUserActivityStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserActivityVisualElements(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityVisualElements {
@@ -481,7 +461,6 @@ pub struct IUserActivityVisualElements_abi(
     #[cfg(not(feature = "UI_Shell"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserActivityVisualElements2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserActivityVisualElements2 {
@@ -1143,10 +1122,12 @@ impl ::std::convert::From<i32> for UserActivityState {
 }
 unsafe impl ::windows::runtime::Abi for UserActivityState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserActivityState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserActivities.UserActivityState;i4)");
+}
+impl ::windows::runtime::DefaultType for UserActivityState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_UserActivities`*"]
 #[repr(transparent)]

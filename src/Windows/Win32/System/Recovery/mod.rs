@@ -75,7 +75,6 @@ impl ::std::convert::From<u32> for REGISTER_APPLICATION_RESTART_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for REGISTER_APPLICATION_RESTART_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for REGISTER_APPLICATION_RESTART_FLAGS {
     type Output = Self;

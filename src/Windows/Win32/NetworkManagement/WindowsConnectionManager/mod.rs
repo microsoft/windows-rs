@@ -63,7 +63,6 @@ impl ::std::cmp::Eq for NET_INTERFACE_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NET_INTERFACE_CONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -99,7 +98,6 @@ impl ::std::cmp::Eq for NET_INTERFACE_CONTEXT_TABLE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NET_INTERFACE_CONTEXT_TABLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 pub const NET_INTERFACE_FLAG_CONNECT_IF_NEEDED: u32 = 1u32;
@@ -191,7 +189,6 @@ impl ::std::cmp::Eq for WCM_BILLING_CYCLE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WCM_BILLING_CYCLE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -212,7 +209,6 @@ impl ::std::convert::From<i32> for WCM_CONNECTION_COST {
 }
 unsafe impl ::windows::runtime::Abi for WCM_CONNECTION_COST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -240,7 +236,6 @@ impl ::std::cmp::PartialEq for WCM_CONNECTION_COST_DATA {
 impl ::std::cmp::Eq for WCM_CONNECTION_COST_DATA {}
 unsafe impl ::windows::runtime::Abi for WCM_CONNECTION_COST_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -257,7 +252,6 @@ impl ::std::convert::From<i32> for WCM_CONNECTION_COST_SOURCE {
 }
 unsafe impl ::windows::runtime::Abi for WCM_CONNECTION_COST_SOURCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -305,7 +299,6 @@ impl ::std::cmp::Eq for WCM_DATAPLAN_STATUS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WCM_DATAPLAN_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 pub const WCM_MAX_PROFILE_NAME: u32 = 256u32;
@@ -326,7 +319,6 @@ impl ::std::convert::From<i32> for WCM_MEDIA_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WCM_MEDIA_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -361,7 +353,6 @@ impl ::std::cmp::Eq for WCM_POLICY_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WCM_POLICY_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -390,7 +381,6 @@ impl ::std::cmp::PartialEq for WCM_PROFILE_INFO {
 impl ::std::cmp::Eq for WCM_PROFILE_INFO {}
 unsafe impl ::windows::runtime::Abi for WCM_PROFILE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -418,7 +408,6 @@ impl ::std::cmp::PartialEq for WCM_PROFILE_INFO_LIST {
 impl ::std::cmp::Eq for WCM_PROFILE_INFO_LIST {}
 unsafe impl ::windows::runtime::Abi for WCM_PROFILE_INFO_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -438,7 +427,6 @@ impl ::std::convert::From<i32> for WCM_PROPERTY {
 }
 unsafe impl ::windows::runtime::Abi for WCM_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -471,7 +459,6 @@ impl ::std::cmp::PartialEq for WCM_TIME_INTERVAL {
 impl ::std::cmp::Eq for WCM_TIME_INTERVAL {}
 unsafe impl ::windows::runtime::Abi for WCM_TIME_INTERVAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 pub const WCM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295u32;
@@ -508,7 +495,6 @@ impl ::std::cmp::Eq for WCM_USAGE_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WCM_USAGE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 #[inline]

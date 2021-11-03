@@ -19,10 +19,12 @@ impl ::std::convert::From<i32> for AltitudeReferenceSystem {
 }
 unsafe impl ::windows::runtime::Abi for AltitudeReferenceSystem {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AltitudeReferenceSystem {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.AltitudeReferenceSystem;i4)");
+}
+impl ::windows::runtime::DefaultType for AltitudeReferenceSystem {
+    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -51,10 +53,12 @@ impl ::std::cmp::PartialEq for BasicGeoposition {
 impl ::std::cmp::Eq for BasicGeoposition {}
 unsafe impl ::windows::runtime::Abi for BasicGeoposition {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BasicGeoposition {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Devices.Geolocation.BasicGeoposition;f8;f8;f8)");
+}
+impl ::windows::runtime::DefaultType for BasicGeoposition {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
@@ -587,10 +591,12 @@ impl ::std::convert::From<i32> for GeolocationAccessStatus {
 }
 unsafe impl ::windows::runtime::Abi for GeolocationAccessStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GeolocationAccessStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.GeolocationAccessStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for GeolocationAccessStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
@@ -1041,10 +1047,12 @@ impl ::std::convert::From<i32> for GeoshapeType {
 }
 unsafe impl ::windows::runtime::Abi for GeoshapeType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GeoshapeType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.GeoshapeType;i4)");
+}
+impl ::windows::runtime::DefaultType for GeoshapeType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
@@ -1213,7 +1221,6 @@ impl ::windows::runtime::RuntimeName for GeovisitTriggerDetails {
 unsafe impl ::std::marker::Send for GeovisitTriggerDetails {}
 unsafe impl ::std::marker::Sync for GeovisitTriggerDetails {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICivicAddress(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICivicAddress {
@@ -1237,7 +1244,6 @@ pub struct ICivicAddress_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeoboundingBox(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeoboundingBox {
@@ -1260,7 +1266,6 @@ pub struct IGeoboundingBox_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeoboundingBoxFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeoboundingBoxFactory {
@@ -1281,7 +1286,6 @@ pub struct IGeoboundingBoxFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, northwestcorner: BasicGeoposition, southeastcorner: BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeoboundingBoxStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeoboundingBoxStatics {
@@ -1305,7 +1309,6 @@ pub struct IGeoboundingBoxStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeocircle(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeocircle {
@@ -1325,7 +1328,6 @@ pub struct IGeocircle_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeocircleFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeocircleFactory {
@@ -1346,7 +1348,6 @@ pub struct IGeocircleFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, position: BasicGeoposition, radius: f64, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeocoordinate(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeocoordinate {
@@ -1377,7 +1378,6 @@ pub struct IGeocoordinate_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeocoordinateSatelliteData(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeocoordinateSatelliteData {
@@ -1401,7 +1401,6 @@ pub struct IGeocoordinateSatelliteData_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeocoordinateSatelliteData2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeocoordinateSatelliteData2 {
@@ -1423,7 +1422,6 @@ pub struct IGeocoordinateSatelliteData2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeocoordinateWithPoint(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeocoordinateWithPoint {
@@ -1442,7 +1440,6 @@ pub struct IGeocoordinateWithPoint_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeocoordinateWithPositionData(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeocoordinateWithPositionData {
@@ -1462,7 +1459,6 @@ pub struct IGeocoordinateWithPositionData_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeocoordinateWithPositionSourceTimestamp(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeocoordinateWithPositionSourceTimestamp {
@@ -1482,7 +1478,6 @@ pub struct IGeocoordinateWithPositionSourceTimestamp_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeocoordinateWithRemoteSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeocoordinateWithRemoteSource {
@@ -1501,7 +1496,6 @@ pub struct IGeocoordinateWithRemoteSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeolocator(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeolocator {
@@ -1538,7 +1532,6 @@ pub struct IGeolocator_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeolocator2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeolocator2 {
@@ -1557,7 +1550,6 @@ pub struct IGeolocator2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeolocatorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeolocatorStatics {
@@ -1581,7 +1573,6 @@ pub struct IGeolocatorStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeolocatorStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeolocatorStatics2 {
@@ -1604,7 +1595,6 @@ pub struct IGeolocatorStatics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeolocatorWithScalarAccuracy(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeolocatorWithScalarAccuracy {
@@ -1626,7 +1616,6 @@ pub struct IGeolocatorWithScalarAccuracy_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeopath(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeopath {
@@ -1646,7 +1635,6 @@ pub struct IGeopath_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeopathFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeopathFactory {
@@ -1670,7 +1658,6 @@ pub struct IGeopathFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeopoint(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeopoint {
@@ -1689,7 +1676,6 @@ pub struct IGeopoint_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut BasicGeoposition) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeopointFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeopointFactory {
@@ -1710,7 +1696,6 @@ pub struct IGeopointFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, position: BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeoposition(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeoposition {
@@ -1730,7 +1715,6 @@ pub struct IGeoposition_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeoposition2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeoposition2 {
@@ -1799,7 +1783,6 @@ pub struct IGeoshape_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut AltitudeReferenceSystem) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeovisit(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeovisit {
@@ -1821,7 +1804,6 @@ pub struct IGeovisit_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeovisitMonitor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeovisitMonitor {
@@ -1846,7 +1828,6 @@ pub struct IGeovisitMonitor_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeovisitMonitorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeovisitMonitorStatics {
@@ -1866,7 +1847,6 @@ pub struct IGeovisitMonitorStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeovisitStateChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeovisitStateChangedEventArgs {
@@ -1885,7 +1865,6 @@ pub struct IGeovisitStateChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeovisitTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeovisitTriggerDetails {
@@ -1905,7 +1884,6 @@ pub struct IGeovisitTriggerDetails_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPositionChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPositionChangedEventArgs {
@@ -1924,7 +1902,6 @@ pub struct IPositionChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStatusChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStatusChangedEventArgs {
@@ -1943,7 +1920,6 @@ pub struct IStatusChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut PositionStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVenueData(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVenueData {
@@ -1977,10 +1953,12 @@ impl ::std::convert::From<i32> for PositionAccuracy {
 }
 unsafe impl ::windows::runtime::Abi for PositionAccuracy {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PositionAccuracy {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.PositionAccuracy;i4)");
+}
+impl ::windows::runtime::DefaultType for PositionAccuracy {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
@@ -2028,10 +2006,12 @@ impl ::std::convert::From<i32> for PositionSource {
 }
 unsafe impl ::windows::runtime::Abi for PositionSource {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PositionSource {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.PositionSource;i4)");
+}
+impl ::windows::runtime::DefaultType for PositionSource {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2052,10 +2032,12 @@ impl ::std::convert::From<i32> for PositionStatus {
 }
 unsafe impl ::windows::runtime::Abi for PositionStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PositionStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.PositionStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for PositionStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[repr(transparent)]
@@ -2132,10 +2114,12 @@ impl ::std::convert::From<i32> for VisitMonitoringScope {
 }
 unsafe impl ::windows::runtime::Abi for VisitMonitoringScope {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VisitMonitoringScope {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.VisitMonitoringScope;i4)");
+}
+impl ::windows::runtime::DefaultType for VisitMonitoringScope {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Geolocation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2154,8 +2138,10 @@ impl ::std::convert::From<i32> for VisitStateChange {
 }
 unsafe impl ::windows::runtime::Abi for VisitStateChange {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VisitStateChange {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.VisitStateChange;i4)");
+}
+impl ::windows::runtime::DefaultType for VisitStateChange {
+    type DefaultType = Self;
 }

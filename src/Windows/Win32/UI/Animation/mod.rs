@@ -1680,7 +1680,6 @@ impl ::std::convert::From<u32> for UI_ANIMATION_DEPENDENCIES {
 }
 unsafe impl ::windows::runtime::Abi for UI_ANIMATION_DEPENDENCIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for UI_ANIMATION_DEPENDENCIES {
     type Output = Self;
@@ -1723,7 +1722,6 @@ impl ::std::convert::From<i32> for UI_ANIMATION_IDLE_BEHAVIOR {
 }
 unsafe impl ::windows::runtime::Abi for UI_ANIMATION_IDLE_BEHAVIOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -1736,7 +1734,6 @@ impl ::std::default::Default for UI_ANIMATION_KEYFRAME {
 unsafe impl ::windows::runtime::Handle for UI_ANIMATION_KEYFRAME {}
 unsafe impl ::windows::runtime::Abi for UI_ANIMATION_KEYFRAME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1751,7 +1748,6 @@ impl ::std::convert::From<i32> for UI_ANIMATION_MANAGER_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for UI_ANIMATION_MANAGER_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1767,7 +1763,6 @@ impl ::std::convert::From<i32> for UI_ANIMATION_MODE {
 }
 unsafe impl ::windows::runtime::Abi for UI_ANIMATION_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1782,7 +1777,6 @@ impl ::std::convert::From<i32> for UI_ANIMATION_PRIORITY_EFFECT {
 }
 unsafe impl ::windows::runtime::Abi for UI_ANIMATION_PRIORITY_EFFECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 pub const UI_ANIMATION_REPEAT_INDEFINITELY: i32 = -1i32;
@@ -1803,7 +1797,6 @@ impl ::std::convert::From<i32> for UI_ANIMATION_REPEAT_MODE {
 }
 unsafe impl ::windows::runtime::Abi for UI_ANIMATION_REPEAT_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1819,7 +1812,6 @@ impl ::std::convert::From<i32> for UI_ANIMATION_ROUNDING_MODE {
 }
 unsafe impl ::windows::runtime::Abi for UI_ANIMATION_ROUNDING_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1837,7 +1829,6 @@ impl ::std::convert::From<i32> for UI_ANIMATION_SCHEDULING_RESULT {
 }
 unsafe impl ::windows::runtime::Abi for UI_ANIMATION_SCHEDULING_RESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 pub const UI_ANIMATION_SECONDS_EVENTUALLY: i32 = -1i32;
@@ -1856,7 +1847,6 @@ impl ::std::convert::From<i32> for UI_ANIMATION_SLOPE {
 }
 unsafe impl ::windows::runtime::Abi for UI_ANIMATION_SLOPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1877,7 +1867,6 @@ impl ::std::convert::From<i32> for UI_ANIMATION_STORYBOARD_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for UI_ANIMATION_STORYBOARD_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1892,7 +1881,6 @@ impl ::std::convert::From<i32> for UI_ANIMATION_TIMER_CLIENT_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for UI_ANIMATION_TIMER_CLIENT_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Animation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1907,5 +1895,4 @@ impl ::std::convert::From<i32> for UI_ANIMATION_UPDATE_RESULT {
 }
 unsafe impl ::windows::runtime::Abi for UI_ANIMATION_UPDATE_RESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }

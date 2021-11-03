@@ -1118,7 +1118,6 @@ impl ::std::convert::From<i32> for DOMNodeType {
 }
 unsafe impl ::windows::runtime::Abi for DOMNodeType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const E_XML_BUFFERTOOSMALL: i32 = -1072897498i32;
@@ -16088,7 +16087,6 @@ impl ::std::convert::From<i32> for SCHEMACONTENTTYPE {
 }
 unsafe impl ::windows::runtime::Abi for SCHEMACONTENTTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16109,7 +16107,6 @@ impl ::std::convert::From<i32> for SCHEMADERIVATIONMETHOD {
 }
 unsafe impl ::windows::runtime::Abi for SCHEMADERIVATIONMETHOD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16126,7 +16123,6 @@ impl ::std::convert::From<i32> for SCHEMAPROCESSCONTENTS {
 }
 unsafe impl ::windows::runtime::Abi for SCHEMAPROCESSCONTENTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16143,7 +16139,6 @@ impl ::std::convert::From<i32> for SCHEMATYPEVARIETY {
 }
 unsafe impl ::windows::runtime::Abi for SCHEMATYPEVARIETY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16159,7 +16154,6 @@ impl ::std::convert::From<i32> for SCHEMAUSE {
 }
 unsafe impl ::windows::runtime::Abi for SCHEMAUSE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16176,7 +16170,6 @@ impl ::std::convert::From<i32> for SCHEMAWHITESPACE {
 }
 unsafe impl ::windows::runtime::Abi for SCHEMAWHITESPACE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16194,7 +16187,6 @@ impl ::std::convert::From<i32> for SERVERXMLHTTP_OPTION {
 }
 unsafe impl ::windows::runtime::Abi for SERVERXMLHTTP_OPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16280,7 +16272,6 @@ impl ::std::convert::From<i32> for SOMITEMTYPE {
 }
 unsafe impl ::windows::runtime::Abi for SOMITEMTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16297,7 +16288,6 @@ impl ::std::convert::From<i32> for SXH_PROXY_SETTING {
 }
 unsafe impl ::windows::runtime::Abi for SXH_PROXY_SETTING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16315,7 +16305,6 @@ impl ::std::convert::From<i32> for SXH_SERVER_CERT_OPTION {
 }
 unsafe impl ::windows::runtime::Abi for SXH_SERVER_CERT_OPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const ServerXMLHTTP60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2295949835, 61842, 4564, [166, 95, 0, 64, 150, 50, 81, 229]);
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
@@ -16332,7 +16321,6 @@ impl ::std::convert::From<i32> for XHR_AUTH {
 }
 unsafe impl ::windows::runtime::Abi for XHR_AUTH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16360,7 +16348,6 @@ impl ::std::cmp::PartialEq for XHR_CERT {
 impl ::std::cmp::Eq for XHR_CERT {}
 unsafe impl ::windows::runtime::Abi for XHR_CERT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16378,7 +16365,6 @@ impl ::std::convert::From<u32> for XHR_CERT_ERROR_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for XHR_CERT_ERROR_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for XHR_CERT_ERROR_FLAG {
     type Output = Self;
@@ -16424,7 +16410,6 @@ impl ::std::convert::From<u32> for XHR_CERT_IGNORE_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for XHR_CERT_IGNORE_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for XHR_CERT_IGNORE_FLAG {
     type Output = Self;
@@ -16491,7 +16476,6 @@ impl ::std::cmp::Eq for XHR_COOKIE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for XHR_COOKIE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16516,7 +16500,6 @@ impl ::std::convert::From<i32> for XHR_COOKIE_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for XHR_COOKIE_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16535,7 +16518,6 @@ impl ::std::convert::From<i32> for XHR_COOKIE_STATE {
 }
 unsafe impl ::windows::runtime::Abi for XHR_COOKIE_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16551,7 +16533,6 @@ impl ::std::convert::From<i32> for XHR_CRED_PROMPT {
 }
 unsafe impl ::windows::runtime::Abi for XHR_CRED_PROMPT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16576,7 +16557,6 @@ impl ::std::convert::From<i32> for XHR_PROPERTY {
 }
 unsafe impl ::windows::runtime::Abi for XHR_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_Xml_MsXml`*"]
 pub const XHR_PROP_ONDATA_ALWAYS: u32 = 0u32;
@@ -16650,7 +16630,6 @@ impl ::std::convert::From<i32> for XMLEMEM_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for XMLEMEM_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const XMLHTTP60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2295949834, 61842, 4564, [166, 95, 0, 64, 150, 50, 81, 229]);
 pub const XMLHTTPRequest: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3985379470, 17225, 4562, [145, 164, 0, 192, 79, 121, 105, 232]);
@@ -16703,7 +16682,6 @@ impl ::std::cmp::Eq for XML_ERROR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for XML_ERROR {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 pub const XSLTemplate60: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2295949832, 61842, 4564, [166, 95, 0, 64, 150, 50, 81, 229]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -16796,5 +16774,4 @@ impl ::std::cmp::PartialEq for __msxml6_ReferenceRemainingTypes__ {
 impl ::std::cmp::Eq for __msxml6_ReferenceRemainingTypes__ {}
 unsafe impl ::windows::runtime::Abi for __msxml6_ReferenceRemainingTypes__ {
     type Abi = Self;
-    type DefaultType = Self;
 }

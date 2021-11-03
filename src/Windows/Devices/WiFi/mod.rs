@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiAdapter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiAdapter {
@@ -34,7 +33,6 @@ pub struct IWiFiAdapter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiAdapter2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiAdapter2 {
@@ -56,7 +54,6 @@ pub struct IWiFiAdapter2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiAdapterStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiAdapterStatics {
@@ -81,7 +78,6 @@ pub struct IWiFiAdapterStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiAvailableNetwork(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiAvailableNetwork {
@@ -113,7 +109,6 @@ pub struct IWiFiAvailableNetwork_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiConnectionResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiConnectionResult {
@@ -132,7 +127,6 @@ pub struct IWiFiConnectionResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut WiFiConnectionStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiNetworkReport(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiNetworkReport {
@@ -154,7 +148,6 @@ pub struct IWiFiNetworkReport_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiWpsConfigurationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiWpsConfigurationResult {
@@ -191,10 +184,12 @@ impl ::std::convert::From<i32> for WiFiAccessStatus {
 }
 unsafe impl ::windows::runtime::Abi for WiFiAccessStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WiFiAccessStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiAccessStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for WiFiAccessStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_WiFi`*"]
 #[repr(transparent)]
@@ -478,10 +473,12 @@ impl ::std::convert::From<i32> for WiFiConnectionMethod {
 }
 unsafe impl ::windows::runtime::Abi for WiFiConnectionMethod {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WiFiConnectionMethod {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiConnectionMethod;i4)");
+}
+impl ::windows::runtime::DefaultType for WiFiConnectionMethod {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_WiFi`*"]
 #[repr(transparent)]
@@ -529,10 +526,12 @@ impl ::std::convert::From<i32> for WiFiConnectionStatus {
 }
 unsafe impl ::windows::runtime::Abi for WiFiConnectionStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WiFiConnectionStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiConnectionStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for WiFiConnectionStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -550,10 +549,12 @@ impl ::std::convert::From<i32> for WiFiNetworkKind {
 }
 unsafe impl ::windows::runtime::Abi for WiFiNetworkKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WiFiNetworkKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiNetworkKind;i4)");
+}
+impl ::windows::runtime::DefaultType for WiFiNetworkKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_WiFi`*"]
 #[repr(transparent)]
@@ -615,10 +616,12 @@ impl ::std::convert::From<i32> for WiFiPhyKind {
 }
 unsafe impl ::windows::runtime::Abi for WiFiPhyKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WiFiPhyKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiPhyKind;i4)");
+}
+impl ::windows::runtime::DefaultType for WiFiPhyKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -635,10 +638,12 @@ impl ::std::convert::From<i32> for WiFiReconnectionKind {
 }
 unsafe impl ::windows::runtime::Abi for WiFiReconnectionKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WiFiReconnectionKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiReconnectionKind;i4)");
+}
+impl ::windows::runtime::DefaultType for WiFiReconnectionKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_WiFi`*"]
 #[repr(transparent)]
@@ -691,10 +696,12 @@ impl ::std::convert::From<i32> for WiFiWpsConfigurationStatus {
 }
 unsafe impl ::windows::runtime::Abi for WiFiWpsConfigurationStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WiFiWpsConfigurationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiWpsConfigurationStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for WiFiWpsConfigurationStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -715,8 +722,10 @@ impl ::std::convert::From<i32> for WiFiWpsKind {
 }
 unsafe impl ::windows::runtime::Abi for WiFiWpsKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WiFiWpsKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiWpsKind;i4)");
+}
+impl ::windows::runtime::DefaultType for WiFiWpsKind {
+    type DefaultType = Self;
 }

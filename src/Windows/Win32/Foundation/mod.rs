@@ -90,7 +90,6 @@ impl ::std::cmp::PartialEq for APP_LOCAL_DEVICE_ID {
 impl ::std::cmp::Eq for APP_LOCAL_DEVICE_ID {}
 unsafe impl ::windows::runtime::Abi for APP_LOCAL_DEVICE_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const APP_LOCAL_DEVICE_ID_SIZE: u32 = 32u32;
@@ -99,7 +98,6 @@ pub const APP_LOCAL_DEVICE_ID_SIZE: u32 = 32u32;
 pub struct BOOL(pub i32);
 unsafe impl ::windows::runtime::Abi for BOOL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl BOOL {
     #[inline]
@@ -185,7 +183,6 @@ impl ::std::default::Default for BOOLEAN {
 unsafe impl ::windows::runtime::Handle for BOOLEAN {}
 unsafe impl ::windows::runtime::Abi for BOOLEAN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(transparent)]
 #[derive(:: std :: cmp :: Eq)]
@@ -303,7 +300,6 @@ impl ::std::ops::Drop for BSTR {
 }
 unsafe impl ::windows::runtime::Abi for BSTR {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 pub type BSTR_abi = *mut u16;
 impl<'a> ::windows::runtime::IntoParam<'a, BSTR> for &str {
@@ -503,7 +499,6 @@ impl ::std::default::Default for CHAR {
 unsafe impl ::windows::runtime::Handle for CHAR {}
 unsafe impl ::windows::runtime::Abi for CHAR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const CI_CORRUPT_CATALOG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073473535i32 as _);
@@ -1522,7 +1517,6 @@ impl ::std::cmp::PartialEq for DECIMAL {
 impl ::std::cmp::Eq for DECIMAL {}
 unsafe impl ::windows::runtime::Abi for DECIMAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1545,7 +1539,6 @@ impl ::std::cmp::PartialEq for DECIMAL_0 {
 impl ::std::cmp::Eq for DECIMAL_0 {}
 unsafe impl ::windows::runtime::Abi for DECIMAL_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1573,7 +1566,6 @@ impl ::std::cmp::PartialEq for DECIMAL_0_0 {
 impl ::std::cmp::Eq for DECIMAL_0_0 {}
 unsafe impl ::windows::runtime::Abi for DECIMAL_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1596,7 +1588,6 @@ impl ::std::cmp::PartialEq for DECIMAL_1 {
 impl ::std::cmp::Eq for DECIMAL_1 {}
 unsafe impl ::windows::runtime::Abi for DECIMAL_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1624,7 +1615,6 @@ impl ::std::cmp::PartialEq for DECIMAL_1_0 {
 impl ::std::cmp::Eq for DECIMAL_1_0 {}
 unsafe impl ::windows::runtime::Abi for DECIMAL_1_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const DIGSIG_E_CRYPTO: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146762744i32 as _);
@@ -1741,7 +1731,6 @@ impl ::std::convert::From<u32> for DUPLICATE_HANDLE_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for DUPLICATE_HANDLE_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DUPLICATE_HANDLE_OPTIONS {
     type Output = Self;
@@ -3040,7 +3029,6 @@ impl ::std::cmp::PartialEq for FILETIME {
 impl ::std::cmp::Eq for FILETIME {}
 unsafe impl ::windows::runtime::Abi for FILETIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const FILTER_E_ALREADY_OPEN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147215562i32 as _);
@@ -3098,7 +3086,6 @@ impl ::std::cmp::PartialEq for FLOAT128 {
 impl ::std::cmp::Eq for FLOAT128 {}
 unsafe impl ::windows::runtime::Abi for FLOAT128 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const FRS_ERR_AUTHENTICATION: i32 = 8008i32;
@@ -3773,7 +3760,6 @@ unsafe impl ::windows::runtime::Handle for HANDLE {
 }
 unsafe impl ::windows::runtime::Abi for HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Foundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3788,7 +3774,6 @@ impl ::std::convert::From<u32> for HANDLE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for HANDLE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for HANDLE_FLAGS {
     type Output = Self;
@@ -3829,7 +3814,6 @@ impl ::std::default::Default for HANDLE_PTR {
 unsafe impl ::windows::runtime::Handle for HANDLE_PTR {}
 unsafe impl ::windows::runtime::Abi for HANDLE_PTR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const HCN_E_ADAPTER_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2143617018i32 as _);
@@ -3996,7 +3980,6 @@ impl ::std::default::Default for HINSTANCE {
 unsafe impl ::windows::runtime::Handle for HINSTANCE {}
 unsafe impl ::windows::runtime::Abi for HINSTANCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const HSP_BASE_ERROR_MASK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2128019200i32 as _);
@@ -4135,7 +4118,6 @@ impl ::std::default::Default for HWND {
 unsafe impl ::windows::runtime::Handle for HWND {}
 unsafe impl ::windows::runtime::Abi for HWND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const INPLACE_E_FIRST: i32 = -2147221088i32;
@@ -4202,7 +4184,6 @@ impl ::std::default::Default for LPARAM {
 unsafe impl ::windows::runtime::Handle for LPARAM {}
 unsafe impl ::windows::runtime::Abi for LPARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -4215,7 +4196,6 @@ impl ::std::default::Default for LRESULT {
 unsafe impl ::windows::runtime::Handle for LRESULT {}
 unsafe impl ::windows::runtime::Abi for LRESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -4228,7 +4208,6 @@ impl ::std::default::Default for LSTATUS {
 unsafe impl ::windows::runtime::Handle for LSTATUS {}
 unsafe impl ::windows::runtime::Abi for LSTATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4256,7 +4235,6 @@ impl ::std::cmp::PartialEq for LUID {
 impl ::std::cmp::Eq for LUID {}
 unsafe impl ::windows::runtime::Abi for LUID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const MARSHAL_E_FIRST: i32 = -2147221216i32;
@@ -4698,7 +4676,6 @@ impl NTSTATUS {
 }
 unsafe impl ::windows::runtime::Abi for NTSTATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Foundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4766,7 +4743,6 @@ impl ::std::convert::From<u32> for NTSTATUS_FACILITY_CODE {
 }
 unsafe impl ::windows::runtime::Abi for NTSTATUS_FACILITY_CODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for NTSTATUS_FACILITY_CODE {
     type Output = Self;
@@ -5280,7 +5256,6 @@ impl ::std::cmp::PartialEq for POINT {
 impl ::std::cmp::Eq for POINT {}
 unsafe impl ::windows::runtime::Abi for POINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5308,7 +5283,6 @@ impl ::std::cmp::PartialEq for POINTL {
 impl ::std::cmp::Eq for POINTL {}
 unsafe impl ::windows::runtime::Abi for POINTL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5336,7 +5310,6 @@ impl ::std::cmp::PartialEq for POINTS {
 impl ::std::cmp::Eq for POINTS {}
 unsafe impl ::windows::runtime::Abi for POINTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const PRESENTATION_ERROR_LOST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2004811775i32 as _);
@@ -5352,7 +5325,6 @@ impl ::std::default::Default for PSID {
 unsafe impl ::windows::runtime::Handle for PSID {}
 unsafe impl ::windows::runtime::Abi for PSID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const PSINK_E_INDEX_ONLY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147215471i32 as _);
@@ -5377,7 +5349,6 @@ impl ::std::default::Default for PSTR {
 }
 unsafe impl ::windows::runtime::Abi for PSTR {
     type Abi = Self;
-    type DefaultType = Self;
     unsafe fn drop_param(param: &mut ::windows::runtime::Param<'_, Self>) {
         if let ::windows::runtime::Param::Boxed(value) = param {
             if !value.is_null() {
@@ -5413,7 +5384,6 @@ impl ::std::default::Default for PWSTR {
 }
 unsafe impl ::windows::runtime::Abi for PWSTR {
     type Abi = Self;
-    type DefaultType = Self;
     unsafe fn drop_param(param: &mut ::windows::runtime::Param<'_, Self>) {
         if let ::windows::runtime::Param::Boxed(value) = param {
             if !value.is_null() {
@@ -5586,7 +5556,6 @@ impl ::std::cmp::PartialEq for RECT {
 impl ::std::cmp::Eq for RECT {}
 unsafe impl ::windows::runtime::Abi for RECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5616,7 +5585,6 @@ impl ::std::cmp::PartialEq for RECTL {
 impl ::std::cmp::Eq for RECTL {}
 unsafe impl ::windows::runtime::Abi for RECTL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const REGDB_E_BADTHREADINGMODEL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147221162i32 as _);
@@ -6503,7 +6471,6 @@ impl ::std::default::Default for SHANDLE_PTR {
 unsafe impl ::windows::runtime::Handle for SHANDLE_PTR {}
 unsafe impl ::windows::runtime::Abi for SHANDLE_PTR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6531,7 +6498,6 @@ impl ::std::cmp::PartialEq for SIZE {
 impl ::std::cmp::Eq for SIZE {}
 unsafe impl ::windows::runtime::Abi for SIZE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const SPAPI_E_AUTHENTICODE_DISALLOWED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146500032i32 as _);
@@ -12407,7 +12373,6 @@ impl ::std::cmp::PartialEq for SYSTEMTIME {
 impl ::std::cmp::Eq for SYSTEMTIME {}
 unsafe impl ::windows::runtime::Abi for SYSTEMTIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const S_APPLICATION_ACTIVATION_ERROR_HANDLED_BY_DIALOG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(2556505i32 as _);
@@ -13522,7 +13487,6 @@ impl ::std::cmp::PartialEq for UNICODE_STRING {
 impl ::std::cmp::Eq for UNICODE_STRING {}
 unsafe impl ::windows::runtime::Abi for UNICODE_STRING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const UTC_E_ACTION_NOT_SUPPORTED_IN_DESTINATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2017128380i32 as _);
@@ -17045,7 +17009,6 @@ impl ::std::convert::From<u32> for WIN32_ERROR {
 }
 unsafe impl ::windows::runtime::Abi for WIN32_ERROR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WIN32_ERROR {
     type Output = Self;
@@ -17341,7 +17304,6 @@ impl ::std::default::Default for WPARAM {
 unsafe impl ::windows::runtime::Handle for WPARAM {}
 unsafe impl ::windows::runtime::Abi for WPARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Foundation`*"]
 pub const WPN_E_ACCESS_DENIED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2143420137i32 as _);

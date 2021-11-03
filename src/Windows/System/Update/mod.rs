@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISystemUpdateItem(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemUpdateItem {
@@ -26,7 +25,6 @@ pub struct ISystemUpdateItem_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISystemUpdateLastErrorInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemUpdateLastErrorInfo {
@@ -47,7 +45,6 @@ pub struct ISystemUpdateLastErrorInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISystemUpdateManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemUpdateManagerStatics {
@@ -117,10 +114,12 @@ impl ::std::convert::From<i32> for SystemUpdateAttentionRequiredReason {
 }
 unsafe impl ::windows::runtime::Abi for SystemUpdateAttentionRequiredReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SystemUpdateAttentionRequiredReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateAttentionRequiredReason;i4)");
+}
+impl ::windows::runtime::DefaultType for SystemUpdateAttentionRequiredReason {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System_Update`*"]
 #[repr(transparent)]
@@ -226,10 +225,12 @@ impl ::std::convert::From<i32> for SystemUpdateItemState {
 }
 unsafe impl ::windows::runtime::Abi for SystemUpdateItemState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SystemUpdateItemState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateItemState;i4)");
+}
+impl ::windows::runtime::DefaultType for SystemUpdateItemState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System_Update`*"]
 #[repr(transparent)]
@@ -476,10 +477,12 @@ impl ::std::convert::From<i32> for SystemUpdateManagerState {
 }
 unsafe impl ::windows::runtime::Abi for SystemUpdateManagerState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SystemUpdateManagerState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateManagerState;i4)");
+}
+impl ::windows::runtime::DefaultType for SystemUpdateManagerState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System_Update`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -496,8 +499,10 @@ impl ::std::convert::From<i32> for SystemUpdateStartInstallAction {
 }
 unsafe impl ::windows::runtime::Abi for SystemUpdateStartInstallAction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SystemUpdateStartInstallAction {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateStartInstallAction;i4)");
+}
+impl ::windows::runtime::DefaultType for SystemUpdateStartInstallAction {
+    type DefaultType = Self;
 }

@@ -12,7 +12,6 @@ impl ::std::convert::From<i32> for EDefaultDevmodeType {
 }
 unsafe impl ::windows::runtime::Abi for EDefaultDevmodeType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Printing_PrintTicket`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -28,7 +27,6 @@ impl ::std::convert::From<i32> for EPrintTicketScope {
 }
 unsafe impl ::windows::runtime::Abi for EPrintTicketScope {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Printing_PrintTicket`*"]
 pub const E_DELTA_PRINTTICKET_FORMAT: u32 = 2147745797u32;

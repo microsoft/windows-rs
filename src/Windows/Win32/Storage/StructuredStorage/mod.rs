@@ -10,7 +10,6 @@ impl ::std::default::Default for JET_API_PTR {
 unsafe impl ::windows::runtime::Handle for JET_API_PTR {}
 unsafe impl ::windows::runtime::Abi for JET_API_PTR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -23,7 +22,6 @@ impl ::std::default::Default for JET_HANDLE {
 unsafe impl ::windows::runtime::Handle for JET_HANDLE {}
 unsafe impl ::windows::runtime::Abi for JET_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -36,7 +34,6 @@ impl ::std::default::Default for JET_INSTANCE {
 unsafe impl ::windows::runtime::Handle for JET_INSTANCE {}
 unsafe impl ::windows::runtime::Abi for JET_INSTANCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -49,7 +46,6 @@ impl ::std::default::Default for JET_SESID {
 unsafe impl ::windows::runtime::Handle for JET_SESID {}
 unsafe impl ::windows::runtime::Abi for JET_SESID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -62,5 +58,4 @@ impl ::std::default::Default for JET_TABLEID {
 unsafe impl ::windows::runtime::Handle for JET_TABLEID {}
 unsafe impl ::windows::runtime::Abi for JET_TABLEID {
     type Abi = Self;
-    type DefaultType = Self;
 }

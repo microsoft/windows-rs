@@ -21,10 +21,12 @@ impl ::std::convert::From<i32> for ClosedCaptionColor {
 }
 unsafe impl ::windows::runtime::Abi for ClosedCaptionColor {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ClosedCaptionColor {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionColor;i4)");
+}
+impl ::windows::runtime::DefaultType for ClosedCaptionColor {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_ClosedCaptioning`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -45,10 +47,12 @@ impl ::std::convert::From<i32> for ClosedCaptionEdgeEffect {
 }
 unsafe impl ::windows::runtime::Abi for ClosedCaptionEdgeEffect {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ClosedCaptionEdgeEffect {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionEdgeEffect;i4)");
+}
+impl ::windows::runtime::DefaultType for ClosedCaptionEdgeEffect {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_ClosedCaptioning`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -68,10 +72,12 @@ impl ::std::convert::From<i32> for ClosedCaptionOpacity {
 }
 unsafe impl ::windows::runtime::Abi for ClosedCaptionOpacity {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ClosedCaptionOpacity {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionOpacity;i4)");
+}
+impl ::windows::runtime::DefaultType for ClosedCaptionOpacity {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_ClosedCaptioning`*"]
 pub struct ClosedCaptionProperties {}
@@ -189,10 +195,12 @@ impl ::std::convert::From<i32> for ClosedCaptionSize {
 }
 unsafe impl ::windows::runtime::Abi for ClosedCaptionSize {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ClosedCaptionSize {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionSize;i4)");
+}
+impl ::windows::runtime::DefaultType for ClosedCaptionSize {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_ClosedCaptioning`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -215,13 +223,14 @@ impl ::std::convert::From<i32> for ClosedCaptionStyle {
 }
 unsafe impl ::windows::runtime::Abi for ClosedCaptionStyle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ClosedCaptionStyle {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionStyle;i4)");
 }
+impl ::windows::runtime::DefaultType for ClosedCaptionStyle {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClosedCaptionPropertiesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClosedCaptionPropertiesStatics {

@@ -145,7 +145,6 @@ impl ::std::convert::From<i32> for RENDEZVOUS_SESSION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for RENDEZVOUS_SESSION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteAssistance`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -166,6 +165,5 @@ impl ::std::convert::From<i32> for RENDEZVOUS_SESSION_STATE {
 }
 unsafe impl ::windows::runtime::Abi for RENDEZVOUS_SESSION_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const RendezvousApplication: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(192807322, 46558, 18426, [137, 102, 144, 130, 248, 47, 177, 146]);

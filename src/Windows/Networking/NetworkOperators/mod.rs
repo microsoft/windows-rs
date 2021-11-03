@@ -29,10 +29,12 @@ impl ::std::convert::From<u32> for DataClasses {
 }
 unsafe impl ::windows::runtime::Abi for DataClasses {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DataClasses {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.DataClasses;u4)");
+}
+impl ::windows::runtime::DefaultType for DataClasses {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DataClasses {
     type Output = Self;
@@ -256,10 +258,12 @@ impl ::std::convert::From<i32> for ESimAuthenticationPreference {
 }
 unsafe impl ::windows::runtime::Abi for ESimAuthenticationPreference {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ESimAuthenticationPreference {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimAuthenticationPreference;i4)");
+}
+impl ::windows::runtime::DefaultType for ESimAuthenticationPreference {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
@@ -362,10 +366,12 @@ impl ::std::convert::From<i32> for ESimDiscoverResultKind {
 }
 unsafe impl ::windows::runtime::Abi for ESimDiscoverResultKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ESimDiscoverResultKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimDiscoverResultKind;i4)");
+}
+impl ::windows::runtime::DefaultType for ESimDiscoverResultKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
@@ -507,10 +513,12 @@ impl ::std::convert::From<i32> for ESimOperationStatus {
 }
 unsafe impl ::windows::runtime::Abi for ESimOperationStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ESimOperationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimOperationStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for ESimOperationStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
@@ -664,10 +672,12 @@ impl ::std::convert::From<i32> for ESimProfileClass {
 }
 unsafe impl ::windows::runtime::Abi for ESimProfileClass {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ESimProfileClass {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimProfileClass;i4)");
+}
+impl ::windows::runtime::DefaultType for ESimProfileClass {
+    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -695,10 +705,12 @@ impl ::std::cmp::PartialEq for ESimProfileInstallProgress {
 impl ::std::cmp::Eq for ESimProfileInstallProgress {}
 unsafe impl ::windows::runtime::Abi for ESimProfileInstallProgress {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ESimProfileInstallProgress {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Networking.NetworkOperators.ESimProfileInstallProgress;i4;i4)");
+}
+impl ::windows::runtime::DefaultType for ESimProfileInstallProgress {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
@@ -847,10 +859,12 @@ impl ::std::convert::From<i32> for ESimProfileMetadataState {
 }
 unsafe impl ::windows::runtime::Abi for ESimProfileMetadataState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ESimProfileMetadataState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimProfileMetadataState;i4)");
+}
+impl ::windows::runtime::DefaultType for ESimProfileMetadataState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
@@ -911,10 +925,12 @@ impl ::std::convert::From<i32> for ESimProfileState {
 }
 unsafe impl ::windows::runtime::Abi for ESimProfileState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ESimProfileState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimProfileState;i4)");
+}
+impl ::windows::runtime::DefaultType for ESimProfileState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
@@ -993,10 +1009,12 @@ impl ::std::convert::From<i32> for ESimState {
 }
 unsafe impl ::windows::runtime::Abi for ESimState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ESimState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimState;i4)");
+}
+impl ::windows::runtime::DefaultType for ESimState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
@@ -1153,10 +1171,12 @@ impl ::std::convert::From<i32> for ESimWatcherStatus {
 }
 unsafe impl ::windows::runtime::Abi for ESimWatcherStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ESimWatcherStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimWatcherStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for ESimWatcherStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 pub struct FdnAccessManager {}
@@ -1321,10 +1341,12 @@ impl ::std::convert::From<i32> for HotspotAuthenticationResponseCode {
 }
 unsafe impl ::windows::runtime::Abi for HotspotAuthenticationResponseCode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for HotspotAuthenticationResponseCode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.HotspotAuthenticationResponseCode;i4)");
+}
+impl ::windows::runtime::DefaultType for HotspotAuthenticationResponseCode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
@@ -1377,7 +1399,6 @@ impl ::windows::runtime::RuntimeName for HotspotCredentialsAuthenticationResult 
     const NAME: &'static str = "Windows.Networking.NetworkOperators.HotspotCredentialsAuthenticationResult";
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IESim(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESim {
@@ -1414,7 +1435,6 @@ pub struct IESim_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IESim2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESim2 {
@@ -1438,7 +1458,6 @@ pub struct IESim2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IESimAddedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimAddedEventArgs {
@@ -1457,7 +1476,6 @@ pub struct IESimAddedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IESimDiscoverEvent(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimDiscoverEvent {
@@ -1477,7 +1495,6 @@ pub struct IESimDiscoverEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IESimDiscoverResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimDiscoverResult {
@@ -1500,7 +1517,6 @@ pub struct IESimDiscoverResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IESimDownloadProfileMetadataResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimDownloadProfileMetadataResult {
@@ -1520,7 +1536,6 @@ pub struct IESimDownloadProfileMetadataResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IESimManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimManagerStatics {
@@ -1544,7 +1559,6 @@ pub struct IESimManagerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IESimOperationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimOperationResult {
@@ -1563,7 +1577,6 @@ pub struct IESimOperationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ESimOperationStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IESimPolicy(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimPolicy {
@@ -1582,7 +1595,6 @@ pub struct IESimPolicy_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IESimProfile(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimProfile {
@@ -1615,7 +1627,6 @@ pub struct IESimProfile_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IESimProfileMetadata(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimProfileMetadata {
@@ -1653,7 +1664,6 @@ pub struct IESimProfileMetadata_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IESimProfilePolicy(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimProfilePolicy {
@@ -1674,7 +1684,6 @@ pub struct IESimProfilePolicy_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IESimRemovedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimRemovedEventArgs {
@@ -1693,7 +1702,6 @@ pub struct IESimRemovedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IESimServiceInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimServiceInfo {
@@ -1713,7 +1721,6 @@ pub struct IESimServiceInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IESimUpdatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimUpdatedEventArgs {
@@ -1732,7 +1739,6 @@ pub struct IESimUpdatedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IESimWatcher(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimWatcher {
@@ -1773,7 +1779,6 @@ pub struct IESimWatcher_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFdnAccessManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFdnAccessManagerStatics {
@@ -1793,7 +1798,6 @@ pub struct IFdnAccessManagerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHotspotAuthenticationContext(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHotspotAuthenticationContext {
@@ -1824,7 +1828,6 @@ pub struct IHotspotAuthenticationContext_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packagerelativeapplicationid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, applicationparameters: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHotspotAuthenticationContext2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHotspotAuthenticationContext2 {
@@ -1844,7 +1847,6 @@ pub struct IHotspotAuthenticationContext2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHotspotAuthenticationContextStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHotspotAuthenticationContextStatics {
@@ -1863,7 +1865,6 @@ pub struct IHotspotAuthenticationContextStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, eventoken: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, context: *mut ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHotspotAuthenticationEventDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHotspotAuthenticationEventDetails {
@@ -1882,7 +1883,6 @@ pub struct IHotspotAuthenticationEventDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHotspotCredentialsAuthenticationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHotspotCredentialsAuthenticationResult {
@@ -1906,7 +1906,6 @@ pub struct IHotspotCredentialsAuthenticationResult_abi(
     #[cfg(not(feature = "Data_Xml_Dom"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKnownCSimFilePathsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownCSimFilePathsStatics {
@@ -1930,7 +1929,6 @@ pub struct IKnownCSimFilePathsStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKnownRuimFilePathsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownRuimFilePathsStatics {
@@ -1954,7 +1952,6 @@ pub struct IKnownRuimFilePathsStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKnownSimFilePathsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownSimFilePathsStatics {
@@ -1980,7 +1977,6 @@ pub struct IKnownSimFilePathsStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKnownUSimFilePathsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownUSimFilePathsStatics {
@@ -2008,7 +2004,6 @@ pub struct IKnownUSimFilePathsStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandAccount(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandAccount {
@@ -2031,7 +2026,6 @@ pub struct IMobileBroadbandAccount_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandAccount2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandAccount2 {
@@ -2051,7 +2045,6 @@ pub struct IMobileBroadbandAccount2_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Networking_Connectivity")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandAccount3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandAccount3 {
@@ -2071,7 +2064,6 @@ pub struct IMobileBroadbandAccount3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandAccountEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandAccountEventArgs {
@@ -2090,7 +2082,6 @@ pub struct IMobileBroadbandAccountEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandAccountStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandAccountStatics {
@@ -2111,7 +2102,6 @@ pub struct IMobileBroadbandAccountStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, networkaccountid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandAccountUpdatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandAccountUpdatedEventArgs {
@@ -2132,7 +2122,6 @@ pub struct IMobileBroadbandAccountUpdatedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandAccountWatcher(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandAccountWatcher {
@@ -2173,7 +2162,6 @@ pub struct IMobileBroadbandAccountWatcher_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandAntennaSar(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandAntennaSar {
@@ -2193,7 +2181,6 @@ pub struct IMobileBroadbandAntennaSar_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandAntennaSarFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandAntennaSarFactory {
@@ -2212,7 +2199,6 @@ pub struct IMobileBroadbandAntennaSarFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, antennaindex: i32, sarbackoffindex: i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandCellCdma(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandCellCdma {
@@ -2246,7 +2232,6 @@ pub struct IMobileBroadbandCellCdma_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandCellGsm(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandCellGsm {
@@ -2277,7 +2262,6 @@ pub struct IMobileBroadbandCellGsm_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandCellLte(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandCellLte {
@@ -2310,7 +2294,6 @@ pub struct IMobileBroadbandCellLte_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandCellNR(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandCellNR {
@@ -2345,7 +2328,6 @@ pub struct IMobileBroadbandCellNR_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandCellTdscdma(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandCellTdscdma {
@@ -2378,7 +2360,6 @@ pub struct IMobileBroadbandCellTdscdma_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandCellUmts(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandCellUmts {
@@ -2411,7 +2392,6 @@ pub struct IMobileBroadbandCellUmts_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandCellsInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandCellsInfo {
@@ -2449,7 +2429,6 @@ pub struct IMobileBroadbandCellsInfo_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandCellsInfo2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandCellsInfo2 {
@@ -2471,7 +2450,6 @@ pub struct IMobileBroadbandCellsInfo2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandCurrentSlotIndexChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandCurrentSlotIndexChangedEventArgs {
@@ -2490,7 +2468,6 @@ pub struct IMobileBroadbandCurrentSlotIndexChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandDeviceInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceInformation {
@@ -2524,7 +2501,6 @@ pub struct IMobileBroadbandDeviceInformation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut MobileBroadbandRadioState) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandDeviceInformation2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceInformation2 {
@@ -2545,7 +2521,6 @@ pub struct IMobileBroadbandDeviceInformation2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandDeviceInformation3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceInformation3 {
@@ -2566,7 +2541,6 @@ pub struct IMobileBroadbandDeviceInformation3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandDeviceInformation4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceInformation4 {
@@ -2585,7 +2559,6 @@ pub struct IMobileBroadbandDeviceInformation4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandDeviceService(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceService {
@@ -2608,7 +2581,6 @@ pub struct IMobileBroadbandDeviceService_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandDeviceServiceCommandResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceServiceCommandResult {
@@ -2629,7 +2601,6 @@ pub struct IMobileBroadbandDeviceServiceCommandResult_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandDeviceServiceCommandSession(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceServiceCommandSession {
@@ -2652,7 +2623,6 @@ pub struct IMobileBroadbandDeviceServiceCommandSession_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandDeviceServiceDataReceivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceServiceDataReceivedEventArgs {
@@ -2672,7 +2642,6 @@ pub struct IMobileBroadbandDeviceServiceDataReceivedEventArgs_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandDeviceServiceDataSession(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceServiceDataSession {
@@ -2697,7 +2666,6 @@ pub struct IMobileBroadbandDeviceServiceDataSession_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandDeviceServiceInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceServiceInformation {
@@ -2718,7 +2686,6 @@ pub struct IMobileBroadbandDeviceServiceInformation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandDeviceServiceTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceServiceTriggerDetails {
@@ -2740,7 +2707,6 @@ pub struct IMobileBroadbandDeviceServiceTriggerDetails_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandModem(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandModem {
@@ -2771,7 +2737,6 @@ pub struct IMobileBroadbandModem_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandModem2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandModem2 {
@@ -2793,7 +2758,6 @@ pub struct IMobileBroadbandModem2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandModem3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandModem3 {
@@ -2818,7 +2782,6 @@ pub struct IMobileBroadbandModem3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandModemConfiguration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandModemConfiguration {
@@ -2839,7 +2802,6 @@ pub struct IMobileBroadbandModemConfiguration_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandModemConfiguration2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandModemConfiguration2 {
@@ -2858,7 +2820,6 @@ pub struct IMobileBroadbandModemConfiguration2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandModemIsolation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandModemIsolation {
@@ -2882,7 +2843,6 @@ pub struct IMobileBroadbandModemIsolation_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandModemIsolationFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandModemIsolationFactory {
@@ -2901,7 +2861,6 @@ pub struct IMobileBroadbandModemIsolationFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, modemdeviceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, rulegroupid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandModemStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandModemStatics {
@@ -2922,7 +2881,6 @@ pub struct IMobileBroadbandModemStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandNetwork(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandNetwork {
@@ -2951,7 +2909,6 @@ pub struct IMobileBroadbandNetwork_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandNetwork2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandNetwork2 {
@@ -2973,7 +2930,6 @@ pub struct IMobileBroadbandNetwork2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandNetwork3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandNetwork3 {
@@ -2993,7 +2949,6 @@ pub struct IMobileBroadbandNetwork3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandNetworkRegistrationStateChange(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandNetworkRegistrationStateChange {
@@ -3013,7 +2968,6 @@ pub struct IMobileBroadbandNetworkRegistrationStateChange_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
@@ -3033,7 +2987,6 @@ pub struct IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandPco(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandPco {
@@ -3055,7 +3008,6 @@ pub struct IMobileBroadbandPco_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandPcoDataChangeTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandPcoDataChangeTriggerDetails {
@@ -3074,7 +3026,6 @@ pub struct IMobileBroadbandPcoDataChangeTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandPin(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandPin {
@@ -3109,7 +3060,6 @@ pub struct IMobileBroadbandPin_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandPinLockStateChange(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandPinLockStateChange {
@@ -3130,7 +3080,6 @@ pub struct IMobileBroadbandPinLockStateChange_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut MobileBroadbandPinLockState) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandPinLockStateChangeTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandPinLockStateChangeTriggerDetails {
@@ -3150,7 +3099,6 @@ pub struct IMobileBroadbandPinLockStateChangeTriggerDetails_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandPinManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandPinManager {
@@ -3171,7 +3119,6 @@ pub struct IMobileBroadbandPinManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pintype: MobileBroadbandPinType, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandPinOperationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandPinOperationResult {
@@ -3191,7 +3138,6 @@ pub struct IMobileBroadbandPinOperationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandRadioStateChange(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandRadioStateChange {
@@ -3211,7 +3157,6 @@ pub struct IMobileBroadbandRadioStateChange_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut MobileBroadbandRadioState) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandRadioStateChangeTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandRadioStateChangeTriggerDetails {
@@ -3231,7 +3176,6 @@ pub struct IMobileBroadbandRadioStateChangeTriggerDetails_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandSarManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandSarManager {
@@ -3274,7 +3218,6 @@ pub struct IMobileBroadbandSarManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandSlotInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandSlotInfo {
@@ -3294,7 +3237,6 @@ pub struct IMobileBroadbandSlotInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut MobileBroadbandSlotState) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandSlotInfoChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandSlotInfoChangedEventArgs {
@@ -3313,7 +3255,6 @@ pub struct IMobileBroadbandSlotInfoChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandSlotManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandSlotManager {
@@ -3345,7 +3286,6 @@ pub struct IMobileBroadbandSlotManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandTransmissionStateChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandTransmissionStateChangedEventArgs {
@@ -3364,7 +3304,6 @@ pub struct IMobileBroadbandTransmissionStateChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandUicc(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandUicc {
@@ -3385,7 +3324,6 @@ pub struct IMobileBroadbandUicc_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandUiccApp(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandUiccApp {
@@ -3410,7 +3348,6 @@ pub struct IMobileBroadbandUiccApp_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandUiccAppReadRecordResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandUiccAppReadRecordResult {
@@ -3431,7 +3368,6 @@ pub struct IMobileBroadbandUiccAppReadRecordResult_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandUiccAppRecordDetailsResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandUiccAppRecordDetailsResult {
@@ -3455,7 +3391,6 @@ pub struct IMobileBroadbandUiccAppRecordDetailsResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut UiccAccessCondition) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMobileBroadbandUiccAppsResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandUiccAppsResult {
@@ -3476,7 +3411,6 @@ pub struct IMobileBroadbandUiccAppsResult_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INetworkOperatorDataUsageTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorDataUsageTriggerDetails {
@@ -3495,7 +3429,6 @@ pub struct INetworkOperatorDataUsageTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut NetworkOperatorDataUsageNotificationKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INetworkOperatorNotificationEventDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorNotificationEventDetails {
@@ -3520,7 +3453,6 @@ pub struct INetworkOperatorNotificationEventDetails_abi(
     #[cfg(not(feature = "Devices_Sms"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INetworkOperatorTetheringAccessPointConfiguration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringAccessPointConfiguration {
@@ -3542,7 +3474,6 @@ pub struct INetworkOperatorTetheringAccessPointConfiguration_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INetworkOperatorTetheringAccessPointConfiguration2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringAccessPointConfiguration2 {
@@ -3565,7 +3496,6 @@ pub struct INetworkOperatorTetheringAccessPointConfiguration2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: TetheringWiFiBand) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INetworkOperatorTetheringClient(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringClient {
@@ -3586,7 +3516,6 @@ pub struct INetworkOperatorTetheringClient_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INetworkOperatorTetheringClientManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringClientManager {
@@ -3606,7 +3535,6 @@ pub struct INetworkOperatorTetheringClientManager_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INetworkOperatorTetheringEntitlementCheck(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringEntitlementCheck {
@@ -3625,7 +3553,6 @@ pub struct INetworkOperatorTetheringEntitlementCheck_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, allow: bool, entitlementfailurereason: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INetworkOperatorTetheringManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringManager {
@@ -3653,7 +3580,6 @@ pub struct INetworkOperatorTetheringManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INetworkOperatorTetheringManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringManagerStatics {
@@ -3673,7 +3599,6 @@ pub struct INetworkOperatorTetheringManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, networkaccountid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INetworkOperatorTetheringManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringManagerStatics2 {
@@ -3695,7 +3620,6 @@ pub struct INetworkOperatorTetheringManagerStatics2_abi(
     #[cfg(not(feature = "Networking_Connectivity"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INetworkOperatorTetheringManagerStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringManagerStatics3 {
@@ -3715,7 +3639,6 @@ pub struct INetworkOperatorTetheringManagerStatics3_abi(
     #[cfg(not(feature = "Networking_Connectivity"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INetworkOperatorTetheringManagerStatics4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringManagerStatics4 {
@@ -3740,7 +3663,6 @@ pub struct INetworkOperatorTetheringManagerStatics4_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INetworkOperatorTetheringOperationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringOperationResult {
@@ -3760,7 +3682,6 @@ pub struct INetworkOperatorTetheringOperationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProvisionFromXmlDocumentResults(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProvisionFromXmlDocumentResults {
@@ -3780,7 +3701,6 @@ pub struct IProvisionFromXmlDocumentResults_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProvisionedProfile(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProvisionedProfile {
@@ -3802,7 +3722,6 @@ pub struct IProvisionedProfile_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProvisioningAgent(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProvisioningAgent {
@@ -3823,7 +3742,6 @@ pub struct IProvisioningAgent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mediatype: ProfileMediaType, profilename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProvisioningAgentStaticMethods(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProvisioningAgentStaticMethods {
@@ -3842,7 +3760,6 @@ pub struct IProvisioningAgentStaticMethods_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, networkaccountid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITetheringEntitlementCheckTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITetheringEntitlementCheckTriggerDetails {
@@ -3863,7 +3780,6 @@ pub struct ITetheringEntitlementCheckTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, entitlementfailurereason: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUssdMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUssdMessage {
@@ -3887,7 +3803,6 @@ pub struct IUssdMessage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUssdMessageFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUssdMessageFactory {
@@ -3906,7 +3821,6 @@ pub struct IUssdMessageFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, messagetext: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUssdReply(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUssdReply {
@@ -3926,7 +3840,6 @@ pub struct IUssdReply_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUssdSession(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUssdSession {
@@ -3947,7 +3860,6 @@ pub struct IUssdSession_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUssdSessionStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUssdSessionStatics {
@@ -4424,10 +4336,12 @@ impl ::std::convert::From<i32> for MobileBroadbandAccountWatcherStatus {
 }
 unsafe impl ::windows::runtime::Abi for MobileBroadbandAccountWatcherStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandAccountWatcherStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandAccountWatcherStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for MobileBroadbandAccountWatcherStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
@@ -5650,10 +5564,12 @@ impl ::std::convert::From<i32> for MobileBroadbandDeviceType {
 }
 unsafe impl ::windows::runtime::Abi for MobileBroadbandDeviceType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandDeviceType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandDeviceType;i4)");
+}
+impl ::windows::runtime::DefaultType for MobileBroadbandDeviceType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
@@ -5953,10 +5869,12 @@ impl ::std::convert::From<i32> for MobileBroadbandModemStatus {
 }
 unsafe impl ::windows::runtime::Abi for MobileBroadbandModemStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandModemStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandModemStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for MobileBroadbandModemStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
@@ -6344,10 +6262,12 @@ impl ::std::convert::From<i32> for MobileBroadbandPinFormat {
 }
 unsafe impl ::windows::runtime::Abi for MobileBroadbandPinFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandPinFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandPinFormat;i4)");
+}
+impl ::windows::runtime::DefaultType for MobileBroadbandPinFormat {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6366,10 +6286,12 @@ impl ::std::convert::From<i32> for MobileBroadbandPinLockState {
 }
 unsafe impl ::windows::runtime::Abi for MobileBroadbandPinLockState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandPinLockState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandPinLockState;i4)");
+}
+impl ::windows::runtime::DefaultType for MobileBroadbandPinLockState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
@@ -6533,10 +6455,12 @@ impl ::std::convert::From<i32> for MobileBroadbandPinType {
 }
 unsafe impl ::windows::runtime::Abi for MobileBroadbandPinType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandPinType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandPinType;i4)");
+}
+impl ::windows::runtime::DefaultType for MobileBroadbandPinType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6553,10 +6477,12 @@ impl ::std::convert::From<i32> for MobileBroadbandRadioState {
 }
 unsafe impl ::windows::runtime::Abi for MobileBroadbandRadioState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandRadioState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandRadioState;i4)");
+}
+impl ::windows::runtime::DefaultType for MobileBroadbandRadioState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
@@ -6923,10 +6849,12 @@ impl ::std::convert::From<i32> for MobileBroadbandSlotState {
 }
 unsafe impl ::windows::runtime::Abi for MobileBroadbandSlotState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandSlotState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandSlotState;i4)");
+}
+impl ::windows::runtime::DefaultType for MobileBroadbandSlotState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
@@ -7059,10 +6987,12 @@ impl ::std::convert::From<i32> for MobileBroadbandUiccAppOperationStatus {
 }
 unsafe impl ::windows::runtime::Abi for MobileBroadbandUiccAppOperationStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MobileBroadbandUiccAppOperationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandUiccAppOperationStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for MobileBroadbandUiccAppOperationStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
@@ -7221,10 +7151,12 @@ impl ::std::convert::From<i32> for NetworkDeviceStatus {
 }
 unsafe impl ::windows::runtime::Abi for NetworkDeviceStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for NetworkDeviceStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkDeviceStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for NetworkDeviceStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7240,10 +7172,12 @@ impl ::std::convert::From<i32> for NetworkOperatorDataUsageNotificationKind {
 }
 unsafe impl ::windows::runtime::Abi for NetworkOperatorDataUsageNotificationKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for NetworkOperatorDataUsageNotificationKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkOperatorDataUsageNotificationKind;i4)");
+}
+impl ::windows::runtime::DefaultType for NetworkOperatorDataUsageNotificationKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
@@ -7297,10 +7231,12 @@ impl ::std::convert::From<i32> for NetworkOperatorEventMessageType {
 }
 unsafe impl ::windows::runtime::Abi for NetworkOperatorEventMessageType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for NetworkOperatorEventMessageType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkOperatorEventMessageType;i4)");
+}
+impl ::windows::runtime::DefaultType for NetworkOperatorEventMessageType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
@@ -7714,10 +7650,12 @@ impl ::std::convert::From<i32> for NetworkRegistrationState {
 }
 unsafe impl ::windows::runtime::Abi for NetworkRegistrationState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for NetworkRegistrationState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkRegistrationState;i4)");
+}
+impl ::windows::runtime::DefaultType for NetworkRegistrationState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7734,10 +7672,12 @@ impl ::std::convert::From<i32> for ProfileMediaType {
 }
 unsafe impl ::windows::runtime::Abi for ProfileMediaType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ProfileMediaType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ProfileMediaType;i4)");
+}
+impl ::windows::runtime::DefaultType for ProfileMediaType {
+    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7772,11 +7712,13 @@ impl ::std::cmp::Eq for ProfileUsage {}
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::runtime::Abi for ProfileUsage {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::runtime::RuntimeType for ProfileUsage {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Networking.NetworkOperators.ProfileUsage;u4;struct(Windows.Foundation.DateTime;i8))");
+}
+impl ::windows::runtime::DefaultType for ProfileUsage {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
@@ -7910,10 +7852,12 @@ impl ::std::convert::From<i32> for TetheringCapability {
 }
 unsafe impl ::windows::runtime::Abi for TetheringCapability {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TetheringCapability {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringCapability;i4)");
+}
+impl ::windows::runtime::DefaultType for TetheringCapability {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
@@ -7973,10 +7917,12 @@ impl ::std::convert::From<i32> for TetheringOperationStatus {
 }
 unsafe impl ::windows::runtime::Abi for TetheringOperationStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TetheringOperationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringOperationStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for TetheringOperationStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7995,10 +7941,12 @@ impl ::std::convert::From<i32> for TetheringOperationalState {
 }
 unsafe impl ::windows::runtime::Abi for TetheringOperationalState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TetheringOperationalState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringOperationalState;i4)");
+}
+impl ::windows::runtime::DefaultType for TetheringOperationalState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8016,10 +7964,12 @@ impl ::std::convert::From<i32> for TetheringWiFiBand {
 }
 unsafe impl ::windows::runtime::Abi for TetheringWiFiBand {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TetheringWiFiBand {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringWiFiBand;i4)");
+}
+impl ::windows::runtime::DefaultType for TetheringWiFiBand {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8042,10 +7992,12 @@ impl ::std::convert::From<i32> for UiccAccessCondition {
 }
 unsafe impl ::windows::runtime::Abi for UiccAccessCondition {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UiccAccessCondition {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.UiccAccessCondition;i4)");
+}
+impl ::windows::runtime::DefaultType for UiccAccessCondition {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8067,10 +8019,12 @@ impl ::std::convert::From<i32> for UiccAppKind {
 }
 unsafe impl ::windows::runtime::Abi for UiccAppKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UiccAppKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.UiccAppKind;i4)");
+}
+impl ::windows::runtime::DefaultType for UiccAppKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8088,10 +8042,12 @@ impl ::std::convert::From<i32> for UiccAppRecordKind {
 }
 unsafe impl ::windows::runtime::Abi for UiccAppRecordKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UiccAppRecordKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.UiccAppRecordKind;i4)");
+}
+impl ::windows::runtime::DefaultType for UiccAppRecordKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
@@ -8120,7 +8076,7 @@ impl UssdMessage {
         }
     }
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
-    pub fn SetPayload(&self, value: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn SetPayload(&self, value: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr())).ok() }
     }
@@ -8212,10 +8168,12 @@ impl ::std::convert::From<i32> for UssdResultCode {
 }
 unsafe impl ::windows::runtime::Abi for UssdResultCode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UssdResultCode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.UssdResultCode;i4)");
+}
+impl ::windows::runtime::DefaultType for UssdResultCode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]

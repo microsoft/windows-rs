@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrint3DManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DManager {
@@ -22,7 +21,6 @@ pub struct IPrint3DManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrint3DManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DManagerStatics {
@@ -43,7 +41,6 @@ pub struct IPrint3DManagerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrint3DTask(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DTask {
@@ -74,7 +71,6 @@ pub struct IPrint3DTask_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrint3DTaskCompletedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DTaskCompletedEventArgs {
@@ -94,7 +90,6 @@ pub struct IPrint3DTaskCompletedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Print3DTaskDetail) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrint3DTaskRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DTaskRequest {
@@ -113,7 +108,6 @@ pub struct IPrint3DTaskRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, title: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, printerid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, handler: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrint3DTaskRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DTaskRequestedEventArgs {
@@ -132,7 +126,6 @@ pub struct IPrint3DTaskRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrint3DTaskSourceChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DTaskSourceChangedEventArgs {
@@ -151,7 +144,6 @@ pub struct IPrint3DTaskSourceChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrint3DTaskSourceRequestedArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DTaskSourceRequestedArgs {
@@ -170,7 +162,6 @@ pub struct IPrint3DTaskSourceRequestedArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, source: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3D3MFPackage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3D3MFPackage {
@@ -206,7 +197,6 @@ pub struct IPrinting3D3MFPackage_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3D3MFPackage2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3D3MFPackage2 {
@@ -226,7 +216,6 @@ pub struct IPrinting3D3MFPackage2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: Printing3DPackageCompression) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3D3MFPackageStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3D3MFPackageStatics {
@@ -246,7 +235,6 @@ pub struct IPrinting3D3MFPackageStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DBaseMaterial(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DBaseMaterial {
@@ -268,7 +256,6 @@ pub struct IPrinting3DBaseMaterial_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DBaseMaterialGroup(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DBaseMaterialGroup {
@@ -289,7 +276,6 @@ pub struct IPrinting3DBaseMaterialGroup_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DBaseMaterialGroupFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DBaseMaterialGroupFactory {
@@ -308,7 +294,6 @@ pub struct IPrinting3DBaseMaterialGroupFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, materialgroupid: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DBaseMaterialStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DBaseMaterialStatics {
@@ -328,7 +313,6 @@ pub struct IPrinting3DBaseMaterialStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DColorMaterial(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DColorMaterial {
@@ -348,7 +332,6 @@ pub struct IPrinting3DColorMaterial_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DColorMaterial2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DColorMaterial2 {
@@ -370,7 +353,6 @@ pub struct IPrinting3DColorMaterial2_abi(
     #[cfg(not(feature = "UI"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DColorMaterialGroup(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DColorMaterialGroup {
@@ -391,7 +373,6 @@ pub struct IPrinting3DColorMaterialGroup_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DColorMaterialGroupFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DColorMaterialGroupFactory {
@@ -410,7 +391,6 @@ pub struct IPrinting3DColorMaterialGroupFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, materialgroupid: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DComponent(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DComponent {
@@ -440,7 +420,6 @@ pub struct IPrinting3DComponent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DComponentWithMatrix(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DComponentWithMatrix {
@@ -464,7 +443,6 @@ pub struct IPrinting3DComponentWithMatrix_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DCompositeMaterial(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DCompositeMaterial {
@@ -484,7 +462,6 @@ pub struct IPrinting3DCompositeMaterial_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DCompositeMaterialGroup(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DCompositeMaterialGroup {
@@ -507,7 +484,6 @@ pub struct IPrinting3DCompositeMaterialGroup_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DCompositeMaterialGroup2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DCompositeMaterialGroup2 {
@@ -527,7 +503,6 @@ pub struct IPrinting3DCompositeMaterialGroup2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DCompositeMaterialGroupFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DCompositeMaterialGroupFactory {
@@ -546,7 +521,6 @@ pub struct IPrinting3DCompositeMaterialGroupFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, materialgroupid: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DFaceReductionOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DFaceReductionOptions {
@@ -570,7 +544,6 @@ pub struct IPrinting3DFaceReductionOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DMaterial(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DMaterial {
@@ -598,7 +571,6 @@ pub struct IPrinting3DMaterial_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DMesh(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DMesh {
@@ -646,7 +618,6 @@ pub struct IPrinting3DMesh_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DMeshVerificationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DMeshVerificationResult {
@@ -669,7 +640,6 @@ pub struct IPrinting3DMeshVerificationResult_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DModel(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DModel {
@@ -708,7 +678,6 @@ pub struct IPrinting3DModel_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DModel2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DModel2 {
@@ -738,7 +707,6 @@ pub struct IPrinting3DModel2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DModelTexture(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DModelTexture {
@@ -762,7 +730,6 @@ pub struct IPrinting3DModelTexture_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: Printing3DTextureEdgeBehavior) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DMultiplePropertyMaterial(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DMultiplePropertyMaterial {
@@ -782,7 +749,6 @@ pub struct IPrinting3DMultiplePropertyMaterial_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DMultiplePropertyMaterialGroup(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DMultiplePropertyMaterialGroup {
@@ -805,7 +771,6 @@ pub struct IPrinting3DMultiplePropertyMaterialGroup_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DMultiplePropertyMaterialGroupFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DMultiplePropertyMaterialGroupFactory {
@@ -824,7 +789,6 @@ pub struct IPrinting3DMultiplePropertyMaterialGroupFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, materialgroupid: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DTexture2CoordMaterial(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DTexture2CoordMaterial {
@@ -848,7 +812,6 @@ pub struct IPrinting3DTexture2CoordMaterial_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DTexture2CoordMaterialGroup(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DTexture2CoordMaterialGroup {
@@ -869,7 +832,6 @@ pub struct IPrinting3DTexture2CoordMaterialGroup_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DTexture2CoordMaterialGroup2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DTexture2CoordMaterialGroup2 {
@@ -889,7 +851,6 @@ pub struct IPrinting3DTexture2CoordMaterialGroup2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DTexture2CoordMaterialGroupFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DTexture2CoordMaterialGroupFactory {
@@ -908,7 +869,6 @@ pub struct IPrinting3DTexture2CoordMaterialGroupFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, materialgroupid: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrinting3DTextureResource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrinting3DTextureResource {
@@ -1106,10 +1066,12 @@ impl ::std::convert::From<i32> for Print3DTaskCompletion {
 }
 unsafe impl ::windows::runtime::Abi for Print3DTaskCompletion {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for Print3DTaskCompletion {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Print3DTaskCompletion;i4)");
+}
+impl ::windows::runtime::DefaultType for Print3DTaskCompletion {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1131,10 +1093,12 @@ impl ::std::convert::From<i32> for Print3DTaskDetail {
 }
 unsafe impl ::windows::runtime::Abi for Print3DTaskDetail {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for Print3DTaskDetail {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Print3DTaskDetail;i4)");
+}
+impl ::windows::runtime::DefaultType for Print3DTaskDetail {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
@@ -1307,7 +1271,7 @@ impl<F: FnMut(&::std::option::Option<Print3DTaskSourceRequestedArgs>) -> ::windo
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, args: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&args as *const <Print3DTaskSourceRequestedArgs as ::windows::runtime::Abi>::Abi as *const <Print3DTaskSourceRequestedArgs as ::windows::runtime::Abi>::DefaultType)).into()
+        ((*this).invoke)(&*(&args as *const <Print3DTaskSourceRequestedArgs as ::windows::runtime::Abi>::Abi as *const <Print3DTaskSourceRequestedArgs as ::windows::runtime::DefaultType>::DefaultType)).into()
     }
 }
 #[doc = "*Required features: `Graphics_Printing3D`*"]
@@ -1580,10 +1544,12 @@ impl ::std::cmp::PartialEq for Printing3DBufferDescription {
 impl ::std::cmp::Eq for Printing3DBufferDescription {}
 unsafe impl ::windows::runtime::Abi for Printing3DBufferDescription {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for Printing3DBufferDescription {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Graphics.Printing3D.Printing3DBufferDescription;enum(Windows.Graphics.Printing3D.Printing3DBufferFormat;i4);u4)");
+}
+impl ::windows::runtime::DefaultType for Printing3DBufferDescription {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1605,10 +1571,12 @@ impl ::std::convert::From<i32> for Printing3DBufferFormat {
 }
 unsafe impl ::windows::runtime::Abi for Printing3DBufferFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for Printing3DBufferFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DBufferFormat;i4)");
+}
+impl ::windows::runtime::DefaultType for Printing3DBufferFormat {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
@@ -2301,10 +2269,12 @@ impl ::std::convert::From<i32> for Printing3DMeshVerificationMode {
 }
 unsafe impl ::windows::runtime::Abi for Printing3DMeshVerificationMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for Printing3DMeshVerificationMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DMeshVerificationMode;i4)");
+}
+impl ::windows::runtime::DefaultType for Printing3DMeshVerificationMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
@@ -2626,10 +2596,12 @@ impl ::std::convert::From<i32> for Printing3DModelUnit {
 }
 unsafe impl ::windows::runtime::Abi for Printing3DModelUnit {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for Printing3DModelUnit {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DModelUnit;i4)");
+}
+impl ::windows::runtime::DefaultType for Printing3DModelUnit {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
@@ -2736,10 +2708,12 @@ impl ::std::convert::From<i32> for Printing3DObjectType {
 }
 unsafe impl ::windows::runtime::Abi for Printing3DObjectType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for Printing3DObjectType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DObjectType;i4)");
+}
+impl ::windows::runtime::DefaultType for Printing3DObjectType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2757,10 +2731,12 @@ impl ::std::convert::From<i32> for Printing3DPackageCompression {
 }
 unsafe impl ::windows::runtime::Abi for Printing3DPackageCompression {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for Printing3DPackageCompression {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DPackageCompression;i4)");
+}
+impl ::windows::runtime::DefaultType for Printing3DPackageCompression {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]
@@ -2902,10 +2878,12 @@ impl ::std::convert::From<i32> for Printing3DTextureEdgeBehavior {
 }
 unsafe impl ::windows::runtime::Abi for Printing3DTextureEdgeBehavior {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for Printing3DTextureEdgeBehavior {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DTextureEdgeBehavior;i4)");
+}
+impl ::windows::runtime::DefaultType for Printing3DTextureEdgeBehavior {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing3D`*"]
 #[repr(transparent)]

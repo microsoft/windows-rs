@@ -82,7 +82,6 @@ pub struct IAdaptiveCardBuilderStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISecurityAppManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecurityAppManager {
@@ -105,7 +104,6 @@ pub struct ISecurityAppManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IShareWindowCommandEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareWindowCommandEventArgs {
@@ -126,7 +124,6 @@ pub struct IShareWindowCommandEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ShareWindowCommand) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IShareWindowCommandSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareWindowCommandSource {
@@ -155,7 +152,6 @@ pub struct IShareWindowCommandSource_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IShareWindowCommandSourceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareWindowCommandSourceStatics {
@@ -174,7 +170,6 @@ pub struct IShareWindowCommandSourceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITaskbarManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITaskbarManager {
@@ -202,7 +197,6 @@ pub struct ITaskbarManager_abi(
     #[cfg(not(all(feature = "ApplicationModel_Core", feature = "Foundation")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITaskbarManager2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITaskbarManager2 {
@@ -226,7 +220,6 @@ pub struct ITaskbarManager2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITaskbarManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITaskbarManagerStatics {
@@ -258,10 +251,12 @@ impl ::std::convert::From<i32> for SecurityAppKind {
 }
 unsafe impl ::windows::runtime::Abi for SecurityAppKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SecurityAppKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.SecurityAppKind;i4)");
+}
+impl ::windows::runtime::DefaultType for SecurityAppKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Shell`*"]
 #[repr(transparent)]
@@ -326,10 +321,12 @@ impl ::std::convert::From<i32> for SecurityAppState {
 }
 unsafe impl ::windows::runtime::Abi for SecurityAppState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SecurityAppState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.SecurityAppState;i4)");
+}
+impl ::windows::runtime::DefaultType for SecurityAppState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Shell`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -348,10 +345,12 @@ impl ::std::convert::From<i32> for SecurityAppSubstatus {
 }
 unsafe impl ::windows::runtime::Abi for SecurityAppSubstatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SecurityAppSubstatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.SecurityAppSubstatus;i4)");
+}
+impl ::windows::runtime::DefaultType for SecurityAppSubstatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Shell`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -369,10 +368,12 @@ impl ::std::convert::From<i32> for ShareWindowCommand {
 }
 unsafe impl ::windows::runtime::Abi for ShareWindowCommand {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ShareWindowCommand {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.ShareWindowCommand;i4)");
+}
+impl ::windows::runtime::DefaultType for ShareWindowCommand {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Shell`*"]
 #[repr(transparent)]

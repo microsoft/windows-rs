@@ -38,7 +38,6 @@ impl ::std::cmp::PartialEq for CONTACT_AGGREGATION_BLOB {
 impl ::std::cmp::Eq for CONTACT_AGGREGATION_BLOB {}
 unsafe impl ::windows::runtime::Abi for CONTACT_AGGREGATION_BLOB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -54,7 +53,6 @@ impl ::std::convert::From<i32> for CONTACT_AGGREGATION_COLLECTION_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for CONTACT_AGGREGATION_COLLECTION_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -69,7 +67,6 @@ impl ::std::convert::From<i32> for CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const Contact: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1639352328, 36590, 20433, [172, 184, 61, 128, 76, 141, 176, 86]);
 pub const ContactManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1902495915, 44936, 17085, [134, 253, 83, 16, 180, 40, 90, 2]);

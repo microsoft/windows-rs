@@ -15,7 +15,6 @@ impl ::std::convert::From<u32> for CF_CALLBACK_CANCEL_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_CANCEL_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_CALLBACK_CANCEL_FLAGS {
     type Output = Self;
@@ -58,7 +57,6 @@ impl ::std::convert::From<u32> for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
     type Output = Self;
@@ -102,7 +100,6 @@ impl ::std::convert::From<u32> for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
     type Output = Self;
@@ -145,7 +142,6 @@ impl ::std::convert::From<u32> for CF_CALLBACK_DEHYDRATE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_DEHYDRATE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_CALLBACK_DEHYDRATE_FLAGS {
     type Output = Self;
@@ -191,7 +187,6 @@ impl ::std::convert::From<i32> for CF_CALLBACK_DEHYDRATION_REASON {
 }
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_DEHYDRATION_REASON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -205,7 +200,6 @@ impl ::std::convert::From<u32> for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
     type Output = Self;
@@ -249,7 +243,6 @@ impl ::std::convert::From<u32> for CF_CALLBACK_DELETE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_DELETE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_CALLBACK_DELETE_FLAGS {
     type Output = Self;
@@ -293,7 +286,6 @@ impl ::std::convert::From<u32> for CF_CALLBACK_FETCH_DATA_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_FETCH_DATA_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_CALLBACK_FETCH_DATA_FLAGS {
     type Output = Self;
@@ -335,7 +327,6 @@ impl ::std::convert::From<u32> for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
     type Output = Self;
@@ -453,7 +444,6 @@ impl ::std::cmp::Eq for CF_CALLBACK_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -469,7 +459,6 @@ impl ::std::convert::From<u32> for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
     type Output = Self;
@@ -526,7 +515,6 @@ impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -565,7 +553,6 @@ impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -588,7 +575,6 @@ impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_0 {
 impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0_0 {}
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -610,7 +596,6 @@ impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_0_0 {
 impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0_0_0 {}
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -638,7 +623,6 @@ impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_0_0_0 {
 impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0_0_0_0 {}
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_0_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -665,7 +649,6 @@ impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_1 {
 impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0_1 {}
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -693,7 +676,6 @@ impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_2 {
 impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0_2 {}
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -721,7 +703,6 @@ impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_3 {
 impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0_3 {}
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -748,7 +729,6 @@ impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_4 {
 impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0_4 {}
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -775,7 +755,6 @@ impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_5 {
 impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0_5 {}
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_5 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -816,7 +795,6 @@ impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_6 {
 impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0_6 {}
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -851,7 +829,6 @@ impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0_7 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_7 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -878,7 +855,6 @@ impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_8 {
 impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0_8 {}
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_8 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -913,7 +889,6 @@ impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0_9 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_9 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -948,7 +923,6 @@ impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0_10 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_10 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -977,7 +951,6 @@ impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_11 {
 impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0_11 {}
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_11 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1012,7 +985,6 @@ impl ::std::cmp::Eq for CF_CALLBACK_REGISTRATION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_REGISTRATION {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1026,7 +998,6 @@ impl ::std::convert::From<u32> for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
     type Output = Self;
@@ -1071,7 +1042,6 @@ impl ::std::convert::From<u32> for CF_CALLBACK_RENAME_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_RENAME_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_CALLBACK_RENAME_FLAGS {
     type Output = Self;
@@ -1126,7 +1096,6 @@ impl ::std::convert::From<i32> for CF_CALLBACK_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1141,7 +1110,6 @@ impl ::std::convert::From<u32> for CF_CALLBACK_VALIDATE_DATA_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_VALIDATE_DATA_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_CALLBACK_VALIDATE_DATA_FLAGS {
     type Output = Self;
@@ -1182,7 +1150,6 @@ impl ::std::default::Default for CF_CONNECTION_KEY {
 unsafe impl ::windows::runtime::Handle for CF_CONNECTION_KEY {}
 unsafe impl ::windows::runtime::Abi for CF_CONNECTION_KEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1199,7 +1166,6 @@ impl ::std::convert::From<u32> for CF_CONNECT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_CONNECT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_CONNECT_FLAGS {
     type Output = Self;
@@ -1246,7 +1212,6 @@ impl ::std::convert::From<u32> for CF_CONVERT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_CONVERT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_CONVERT_FLAGS {
     type Output = Self;
@@ -1289,7 +1254,6 @@ impl ::std::convert::From<u32> for CF_CREATE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_CREATE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_CREATE_FLAGS {
     type Output = Self;
@@ -1332,7 +1296,6 @@ impl ::std::convert::From<u32> for CF_DEHYDRATE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_DEHYDRATE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_DEHYDRATE_FLAGS {
     type Output = Self;
@@ -1388,7 +1351,6 @@ impl ::std::cmp::PartialEq for CF_FILE_RANGE {
 impl ::std::cmp::Eq for CF_FILE_RANGE {}
 unsafe impl ::windows::runtime::Abi for CF_FILE_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1423,7 +1385,6 @@ impl ::std::cmp::Eq for CF_FS_METADATA {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
 unsafe impl ::windows::runtime::Abi for CF_FS_METADATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1438,7 +1399,6 @@ impl ::std::convert::From<u32> for CF_HARDLINK_POLICY {
 }
 unsafe impl ::windows::runtime::Abi for CF_HARDLINK_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_HARDLINK_POLICY {
     type Output = Self;
@@ -1480,7 +1440,6 @@ impl ::std::convert::From<u32> for CF_HYDRATE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_HYDRATE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_HYDRATE_FLAGS {
     type Output = Self;
@@ -1536,7 +1495,6 @@ impl ::std::cmp::PartialEq for CF_HYDRATION_POLICY {
 impl ::std::cmp::Eq for CF_HYDRATION_POLICY {}
 unsafe impl ::windows::runtime::Abi for CF_HYDRATION_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1554,7 +1512,6 @@ impl ::std::convert::From<u32> for CF_HYDRATION_POLICY_MODIFIER {
 }
 unsafe impl ::windows::runtime::Abi for CF_HYDRATION_POLICY_MODIFIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_HYDRATION_POLICY_MODIFIER {
     type Output = Self;
@@ -1609,7 +1566,6 @@ impl ::std::cmp::PartialEq for CF_HYDRATION_POLICY_MODIFIER_USHORT {
 impl ::std::cmp::Eq for CF_HYDRATION_POLICY_MODIFIER_USHORT {}
 unsafe impl ::windows::runtime::Abi for CF_HYDRATION_POLICY_MODIFIER_USHORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1626,7 +1582,6 @@ impl ::std::convert::From<i32> for CF_HYDRATION_POLICY_PRIMARY {
 }
 unsafe impl ::windows::runtime::Abi for CF_HYDRATION_POLICY_PRIMARY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1653,7 +1608,6 @@ impl ::std::cmp::PartialEq for CF_HYDRATION_POLICY_PRIMARY_USHORT {
 impl ::std::cmp::Eq for CF_HYDRATION_POLICY_PRIMARY_USHORT {}
 unsafe impl ::windows::runtime::Abi for CF_HYDRATION_POLICY_PRIMARY_USHORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1681,7 +1635,6 @@ impl ::std::convert::From<u32> for CF_INSYNC_POLICY {
 }
 unsafe impl ::windows::runtime::Abi for CF_INSYNC_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_INSYNC_POLICY {
     type Output = Self;
@@ -1724,7 +1677,6 @@ impl ::std::convert::From<i32> for CF_IN_SYNC_STATE {
 }
 unsafe impl ::windows::runtime::Abi for CF_IN_SYNC_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 pub const CF_MAX_PRIORITY_HINT: u32 = 15u32;
@@ -1748,7 +1700,6 @@ impl ::std::convert::From<u32> for CF_OPEN_FILE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_OPEN_FILE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_OPEN_FILE_FLAGS {
     type Output = Self;
@@ -1790,7 +1741,6 @@ impl ::std::convert::From<u32> for CF_OPERATION_ACK_DATA_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_ACK_DATA_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_OPERATION_ACK_DATA_FLAGS {
     type Output = Self;
@@ -1832,7 +1782,6 @@ impl ::std::convert::From<u32> for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
     type Output = Self;
@@ -1874,7 +1823,6 @@ impl ::std::convert::From<u32> for CF_OPERATION_ACK_DELETE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_ACK_DELETE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_OPERATION_ACK_DELETE_FLAGS {
     type Output = Self;
@@ -1916,7 +1864,6 @@ impl ::std::convert::From<u32> for CF_OPERATION_ACK_RENAME_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_ACK_RENAME_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_OPERATION_ACK_RENAME_FLAGS {
     type Output = Self;
@@ -1992,7 +1939,6 @@ impl ::std::cmp::Eq for CF_OPERATION_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2021,7 +1967,6 @@ impl ::std::cmp::Eq for CF_OPERATION_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2056,7 +2001,6 @@ impl ::std::cmp::Eq for CF_OPERATION_PARAMETERS_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2093,7 +2037,6 @@ impl ::std::cmp::Eq for CF_OPERATION_PARAMETERS_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2130,7 +2073,6 @@ impl ::std::cmp::Eq for CF_OPERATION_PARAMETERS_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2165,7 +2107,6 @@ impl ::std::cmp::Eq for CF_OPERATION_PARAMETERS_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS_0_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2200,7 +2141,6 @@ impl ::std::cmp::Eq for CF_OPERATION_PARAMETERS_0_3 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS_0_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2237,7 +2177,6 @@ impl ::std::cmp::Eq for CF_OPERATION_PARAMETERS_0_4 {}
 #[cfg(feature = "Win32_Storage_FileSystem")]
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS_0_4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2268,7 +2207,6 @@ impl ::std::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_5 {
 impl ::std::cmp::Eq for CF_OPERATION_PARAMETERS_0_5 {}
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS_0_5 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2306,7 +2244,6 @@ impl ::std::cmp::Eq for CF_OPERATION_PARAMETERS_0_6 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS_0_6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2352,7 +2289,6 @@ impl ::std::cmp::Eq for CF_OPERATION_PARAMETERS_0_7 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS_0_7 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2367,7 +2303,6 @@ impl ::std::convert::From<u32> for CF_OPERATION_RESTART_HYDRATION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_RESTART_HYDRATION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_OPERATION_RESTART_HYDRATION_FLAGS {
     type Output = Self;
@@ -2409,7 +2344,6 @@ impl ::std::convert::From<u32> for CF_OPERATION_RETRIEVE_DATA_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_RETRIEVE_DATA_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_OPERATION_RETRIEVE_DATA_FLAGS {
     type Output = Self;
@@ -2451,7 +2385,6 @@ impl ::std::convert::From<u32> for CF_OPERATION_TRANSFER_DATA_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_TRANSFER_DATA_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_OPERATION_TRANSFER_DATA_FLAGS {
     type Output = Self;
@@ -2495,7 +2428,6 @@ impl ::std::convert::From<u32> for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
     type Output = Self;
@@ -2544,7 +2476,6 @@ impl ::std::convert::From<i32> for CF_OPERATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2562,7 +2493,6 @@ impl ::std::convert::From<i32> for CF_PIN_STATE {
 }
 unsafe impl ::windows::runtime::Abi for CF_PIN_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2594,7 +2524,6 @@ impl ::std::cmp::PartialEq for CF_PLACEHOLDER_BASIC_INFO {
 impl ::std::cmp::Eq for CF_PLACEHOLDER_BASIC_INFO {}
 unsafe impl ::windows::runtime::Abi for CF_PLACEHOLDER_BASIC_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2612,7 +2541,6 @@ impl ::std::convert::From<u32> for CF_PLACEHOLDER_CREATE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_PLACEHOLDER_CREATE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_PLACEHOLDER_CREATE_FLAGS {
     type Output = Self;
@@ -2688,7 +2616,6 @@ impl ::std::cmp::Eq for CF_PLACEHOLDER_CREATE_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 unsafe impl ::windows::runtime::Abi for CF_PLACEHOLDER_CREATE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2703,7 +2630,6 @@ impl ::std::convert::From<i32> for CF_PLACEHOLDER_INFO_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for CF_PLACEHOLDER_INFO_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2720,7 +2646,6 @@ impl ::std::convert::From<i32> for CF_PLACEHOLDER_MANAGEMENT_POLICY {
 }
 unsafe impl ::windows::runtime::Abi for CF_PLACEHOLDER_MANAGEMENT_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 pub const CF_PLACEHOLDER_MAX_FILE_IDENTITY_LENGTH: u32 = 4096u32;
@@ -2738,7 +2663,6 @@ impl ::std::convert::From<i32> for CF_PLACEHOLDER_RANGE_INFO_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for CF_PLACEHOLDER_RANGE_INFO_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2785,7 +2709,6 @@ impl ::std::cmp::PartialEq for CF_PLACEHOLDER_STANDARD_INFO {
 impl ::std::cmp::Eq for CF_PLACEHOLDER_STANDARD_INFO {}
 unsafe impl ::windows::runtime::Abi for CF_PLACEHOLDER_STANDARD_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2806,7 +2729,6 @@ impl ::std::convert::From<u32> for CF_PLACEHOLDER_STATE {
 }
 unsafe impl ::windows::runtime::Abi for CF_PLACEHOLDER_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_PLACEHOLDER_STATE {
     type Output = Self;
@@ -2863,7 +2785,6 @@ impl ::std::cmp::PartialEq for CF_PLATFORM_INFO {
 impl ::std::cmp::Eq for CF_PLATFORM_INFO {}
 unsafe impl ::windows::runtime::Abi for CF_PLATFORM_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2891,7 +2812,6 @@ impl ::std::cmp::PartialEq for CF_POPULATION_POLICY {
 impl ::std::cmp::Eq for CF_POPULATION_POLICY {}
 unsafe impl ::windows::runtime::Abi for CF_POPULATION_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2905,7 +2825,6 @@ impl ::std::convert::From<u32> for CF_POPULATION_POLICY_MODIFIER {
 }
 unsafe impl ::windows::runtime::Abi for CF_POPULATION_POLICY_MODIFIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_POPULATION_POLICY_MODIFIER {
     type Output = Self;
@@ -2960,7 +2879,6 @@ impl ::std::cmp::PartialEq for CF_POPULATION_POLICY_MODIFIER_USHORT {
 impl ::std::cmp::Eq for CF_POPULATION_POLICY_MODIFIER_USHORT {}
 unsafe impl ::windows::runtime::Abi for CF_POPULATION_POLICY_MODIFIER_USHORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2976,7 +2894,6 @@ impl ::std::convert::From<i32> for CF_POPULATION_POLICY_PRIMARY {
 }
 unsafe impl ::windows::runtime::Abi for CF_POPULATION_POLICY_PRIMARY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3003,7 +2920,6 @@ impl ::std::cmp::PartialEq for CF_POPULATION_POLICY_PRIMARY_USHORT {
 impl ::std::cmp::Eq for CF_POPULATION_POLICY_PRIMARY_USHORT {}
 unsafe impl ::windows::runtime::Abi for CF_POPULATION_POLICY_PRIMARY_USHORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3051,7 +2967,6 @@ impl ::std::cmp::Eq for CF_PROCESS_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CF_PROCESS_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3068,7 +2983,6 @@ impl ::std::convert::From<u32> for CF_REGISTER_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_REGISTER_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_REGISTER_FLAGS {
     type Output = Self;
@@ -3112,7 +3026,6 @@ impl ::std::convert::From<u32> for CF_REVERT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_REVERT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_REVERT_FLAGS {
     type Output = Self;
@@ -3154,7 +3067,6 @@ impl ::std::convert::From<u32> for CF_SET_IN_SYNC_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_SET_IN_SYNC_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_SET_IN_SYNC_FLAGS {
     type Output = Self;
@@ -3199,7 +3111,6 @@ impl ::std::convert::From<u32> for CF_SET_PIN_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_SET_PIN_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_SET_PIN_FLAGS {
     type Output = Self;
@@ -3259,7 +3170,6 @@ impl ::std::cmp::PartialEq for CF_SYNC_POLICIES {
 impl ::std::cmp::Eq for CF_SYNC_POLICIES {}
 unsafe impl ::windows::runtime::Abi for CF_SYNC_POLICIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3283,7 +3193,6 @@ impl ::std::convert::From<u32> for CF_SYNC_PROVIDER_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for CF_SYNC_PROVIDER_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_SYNC_PROVIDER_STATUS {
     type Output = Self;
@@ -3361,7 +3270,6 @@ impl ::std::cmp::Eq for CF_SYNC_REGISTRATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CF_SYNC_REGISTRATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3388,7 +3296,6 @@ impl ::std::cmp::PartialEq for CF_SYNC_ROOT_BASIC_INFO {
 impl ::std::cmp::Eq for CF_SYNC_ROOT_BASIC_INFO {}
 unsafe impl ::windows::runtime::Abi for CF_SYNC_ROOT_BASIC_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3404,7 +3311,6 @@ impl ::std::convert::From<i32> for CF_SYNC_ROOT_INFO_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for CF_SYNC_ROOT_INFO_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3433,7 +3339,6 @@ impl ::std::cmp::PartialEq for CF_SYNC_ROOT_PROVIDER_INFO {
 impl ::std::cmp::Eq for CF_SYNC_ROOT_PROVIDER_INFO {}
 unsafe impl ::windows::runtime::Abi for CF_SYNC_ROOT_PROVIDER_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3480,7 +3385,6 @@ impl ::std::cmp::PartialEq for CF_SYNC_ROOT_STANDARD_INFO {
 impl ::std::cmp::Eq for CF_SYNC_ROOT_STANDARD_INFO {}
 unsafe impl ::windows::runtime::Abi for CF_SYNC_ROOT_STANDARD_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3519,7 +3423,6 @@ impl ::std::cmp::PartialEq for CF_SYNC_STATUS {
 impl ::std::cmp::Eq for CF_SYNC_STATUS {}
 unsafe impl ::windows::runtime::Abi for CF_SYNC_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3544,7 +3447,6 @@ impl ::std::convert::From<u32> for CF_UPDATE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CF_UPDATE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CF_UPDATE_FLAGS {
     type Output = Self;

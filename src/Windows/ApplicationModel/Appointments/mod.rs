@@ -392,10 +392,12 @@ impl ::std::convert::From<i32> for AppointmentBusyStatus {
 }
 unsafe impl ::windows::runtime::Abi for AppointmentBusyStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppointmentBusyStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentBusyStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for AppointmentBusyStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Appointments`*"]
 #[repr(transparent)]
@@ -848,10 +850,12 @@ impl ::std::convert::From<i32> for AppointmentCalendarOtherAppReadAccess {
 }
 unsafe impl ::windows::runtime::Abi for AppointmentCalendarOtherAppReadAccess {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppointmentCalendarOtherAppReadAccess {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentCalendarOtherAppReadAccess;i4)");
+}
+impl ::windows::runtime::DefaultType for AppointmentCalendarOtherAppReadAccess {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Appointments`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -869,10 +873,12 @@ impl ::std::convert::From<i32> for AppointmentCalendarOtherAppWriteAccess {
 }
 unsafe impl ::windows::runtime::Abi for AppointmentCalendarOtherAppWriteAccess {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppointmentCalendarOtherAppWriteAccess {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentCalendarOtherAppWriteAccess;i4)");
+}
+impl ::windows::runtime::DefaultType for AppointmentCalendarOtherAppWriteAccess {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Appointments`*"]
 #[repr(transparent)]
@@ -979,10 +985,12 @@ impl ::std::convert::From<i32> for AppointmentCalendarSyncStatus {
 }
 unsafe impl ::windows::runtime::Abi for AppointmentCalendarSyncStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppointmentCalendarSyncStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentCalendarSyncStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for AppointmentCalendarSyncStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Appointments`*"]
 #[repr(transparent)]
@@ -1035,10 +1043,12 @@ impl ::std::convert::From<i32> for AppointmentConflictType {
 }
 unsafe impl ::windows::runtime::Abi for AppointmentConflictType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppointmentConflictType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentConflictType;i4)");
+}
+impl ::windows::runtime::DefaultType for AppointmentConflictType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Appointments`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1061,10 +1071,12 @@ impl ::std::convert::From<u32> for AppointmentDaysOfWeek {
 }
 unsafe impl ::windows::runtime::Abi for AppointmentDaysOfWeek {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppointmentDaysOfWeek {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentDaysOfWeek;u4)");
+}
+impl ::windows::runtime::DefaultType for AppointmentDaysOfWeek {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for AppointmentDaysOfWeek {
     type Output = Self;
@@ -1109,10 +1121,12 @@ impl ::std::convert::From<i32> for AppointmentDetailsKind {
 }
 unsafe impl ::windows::runtime::Abi for AppointmentDetailsKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppointmentDetailsKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentDetailsKind;i4)");
+}
+impl ::windows::runtime::DefaultType for AppointmentDetailsKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Appointments`*"]
 #[repr(transparent)]
@@ -1639,10 +1653,12 @@ impl ::std::convert::From<i32> for AppointmentParticipantResponse {
 }
 unsafe impl ::windows::runtime::Abi for AppointmentParticipantResponse {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppointmentParticipantResponse {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentParticipantResponse;i4)");
+}
+impl ::windows::runtime::DefaultType for AppointmentParticipantResponse {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Appointments`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1660,10 +1676,12 @@ impl ::std::convert::From<i32> for AppointmentParticipantRole {
 }
 unsafe impl ::windows::runtime::Abi for AppointmentParticipantRole {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppointmentParticipantRole {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentParticipantRole;i4)");
+}
+impl ::windows::runtime::DefaultType for AppointmentParticipantRole {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Appointments`*"]
 pub struct AppointmentProperties {}
@@ -2044,10 +2062,12 @@ impl ::std::convert::From<i32> for AppointmentRecurrenceUnit {
 }
 unsafe impl ::windows::runtime::Abi for AppointmentRecurrenceUnit {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppointmentRecurrenceUnit {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentRecurrenceUnit;i4)");
+}
+impl ::windows::runtime::DefaultType for AppointmentRecurrenceUnit {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Appointments`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2064,10 +2084,12 @@ impl ::std::convert::From<i32> for AppointmentSensitivity {
 }
 unsafe impl ::windows::runtime::Abi for AppointmentSensitivity {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppointmentSensitivity {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentSensitivity;i4)");
+}
+impl ::windows::runtime::DefaultType for AppointmentSensitivity {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Appointments`*"]
 #[repr(transparent)]
@@ -2330,10 +2352,12 @@ impl ::std::convert::From<i32> for AppointmentStoreAccessType {
 }
 unsafe impl ::windows::runtime::Abi for AppointmentStoreAccessType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppointmentStoreAccessType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentStoreAccessType;i4)");
+}
+impl ::windows::runtime::DefaultType for AppointmentStoreAccessType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Appointments`*"]
 #[repr(transparent)]
@@ -2478,10 +2502,12 @@ impl ::std::convert::From<i32> for AppointmentStoreChangeType {
 }
 unsafe impl ::windows::runtime::Abi for AppointmentStoreChangeType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppointmentStoreChangeType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentStoreChangeType;i4)");
+}
+impl ::windows::runtime::DefaultType for AppointmentStoreChangeType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Appointments`*"]
 #[repr(transparent)]
@@ -2564,10 +2590,12 @@ impl ::std::convert::From<i32> for AppointmentSummaryCardView {
 }
 unsafe impl ::windows::runtime::Abi for AppointmentSummaryCardView {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppointmentSummaryCardView {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentSummaryCardView;i4)");
+}
+impl ::windows::runtime::DefaultType for AppointmentSummaryCardView {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Appointments`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2587,10 +2615,12 @@ impl ::std::convert::From<i32> for AppointmentWeekOfMonth {
 }
 unsafe impl ::windows::runtime::Abi for AppointmentWeekOfMonth {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppointmentWeekOfMonth {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentWeekOfMonth;i4)");
+}
+impl ::windows::runtime::DefaultType for AppointmentWeekOfMonth {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Appointments`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2607,10 +2637,12 @@ impl ::std::convert::From<u32> for FindAppointmentCalendarsOptions {
 }
 unsafe impl ::windows::runtime::Abi for FindAppointmentCalendarsOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for FindAppointmentCalendarsOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.FindAppointmentCalendarsOptions;u4)");
+}
+impl ::windows::runtime::DefaultType for FindAppointmentCalendarsOptions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for FindAppointmentCalendarsOptions {
     type Output = Self;
@@ -2710,7 +2742,6 @@ impl ::windows::runtime::RuntimeName for FindAppointmentsOptions {
 unsafe impl ::std::marker::Send for FindAppointmentsOptions {}
 unsafe impl ::std::marker::Sync for FindAppointmentsOptions {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointment(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointment {
@@ -2762,7 +2793,6 @@ pub struct IAppointment_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointment2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointment2 {
@@ -2803,7 +2833,6 @@ pub struct IAppointment2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointment3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointment3 {
@@ -2826,7 +2855,6 @@ pub struct IAppointment3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: AppointmentDetailsKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentCalendar(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendar {
@@ -2885,7 +2913,6 @@ pub struct IAppointmentCalendar_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentCalendar2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendar2 {
@@ -2934,7 +2961,6 @@ pub struct IAppointmentCalendar2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentCalendar3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendar3 {
@@ -2954,7 +2980,6 @@ pub struct IAppointmentCalendar3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarSyncManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarSyncManager {
@@ -2983,7 +3008,6 @@ pub struct IAppointmentCalendarSyncManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarSyncManager2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentCalendarSyncManager2 {
@@ -3006,7 +3030,6 @@ pub struct IAppointmentCalendarSyncManager2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentConflictResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentConflictResult {
@@ -3027,7 +3050,6 @@ pub struct IAppointmentConflictResult_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentException(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentException {
@@ -3049,7 +3071,6 @@ pub struct IAppointmentException_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentInvitee(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentInvitee {
@@ -3071,7 +3092,6 @@ pub struct IAppointmentInvitee_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: AppointmentParticipantResponse) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentManagerForUser(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentManagerForUser {
@@ -3117,7 +3137,6 @@ pub struct IAppointmentManagerForUser_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentManagerStatics {
@@ -3153,7 +3172,6 @@ pub struct IAppointmentManagerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentManagerStatics2 {
@@ -3179,7 +3197,6 @@ pub struct IAppointmentManagerStatics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentManagerStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentManagerStatics3 {
@@ -3252,7 +3269,6 @@ pub struct IAppointmentParticipant_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentPropertiesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentPropertiesStatics {
@@ -3294,7 +3310,6 @@ pub struct IAppointmentPropertiesStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentPropertiesStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentPropertiesStatics2 {
@@ -3315,7 +3330,6 @@ pub struct IAppointmentPropertiesStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentRecurrence(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentRecurrence {
@@ -3353,7 +3367,6 @@ pub struct IAppointmentRecurrence_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentRecurrence2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentRecurrence2 {
@@ -3374,7 +3387,6 @@ pub struct IAppointmentRecurrence2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentRecurrence3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentRecurrence3 {
@@ -3393,7 +3405,6 @@ pub struct IAppointmentRecurrence3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentStore(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentStore {
@@ -3452,7 +3463,6 @@ pub struct IAppointmentStore_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentStore2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentStore2 {
@@ -3476,7 +3486,6 @@ pub struct IAppointmentStore2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentStore3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentStore3 {
@@ -3495,7 +3504,6 @@ pub struct IAppointmentStore3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, identity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentStoreChange(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentStoreChange {
@@ -3515,7 +3523,6 @@ pub struct IAppointmentStoreChange_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut AppointmentStoreChangeType) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentStoreChange2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentStoreChange2 {
@@ -3534,7 +3541,6 @@ pub struct IAppointmentStoreChange2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentStoreChangeReader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentStoreChangeReader {
@@ -3556,7 +3562,6 @@ pub struct IAppointmentStoreChangeReader_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lastchangetoaccept: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentStoreChangeTracker(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentStoreChangeTracker {
@@ -3577,7 +3582,6 @@ pub struct IAppointmentStoreChangeTracker_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentStoreChangeTracker2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentStoreChangeTracker2 {
@@ -3596,7 +3600,6 @@ pub struct IAppointmentStoreChangeTracker2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentStoreChangedDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentStoreChangedDeferral {
@@ -3615,7 +3618,6 @@ pub struct IAppointmentStoreChangedDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentStoreChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentStoreChangedEventArgs {
@@ -3634,7 +3636,6 @@ pub struct IAppointmentStoreChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentStoreNotificationTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentStoreNotificationTriggerDetails {
@@ -3652,7 +3653,6 @@ pub struct IAppointmentStoreNotificationTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFindAppointmentsOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFindAppointmentsOptions {
@@ -3693,8 +3693,10 @@ impl ::std::convert::From<i32> for RecurrenceType {
 }
 unsafe impl ::windows::runtime::Abi for RecurrenceType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RecurrenceType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.RecurrenceType;i4)");
+}
+impl ::windows::runtime::DefaultType for RecurrenceType {
+    type DefaultType = Self;
 }

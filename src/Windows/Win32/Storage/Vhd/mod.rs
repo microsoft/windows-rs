@@ -12,7 +12,6 @@ impl ::std::convert::From<u32> for APPLY_SNAPSHOT_VHDSET_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for APPLY_SNAPSHOT_VHDSET_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for APPLY_SNAPSHOT_VHDSET_FLAG {
     type Output = Self;
@@ -63,7 +62,6 @@ impl ::std::cmp::PartialEq for APPLY_SNAPSHOT_VHDSET_PARAMETERS {
 impl ::std::cmp::Eq for APPLY_SNAPSHOT_VHDSET_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for APPLY_SNAPSHOT_VHDSET_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -85,7 +83,6 @@ impl ::std::cmp::PartialEq for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
 impl ::std::cmp::Eq for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {}
 unsafe impl ::windows::runtime::Abi for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -113,7 +110,6 @@ impl ::std::cmp::PartialEq for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
 impl ::std::cmp::Eq for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {}
 unsafe impl ::windows::runtime::Abi for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -128,7 +124,6 @@ impl ::std::convert::From<i32> for APPLY_SNAPSHOT_VHDSET_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for APPLY_SNAPSHOT_VHDSET_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -152,7 +147,6 @@ impl ::std::convert::From<u32> for ATTACH_VIRTUAL_DISK_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for ATTACH_VIRTUAL_DISK_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ATTACH_VIRTUAL_DISK_FLAG {
     type Output = Self;
@@ -203,7 +197,6 @@ impl ::std::cmp::PartialEq for ATTACH_VIRTUAL_DISK_PARAMETERS {
 impl ::std::cmp::Eq for ATTACH_VIRTUAL_DISK_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for ATTACH_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -226,7 +219,6 @@ impl ::std::cmp::PartialEq for ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
 impl ::std::cmp::Eq for ATTACH_VIRTUAL_DISK_PARAMETERS_0 {}
 unsafe impl ::windows::runtime::Abi for ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -253,7 +245,6 @@ impl ::std::cmp::PartialEq for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
 impl ::std::cmp::Eq for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {}
 unsafe impl ::windows::runtime::Abi for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -281,7 +272,6 @@ impl ::std::cmp::PartialEq for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
 impl ::std::cmp::Eq for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {}
 unsafe impl ::windows::runtime::Abi for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -297,7 +287,6 @@ impl ::std::convert::From<i32> for ATTACH_VIRTUAL_DISK_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for ATTACH_VIRTUAL_DISK_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
@@ -373,7 +362,6 @@ impl ::std::convert::From<u32> for COMPACT_VIRTUAL_DISK_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for COMPACT_VIRTUAL_DISK_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for COMPACT_VIRTUAL_DISK_FLAG {
     type Output = Self;
@@ -424,7 +412,6 @@ impl ::std::cmp::PartialEq for COMPACT_VIRTUAL_DISK_PARAMETERS {
 impl ::std::cmp::Eq for COMPACT_VIRTUAL_DISK_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for COMPACT_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -446,7 +433,6 @@ impl ::std::cmp::PartialEq for COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
 impl ::std::cmp::Eq for COMPACT_VIRTUAL_DISK_PARAMETERS_0 {}
 unsafe impl ::windows::runtime::Abi for COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -473,7 +459,6 @@ impl ::std::cmp::PartialEq for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
 impl ::std::cmp::Eq for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {}
 unsafe impl ::windows::runtime::Abi for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -488,7 +473,6 @@ impl ::std::convert::From<i32> for COMPACT_VIRTUAL_DISK_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for COMPACT_VIRTUAL_DISK_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -513,7 +497,6 @@ impl ::std::convert::From<u32> for CREATE_VIRTUAL_DISK_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CREATE_VIRTUAL_DISK_FLAG {
     type Output = Self;
@@ -570,7 +553,6 @@ impl ::std::cmp::Eq for CREATE_VIRTUAL_DISK_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -601,7 +583,6 @@ impl ::std::cmp::Eq for CREATE_VIRTUAL_DISK_PARAMETERS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -640,7 +621,6 @@ impl ::std::cmp::Eq for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -706,7 +686,6 @@ impl ::std::cmp::Eq for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -778,7 +757,6 @@ impl ::std::cmp::Eq for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -856,7 +834,6 @@ impl ::std::cmp::Eq for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_BLOCK_SIZE: u32 = 0u32;
@@ -878,7 +855,6 @@ impl ::std::convert::From<i32> for CREATE_VIRTUAL_DISK_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_System_IO`*"]
@@ -958,7 +934,6 @@ impl ::std::convert::From<u32> for DELETE_SNAPSHOT_VHDSET_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for DELETE_SNAPSHOT_VHDSET_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DELETE_SNAPSHOT_VHDSET_FLAG {
     type Output = Self;
@@ -1009,7 +984,6 @@ impl ::std::cmp::PartialEq for DELETE_SNAPSHOT_VHDSET_PARAMETERS {
 impl ::std::cmp::Eq for DELETE_SNAPSHOT_VHDSET_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for DELETE_SNAPSHOT_VHDSET_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1031,7 +1005,6 @@ impl ::std::cmp::PartialEq for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
 impl ::std::cmp::Eq for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {}
 unsafe impl ::windows::runtime::Abi for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1058,7 +1031,6 @@ impl ::std::cmp::PartialEq for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
 impl ::std::cmp::Eq for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {}
 unsafe impl ::windows::runtime::Abi for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1073,7 +1045,6 @@ impl ::std::convert::From<i32> for DELETE_SNAPSHOT_VHDSET_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for DELETE_SNAPSHOT_VHDSET_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1101,7 +1072,6 @@ impl ::std::convert::From<u32> for DEPENDENT_DISK_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for DEPENDENT_DISK_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DEPENDENT_DISK_FLAG {
     type Output = Self;
@@ -1143,7 +1113,6 @@ impl ::std::convert::From<u32> for DETACH_VIRTUAL_DISK_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for DETACH_VIRTUAL_DISK_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DETACH_VIRTUAL_DISK_FLAG {
     type Output = Self;
@@ -1231,7 +1200,6 @@ impl ::std::convert::From<u32> for EXPAND_VIRTUAL_DISK_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for EXPAND_VIRTUAL_DISK_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for EXPAND_VIRTUAL_DISK_FLAG {
     type Output = Self;
@@ -1282,7 +1250,6 @@ impl ::std::cmp::PartialEq for EXPAND_VIRTUAL_DISK_PARAMETERS {
 impl ::std::cmp::Eq for EXPAND_VIRTUAL_DISK_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for EXPAND_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1304,7 +1271,6 @@ impl ::std::cmp::PartialEq for EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
 impl ::std::cmp::Eq for EXPAND_VIRTUAL_DISK_PARAMETERS_0 {}
 unsafe impl ::windows::runtime::Abi for EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1331,7 +1297,6 @@ impl ::std::cmp::PartialEq for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
 impl ::std::cmp::Eq for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {}
 unsafe impl ::windows::runtime::Abi for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1346,7 +1311,6 @@ impl ::std::convert::From<i32> for EXPAND_VIRTUAL_DISK_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for EXPAND_VIRTUAL_DISK_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
@@ -1391,7 +1355,6 @@ impl ::std::convert::From<u32> for FORK_VIRTUAL_DISK_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for FORK_VIRTUAL_DISK_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for FORK_VIRTUAL_DISK_FLAG {
     type Output = Self;
@@ -1448,7 +1411,6 @@ impl ::std::cmp::Eq for FORK_VIRTUAL_DISK_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FORK_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1476,7 +1438,6 @@ impl ::std::cmp::Eq for FORK_VIRTUAL_DISK_PARAMETERS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FORK_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1510,7 +1471,6 @@ impl ::std::cmp::Eq for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1525,7 +1485,6 @@ impl ::std::convert::From<i32> for FORK_VIRTUAL_DISK_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for FORK_VIRTUAL_DISK_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_System_IO`*"]
@@ -1556,7 +1515,6 @@ impl ::std::convert::From<u32> for GET_STORAGE_DEPENDENCY_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for GET_STORAGE_DEPENDENCY_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for GET_STORAGE_DEPENDENCY_FLAG {
     type Output = Self;
@@ -1613,7 +1571,6 @@ impl ::std::cmp::Eq for GET_VIRTUAL_DISK_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1655,7 +1612,6 @@ impl ::std::cmp::Eq for GET_VIRTUAL_DISK_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1691,7 +1647,6 @@ impl ::std::cmp::Eq for GET_VIRTUAL_DISK_INFO_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1726,7 +1681,6 @@ impl ::std::cmp::Eq for GET_VIRTUAL_DISK_INFO_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1762,7 +1716,6 @@ impl ::std::cmp::Eq for GET_VIRTUAL_DISK_INFO_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO_0_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1792,7 +1745,6 @@ impl ::std::cmp::PartialEq for GET_VIRTUAL_DISK_INFO_0_3 {
 impl ::std::cmp::Eq for GET_VIRTUAL_DISK_INFO_0_3 {}
 unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO_0_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1821,7 +1773,6 @@ impl ::std::convert::From<i32> for GET_VIRTUAL_DISK_INFO_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
@@ -1927,7 +1878,6 @@ impl ::std::convert::From<u32> for MERGE_VIRTUAL_DISK_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for MERGE_VIRTUAL_DISK_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MERGE_VIRTUAL_DISK_FLAG {
     type Output = Self;
@@ -1978,7 +1928,6 @@ impl ::std::cmp::PartialEq for MERGE_VIRTUAL_DISK_PARAMETERS {
 impl ::std::cmp::Eq for MERGE_VIRTUAL_DISK_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for MERGE_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2001,7 +1950,6 @@ impl ::std::cmp::PartialEq for MERGE_VIRTUAL_DISK_PARAMETERS_0 {
 impl ::std::cmp::Eq for MERGE_VIRTUAL_DISK_PARAMETERS_0 {}
 unsafe impl ::windows::runtime::Abi for MERGE_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2028,7 +1976,6 @@ impl ::std::cmp::PartialEq for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
 impl ::std::cmp::Eq for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {}
 unsafe impl ::windows::runtime::Abi for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2056,7 +2003,6 @@ impl ::std::cmp::PartialEq for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
 impl ::std::cmp::Eq for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {}
 unsafe impl ::windows::runtime::Abi for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2072,7 +2018,6 @@ impl ::std::convert::From<i32> for MERGE_VIRTUAL_DISK_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for MERGE_VIRTUAL_DISK_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2090,7 +2035,6 @@ impl ::std::convert::From<u32> for MIRROR_VIRTUAL_DISK_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for MIRROR_VIRTUAL_DISK_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MIRROR_VIRTUAL_DISK_FLAG {
     type Output = Self;
@@ -2147,7 +2091,6 @@ impl ::std::cmp::Eq for MIRROR_VIRTUAL_DISK_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIRROR_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2175,7 +2118,6 @@ impl ::std::cmp::Eq for MIRROR_VIRTUAL_DISK_PARAMETERS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2209,7 +2151,6 @@ impl ::std::cmp::Eq for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2224,7 +2165,6 @@ impl ::std::convert::From<i32> for MIRROR_VIRTUAL_DISK_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for MIRROR_VIRTUAL_DISK_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2239,7 +2179,6 @@ impl ::std::convert::From<u32> for MODIFY_VHDSET_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for MODIFY_VHDSET_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MODIFY_VHDSET_FLAG {
     type Output = Self;
@@ -2296,7 +2235,6 @@ impl ::std::cmp::Eq for MODIFY_VHDSET_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MODIFY_VHDSET_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2326,7 +2264,6 @@ impl ::std::cmp::Eq for MODIFY_VHDSET_PARAMETERS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MODIFY_VHDSET_PARAMETERS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2361,7 +2298,6 @@ impl ::std::cmp::Eq for MODIFY_VHDSET_PARAMETERS_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MODIFY_VHDSET_PARAMETERS_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2378,7 +2314,6 @@ impl ::std::convert::From<i32> for MODIFY_VHDSET_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for MODIFY_VHDSET_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_System_IO`*"]
@@ -2449,7 +2384,6 @@ impl ::std::convert::From<u32> for OPEN_VIRTUAL_DISK_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for OPEN_VIRTUAL_DISK_FLAG {
     type Output = Self;
@@ -2506,7 +2440,6 @@ impl ::std::cmp::Eq for OPEN_VIRTUAL_DISK_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2536,7 +2469,6 @@ impl ::std::cmp::Eq for OPEN_VIRTUAL_DISK_PARAMETERS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2563,7 +2495,6 @@ impl ::std::cmp::PartialEq for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
 impl ::std::cmp::Eq for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {}
 unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2599,7 +2530,6 @@ impl ::std::cmp::Eq for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2636,7 +2566,6 @@ impl ::std::cmp::Eq for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub const OPEN_VIRTUAL_DISK_RW_DEPTH_DEFAULT: u32 = 1u32;
@@ -2655,7 +2584,6 @@ impl ::std::convert::From<i32> for OPEN_VIRTUAL_DISK_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
@@ -2684,7 +2612,6 @@ impl ::std::convert::From<u32> for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
     type Output = Self;
@@ -2741,7 +2668,6 @@ impl ::std::cmp::PartialEq for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
 impl ::std::cmp::Eq for QUERY_CHANGES_VIRTUAL_DISK_RANGE {}
 unsafe impl ::windows::runtime::Abi for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
@@ -2779,7 +2705,6 @@ impl ::std::convert::From<u32> for RAW_SCSI_VIRTUAL_DISK_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for RAW_SCSI_VIRTUAL_DISK_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for RAW_SCSI_VIRTUAL_DISK_FLAG {
     type Output = Self;
@@ -2836,7 +2761,6 @@ impl ::std::cmp::Eq for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2864,7 +2788,6 @@ impl ::std::cmp::Eq for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2916,7 +2839,6 @@ impl ::std::cmp::Eq for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2939,7 +2861,6 @@ impl ::std::cmp::PartialEq for RAW_SCSI_VIRTUAL_DISK_RESPONSE {
 impl ::std::cmp::Eq for RAW_SCSI_VIRTUAL_DISK_RESPONSE {}
 unsafe impl ::windows::runtime::Abi for RAW_SCSI_VIRTUAL_DISK_RESPONSE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2961,7 +2882,6 @@ impl ::std::cmp::PartialEq for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
 impl ::std::cmp::Eq for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {}
 unsafe impl ::windows::runtime::Abi for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2990,7 +2910,6 @@ impl ::std::cmp::PartialEq for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
 impl ::std::cmp::Eq for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {}
 unsafe impl ::windows::runtime::Abi for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3005,7 +2924,6 @@ impl ::std::convert::From<i32> for RAW_SCSI_VIRTUAL_DISK_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for RAW_SCSI_VIRTUAL_DISK_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3021,7 +2939,6 @@ impl ::std::convert::From<u32> for RESIZE_VIRTUAL_DISK_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for RESIZE_VIRTUAL_DISK_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for RESIZE_VIRTUAL_DISK_FLAG {
     type Output = Self;
@@ -3072,7 +2989,6 @@ impl ::std::cmp::PartialEq for RESIZE_VIRTUAL_DISK_PARAMETERS {
 impl ::std::cmp::Eq for RESIZE_VIRTUAL_DISK_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for RESIZE_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3094,7 +3010,6 @@ impl ::std::cmp::PartialEq for RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
 impl ::std::cmp::Eq for RESIZE_VIRTUAL_DISK_PARAMETERS_0 {}
 unsafe impl ::windows::runtime::Abi for RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3121,7 +3036,6 @@ impl ::std::cmp::PartialEq for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
 impl ::std::cmp::Eq for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {}
 unsafe impl ::windows::runtime::Abi for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3136,7 +3050,6 @@ impl ::std::convert::From<i32> for RESIZE_VIRTUAL_DISK_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for RESIZE_VIRTUAL_DISK_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
@@ -3195,7 +3108,6 @@ impl ::std::cmp::Eq for SET_VIRTUAL_DISK_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SET_VIRTUAL_DISK_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3229,7 +3141,6 @@ impl ::std::cmp::Eq for SET_VIRTUAL_DISK_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SET_VIRTUAL_DISK_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3264,7 +3175,6 @@ impl ::std::cmp::Eq for SET_VIRTUAL_DISK_INFO_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SET_VIRTUAL_DISK_INFO_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3299,7 +3209,6 @@ impl ::std::cmp::Eq for SET_VIRTUAL_DISK_INFO_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SET_VIRTUAL_DISK_INFO_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3320,7 +3229,6 @@ impl ::std::convert::From<i32> for SET_VIRTUAL_DISK_INFO_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for SET_VIRTUAL_DISK_INFO_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3350,7 +3258,6 @@ impl ::std::cmp::Eq for STORAGE_DEPENDENCY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for STORAGE_DEPENDENCY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3379,7 +3286,6 @@ impl ::std::cmp::Eq for STORAGE_DEPENDENCY_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for STORAGE_DEPENDENCY_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3408,7 +3314,6 @@ impl ::std::cmp::PartialEq for STORAGE_DEPENDENCY_INFO_TYPE_1 {
 impl ::std::cmp::Eq for STORAGE_DEPENDENCY_INFO_TYPE_1 {}
 unsafe impl ::windows::runtime::Abi for STORAGE_DEPENDENCY_INFO_TYPE_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3458,7 +3363,6 @@ impl ::std::cmp::Eq for STORAGE_DEPENDENCY_INFO_TYPE_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for STORAGE_DEPENDENCY_INFO_TYPE_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3474,7 +3378,6 @@ impl ::std::convert::From<i32> for STORAGE_DEPENDENCY_INFO_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for STORAGE_DEPENDENCY_INFO_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
@@ -3519,7 +3422,6 @@ impl ::std::convert::From<u32> for TAKE_SNAPSHOT_VHDSET_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for TAKE_SNAPSHOT_VHDSET_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for TAKE_SNAPSHOT_VHDSET_FLAG {
     type Output = Self;
@@ -3570,7 +3472,6 @@ impl ::std::cmp::PartialEq for TAKE_SNAPSHOT_VHDSET_PARAMETERS {
 impl ::std::cmp::Eq for TAKE_SNAPSHOT_VHDSET_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for TAKE_SNAPSHOT_VHDSET_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3592,7 +3493,6 @@ impl ::std::cmp::PartialEq for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
 impl ::std::cmp::Eq for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {}
 unsafe impl ::windows::runtime::Abi for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3619,7 +3519,6 @@ impl ::std::cmp::PartialEq for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
 impl ::std::cmp::Eq for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {}
 unsafe impl ::windows::runtime::Abi for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3634,7 +3533,6 @@ impl ::std::convert::From<i32> for TAKE_SNAPSHOT_VHDSET_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for TAKE_SNAPSHOT_VHDSET_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
@@ -3672,7 +3570,6 @@ impl ::std::convert::From<u32> for VIRTUAL_DISK_ACCESS_MASK {
 }
 unsafe impl ::windows::runtime::Abi for VIRTUAL_DISK_ACCESS_MASK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for VIRTUAL_DISK_ACCESS_MASK {
     type Output = Self;
@@ -3731,7 +3628,6 @@ impl ::std::cmp::PartialEq for VIRTUAL_DISK_PROGRESS {
 impl ::std::cmp::Eq for VIRTUAL_DISK_PROGRESS {}
 unsafe impl ::windows::runtime::Abi for VIRTUAL_DISK_PROGRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3759,7 +3655,6 @@ impl ::std::cmp::PartialEq for VIRTUAL_STORAGE_TYPE {
 impl ::std::cmp::Eq for VIRTUAL_STORAGE_TYPE {}
 unsafe impl ::windows::runtime::Abi for VIRTUAL_STORAGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vhd`*"]
 pub const VIRTUAL_STORAGE_TYPE_DEVICE_ISO: u32 = 1u32;

@@ -2599,7 +2599,6 @@ impl ::std::convert::From<i32> for VSS_ALTERNATE_WRITER_STATE {
 }
 unsafe impl ::windows::runtime::Abi for VSS_ALTERNATE_WRITER_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2618,7 +2617,6 @@ impl ::std::convert::From<i32> for VSS_APPLICATION_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for VSS_APPLICATION_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 pub const VSS_ASSOC_NO_MAX_SPACE: i32 = -1i32;
@@ -2651,7 +2649,6 @@ impl ::std::convert::From<i32> for VSS_BACKUP_SCHEMA {
 }
 unsafe impl ::windows::runtime::Abi for VSS_BACKUP_SCHEMA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2671,7 +2668,6 @@ impl ::std::convert::From<i32> for VSS_BACKUP_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VSS_BACKUP_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2687,7 +2683,6 @@ impl ::std::convert::From<i32> for VSS_COMPONENT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for VSS_COMPONENT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2703,7 +2698,6 @@ impl ::std::convert::From<i32> for VSS_COMPONENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VSS_COMPONENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2740,7 +2734,6 @@ impl ::std::cmp::PartialEq for VSS_DIFF_AREA_PROP {
 impl ::std::cmp::Eq for VSS_DIFF_AREA_PROP {}
 unsafe impl ::windows::runtime::Abi for VSS_DIFF_AREA_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2770,7 +2763,6 @@ impl ::std::cmp::PartialEq for VSS_DIFF_VOLUME_PROP {
 impl ::std::cmp::Eq for VSS_DIFF_VOLUME_PROP {}
 unsafe impl ::windows::runtime::Abi for VSS_DIFF_VOLUME_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 pub const VSS_E_ASRERROR_CRITICAL_DISKS_TOO_SMALL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147212280i32 as _);
@@ -2941,7 +2933,6 @@ impl ::std::convert::From<i32> for VSS_FILE_RESTORE_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for VSS_FILE_RESTORE_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2965,7 +2956,6 @@ impl ::std::convert::From<i32> for VSS_FILE_SPEC_BACKUP_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VSS_FILE_SPEC_BACKUP_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2986,7 +2976,6 @@ impl ::std::convert::From<i32> for VSS_HARDWARE_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for VSS_HARDWARE_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3009,7 +2998,6 @@ impl ::std::cmp::PartialEq for VSS_MGMT_OBJECT_PROP {
 impl ::std::cmp::Eq for VSS_MGMT_OBJECT_PROP {}
 unsafe impl ::windows::runtime::Abi for VSS_MGMT_OBJECT_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3026,7 +3014,6 @@ impl ::std::convert::From<i32> for VSS_MGMT_OBJECT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VSS_MGMT_OBJECT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3050,7 +3037,6 @@ impl ::std::cmp::PartialEq for VSS_MGMT_OBJECT_UNION {
 impl ::std::cmp::Eq for VSS_MGMT_OBJECT_UNION {}
 unsafe impl ::windows::runtime::Abi for VSS_MGMT_OBJECT_UNION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3073,7 +3059,6 @@ impl ::std::cmp::PartialEq for VSS_OBJECT_PROP {
 impl ::std::cmp::Eq for VSS_OBJECT_PROP {}
 unsafe impl ::windows::runtime::Abi for VSS_OBJECT_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3092,7 +3077,6 @@ impl ::std::convert::From<i32> for VSS_OBJECT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VSS_OBJECT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3115,7 +3099,6 @@ impl ::std::cmp::PartialEq for VSS_OBJECT_UNION {
 impl ::std::cmp::Eq for VSS_OBJECT_UNION {}
 unsafe impl ::windows::runtime::Abi for VSS_OBJECT_UNION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3145,7 +3128,6 @@ impl ::std::convert::From<i32> for VSS_PROTECTION_FAULT {
 }
 unsafe impl ::windows::runtime::Abi for VSS_PROTECTION_FAULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3160,7 +3142,6 @@ impl ::std::convert::From<i32> for VSS_PROTECTION_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for VSS_PROTECTION_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3183,7 +3164,6 @@ impl ::std::convert::From<i32> for VSS_PROVIDER_CAPABILITIES {
 }
 unsafe impl ::windows::runtime::Abi for VSS_PROVIDER_CAPABILITIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3222,7 +3202,6 @@ impl ::std::cmp::PartialEq for VSS_PROVIDER_PROP {
 impl ::std::cmp::Eq for VSS_PROVIDER_PROP {}
 unsafe impl ::windows::runtime::Abi for VSS_PROVIDER_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3240,7 +3219,6 @@ impl ::std::convert::From<i32> for VSS_PROVIDER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VSS_PROVIDER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3255,7 +3233,6 @@ impl ::std::convert::From<i32> for VSS_RECOVERY_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for VSS_RECOVERY_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3277,7 +3254,6 @@ impl ::std::convert::From<i32> for VSS_RESTOREMETHOD_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for VSS_RESTOREMETHOD_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3295,7 +3271,6 @@ impl ::std::convert::From<i32> for VSS_RESTORE_TARGET {
 }
 unsafe impl ::windows::runtime::Abi for VSS_RESTORE_TARGET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3312,7 +3287,6 @@ impl ::std::convert::From<i32> for VSS_RESTORE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VSS_RESTORE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3329,7 +3303,6 @@ impl ::std::convert::From<i32> for VSS_ROLLFORWARD_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VSS_ROLLFORWARD_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3344,7 +3317,6 @@ impl ::std::convert::From<i32> for VSS_SNAPSHOT_COMPATIBILITY {
 }
 unsafe impl ::windows::runtime::Abi for VSS_SNAPSHOT_COMPATIBILITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3364,7 +3336,6 @@ impl ::std::convert::From<i32> for VSS_SNAPSHOT_CONTEXT {
 }
 unsafe impl ::windows::runtime::Abi for VSS_SNAPSHOT_CONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3429,7 +3400,6 @@ impl ::std::cmp::PartialEq for VSS_SNAPSHOT_PROP {
 impl ::std::cmp::Eq for VSS_SNAPSHOT_PROP {}
 unsafe impl ::windows::runtime::Abi for VSS_SNAPSHOT_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3456,7 +3426,6 @@ impl ::std::convert::From<i32> for VSS_SNAPSHOT_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for VSS_SNAPSHOT_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3486,7 +3455,6 @@ impl ::std::convert::From<i32> for VSS_SNAPSHOT_STATE {
 }
 unsafe impl ::windows::runtime::Abi for VSS_SNAPSHOT_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3503,7 +3471,6 @@ impl ::std::convert::From<i32> for VSS_SOURCE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VSS_SOURCE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3521,7 +3488,6 @@ impl ::std::convert::From<i32> for VSS_SUBSCRIBE_MASK {
 }
 unsafe impl ::windows::runtime::Abi for VSS_SUBSCRIBE_MASK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 pub const VSS_S_ASYNC_CANCELLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(271115i32 as _);
@@ -3547,7 +3513,6 @@ impl ::std::convert::From<i32> for VSS_USAGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VSS_USAGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3575,7 +3540,6 @@ impl ::std::cmp::PartialEq for VSS_VOLUME_PROP {
 impl ::std::cmp::Eq for VSS_VOLUME_PROP {}
 unsafe impl ::windows::runtime::Abi for VSS_VOLUME_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3621,7 +3585,6 @@ impl ::std::cmp::Eq for VSS_VOLUME_PROTECTION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VSS_VOLUME_PROTECTION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3653,7 +3616,6 @@ impl ::std::convert::From<i32> for VSS_VOLUME_SNAPSHOT_ATTRIBUTES {
 }
 unsafe impl ::windows::runtime::Abi for VSS_VOLUME_SNAPSHOT_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3670,7 +3632,6 @@ impl ::std::convert::From<i32> for VSS_WRITERRESTORE_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for VSS_WRITERRESTORE_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3700,6 +3661,5 @@ impl ::std::convert::From<i32> for VSS_WRITER_STATE {
 }
 unsafe impl ::windows::runtime::Abi for VSS_WRITER_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const VssSnapshotMgmt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(190458962, 16057, 18186, [150, 226, 108, 109, 69, 112, 228, 15]);

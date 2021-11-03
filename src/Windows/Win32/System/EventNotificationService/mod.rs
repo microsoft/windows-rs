@@ -412,7 +412,6 @@ impl ::std::cmp::PartialEq for QOCINFO {
 impl ::std::cmp::Eq for QOCINFO {}
 unsafe impl ::windows::runtime::Abi for QOCINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const SENS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3583494910, 23455, 4561, [141, 210, 0, 170, 0, 74, 189, 94]);
 pub const SENSGUID_EVENTCLASS_LOGON: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3583477296, 23455, 4561, [141, 210, 0, 170, 0, 74, 189, 94]);
@@ -435,7 +434,6 @@ impl ::std::convert::From<u32> for SENS_CONNECTION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SENS_CONNECTION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SENS_CONNECTION_TYPE {
     type Output = Self;
@@ -493,5 +491,4 @@ impl ::std::cmp::PartialEq for SENS_QOCINFO {
 impl ::std::cmp::Eq for SENS_QOCINFO {}
 unsafe impl ::windows::runtime::Abi for SENS_QOCINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }

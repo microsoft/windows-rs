@@ -59,10 +59,12 @@ impl ::std::convert::From<u32> for CompositionDebugOverdrawContentKinds {
 }
 unsafe impl ::windows::runtime::Abi for CompositionDebugOverdrawContentKinds {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CompositionDebugOverdrawContentKinds {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Diagnostics.CompositionDebugOverdrawContentKinds;u4)");
+}
+impl ::windows::runtime::DefaultType for CompositionDebugOverdrawContentKinds {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CompositionDebugOverdrawContentKinds {
     type Output = Self;
@@ -130,7 +132,6 @@ impl ::windows::runtime::RuntimeName for CompositionDebugSettings {
 unsafe impl ::std::marker::Send for CompositionDebugSettings {}
 unsafe impl ::std::marker::Sync for CompositionDebugSettings {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionDebugHeatMaps(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionDebugHeatMaps {
@@ -152,7 +153,6 @@ pub struct ICompositionDebugHeatMaps_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, subtree: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionDebugSettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionDebugSettings {
@@ -171,7 +171,6 @@ pub struct ICompositionDebugSettings_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionDebugSettingsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionDebugSettingsStatics {

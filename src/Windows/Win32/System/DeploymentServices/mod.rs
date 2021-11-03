@@ -13,7 +13,6 @@ impl ::std::convert::From<u32> for CPU_ARCHITECTURE {
 }
 unsafe impl ::windows::runtime::Abi for CPU_ARCHITECTURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CPU_ARCHITECTURE {
     type Output = Self;
@@ -3464,7 +3463,6 @@ impl ::std::convert::From<u32> for PFN_WDS_CLI_CALLBACK_MESSAGE_ID {
 }
 unsafe impl ::windows::runtime::Abi for PFN_WDS_CLI_CALLBACK_MESSAGE_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PFN_WDS_CLI_CALLBACK_MESSAGE_ID {
     type Output = Self;
@@ -3533,7 +3531,6 @@ impl ::std::cmp::PartialEq for PXE_ADDRESS {
 impl ::std::cmp::Eq for PXE_ADDRESS {}
 unsafe impl ::windows::runtime::Abi for PXE_ADDRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3556,7 +3553,6 @@ impl ::std::cmp::PartialEq for PXE_ADDRESS_0 {
 impl ::std::cmp::Eq for PXE_ADDRESS_0 {}
 unsafe impl ::windows::runtime::Abi for PXE_ADDRESS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_ADDR_BROADCAST: u32 = 1u32;
@@ -3608,7 +3604,6 @@ impl ::std::cmp::PartialEq for PXE_DHCPV6_MESSAGE {
 impl ::std::cmp::Eq for PXE_DHCPV6_MESSAGE {}
 unsafe impl ::windows::runtime::Abi for PXE_DHCPV6_MESSAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3636,7 +3631,6 @@ impl ::std::cmp::PartialEq for PXE_DHCPV6_MESSAGE_HEADER {
 impl ::std::cmp::Eq for PXE_DHCPV6_MESSAGE_HEADER {}
 unsafe impl ::windows::runtime::Abi for PXE_DHCPV6_MESSAGE_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3666,7 +3660,6 @@ impl ::std::cmp::PartialEq for PXE_DHCPV6_NESTED_RELAY_MESSAGE {
 impl ::std::cmp::Eq for PXE_DHCPV6_NESTED_RELAY_MESSAGE {}
 unsafe impl ::windows::runtime::Abi for PXE_DHCPV6_NESTED_RELAY_MESSAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -3690,7 +3683,6 @@ impl ::std::cmp::PartialEq for PXE_DHCPV6_OPTION {
 impl ::std::cmp::Eq for PXE_DHCPV6_OPTION {}
 unsafe impl ::windows::runtime::Abi for PXE_DHCPV6_OPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_DHCPV6_RELAY_HOP_COUNT_LIMIT: u32 = 32u32;
@@ -3718,7 +3710,6 @@ impl ::std::cmp::PartialEq for PXE_DHCPV6_RELAY_MESSAGE {
 impl ::std::cmp::Eq for PXE_DHCPV6_RELAY_MESSAGE {}
 unsafe impl ::windows::runtime::Abi for PXE_DHCPV6_RELAY_MESSAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_DHCPV6_SERVER_PORT: u32 = 547u32;
@@ -3765,7 +3756,6 @@ impl ::std::cmp::PartialEq for PXE_DHCP_MESSAGE {
 impl ::std::cmp::Eq for PXE_DHCP_MESSAGE {}
 unsafe impl ::windows::runtime::Abi for PXE_DHCP_MESSAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -3788,7 +3778,6 @@ impl ::std::cmp::PartialEq for PXE_DHCP_MESSAGE_0 {
 impl ::std::cmp::Eq for PXE_DHCP_MESSAGE_0 {}
 unsafe impl ::windows::runtime::Abi for PXE_DHCP_MESSAGE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3817,7 +3806,6 @@ impl ::std::cmp::PartialEq for PXE_DHCP_OPTION {
 impl ::std::cmp::Eq for PXE_DHCP_OPTION {}
 unsafe impl ::windows::runtime::Abi for PXE_DHCP_OPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_DHCP_SERVER_PORT: u32 = 67u32;
@@ -3865,7 +3853,6 @@ impl ::std::cmp::Eq for PXE_PROVIDER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PXE_PROVIDER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const PXE_PROV_ATTR_FILTER: u32 = 0u32;
@@ -4372,7 +4359,6 @@ impl ::std::convert::From<i32> for TRANSPORTCLIENT_CALLBACK_ID {
 }
 unsafe impl ::windows::runtime::Abi for TRANSPORTCLIENT_CALLBACK_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4401,7 +4387,6 @@ impl ::std::cmp::PartialEq for TRANSPORTCLIENT_SESSION_INFO {
 impl ::std::cmp::Eq for TRANSPORTCLIENT_SESSION_INFO {}
 unsafe impl ::windows::runtime::Abi for TRANSPORTCLIENT_SESSION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4427,7 +4412,6 @@ impl ::std::convert::From<i32> for TRANSPORTPROVIDER_CALLBACK_ID {
 }
 unsafe impl ::windows::runtime::Abi for TRANSPORTPROVIDER_CALLBACK_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const TRANSPORTPROVIDER_CURRENT_VERSION: u32 = 1u32;
@@ -4626,7 +4610,6 @@ impl ::std::convert::From<i32> for WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4642,7 +4625,6 @@ impl ::std::convert::From<i32> for WDSTRANSPORT_DISCONNECT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WDSTRANSPORT_DISCONNECT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4658,7 +4640,6 @@ impl ::std::convert::From<i32> for WDSTRANSPORT_FEATURE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for WDSTRANSPORT_FEATURE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4674,7 +4655,6 @@ impl ::std::convert::From<i32> for WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4690,7 +4670,6 @@ impl ::std::convert::From<i32> for WDSTRANSPORT_IP_ADDRESS_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WDSTRANSPORT_IP_ADDRESS_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4707,7 +4686,6 @@ impl ::std::convert::From<i32> for WDSTRANSPORT_NAMESPACE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WDSTRANSPORT_NAMESPACE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4725,7 +4703,6 @@ impl ::std::convert::From<i32> for WDSTRANSPORT_NETWORK_PROFILE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WDSTRANSPORT_NETWORK_PROFILE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4740,7 +4717,6 @@ impl ::std::convert::From<i32> for WDSTRANSPORT_PROTOCOL_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for WDSTRANSPORT_PROTOCOL_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDSTRANSPORT_RESOURCE_UTILIZATION_UNKNOWN: u32 = 255u32;
@@ -4757,7 +4733,6 @@ impl ::std::convert::From<i32> for WDSTRANSPORT_SERVICE_NOTIFICATION {
 }
 unsafe impl ::windows::runtime::Abi for WDSTRANSPORT_SERVICE_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4774,7 +4749,6 @@ impl ::std::convert::From<i32> for WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4789,7 +4763,6 @@ impl ::std::convert::From<i32> for WDSTRANSPORT_TFTP_CAPABILITY {
 }
 unsafe impl ::windows::runtime::Abi for WDSTRANSPORT_TFTP_CAPABILITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4804,7 +4777,6 @@ impl ::std::convert::From<i32> for WDSTRANSPORT_UDP_PORT_POLICY {
 }
 unsafe impl ::windows::runtime::Abi for WDSTRANSPORT_UDP_PORT_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4840,7 +4812,6 @@ impl ::std::cmp::Eq for WDS_CLI_CRED {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WDS_CLI_CRED {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4856,7 +4827,6 @@ impl ::std::convert::From<i32> for WDS_CLI_FIRMWARE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WDS_CLI_FIRMWARE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4872,7 +4842,6 @@ impl ::std::convert::From<i32> for WDS_CLI_IMAGE_PARAM_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WDS_CLI_IMAGE_PARAM_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4889,7 +4858,6 @@ impl ::std::convert::From<i32> for WDS_CLI_IMAGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WDS_CLI_IMAGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_CLI_NO_SPARSE_FILE: u32 = 2u32;
@@ -5003,7 +4971,6 @@ impl ::std::cmp::Eq for WDS_TRANSPORTCLIENT_CALLBACKS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WDS_TRANSPORTCLIENT_CALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 pub const WDS_TRANSPORTCLIENT_CURRENT_API_VERSION: u32 = 1u32;
@@ -5063,7 +5030,6 @@ impl ::std::cmp::Eq for WDS_TRANSPORTCLIENT_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WDS_TRANSPORTCLIENT_REQUEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DeploymentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5078,7 +5044,6 @@ impl ::std::convert::From<u32> for WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL {
     type Output = Self;
@@ -5149,7 +5114,6 @@ impl ::std::cmp::Eq for WDS_TRANSPORTPROVIDER_INIT_PARAMS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::runtime::Abi for WDS_TRANSPORTPROVIDER_INIT_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5177,7 +5141,6 @@ impl ::std::cmp::PartialEq for WDS_TRANSPORTPROVIDER_SETTINGS {
 impl ::std::cmp::Eq for WDS_TRANSPORTPROVIDER_SETTINGS {}
 unsafe impl ::windows::runtime::Abi for WDS_TRANSPORTPROVIDER_SETTINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]

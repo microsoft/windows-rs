@@ -15,10 +15,12 @@ impl ::std::convert::From<i32> for AccountPictureKind {
 }
 unsafe impl ::windows::runtime::Abi for AccountPictureKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AccountPictureKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.AccountPictureKind;i4)");
+}
+impl ::windows::runtime::DefaultType for AccountPictureKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System_UserProfile`*"]
 pub struct AdvertisingManager {}
@@ -502,7 +504,6 @@ impl ::windows::runtime::RuntimeName for GlobalizationPreferencesForUser {
 unsafe impl ::std::marker::Send for GlobalizationPreferencesForUser {}
 unsafe impl ::std::marker::Sync for GlobalizationPreferencesForUser {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdvertisingManagerForUser(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvertisingManagerForUser {
@@ -522,7 +523,6 @@ pub struct IAdvertisingManagerForUser_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdvertisingManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvertisingManagerStatics {
@@ -541,7 +541,6 @@ pub struct IAdvertisingManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdvertisingManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvertisingManagerStatics2 {
@@ -560,7 +559,6 @@ pub struct IAdvertisingManagerStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, user: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAssignedAccessSettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAssignedAccessSettings {
@@ -581,7 +579,6 @@ pub struct IAssignedAccessSettings_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAssignedAccessSettingsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAssignedAccessSettingsStatics {
@@ -601,7 +598,6 @@ pub struct IAssignedAccessSettingsStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, user: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDiagnosticsSettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDiagnosticsSettings {
@@ -621,7 +617,6 @@ pub struct IDiagnosticsSettings_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDiagnosticsSettingsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDiagnosticsSettingsStatics {
@@ -641,7 +636,6 @@ pub struct IDiagnosticsSettingsStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, user: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFirstSignInSettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFirstSignInSettings {
@@ -659,7 +653,6 @@ pub struct IFirstSignInSettings_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFirstSignInSettingsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFirstSignInSettingsStatics {
@@ -678,7 +671,6 @@ pub struct IFirstSignInSettingsStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGlobalizationPreferencesForUser(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlobalizationPreferencesForUser {
@@ -708,7 +700,6 @@ pub struct IGlobalizationPreferencesForUser_abi(
     #[cfg(not(feature = "Globalization"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGlobalizationPreferencesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlobalizationPreferencesStatics {
@@ -737,7 +728,6 @@ pub struct IGlobalizationPreferencesStatics_abi(
     #[cfg(not(feature = "Globalization"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGlobalizationPreferencesStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlobalizationPreferencesStatics2 {
@@ -758,7 +748,6 @@ pub struct IGlobalizationPreferencesStatics2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGlobalizationPreferencesStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlobalizationPreferencesStatics3 {
@@ -777,7 +766,6 @@ pub struct IGlobalizationPreferencesStatics3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, user: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILockScreenImageFeedStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILockScreenImageFeedStatics {
@@ -798,7 +786,6 @@ pub struct ILockScreenImageFeedStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILockScreenStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILockScreenStatics {
@@ -824,7 +811,6 @@ pub struct ILockScreenStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserInformationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserInformationStatics {
@@ -870,7 +856,6 @@ pub struct IUserInformationStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserProfilePersonalizationSettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserProfilePersonalizationSettings {
@@ -892,7 +877,6 @@ pub struct IUserProfilePersonalizationSettings_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserProfilePersonalizationSettingsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserProfilePersonalizationSettingsStatics {
@@ -992,10 +976,12 @@ impl ::std::convert::From<i32> for SetAccountPictureResult {
 }
 unsafe impl ::windows::runtime::Abi for SetAccountPictureResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SetAccountPictureResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.SetAccountPictureResult;i4)");
+}
+impl ::windows::runtime::DefaultType for SetAccountPictureResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System_UserProfile`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1013,10 +999,12 @@ impl ::std::convert::From<i32> for SetImageFeedResult {
 }
 unsafe impl ::windows::runtime::Abi for SetImageFeedResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SetImageFeedResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.SetImageFeedResult;i4)");
+}
+impl ::windows::runtime::DefaultType for SetImageFeedResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System_UserProfile`*"]
 pub struct UserInformation {}

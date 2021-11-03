@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IQuickLink(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IQuickLink {
@@ -30,7 +29,6 @@ pub struct IQuickLink_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IShareOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareOperation {
@@ -57,7 +55,6 @@ pub struct IShareOperation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IShareOperation2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareOperation2 {
@@ -76,7 +73,6 @@ pub struct IShareOperation2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IShareOperation3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareOperation3 {

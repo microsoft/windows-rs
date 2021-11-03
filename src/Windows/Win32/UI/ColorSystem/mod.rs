@@ -87,7 +87,6 @@ impl ::std::convert::From<i32> for BMFORMAT {
 }
 unsafe impl ::windows::runtime::Abi for BMFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -122,7 +121,6 @@ impl ::std::cmp::Eq for BlackInformation {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BlackInformation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const CATID_WcsPlugin: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2696151776, 33344, 16479, [138, 22, 138, 91, 77, 242, 240, 221]);
 #[cfg(feature = "Win32_Foundation")]
@@ -548,7 +546,6 @@ impl ::std::cmp::PartialEq for CMYKCOLOR {
 impl ::std::cmp::Eq for CMYKCOLOR {}
 unsafe impl ::windows::runtime::Abi for CMYKCOLOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -579,7 +576,6 @@ impl ::std::cmp::PartialEq for COLOR {
 impl ::std::cmp::Eq for COLOR {}
 unsafe impl ::windows::runtime::Abi for COLOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -607,7 +603,6 @@ impl ::std::cmp::PartialEq for COLOR_0 {
 impl ::std::cmp::Eq for COLOR_0 {}
 unsafe impl ::windows::runtime::Abi for COLOR_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -627,7 +622,6 @@ impl ::std::convert::From<i32> for COLORDATATYPE {
 }
 unsafe impl ::windows::runtime::Abi for COLORDATATYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -715,7 +709,6 @@ impl ::std::cmp::Eq for COLORMATCHSETUPA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for COLORMATCHSETUPA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -803,7 +796,6 @@ impl ::std::cmp::Eq for COLORMATCHSETUPW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for COLORMATCHSETUPW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -825,7 +817,6 @@ impl ::std::convert::From<i32> for COLORPROFILESUBTYPE {
 }
 unsafe impl ::windows::runtime::Abi for COLORPROFILESUBTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -842,7 +833,6 @@ impl ::std::convert::From<i32> for COLORPROFILETYPE {
 }
 unsafe impl ::windows::runtime::Abi for COLORPROFILETYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -867,7 +857,6 @@ impl ::std::convert::From<i32> for COLORTYPE {
 }
 unsafe impl ::windows::runtime::Abi for COLORTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -883,7 +872,6 @@ impl ::std::convert::From<i32> for COLOR_MATCH_TO_TARGET_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for COLOR_MATCH_TO_TARGET_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
 pub const COLOR_MATCH_VERSION: u32 = 512u32;
@@ -1347,7 +1335,6 @@ impl ::std::cmp::Eq for EMRCREATECOLORSPACE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for EMRCREATECOLORSPACE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1386,7 +1373,6 @@ impl ::std::cmp::Eq for EMRCREATECOLORSPACEW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for EMRCREATECOLORSPACEW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
 pub const ENABLE_GAMUT_CHECKING: u32 = 65536u32;
@@ -1481,7 +1467,6 @@ impl ::std::cmp::Eq for ENUMTYPEA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ENUMTYPEA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1574,7 +1559,6 @@ impl ::std::cmp::Eq for ENUMTYPEW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ENUMTYPEW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
 pub const ENUM_TYPE_VERSION: u32 = 768u32;
@@ -1711,7 +1695,6 @@ impl ::std::cmp::PartialEq for GENERIC3CHANNEL {
 impl ::std::cmp::Eq for GENERIC3CHANNEL {}
 unsafe impl ::windows::runtime::Abi for GENERIC3CHANNEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1738,7 +1721,6 @@ impl ::std::cmp::PartialEq for GRAYCOLOR {
 impl ::std::cmp::Eq for GRAYCOLOR {}
 unsafe impl ::windows::runtime::Abi for GRAYCOLOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1777,7 +1759,6 @@ impl ::std::cmp::PartialEq for GamutBoundaryDescription {
 impl ::std::cmp::Eq for GamutBoundaryDescription {}
 unsafe impl ::windows::runtime::Abi for GamutBoundaryDescription {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1809,7 +1790,6 @@ impl ::std::cmp::PartialEq for GamutShell {
 impl ::std::cmp::Eq for GamutShell {}
 unsafe impl ::windows::runtime::Abi for GamutShell {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1836,7 +1816,6 @@ impl ::std::cmp::PartialEq for GamutShellTriangle {
 impl ::std::cmp::Eq for GamutShellTriangle {}
 unsafe impl ::windows::runtime::Abi for GamutShellTriangle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
 #[inline]
@@ -2148,7 +2127,6 @@ impl ::std::default::Default for HCOLORSPACE {
 unsafe impl ::windows::runtime::Handle for HCOLORSPACE {}
 unsafe impl ::windows::runtime::Abi for HCOLORSPACE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2175,7 +2153,6 @@ impl ::std::cmp::PartialEq for HiFiCOLOR {
 impl ::std::cmp::Eq for HiFiCOLOR {}
 unsafe impl ::windows::runtime::Abi for HiFiCOLOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type ICMENUMPROCA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::LPARAM) -> i32;
@@ -2199,7 +2176,6 @@ impl ::std::convert::From<u32> for ICM_COMMAND {
 }
 unsafe impl ::windows::runtime::Abi for ICM_COMMAND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ICM_COMMAND {
     type Output = Self;
@@ -2436,7 +2412,6 @@ impl ::std::cmp::PartialEq for JChColorF {
 impl ::std::cmp::Eq for JChColorF {}
 unsafe impl ::windows::runtime::Abi for JChColorF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2465,7 +2440,6 @@ impl ::std::cmp::PartialEq for JabColorF {
 impl ::std::cmp::Eq for JabColorF {}
 unsafe impl ::windows::runtime::Abi for JabColorF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2519,7 +2493,6 @@ impl ::std::cmp::Eq for LOGCOLORSPACEA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for LOGCOLORSPACEA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2573,7 +2546,6 @@ impl ::std::cmp::Eq for LOGCOLORSPACEW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for LOGCOLORSPACEW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type LPBMCALLBACKFN = unsafe extern "system" fn(param0: u32, param1: u32, param2: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
@@ -2604,7 +2576,6 @@ impl ::std::cmp::PartialEq for LabCOLOR {
 impl ::std::cmp::Eq for LabCOLOR {}
 unsafe impl ::windows::runtime::Abi for LabCOLOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
 pub const MAX_COLOR_CHANNELS: u32 = 8u32;
@@ -2633,7 +2604,6 @@ impl ::std::cmp::PartialEq for NAMEDCOLOR {
 impl ::std::cmp::Eq for NAMEDCOLOR {}
 unsafe impl ::windows::runtime::Abi for NAMEDCOLOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2664,7 +2634,6 @@ impl ::std::cmp::PartialEq for NAMED_PROFILE_INFO {
 impl ::std::cmp::Eq for NAMED_PROFILE_INFO {}
 unsafe impl ::windows::runtime::Abi for NAMED_PROFILE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
 pub const NORMAL_MODE: u32 = 2u32;
@@ -2729,7 +2698,6 @@ impl ::std::cmp::PartialEq for PROFILE {
 impl ::std::cmp::Eq for PROFILE {}
 unsafe impl ::windows::runtime::Abi for PROFILE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2813,7 +2781,6 @@ impl ::std::cmp::Eq for PROFILEHEADER {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for PROFILEHEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
 pub const PROFILE_FILENAME: u32 = 1u32;
@@ -2857,7 +2824,6 @@ impl ::std::cmp::PartialEq for PrimaryJabColors {
 impl ::std::cmp::Eq for PrimaryJabColors {}
 unsafe impl ::windows::runtime::Abi for PrimaryJabColors {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2891,7 +2857,6 @@ impl ::std::cmp::PartialEq for PrimaryXYZColors {
 impl ::std::cmp::Eq for PrimaryXYZColors {}
 unsafe impl ::windows::runtime::Abi for PrimaryXYZColors {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
 pub const RESERVED: u32 = 2147483648u32;
@@ -2922,7 +2887,6 @@ impl ::std::cmp::PartialEq for RGBCOLOR {
 impl ::std::cmp::Eq for RGBCOLOR {}
 unsafe impl ::windows::runtime::Abi for RGBCOLOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
@@ -3317,7 +3281,6 @@ impl ::std::convert::From<i32> for WCS_DEVICE_CAPABILITIES_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WCS_DEVICE_CAPABILITIES_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3355,7 +3318,6 @@ impl ::std::cmp::Eq for WCS_DEVICE_MHC2_CAPABILITIES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WCS_DEVICE_MHC2_CAPABILITIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3390,7 +3352,6 @@ impl ::std::cmp::Eq for WCS_DEVICE_VCGT_CAPABILITIES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WCS_DEVICE_VCGT_CAPABILITIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
 pub const WCS_ICCONLY: i32 = 65536i32;
@@ -3407,7 +3368,6 @@ impl ::std::convert::From<i32> for WCS_PROFILE_MANAGEMENT_SCOPE {
 }
 unsafe impl ::windows::runtime::Abi for WCS_PROFILE_MANAGEMENT_SCOPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
@@ -3714,7 +3674,6 @@ impl ::std::cmp::PartialEq for XYZCOLOR {
 impl ::std::cmp::Eq for XYZCOLOR {}
 unsafe impl ::windows::runtime::Abi for XYZCOLOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3743,7 +3702,6 @@ impl ::std::cmp::PartialEq for XYZColorF {
 impl ::std::cmp::Eq for XYZColorF {}
 unsafe impl ::windows::runtime::Abi for XYZColorF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3772,5 +3730,4 @@ impl ::std::cmp::PartialEq for YxyCOLOR {
 impl ::std::cmp::Eq for YxyCOLOR {}
 unsafe impl ::windows::runtime::Abi for YxyCOLOR {
     type Abi = Self;
-    type DefaultType = Self;
 }

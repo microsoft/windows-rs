@@ -32,7 +32,6 @@ impl ::std::cmp::Eq for DEVPROP_FILTER_EXPRESSION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 unsafe impl ::windows::runtime::Abi for DEVPROP_FILTER_EXPRESSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_DeviceQuery`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -87,7 +86,6 @@ impl ::std::convert::From<u32> for DEVPROP_OPERATOR {
 }
 unsafe impl ::windows::runtime::Abi for DEVPROP_OPERATOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DEVPROP_OPERATOR {
     type Output = Self;
@@ -152,7 +150,6 @@ impl ::std::cmp::Eq for DEV_OBJECT {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 unsafe impl ::windows::runtime::Abi for DEV_OBJECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_DeviceQuery`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -177,7 +174,6 @@ impl ::std::convert::From<i32> for DEV_OBJECT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DEV_OBJECT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_DeviceQuery`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -195,7 +191,6 @@ impl ::std::convert::From<i32> for DEV_QUERY_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for DEV_QUERY_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -232,7 +227,6 @@ impl ::std::cmp::Eq for DEV_QUERY_PARAMETER {}
 #[cfg(feature = "Win32_System_SystemServices")]
 unsafe impl ::windows::runtime::Abi for DEV_QUERY_PARAMETER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_DeviceQuery`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -249,7 +243,6 @@ impl ::std::convert::From<i32> for DEV_QUERY_RESULT_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for DEV_QUERY_RESULT_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -278,7 +271,6 @@ impl ::std::cmp::Eq for DEV_QUERY_RESULT_ACTION_DATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 unsafe impl ::windows::runtime::Abi for DEV_QUERY_RESULT_ACTION_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -307,7 +299,6 @@ impl ::std::cmp::Eq for DEV_QUERY_RESULT_ACTION_DATA_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 unsafe impl ::windows::runtime::Abi for DEV_QUERY_RESULT_ACTION_DATA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_DeviceQuery`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -324,7 +315,6 @@ impl ::std::convert::From<i32> for DEV_QUERY_STATE {
 }
 unsafe impl ::windows::runtime::Abi for DEV_QUERY_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_DeviceQuery`*"]
 #[inline]
@@ -755,7 +745,6 @@ impl ::std::cmp::PartialEq for HDEVQUERY__ {
 impl ::std::cmp::Eq for HDEVQUERY__ {}
 unsafe impl ::windows::runtime::Abi for HDEVQUERY__ {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 pub type PDEV_QUERY_RESULT_CALLBACK = unsafe extern "system" fn(hdevquery: *const HDEVQUERY__, pcontext: *const ::std::ffi::c_void, pactiondata: *const DEV_QUERY_RESULT_ACTION_DATA);

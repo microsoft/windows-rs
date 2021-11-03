@@ -36,7 +36,6 @@ impl ::std::cmp::Eq for CorrelationId {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CorrelationId {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -71,7 +70,6 @@ impl ::std::cmp::Eq for CountedString {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CountedString {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -88,7 +86,6 @@ impl ::std::convert::From<i32> for ExtendedIsolationState {
 }
 unsafe impl ::windows::runtime::Abi for ExtendedIsolationState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -107,7 +104,6 @@ impl ::std::convert::From<i32> for FailureCategory {
 }
 unsafe impl ::windows::runtime::Abi for FailureCategory {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -141,7 +137,6 @@ impl ::std::cmp::Eq for FailureCategoryMapping {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FailureCategoryMapping {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -171,7 +166,6 @@ impl ::std::cmp::PartialEq for FixupInfo {
 impl ::std::cmp::Eq for FixupInfo {}
 unsafe impl ::windows::runtime::Abi for FixupInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -187,7 +181,6 @@ impl ::std::convert::From<i32> for FixupState {
 }
 unsafe impl ::windows::runtime::Abi for FixupState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -214,7 +207,6 @@ impl ::std::cmp::PartialEq for Ipv4Address {
 impl ::std::cmp::Eq for Ipv4Address {}
 unsafe impl ::windows::runtime::Abi for Ipv4Address {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -241,7 +233,6 @@ impl ::std::cmp::PartialEq for Ipv6Address {
 impl ::std::cmp::Eq for Ipv6Address {}
 unsafe impl ::windows::runtime::Abi for Ipv6Address {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -277,7 +268,6 @@ impl ::std::cmp::Eq for IsolationInfo {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IsolationInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -314,7 +304,6 @@ impl ::std::cmp::Eq for IsolationInfoEx {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IsolationInfoEx {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -330,7 +319,6 @@ impl ::std::convert::From<i32> for IsolationState {
 }
 unsafe impl ::windows::runtime::Abi for IsolationState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -382,7 +370,6 @@ impl ::std::cmp::Eq for NapComponentRegistrationInfo {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NapComponentRegistrationInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -398,7 +385,6 @@ impl ::std::convert::From<i32> for NapNotifyType {
 }
 unsafe impl ::windows::runtime::Abi for NapNotifyType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -415,7 +401,6 @@ impl ::std::convert::From<i32> for NapTracingLevel {
 }
 unsafe impl ::windows::runtime::Abi for NapTracingLevel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -443,7 +428,6 @@ impl ::std::cmp::PartialEq for NetworkSoH {
 impl ::std::cmp::Eq for NetworkSoH {}
 unsafe impl ::windows::runtime::Abi for NetworkSoH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -471,7 +455,6 @@ impl ::std::cmp::PartialEq for PrivateData {
 impl ::std::cmp::Eq for PrivateData {}
 unsafe impl ::windows::runtime::Abi for PrivateData {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_NetworkAccessProtection`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -486,7 +469,6 @@ impl ::std::convert::From<i32> for RemoteConfigurationType {
 }
 unsafe impl ::windows::runtime::Abi for RemoteConfigurationType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -514,7 +496,6 @@ impl ::std::cmp::PartialEq for ResultCodes {
 impl ::std::cmp::Eq for ResultCodes {}
 unsafe impl ::windows::runtime::Abi for ResultCodes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -542,7 +523,6 @@ impl ::std::cmp::PartialEq for SoH {
 impl ::std::cmp::Eq for SoH {}
 unsafe impl ::windows::runtime::Abi for SoH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -571,7 +551,6 @@ impl ::std::cmp::PartialEq for SoHAttribute {
 impl ::std::cmp::Eq for SoHAttribute {}
 unsafe impl ::windows::runtime::Abi for SoHAttribute {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -601,5 +580,4 @@ impl ::std::cmp::PartialEq for SystemHealthAgentState {
 impl ::std::cmp::Eq for SystemHealthAgentState {}
 unsafe impl ::windows::runtime::Abi for SystemHealthAgentState {
     type Abi = Self;
-    type DefaultType = Self;
 }

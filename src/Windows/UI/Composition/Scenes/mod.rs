@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneBoundingBox(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneBoundingBox {
@@ -28,7 +27,6 @@ pub struct ISceneBoundingBox_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneComponent(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneComponent {
@@ -47,7 +45,6 @@ pub struct ISceneComponent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SceneComponentType) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneComponentCollection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneComponentCollection {
@@ -65,7 +62,6 @@ pub struct ISceneComponentCollection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneComponentFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneComponentFactory {
@@ -83,7 +79,6 @@ pub struct ISceneComponentFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneMaterial(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneMaterial {
@@ -101,7 +96,6 @@ pub struct ISceneMaterial_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneMaterialFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneMaterialFactory {
@@ -119,7 +113,6 @@ pub struct ISceneMaterialFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneMaterialInput(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneMaterialInput {
@@ -137,7 +130,6 @@ pub struct ISceneMaterialInput_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneMaterialInputFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneMaterialInputFactory {
@@ -155,7 +147,6 @@ pub struct ISceneMaterialInputFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneMesh(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneMesh {
@@ -180,7 +171,6 @@ pub struct ISceneMesh_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Graphics_DirectX")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneMeshMaterialAttributeMap(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneMeshMaterialAttributeMap {
@@ -198,7 +188,6 @@ pub struct ISceneMeshMaterialAttributeMap_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneMeshRendererComponent(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneMeshRendererComponent {
@@ -221,7 +210,6 @@ pub struct ISceneMeshRendererComponent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneMeshRendererComponentStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneMeshRendererComponentStatics {
@@ -240,7 +228,6 @@ pub struct ISceneMeshRendererComponentStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, compositor: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneMeshStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneMeshStatics {
@@ -259,7 +246,6 @@ pub struct ISceneMeshStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, compositor: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneMetallicRoughnessMaterial(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneMetallicRoughnessMaterial {
@@ -289,7 +275,6 @@ pub struct ISceneMetallicRoughnessMaterial_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneMetallicRoughnessMaterialStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneMetallicRoughnessMaterialStatics {
@@ -308,7 +293,6 @@ pub struct ISceneMetallicRoughnessMaterialStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, compositor: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneModelTransform(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneModelTransform {
@@ -346,7 +330,6 @@ pub struct ISceneModelTransform_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneNode(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneNode {
@@ -371,7 +354,6 @@ pub struct ISceneNode_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: SceneComponentType, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneNodeCollection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneNodeCollection {
@@ -389,7 +371,6 @@ pub struct ISceneNodeCollection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneNodeStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneNodeStatics {
@@ -408,7 +389,6 @@ pub struct ISceneNodeStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, compositor: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneObject(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneObject {
@@ -426,7 +406,6 @@ pub struct ISceneObject_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneObjectFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneObjectFactory {
@@ -444,7 +423,6 @@ pub struct ISceneObjectFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IScenePbrMaterial(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScenePbrMaterial {
@@ -482,7 +460,6 @@ pub struct IScenePbrMaterial_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IScenePbrMaterialFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScenePbrMaterialFactory {
@@ -500,7 +477,6 @@ pub struct IScenePbrMaterialFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneRendererComponent(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneRendererComponent {
@@ -518,7 +494,6 @@ pub struct ISceneRendererComponent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneRendererComponentFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneRendererComponentFactory {
@@ -536,7 +511,6 @@ pub struct ISceneRendererComponentFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneSurfaceMaterialInput(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneSurfaceMaterialInput {
@@ -562,7 +536,6 @@ pub struct ISceneSurfaceMaterialInput_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: SceneWrappingMode) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneSurfaceMaterialInputStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneSurfaceMaterialInputStatics {
@@ -581,7 +554,6 @@ pub struct ISceneSurfaceMaterialInputStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, compositor: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneVisual(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneVisual {
@@ -601,7 +573,6 @@ pub struct ISceneVisual_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISceneVisualStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISceneVisualStatics {
@@ -635,10 +606,12 @@ impl ::std::convert::From<i32> for SceneAlphaMode {
 }
 unsafe impl ::windows::runtime::Abi for SceneAlphaMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SceneAlphaMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneAlphaMode;i4)");
+}
+impl ::windows::runtime::DefaultType for SceneAlphaMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Composition_Scenes`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -660,10 +633,12 @@ impl ::std::convert::From<i32> for SceneAttributeSemantic {
 }
 unsafe impl ::windows::runtime::Abi for SceneAttributeSemantic {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SceneAttributeSemantic {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneAttributeSemantic;i4)");
+}
+impl ::windows::runtime::DefaultType for SceneAttributeSemantic {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Composition_Scenes`*"]
 #[repr(transparent)]
@@ -1209,7 +1184,7 @@ impl SceneComponentCollection {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_Composition_Scenes`, `Foundation_Collections`*"]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<SceneComponent as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [<SceneComponent as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -1218,7 +1193,7 @@ impl SceneComponentCollection {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_Composition_Scenes`, `Foundation_Collections`*"]
-    pub fn ReplaceAll(&self, items: &[<SceneComponent as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn ReplaceAll(&self, items: &[<SceneComponent as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), items.len() as u32, ::std::mem::transmute(items.as_ptr())).ok() }
     }
@@ -1528,10 +1503,12 @@ impl ::std::convert::From<i32> for SceneComponentType {
 }
 unsafe impl ::windows::runtime::Abi for SceneComponentType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SceneComponentType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneComponentType;i4)");
+}
+impl ::windows::runtime::DefaultType for SceneComponentType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Composition_Scenes`*"]
 #[repr(transparent)]
@@ -3897,7 +3874,7 @@ impl SceneNodeCollection {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_Composition_Scenes`, `Foundation_Collections`*"]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<SceneNode as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [<SceneNode as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -3906,7 +3883,7 @@ impl SceneNodeCollection {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_Composition_Scenes`, `Foundation_Collections`*"]
-    pub fn ReplaceAll(&self, items: &[<SceneNode as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn ReplaceAll(&self, items: &[<SceneNode as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), items.len() as u32, ::std::mem::transmute(items.as_ptr())).ok() }
     }
@@ -5826,8 +5803,10 @@ impl ::std::convert::From<i32> for SceneWrappingMode {
 }
 unsafe impl ::windows::runtime::Abi for SceneWrappingMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SceneWrappingMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneWrappingMode;i4)");
+}
+impl ::windows::runtime::DefaultType for SceneWrappingMode {
+    type DefaultType = Self;
 }

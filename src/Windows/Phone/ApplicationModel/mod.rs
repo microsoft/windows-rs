@@ -32,10 +32,12 @@ impl ::std::convert::From<u32> for ApplicationProfileModes {
 }
 unsafe impl ::windows::runtime::Abi for ApplicationProfileModes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ApplicationProfileModes {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Phone.ApplicationModel.ApplicationProfileModes;u4)");
+}
+impl ::windows::runtime::DefaultType for ApplicationProfileModes {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ApplicationProfileModes {
     type Output = Self;
@@ -66,7 +68,6 @@ impl ::std::ops::Not for ApplicationProfileModes {
     }
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IApplicationProfileStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationProfileStatics {

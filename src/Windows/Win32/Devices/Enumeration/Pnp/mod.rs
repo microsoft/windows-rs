@@ -24,7 +24,6 @@ impl ::std::default::Default for HSWDEVICE {
 unsafe impl ::windows::runtime::Handle for HSWDEVICE {}
 unsafe impl ::windows::runtime::Abi for HSWDEVICE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[repr(transparent)]
@@ -1345,7 +1344,6 @@ impl ::std::convert::From<i32> for SW_DEVICE_CAPABILITIES {
 }
 unsafe impl ::windows::runtime::Abi for SW_DEVICE_CAPABILITIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type SW_DEVICE_CREATE_CALLBACK = unsafe extern "system" fn(hswdevice: HSWDEVICE, createresult: ::windows::runtime::HRESULT, pcontext: *const ::std::ffi::c_void, pszdeviceinstanceid: super::super::super::Foundation::PWSTR);
@@ -1399,7 +1397,6 @@ impl ::std::cmp::Eq for SW_DEVICE_CREATE_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for SW_DEVICE_CREATE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1415,7 +1412,6 @@ impl ::std::convert::From<i32> for SW_DEVICE_LIFETIME {
 }
 unsafe impl ::windows::runtime::Abi for SW_DEVICE_LIFETIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`*"]
 #[inline]

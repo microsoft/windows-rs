@@ -26,7 +26,6 @@ impl ::std::cmp::PartialEq for ACCEL {
 impl ::std::cmp::Eq for ACCEL {}
 unsafe impl ::windows::runtime::Abi for ACCEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -78,7 +77,6 @@ impl ::std::cmp::Eq for ALTTABINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ALTTABINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -100,7 +98,6 @@ impl ::std::convert::From<u32> for ANIMATE_WINDOW_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for ANIMATE_WINDOW_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ANIMATE_WINDOW_FLAGS {
     type Output = Self;
@@ -156,7 +153,6 @@ impl ::std::cmp::PartialEq for ANIMATIONINFO {
 impl ::std::cmp::Eq for ANIMATIONINFO {}
 unsafe impl ::windows::runtime::Abi for ANIMATIONINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ARW_DOWN: i32 = 4i32;
@@ -210,7 +206,6 @@ impl ::std::cmp::Eq for AUDIODESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUDIODESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -484,7 +479,6 @@ impl ::std::convert::From<u32> for CASCADE_WINDOWS_HOW {
 }
 unsafe impl ::windows::runtime::Abi for CASCADE_WINDOWS_HOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CASCADE_WINDOWS_HOW {
     type Output = Self;
@@ -595,7 +589,6 @@ impl ::std::cmp::Eq for CBTACTIVATESTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CBTACTIVATESTRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -630,7 +623,6 @@ impl ::std::cmp::Eq for CBT_CREATEWNDA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CBT_CREATEWNDA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -665,7 +657,6 @@ impl ::std::cmp::Eq for CBT_CREATEWNDW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CBT_CREATEWNDW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CB_ADDSTRING: u32 = 323u32;
@@ -777,7 +768,6 @@ impl ::std::cmp::PartialEq for CHANGEFILTERSTRUCT {
 impl ::std::cmp::Eq for CHANGEFILTERSTRUCT {}
 unsafe impl ::windows::runtime::Abi for CHANGEFILTERSTRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -792,7 +782,6 @@ impl ::std::convert::From<u32> for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
     type Output = Self;
@@ -857,7 +846,6 @@ impl ::std::cmp::Eq for CLIENTCREATESTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLIENTCREATESTRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const COLOR_BTNHIGHLIGHT: u32 = 20u32;
@@ -933,7 +921,6 @@ impl ::std::cmp::Eq for CREATESTRUCTA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CREATESTRUCTA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -991,7 +978,6 @@ impl ::std::cmp::Eq for CREATESTRUCTW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CREATESTRUCTW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CSOUND_SYSTEM: u32 = 16u32;
@@ -1046,7 +1032,6 @@ impl ::std::cmp::Eq for CURSORINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CURSORINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1061,7 +1046,6 @@ impl ::std::convert::From<u32> for CURSORINFO_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CURSORINFO_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CURSORINFO_FLAGS {
     type Output = Self;
@@ -1122,7 +1106,6 @@ impl ::std::cmp::PartialEq for CURSORSHAPE {
 impl ::std::cmp::Eq for CURSORSHAPE {}
 unsafe impl ::windows::runtime::Abi for CURSORSHAPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const CURSOR_CREATION_SCALING_DEFAULT: u32 = 2u32;
@@ -1166,7 +1149,6 @@ impl ::std::cmp::Eq for CWPRETSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CWPRETSTRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1203,7 +1185,6 @@ impl ::std::cmp::Eq for CWPSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CWPSTRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1220,7 +1201,6 @@ impl ::std::convert::From<u32> for CWP_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CWP_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CWP_FLAGS {
     type Output = Self;
@@ -2277,7 +2257,6 @@ impl ::std::cmp::Eq for DEBUGHOOKINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DEBUGHOOKINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DESKTOP_CREATEMENU: i32 = 4i32;
@@ -2320,7 +2299,6 @@ impl ::std::convert::From<u32> for DI_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for DI_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DI_FLAGS {
     type Output = Self;
@@ -2398,7 +2376,6 @@ impl ::std::cmp::PartialEq for DLGITEMTEMPLATE {
 impl ::std::cmp::Eq for DLGITEMTEMPLATE {}
 unsafe impl ::windows::runtime::Abi for DLGITEMTEMPLATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type DLGPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> isize;
@@ -2428,7 +2405,6 @@ impl ::std::cmp::PartialEq for DLGTEMPLATE {
 impl ::std::cmp::Eq for DLGTEMPLATE {}
 unsafe impl ::windows::runtime::Abi for DLGTEMPLATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DLGWINDOWEXTRA: u32 = 30u32;
@@ -2493,7 +2469,6 @@ impl ::std::cmp::Eq for DROPSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DROPSTRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const DS_3DLOOK: i32 = 4i32;
@@ -3002,7 +2977,6 @@ impl ::std::convert::From<i32> for EDIT_CONTROL_FEATURE {
 }
 unsafe impl ::windows::runtime::Abi for EDIT_CONTROL_FEATURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EDS_RAWMODE: u32 = 2u32;
@@ -3110,7 +3084,6 @@ impl ::std::cmp::Eq for EVENTMSG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EVENTMSG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const EVENT_AIA_END: u32 = 45055u32;
@@ -3533,7 +3506,6 @@ impl ::std::cmp::Eq for FLASHWINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FLASHWINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3552,7 +3524,6 @@ impl ::std::convert::From<u32> for FLASHWINFO_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for FLASHWINFO_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for FLASHWINFO_FLAGS {
     type Output = Self;
@@ -3597,7 +3568,6 @@ impl ::std::convert::From<u32> for FOREGROUND_WINDOW_LOCK_CODE {
 }
 unsafe impl ::windows::runtime::Abi for FOREGROUND_WINDOW_LOCK_CODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for FOREGROUND_WINDOW_LOCK_CODE {
     type Output = Self;
@@ -3737,7 +3707,6 @@ impl ::std::convert::From<u32> for GDI_IMAGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for GDI_IMAGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for GDI_IMAGE_TYPE {
     type Output = Self;
@@ -3797,7 +3766,6 @@ impl ::std::convert::From<u32> for GET_ANCESTOR_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for GET_ANCESTOR_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for GET_ANCESTOR_FLAGS {
     type Output = Self;
@@ -3856,7 +3824,6 @@ impl ::std::convert::From<i32> for GET_CLASS_LONG_INDEX {
 }
 unsafe impl ::windows::runtime::Abi for GET_CLASS_LONG_INDEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3871,7 +3838,6 @@ impl ::std::convert::From<u32> for GET_MENU_DEFAULT_ITEM_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for GET_MENU_DEFAULT_ITEM_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for GET_MENU_DEFAULT_ITEM_FLAGS {
     type Output = Self;
@@ -3919,7 +3885,6 @@ impl ::std::convert::From<u32> for GET_WINDOW_CMD {
 }
 unsafe impl ::windows::runtime::Abi for GET_WINDOW_CMD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for GET_WINDOW_CMD {
     type Output = Self;
@@ -4009,7 +3974,6 @@ impl ::std::cmp::Eq for GUITHREADINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GUITHREADINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4027,7 +3991,6 @@ impl ::std::convert::From<u32> for GUITHREADINFO_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for GUITHREADINFO_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for GUITHREADINFO_FLAGS {
     type Output = Self;
@@ -5410,7 +5373,6 @@ impl ::std::default::Default for HACCEL {
 unsafe impl ::windows::runtime::Handle for HACCEL {}
 unsafe impl ::windows::runtime::Abi for HACCEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5425,7 +5387,6 @@ impl ::std::convert::From<i32> for HANDEDNESS {
 }
 unsafe impl ::windows::runtime::Abi for HANDEDNESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5462,7 +5423,6 @@ impl ::std::cmp::Eq for HARDWAREHOOKSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HARDWAREHOOKSTRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Graphics_Gdi`*"]
@@ -5532,7 +5492,6 @@ impl ::std::default::Default for HCURSOR {
 unsafe impl ::windows::runtime::Handle for HCURSOR {}
 unsafe impl ::windows::runtime::Abi for HCURSOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl<'a> ::windows::runtime::IntoParam<'a, HICON> for HCURSOR {
     fn into_param(self) -> ::windows::runtime::Param<'a, HICON> {
@@ -5610,7 +5569,6 @@ impl ::std::default::Default for HHOOK {
 unsafe impl ::windows::runtime::Handle for HHOOK {}
 unsafe impl ::windows::runtime::Abi for HHOOK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -5623,7 +5581,6 @@ impl ::std::default::Default for HICON {
 unsafe impl ::windows::runtime::Handle for HICON {}
 unsafe impl ::windows::runtime::Abi for HICON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const HIDE_WINDOW: u32 = 0u32;
@@ -5642,7 +5599,6 @@ impl ::std::default::Default for HMENU {
 unsafe impl ::windows::runtime::Handle for HMENU {}
 unsafe impl ::windows::runtime::Abi for HMENU {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type HOOKPROC = unsafe extern "system" fn(code: i32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
@@ -5820,7 +5776,6 @@ impl ::std::cmp::Eq for ICONINFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for ICONINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5872,7 +5827,6 @@ impl ::std::cmp::Eq for ICONINFOEXA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for ICONINFOEXA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5924,7 +5878,6 @@ impl ::std::cmp::Eq for ICONINFOEXW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for ICONINFOEXW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5962,7 +5915,6 @@ impl ::std::cmp::Eq for ICONMETRICSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for ICONMETRICSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6000,7 +5952,6 @@ impl ::std::cmp::Eq for ICONMETRICSW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for ICONMETRICSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const ICON_BIG: u32 = 1u32;
@@ -6134,7 +6085,6 @@ impl ::std::convert::From<u32> for IMAGE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for IMAGE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for IMAGE_FLAGS {
     type Output = Self;
@@ -6269,7 +6219,6 @@ impl ::std::cmp::Eq for IndexedResourceQualifier {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IndexedResourceQualifier {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -6690,7 +6639,6 @@ impl ::std::cmp::PartialEq for KBDLLHOOKSTRUCT {
 impl ::std::cmp::Eq for KBDLLHOOKSTRUCT {}
 unsafe impl ::windows::runtime::Abi for KBDLLHOOKSTRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6708,7 +6656,6 @@ impl ::std::convert::From<u32> for KBDLLHOOKSTRUCT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for KBDLLHOOKSTRUCT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for KBDLLHOOKSTRUCT_FLAGS {
     type Output = Self;
@@ -6780,7 +6727,6 @@ impl ::std::convert::From<u32> for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
     type Output = Self;
@@ -7322,7 +7268,6 @@ impl ::std::cmp::Eq for MDICREATESTRUCTA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MDICREATESTRUCTA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7364,7 +7309,6 @@ impl ::std::cmp::Eq for MDICREATESTRUCTW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MDICREATESTRUCTW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7400,7 +7344,6 @@ impl ::std::cmp::Eq for MDINEXTMENU {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MDINEXTMENU {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MDIS_ALLCHILDSTYLES: u32 = 1u32;
@@ -7440,7 +7383,6 @@ impl ::std::cmp::Eq for MENUBARINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MENUBARINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7471,7 +7413,6 @@ impl ::std::cmp::PartialEq for MENUGETOBJECTINFO {
 impl ::std::cmp::Eq for MENUGETOBJECTINFO {}
 unsafe impl ::windows::runtime::Abi for MENUGETOBJECTINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7486,7 +7427,6 @@ impl ::std::convert::From<u32> for MENUGETOBJECTINFO_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MENUGETOBJECTINFO_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MENUGETOBJECTINFO_FLAGS {
     type Output = Self;
@@ -7554,7 +7494,6 @@ impl ::std::cmp::Eq for MENUINFO {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for MENUINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7573,7 +7512,6 @@ impl ::std::convert::From<u32> for MENUINFO_MASK {
 }
 unsafe impl ::windows::runtime::Abi for MENUINFO_MASK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MENUINFO_MASK {
     type Output = Self;
@@ -7620,7 +7558,6 @@ impl ::std::convert::From<u32> for MENUINFO_STYLE {
 }
 unsafe impl ::windows::runtime::Abi for MENUINFO_STYLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MENUINFO_STYLE {
     type Output = Self;
@@ -7706,7 +7643,6 @@ impl ::std::cmp::Eq for MENUITEMINFOA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for MENUITEMINFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7764,7 +7700,6 @@ impl ::std::cmp::Eq for MENUITEMINFOW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for MENUITEMINFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7793,7 +7728,6 @@ impl ::std::cmp::PartialEq for MENUITEMTEMPLATE {
 impl ::std::cmp::Eq for MENUITEMTEMPLATE {}
 unsafe impl ::windows::runtime::Abi for MENUITEMTEMPLATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7821,7 +7755,6 @@ impl ::std::cmp::PartialEq for MENUITEMTEMPLATEHEADER {
 impl ::std::cmp::Eq for MENUITEMTEMPLATEHEADER {}
 unsafe impl ::windows::runtime::Abi for MENUITEMTEMPLATEHEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7862,7 +7795,6 @@ impl ::std::convert::From<u32> for MENU_ITEM_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MENU_ITEM_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MENU_ITEM_FLAGS {
     type Output = Self;
@@ -7912,7 +7844,6 @@ impl ::std::convert::From<u32> for MENU_ITEM_MASK {
 }
 unsafe impl ::windows::runtime::Abi for MENU_ITEM_MASK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MENU_ITEM_MASK {
     type Output = Self;
@@ -7961,7 +7892,6 @@ impl ::std::convert::From<u32> for MENU_ITEM_STATE {
 }
 unsafe impl ::windows::runtime::Abi for MENU_ITEM_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MENU_ITEM_STATE {
     type Output = Self;
@@ -8011,7 +7941,6 @@ impl ::std::convert::From<u32> for MENU_ITEM_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MENU_ITEM_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MENU_ITEM_TYPE {
     type Output = Self;
@@ -8065,7 +7994,6 @@ impl ::std::convert::From<i32> for MESSAGEBOX_RESULT {
 }
 unsafe impl ::windows::runtime::Abi for MESSAGEBOX_RESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8115,7 +8043,6 @@ impl ::std::convert::From<u32> for MESSAGEBOX_STYLE {
 }
 unsafe impl ::windows::runtime::Abi for MESSAGEBOX_STYLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MESSAGEBOX_STYLE {
     type Output = Self;
@@ -8172,7 +8099,6 @@ impl ::std::cmp::PartialEq for MESSAGE_RESOURCE_BLOCK {
 impl ::std::cmp::Eq for MESSAGE_RESOURCE_BLOCK {}
 unsafe impl ::windows::runtime::Abi for MESSAGE_RESOURCE_BLOCK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8200,7 +8126,6 @@ impl ::std::cmp::PartialEq for MESSAGE_RESOURCE_DATA {
 impl ::std::cmp::Eq for MESSAGE_RESOURCE_DATA {}
 unsafe impl ::windows::runtime::Abi for MESSAGE_RESOURCE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8229,7 +8154,6 @@ impl ::std::cmp::PartialEq for MESSAGE_RESOURCE_ENTRY {
 impl ::std::cmp::Eq for MESSAGE_RESOURCE_ENTRY {}
 unsafe impl ::windows::runtime::Abi for MESSAGE_RESOURCE_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const METRICS_USEDEFAULT: i32 = -1i32;
@@ -8262,7 +8186,6 @@ impl ::std::cmp::PartialEq for MINIMIZEDMETRICS {
 impl ::std::cmp::Eq for MINIMIZEDMETRICS {}
 unsafe impl ::windows::runtime::Abi for MINIMIZEDMETRICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8279,7 +8202,6 @@ impl ::std::convert::From<i32> for MINIMIZEDMETRICS_ARRANGE {
 }
 unsafe impl ::windows::runtime::Abi for MINIMIZEDMETRICS_ARRANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MINIMUM_RESERVED_MANIFEST_RESOURCE_ID: u32 = 1u32;
@@ -8319,7 +8241,6 @@ impl ::std::cmp::Eq for MINMAXINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MINMAXINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const MIN_LOGICALDPIOVERRIDE: i32 = -2i32;
@@ -8418,7 +8339,6 @@ impl ::std::cmp::Eq for MOUSEHOOKSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MOUSEHOOKSTRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8453,7 +8373,6 @@ impl ::std::cmp::Eq for MOUSEHOOKSTRUCTEX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MOUSEHOOKSTRUCTEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8468,7 +8387,6 @@ impl ::std::convert::From<u32> for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
 }
 unsafe impl ::windows::runtime::Abi for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
     type Output = Self;
@@ -8541,7 +8459,6 @@ impl ::std::cmp::Eq for MSG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MSG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 pub type MSGBOXCALLBACK = unsafe extern "system" fn(lphelpinfo: *mut super::Shell::HELPINFO);
@@ -8596,7 +8513,6 @@ impl ::std::cmp::Eq for MSGBOXPARAMSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 unsafe impl ::windows::runtime::Abi for MSGBOXPARAMSA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -8649,7 +8565,6 @@ impl ::std::cmp::Eq for MSGBOXPARAMSW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 unsafe impl ::windows::runtime::Abi for MSGBOXPARAMSW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8666,7 +8581,6 @@ impl ::std::convert::From<u32> for MSGFLTINFO_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for MSGFLTINFO_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MSGFLTINFO_STATUS {
     type Output = Self;
@@ -8746,7 +8660,6 @@ impl ::std::cmp::Eq for MSLLHOOKSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MSLLHOOKSTRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -9149,7 +9062,6 @@ impl ::std::convert::From<i32> for MrmDumpType {
 }
 unsafe impl ::windows::runtime::Abi for MrmDumpType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[inline]
@@ -9270,7 +9182,6 @@ impl ::std::convert::From<i32> for MrmIndexerFlags {
 }
 unsafe impl ::windows::runtime::Abi for MrmIndexerFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9286,7 +9197,6 @@ impl ::std::convert::From<i32> for MrmPackagingMode {
 }
 unsafe impl ::windows::runtime::Abi for MrmPackagingMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9302,7 +9212,6 @@ impl ::std::convert::From<i32> for MrmPackagingOptions {
 }
 unsafe impl ::windows::runtime::Abi for MrmPackagingOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -9333,7 +9242,6 @@ impl ::std::convert::From<i32> for MrmPlatformVersion {
 }
 unsafe impl ::windows::runtime::Abi for MrmPlatformVersion {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9360,7 +9268,6 @@ impl ::std::cmp::PartialEq for MrmResourceIndexerHandle {
 impl ::std::cmp::Eq for MrmResourceIndexerHandle {}
 unsafe impl ::windows::runtime::Abi for MrmResourceIndexerHandle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9396,7 +9303,6 @@ impl ::std::cmp::Eq for MrmResourceIndexerMessage {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MrmResourceIndexerMessage {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9413,7 +9319,6 @@ impl ::std::convert::From<i32> for MrmResourceIndexerMessageSeverity {
 }
 unsafe impl ::windows::runtime::Abi for MrmResourceIndexerMessageSeverity {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type NAMEENUMPROCA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
@@ -9452,7 +9357,6 @@ impl ::std::cmp::Eq for NCCALCSIZE_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NCCALCSIZE_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const NFR_ANSI: u32 = 1u32;
@@ -9553,7 +9457,6 @@ impl ::std::cmp::Eq for NONCLIENTMETRICSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for NONCLIENTMETRICSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9634,7 +9537,6 @@ impl ::std::cmp::Eq for NONCLIENTMETRICSW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for NONCLIENTMETRICSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9661,7 +9563,6 @@ impl ::std::convert::From<i32> for OBJECT_IDENTIFIER {
 }
 unsafe impl ::windows::runtime::Abi for OBJECT_IDENTIFIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const OBM_BTNCORNERS: u32 = 32758u32;
@@ -9938,7 +9839,6 @@ impl ::std::convert::From<u32> for PEEK_MESSAGE_REMOVE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PEEK_MESSAGE_REMOVE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PEEK_MESSAGE_REMOVE_TYPE {
     type Output = Self;
@@ -10026,7 +9926,6 @@ impl ::std::convert::From<i32> for POINTER_INPUT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for POINTER_INPUT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const POINTER_MESSAGE_FLAG_CANCELED: u32 = 32768u32;
@@ -10266,7 +10165,6 @@ impl ::std::convert::From<u32> for QUEUE_STATUS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for QUEUE_STATUS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for QUEUE_STATUS_FLAGS {
     type Output = Self;
@@ -10732,7 +10630,6 @@ impl ::std::cmp::Eq for SCROLLBARINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SCROLLBARINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10749,7 +10646,6 @@ impl ::std::convert::From<u32> for SCROLLBAR_CONSTANTS {
 }
 unsafe impl ::windows::runtime::Abi for SCROLLBAR_CONSTANTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SCROLLBAR_CONSTANTS {
     type Output = Self;
@@ -10810,7 +10706,6 @@ impl ::std::cmp::PartialEq for SCROLLINFO {
 impl ::std::cmp::Eq for SCROLLINFO {}
 unsafe impl ::windows::runtime::Abi for SCROLLINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10829,7 +10724,6 @@ impl ::std::convert::From<u32> for SCROLLINFO_MASK {
 }
 unsafe impl ::windows::runtime::Abi for SCROLLINFO_MASK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SCROLLINFO_MASK {
     type Output = Self;
@@ -10919,7 +10813,6 @@ impl ::std::convert::From<u32> for SEND_MESSAGE_TIMEOUT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for SEND_MESSAGE_TIMEOUT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SEND_MESSAGE_TIMEOUT_FLAGS {
     type Output = Self;
@@ -10976,7 +10869,6 @@ impl ::std::convert::From<u32> for SET_WINDOW_POS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for SET_WINDOW_POS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SET_WINDOW_POS_FLAGS {
     type Output = Self;
@@ -11039,7 +10931,6 @@ impl ::std::cmp::Eq for SHELLHOOKINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SHELLHOOKINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SHOW_FULLSCREEN: u32 = 3u32;
@@ -11083,7 +10974,6 @@ impl ::std::convert::From<u32> for SHOW_WINDOW_CMD {
 }
 unsafe impl ::windows::runtime::Abi for SHOW_WINDOW_CMD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SHOW_WINDOW_CMD {
     type Output = Self;
@@ -11361,7 +11251,6 @@ impl ::std::cmp::PartialEq for STYLESTRUCT {
 impl ::std::cmp::Eq for STYLESTRUCT {}
 unsafe impl ::windows::runtime::Abi for STYLESTRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11388,7 +11277,6 @@ impl ::std::convert::From<u32> for SYSTEM_CURSOR_ID {
 }
 unsafe impl ::windows::runtime::Abi for SYSTEM_CURSOR_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SYSTEM_CURSOR_ID {
     type Output = Self;
@@ -11524,7 +11412,6 @@ impl ::std::convert::From<u32> for SYSTEM_METRICS_INDEX {
 }
 unsafe impl ::windows::runtime::Abi for SYSTEM_METRICS_INDEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SYSTEM_METRICS_INDEX {
     type Output = Self;
@@ -11806,7 +11693,6 @@ impl ::std::convert::From<u32> for SYSTEM_PARAMETERS_INFO_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for SYSTEM_PARAMETERS_INFO_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SYSTEM_PARAMETERS_INFO_ACTION {
     type Output = Self;
@@ -11850,7 +11736,6 @@ impl ::std::convert::From<u32> for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
     type Output = Self;
@@ -11927,7 +11812,6 @@ impl ::std::convert::From<u32> for SYS_COLOR_INDEX {
 }
 unsafe impl ::windows::runtime::Abi for SYS_COLOR_INDEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SYS_COLOR_INDEX {
     type Output = Self;
@@ -13003,7 +12887,6 @@ impl ::std::convert::From<u32> for TILE_WINDOWS_HOW {
 }
 unsafe impl ::windows::runtime::Abi for TILE_WINDOWS_HOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for TILE_WINDOWS_HOW {
     type Output = Self;
@@ -13077,7 +12960,6 @@ impl ::std::cmp::Eq for TITLEBARINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TITLEBARINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13114,7 +12996,6 @@ impl ::std::cmp::Eq for TITLEBARINFOEX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TITLEBARINFOEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const TKF_AVAILABLE: u32 = 2u32;
@@ -13197,7 +13078,6 @@ impl ::std::cmp::Eq for TPMPARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TPMPARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13230,7 +13110,6 @@ impl ::std::convert::From<u32> for TRACK_POPUP_MENU_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for TRACK_POPUP_MENU_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for TRACK_POPUP_MENU_FLAGS {
     type Output = Self;
@@ -13303,7 +13182,6 @@ impl ::std::cmp::PartialEq for TouchPredictionParameters {
 impl ::std::cmp::Eq for TouchPredictionParameters {}
 unsafe impl ::windows::runtime::Abi for TouchPredictionParameters {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
@@ -13463,7 +13341,6 @@ impl ::std::cmp::Eq for UPDATELAYEREDWINDOWINFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for UPDATELAYEREDWINDOWINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13480,7 +13357,6 @@ impl ::std::convert::From<u32> for UPDATE_LAYERED_WINDOW_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for UPDATE_LAYERED_WINDOW_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for UPDATE_LAYERED_WINDOW_FLAGS {
     type Output = Self;
@@ -13686,7 +13562,6 @@ impl ::std::cmp::Eq for WINDOWINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINDOWINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13725,7 +13600,6 @@ impl ::std::cmp::Eq for WINDOWPLACEMENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINDOWPLACEMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13741,7 +13615,6 @@ impl ::std::convert::From<u32> for WINDOWPLACEMENT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for WINDOWPLACEMENT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WINDOWPLACEMENT_FLAGS {
     type Output = Self;
@@ -13809,7 +13682,6 @@ impl ::std::cmp::Eq for WINDOWPOS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINDOWPOS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13837,7 +13709,6 @@ impl ::std::convert::From<i32> for WINDOWS_HOOK_ID {
 }
 unsafe impl ::windows::runtime::Abi for WINDOWS_HOOK_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13853,7 +13724,6 @@ impl ::std::convert::From<u32> for WINDOW_DISPLAY_AFFINITY {
 }
 unsafe impl ::windows::runtime::Abi for WINDOW_DISPLAY_AFFINITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WINDOW_DISPLAY_AFFINITY {
     type Output = Self;
@@ -13921,7 +13791,6 @@ impl ::std::convert::From<u32> for WINDOW_EX_STYLE {
 }
 unsafe impl ::windows::runtime::Abi for WINDOW_EX_STYLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WINDOW_EX_STYLE {
     type Output = Self;
@@ -13974,7 +13843,6 @@ impl ::std::convert::From<i32> for WINDOW_LONG_PTR_INDEX {
 }
 unsafe impl ::windows::runtime::Abi for WINDOW_LONG_PTR_INDEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13990,7 +13858,6 @@ impl ::std::convert::From<u32> for WINDOW_MESSAGE_FILTER_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for WINDOW_MESSAGE_FILTER_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WINDOW_MESSAGE_FILTER_ACTION {
     type Output = Self;
@@ -14059,7 +13926,6 @@ impl ::std::convert::From<u32> for WINDOW_STYLE {
 }
 unsafe impl ::windows::runtime::Abi for WINDOW_STYLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WINDOW_STYLE {
     type Output = Self;
@@ -14682,7 +14548,6 @@ impl ::std::cmp::Eq for WNDCLASSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for WNDCLASSA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -14739,7 +14604,6 @@ impl ::std::cmp::Eq for WNDCLASSEXA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for WNDCLASSEXA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -14796,7 +14660,6 @@ impl ::std::cmp::Eq for WNDCLASSEXW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for WNDCLASSEXW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -14849,7 +14712,6 @@ impl ::std::cmp::Eq for WNDCLASSW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for WNDCLASSW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14875,7 +14737,6 @@ impl ::std::convert::From<u32> for WNDCLASS_STYLES {
 }
 unsafe impl ::windows::runtime::Abi for WNDCLASS_STYLES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WNDCLASS_STYLES {
     type Output = Self;

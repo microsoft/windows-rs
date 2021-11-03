@@ -652,10 +652,12 @@ impl ::std::convert::From<i32> for ContactAddressKind {
 }
 unsafe impl ::windows::runtime::Abi for ContactAddressKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ContactAddressKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAddressKind;i4)");
+}
+impl ::windows::runtime::DefaultType for ContactAddressKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
@@ -883,10 +885,12 @@ impl ::std::convert::From<u32> for ContactAnnotationOperations {
 }
 unsafe impl ::windows::runtime::Abi for ContactAnnotationOperations {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ContactAnnotationOperations {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAnnotationOperations;u4)");
+}
+impl ::windows::runtime::DefaultType for ContactAnnotationOperations {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ContactAnnotationOperations {
     type Output = Self;
@@ -1030,10 +1034,12 @@ impl ::std::convert::From<i32> for ContactAnnotationStoreAccessType {
 }
 unsafe impl ::windows::runtime::Abi for ContactAnnotationStoreAccessType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ContactAnnotationStoreAccessType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAnnotationStoreAccessType;i4)");
+}
+impl ::windows::runtime::DefaultType for ContactAnnotationStoreAccessType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
@@ -1086,10 +1092,12 @@ impl ::std::convert::From<i32> for ContactBatchStatus {
 }
 unsafe impl ::windows::runtime::Abi for ContactBatchStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ContactBatchStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactBatchStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for ContactBatchStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
@@ -1162,10 +1170,12 @@ impl ::std::convert::From<i32> for ContactCardHeaderKind {
 }
 unsafe impl ::windows::runtime::Abi for ContactCardHeaderKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ContactCardHeaderKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactCardHeaderKind;i4)");
+}
+impl ::windows::runtime::DefaultType for ContactCardHeaderKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
@@ -1246,10 +1256,12 @@ impl ::std::convert::From<i32> for ContactCardTabKind {
 }
 unsafe impl ::windows::runtime::Abi for ContactCardTabKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ContactCardTabKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactCardTabKind;i4)");
+}
+impl ::windows::runtime::DefaultType for ContactCardTabKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
@@ -1383,10 +1395,12 @@ impl ::std::convert::From<i32> for ContactChangeType {
 }
 unsafe impl ::windows::runtime::Abi for ContactChangeType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ContactChangeType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactChangeType;i4)");
+}
+impl ::windows::runtime::DefaultType for ContactChangeType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
@@ -1600,10 +1614,12 @@ impl ::std::convert::From<i32> for ContactDateKind {
 }
 unsafe impl ::windows::runtime::Abi for ContactDateKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ContactDateKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactDateKind;i4)");
+}
+impl ::windows::runtime::DefaultType for ContactDateKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
@@ -1685,10 +1701,12 @@ impl ::std::convert::From<i32> for ContactEmailKind {
 }
 unsafe impl ::windows::runtime::Abi for ContactEmailKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ContactEmailKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactEmailKind;i4)");
+}
+impl ::windows::runtime::DefaultType for ContactEmailKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
@@ -1803,10 +1821,12 @@ impl ::std::convert::From<i32> for ContactFieldCategory {
 }
 unsafe impl ::windows::runtime::Abi for ContactFieldCategory {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ContactFieldCategory {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactFieldCategory;i4)");
+}
+impl ::windows::runtime::DefaultType for ContactFieldCategory {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
@@ -2004,10 +2024,12 @@ impl ::std::convert::From<i32> for ContactFieldType {
 }
 unsafe impl ::windows::runtime::Abi for ContactFieldType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ContactFieldType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactFieldType;i4)");
+}
+impl ::windows::runtime::DefaultType for ContactFieldType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
@@ -2722,10 +2744,12 @@ impl ::std::convert::From<i32> for ContactListOtherAppReadAccess {
 }
 unsafe impl ::windows::runtime::Abi for ContactListOtherAppReadAccess {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ContactListOtherAppReadAccess {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListOtherAppReadAccess;i4)");
+}
+impl ::windows::runtime::DefaultType for ContactListOtherAppReadAccess {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2743,10 +2767,12 @@ impl ::std::convert::From<i32> for ContactListOtherAppWriteAccess {
 }
 unsafe impl ::windows::runtime::Abi for ContactListOtherAppWriteAccess {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ContactListOtherAppWriteAccess {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListOtherAppWriteAccess;i4)");
+}
+impl ::windows::runtime::DefaultType for ContactListOtherAppWriteAccess {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
@@ -3289,10 +3315,12 @@ impl ::std::convert::From<i32> for ContactListSyncStatus {
 }
 unsafe impl ::windows::runtime::Abi for ContactListSyncStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ContactListSyncStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListSyncStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for ContactListSyncStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
@@ -3785,10 +3813,12 @@ impl ::std::convert::From<i32> for ContactMatchReasonKind {
 }
 unsafe impl ::windows::runtime::Abi for ContactMatchReasonKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ContactMatchReasonKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactMatchReasonKind;i4)");
+}
+impl ::windows::runtime::DefaultType for ContactMatchReasonKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3805,10 +3835,12 @@ impl ::std::convert::From<i32> for ContactNameOrder {
 }
 unsafe impl ::windows::runtime::Abi for ContactNameOrder {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ContactNameOrder {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactNameOrder;i4)");
+}
+impl ::windows::runtime::DefaultType for ContactNameOrder {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
@@ -4023,10 +4055,12 @@ impl ::std::convert::From<i32> for ContactPhoneKind {
 }
 unsafe impl ::windows::runtime::Abi for ContactPhoneKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ContactPhoneKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactPhoneKind;i4)");
+}
+impl ::windows::runtime::DefaultType for ContactPhoneKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
@@ -4177,10 +4211,12 @@ impl ::std::convert::From<u32> for ContactQueryDesiredFields {
 }
 unsafe impl ::windows::runtime::Abi for ContactQueryDesiredFields {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ContactQueryDesiredFields {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQueryDesiredFields;u4)");
+}
+impl ::windows::runtime::DefaultType for ContactQueryDesiredFields {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ContactQueryDesiredFields {
     type Output = Self;
@@ -4336,10 +4372,12 @@ impl ::std::convert::From<u32> for ContactQuerySearchFields {
 }
 unsafe impl ::windows::runtime::Abi for ContactQuerySearchFields {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ContactQuerySearchFields {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQuerySearchFields;u4)");
+}
+impl ::windows::runtime::DefaultType for ContactQuerySearchFields {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ContactQuerySearchFields {
     type Output = Self;
@@ -4384,10 +4422,12 @@ impl ::std::convert::From<i32> for ContactQuerySearchScope {
 }
 unsafe impl ::windows::runtime::Abi for ContactQuerySearchScope {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ContactQuerySearchScope {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQuerySearchScope;i4)");
+}
+impl ::windows::runtime::DefaultType for ContactQuerySearchScope {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
@@ -4501,10 +4541,12 @@ impl ::std::convert::From<i32> for ContactRelationship {
 }
 unsafe impl ::windows::runtime::Abi for ContactRelationship {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ContactRelationship {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactRelationship;i4)");
+}
+impl ::windows::runtime::DefaultType for ContactRelationship {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4521,10 +4563,12 @@ impl ::std::convert::From<i32> for ContactSelectionMode {
 }
 unsafe impl ::windows::runtime::Abi for ContactSelectionMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ContactSelectionMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactSelectionMode;i4)");
+}
+impl ::windows::runtime::DefaultType for ContactSelectionMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
@@ -4751,10 +4795,12 @@ impl ::std::convert::From<i32> for ContactStoreAccessType {
 }
 unsafe impl ::windows::runtime::Abi for ContactStoreAccessType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ContactStoreAccessType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactStoreAccessType;i4)");
+}
+impl ::windows::runtime::DefaultType for ContactStoreAccessType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Contacts`*"]
 #[repr(transparent)]
@@ -4880,7 +4926,6 @@ impl ::windows::runtime::RuntimeName for FullContactCardOptions {
 unsafe impl ::std::marker::Send for FullContactCardOptions {}
 unsafe impl ::std::marker::Sync for FullContactCardOptions {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAggregateContactManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAggregateContactManager {
@@ -4906,7 +4951,6 @@ pub struct IAggregateContactManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAggregateContactManager2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAggregateContactManager2 {
@@ -4926,7 +4970,6 @@ pub struct IAggregateContactManager2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContact(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContact {
@@ -4952,7 +4995,6 @@ pub struct IContact_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContact2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContact2 {
@@ -4994,7 +5036,6 @@ pub struct IContact2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContact3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContact3 {
@@ -5041,7 +5082,6 @@ pub struct IContact3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactAddress(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactAddress {
@@ -5073,7 +5113,6 @@ pub struct IContactAddress_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactAnnotation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactAnnotation {
@@ -5102,7 +5141,6 @@ pub struct IContactAnnotation_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactAnnotation2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactAnnotation2 {
@@ -5122,7 +5160,6 @@ pub struct IContactAnnotation2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactAnnotationList(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactAnnotationList {
@@ -5155,7 +5192,6 @@ pub struct IContactAnnotationList_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactAnnotationStore(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactAnnotationStore {
@@ -5189,7 +5225,6 @@ pub struct IContactAnnotationStore_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactAnnotationStore2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactAnnotationStore2 {
@@ -5209,7 +5244,6 @@ pub struct IContactAnnotationStore2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactBatch(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactBatch {
@@ -5230,7 +5264,6 @@ pub struct IContactBatch_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ContactBatchStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactCardDelayedDataLoader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactCardDelayedDataLoader {
@@ -5249,7 +5282,6 @@ pub struct IContactCardDelayedDataLoader_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, contact: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactCardOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactCardOptions {
@@ -5271,7 +5303,6 @@ pub struct IContactCardOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ContactCardTabKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactCardOptions2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactCardOptions2 {
@@ -5291,7 +5322,6 @@ pub struct IContactCardOptions2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactChange(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactChange {
@@ -5311,7 +5341,6 @@ pub struct IContactChange_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactChangeReader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactChangeReader {
@@ -5333,7 +5362,6 @@ pub struct IContactChangeReader_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactChangeTracker(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactChangeTracker {
@@ -5354,7 +5382,6 @@ pub struct IContactChangeTracker_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactChangeTracker2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactChangeTracker2 {
@@ -5373,7 +5400,6 @@ pub struct IContactChangeTracker2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactChangedDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactChangedDeferral {
@@ -5392,7 +5418,6 @@ pub struct IContactChangedDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactChangedEventArgs {
@@ -5411,7 +5436,6 @@ pub struct IContactChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactConnectedServiceAccount(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactConnectedServiceAccount {
@@ -5433,7 +5457,6 @@ pub struct IContactConnectedServiceAccount_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactDate(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactDate {
@@ -5467,7 +5490,6 @@ pub struct IContactDate_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactEmail(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactEmail {
@@ -5600,7 +5622,6 @@ pub struct IContactFieldFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, r#type: ContactFieldType, category: ContactFieldCategory, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactGroup(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactGroup {
@@ -5618,7 +5639,6 @@ pub struct IContactGroup_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactInformation {
@@ -5651,7 +5671,6 @@ pub struct IContactInformation_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactInstantMessageField(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactInstantMessageField {
@@ -5726,7 +5745,6 @@ pub struct IContactInstantMessageFieldFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactJobInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactJobInfo {
@@ -5760,7 +5778,6 @@ pub struct IContactJobInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactLaunchActionVerbsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactLaunchActionVerbsStatics {
@@ -5783,7 +5800,6 @@ pub struct IContactLaunchActionVerbsStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactList(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactList {
@@ -5835,7 +5851,6 @@ pub struct IContactList_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactList2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactList2 {
@@ -5857,7 +5872,6 @@ pub struct IContactList2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactList3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactList3 {
@@ -5877,7 +5891,6 @@ pub struct IContactList3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, identity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactListLimitedWriteOperations(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactListLimitedWriteOperations {
@@ -5899,7 +5912,6 @@ pub struct IContactListLimitedWriteOperations_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactListSyncConstraints(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactListSyncConstraints {
@@ -6027,7 +6039,6 @@ pub struct IContactListSyncConstraints_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactListSyncManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactListSyncManager {
@@ -6056,7 +6067,6 @@ pub struct IContactListSyncManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactListSyncManager2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactListSyncManager2 {
@@ -6079,7 +6089,6 @@ pub struct IContactListSyncManager2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactLocationField(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactLocationField {
@@ -6172,7 +6181,6 @@ pub struct IContactLocationFieldFactory_abi(
     ) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactManagerForUser(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactManagerForUser {
@@ -6206,7 +6214,6 @@ pub struct IContactManagerForUser_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactManagerForUser2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactManagerForUser2 {
@@ -6225,7 +6232,6 @@ pub struct IContactManagerForUser2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, contact: ::windows::runtime::RawPtr, fullcontactcardoptions: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactManagerStatics {
@@ -6249,7 +6255,6 @@ pub struct IContactManagerStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "UI_Popups")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactManagerStatics2 {
@@ -6269,7 +6274,6 @@ pub struct IContactManagerStatics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactManagerStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactManagerStatics3 {
@@ -6308,7 +6312,6 @@ pub struct IContactManagerStatics3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ContactNameOrder) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactManagerStatics4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactManagerStatics4 {
@@ -6328,7 +6331,6 @@ pub struct IContactManagerStatics4_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactManagerStatics5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactManagerStatics5 {
@@ -6350,7 +6352,6 @@ pub struct IContactManagerStatics5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactMatchReason(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactMatchReason {
@@ -6372,7 +6373,6 @@ pub struct IContactMatchReason_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactName(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactName {
@@ -6406,7 +6406,6 @@ pub struct IContactName_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactPanel(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactPanel {
@@ -6437,7 +6436,6 @@ pub struct IContactPanel_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactPanelClosingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactPanelClosingEventArgs {
@@ -6457,7 +6455,6 @@ pub struct IContactPanelClosingEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactPanelLaunchFullAppRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactPanelLaunchFullAppRequestedEventArgs {
@@ -6477,7 +6474,6 @@ pub struct IContactPanelLaunchFullAppRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactPhone(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactPhone {
@@ -6501,7 +6497,6 @@ pub struct IContactPhone_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactPicker(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactPicker {
@@ -6529,7 +6524,6 @@ pub struct IContactPicker_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactPicker2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactPicker2 {
@@ -6553,7 +6547,6 @@ pub struct IContactPicker2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactPicker3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactPicker3 {
@@ -6573,7 +6566,6 @@ pub struct IContactPicker3_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactPickerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactPickerStatics {
@@ -6595,7 +6587,6 @@ pub struct IContactPickerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactQueryOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactQueryOptions {
@@ -6624,7 +6615,6 @@ pub struct IContactQueryOptions_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactQueryOptionsFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactQueryOptionsFactory {
@@ -6644,7 +6634,6 @@ pub struct IContactQueryOptionsFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, text: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, fields: ContactQuerySearchFields, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactQueryTextSearch(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactQueryTextSearch {
@@ -6668,7 +6657,6 @@ pub struct IContactQueryTextSearch_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ContactQuerySearchScope) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactReader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactReader {
@@ -6690,7 +6678,6 @@ pub struct IContactReader_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactSignificantOther(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactSignificantOther {
@@ -6712,7 +6699,6 @@ pub struct IContactSignificantOther_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactSignificantOther2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactSignificantOther2 {
@@ -6732,7 +6718,6 @@ pub struct IContactSignificantOther2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ContactRelationship) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactStore(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactStore {
@@ -6756,7 +6741,6 @@ pub struct IContactStore_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactStore2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactStore2 {
@@ -6792,7 +6776,6 @@ pub struct IContactStore2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactStore3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactStore3 {
@@ -6811,7 +6794,6 @@ pub struct IContactStore3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, identity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactStoreNotificationTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactStoreNotificationTriggerDetails {
@@ -6829,7 +6811,6 @@ pub struct IContactStoreNotificationTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactWebsite(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactWebsite {
@@ -6853,7 +6834,6 @@ pub struct IContactWebsite_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactWebsite2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactWebsite2 {
@@ -6873,7 +6853,6 @@ pub struct IContactWebsite2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFullContactCardOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFullContactCardOptions {
@@ -6895,7 +6874,6 @@ pub struct IFullContactCardOptions_abi(
     #[cfg(not(feature = "UI_ViewManagement"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKnownContactFieldStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownContactFieldStatics {
@@ -6919,7 +6897,6 @@ pub struct IKnownContactFieldStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: ContactFieldType, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPinnedContactIdsQueryResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPinnedContactIdsQueryResult {
@@ -6939,7 +6916,6 @@ pub struct IPinnedContactIdsQueryResult_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPinnedContactManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPinnedContactManager {
@@ -6970,7 +6946,6 @@ pub struct IPinnedContactManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPinnedContactManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPinnedContactManagerStatics {
@@ -7202,8 +7177,10 @@ impl ::std::convert::From<i32> for PinnedContactSurface {
 }
 unsafe impl ::windows::runtime::Abi for PinnedContactSurface {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PinnedContactSurface {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.PinnedContactSurface;i4)");
+}
+impl ::windows::runtime::DefaultType for PinnedContactSurface {
+    type DefaultType = Self;
 }

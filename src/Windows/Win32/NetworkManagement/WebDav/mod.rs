@@ -13,7 +13,6 @@ impl ::std::convert::From<i32> for AUTHNEXTSTEP {
 }
 unsafe impl ::windows::runtime::Abi for AUTHNEXTSTEP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WebDav`*"]
 pub const DAV_AUTHN_SCHEME_BASIC: u32 = 1u32;
@@ -56,7 +55,6 @@ impl ::std::cmp::PartialEq for DAV_CALLBACK_AUTH_BLOB {
 impl ::std::cmp::Eq for DAV_CALLBACK_AUTH_BLOB {}
 unsafe impl ::windows::runtime::Abi for DAV_CALLBACK_AUTH_BLOB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -93,7 +91,6 @@ impl ::std::cmp::Eq for DAV_CALLBACK_AUTH_UNP {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DAV_CALLBACK_AUTH_UNP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -130,7 +127,6 @@ impl ::std::cmp::Eq for DAV_CALLBACK_CRED {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DAV_CALLBACK_CRED {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WebDav`, `Win32_Foundation`*"]

@@ -35,7 +35,6 @@ impl ::std::cmp::Eq for CONNECTDLGSTRUCTA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CONNECTDLGSTRUCTA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -73,7 +72,6 @@ impl ::std::cmp::Eq for CONNECTDLGSTRUCTW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CONNECTDLGSTRUCTW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -92,7 +90,6 @@ impl ::std::convert::From<u32> for CONNECTDLGSTRUCT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CONNECTDLGSTRUCT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CONNECTDLGSTRUCT_FLAGS {
     type Output = Self;
@@ -178,7 +175,6 @@ impl ::std::cmp::Eq for DISCDLGSTRUCTA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DISCDLGSTRUCTA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -216,7 +212,6 @@ impl ::std::cmp::Eq for DISCDLGSTRUCTW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DISCDLGSTRUCTW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -231,7 +226,6 @@ impl ::std::convert::From<u32> for DISCDLGSTRUCT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for DISCDLGSTRUCT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DISCDLGSTRUCT_FLAGS {
     type Output = Self;
@@ -320,7 +314,6 @@ impl ::std::cmp::PartialEq for NETCONNECTINFOSTRUCT {
 impl ::std::cmp::Eq for NETCONNECTINFOSTRUCT {}
 unsafe impl ::windows::runtime::Abi for NETCONNECTINFOSTRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -370,7 +363,6 @@ impl ::std::cmp::Eq for NETINFOSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NETINFOSTRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -386,7 +378,6 @@ impl ::std::convert::From<u32> for NETINFOSTRUCT_CHARACTERISTICS {
 }
 unsafe impl ::windows::runtime::Abi for NETINFOSTRUCT_CHARACTERISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for NETINFOSTRUCT_CHARACTERISTICS {
     type Output = Self;
@@ -466,7 +457,6 @@ impl ::std::cmp::Eq for NETRESOURCEA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NETRESOURCEA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -516,7 +506,6 @@ impl ::std::cmp::Eq for NETRESOURCEW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NETRESOURCEW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -531,7 +520,6 @@ impl ::std::convert::From<u32> for NETWORK_NAME_FORMAT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for NETWORK_NAME_FORMAT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for NETWORK_NAME_FORMAT_FLAGS {
     type Output = Self;
@@ -576,7 +564,6 @@ impl ::std::convert::From<u32> for NET_RESOURCE_SCOPE {
 }
 unsafe impl ::windows::runtime::Abi for NET_RESOURCE_SCOPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for NET_RESOURCE_SCOPE {
     type Output = Self;
@@ -620,7 +607,6 @@ impl ::std::convert::From<u32> for NET_RESOURCE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for NET_RESOURCE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for NET_RESOURCE_TYPE {
     type Output = Self;
@@ -670,7 +656,6 @@ impl ::std::convert::From<u32> for NET_USE_CONNECT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for NET_USE_CONNECT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for NET_USE_CONNECT_FLAGS {
     type Output = Self;
@@ -734,7 +719,6 @@ impl ::std::cmp::Eq for NOTIFYADD {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NOTIFYADD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -771,7 +755,6 @@ impl ::std::cmp::Eq for NOTIFYCANCEL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NOTIFYCANCEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -800,7 +783,6 @@ impl ::std::cmp::PartialEq for NOTIFYINFO {
 impl ::std::cmp::Eq for NOTIFYINFO {}
 unsafe impl ::windows::runtime::Abi for NOTIFYINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const NOTIFY_POST: u32 = 2u32;
@@ -910,7 +892,6 @@ impl ::std::convert::From<u32> for NPDIRECTORY_NOTIFY_OPERATION {
 }
 unsafe impl ::windows::runtime::Abi for NPDIRECTORY_NOTIFY_OPERATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for NPDIRECTORY_NOTIFY_OPERATION {
     type Output = Self;
@@ -1133,7 +1114,6 @@ impl ::std::convert::From<u32> for NP_PROPERTY_DIALOG_SELECTION {
 }
 unsafe impl ::windows::runtime::Abi for NP_PROPERTY_DIALOG_SELECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for NP_PROPERTY_DIALOG_SELECTION {
     type Output = Self;
@@ -1174,7 +1154,6 @@ impl ::std::default::Default for NetEnumHandle {
 unsafe impl ::windows::runtime::Handle for NetEnumHandle {}
 unsafe impl ::windows::runtime::Abi for NetEnumHandle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type PF_AddConnectNotify = unsafe extern "system" fn(lpnotifyinfo: *mut NOTIFYINFO, lpaddinfo: *const NOTIFYADD) -> u32;
@@ -1271,7 +1250,6 @@ impl ::std::cmp::Eq for REMOTE_NAME_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for REMOTE_NAME_INFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1307,7 +1285,6 @@ impl ::std::cmp::Eq for REMOTE_NAME_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for REMOTE_NAME_INFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const RESOURCEDISPLAYTYPE_DIRECTORY: u32 = 9u32;
@@ -1344,7 +1321,6 @@ impl ::std::convert::From<u32> for UNC_INFO_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for UNC_INFO_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for UNC_INFO_LEVEL {
     type Output = Self;
@@ -1406,7 +1382,6 @@ impl ::std::cmp::Eq for UNIVERSAL_NAME_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for UNIVERSAL_NAME_INFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1440,7 +1415,6 @@ impl ::std::cmp::Eq for UNIVERSAL_NAME_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for UNIVERSAL_NAME_INFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WNet`*"]
 pub const WNCON_DYNAMIC: u32 = 8u32;
@@ -1470,7 +1444,6 @@ impl ::std::convert::From<u32> for WNET_OPEN_ENUM_USAGE {
 }
 unsafe impl ::windows::runtime::Abi for WNET_OPEN_ENUM_USAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WNET_OPEN_ENUM_USAGE {
     type Output = Self;
@@ -1598,7 +1571,6 @@ impl ::std::convert::From<u32> for WNPERM_DLG {
 }
 unsafe impl ::windows::runtime::Abi for WNPERM_DLG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WNPERM_DLG {
     type Output = Self;

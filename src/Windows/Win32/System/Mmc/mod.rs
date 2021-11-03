@@ -63,7 +63,6 @@ impl ::std::convert::From<u32> for CCM_COMMANDID_MASK_CONSTANTS {
 }
 unsafe impl ::windows::runtime::Abi for CCM_COMMANDID_MASK_CONSTANTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CCM_COMMANDID_MASK_CONSTANTS {
     type Output = Self;
@@ -108,7 +107,6 @@ impl ::std::convert::From<i32> for CCM_INSERTIONALLOWED {
 }
 unsafe impl ::windows::runtime::Abi for CCM_INSERTIONALLOWED {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -136,7 +134,6 @@ impl ::std::convert::From<i32> for CCM_INSERTIONPOINTID {
 }
 unsafe impl ::windows::runtime::Abi for CCM_INSERTIONPOINTID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -154,7 +151,6 @@ impl ::std::convert::From<i32> for CCM_SPECIAL {
 }
 unsafe impl ::windows::runtime::Abi for CCM_SPECIAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -193,7 +189,6 @@ impl ::std::cmp::Eq for CONTEXTMENUITEM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CONTEXTMENUITEM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -241,7 +236,6 @@ impl ::std::cmp::Eq for CONTEXTMENUITEM2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CONTEXTMENUITEM2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 #[repr(transparent)]
@@ -502,7 +496,6 @@ impl ::std::convert::From<i32> for DATA_OBJECT_TYPES {
 }
 unsafe impl ::windows::runtime::Abi for DATA_OBJECT_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 #[repr(transparent)]
@@ -3434,7 +3427,6 @@ impl ::std::convert::From<i32> for IconIdentifier {
 }
 unsafe impl ::windows::runtime::Abi for IconIdentifier {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3463,7 +3455,6 @@ impl ::std::cmp::PartialEq for MENUBUTTONDATA {
 impl ::std::cmp::Eq for MENUBUTTONDATA {}
 unsafe impl ::windows::runtime::Abi for MENUBUTTONDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3502,7 +3493,6 @@ impl ::std::cmp::Eq for MMCBUTTON {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MMCBUTTON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const MMCLV_AUTO: i32 = -1i32;
@@ -3542,7 +3532,6 @@ impl ::std::convert::From<i32> for MMC_ACTION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MMC_ACTION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3560,7 +3549,6 @@ impl ::std::convert::From<i32> for MMC_BUTTON_STATE {
 }
 unsafe impl ::windows::runtime::Abi for MMC_BUTTON_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3590,7 +3578,6 @@ impl ::std::cmp::PartialEq for MMC_COLUMN_DATA {
 impl ::std::cmp::Eq for MMC_COLUMN_DATA {}
 unsafe impl ::windows::runtime::Abi for MMC_COLUMN_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3619,7 +3606,6 @@ impl ::std::cmp::PartialEq for MMC_COLUMN_SET_DATA {
 impl ::std::cmp::Eq for MMC_COLUMN_SET_DATA {}
 unsafe impl ::windows::runtime::Abi for MMC_COLUMN_SET_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3645,7 +3631,6 @@ impl ::std::convert::From<i32> for MMC_CONSOLE_VERB {
 }
 unsafe impl ::windows::runtime::Abi for MMC_CONSOLE_VERB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3661,7 +3646,6 @@ impl ::std::convert::From<i32> for MMC_CONTROL_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MMC_CONTROL_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const MMC_DEFAULT_OPERATION_COPY: u32 = 1u32;
@@ -3699,7 +3683,6 @@ impl ::std::cmp::Eq for MMC_EXPANDSYNC_STRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MMC_EXPANDSYNC_STRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3737,7 +3720,6 @@ impl ::std::cmp::Eq for MMC_EXT_VIEW_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MMC_EXT_VIEW_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3773,7 +3755,6 @@ impl ::std::cmp::Eq for MMC_FILTERDATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MMC_FILTERDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3789,7 +3770,6 @@ impl ::std::convert::From<i32> for MMC_FILTER_CHANGE_CODE {
 }
 unsafe impl ::windows::runtime::Abi for MMC_FILTER_CHANGE_CODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3805,7 +3785,6 @@ impl ::std::convert::From<i32> for MMC_FILTER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MMC_FILTER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const MMC_IMAGECALLBACK: i32 = -1i32;
@@ -3849,7 +3828,6 @@ impl ::std::cmp::Eq for MMC_LISTPAD_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MMC_LISTPAD_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3863,7 +3841,6 @@ impl ::std::convert::From<i32> for MMC_MENU_COMMAND_IDS {
 }
 unsafe impl ::windows::runtime::Abi for MMC_MENU_COMMAND_IDS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const MMC_MULTI_SELECT_COOKIE: i32 = -2i32;
@@ -3915,7 +3892,6 @@ impl ::std::convert::From<i32> for MMC_NOTIFY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MMC_NOTIFY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const MMC_NW_OPTION_CUSTOMTITLE: u32 = 8u32;
@@ -3945,7 +3921,6 @@ impl ::std::convert::From<i32> for MMC_PROPERTY_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for MMC_PROPERTY_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const MMC_PROP_CHANGEAFFECTSUI: u32 = 1u32;
@@ -3998,7 +3973,6 @@ impl ::std::cmp::Eq for MMC_RESTORE_VIEW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MMC_RESTORE_VIEW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4015,7 +3989,6 @@ impl ::std::convert::From<i32> for MMC_RESULT_VIEW_STYLE {
 }
 unsafe impl ::windows::runtime::Abi for MMC_RESULT_VIEW_STYLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4031,7 +4004,6 @@ impl ::std::convert::From<i32> for MMC_SCOPE_ITEM_STATE {
 }
 unsafe impl ::windows::runtime::Abi for MMC_SCOPE_ITEM_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for MMC_SNAPIN_PROPERTY {
@@ -4066,7 +4038,6 @@ impl ::std::cmp::Eq for MMC_SNAPIN_PROPERTY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for MMC_SNAPIN_PROPERTY {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4095,7 +4066,6 @@ impl ::std::cmp::PartialEq for MMC_SORT_DATA {
 impl ::std::cmp::Eq for MMC_SORT_DATA {}
 unsafe impl ::windows::runtime::Abi for MMC_SORT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4124,7 +4094,6 @@ impl ::std::cmp::PartialEq for MMC_SORT_SET_DATA {
 impl ::std::cmp::Eq for MMC_SORT_SET_DATA {}
 unsafe impl ::windows::runtime::Abi for MMC_SORT_SET_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4156,7 +4125,6 @@ impl ::std::cmp::Eq for MMC_TASK {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MMC_TASK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4186,7 +4154,6 @@ impl ::std::cmp::Eq for MMC_TASK_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MMC_TASK_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4221,7 +4188,6 @@ impl ::std::cmp::Eq for MMC_TASK_DISPLAY_BITMAP {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MMC_TASK_DISPLAY_BITMAP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4250,7 +4216,6 @@ impl ::std::cmp::Eq for MMC_TASK_DISPLAY_OBJECT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MMC_TASK_DISPLAY_OBJECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4279,7 +4244,6 @@ impl ::std::cmp::Eq for MMC_TASK_DISPLAY_OBJECT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MMC_TASK_DISPLAY_OBJECT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4315,7 +4279,6 @@ impl ::std::cmp::Eq for MMC_TASK_DISPLAY_SYMBOL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MMC_TASK_DISPLAY_SYMBOL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4333,7 +4296,6 @@ impl ::std::convert::From<i32> for MMC_TASK_DISPLAY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MMC_TASK_DISPLAY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const MMC_VER: u32 = 512u32;
@@ -4369,7 +4331,6 @@ impl ::std::convert::From<i32> for MMC_VIEW_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MMC_VIEW_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4397,7 +4358,6 @@ impl ::std::cmp::PartialEq for MMC_VISIBLE_COLUMNS {
 impl ::std::cmp::Eq for MMC_VISIBLE_COLUMNS {}
 unsafe impl ::windows::runtime::Abi for MMC_VISIBLE_COLUMNS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const MMC_WINDOW_COOKIE: i32 = -3i32;
@@ -4822,7 +4782,6 @@ impl ::std::cmp::Eq for RDCOMPARE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RDCOMPARE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4858,7 +4817,6 @@ impl ::std::cmp::Eq for RDITEMHDR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RDITEMHDR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const RDI_IMAGE: u32 = 4u32;
@@ -4924,7 +4882,6 @@ impl ::std::cmp::Eq for RESULTDATAITEM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RESULTDATAITEM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4960,7 +4917,6 @@ impl ::std::cmp::Eq for RESULTFINDINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RESULTFINDINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for RESULT_VIEW_TYPE_INFO {
@@ -4996,7 +4952,6 @@ impl ::std::cmp::Eq for RESULT_VIEW_TYPE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RESULT_VIEW_TYPE_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for RESULT_VIEW_TYPE_INFO_0 {
@@ -5031,7 +4986,6 @@ impl ::std::cmp::Eq for RESULT_VIEW_TYPE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RESULT_VIEW_TYPE_INFO_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5066,7 +5020,6 @@ impl ::std::cmp::Eq for RESULT_VIEW_TYPE_INFO_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RESULT_VIEW_TYPE_INFO_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -5094,7 +5047,6 @@ impl ::std::cmp::PartialEq for RESULT_VIEW_TYPE_INFO_0_1 {
 impl ::std::cmp::Eq for RESULT_VIEW_TYPE_INFO_0_1 {}
 unsafe impl ::windows::runtime::Abi for RESULT_VIEW_TYPE_INFO_0_1 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const RFI_PARTIAL: u32 = 1u32;
@@ -5182,7 +5134,6 @@ impl ::std::cmp::Eq for SCOPEDATAITEM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SCOPEDATAITEM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5211,7 +5162,6 @@ impl ::std::cmp::PartialEq for SColumnSetID {
 impl ::std::cmp::Eq for SColumnSetID {}
 unsafe impl ::windows::runtime::Abi for SColumnSetID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const SDI_CHILDREN: u32 = 64u32;
@@ -5260,7 +5210,6 @@ impl ::std::cmp::Eq for SMMCDataObjects {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for SMMCDataObjects {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5288,7 +5237,6 @@ impl ::std::cmp::PartialEq for SMMCObjectTypes {
 impl ::std::cmp::Eq for SMMCObjectTypes {}
 unsafe impl ::windows::runtime::Abi for SMMCObjectTypes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5316,7 +5264,6 @@ impl ::std::cmp::PartialEq for SNodeID {
 impl ::std::cmp::Eq for SNodeID {}
 unsafe impl ::windows::runtime::Abi for SNodeID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5345,7 +5292,6 @@ impl ::std::cmp::PartialEq for SNodeID2 {
 impl ::std::cmp::Eq for SNodeID2 {}
 unsafe impl ::windows::runtime::Abi for SNodeID2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 pub const SPECIAL_COOKIE_MAX: i32 = -1i32;
@@ -6238,7 +6184,6 @@ impl ::std::convert::From<i32> for _ColumnSortOrder {
 }
 unsafe impl ::windows::runtime::Abi for _ColumnSortOrder {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6255,7 +6200,6 @@ impl ::std::convert::From<i32> for _DocumentMode {
 }
 unsafe impl ::windows::runtime::Abi for _DocumentMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 #[repr(transparent)]
@@ -6331,7 +6275,6 @@ impl ::std::convert::From<i32> for _ExportListOptions {
 }
 unsafe impl ::windows::runtime::Abi for _ExportListOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6349,7 +6292,6 @@ impl ::std::convert::From<i32> for _ListViewMode {
 }
 unsafe impl ::windows::runtime::Abi for _ListViewMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mmc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6367,5 +6309,4 @@ impl ::std::convert::From<i32> for _ViewOptions {
 }
 unsafe impl ::windows::runtime::Abi for _ViewOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }

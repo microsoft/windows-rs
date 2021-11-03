@@ -61,7 +61,6 @@ impl ::std::convert::From<u32> for EXIT_WINDOWS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for EXIT_WINDOWS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for EXIT_WINDOWS_FLAGS {
     type Output = Self;
@@ -271,7 +270,6 @@ impl ::std::convert::From<u32> for SHUTDOWN_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for SHUTDOWN_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SHUTDOWN_FLAGS {
     type Output = Self;
@@ -363,7 +361,6 @@ impl ::std::convert::From<u32> for SHUTDOWN_REASON {
 }
 unsafe impl ::windows::runtime::Abi for SHUTDOWN_REASON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SHUTDOWN_REASON {
     type Output = Self;

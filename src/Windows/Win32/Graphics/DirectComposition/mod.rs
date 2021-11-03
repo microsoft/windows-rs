@@ -17,7 +17,6 @@ impl ::std::convert::From<i32> for COMPOSITION_FRAME_ID_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for COMPOSITION_FRAME_ID_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -46,7 +45,6 @@ impl ::std::cmp::PartialEq for COMPOSITION_FRAME_STATS {
 impl ::std::cmp::Eq for COMPOSITION_FRAME_STATS {}
 unsafe impl ::windows::runtime::Abi for COMPOSITION_FRAME_STATS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -76,7 +74,6 @@ impl ::std::cmp::PartialEq for COMPOSITION_STATS {
 impl ::std::cmp::Eq for COMPOSITION_STATS {}
 unsafe impl ::windows::runtime::Abi for COMPOSITION_STATS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 pub const COMPOSITION_STATS_MAX_TARGETS: u32 = 256u32;
@@ -116,7 +113,6 @@ impl ::std::cmp::Eq for COMPOSITION_TARGET_ID {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for COMPOSITION_TARGET_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -147,7 +143,6 @@ impl ::std::cmp::PartialEq for COMPOSITION_TARGET_STATS {
 impl ::std::cmp::Eq for COMPOSITION_TARGET_STATS {}
 unsafe impl ::windows::runtime::Abi for COMPOSITION_TARGET_STATS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -163,7 +158,6 @@ impl ::std::convert::From<i32> for DCOMPOSITION_BACKFACE_VISIBILITY {
 }
 unsafe impl ::windows::runtime::Abi for DCOMPOSITION_BACKFACE_VISIBILITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -179,7 +173,6 @@ impl ::std::convert::From<i32> for DCOMPOSITION_BITMAP_INTERPOLATION_MODE {
 }
 unsafe impl ::windows::runtime::Abi for DCOMPOSITION_BITMAP_INTERPOLATION_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -195,7 +188,6 @@ impl ::std::convert::From<i32> for DCOMPOSITION_BORDER_MODE {
 }
 unsafe impl ::windows::runtime::Abi for DCOMPOSITION_BORDER_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -212,7 +204,6 @@ impl ::std::convert::From<i32> for DCOMPOSITION_COMPOSITE_MODE {
 }
 unsafe impl ::windows::runtime::Abi for DCOMPOSITION_COMPOSITE_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -229,7 +220,6 @@ impl ::std::convert::From<i32> for DCOMPOSITION_DEPTH_MODE {
 }
 unsafe impl ::windows::runtime::Abi for DCOMPOSITION_DEPTH_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -273,7 +263,6 @@ impl ::std::cmp::Eq for DCOMPOSITION_FRAME_STATISTICS {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for DCOMPOSITION_FRAME_STATISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`*"]
 pub const DCOMPOSITION_MAX_WAITFORCOMPOSITORCLOCK_OBJECTS: u32 = 32u32;
@@ -291,7 +280,6 @@ impl ::std::convert::From<i32> for DCOMPOSITION_OPACITY_MODE {
 }
 unsafe impl ::windows::runtime::Abi for DCOMPOSITION_OPACITY_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Foundation`*"]
@@ -470,7 +458,6 @@ impl ::std::cmp::PartialEq for DCompositionInkTrailPoint {
 impl ::std::cmp::Eq for DCompositionInkTrailPoint {}
 unsafe impl ::windows::runtime::Abi for DCompositionInkTrailPoint {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_DirectComposition`, `Win32_Foundation`*"]

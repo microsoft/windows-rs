@@ -16,10 +16,12 @@ impl ::std::convert::From<i32> for ExtendedExecutionForegroundReason {
 }
 unsafe impl ::windows::runtime::Abi for ExtendedExecutionForegroundReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ExtendedExecutionForegroundReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundReason;i4)");
+}
+impl ::windows::runtime::DefaultType for ExtendedExecutionForegroundReason {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ExtendedExecution_Foreground`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -36,10 +38,12 @@ impl ::std::convert::From<i32> for ExtendedExecutionForegroundResult {
 }
 unsafe impl ::windows::runtime::Abi for ExtendedExecutionForegroundResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ExtendedExecutionForegroundResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundResult;i4)");
+}
+impl ::windows::runtime::DefaultType for ExtendedExecutionForegroundResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ExtendedExecution_Foreground`*"]
 #[repr(transparent)]
@@ -82,10 +86,12 @@ impl ::std::convert::From<i32> for ExtendedExecutionForegroundRevokedReason {
 }
 unsafe impl ::windows::runtime::Abi for ExtendedExecutionForegroundRevokedReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ExtendedExecutionForegroundRevokedReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundRevokedReason;i4)");
+}
+impl ::windows::runtime::DefaultType for ExtendedExecutionForegroundRevokedReason {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ExtendedExecution_Foreground`*"]
 #[repr(transparent)]
@@ -195,7 +201,6 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IClo
 unsafe impl ::std::marker::Send for ExtendedExecutionForegroundSession {}
 unsafe impl ::std::marker::Sync for ExtendedExecutionForegroundSession {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IExtendedExecutionForegroundRevokedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExtendedExecutionForegroundRevokedEventArgs {
@@ -214,7 +219,6 @@ pub struct IExtendedExecutionForegroundRevokedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ExtendedExecutionForegroundRevokedReason) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IExtendedExecutionForegroundSession(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExtendedExecutionForegroundSession {

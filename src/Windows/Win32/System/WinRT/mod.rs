@@ -16,7 +16,6 @@ impl ::std::convert::From<i32> for ACTIVATIONTYPE {
 }
 unsafe impl ::windows::runtime::Abi for ACTIVATIONTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -29,7 +28,6 @@ impl ::std::default::Default for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
 unsafe impl ::windows::runtime::Handle for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {}
 unsafe impl ::windows::runtime::Abi for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WinRT`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -44,7 +42,6 @@ impl ::std::convert::From<i32> for AgileReferenceOptions {
 }
 unsafe impl ::windows::runtime::Abi for AgileReferenceOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WinRT`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -59,7 +56,6 @@ impl ::std::convert::From<i32> for BSOS_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for BSOS_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WinRT`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -79,7 +75,6 @@ impl ::std::convert::From<i32> for CASTING_CONNECTION_ERROR_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for CASTING_CONNECTION_ERROR_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WinRT`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -97,7 +92,6 @@ impl ::std::convert::From<i32> for CASTING_CONNECTION_STATE {
 }
 unsafe impl ::windows::runtime::Abi for CASTING_CONNECTION_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const CLSID_AudioFrameNativeFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(379626425, 40805, 16642, [147, 103, 44, 218, 58, 79, 55, 42]);
 pub const CLSID_SoftwareBitmapNativeFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2229687953, 34306, 19076, [190, 70, 112, 139, 233, 205, 75, 116]);
@@ -185,7 +179,6 @@ impl ::std::convert::From<i32> for CreateProcessMethod {
 }
 unsafe impl ::windows::runtime::Abi for CreateProcessMethod {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
@@ -248,7 +241,6 @@ impl ::std::convert::From<i32> for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
 }
 unsafe impl ::windows::runtime::Abi for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WinRT`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -263,7 +255,6 @@ impl ::std::convert::From<i32> for DISPATCHERQUEUE_THREAD_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DISPATCHERQUEUE_THREAD_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -292,7 +283,6 @@ impl ::std::cmp::PartialEq for DispatcherQueueOptions {
 impl ::std::cmp::Eq for DispatcherQueueOptions {}
 unsafe impl ::windows::runtime::Abi for DispatcherQueueOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WinRT`*"]
 pub const E_SURFACE_CONTENTS_LOST: u32 = 2150301728u32;
@@ -321,7 +311,6 @@ impl ::std::cmp::PartialEq for EventRegistrationToken {
 impl ::std::cmp::Eq for EventRegistrationToken {}
 unsafe impl ::windows::runtime::Abi for EventRegistrationToken {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WinRT`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -345,7 +334,6 @@ impl ::std::convert::From<i32> for GRAPHICS_EFFECT_PROPERTY_MAPPING {
 }
 unsafe impl ::windows::runtime::Abi for GRAPHICS_EFFECT_PROPERTY_MAPPING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
@@ -378,7 +366,6 @@ impl ::std::convert::From<u32> for HANDLE_ACCESS_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for HANDLE_ACCESS_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for HANDLE_ACCESS_OPTIONS {
     type Output = Self;
@@ -424,7 +411,6 @@ impl ::std::convert::From<i32> for HANDLE_CREATION_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for HANDLE_CREATION_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WinRT`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -445,7 +431,6 @@ impl ::std::convert::From<u32> for HANDLE_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for HANDLE_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for HANDLE_OPTIONS {
     type Output = Self;
@@ -490,7 +475,6 @@ impl ::std::convert::From<u32> for HANDLE_SHARING_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for HANDLE_SHARING_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for HANDLE_SHARING_OPTIONS {
     type Output = Self;
@@ -531,7 +515,6 @@ impl ::std::default::Default for HSTRING_BUFFER {
 unsafe impl ::windows::runtime::Handle for HSTRING_BUFFER {}
 unsafe impl ::windows::runtime::Abi for HSTRING_BUFFER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -559,7 +542,6 @@ impl ::std::cmp::Eq for HSTRING_HEADER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HSTRING_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -588,7 +570,6 @@ impl ::std::cmp::Eq for HSTRING_HEADER_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HSTRING_HEADER_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
@@ -4274,7 +4255,6 @@ impl ::std::cmp::Eq for PDF_RENDER_PARAMS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D"))]
 unsafe impl ::windows::runtime::Abi for PDF_RENDER_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 pub type PFN_PDF_CREATE_RENDERER = unsafe extern "system" fn(param0: ::windows::runtime::RawPtr, param1: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
@@ -4308,7 +4288,6 @@ impl ::std::default::Default for ROPARAMIIDHANDLE {
 unsafe impl ::windows::runtime::Handle for ROPARAMIIDHANDLE {}
 unsafe impl ::windows::runtime::Abi for ROPARAMIIDHANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WinRT`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4326,7 +4305,6 @@ impl ::std::convert::From<u32> for RO_ERROR_REPORTING_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for RO_ERROR_REPORTING_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for RO_ERROR_REPORTING_FLAGS {
     type Output = Self;
@@ -4369,7 +4347,6 @@ impl ::std::convert::From<i32> for RO_INIT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RO_INIT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
@@ -4851,7 +4828,6 @@ impl ::std::cmp::PartialEq for ServerInformation {
 impl ::std::cmp::Eq for ServerInformation {}
 unsafe impl ::windows::runtime::Abi for ServerInformation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
@@ -4892,7 +4868,6 @@ impl ::std::cmp::PartialEq for TrackerHandle__ {
 impl ::std::cmp::Eq for TrackerHandle__ {}
 unsafe impl ::windows::runtime::Abi for TrackerHandle__ {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WinRT`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4908,7 +4883,6 @@ impl ::std::convert::From<i32> for TrustLevel {
 }
 unsafe impl ::windows::runtime::Abi for TrustLevel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_WinRT`*"]
 #[inline]
@@ -5219,7 +5193,6 @@ impl ::std::convert::From<i32> for XAML_REFERENCETRACKER_DISCONNECT {
 }
 unsafe impl ::windows::runtime::Abi for XAML_REFERENCETRACKER_DISCONNECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]

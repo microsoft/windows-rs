@@ -16,10 +16,12 @@ impl ::std::convert::From<i32> for HdmiDisplayColorSpace {
 }
 unsafe impl ::windows::runtime::Abi for HdmiDisplayColorSpace {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for HdmiDisplayColorSpace {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayColorSpace;i4)");
+}
+impl ::windows::runtime::DefaultType for HdmiDisplayColorSpace {
+    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -81,10 +83,12 @@ impl ::std::cmp::PartialEq for HdmiDisplayHdr2086Metadata {
 impl ::std::cmp::Eq for HdmiDisplayHdr2086Metadata {}
 unsafe impl ::windows::runtime::Abi for HdmiDisplayHdr2086Metadata {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for HdmiDisplayHdr2086Metadata {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Graphics.Display.Core.HdmiDisplayHdr2086Metadata;u2;u2;u2;u2;u2;u2;u2;u2;u2;u2;u2;u2)");
+}
+impl ::windows::runtime::DefaultType for HdmiDisplayHdr2086Metadata {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Display_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -103,10 +107,12 @@ impl ::std::convert::From<i32> for HdmiDisplayHdrOption {
 }
 unsafe impl ::windows::runtime::Abi for HdmiDisplayHdrOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for HdmiDisplayHdrOption {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayHdrOption;i4)");
+}
+impl ::windows::runtime::DefaultType for HdmiDisplayHdrOption {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Display_Core`*"]
 #[repr(transparent)]
@@ -336,13 +342,14 @@ impl ::std::convert::From<i32> for HdmiDisplayPixelEncoding {
 }
 unsafe impl ::windows::runtime::Abi for HdmiDisplayPixelEncoding {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for HdmiDisplayPixelEncoding {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayPixelEncoding;i4)");
 }
+impl ::windows::runtime::DefaultType for HdmiDisplayPixelEncoding {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHdmiDisplayInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHdmiDisplayInformation {
@@ -375,7 +382,6 @@ pub struct IHdmiDisplayInformation_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHdmiDisplayInformationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHdmiDisplayInformationStatics {
@@ -394,7 +400,6 @@ pub struct IHdmiDisplayInformationStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHdmiDisplayMode(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHdmiDisplayMode {
@@ -423,7 +428,6 @@ pub struct IHdmiDisplayMode_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHdmiDisplayMode2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHdmiDisplayMode2 {

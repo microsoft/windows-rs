@@ -2797,7 +2797,6 @@ impl ::std::cmp::Eq for WSMAN_AUTHENTICATION_CREDENTIALS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_AUTHENTICATION_CREDENTIALS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2826,7 +2825,6 @@ impl ::std::cmp::Eq for WSMAN_AUTHENTICATION_CREDENTIALS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_AUTHENTICATION_CREDENTIALS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2861,7 +2859,6 @@ impl ::std::cmp::PartialEq for WSMAN_AUTHZ_QUOTA {
 impl ::std::cmp::Eq for WSMAN_AUTHZ_QUOTA {}
 unsafe impl ::windows::runtime::Abi for WSMAN_AUTHZ_QUOTA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2898,7 +2895,6 @@ impl ::std::cmp::Eq for WSMAN_CERTIFICATE_DETAILS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_CERTIFICATE_DETAILS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -2936,7 +2932,6 @@ impl ::std::cmp::Eq for WSMAN_COMMAND_ARG_SET {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_COMMAND_ARG_SET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2964,7 +2959,6 @@ impl ::std::cmp::Eq for WSMAN_CONNECT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_CONNECT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2992,7 +2986,6 @@ impl ::std::cmp::Eq for WSMAN_CREATE_SHELL_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_CREATE_SHELL_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3021,7 +3014,6 @@ impl ::std::cmp::Eq for WSMAN_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3051,7 +3043,6 @@ impl ::std::cmp::Eq for WSMAN_DATA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_DATA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3079,7 +3070,6 @@ impl ::std::cmp::PartialEq for WSMAN_DATA_BINARY {
 impl ::std::cmp::Eq for WSMAN_DATA_BINARY {}
 unsafe impl ::windows::runtime::Abi for WSMAN_DATA_BINARY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3114,7 +3104,6 @@ impl ::std::cmp::Eq for WSMAN_DATA_TEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_DATA_TEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 pub const WSMAN_DEFAULT_TIMEOUT_MS: u32 = 60000u32;
@@ -3151,7 +3140,6 @@ impl ::std::cmp::Eq for WSMAN_ENVIRONMENT_VARIABLE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_ENVIRONMENT_VARIABLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3186,7 +3174,6 @@ impl ::std::cmp::Eq for WSMAN_ENVIRONMENT_VARIABLE_SET {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_ENVIRONMENT_VARIABLE_SET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3224,7 +3211,6 @@ impl ::std::cmp::Eq for WSMAN_ERROR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_ERROR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3259,7 +3245,6 @@ impl ::std::cmp::Eq for WSMAN_FILTER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_FILTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 pub const WSMAN_FLAG_RECEIVE_FLUSH: u32 = 2u32;
@@ -3306,7 +3291,6 @@ impl ::std::cmp::Eq for WSMAN_FRAGMENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_FRAGMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3341,7 +3325,6 @@ impl ::std::cmp::Eq for WSMAN_KEY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_KEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -3383,7 +3366,6 @@ impl ::std::cmp::Eq for WSMAN_OPERATION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_OPERATION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3423,7 +3405,6 @@ impl ::std::cmp::Eq for WSMAN_OPERATION_INFOEX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_OPERATION_INFOEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 pub const WSMAN_OPERATION_INFOV1: u32 = 0u32;
@@ -3463,7 +3444,6 @@ impl ::std::cmp::Eq for WSMAN_OPTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_OPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3499,7 +3479,6 @@ impl ::std::cmp::Eq for WSMAN_OPTION_SET {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_OPTION_SET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3536,7 +3515,6 @@ impl ::std::cmp::Eq for WSMAN_OPTION_SETEX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_OPTION_SETEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type WSMAN_PLUGIN_AUTHORIZE_OPERATION = unsafe extern "system" fn(plugincontext: *const ::std::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, operation: u32, action: super::super::Foundation::PWSTR, resourceuri: super::super::Foundation::PWSTR);
@@ -3621,7 +3599,6 @@ impl ::std::cmp::Eq for WSMAN_PLUGIN_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_PLUGIN_REQUEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type WSMAN_PLUGIN_SEND = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::std::ffi::c_void, commandcontext: *const ::std::ffi::c_void, stream: super::super::Foundation::PWSTR, inbounddata: *const WSMAN_DATA);
@@ -3673,7 +3650,6 @@ impl ::std::cmp::Eq for WSMAN_PROXY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_PROXY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3704,7 +3680,6 @@ impl ::std::cmp::Eq for WSMAN_RECEIVE_DATA_RESULT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_RECEIVE_DATA_RESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3734,7 +3709,6 @@ impl ::std::cmp::Eq for WSMAN_RESPONSE_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_RESPONSE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3769,7 +3743,6 @@ impl ::std::cmp::Eq for WSMAN_SELECTOR_SET {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_SELECTOR_SET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3807,7 +3780,6 @@ impl ::std::cmp::Eq for WSMAN_SENDER_DETAILS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_SENDER_DETAILS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -3848,7 +3820,6 @@ impl ::std::cmp::Eq for WSMAN_SHELL_ASYNC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_SHELL_ASYNC {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type WSMAN_SHELL_COMPLETION_FUNCTION = unsafe extern "system" fn(operationcontext: *const ::std::ffi::c_void, flags: u32, error: *const WSMAN_ERROR, shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, operationhandle: *const WSMAN_OPERATION, data: *const WSMAN_RESPONSE_DATA);
@@ -3877,7 +3848,6 @@ impl ::std::cmp::PartialEq for WSMAN_SHELL_DISCONNECT_INFO {
 impl ::std::cmp::Eq for WSMAN_SHELL_DISCONNECT_INFO {}
 unsafe impl ::windows::runtime::Abi for WSMAN_SHELL_DISCONNECT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3915,7 +3885,6 @@ impl ::std::cmp::Eq for WSMAN_SHELL_STARTUP_INFO_V10 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_SHELL_STARTUP_INFO_V10 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3950,7 +3919,6 @@ impl ::std::cmp::Eq for WSMAN_SHELL_STARTUP_INFO_V11 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_SHELL_STARTUP_INFO_V11 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3985,7 +3953,6 @@ impl ::std::cmp::Eq for WSMAN_STREAM_ID_SET {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_STREAM_ID_SET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4020,7 +3987,6 @@ impl ::std::cmp::Eq for WSMAN_USERNAME_PASSWORD_CREDS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSMAN_USERNAME_PASSWORD_CREDS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WSMan: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3169673595, 60419, 16907, [133, 8, 151, 125, 199, 166, 134, 189]);
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
@@ -4042,7 +4008,6 @@ impl ::std::convert::From<i32> for WSManAuthenticationFlags {
 }
 unsafe impl ::windows::runtime::Abi for WSManAuthenticationFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4065,7 +4030,6 @@ impl ::std::convert::From<i32> for WSManCallbackFlags {
 }
 unsafe impl ::windows::runtime::Abi for WSManCallbackFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -4225,7 +4189,6 @@ impl ::std::convert::From<i32> for WSManDataType {
 }
 unsafe impl ::windows::runtime::Abi for WSManDataType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[inline]
@@ -4276,7 +4239,6 @@ impl ::std::convert::From<i32> for WSManEnumFlags {
 }
 unsafe impl ::windows::runtime::Abi for WSManEnumFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -4509,7 +4471,6 @@ impl ::std::convert::From<i32> for WSManProxyAccessType {
 }
 unsafe impl ::windows::runtime::Abi for WSManProxyAccessType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4526,7 +4487,6 @@ impl ::std::convert::From<i32> for WSManProxyAccessTypeFlags {
 }
 unsafe impl ::windows::runtime::Abi for WSManProxyAccessTypeFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4542,7 +4502,6 @@ impl ::std::convert::From<i32> for WSManProxyAuthenticationFlags {
 }
 unsafe impl ::windows::runtime::Abi for WSManProxyAuthenticationFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -4662,7 +4621,6 @@ impl ::std::convert::From<i32> for WSManSessionFlags {
 }
 unsafe impl ::windows::runtime::Abi for WSManSessionFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4698,7 +4656,6 @@ impl ::std::convert::From<i32> for WSManSessionOption {
 }
 unsafe impl ::windows::runtime::Abi for WSManSessionOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -4731,7 +4688,6 @@ impl ::std::convert::From<i32> for WSManShellFlag {
 }
 unsafe impl ::windows::runtime::Abi for WSManShellFlag {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]

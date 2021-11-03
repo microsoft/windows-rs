@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInstalledVoicesStatic(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInstalledVoicesStatic {
@@ -21,7 +20,6 @@ pub struct IInstalledVoicesStatic_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInstalledVoicesStatic2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInstalledVoicesStatic2 {
@@ -41,7 +39,6 @@ pub struct IInstalledVoicesStatic2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechSynthesisStream(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechSynthesisStream {
@@ -61,7 +58,6 @@ pub struct ISpeechSynthesisStream_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechSynthesizer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechSynthesizer {
@@ -85,7 +81,6 @@ pub struct ISpeechSynthesizer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechSynthesizer2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechSynthesizer2 {
@@ -104,7 +99,6 @@ pub struct ISpeechSynthesizer2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechSynthesizerOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechSynthesizerOptions {
@@ -126,7 +120,6 @@ pub struct ISpeechSynthesizerOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechSynthesizerOptions2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechSynthesizerOptions2 {
@@ -150,7 +143,6 @@ pub struct ISpeechSynthesizerOptions2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechSynthesizerOptions3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechSynthesizerOptions3 {
@@ -172,7 +164,6 @@ pub struct ISpeechSynthesizerOptions3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: SpeechPunctuationSilence) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVoiceInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceInformation {
@@ -209,10 +200,12 @@ impl ::std::convert::From<i32> for SpeechAppendedSilence {
 }
 unsafe impl ::windows::runtime::Abi for SpeechAppendedSilence {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SpeechAppendedSilence {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechAppendedSilence;i4)");
+}
+impl ::windows::runtime::DefaultType for SpeechAppendedSilence {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_SpeechSynthesis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -229,10 +222,12 @@ impl ::std::convert::From<i32> for SpeechPunctuationSilence {
 }
 unsafe impl ::windows::runtime::Abi for SpeechPunctuationSilence {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SpeechPunctuationSilence {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechPunctuationSilence;i4)");
+}
+impl ::windows::runtime::DefaultType for SpeechPunctuationSilence {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_SpeechSynthesis`*"]
 #[repr(transparent)]
@@ -820,10 +815,12 @@ impl ::std::convert::From<i32> for VoiceGender {
 }
 unsafe impl ::windows::runtime::Abi for VoiceGender {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VoiceGender {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.VoiceGender;i4)");
+}
+impl ::windows::runtime::DefaultType for VoiceGender {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_SpeechSynthesis`*"]
 #[repr(transparent)]

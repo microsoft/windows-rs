@@ -25,7 +25,6 @@ impl ::std::cmp::PartialEq for BSSID_INFO {
 impl ::std::cmp::Eq for BSSID_INFO {}
 unsafe impl ::windows::runtime::Abi for BSSID_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const CLOCK_NETWORK_DERIVED: u32 = 2u32;
@@ -147,7 +146,6 @@ impl ::std::cmp::Eq for DOT11EXT_APIS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 unsafe impl ::windows::runtime::Abi for DOT11EXT_APIS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 pub type DOT11EXT_FREE_BUFFER = unsafe extern "system" fn(pvmemory: *const ::std::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
@@ -166,7 +164,6 @@ impl ::std::convert::From<i32> for DOT11EXT_IHV_CONNECTION_PHASE {
 }
 unsafe impl ::windows::runtime::Abi for DOT11EXT_IHV_CONNECTION_PHASE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -200,7 +197,6 @@ impl ::std::cmp::Eq for DOT11EXT_IHV_CONNECTIVITY_PROFILE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11EXT_IHV_CONNECTIVITY_PROFILE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -235,7 +231,6 @@ impl ::std::cmp::Eq for DOT11EXT_IHV_DISCOVERY_PROFILE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11EXT_IHV_DISCOVERY_PROFILE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -270,7 +265,6 @@ impl ::std::cmp::Eq for DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -340,7 +334,6 @@ impl ::std::cmp::Eq for DOT11EXT_IHV_HANDLERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
 unsafe impl ::windows::runtime::Abi for DOT11EXT_IHV_HANDLERS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -358,7 +351,6 @@ impl ::std::convert::From<i32> for DOT11EXT_IHV_INDICATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DOT11EXT_IHV_INDICATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -395,7 +387,6 @@ impl ::std::cmp::Eq for DOT11EXT_IHV_PARAMS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 unsafe impl ::windows::runtime::Abi for DOT11EXT_IHV_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -431,7 +422,6 @@ impl ::std::cmp::Eq for DOT11EXT_IHV_PROFILE_PARAMS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 unsafe impl ::windows::runtime::Abi for DOT11EXT_IHV_PROFILE_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -466,7 +456,6 @@ impl ::std::cmp::Eq for DOT11EXT_IHV_SECURITY_PROFILE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11EXT_IHV_SECURITY_PROFILE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -501,7 +490,6 @@ impl ::std::cmp::Eq for DOT11EXT_IHV_SSID_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_WiFi")]
 unsafe impl ::windows::runtime::Abi for DOT11EXT_IHV_SSID_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -532,7 +520,6 @@ impl ::std::cmp::PartialEq for DOT11EXT_IHV_UI_REQUEST {
 impl ::std::cmp::Eq for DOT11EXT_IHV_UI_REQUEST {}
 unsafe impl ::windows::runtime::Abi for DOT11EXT_IHV_UI_REQUEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_NIC_SPECIFIC_EXTENSION = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwinbuffersize: u32, pvinbuffer: *const ::std::ffi::c_void, pdwoutbuffersize: *mut u32, pvoutbuffer: *mut ::std::ffi::c_void) -> u32;
@@ -620,7 +607,6 @@ impl ::std::cmp::Eq for DOT11EXT_VIRTUAL_STATION_APIS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 unsafe impl ::windows::runtime::Abi for DOT11EXT_VIRTUAL_STATION_APIS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -666,7 +652,6 @@ impl ::std::cmp::Eq for DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 unsafe impl ::windows::runtime::Abi for DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -702,7 +687,6 @@ impl ::std::cmp::Eq for DOT11_ADAPTER {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 unsafe impl ::windows::runtime::Abi for DOT11_ADAPTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -730,7 +714,6 @@ impl ::std::cmp::PartialEq for DOT11_BSS_LIST {
 impl ::std::cmp::Eq for DOT11_BSS_LIST {}
 unsafe impl ::windows::runtime::Abi for DOT11_BSS_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -765,7 +748,6 @@ impl ::std::cmp::Eq for DOT11_EAP_RESULT {}
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 unsafe impl ::windows::runtime::Abi for DOT11_EAP_RESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -793,7 +775,6 @@ impl ::std::cmp::PartialEq for DOT11_IHV_VERSION_INFO {
 impl ::std::cmp::Eq for DOT11_IHV_VERSION_INFO {}
 unsafe impl ::windows::runtime::Abi for DOT11_IHV_VERSION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -809,7 +790,6 @@ impl ::std::convert::From<i32> for DOT11_MSONEX_RESULT {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_MSONEX_RESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -857,7 +837,6 @@ impl ::std::cmp::Eq for DOT11_MSONEX_RESULT_PARAMS {}
 #[cfg(all(feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 unsafe impl ::windows::runtime::Abi for DOT11_MSONEX_RESULT_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -903,7 +882,6 @@ impl ::std::cmp::Eq for DOT11_MSSECURITY_SETTINGS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 unsafe impl ::windows::runtime::Abi for DOT11_MSSECURITY_SETTINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -940,7 +918,6 @@ impl ::std::cmp::Eq for DOT11_PORT_STATE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_PORT_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const DOT11_RSN_KCK_LENGTH: u32 = 16u32;
@@ -970,7 +947,6 @@ impl ::std::cmp::PartialEq for DOT11_SECURITY_PACKET_HEADER {
 impl ::std::cmp::Eq for DOT11_SECURITY_PACKET_HEADER {}
 unsafe impl ::windows::runtime::Abi for DOT11_SECURITY_PACKET_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const EAPOL_REQUEST_ID_WOL_FLAG_MUST_ENCRYPT: u32 = 1u32;
@@ -1001,7 +977,6 @@ impl ::std::cmp::PartialEq for GEN_GET_NETCARD_TIME {
 impl ::std::cmp::Eq for GEN_GET_NETCARD_TIME {}
 unsafe impl ::windows::runtime::Abi for GEN_GET_NETCARD_TIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1029,7 +1004,6 @@ impl ::std::cmp::PartialEq for GEN_GET_TIME_CAPS {
 impl ::std::cmp::Eq for GEN_GET_TIME_CAPS {}
 unsafe impl ::windows::runtime::Abi for GEN_GET_TIME_CAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const GUID_DEVINTERFACE_NET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3402138756, 29973, 19459, [130, 230, 113, 168, 122, 186, 195, 97]);
 pub const GUID_DEVINTERFACE_NETUIO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(137588576, 1657, 19564, [133, 210, 174, 124, 237, 101, 255, 247]);
@@ -1294,7 +1268,6 @@ impl ::std::cmp::PartialEq for NDIS_802_11_AI_REQFI {
 impl ::std::cmp::Eq for NDIS_802_11_AI_REQFI {}
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_AI_REQFI {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_802_11_AI_REQFI_CAPABILITIES: u32 = 1u32;
@@ -1329,7 +1302,6 @@ impl ::std::cmp::PartialEq for NDIS_802_11_AI_RESFI {
 impl ::std::cmp::Eq for NDIS_802_11_AI_RESFI {}
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_AI_RESFI {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_802_11_AI_RESFI_ASSOCIATIONID: u32 = 4u32;
@@ -1380,7 +1352,6 @@ impl ::std::cmp::PartialEq for NDIS_802_11_ASSOCIATION_INFORMATION {
 impl ::std::cmp::Eq for NDIS_802_11_ASSOCIATION_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_ASSOCIATION_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1408,7 +1379,6 @@ impl ::std::cmp::PartialEq for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
 impl ::std::cmp::Eq for NDIS_802_11_AUTHENTICATION_ENCRYPTION {}
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1436,7 +1406,6 @@ impl ::std::cmp::PartialEq for NDIS_802_11_AUTHENTICATION_EVENT {
 impl ::std::cmp::Eq for NDIS_802_11_AUTHENTICATION_EVENT {}
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_AUTHENTICATION_EVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1462,7 +1431,6 @@ impl ::std::convert::From<i32> for NDIS_802_11_AUTHENTICATION_MODE {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_AUTHENTICATION_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1491,7 +1459,6 @@ impl ::std::cmp::PartialEq for NDIS_802_11_AUTHENTICATION_REQUEST {
 impl ::std::cmp::Eq for NDIS_802_11_AUTHENTICATION_REQUEST {}
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_AUTHENTICATION_REQUEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_802_11_AUTH_REQUEST_AUTH_FIELDS: u32 = 15u32;
@@ -1529,7 +1496,6 @@ impl ::std::cmp::PartialEq for NDIS_802_11_BSSID_LIST {
 impl ::std::cmp::Eq for NDIS_802_11_BSSID_LIST {}
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_BSSID_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1557,7 +1523,6 @@ impl ::std::cmp::PartialEq for NDIS_802_11_BSSID_LIST_EX {
 impl ::std::cmp::Eq for NDIS_802_11_BSSID_LIST_EX {}
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_BSSID_LIST_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1594,7 +1559,6 @@ impl ::std::cmp::PartialEq for NDIS_802_11_CAPABILITY {
 impl ::std::cmp::Eq for NDIS_802_11_CAPABILITY {}
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_CAPABILITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1625,7 +1589,6 @@ impl ::std::cmp::PartialEq for NDIS_802_11_CONFIGURATION {
 impl ::std::cmp::Eq for NDIS_802_11_CONFIGURATION {}
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_CONFIGURATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1655,7 +1618,6 @@ impl ::std::cmp::PartialEq for NDIS_802_11_CONFIGURATION_FH {
 impl ::std::cmp::Eq for NDIS_802_11_CONFIGURATION_FH {}
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_CONFIGURATION_FH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1684,7 +1646,6 @@ impl ::std::cmp::PartialEq for NDIS_802_11_FIXED_IEs {
 impl ::std::cmp::Eq for NDIS_802_11_FIXED_IEs {}
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_FIXED_IEs {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1716,7 +1677,6 @@ impl ::std::cmp::PartialEq for NDIS_802_11_KEY {
 impl ::std::cmp::Eq for NDIS_802_11_KEY {}
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_KEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_802_11_LENGTH_RATES: u32 = 8u32;
@@ -1737,7 +1697,6 @@ impl ::std::convert::From<i32> for NDIS_802_11_MEDIA_STREAM_MODE {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_MEDIA_STREAM_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1754,7 +1713,6 @@ impl ::std::convert::From<i32> for NDIS_802_11_NETWORK_INFRASTRUCTURE {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_NETWORK_INFRASTRUCTURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1773,7 +1731,6 @@ impl ::std::convert::From<i32> for NDIS_802_11_NETWORK_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_NETWORK_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1801,7 +1758,6 @@ impl ::std::cmp::PartialEq for NDIS_802_11_NETWORK_TYPE_LIST {
 impl ::std::cmp::Eq for NDIS_802_11_NETWORK_TYPE_LIST {}
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_NETWORK_TYPE_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1829,7 +1785,6 @@ impl ::std::cmp::PartialEq for NDIS_802_11_NON_BCAST_SSID_LIST {
 impl ::std::cmp::Eq for NDIS_802_11_NON_BCAST_SSID_LIST {}
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_NON_BCAST_SSID_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1858,7 +1813,6 @@ impl ::std::cmp::PartialEq for NDIS_802_11_PMKID {
 impl ::std::cmp::Eq for NDIS_802_11_PMKID {}
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_PMKID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1887,7 +1841,6 @@ impl ::std::cmp::PartialEq for NDIS_802_11_PMKID_CANDIDATE_LIST {
 impl ::std::cmp::Eq for NDIS_802_11_PMKID_CANDIDATE_LIST {}
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_PMKID_CANDIDATE_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_802_11_PMKID_CANDIDATE_PREAUTH_ENABLED: u32 = 1u32;
@@ -1906,7 +1859,6 @@ impl ::std::convert::From<i32> for NDIS_802_11_POWER_MODE {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_POWER_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1921,7 +1873,6 @@ impl ::std::convert::From<i32> for NDIS_802_11_PRIVACY_FILTER {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_PRIVACY_FILTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1939,7 +1890,6 @@ impl ::std::convert::From<i32> for NDIS_802_11_RADIO_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_RADIO_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1953,7 +1903,6 @@ impl ::std::convert::From<i32> for NDIS_802_11_RELOAD_DEFAULTS {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_RELOAD_DEFAULTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1982,7 +1931,6 @@ impl ::std::cmp::PartialEq for NDIS_802_11_REMOVE_KEY {
 impl ::std::cmp::Eq for NDIS_802_11_REMOVE_KEY {}
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_REMOVE_KEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2010,7 +1958,6 @@ impl ::std::cmp::PartialEq for NDIS_802_11_SSID {
 impl ::std::cmp::Eq for NDIS_802_11_SSID {}
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_SSID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2111,7 +2058,6 @@ impl ::std::cmp::PartialEq for NDIS_802_11_STATISTICS {
 impl ::std::cmp::Eq for NDIS_802_11_STATISTICS {}
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_STATISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2138,7 +2084,6 @@ impl ::std::cmp::PartialEq for NDIS_802_11_STATUS_INDICATION {
 impl ::std::cmp::Eq for NDIS_802_11_STATUS_INDICATION {}
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_STATUS_INDICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2155,7 +2100,6 @@ impl ::std::convert::From<i32> for NDIS_802_11_STATUS_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_STATUS_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2179,7 +2123,6 @@ impl ::std::cmp::PartialEq for NDIS_802_11_TEST {
 impl ::std::cmp::Eq for NDIS_802_11_TEST {}
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_TEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2202,7 +2145,6 @@ impl ::std::cmp::PartialEq for NDIS_802_11_TEST_0 {
 impl ::std::cmp::Eq for NDIS_802_11_TEST_0 {}
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_TEST_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2231,7 +2173,6 @@ impl ::std::cmp::PartialEq for NDIS_802_11_VARIABLE_IEs {
 impl ::std::cmp::Eq for NDIS_802_11_VARIABLE_IEs {}
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_VARIABLE_IEs {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2261,7 +2202,6 @@ impl ::std::cmp::PartialEq for NDIS_802_11_WEP {
 impl ::std::cmp::Eq for NDIS_802_11_WEP {}
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_WEP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2286,7 +2226,6 @@ impl ::std::convert::From<i32> for NDIS_802_11_WEP_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_802_11_WEP_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_802_3_MAC_OPTION_PRIORITY: u32 = 1u32;
@@ -2307,7 +2246,6 @@ impl ::std::convert::From<i32> for NDIS_802_5_RING_STATE {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_802_5_RING_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2417,7 +2355,6 @@ impl ::std::cmp::PartialEq for NDIS_CO_DEVICE_PROFILE {
 impl ::std::cmp::Eq for NDIS_CO_DEVICE_PROFILE {}
 unsafe impl ::windows::runtime::Abi for NDIS_CO_DEVICE_PROFILE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2445,7 +2382,6 @@ impl ::std::cmp::PartialEq for NDIS_CO_LINK_SPEED {
 impl ::std::cmp::Eq for NDIS_CO_LINK_SPEED {}
 unsafe impl ::windows::runtime::Abi for NDIS_CO_LINK_SPEED {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_CO_MAC_OPTION_DYNAMIC_LINK_SPEED: u32 = 1u32;
@@ -2476,7 +2412,6 @@ impl ::std::convert::From<i32> for NDIS_DEVICE_POWER_STATE {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_DEVICE_POWER_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_DEVICE_TYPE_ENDPOINT: u32 = 1u32;
@@ -2548,7 +2483,6 @@ impl ::std::convert::From<i32> for NDIS_FDDI_ATTACHMENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_FDDI_ATTACHMENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2571,7 +2505,6 @@ impl ::std::convert::From<i32> for NDIS_FDDI_LCONNECTION_STATE {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_FDDI_LCONNECTION_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2592,7 +2525,6 @@ impl ::std::convert::From<i32> for NDIS_FDDI_RING_MGT_STATE {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_FDDI_RING_MGT_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_GFP_ENCAPSULATION_TYPE_IP_IN_GRE: u32 = 4u32;
@@ -2965,7 +2897,6 @@ impl ::std::cmp::PartialEq for NDIS_GUID {
 impl ::std::cmp::Eq for NDIS_GUID {}
 unsafe impl ::windows::runtime::Abi for NDIS_GUID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2988,7 +2919,6 @@ impl ::std::cmp::PartialEq for NDIS_GUID_0 {
 impl ::std::cmp::Eq for NDIS_GUID_0 {}
 unsafe impl ::windows::runtime::Abi for NDIS_GUID_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3019,7 +2949,6 @@ impl ::std::cmp::PartialEq for NDIS_HARDWARE_CROSSTIMESTAMP {
 impl ::std::cmp::Eq for NDIS_HARDWARE_CROSSTIMESTAMP {}
 unsafe impl ::windows::runtime::Abi for NDIS_HARDWARE_CROSSTIMESTAMP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_HARDWARE_CROSSTIMESTAMP_REVISION_1: u32 = 1u32;
@@ -3039,7 +2968,6 @@ impl ::std::convert::From<i32> for NDIS_HARDWARE_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_HARDWARE_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_HASH_FUNCTION_MASK: u32 = 255u32;
@@ -3100,7 +3028,6 @@ impl ::std::convert::From<i32> for NDIS_INTERRUPT_MODERATION {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_INTERRUPT_MODERATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_INTERRUPT_MODERATION_CHANGE_NEEDS_REINITIALIZE: u32 = 2u32;
@@ -3133,7 +3060,6 @@ impl ::std::cmp::PartialEq for NDIS_INTERRUPT_MODERATION_PARAMETERS {
 impl ::std::cmp::Eq for NDIS_INTERRUPT_MODERATION_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for NDIS_INTERRUPT_MODERATION_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_INTERRUPT_MODERATION_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -3164,7 +3090,6 @@ impl ::std::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1 {
 impl ::std::cmp::Eq for NDIS_IPSEC_OFFLOAD_V1 {}
 unsafe impl ::windows::runtime::Abi for NDIS_IPSEC_OFFLOAD_V1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3191,7 +3116,6 @@ impl ::std::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1_0 {
 impl ::std::cmp::Eq for NDIS_IPSEC_OFFLOAD_V1_0 {}
 unsafe impl ::windows::runtime::Abi for NDIS_IPSEC_OFFLOAD_V1_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3218,7 +3142,6 @@ impl ::std::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1_1 {
 impl ::std::cmp::Eq for NDIS_IPSEC_OFFLOAD_V1_1 {}
 unsafe impl ::windows::runtime::Abi for NDIS_IPSEC_OFFLOAD_V1_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3249,7 +3172,6 @@ impl ::std::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1_2 {
 impl ::std::cmp::Eq for NDIS_IPSEC_OFFLOAD_V1_2 {}
 unsafe impl ::windows::runtime::Abi for NDIS_IPSEC_OFFLOAD_V1_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3285,7 +3207,6 @@ impl ::std::cmp::Eq for NDIS_IP_OPER_STATE {}
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 unsafe impl ::windows::runtime::Abi for NDIS_IP_OPER_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_IP_OPER_STATE_REVISION_1: u32 = 1u32;
@@ -3323,7 +3244,6 @@ impl ::std::cmp::Eq for NDIS_IP_OPER_STATUS {}
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 unsafe impl ::windows::runtime::Abi for NDIS_IP_OPER_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3360,7 +3280,6 @@ impl ::std::cmp::Eq for NDIS_IP_OPER_STATUS_INFO {}
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 unsafe impl ::windows::runtime::Abi for NDIS_IP_OPER_STATUS_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_IP_OPER_STATUS_INFO_REVISION_1: u32 = 1u32;
@@ -3390,7 +3309,6 @@ impl ::std::cmp::PartialEq for NDIS_IRDA_PACKET_INFO {
 impl ::std::cmp::Eq for NDIS_IRDA_PACKET_INFO {}
 unsafe impl ::windows::runtime::Abi for NDIS_IRDA_PACKET_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_ISOLATION_NAME_MAX_STRING_SIZE: u32 = 127u32;
@@ -3440,7 +3358,6 @@ impl ::std::cmp::Eq for NDIS_LINK_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 unsafe impl ::windows::runtime::Abi for NDIS_LINK_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_LINK_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -3470,7 +3387,6 @@ impl ::std::cmp::PartialEq for NDIS_LINK_SPEED {
 impl ::std::cmp::Eq for NDIS_LINK_SPEED {}
 unsafe impl ::windows::runtime::Abi for NDIS_LINK_SPEED {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3518,7 +3434,6 @@ impl ::std::cmp::Eq for NDIS_LINK_STATE {}
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 unsafe impl ::windows::runtime::Abi for NDIS_LINK_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_LINK_STATE_DUPLEX_AUTO_NEGOTIATED: u32 = 4u32;
@@ -3573,7 +3488,6 @@ impl ::std::convert::From<i32> for NDIS_MEDIA_STATE {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_MEDIA_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3607,7 +3521,6 @@ impl ::std::convert::From<i32> for NDIS_MEDIUM {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_MEDIUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_NDK_CAPABILITIES_REVISION_1: u32 = 1u32;
@@ -3632,7 +3545,6 @@ impl ::std::convert::From<i32> for NDIS_NETWORK_CHANGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_NETWORK_CHANGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_NIC_SWITCH_CAPABILITIES_REVISION_1: u32 = 1u32;
@@ -3763,7 +3675,6 @@ impl ::std::cmp::PartialEq for NDIS_OBJECT_HEADER {
 impl ::std::cmp::Eq for NDIS_OBJECT_HEADER {}
 unsafe impl ::windows::runtime::Abi for NDIS_OBJECT_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_OBJECT_REVISION_1: u32 = 1u32;
@@ -3927,7 +3838,6 @@ impl ::std::cmp::PartialEq for NDIS_OFFLOAD {
 impl ::std::cmp::Eq for NDIS_OFFLOAD {}
 unsafe impl ::windows::runtime::Abi for NDIS_OFFLOAD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_OFFLOAD_FLAGS_GROUP_CHECKSUM_CAPABILITIES: u32 = 1u32;
@@ -3996,7 +3906,6 @@ impl ::std::cmp::PartialEq for NDIS_OFFLOAD_PARAMETERS {
 impl ::std::cmp::Eq for NDIS_OFFLOAD_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for NDIS_OFFLOAD_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_OFFLOAD_PARAMETERS_CONNECTION_OFFLOAD_DISABLED: u32 = 1u32;
@@ -4112,7 +4021,6 @@ impl ::std::cmp::Eq for NDIS_OPER_STATE {}
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 unsafe impl ::windows::runtime::Abi for NDIS_OPER_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_OPER_STATE_REVISION_1: u32 = 1u32;
@@ -4205,7 +4113,6 @@ impl ::std::cmp::PartialEq for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
 impl ::std::cmp::Eq for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PD_CAPABILITIES_REVISION_1: u32 = 1u32;
@@ -4252,7 +4159,6 @@ impl ::std::convert::From<i32> for NDIS_PHYSICAL_MEDIUM {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_PHYSICAL_MEDIUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PM_CAPABILITIES_REVISION_1: u32 = 1u32;
@@ -4292,7 +4198,6 @@ impl ::std::cmp::PartialEq for NDIS_PM_PACKET_PATTERN {
 impl ::std::cmp::Eq for NDIS_PM_PACKET_PATTERN {}
 unsafe impl ::windows::runtime::Abi for NDIS_PM_PACKET_PATTERN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PM_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -4367,7 +4272,6 @@ impl ::std::cmp::PartialEq for NDIS_PM_WAKE_UP_CAPABILITIES {
 impl ::std::cmp::Eq for NDIS_PM_WAKE_UP_CAPABILITIES {}
 unsafe impl ::windows::runtime::Abi for NDIS_PM_WAKE_UP_CAPABILITIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PM_WOL_BITMAP_PATTERN_ENABLED: u32 = 1u32;
@@ -4433,7 +4337,6 @@ impl ::std::cmp::PartialEq for NDIS_PNP_CAPABILITIES {
 impl ::std::cmp::Eq for NDIS_PNP_CAPABILITIES {}
 unsafe impl ::windows::runtime::Abi for NDIS_PNP_CAPABILITIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PNP_WAKE_UP_LINK_CHANGE: u32 = 4u32;
@@ -4477,7 +4380,6 @@ impl ::std::cmp::Eq for NDIS_PORT {}
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 unsafe impl ::windows::runtime::Abi for NDIS_PORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4515,7 +4417,6 @@ impl ::std::cmp::Eq for NDIS_PORT_ARRAY {}
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 unsafe impl ::windows::runtime::Abi for NDIS_PORT_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PORT_ARRAY_REVISION_1: u32 = 1u32;
@@ -4554,7 +4455,6 @@ impl ::std::cmp::PartialEq for NDIS_PORT_AUTHENTICATION_PARAMETERS {
 impl ::std::cmp::Eq for NDIS_PORT_AUTHENTICATION_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for NDIS_PORT_AUTHENTICATION_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PORT_AUTHENTICATION_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -4573,7 +4473,6 @@ impl ::std::convert::From<i32> for NDIS_PORT_AUTHORIZATION_STATE {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_PORT_AUTHORIZATION_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4642,7 +4541,6 @@ impl ::std::cmp::Eq for NDIS_PORT_CHARACTERISTICS {}
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 unsafe impl ::windows::runtime::Abi for NDIS_PORT_CHARACTERISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PORT_CHARACTERISTICS_REVISION_1: u32 = 1u32;
@@ -4662,7 +4560,6 @@ impl ::std::convert::From<i32> for NDIS_PORT_CONTROL_STATE {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_PORT_CONTROL_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4716,7 +4613,6 @@ impl ::std::cmp::Eq for NDIS_PORT_STATE {}
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 unsafe impl ::windows::runtime::Abi for NDIS_PORT_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PORT_STATE_REVISION_1: u32 = 1u32;
@@ -4736,7 +4632,6 @@ impl ::std::convert::From<i32> for NDIS_PORT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_PORT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4753,7 +4648,6 @@ impl ::std::convert::From<i32> for NDIS_PROCESSOR_VENDOR {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_PROCESSOR_VENDOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_PROTOCOL_ID_DEFAULT: u32 = 0u32;
@@ -5004,7 +4898,6 @@ impl ::std::cmp::PartialEq for NDIS_RECEIVE_HASH_PARAMETERS {
 impl ::std::cmp::Eq for NDIS_RECEIVE_HASH_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for NDIS_RECEIVE_HASH_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_RECEIVE_HASH_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -5072,7 +4965,6 @@ impl ::std::cmp::PartialEq for NDIS_RECEIVE_SCALE_CAPABILITIES {
 impl ::std::cmp::Eq for NDIS_RECEIVE_SCALE_CAPABILITIES {}
 unsafe impl ::windows::runtime::Abi for NDIS_RECEIVE_SCALE_CAPABILITIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_RECEIVE_SCALE_CAPABILITIES_REVISION_1: u32 = 1u32;
@@ -5121,7 +5013,6 @@ impl ::std::cmp::PartialEq for NDIS_RECEIVE_SCALE_PARAMETERS {
 impl ::std::cmp::Eq for NDIS_RECEIVE_SCALE_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for NDIS_RECEIVE_SCALE_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_RECEIVE_SCALE_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -5164,7 +5055,6 @@ impl ::std::convert::From<i32> for NDIS_REQUEST_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_REQUEST_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_RING_AUTO_REMOVAL_ERROR: u32 = 1024u32;
@@ -5410,7 +5300,6 @@ impl ::std::cmp::PartialEq for NDIS_STATISTICS_INFO {
 impl ::std::cmp::Eq for NDIS_STATISTICS_INFO {}
 unsafe impl ::windows::runtime::Abi for NDIS_STATISTICS_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_STATISTICS_INFO_REVISION_1: u32 = 1u32;
@@ -5441,7 +5330,6 @@ impl ::std::cmp::PartialEq for NDIS_STATISTICS_VALUE {
 impl ::std::cmp::Eq for NDIS_STATISTICS_VALUE {}
 unsafe impl ::windows::runtime::Abi for NDIS_STATISTICS_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5471,7 +5359,6 @@ impl ::std::cmp::PartialEq for NDIS_STATISTICS_VALUE_EX {
 impl ::std::cmp::Eq for NDIS_STATISTICS_VALUE_EX {}
 unsafe impl ::windows::runtime::Abi for NDIS_STATISTICS_VALUE_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5489,7 +5376,6 @@ impl ::std::convert::From<i32> for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_SUPPORT_NDIS6: u32 = 1u32;
@@ -5626,7 +5512,6 @@ impl ::std::cmp::PartialEq for NDIS_TCP_CONNECTION_OFFLOAD {
 impl ::std::cmp::Eq for NDIS_TCP_CONNECTION_OFFLOAD {}
 unsafe impl ::windows::runtime::Abi for NDIS_TCP_CONNECTION_OFFLOAD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_TCP_CONNECTION_OFFLOAD_REVISION_1: u32 = 1u32;
@@ -5660,7 +5545,6 @@ impl ::std::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
 impl ::std::cmp::Eq for NDIS_TCP_IP_CHECKSUM_OFFLOAD {}
 unsafe impl ::windows::runtime::Abi for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5688,7 +5572,6 @@ impl ::std::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
 impl ::std::cmp::Eq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {}
 unsafe impl ::windows::runtime::Abi for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5716,7 +5599,6 @@ impl ::std::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
 impl ::std::cmp::Eq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {}
 unsafe impl ::windows::runtime::Abi for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5744,7 +5626,6 @@ impl ::std::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
 impl ::std::cmp::Eq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {}
 unsafe impl ::windows::runtime::Abi for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5772,7 +5653,6 @@ impl ::std::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
 impl ::std::cmp::Eq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {}
 unsafe impl ::windows::runtime::Abi for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5799,7 +5679,6 @@ impl ::std::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
 impl ::std::cmp::Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {}
 unsafe impl ::windows::runtime::Abi for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5829,7 +5708,6 @@ impl ::std::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
 impl ::std::cmp::Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {}
 unsafe impl ::windows::runtime::Abi for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5857,7 +5735,6 @@ impl ::std::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
 impl ::std::cmp::Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {}
 unsafe impl ::windows::runtime::Abi for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5886,7 +5763,6 @@ impl ::std::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
 impl ::std::cmp::Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {}
 unsafe impl ::windows::runtime::Abi for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5916,7 +5792,6 @@ impl ::std::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
 impl ::std::cmp::Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {}
 unsafe impl ::windows::runtime::Abi for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_TCP_RECV_SEG_COALESC_OFFLOAD_REVISION_1: u32 = 1u32;
@@ -5948,7 +5823,6 @@ impl ::std::cmp::PartialEq for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
 impl ::std::cmp::Eq for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {}
 unsafe impl ::windows::runtime::Abi for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES_REVISION_1: u32 = 1u32;
@@ -5996,7 +5870,6 @@ impl ::std::cmp::Eq for NDIS_TIMESTAMP_CAPABILITIES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NDIS_TIMESTAMP_CAPABILITIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_TIMESTAMP_CAPABILITIES_REVISION_1: u32 = 1u32;
@@ -6073,7 +5946,6 @@ impl ::std::cmp::Eq for NDIS_TIMESTAMP_CAPABILITY_FLAGS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6102,7 +5974,6 @@ impl ::std::cmp::PartialEq for NDIS_VAR_DATA_DESC {
 impl ::std::cmp::Eq for NDIS_VAR_DATA_DESC {}
 unsafe impl ::windows::runtime::Abi for NDIS_VAR_DATA_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6117,7 +5988,6 @@ impl ::std::convert::From<i32> for NDIS_WAN_HEADER_FORMAT {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_WAN_HEADER_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6147,7 +6017,6 @@ impl ::std::convert::From<i32> for NDIS_WAN_MEDIUM_SUBTYPE {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_WAN_MEDIUM_SUBTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6175,7 +6044,6 @@ impl ::std::cmp::PartialEq for NDIS_WAN_PROTOCOL_CAPS {
 impl ::std::cmp::Eq for NDIS_WAN_PROTOCOL_CAPS {}
 unsafe impl ::windows::runtime::Abi for NDIS_WAN_PROTOCOL_CAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6191,7 +6059,6 @@ impl ::std::convert::From<i32> for NDIS_WAN_QUALITY {
 }
 unsafe impl ::windows::runtime::Abi for NDIS_WAN_QUALITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6238,7 +6105,6 @@ impl ::std::cmp::PartialEq for NDIS_WLAN_BSSID {
 impl ::std::cmp::Eq for NDIS_WLAN_BSSID {}
 unsafe impl ::windows::runtime::Abi for NDIS_WLAN_BSSID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6289,7 +6155,6 @@ impl ::std::cmp::PartialEq for NDIS_WLAN_BSSID_EX {
 impl ::std::cmp::Eq for NDIS_WLAN_BSSID_EX {}
 unsafe impl ::windows::runtime::Abi for NDIS_WLAN_BSSID_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_WLAN_WAKE_ON_4WAY_HANDSHAKE_REQUEST_ENABLED: u32 = 8u32;
@@ -6339,7 +6204,6 @@ impl ::std::cmp::Eq for NDIS_WMI_ENUM_ADAPTER {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_IpHelper"))]
 unsafe impl ::windows::runtime::Abi for NDIS_WMI_ENUM_ADAPTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_WMI_ENUM_ADAPTER_REVISION_1: u32 = 1u32;
@@ -6376,7 +6240,6 @@ impl ::std::cmp::Eq for NDIS_WMI_EVENT_HEADER {}
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 unsafe impl ::windows::runtime::Abi for NDIS_WMI_EVENT_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_WMI_EVENT_HEADER_REVISION_1: u32 = 1u32;
@@ -6407,7 +6270,6 @@ impl ::std::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1 {
 impl ::std::cmp::Eq for NDIS_WMI_IPSEC_OFFLOAD_V1 {}
 unsafe impl ::windows::runtime::Abi for NDIS_WMI_IPSEC_OFFLOAD_V1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6439,7 +6301,6 @@ impl ::std::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
 impl ::std::cmp::Eq for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {}
 unsafe impl ::windows::runtime::Abi for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6473,7 +6334,6 @@ impl ::std::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
 impl ::std::cmp::Eq for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {}
 unsafe impl ::windows::runtime::Abi for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6504,7 +6364,6 @@ impl ::std::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
 impl ::std::cmp::Eq for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {}
 unsafe impl ::windows::runtime::Abi for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6537,7 +6396,6 @@ impl ::std::cmp::Eq for NDIS_WMI_METHOD_HEADER {}
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 unsafe impl ::windows::runtime::Abi for NDIS_WMI_METHOD_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_WMI_METHOD_HEADER_REVISION_1: u32 = 1u32;
@@ -6581,7 +6439,6 @@ impl ::std::cmp::PartialEq for NDIS_WMI_OFFLOAD {
 impl ::std::cmp::Eq for NDIS_WMI_OFFLOAD {}
 unsafe impl ::windows::runtime::Abi for NDIS_WMI_OFFLOAD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6611,7 +6468,6 @@ impl ::std::cmp::PartialEq for NDIS_WMI_OUTPUT_INFO {
 impl ::std::cmp::Eq for NDIS_WMI_OUTPUT_INFO {}
 unsafe impl ::windows::runtime::Abi for NDIS_WMI_OUTPUT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_WMI_PM_ACTIVE_CAPABILITIES_REVISION_1: u32 = 1u32;
@@ -6652,7 +6508,6 @@ impl ::std::cmp::Eq for NDIS_WMI_SET_HEADER {}
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 unsafe impl ::windows::runtime::Abi for NDIS_WMI_SET_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_WMI_SET_HEADER_REVISION_1: u32 = 1u32;
@@ -6697,7 +6552,6 @@ impl ::std::cmp::PartialEq for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
 impl ::std::cmp::Eq for NDIS_WMI_TCP_CONNECTION_OFFLOAD {}
 unsafe impl ::windows::runtime::Abi for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6727,7 +6581,6 @@ impl ::std::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
 impl ::std::cmp::Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {}
 unsafe impl ::windows::runtime::Abi for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6766,7 +6619,6 @@ impl ::std::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
 impl ::std::cmp::Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {}
 unsafe impl ::windows::runtime::Abi for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6805,7 +6657,6 @@ impl ::std::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
 impl ::std::cmp::Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {}
 unsafe impl ::windows::runtime::Abi for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6842,7 +6693,6 @@ impl ::std::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
 impl ::std::cmp::Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {}
 unsafe impl ::windows::runtime::Abi for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6879,7 +6729,6 @@ impl ::std::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
 impl ::std::cmp::Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {}
 unsafe impl ::windows::runtime::Abi for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6906,7 +6755,6 @@ impl ::std::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
 impl ::std::cmp::Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {}
 unsafe impl ::windows::runtime::Abi for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6937,7 +6785,6 @@ impl ::std::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
 impl ::std::cmp::Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {}
 unsafe impl ::windows::runtime::Abi for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6965,7 +6812,6 @@ impl ::std::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
 impl ::std::cmp::Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {}
 unsafe impl ::windows::runtime::Abi for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6994,7 +6840,6 @@ impl ::std::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
 impl ::std::cmp::Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {}
 unsafe impl ::windows::runtime::Abi for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7031,7 +6876,6 @@ impl ::std::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
 impl ::std::cmp::Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {}
 unsafe impl ::windows::runtime::Abi for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NDIS_WWAN_WAKE_ON_PACKET_STATE_ENABLED: u32 = 8u32;
@@ -7157,7 +7001,6 @@ impl ::std::cmp::PartialEq for NDK_ADAPTER_INFO {
 impl ::std::cmp::Eq for NDK_ADAPTER_INFO {}
 unsafe impl ::windows::runtime::Abi for NDK_ADAPTER_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7176,7 +7019,6 @@ impl ::std::convert::From<i32> for NDK_RDMA_TECHNOLOGY {
 }
 unsafe impl ::windows::runtime::Abi for NDK_RDMA_TECHNOLOGY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7204,7 +7046,6 @@ impl ::std::cmp::PartialEq for NDK_VERSION {
 impl ::std::cmp::Eq for NDK_VERSION {}
 unsafe impl ::windows::runtime::Abi for NDK_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7233,7 +7074,6 @@ impl ::std::cmp::PartialEq for NETWORK_ADDRESS {
 impl ::std::cmp::Eq for NETWORK_ADDRESS {}
 unsafe impl ::windows::runtime::Abi for NETWORK_ADDRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7262,7 +7102,6 @@ impl ::std::cmp::PartialEq for NETWORK_ADDRESS_IP {
 impl ::std::cmp::Eq for NETWORK_ADDRESS_IP {}
 unsafe impl ::windows::runtime::Abi for NETWORK_ADDRESS_IP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7292,7 +7131,6 @@ impl ::std::cmp::PartialEq for NETWORK_ADDRESS_IP6 {
 impl ::std::cmp::Eq for NETWORK_ADDRESS_IP6 {}
 unsafe impl ::windows::runtime::Abi for NETWORK_ADDRESS_IP6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7321,7 +7159,6 @@ impl ::std::cmp::PartialEq for NETWORK_ADDRESS_IPX {
 impl ::std::cmp::Eq for NETWORK_ADDRESS_IPX {}
 unsafe impl ::windows::runtime::Abi for NETWORK_ADDRESS_IPX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7350,7 +7187,6 @@ impl ::std::cmp::PartialEq for NETWORK_ADDRESS_LIST {
 impl ::std::cmp::Eq for NETWORK_ADDRESS_LIST {}
 unsafe impl ::windows::runtime::Abi for NETWORK_ADDRESS_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const NdisHashFunctionReserved1: u32 = 2u32;
@@ -7387,7 +7223,6 @@ impl ::std::cmp::PartialEq for OFFLOAD_ALGO_INFO {
 impl ::std::cmp::Eq for OFFLOAD_ALGO_INFO {}
 unsafe impl ::windows::runtime::Abi for OFFLOAD_ALGO_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7405,7 +7240,6 @@ impl ::std::convert::From<i32> for OFFLOAD_CONF_ALGO {
 }
 unsafe impl ::windows::runtime::Abi for OFFLOAD_CONF_ALGO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const OFFLOAD_INBOUND_SA: u32 = 1u32;
@@ -7424,7 +7258,6 @@ impl ::std::convert::From<i32> for OFFLOAD_INTEGRITY_ALGO {
 }
 unsafe impl ::windows::runtime::Abi for OFFLOAD_INTEGRITY_ALGO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7502,7 +7335,6 @@ impl ::std::cmp::Eq for OFFLOAD_IPSEC_ADD_SA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OFFLOAD_IPSEC_ADD_SA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7586,7 +7418,6 @@ impl ::std::cmp::Eq for OFFLOAD_IPSEC_ADD_UDPESP_SA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OFFLOAD_IPSEC_ADD_UDPESP_SA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7620,7 +7451,6 @@ impl ::std::cmp::Eq for OFFLOAD_IPSEC_DELETE_SA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OFFLOAD_IPSEC_DELETE_SA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7655,7 +7485,6 @@ impl ::std::cmp::Eq for OFFLOAD_IPSEC_DELETE_UDPESP_SA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7683,7 +7512,6 @@ impl ::std::cmp::PartialEq for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
 impl ::std::cmp::Eq for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {}
 unsafe impl ::windows::runtime::Abi for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const OFFLOAD_MAX_SAS: u32 = 3u32;
@@ -7700,7 +7528,6 @@ impl ::std::convert::From<i32> for OFFLOAD_OPERATION_E {
 }
 unsafe impl ::windows::runtime::Abi for OFFLOAD_OPERATION_E {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const OFFLOAD_OUTBOUND_SA: u32 = 2u32;
@@ -7733,7 +7560,6 @@ impl ::std::cmp::PartialEq for OFFLOAD_SECURITY_ASSOCIATION {
 impl ::std::cmp::Eq for OFFLOAD_SECURITY_ASSOCIATION {}
 unsafe impl ::windows::runtime::Abi for OFFLOAD_SECURITY_ASSOCIATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const OID_1394_LOCAL_NODE_INFO: u32 = 201392385u32;
@@ -9301,7 +9127,6 @@ impl ::std::cmp::PartialEq for PMKID_CANDIDATE {
 impl ::std::cmp::Eq for PMKID_CANDIDATE {}
 unsafe impl ::windows::runtime::Abi for PMKID_CANDIDATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const READABLE_LOCAL_CLOCK: u32 = 1u32;
@@ -9337,7 +9162,6 @@ impl ::std::cmp::PartialEq for TRANSPORT_HEADER_OFFSET {
 impl ::std::cmp::Eq for TRANSPORT_HEADER_OFFSET {}
 unsafe impl ::windows::runtime::Abi for TRANSPORT_HEADER_OFFSET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9352,7 +9176,6 @@ impl ::std::convert::From<i32> for UDP_ENCAP_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for UDP_ENCAP_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const UNSPECIFIED_NETWORK_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(314203102, 5182, 19469, [182, 109, 35, 121, 187, 20, 25, 19]);
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
@@ -9393,7 +9216,6 @@ impl ::std::cmp::Eq for WDIAG_IHV_WLAN_ID {}
 #[cfg(feature = "Win32_NetworkManagement_WiFi")]
 unsafe impl ::windows::runtime::Abi for WDIAG_IHV_WLAN_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Ndis`*"]
 pub const WDIAG_IHV_WLAN_ID_FLAG_SECURITY_ENABLED: u32 = 1u32;

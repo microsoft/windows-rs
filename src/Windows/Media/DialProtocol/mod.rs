@@ -69,10 +69,12 @@ impl ::std::convert::From<i32> for DialAppLaunchResult {
 }
 unsafe impl ::windows::runtime::Abi for DialAppLaunchResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DialAppLaunchResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppLaunchResult;i4)");
+}
+impl ::windows::runtime::DefaultType for DialAppLaunchResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_DialProtocol`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -91,10 +93,12 @@ impl ::std::convert::From<i32> for DialAppState {
 }
 unsafe impl ::windows::runtime::Abi for DialAppState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DialAppState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppState;i4)");
+}
+impl ::windows::runtime::DefaultType for DialAppState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_DialProtocol`*"]
 #[repr(transparent)]
@@ -147,10 +151,12 @@ impl ::std::convert::From<i32> for DialAppStopResult {
 }
 unsafe impl ::windows::runtime::Abi for DialAppStopResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DialAppStopResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppStopResult;i4)");
+}
+impl ::windows::runtime::DefaultType for DialAppStopResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_DialProtocol`*"]
 #[repr(transparent)]
@@ -249,10 +255,12 @@ impl ::std::convert::From<i32> for DialDeviceDisplayStatus {
 }
 unsafe impl ::windows::runtime::Abi for DialDeviceDisplayStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DialDeviceDisplayStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialDeviceDisplayStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for DialDeviceDisplayStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_DialProtocol`*"]
 #[repr(transparent)]
@@ -517,7 +525,6 @@ impl ::windows::runtime::RuntimeName for DialReceiverApp {
 unsafe impl ::std::marker::Send for DialReceiverApp {}
 unsafe impl ::std::marker::Sync for DialReceiverApp {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDialApp(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDialApp {
@@ -542,7 +549,6 @@ pub struct IDialApp_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDialAppStateDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDialAppStateDetails {
@@ -562,7 +568,6 @@ pub struct IDialAppStateDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDialDevice(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDialDevice {
@@ -582,7 +587,6 @@ pub struct IDialDevice_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDialDevice2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDialDevice2 {
@@ -603,7 +607,6 @@ pub struct IDialDevice2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDialDevicePicker(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDialDevicePicker {
@@ -646,7 +649,6 @@ pub struct IDialDevicePicker_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, device: ::windows::runtime::RawPtr, status: DialDeviceDisplayStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDialDevicePickerFilter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDialDevicePickerFilter {
@@ -666,7 +668,6 @@ pub struct IDialDevicePickerFilter_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDialDeviceSelectedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDialDeviceSelectedEventArgs {
@@ -685,7 +686,6 @@ pub struct IDialDeviceSelectedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDialDeviceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDialDeviceStatics {
@@ -708,7 +708,6 @@ pub struct IDialDeviceStatics_abi(
     #[cfg(not(all(feature = "Devices_Enumeration", feature = "Foundation")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDialDisconnectButtonClickedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDialDisconnectButtonClickedEventArgs {
@@ -727,7 +726,6 @@ pub struct IDialDisconnectButtonClickedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDialReceiverApp(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDialReceiverApp {
@@ -749,7 +747,6 @@ pub struct IDialReceiverApp_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDialReceiverApp2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDialReceiverApp2 {
@@ -769,7 +766,6 @@ pub struct IDialReceiverApp2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDialReceiverAppStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDialReceiverAppStatics {

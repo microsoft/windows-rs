@@ -16,10 +16,12 @@ impl ::std::convert::From<i32> for CollectionChange {
 }
 unsafe impl ::windows::runtime::Abi for CollectionChange {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CollectionChange {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Collections.CollectionChange;i4)");
+}
+impl ::windows::runtime::DefaultType for CollectionChange {
+    type DefaultType = Self;
 }
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
@@ -108,7 +110,7 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IIterator<T> {
         }
     }
     #[doc = "*Required features: `Foundation_Collections`*"]
-    pub fn GetMany(&self, items: &mut [<T as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn GetMany(&self, items: &mut [<T as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -744,7 +746,7 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IObservableVector<T> {
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Foundation_Collections`*"]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<T as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [<T as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<IVector<T>>(self)?;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -752,7 +754,7 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IObservableVector<T> {
         }
     }
     #[doc = "*Required features: `Foundation_Collections`*"]
-    pub fn ReplaceAll(&self, items: &[<T as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn ReplaceAll(&self, items: &[<T as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IVector<T>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), items.len() as u32, ::std::mem::transmute(items.as_ptr())).ok() }
     }
@@ -1085,7 +1087,7 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IVector<T> {
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: `Foundation_Collections`*"]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<T as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [<T as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -1093,7 +1095,7 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IVector<T> {
         }
     }
     #[doc = "*Required features: `Foundation_Collections`*"]
-    pub fn ReplaceAll(&self, items: &[<T as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn ReplaceAll(&self, items: &[<T as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), items.len() as u32, ::std::mem::transmute(items.as_ptr())).ok() }
     }
@@ -1265,7 +1267,7 @@ impl<T: ::windows::runtime::RuntimeType + 'static> IVectorView<T> {
         }
     }
     #[doc = "*Required features: `Foundation_Collections`*"]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<T as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [<T as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -1438,8 +1440,8 @@ impl<K: ::windows::runtime::RuntimeType + 'static, V: ::windows::runtime::Runtim
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, event: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         ((*this).invoke)(
-            &*(&sender as *const <IObservableMap<K, V> as ::windows::runtime::Abi>::Abi as *const <IObservableMap<K, V> as ::windows::runtime::Abi>::DefaultType),
-            &*(&event as *const <IMapChangedEventArgs<K> as ::windows::runtime::Abi>::Abi as *const <IMapChangedEventArgs<K> as ::windows::runtime::Abi>::DefaultType),
+            &*(&sender as *const <IObservableMap<K, V> as ::windows::runtime::Abi>::Abi as *const <IObservableMap<K, V> as ::windows::runtime::DefaultType>::DefaultType),
+            &*(&event as *const <IMapChangedEventArgs<K> as ::windows::runtime::Abi>::Abi as *const <IMapChangedEventArgs<K> as ::windows::runtime::DefaultType>::DefaultType),
         )
         .into()
     }
@@ -2095,8 +2097,8 @@ impl<T: ::windows::runtime::RuntimeType + 'static, F: FnMut(&::std::option::Opti
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, event: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         ((*this).invoke)(
-            &*(&sender as *const <IObservableVector<T> as ::windows::runtime::Abi>::Abi as *const <IObservableVector<T> as ::windows::runtime::Abi>::DefaultType),
-            &*(&event as *const <IVectorChangedEventArgs as ::windows::runtime::Abi>::Abi as *const <IVectorChangedEventArgs as ::windows::runtime::Abi>::DefaultType),
+            &*(&sender as *const <IObservableVector<T> as ::windows::runtime::Abi>::Abi as *const <IObservableVector<T> as ::windows::runtime::DefaultType>::DefaultType),
+            &*(&event as *const <IVectorChangedEventArgs as ::windows::runtime::Abi>::Abi as *const <IVectorChangedEventArgs as ::windows::runtime::DefaultType>::DefaultType),
         )
         .into()
     }

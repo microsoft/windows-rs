@@ -95,7 +95,6 @@ impl ::std::cmp::Eq for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -141,7 +140,6 @@ impl ::std::cmp::Eq for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_CONSOLESWITCHCREDENTIAL_TYPE_V1_0: u32 = 1u32;
@@ -257,7 +255,6 @@ impl ::std::cmp::Eq for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_CREATE_INSTANCE_ONLY: u32 = 1u32;
@@ -304,7 +301,6 @@ impl ::std::cmp::Eq for WLX_DESKTOP {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
 unsafe impl ::windows::runtime::Abi for WLX_DESKTOP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_DESKTOP_HANDLE: u32 = 2u32;
@@ -368,7 +364,6 @@ impl ::std::cmp::Eq for WLX_DISPATCH_VERSION_1_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for WLX_DISPATCH_VERSION_1_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -434,7 +429,6 @@ impl ::std::cmp::Eq for WLX_DISPATCH_VERSION_1_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for WLX_DISPATCH_VERSION_1_1 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -502,7 +496,6 @@ impl ::std::cmp::Eq for WLX_DISPATCH_VERSION_1_2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for WLX_DISPATCH_VERSION_1_2 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -584,7 +577,6 @@ impl ::std::cmp::Eq for WLX_DISPATCH_VERSION_1_3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for WLX_DISPATCH_VERSION_1_3 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -670,7 +662,6 @@ impl ::std::cmp::Eq for WLX_DISPATCH_VERSION_1_4 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for WLX_DISPATCH_VERSION_1_4 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_DLG_INPUT_TIMEOUT: u32 = 102u32;
@@ -717,7 +708,6 @@ impl ::std::cmp::Eq for WLX_MPR_NOTIFY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WLX_MPR_NOTIFY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -758,7 +748,6 @@ impl ::std::cmp::Eq for WLX_NOTIFICATION_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
 unsafe impl ::windows::runtime::Abi for WLX_NOTIFICATION_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_OPTION_CONTEXT_POINTER: u32 = 2u32;
@@ -815,7 +804,6 @@ impl ::std::cmp::Eq for WLX_PROFILE_V1_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WLX_PROFILE_V1_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -861,7 +849,6 @@ impl ::std::cmp::Eq for WLX_PROFILE_V2_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WLX_PROFILE_V2_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_SAS_ACTION_DELAYED_FORCE_LOGOFF: u32 = 16u32;
@@ -950,7 +937,6 @@ impl ::std::cmp::Eq for WLX_SC_NOTIFICATION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WLX_SC_NOTIFICATION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -966,7 +952,6 @@ impl ::std::convert::From<u32> for WLX_SHUTDOWN_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WLX_SHUTDOWN_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WLX_SHUTDOWN_TYPE {
     type Output = Self;
@@ -1023,7 +1008,6 @@ impl ::std::cmp::PartialEq for WLX_TERMINAL_SERVICES_DATA {
 impl ::std::cmp::Eq for WLX_TERMINAL_SERVICES_DATA {}
 unsafe impl ::windows::runtime::Abi for WLX_TERMINAL_SERVICES_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]
 pub const WLX_VERSION_1_0: u32 = 65536u32;

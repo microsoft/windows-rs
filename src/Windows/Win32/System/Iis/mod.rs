@@ -306,7 +306,6 @@ impl ::std::cmp::Eq for CERT_CONTEXT_EX {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for CERT_CONTEXT_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const CLSID_IImgCtx: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(810611670, 39093, 4559, [187, 130, 0, 170, 0, 189, 206, 11]);
 pub const CLSID_IisServiceControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3908797985, 22671, 4562, [157, 97, 0, 192, 79, 121, 197, 254]);
@@ -350,7 +349,6 @@ impl ::std::cmp::Eq for CONFIGURATION_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CONFIGURATION_ENTRY {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const DISPID_HTTPREQUEST_ABORT: u32 = 12u32;
@@ -482,7 +480,6 @@ impl ::std::cmp::Eq for EXTENSION_CONTROL_BLOCK {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EXTENSION_CONTROL_BLOCK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const FP_MD_ID_BEGIN_RESERVED: u32 = 32768u32;
@@ -503,7 +500,6 @@ impl ::std::convert::From<i32> for FTP_ACCESS {
 }
 unsafe impl ::windows::runtime::Abi for FTP_ACCESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -520,7 +516,6 @@ impl ::std::convert::From<i32> for FTP_PROCESS_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for FTP_PROCESS_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const FtpProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1891485287, 13234, 17904, [172, 82, 195, 202, 70, 247, 166, 86]);
 pub const GUID_IIS_ALL_TRACE_PROVIDERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(0, 0, 0, [0, 0, 0, 0, 0, 0, 0, 0]);
@@ -602,7 +597,6 @@ impl ::std::cmp::Eq for HSE_CUSTOM_ERROR_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HSE_CUSTOM_ERROR_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -641,7 +635,6 @@ impl ::std::cmp::Eq for HSE_EXEC_UNICODE_URL_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HSE_EXEC_UNICODE_URL_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -677,7 +670,6 @@ impl ::std::cmp::Eq for HSE_EXEC_UNICODE_URL_USER_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HSE_EXEC_UNICODE_URL_USER_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_EXEC_URL_DISABLE_CUSTOM_ERROR: u32 = 32u32;
@@ -707,7 +699,6 @@ impl ::std::cmp::PartialEq for HSE_EXEC_URL_ENTITY_INFO {
 impl ::std::cmp::Eq for HSE_EXEC_URL_ENTITY_INFO {}
 unsafe impl ::windows::runtime::Abi for HSE_EXEC_URL_ENTITY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_EXEC_URL_HTTP_CACHE_ELIGIBLE: u32 = 128u32;
@@ -752,7 +743,6 @@ impl ::std::cmp::Eq for HSE_EXEC_URL_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HSE_EXEC_URL_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_EXEC_URL_NO_HEADERS: u32 = 2u32;
@@ -785,7 +775,6 @@ impl ::std::cmp::PartialEq for HSE_EXEC_URL_STATUS {
 impl ::std::cmp::Eq for HSE_EXEC_URL_STATUS {}
 unsafe impl ::windows::runtime::Abi for HSE_EXEC_URL_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -821,7 +810,6 @@ impl ::std::cmp::Eq for HSE_EXEC_URL_USER_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HSE_EXEC_URL_USER_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_LOG_BUFFER_LEN: u32 = 80u32;
@@ -947,7 +935,6 @@ impl ::std::cmp::Eq for HSE_RESPONSE_VECTOR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HSE_RESPONSE_VECTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -985,7 +972,6 @@ impl ::std::cmp::Eq for HSE_SEND_HEADER_EX_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HSE_SEND_HEADER_EX_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_STATUS_ERROR: u32 = 4u32;
@@ -1052,7 +1038,6 @@ impl ::std::cmp::Eq for HSE_TF_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HSE_TF_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1089,7 +1074,6 @@ impl ::std::cmp::Eq for HSE_TRACE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HSE_TRACE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1119,7 +1103,6 @@ impl ::std::cmp::PartialEq for HSE_UNICODE_URL_MAPEX_INFO {
 impl ::std::cmp::Eq for HSE_UNICODE_URL_MAPEX_INFO {}
 unsafe impl ::windows::runtime::Abi for HSE_UNICODE_URL_MAPEX_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_URL_FLAGS_DONT_CACHE: u32 = 16u32;
@@ -1180,7 +1163,6 @@ impl ::std::cmp::Eq for HSE_URL_MAPEX_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HSE_URL_MAPEX_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1210,7 +1192,6 @@ impl ::std::cmp::PartialEq for HSE_VECTOR_ELEMENT {
 impl ::std::cmp::Eq for HSE_VECTOR_ELEMENT {}
 unsafe impl ::windows::runtime::Abi for HSE_VECTOR_ELEMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_VECTOR_ELEMENT_TYPE_FILE_HANDLE: u32 = 1u32;
@@ -1249,7 +1230,6 @@ impl ::std::cmp::Eq for HSE_VERSION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HSE_VERSION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HSE_VERSION_MAJOR: u32 = 8u32;
@@ -1289,7 +1269,6 @@ impl ::std::cmp::Eq for HTTP_FILTER_ACCESS_DENIED {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_FILTER_ACCESS_DENIED {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1326,7 +1305,6 @@ impl ::std::cmp::Eq for HTTP_FILTER_AUTHENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_FILTER_AUTHENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1374,7 +1352,6 @@ impl ::std::cmp::Eq for HTTP_FILTER_AUTH_COMPLETE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_FILTER_AUTH_COMPLETE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1430,7 +1407,6 @@ impl ::std::cmp::Eq for HTTP_FILTER_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_FILTER_CONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1496,7 +1472,6 @@ impl ::std::cmp::Eq for HTTP_FILTER_LOG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_FILTER_LOG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1527,7 +1502,6 @@ impl ::std::cmp::PartialEq for HTTP_FILTER_PREPROC_HEADERS {
 impl ::std::cmp::Eq for HTTP_FILTER_PREPROC_HEADERS {}
 unsafe impl ::windows::runtime::Abi for HTTP_FILTER_PREPROC_HEADERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1557,7 +1531,6 @@ impl ::std::cmp::PartialEq for HTTP_FILTER_RAW_DATA {
 impl ::std::cmp::Eq for HTTP_FILTER_RAW_DATA {}
 unsafe impl ::windows::runtime::Abi for HTTP_FILTER_RAW_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1593,7 +1566,6 @@ impl ::std::cmp::Eq for HTTP_FILTER_URL_MAP {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_FILTER_URL_MAP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1641,7 +1613,6 @@ impl ::std::cmp::Eq for HTTP_FILTER_URL_MAP_EX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_FILTER_URL_MAP_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1678,7 +1649,6 @@ impl ::std::cmp::Eq for HTTP_FILTER_VERSION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_FILTER_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1715,7 +1685,6 @@ impl ::std::cmp::Eq for HTTP_TRACE_CONFIGURATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_TRACE_CONFIGURATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1787,7 +1756,6 @@ impl ::std::cmp::Eq for HTTP_TRACE_EVENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_TRACE_EVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HTTP_TRACE_EVENT_FLAG_STATIC_DESCRIPTIVE_FIELDS: u32 = 1u32;
@@ -1827,7 +1795,6 @@ impl ::std::cmp::Eq for HTTP_TRACE_EVENT_ITEM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_TRACE_EVENT_ITEM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const HTTP_TRACE_LEVEL_END: u32 = 7u32;
@@ -1856,7 +1823,6 @@ impl ::std::convert::From<i32> for HTTP_TRACE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_TRACE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
@@ -3258,7 +3224,6 @@ impl ::std::cmp::Eq for LOGGING_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for LOGGING_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MB_DONT_IMPERSONATE: u32 = 9033u32;
@@ -3705,7 +3670,6 @@ impl ::std::cmp::Eq for MD_CHANGE_OBJECT_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MD_CHANGE_OBJECT_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const MD_CHANGE_TYPE_ADD_OBJECT: u32 = 2u32;
@@ -4583,7 +4547,6 @@ impl ::std::convert::From<i32> for METADATATYPES {
 }
 unsafe impl ::windows::runtime::Abi for METADATATYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const METADATA_DONT_EXPAND: u32 = 512u32;
@@ -4613,7 +4576,6 @@ impl ::std::cmp::PartialEq for METADATA_GETALL_INTERNAL_RECORD {
 impl ::std::cmp::Eq for METADATA_GETALL_INTERNAL_RECORD {}
 unsafe impl ::windows::runtime::Abi for METADATA_GETALL_INTERNAL_RECORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4636,7 +4598,6 @@ impl ::std::cmp::PartialEq for METADATA_GETALL_INTERNAL_RECORD_0 {
 impl ::std::cmp::Eq for METADATA_GETALL_INTERNAL_RECORD_0 {}
 unsafe impl ::windows::runtime::Abi for METADATA_GETALL_INTERNAL_RECORD_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4677,7 +4638,6 @@ impl ::std::cmp::PartialEq for METADATA_GETALL_RECORD {
 impl ::std::cmp::Eq for METADATA_GETALL_RECORD {}
 unsafe impl ::windows::runtime::Abi for METADATA_GETALL_RECORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4705,7 +4665,6 @@ impl ::std::cmp::PartialEq for METADATA_HANDLE_INFO {
 impl ::std::cmp::Eq for METADATA_HANDLE_INFO {}
 unsafe impl ::windows::runtime::Abi for METADATA_HANDLE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const METADATA_INHERIT: u32 = 1u32;
@@ -4768,7 +4727,6 @@ impl ::std::cmp::PartialEq for METADATA_RECORD {
 impl ::std::cmp::Eq for METADATA_RECORD {}
 unsafe impl ::windows::runtime::Abi for METADATA_RECORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const METADATA_REFERENCE: u32 = 8u32;
@@ -4896,7 +4854,6 @@ impl ::std::cmp::Eq for POST_PROCESS_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for POST_PROCESS_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4968,7 +4925,6 @@ impl ::std::cmp::Eq for PRE_PROCESS_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PRE_PROCESS_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SF_DENIED_APPLICATION: u32 = 8u32;
@@ -5035,7 +4991,6 @@ impl ::std::convert::From<i32> for SF_PROPERTY_IIS {
 }
 unsafe impl ::windows::runtime::Abi for SF_PROPERTY_IIS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5057,7 +5012,6 @@ impl ::std::convert::From<i32> for SF_REQ_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SF_REQ_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5076,7 +5030,6 @@ impl ::std::convert::From<i32> for SF_STATUS_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SF_STATUS_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Iis`*"]
 pub const SMTP_MD_ID_BEGIN_RESERVED: u32 = 36864u32;

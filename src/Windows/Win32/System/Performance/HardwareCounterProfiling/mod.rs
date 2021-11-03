@@ -56,7 +56,6 @@ impl ::std::cmp::PartialEq for HARDWARE_COUNTER_DATA {
 impl ::std::cmp::Eq for HARDWARE_COUNTER_DATA {}
 unsafe impl ::windows::runtime::Abi for HARDWARE_COUNTER_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance_HardwareCounterProfiling`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -71,7 +70,6 @@ impl ::std::convert::From<i32> for HARDWARE_COUNTER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for HARDWARE_COUNTER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -116,7 +114,6 @@ impl ::std::cmp::PartialEq for PERFORMANCE_DATA {
 impl ::std::cmp::Eq for PERFORMANCE_DATA {}
 unsafe impl ::windows::runtime::Abi for PERFORMANCE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance_HardwareCounterProfiling`, `Win32_Foundation`*"]

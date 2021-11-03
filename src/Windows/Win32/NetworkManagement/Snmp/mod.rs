@@ -42,7 +42,6 @@ impl ::std::cmp::Eq for AsnAny {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AsnAny {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
@@ -81,7 +80,6 @@ impl ::std::cmp::Eq for AsnAny_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AsnAny_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
@@ -104,7 +102,6 @@ impl ::std::cmp::PartialEq for AsnObjectIdentifier {
 impl ::std::cmp::Eq for AsnObjectIdentifier {}
 unsafe impl ::windows::runtime::Abi for AsnObjectIdentifier {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
@@ -134,7 +131,6 @@ impl ::std::cmp::Eq for AsnOctetString {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AsnOctetString {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Snmp`*"]
 pub const DEFAULT_SNMPTRAP_PORT_IPX: u32 = 36880u32;
@@ -275,7 +271,6 @@ impl ::std::convert::From<u32> for SNMP_API_TRANSLATE_MODE {
 }
 unsafe impl ::windows::runtime::Abi for SNMP_API_TRANSLATE_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SNMP_API_TRANSLATE_MODE {
     type Output = Self;
@@ -351,7 +346,6 @@ impl ::std::convert::From<u32> for SNMP_ERROR {
 }
 unsafe impl ::windows::runtime::Abi for SNMP_ERROR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SNMP_ERROR {
     type Output = Self;
@@ -411,7 +405,6 @@ impl ::std::convert::From<u32> for SNMP_ERROR_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for SNMP_ERROR_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SNMP_ERROR_STATUS {
     type Output = Self;
@@ -458,7 +451,6 @@ impl ::std::convert::From<u32> for SNMP_EXTENSION_REQUEST_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SNMP_EXTENSION_REQUEST_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SNMP_EXTENSION_REQUEST_TYPE {
     type Output = Self;
@@ -506,7 +498,6 @@ impl ::std::convert::From<u32> for SNMP_GENERICTRAP {
 }
 unsafe impl ::windows::runtime::Abi for SNMP_GENERICTRAP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SNMP_GENERICTRAP {
     type Output = Self;
@@ -553,7 +544,6 @@ impl ::std::convert::From<u32> for SNMP_LOG {
 }
 unsafe impl ::windows::runtime::Abi for SNMP_LOG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SNMP_LOG {
     type Output = Self;
@@ -619,7 +609,6 @@ impl ::std::convert::From<u32> for SNMP_OUTPUT_LOG_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SNMP_OUTPUT_LOG_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SNMP_OUTPUT_LOG_TYPE {
     type Output = Self;
@@ -674,7 +663,6 @@ impl ::std::convert::From<u32> for SNMP_PDU_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SNMP_PDU_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SNMP_PDU_TYPE {
     type Output = Self;
@@ -717,7 +705,6 @@ impl ::std::convert::From<u32> for SNMP_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for SNMP_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SNMP_STATUS {
     type Output = Self;
@@ -2003,7 +1990,6 @@ impl ::std::cmp::Eq for SnmpVarBind {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SnmpVarBind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
@@ -2032,7 +2018,6 @@ impl ::std::cmp::Eq for SnmpVarBindList {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SnmpVarBindList {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2060,7 +2045,6 @@ impl ::std::cmp::PartialEq for smiCNTR64 {
 impl ::std::cmp::Eq for smiCNTR64 {}
 unsafe impl ::windows::runtime::Abi for smiCNTR64 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2088,7 +2072,6 @@ impl ::std::cmp::PartialEq for smiOCTETS {
 impl ::std::cmp::Eq for smiOCTETS {}
 unsafe impl ::windows::runtime::Abi for smiOCTETS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2116,7 +2099,6 @@ impl ::std::cmp::PartialEq for smiOID {
 impl ::std::cmp::Eq for smiOID {}
 unsafe impl ::windows::runtime::Abi for smiOID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2139,7 +2121,6 @@ impl ::std::cmp::PartialEq for smiVALUE {
 impl ::std::cmp::Eq for smiVALUE {}
 unsafe impl ::windows::runtime::Abi for smiVALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2166,7 +2147,6 @@ impl ::std::cmp::PartialEq for smiVALUE_0 {
 impl ::std::cmp::Eq for smiVALUE_0 {}
 unsafe impl ::windows::runtime::Abi for smiVALUE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2204,5 +2184,4 @@ impl ::std::cmp::Eq for smiVENDORINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for smiVENDORINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }

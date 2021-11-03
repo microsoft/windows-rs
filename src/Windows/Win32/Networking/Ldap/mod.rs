@@ -51,7 +51,6 @@ impl ::std::cmp::Eq for LDAPAPIFeatureInfoA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for LDAPAPIFeatureInfoA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -87,7 +86,6 @@ impl ::std::cmp::Eq for LDAPAPIFeatureInfoW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for LDAPAPIFeatureInfoW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -147,7 +145,6 @@ impl ::std::cmp::Eq for LDAPMessage {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for LDAPMessage {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Ldap`*"]
 pub const LDAP_ABANDON_CMD: i32 = 80i32;
@@ -198,7 +195,6 @@ impl ::std::cmp::Eq for LDAP_BERVAL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for LDAP_BERVAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Ldap`*"]
 pub const LDAP_BIND_CMD: i32 = 96i32;
@@ -425,7 +421,6 @@ impl ::std::cmp::Eq for LDAP_REFERRAL_CALLBACK {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for LDAP_REFERRAL_CALLBACK {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Ldap`*"]
 pub const LDAP_RES_ADD: i32 = 105i32;
@@ -525,7 +520,6 @@ impl ::std::convert::From<i32> for LDAP_RETCODE {
 }
 unsafe impl ::windows::runtime::Abi for LDAP_RETCODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Ldap`*"]
 pub const LDAP_SCOPE_BASE: u32 = 0u32;
@@ -573,7 +567,6 @@ impl ::std::cmp::PartialEq for LDAP_TIMEVAL {
 impl ::std::cmp::Eq for LDAP_TIMEVAL {}
 unsafe impl ::windows::runtime::Abi for LDAP_TIMEVAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Ldap`*"]
 pub const LDAP_UNBIND_CMD: i32 = 66i32;
@@ -892,7 +885,6 @@ impl ::std::cmp::Eq for berelement {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for berelement {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
@@ -1018,7 +1010,6 @@ impl ::std::cmp::Eq for ldap {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ldap {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1048,7 +1039,6 @@ impl ::std::cmp::PartialEq for ldap_0 {
 impl ::std::cmp::Eq for ldap_0 {}
 unsafe impl ::windows::runtime::Abi for ldap_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
@@ -4565,7 +4555,6 @@ impl ::std::cmp::PartialEq for ldap_version_info {
 impl ::std::cmp::Eq for ldap_version_info {}
 unsafe impl ::windows::runtime::Abi for ldap_version_info {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4611,7 +4600,6 @@ impl ::std::cmp::Eq for ldapapiinfoA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ldapapiinfoA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4657,7 +4645,6 @@ impl ::std::cmp::Eq for ldapapiinfoW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ldapapiinfoW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4693,7 +4680,6 @@ impl ::std::cmp::Eq for ldapcontrolA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ldapcontrolA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4729,7 +4715,6 @@ impl ::std::cmp::Eq for ldapcontrolW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ldapcontrolW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4759,7 +4744,6 @@ impl ::std::cmp::Eq for ldapmodA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ldapmodA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4788,7 +4772,6 @@ impl ::std::cmp::Eq for ldapmodA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ldapmodA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4818,7 +4801,6 @@ impl ::std::cmp::Eq for ldapmodW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ldapmodW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4847,7 +4829,6 @@ impl ::std::cmp::Eq for ldapmodW_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ldapmodW_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -4886,7 +4867,6 @@ impl ::std::cmp::Eq for ldapsortkeyA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ldapsortkeyA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4922,7 +4902,6 @@ impl ::std::cmp::Eq for ldapsortkeyW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ldapsortkeyW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4972,5 +4951,4 @@ impl ::std::cmp::Eq for ldapvlvinfo {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ldapvlvinfo {
     type Abi = Self;
-    type DefaultType = Self;
 }

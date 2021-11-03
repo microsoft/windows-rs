@@ -85,7 +85,6 @@ impl ::std::cmp::Eq for OSUpdateAssessment {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OSUpdateAssessment {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -114,7 +113,6 @@ impl ::std::cmp::PartialEq for UpdateAssessment {
 impl ::std::cmp::Eq for UpdateAssessment {}
 unsafe impl ::windows::runtime::Abi for UpdateAssessment {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_UpdateAssessment`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -139,7 +137,6 @@ impl ::std::convert::From<i32> for UpdateAssessmentStatus {
 }
 unsafe impl ::windows::runtime::Abi for UpdateAssessmentStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_UpdateAssessment`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -156,6 +153,5 @@ impl ::std::convert::From<i32> for UpdateImpactLevel {
 }
 unsafe impl ::windows::runtime::Abi for UpdateImpactLevel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WaaSAssessor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(160364657, 64159, 18095, [137, 88, 192, 131, 81, 93, 124, 156]);

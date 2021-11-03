@@ -181,7 +181,6 @@ impl ::windows::runtime::RuntimeName for CustomSensorReadingChangedEventArgs {
 unsafe impl ::std::marker::Send for CustomSensorReadingChangedEventArgs {}
 unsafe impl ::std::marker::Sync for CustomSensorReadingChangedEventArgs {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICustomSensor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomSensor {
@@ -208,7 +207,6 @@ pub struct ICustomSensor_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICustomSensor2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomSensor2 {
@@ -229,7 +227,6 @@ pub struct ICustomSensor2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICustomSensorReading(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomSensorReading {
@@ -251,7 +248,6 @@ pub struct ICustomSensorReading_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICustomSensorReading2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomSensorReading2 {
@@ -271,7 +267,6 @@ pub struct ICustomSensorReading2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICustomSensorReadingChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomSensorReadingChangedEventArgs {
@@ -290,7 +285,6 @@ pub struct ICustomSensorReadingChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICustomSensorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomSensorStatics {

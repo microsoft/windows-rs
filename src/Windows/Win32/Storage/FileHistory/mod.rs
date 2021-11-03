@@ -61,7 +61,6 @@ impl ::std::convert::From<i32> for FH_BACKUP_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for FH_BACKUP_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -82,7 +81,6 @@ impl ::std::convert::From<i32> for FH_DEVICE_VALIDATION_RESULT {
 }
 unsafe impl ::windows::runtime::Abi for FH_DEVICE_VALIDATION_RESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -99,7 +97,6 @@ impl ::std::convert::From<i32> for FH_LOCAL_POLICY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for FH_LOCAL_POLICY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -115,7 +112,6 @@ impl ::std::convert::From<i32> for FH_PROTECTED_ITEM_CATEGORY {
 }
 unsafe impl ::windows::runtime::Abi for FH_PROTECTED_ITEM_CATEGORY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -132,7 +128,6 @@ impl ::std::convert::From<i32> for FH_RETENTION_TYPES {
 }
 unsafe impl ::windows::runtime::Abi for FH_RETENTION_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
 pub const FH_STATE_BACKUP_NOT_SUPPORTED: u32 = 2064u32;
@@ -187,7 +182,6 @@ impl ::std::convert::From<i32> for FH_TARGET_DRIVE_TYPES {
 }
 unsafe impl ::windows::runtime::Abi for FH_TARGET_DRIVE_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -204,7 +198,6 @@ impl ::std::convert::From<i32> for FH_TARGET_PROPERTY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for FH_TARGET_PROPERTY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileHistory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -222,7 +215,6 @@ impl ::std::convert::From<i32> for FhBackupStopReason {
 }
 unsafe impl ::windows::runtime::Abi for FhBackupStopReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const FhConfigMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3980639036, 2537, 18826, [157, 246, 33, 119, 36, 76, 109, 180]);
 pub const FhReassociation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1299353141, 5882, 17184, [158, 139, 191, 215, 16, 10, 136, 70]);

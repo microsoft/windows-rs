@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRequestingFocusOnKeyboardInputEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRequestingFocusOnKeyboardInputEventArgs {
@@ -18,7 +17,6 @@ pub struct IRequestingFocusOnKeyboardInputEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISearchSuggestion(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchSuggestion {
@@ -43,7 +41,6 @@ pub struct ISearchSuggestion_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISearchSuggestionManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchSuggestionManager {
@@ -82,7 +79,6 @@ pub struct ISearchSuggestionManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISearchSuggestionsRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISearchSuggestionsRequestedEventArgs {
@@ -204,10 +200,12 @@ impl ::std::convert::From<i32> for SearchSuggestionKind {
 }
 unsafe impl ::windows::runtime::Abi for SearchSuggestionKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SearchSuggestionKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Search.Core.SearchSuggestionKind;i4)");
+}
+impl ::windows::runtime::DefaultType for SearchSuggestionKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Search_Core`*"]
 #[repr(transparent)]

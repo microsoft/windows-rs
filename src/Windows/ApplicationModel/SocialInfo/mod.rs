@@ -2,7 +2,6 @@
 #[cfg(feature = "ApplicationModel_SocialInfo_Provider")]
 pub mod Provider;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISocialFeedChildItem(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocialFeedChildItem {
@@ -35,7 +34,6 @@ pub struct ISocialFeedChildItem_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISocialFeedContent(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocialFeedContent {
@@ -61,7 +59,6 @@ pub struct ISocialFeedContent_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISocialFeedItem(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocialFeedItem {
@@ -104,7 +101,6 @@ pub struct ISocialFeedItem_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: SocialFeedItemStyle) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISocialFeedSharedItem(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocialFeedSharedItem {
@@ -137,7 +133,6 @@ pub struct ISocialFeedSharedItem_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISocialItemThumbnail(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocialItemThumbnail {
@@ -169,7 +164,6 @@ pub struct ISocialItemThumbnail_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISocialUserInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocialUserInfo {
@@ -573,10 +567,12 @@ impl ::std::convert::From<i32> for SocialFeedItemStyle {
 }
 unsafe impl ::windows::runtime::Abi for SocialFeedItemStyle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SocialFeedItemStyle {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialFeedItemStyle;i4)");
+}
+impl ::windows::runtime::DefaultType for SocialFeedItemStyle {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -594,10 +590,12 @@ impl ::std::convert::From<i32> for SocialFeedKind {
 }
 unsafe impl ::windows::runtime::Abi for SocialFeedKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SocialFeedKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialFeedKind;i4)");
+}
+impl ::windows::runtime::DefaultType for SocialFeedKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
 #[repr(transparent)]
@@ -714,10 +712,12 @@ impl ::std::convert::From<i32> for SocialFeedUpdateMode {
 }
 unsafe impl ::windows::runtime::Abi for SocialFeedUpdateMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SocialFeedUpdateMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialFeedUpdateMode;i4)");
+}
+impl ::windows::runtime::DefaultType for SocialFeedUpdateMode {
+    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -738,10 +738,12 @@ impl ::std::convert::From<i32> for SocialItemBadgeStyle {
 }
 unsafe impl ::windows::runtime::Abi for SocialItemBadgeStyle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SocialItemBadgeStyle {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialItemBadgeStyle;i4)");
+}
+impl ::windows::runtime::DefaultType for SocialItemBadgeStyle {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_SocialInfo`*"]
 #[repr(transparent)]

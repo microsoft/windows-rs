@@ -56,7 +56,6 @@ impl ::std::cmp::PartialEq for GESTURECONFIG {
 impl ::std::cmp::Eq for GESTURECONFIG {}
 unsafe impl ::windows::runtime::Abi for GESTURECONFIG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -77,7 +76,6 @@ impl ::std::convert::From<u32> for GESTURECONFIG_ID {
 }
 unsafe impl ::windows::runtime::Abi for GESTURECONFIG_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for GESTURECONFIG_ID {
     type Output = Self;
@@ -157,7 +155,6 @@ impl ::std::cmp::Eq for GESTUREINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GESTUREINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -195,7 +192,6 @@ impl ::std::cmp::Eq for GESTURENOTIFYSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GESTURENOTIFYSTRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Touch`, `Win32_Foundation`*"]
@@ -268,7 +264,6 @@ impl ::std::default::Default for HGESTUREINFO {
 unsafe impl ::windows::runtime::Handle for HGESTUREINFO {}
 unsafe impl ::windows::runtime::Abi for HGESTUREINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -281,7 +276,6 @@ impl ::std::default::Default for HTOUCHINPUT {
 unsafe impl ::windows::runtime::Handle for HTOUCHINPUT {}
 unsafe impl ::windows::runtime::Abi for HTOUCHINPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
 #[repr(transparent)]
@@ -737,7 +731,6 @@ impl ::std::convert::From<i32> for MANIPULATION_PROCESSOR_MANIPULATIONS {
 }
 unsafe impl ::windows::runtime::Abi for MANIPULATION_PROCESSOR_MANIPULATIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const ManipulationProcessor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1501384624, 18429, 19199, [137, 185, 198, 207, 174, 140, 240, 142]);
 #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
@@ -753,7 +746,6 @@ impl ::std::convert::From<u32> for REGISTER_TOUCH_WINDOW_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for REGISTER_TOUCH_WINDOW_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for REGISTER_TOUCH_WINDOW_FLAGS {
     type Output = Self;
@@ -832,7 +824,6 @@ impl ::std::convert::From<u32> for TOUCHEVENTF_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for TOUCHEVENTF_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for TOUCHEVENTF_FLAGS {
     type Output = Self;
@@ -914,7 +905,6 @@ impl ::std::cmp::Eq for TOUCHINPUT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TOUCHINPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -930,7 +920,6 @@ impl ::std::convert::From<u32> for TOUCHINPUTMASKF_MASK {
 }
 unsafe impl ::windows::runtime::Abi for TOUCHINPUTMASKF_MASK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for TOUCHINPUTMASKF_MASK {
     type Output = Self;

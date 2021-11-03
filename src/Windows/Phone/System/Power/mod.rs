@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPowerManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPowerManagerStatics {
@@ -23,7 +22,6 @@ pub struct IPowerManagerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPowerManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPowerManagerStatics2 {
@@ -98,8 +96,10 @@ impl ::std::convert::From<i32> for PowerSavingMode {
 }
 unsafe impl ::windows::runtime::Abi for PowerSavingMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PowerSavingMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Phone.System.Power.PowerSavingMode;i4)");
+}
+impl ::windows::runtime::DefaultType for PowerSavingMode {
+    type DefaultType = Self;
 }

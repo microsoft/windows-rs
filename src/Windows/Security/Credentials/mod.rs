@@ -2,7 +2,6 @@
 #[cfg(feature = "Security_Credentials_UI")]
 pub mod UI;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICredentialFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICredentialFactory {
@@ -21,7 +20,6 @@ pub struct ICredentialFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resource: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, username: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, password: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyCredential(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyCredential {
@@ -48,7 +46,6 @@ pub struct IKeyCredential_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyCredentialAttestationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyCredentialAttestationResult {
@@ -71,7 +68,6 @@ pub struct IKeyCredentialAttestationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut KeyCredentialAttestationStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyCredentialManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyCredentialManagerStatics {
@@ -99,7 +95,6 @@ pub struct IKeyCredentialManagerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyCredentialOperationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyCredentialOperationResult {
@@ -120,7 +115,6 @@ pub struct IKeyCredentialOperationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut KeyCredentialStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyCredentialRetrievalResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyCredentialRetrievalResult {
@@ -140,7 +134,6 @@ pub struct IKeyCredentialRetrievalResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut KeyCredentialStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPasswordCredential(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPasswordCredential {
@@ -167,7 +160,6 @@ pub struct IPasswordCredential_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPasswordVault(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPasswordVault {
@@ -244,7 +236,6 @@ pub struct IWebAccount_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut WebAccountState) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebAccount2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccount2 {
@@ -271,7 +262,6 @@ pub struct IWebAccount2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebAccountFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountFactory {
@@ -290,7 +280,6 @@ pub struct IWebAccountFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, webaccountprovider: ::windows::runtime::RawPtr, username: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, state: WebAccountState, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebAccountProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProvider {
@@ -312,7 +301,6 @@ pub struct IWebAccountProvider_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebAccountProvider2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProvider2 {
@@ -332,7 +320,6 @@ pub struct IWebAccountProvider2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebAccountProvider3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProvider3 {
@@ -352,7 +339,6 @@ pub struct IWebAccountProvider3_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebAccountProvider4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProvider4 {
@@ -371,7 +357,6 @@ pub struct IWebAccountProvider4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebAccountProviderFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderFactory {
@@ -513,10 +498,12 @@ impl ::std::convert::From<i32> for KeyCredentialAttestationStatus {
 }
 unsafe impl ::windows::runtime::Abi for KeyCredentialAttestationStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for KeyCredentialAttestationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialAttestationStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for KeyCredentialAttestationStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Credentials`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -533,10 +520,12 @@ impl ::std::convert::From<i32> for KeyCredentialCreationOption {
 }
 unsafe impl ::windows::runtime::Abi for KeyCredentialCreationOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for KeyCredentialCreationOption {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialCreationOption;i4)");
+}
+impl ::windows::runtime::DefaultType for KeyCredentialCreationOption {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Credentials`*"]
 pub struct KeyCredentialManager {}
@@ -678,10 +667,12 @@ impl ::std::convert::From<i32> for KeyCredentialStatus {
 }
 unsafe impl ::windows::runtime::Abi for KeyCredentialStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for KeyCredentialStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for KeyCredentialStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Credentials`*"]
 #[repr(transparent)]
@@ -1207,10 +1198,12 @@ impl ::std::convert::From<i32> for WebAccountPictureSize {
 }
 unsafe impl ::windows::runtime::Abi for WebAccountPictureSize {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WebAccountPictureSize {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.WebAccountPictureSize;i4)");
+}
+impl ::windows::runtime::DefaultType for WebAccountPictureSize {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Credentials`*"]
 #[repr(transparent)]
@@ -1317,8 +1310,10 @@ impl ::std::convert::From<i32> for WebAccountState {
 }
 unsafe impl ::windows::runtime::Abi for WebAccountState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WebAccountState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.WebAccountState;i4)");
+}
+impl ::windows::runtime::DefaultType for WebAccountState {
+    type DefaultType = Self;
 }

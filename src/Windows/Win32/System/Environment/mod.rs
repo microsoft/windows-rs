@@ -119,7 +119,6 @@ impl ::std::cmp::PartialEq for ENCLAVE_IDENTITY {
 impl ::std::cmp::Eq for ENCLAVE_IDENTITY {}
 unsafe impl ::windows::runtime::Abi for ENCLAVE_IDENTITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -145,7 +144,6 @@ impl ::std::cmp::PartialEq for ENCLAVE_INFORMATION {
 impl ::std::cmp::Eq for ENCLAVE_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for ENCLAVE_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Environment`*"]
 pub const ENCLAVE_REPORT_DATA_LENGTH: u32 = 64u32;
@@ -170,7 +168,6 @@ impl ::std::convert::From<i32> for ENCLAVE_SEALING_IDENTITY_POLICY {
 }
 unsafe impl ::windows::runtime::Abi for ENCLAVE_SEALING_IDENTITY_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Environment`*"]
 pub const ENCLAVE_UNSEAL_FLAG_STALE_KEY: u32 = 1u32;
@@ -211,7 +208,6 @@ impl ::std::cmp::PartialEq for ENCLAVE_VBS_BASIC_KEY_REQUEST {
 impl ::std::cmp::Eq for ENCLAVE_VBS_BASIC_KEY_REQUEST {}
 unsafe impl ::windows::runtime::Abi for ENCLAVE_VBS_BASIC_KEY_REQUEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Environment`*"]
 #[inline]
@@ -753,7 +749,6 @@ impl ::std::cmp::PartialEq for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
 impl ::std::cmp::Eq for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {}
 unsafe impl ::windows::runtime::Abi for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -804,7 +799,6 @@ impl ::std::cmp::PartialEq for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
 impl ::std::cmp::Eq for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {}
 unsafe impl ::windows::runtime::Abi for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -843,7 +837,6 @@ impl ::std::cmp::PartialEq for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
 impl ::std::cmp::Eq for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {}
 unsafe impl ::windows::runtime::Abi for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -882,7 +875,6 @@ impl ::std::cmp::PartialEq for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
 impl ::std::cmp::Eq for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {}
 unsafe impl ::windows::runtime::Abi for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -907,7 +899,6 @@ impl ::std::cmp::PartialEq for VBS_ENCLAVE_REPORT {
 impl ::std::cmp::Eq for VBS_ENCLAVE_REPORT {}
 unsafe impl ::windows::runtime::Abi for VBS_ENCLAVE_REPORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -935,7 +926,6 @@ impl ::std::cmp::PartialEq for VBS_ENCLAVE_REPORT_MODULE {
 impl ::std::cmp::Eq for VBS_ENCLAVE_REPORT_MODULE {}
 unsafe impl ::windows::runtime::Abi for VBS_ENCLAVE_REPORT_MODULE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -962,7 +952,6 @@ impl ::std::cmp::PartialEq for VBS_ENCLAVE_REPORT_PKG_HEADER {
 impl ::std::cmp::Eq for VBS_ENCLAVE_REPORT_PKG_HEADER {}
 unsafe impl ::windows::runtime::Abi for VBS_ENCLAVE_REPORT_PKG_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Environment`*"]
 pub const VBS_ENCLAVE_REPORT_PKG_HEADER_VERSION_CURRENT: u32 = 1u32;
@@ -989,7 +978,6 @@ impl ::std::cmp::PartialEq for VBS_ENCLAVE_REPORT_VARDATA_HEADER {
 impl ::std::cmp::Eq for VBS_ENCLAVE_REPORT_VARDATA_HEADER {}
 unsafe impl ::windows::runtime::Abi for VBS_ENCLAVE_REPORT_VARDATA_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Environment`*"]
 pub const VBS_ENCLAVE_REPORT_VERSION_CURRENT: u32 = 1u32;

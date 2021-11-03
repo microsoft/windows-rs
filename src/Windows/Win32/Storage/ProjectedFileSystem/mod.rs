@@ -45,7 +45,6 @@ impl ::std::cmp::Eq for PRJ_CALLBACKS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PRJ_CALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -111,7 +110,6 @@ impl ::std::cmp::Eq for PRJ_CALLBACK_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PRJ_CALLBACK_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -126,7 +124,6 @@ impl ::std::convert::From<i32> for PRJ_CALLBACK_DATA_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PRJ_CALLBACK_DATA_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_CANCEL_COMMAND_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA);
@@ -151,7 +148,6 @@ impl ::std::cmp::PartialEq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
 impl ::std::cmp::Eq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -174,7 +170,6 @@ impl ::std::cmp::PartialEq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
 impl ::std::cmp::Eq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {}
 unsafe impl ::windows::runtime::Abi for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -201,7 +196,6 @@ impl ::std::cmp::PartialEq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
 impl ::std::cmp::Eq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {}
 unsafe impl ::windows::runtime::Abi for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -228,7 +222,6 @@ impl ::std::cmp::PartialEq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
 impl ::std::cmp::Eq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {}
 unsafe impl ::windows::runtime::Abi for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -243,7 +236,6 @@ impl ::std::convert::From<i32> for PRJ_COMPLETE_COMMAND_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PRJ_COMPLETE_COMMAND_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -256,7 +248,6 @@ impl ::std::default::Default for PRJ_DIR_ENTRY_BUFFER_HANDLE {
 unsafe impl ::windows::runtime::Handle for PRJ_DIR_ENTRY_BUFFER_HANDLE {}
 unsafe impl ::windows::runtime::Abi for PRJ_DIR_ENTRY_BUFFER_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_END_DIRECTORY_ENUMERATION_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
@@ -288,7 +279,6 @@ impl ::std::cmp::Eq for PRJ_EXTENDED_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PRJ_EXTENDED_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -316,7 +306,6 @@ impl ::std::cmp::Eq for PRJ_EXTENDED_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PRJ_EXTENDED_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -350,7 +339,6 @@ impl ::std::cmp::Eq for PRJ_EXTENDED_INFO_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PRJ_EXTENDED_INFO_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -364,7 +352,6 @@ impl ::std::convert::From<i32> for PRJ_EXT_INFO_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PRJ_EXT_INFO_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -412,7 +399,6 @@ impl ::std::cmp::Eq for PRJ_FILE_BASIC_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PRJ_FILE_BASIC_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -430,7 +416,6 @@ impl ::std::convert::From<u32> for PRJ_FILE_STATE {
 }
 unsafe impl ::windows::runtime::Abi for PRJ_FILE_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PRJ_FILE_STATE {
     type Output = Self;
@@ -477,7 +462,6 @@ impl ::std::default::Default for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
 unsafe impl ::windows::runtime::Handle for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {}
 unsafe impl ::windows::runtime::Abi for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -502,7 +486,6 @@ impl ::std::convert::From<i32> for PRJ_NOTIFICATION {
 }
 unsafe impl ::windows::runtime::Abi for PRJ_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_NOTIFICATION_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, isdirectory: super::super::Foundation::BOOLEAN, notification: PRJ_NOTIFICATION, destinationfilename: super::super::Foundation::PWSTR, operationparameters: *mut PRJ_NOTIFICATION_PARAMETERS) -> ::windows::runtime::HRESULT;
@@ -539,7 +522,6 @@ impl ::std::cmp::Eq for PRJ_NOTIFICATION_MAPPING {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PRJ_NOTIFICATION_MAPPING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -569,7 +551,6 @@ impl ::std::cmp::Eq for PRJ_NOTIFICATION_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PRJ_NOTIFICATION_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -603,7 +584,6 @@ impl ::std::cmp::Eq for PRJ_NOTIFICATION_PARAMETERS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PRJ_NOTIFICATION_PARAMETERS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -630,7 +610,6 @@ impl ::std::cmp::PartialEq for PRJ_NOTIFICATION_PARAMETERS_1 {
 impl ::std::cmp::Eq for PRJ_NOTIFICATION_PARAMETERS_1 {}
 unsafe impl ::windows::runtime::Abi for PRJ_NOTIFICATION_PARAMETERS_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -657,7 +636,6 @@ impl ::std::cmp::PartialEq for PRJ_NOTIFICATION_PARAMETERS_2 {
 impl ::std::cmp::Eq for PRJ_NOTIFICATION_PARAMETERS_2 {}
 unsafe impl ::windows::runtime::Abi for PRJ_NOTIFICATION_PARAMETERS_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -685,7 +663,6 @@ impl ::std::convert::From<u32> for PRJ_NOTIFY_TYPES {
 }
 unsafe impl ::windows::runtime::Abi for PRJ_NOTIFY_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PRJ_NOTIFY_TYPES {
     type Output = Self;
@@ -727,7 +704,6 @@ impl ::std::convert::From<i32> for PRJ_PLACEHOLDER_ID {
 }
 unsafe impl ::windows::runtime::Abi for PRJ_PLACEHOLDER_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -773,7 +749,6 @@ impl ::std::cmp::Eq for PRJ_PLACEHOLDER_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PRJ_PLACEHOLDER_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -801,7 +776,6 @@ impl ::std::cmp::PartialEq for PRJ_PLACEHOLDER_INFO_0 {
 impl ::std::cmp::Eq for PRJ_PLACEHOLDER_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for PRJ_PLACEHOLDER_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -829,7 +803,6 @@ impl ::std::cmp::PartialEq for PRJ_PLACEHOLDER_INFO_1 {
 impl ::std::cmp::Eq for PRJ_PLACEHOLDER_INFO_1 {}
 unsafe impl ::windows::runtime::Abi for PRJ_PLACEHOLDER_INFO_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -857,7 +830,6 @@ impl ::std::cmp::PartialEq for PRJ_PLACEHOLDER_INFO_2 {
 impl ::std::cmp::Eq for PRJ_PLACEHOLDER_INFO_2 {}
 unsafe impl ::windows::runtime::Abi for PRJ_PLACEHOLDER_INFO_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -885,7 +857,6 @@ impl ::std::cmp::PartialEq for PRJ_PLACEHOLDER_VERSION_INFO {
 impl ::std::cmp::Eq for PRJ_PLACEHOLDER_VERSION_INFO {}
 unsafe impl ::windows::runtime::Abi for PRJ_PLACEHOLDER_VERSION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_QUERY_FILE_NAME_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ::windows::runtime::HRESULT;
@@ -902,7 +873,6 @@ impl ::std::convert::From<u32> for PRJ_STARTVIRTUALIZING_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PRJ_STARTVIRTUALIZING_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PRJ_STARTVIRTUALIZING_FLAGS {
     type Output = Self;
@@ -974,7 +944,6 @@ impl ::std::cmp::Eq for PRJ_STARTVIRTUALIZING_OPTIONS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PRJ_STARTVIRTUALIZING_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_START_DIRECTORY_ENUMERATION_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
@@ -994,7 +963,6 @@ impl ::std::convert::From<u32> for PRJ_UPDATE_FAILURE_CAUSES {
 }
 unsafe impl ::windows::runtime::Abi for PRJ_UPDATE_FAILURE_CAUSES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PRJ_UPDATE_FAILURE_CAUSES {
     type Output = Self;
@@ -1043,7 +1011,6 @@ impl ::std::convert::From<u32> for PRJ_UPDATE_TYPES {
 }
 unsafe impl ::windows::runtime::Abi for PRJ_UPDATE_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PRJ_UPDATE_TYPES {
     type Output = Self;
@@ -1099,7 +1066,6 @@ impl ::std::cmp::PartialEq for PRJ_VIRTUALIZATION_INSTANCE_INFO {
 impl ::std::cmp::Eq for PRJ_VIRTUALIZATION_INSTANCE_INFO {}
 unsafe impl ::windows::runtime::Abi for PRJ_VIRTUALIZATION_INSTANCE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
 #[inline]

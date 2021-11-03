@@ -25,7 +25,6 @@ impl ::std::convert::From<i32> for AMBISONICS_CHANNEL_ORDERING {
 }
 unsafe impl ::windows::runtime::Abi for AMBISONICS_CHANNEL_ORDERING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -40,7 +39,6 @@ impl ::std::convert::From<i32> for AMBISONICS_NORMALIZATION {
 }
 unsafe impl ::windows::runtime::Abi for AMBISONICS_NORMALIZATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -83,7 +81,6 @@ impl ::std::cmp::PartialEq for AMBISONICS_PARAMS {
 impl ::std::cmp::Eq for AMBISONICS_PARAMS {}
 unsafe impl ::windows::runtime::Abi for AMBISONICS_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const AMBISONICS_PARAM_VERSION_1: u32 = 1u32;
@@ -99,7 +96,6 @@ impl ::std::convert::From<i32> for AMBISONICS_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for AMBISONICS_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -149,7 +145,6 @@ impl ::std::cmp::Eq for APOInitSystemEffects3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectMusic", feature = "Win32_System_Com", feature = "Win32_System_PropertiesSystem"))]
 unsafe impl ::windows::runtime::Abi for APOInitSystemEffects3 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 pub const APO_CLASS_UUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1502215400, 40144, 18045, [138, 106, 84, 25, 227, 21, 41, 212]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -185,7 +180,6 @@ impl ::std::cmp::Eq for APO_CONNECTION_PROPERTY_V2 {}
 #[cfg(feature = "Win32_System_RemoteDesktop")]
 unsafe impl ::windows::runtime::Abi for APO_CONNECTION_PROPERTY_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -204,7 +198,6 @@ impl ::std::convert::From<i32> for APO_LOG_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for APO_LOG_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem"))]
 impl ::std::clone::Clone for APO_NOTIFICATION {
@@ -238,7 +231,6 @@ impl ::std::cmp::Eq for APO_NOTIFICATION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem"))]
 unsafe impl ::windows::runtime::Abi for APO_NOTIFICATION {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem"))]
 impl ::std::clone::Clone for APO_NOTIFICATION_0 {
@@ -273,7 +265,6 @@ impl ::std::cmp::Eq for APO_NOTIFICATION_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem"))]
 unsafe impl ::windows::runtime::Abi for APO_NOTIFICATION_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 impl ::std::clone::Clone for APO_NOTIFICATION_DESCRIPTOR {
     fn clone(&self) -> Self {
@@ -300,7 +291,6 @@ impl ::std::cmp::PartialEq for APO_NOTIFICATION_DESCRIPTOR {
 impl ::std::cmp::Eq for APO_NOTIFICATION_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for APO_NOTIFICATION_DESCRIPTOR {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 impl ::std::clone::Clone for APO_NOTIFICATION_DESCRIPTOR_0 {
     fn clone(&self) -> Self {
@@ -328,7 +318,6 @@ impl ::std::cmp::PartialEq for APO_NOTIFICATION_DESCRIPTOR_0 {
 impl ::std::cmp::Eq for APO_NOTIFICATION_DESCRIPTOR_0 {}
 unsafe impl ::windows::runtime::Abi for APO_NOTIFICATION_DESCRIPTOR_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -345,7 +334,6 @@ impl ::std::convert::From<i32> for APO_NOTIFICATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for APO_NOTIFICATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const AUDCLNT_E_ALREADY_INITIALIZED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2004287486i32 as _);
@@ -442,7 +430,6 @@ impl ::std::convert::From<i32> for AUDCLNT_SHAREMODE {
 }
 unsafe impl ::windows::runtime::Abi for AUDCLNT_SHAREMODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const AUDCLNT_STREAMFLAGS_AUTOCONVERTPCM: u32 = 2147483648u32;
@@ -473,7 +460,6 @@ impl ::std::convert::From<u32> for AUDCLNT_STREAMOPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for AUDCLNT_STREAMOPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for AUDCLNT_STREAMOPTIONS {
     type Output = Self;
@@ -530,7 +516,6 @@ impl ::std::cmp::PartialEq for AUDIOCLIENT_ACTIVATION_PARAMS {
 impl ::std::cmp::Eq for AUDIOCLIENT_ACTIVATION_PARAMS {}
 unsafe impl ::windows::runtime::Abi for AUDIOCLIENT_ACTIVATION_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -552,7 +537,6 @@ impl ::std::cmp::PartialEq for AUDIOCLIENT_ACTIVATION_PARAMS_0 {
 impl ::std::cmp::Eq for AUDIOCLIENT_ACTIVATION_PARAMS_0 {}
 unsafe impl ::windows::runtime::Abi for AUDIOCLIENT_ACTIVATION_PARAMS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -567,7 +551,6 @@ impl ::std::convert::From<i32> for AUDIOCLIENT_ACTIVATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for AUDIOCLIENT_ACTIVATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -595,7 +578,6 @@ impl ::std::cmp::PartialEq for AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {
 impl ::std::cmp::Eq for AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {}
 unsafe impl ::windows::runtime::Abi for AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const AUDIOCLOCK_CHARACTERISTIC_FIXED_FREQ: u32 = 1u32;
@@ -619,7 +601,6 @@ impl ::std::convert::From<i32> for AUDIOPOSTURE_ORIENTATION {
 }
 unsafe impl ::windows::runtime::Abi for AUDIOPOSTURE_ORIENTATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -654,7 +635,6 @@ impl ::std::cmp::Eq for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -669,7 +649,6 @@ impl ::std::convert::From<i32> for AUDIO_CURVE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for AUDIO_CURVE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -684,7 +663,6 @@ impl ::std::convert::From<u32> for AUDIO_DUCKING_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for AUDIO_DUCKING_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for AUDIO_DUCKING_OPTIONS {
     type Output = Self;
@@ -748,7 +726,6 @@ impl ::std::cmp::Eq for AUDIO_EFFECT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUDIO_EFFECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -763,7 +740,6 @@ impl ::std::convert::From<i32> for AUDIO_EFFECT_STATE {
 }
 unsafe impl ::windows::runtime::Abi for AUDIO_EFFECT_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const AUDIO_EFFECT_TYPE_ACOUSTIC_ECHO_CANCELLATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1868869054, 33297, 4578, [140, 112, 44, 39, 215, 240, 1, 250]);
 pub const AUDIO_EFFECT_TYPE_AUTOMATIC_GAIN_CONTROL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1868869056, 33297, 4578, [140, 112, 44, 39, 215, 240, 1, 250]);
@@ -809,7 +785,6 @@ impl ::std::cmp::PartialEq for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_D
 impl ::std::cmp::Eq for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -845,7 +820,6 @@ impl ::std::cmp::Eq for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {}
 #[cfg(feature = "Win32_System_PropertiesSystem")]
 unsafe impl ::windows::runtime::Abi for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -876,7 +850,6 @@ impl ::std::cmp::Eq for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {}
 #[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -903,7 +876,6 @@ impl ::std::cmp::PartialEq for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR
 impl ::std::cmp::Eq for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -938,7 +910,6 @@ impl ::std::cmp::Eq for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 pub const AUDIO_SIGNALPROCESSINGMODE_COMMUNICATIONS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2559906611, 47565, 18609, [160, 163, 255, 64, 104, 45, 115, 247]);
 pub const AUDIO_SIGNALPROCESSINGMODE_DEFAULT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3247320958, 37693, 18789, [183, 209, 30, 239, 34, 141, 42, 243]);
@@ -973,7 +944,6 @@ impl ::std::convert::From<i32> for AUDIO_STREAM_CATEGORY {
 }
 unsafe impl ::windows::runtime::Abi for AUDIO_STREAM_CATEGORY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1009,7 +979,6 @@ impl ::std::cmp::Eq for AUDIO_SYSTEMEFFECT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUDIO_SYSTEMEFFECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1037,7 +1006,6 @@ impl ::std::cmp::PartialEq for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICAT
 impl ::std::cmp::Eq for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1081,7 +1049,6 @@ impl ::std::cmp::Eq for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {}
 #[cfg(feature = "Win32_System_PropertiesSystem")]
 unsafe impl ::windows::runtime::Abi for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1096,7 +1063,6 @@ impl ::std::convert::From<i32> for AUDIO_SYSTEMEFFECT_STATE {
 }
 unsafe impl ::windows::runtime::Abi for AUDIO_SYSTEMEFFECT_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1134,7 +1100,6 @@ impl ::std::cmp::Eq for AUDIO_VOLUME_NOTIFICATION_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUDIO_VOLUME_NOTIFICATION_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
@@ -1177,7 +1142,6 @@ impl ::std::cmp::PartialEq for AudioClient3ActivationParams {
 impl ::std::cmp::Eq for AudioClient3ActivationParams {}
 unsafe impl ::windows::runtime::Abi for AudioClient3ActivationParams {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1214,7 +1178,6 @@ impl ::std::cmp::Eq for AudioClientProperties {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AudioClientProperties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1251,7 +1214,6 @@ impl ::std::cmp::Eq for AudioExtensionParams {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AudioExtensionParams {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1283,7 +1245,6 @@ impl ::std::convert::From<u32> for AudioObjectType {
 }
 unsafe impl ::windows::runtime::Abi for AudioObjectType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for AudioObjectType {
     type Output = Self;
@@ -1330,7 +1291,6 @@ impl ::std::convert::From<i32> for AudioSessionDisconnectReason {
 }
 unsafe impl ::windows::runtime::Abi for AudioSessionDisconnectReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1346,7 +1306,6 @@ impl ::std::convert::From<i32> for AudioSessionState {
 }
 unsafe impl ::windows::runtime::Abi for AudioSessionState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1362,7 +1321,6 @@ impl ::std::convert::From<i32> for AudioStateMonitorSoundLevel {
 }
 unsafe impl ::windows::runtime::Abi for AudioStateMonitorSoundLevel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const BLUETOOTHLE_MIDI_SERVICE_UUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(62393946, 60904, 19251, [167, 81, 108, 227, 78, 196, 199, 0]);
 pub const BLUETOOTH_MIDI_DATAIO_CHARACTERISTIC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2004018651, 14440, 16658, [161, 169, 242, 102, 157, 16, 107, 243]);
@@ -1385,7 +1343,6 @@ impl ::std::convert::From<i32> for CAPTURE_MEMORY_ALLOCATION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CAPTURE_MEMORY_ALLOCATION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1413,7 +1370,6 @@ impl ::std::cmp::PartialEq for CC_BYTE_PAIR {
 impl ::std::cmp::Eq for CC_BYTE_PAIR {}
 unsafe impl ::windows::runtime::Abi for CC_BYTE_PAIR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1443,7 +1399,6 @@ impl ::std::cmp::PartialEq for CC_HW_FIELD {
 impl ::std::cmp::Eq for CC_HW_FIELD {}
 unsafe impl ::windows::runtime::Abi for CC_HW_FIELD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const CC_MAX_HW_DECODE_LINES: u32 = 12u32;
@@ -1468,7 +1423,6 @@ impl ::std::convert::From<i32> for CONSTRICTOR_OPTION {
 }
 unsafe impl ::windows::runtime::Abi for CONSTRICTOR_OPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[inline]
@@ -1504,7 +1458,6 @@ impl ::std::convert::From<i32> for ConnectorType {
 }
 unsafe impl ::windows::runtime::Abi for ConnectorType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[inline]
@@ -1723,7 +1676,6 @@ impl ::std::cmp::PartialEq for DEVCAPS {
 impl ::std::cmp::Eq for DEVCAPS {}
 unsafe impl ::windows::runtime::Abi for DEVCAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const DEVICE_STATEMASK_ALL: u32 = 15u32;
@@ -1785,7 +1737,6 @@ impl ::std::cmp::PartialEq for DIRECTX_AUDIO_ACTIVATION_PARAMS {
 impl ::std::cmp::Eq for DIRECTX_AUDIO_ACTIVATION_PARAMS {}
 unsafe impl ::windows::runtime::Abi for DIRECTX_AUDIO_ACTIVATION_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1809,7 +1760,6 @@ impl ::std::cmp::PartialEq for DS3DVECTOR {
 impl ::std::cmp::Eq for DS3DVECTOR {}
 unsafe impl ::windows::runtime::Abi for DS3DVECTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1832,7 +1782,6 @@ impl ::std::cmp::PartialEq for DS3DVECTOR_0 {
 impl ::std::cmp::Eq for DS3DVECTOR_0 {}
 unsafe impl ::windows::runtime::Abi for DS3DVECTOR_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1855,7 +1804,6 @@ impl ::std::cmp::PartialEq for DS3DVECTOR_1 {
 impl ::std::cmp::Eq for DS3DVECTOR_1 {}
 unsafe impl ::windows::runtime::Abi for DS3DVECTOR_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1878,7 +1826,6 @@ impl ::std::cmp::PartialEq for DS3DVECTOR_2 {
 impl ::std::cmp::Eq for DS3DVECTOR_2 {}
 unsafe impl ::windows::runtime::Abi for DS3DVECTOR_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1893,7 +1840,6 @@ impl ::std::convert::From<i32> for DataFlow {
 }
 unsafe impl ::windows::runtime::Abi for DataFlow {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const DeviceTopology: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(502675920, 24257, 18346, [147, 121, 130, 141, 193, 170, 140, 89]);
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
@@ -1911,7 +1857,6 @@ impl ::std::convert::From<i32> for EDataFlow {
 }
 unsafe impl ::windows::runtime::Abi for EDataFlow {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const ENCAPIPARAM_BITRATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1238125635, 51843, 19156, [169, 175, 243, 105, 106, 246, 102, 223]);
 pub const ENCAPIPARAM_BITRATE_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3999248988, 50963, 16593, [157, 88, 192, 215, 36, 30, 37, 15]);
@@ -1951,7 +1896,6 @@ impl ::std::convert::From<i32> for EPcxConnectionType {
 }
 unsafe impl ::windows::runtime::Abi for EPcxConnectionType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1969,7 +1913,6 @@ impl ::std::convert::From<i32> for EPcxGenLocation {
 }
 unsafe impl ::windows::runtime::Abi for EPcxGenLocation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1998,7 +1941,6 @@ impl ::std::convert::From<i32> for EPcxGeoLocation {
 }
 unsafe impl ::windows::runtime::Abi for EPcxGeoLocation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2015,7 +1957,6 @@ impl ::std::convert::From<i32> for EPxcPortConnection {
 }
 unsafe impl ::windows::runtime::Abi for EPxcPortConnection {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2032,7 +1973,6 @@ impl ::std::convert::From<i32> for ERole {
 }
 unsafe impl ::windows::runtime::Abi for ERole {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const EVENTCONTEXT_VOLUMESLIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3804424670, 2481, 19204, [132, 229, 7, 147, 18, 37, 238, 4]);
 pub const EVENTSETID_CROSSBAR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1781401153, 10468, 4560, [161, 140, 0, 160, 201, 17, 137, 86]);
@@ -2055,7 +1995,6 @@ impl ::std::convert::From<i32> for EndpointConnectorType {
 }
 unsafe impl ::windows::runtime::Abi for EndpointConnectorType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2080,7 +2019,6 @@ impl ::std::convert::From<i32> for EndpointFormFactor {
 }
 unsafe impl ::windows::runtime::Abi for EndpointFormFactor {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const GUID_NULL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(0, 0, 0, [0, 0, 0, 0, 0, 0, 0, 0]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
@@ -2094,7 +2032,6 @@ impl ::std::default::Default for HTASK {
 unsafe impl ::windows::runtime::Handle for HTASK {}
 unsafe impl ::windows::runtime::Abi for HTASK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[repr(transparent)]
@@ -5339,7 +5276,6 @@ impl ::std::cmp::PartialEq for INTERLEAVED_AUDIO_FORMAT_INFORMATION {
 impl ::std::cmp::Eq for INTERLEAVED_AUDIO_FORMAT_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for INTERLEAVED_AUDIO_FORMAT_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const IOCTL_KS_DISABLE_EVENT: u32 = 3080203u32;
@@ -6693,7 +6629,6 @@ impl ::std::cmp::Eq for KSAC3_ALTERNATE_AUDIO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSAC3_ALTERNATE_AUDIO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSAC3_ALTERNATE_AUDIO_1: u32 = 1u32;
@@ -6726,7 +6661,6 @@ impl ::std::cmp::PartialEq for KSAC3_BIT_STREAM_MODE {
 impl ::std::cmp::Eq for KSAC3_BIT_STREAM_MODE {}
 unsafe impl ::windows::runtime::Abi for KSAC3_BIT_STREAM_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6753,7 +6687,6 @@ impl ::std::cmp::PartialEq for KSAC3_DIALOGUE_LEVEL {
 impl ::std::cmp::Eq for KSAC3_DIALOGUE_LEVEL {}
 unsafe impl ::windows::runtime::Abi for KSAC3_DIALOGUE_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6788,7 +6721,6 @@ impl ::std::cmp::Eq for KSAC3_DOWNMIX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSAC3_DOWNMIX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6823,7 +6755,6 @@ impl ::std::cmp::Eq for KSAC3_ERROR_CONCEALMENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSAC3_ERROR_CONCEALMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6857,7 +6788,6 @@ impl ::std::cmp::Eq for KSAC3_ROOM_TYPE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSAC3_ROOM_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSAC3_SERVICE_COMMENTARY: u32 = 5u32;
@@ -6928,7 +6858,6 @@ impl ::std::cmp::PartialEq for KSALLOCATOR_FRAMING {
 impl ::std::cmp::Eq for KSALLOCATOR_FRAMING {}
 unsafe impl ::windows::runtime::Abi for KSALLOCATOR_FRAMING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6951,7 +6880,6 @@ impl ::std::cmp::PartialEq for KSALLOCATOR_FRAMING_0 {
 impl ::std::cmp::Eq for KSALLOCATOR_FRAMING_0 {}
 unsafe impl ::windows::runtime::Abi for KSALLOCATOR_FRAMING_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6974,7 +6902,6 @@ impl ::std::cmp::PartialEq for KSALLOCATOR_FRAMING_1 {
 impl ::std::cmp::Eq for KSALLOCATOR_FRAMING_1 {}
 unsafe impl ::windows::runtime::Abi for KSALLOCATOR_FRAMING_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7000,7 +6927,6 @@ impl ::std::cmp::PartialEq for KSALLOCATOR_FRAMING_EX {
 impl ::std::cmp::Eq for KSALLOCATOR_FRAMING_EX {}
 unsafe impl ::windows::runtime::Abi for KSALLOCATOR_FRAMING_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSALLOCATOR_OPTIONF_COMPATIBLE: u32 = 1u32;
@@ -7047,7 +6973,6 @@ impl ::std::cmp::PartialEq for KSATTRIBUTE {
 impl ::std::cmp::Eq for KSATTRIBUTE {}
 unsafe impl ::windows::runtime::Abi for KSATTRIBUTE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const KSATTRIBUTEID_AUDIOSIGNALPROCESSING_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3791167157, 24390, 16795, [150, 123, 255, 103, 112, 185, 132, 1]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -7076,7 +7001,6 @@ impl ::std::cmp::PartialEq for KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {
 impl ::std::cmp::Eq for KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {}
 unsafe impl ::windows::runtime::Abi for KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSATTRIBUTE_REQUIRED: u32 = 1u32;
@@ -7163,7 +7087,6 @@ impl ::std::cmp::PartialEq for KSAUDIOENGINE_BUFFER_SIZE_RANGE {
 impl ::std::cmp::Eq for KSAUDIOENGINE_BUFFER_SIZE_RANGE {}
 unsafe impl ::windows::runtime::Abi for KSAUDIOENGINE_BUFFER_SIZE_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7192,7 +7115,6 @@ impl ::std::cmp::PartialEq for KSAUDIOENGINE_DESCRIPTOR {
 impl ::std::cmp::Eq for KSAUDIOENGINE_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for KSAUDIOENGINE_DESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7221,7 +7143,6 @@ impl ::std::cmp::PartialEq for KSAUDIOENGINE_VOLUMELEVEL {
 impl ::std::cmp::Eq for KSAUDIOENGINE_VOLUMELEVEL {}
 unsafe impl ::windows::runtime::Abi for KSAUDIOENGINE_VOLUMELEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7252,7 +7173,6 @@ impl ::std::cmp::PartialEq for KSAUDIOMODULE_DESCRIPTOR {
 impl ::std::cmp::Eq for KSAUDIOMODULE_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for KSAUDIOMODULE_DESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7274,7 +7194,6 @@ impl ::std::cmp::PartialEq for KSAUDIOMODULE_NOTIFICATION {
 impl ::std::cmp::Eq for KSAUDIOMODULE_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for KSAUDIOMODULE_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7297,7 +7216,6 @@ impl ::std::cmp::PartialEq for KSAUDIOMODULE_NOTIFICATION_0 {
 impl ::std::cmp::Eq for KSAUDIOMODULE_NOTIFICATION_0 {}
 unsafe impl ::windows::runtime::Abi for KSAUDIOMODULE_NOTIFICATION_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7327,7 +7245,6 @@ impl ::std::cmp::PartialEq for KSAUDIOMODULE_NOTIFICATION_0_0 {
 impl ::std::cmp::Eq for KSAUDIOMODULE_NOTIFICATION_0_0 {}
 unsafe impl ::windows::runtime::Abi for KSAUDIOMODULE_NOTIFICATION_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7351,7 +7268,6 @@ impl ::std::cmp::PartialEq for KSAUDIOMODULE_PROPERTY {
 impl ::std::cmp::Eq for KSAUDIOMODULE_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for KSAUDIOMODULE_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7378,7 +7294,6 @@ impl ::std::cmp::PartialEq for KSAUDIO_CHANNEL_CONFIG {
 impl ::std::cmp::Eq for KSAUDIO_CHANNEL_CONFIG {}
 unsafe impl ::windows::runtime::Abi for KSAUDIO_CHANNEL_CONFIG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7413,7 +7328,6 @@ impl ::std::cmp::Eq for KSAUDIO_COPY_PROTECTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSAUDIO_COPY_PROTECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSAUDIO_CPU_RESOURCES_HOST_CPU: u32 = 2147483647u32;
@@ -7445,7 +7359,6 @@ impl ::std::cmp::PartialEq for KSAUDIO_DYNAMIC_RANGE {
 impl ::std::cmp::Eq for KSAUDIO_DYNAMIC_RANGE {}
 unsafe impl ::windows::runtime::Abi for KSAUDIO_DYNAMIC_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7477,7 +7390,6 @@ impl ::std::cmp::PartialEq for KSAUDIO_MICROPHONE_COORDINATES {
 impl ::std::cmp::Eq for KSAUDIO_MICROPHONE_COORDINATES {}
 unsafe impl ::windows::runtime::Abi for KSAUDIO_MICROPHONE_COORDINATES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7533,7 +7445,6 @@ impl ::std::cmp::PartialEq for KSAUDIO_MIC_ARRAY_GEOMETRY {
 impl ::std::cmp::Eq for KSAUDIO_MIC_ARRAY_GEOMETRY {}
 unsafe impl ::windows::runtime::Abi for KSAUDIO_MIC_ARRAY_GEOMETRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7563,7 +7474,6 @@ impl ::std::cmp::Eq for KSAUDIO_MIXCAP_TABLE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSAUDIO_MIXCAP_TABLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7598,7 +7508,6 @@ impl ::std::cmp::Eq for KSAUDIO_MIXLEVEL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSAUDIO_MIXLEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7629,7 +7538,6 @@ impl ::std::cmp::Eq for KSAUDIO_MIX_CAPS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSAUDIO_MIX_CAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7652,7 +7560,6 @@ impl ::std::cmp::PartialEq for KSAUDIO_MIX_CAPS_0 {
 impl ::std::cmp::Eq for KSAUDIO_MIX_CAPS_0 {}
 unsafe impl ::windows::runtime::Abi for KSAUDIO_MIX_CAPS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7689,7 +7596,6 @@ impl ::std::cmp::PartialEq for KSAUDIO_PACKETSIZE_CONSTRAINTS {
 impl ::std::cmp::Eq for KSAUDIO_PACKETSIZE_CONSTRAINTS {}
 unsafe impl ::windows::runtime::Abi for KSAUDIO_PACKETSIZE_CONSTRAINTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7726,7 +7632,6 @@ impl ::std::cmp::PartialEq for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
 impl ::std::cmp::Eq for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {}
 unsafe impl ::windows::runtime::Abi for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7754,7 +7659,6 @@ impl ::std::cmp::PartialEq for KSAUDIO_POSITION {
 impl ::std::cmp::Eq for KSAUDIO_POSITION {}
 unsafe impl ::windows::runtime::Abi for KSAUDIO_POSITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7784,7 +7688,6 @@ impl ::std::cmp::PartialEq for KSAUDIO_POSITIONEX {
 impl ::std::cmp::Eq for KSAUDIO_POSITIONEX {}
 unsafe impl ::windows::runtime::Abi for KSAUDIO_POSITIONEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7812,7 +7715,6 @@ impl ::std::cmp::PartialEq for KSAUDIO_PRESENTATION_POSITION {
 impl ::std::cmp::Eq for KSAUDIO_PRESENTATION_POSITION {}
 unsafe impl ::windows::runtime::Abi for KSAUDIO_PRESENTATION_POSITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSAUDIO_QUALITY_ADVANCED: u32 = 3u32;
@@ -7922,7 +7824,6 @@ impl ::std::cmp::Eq for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS 
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7950,7 +7851,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONF
 impl ::std::cmp::Eq for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_MASK: u64 = 2u64;
@@ -7984,7 +7884,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_CAMERAOFFSET {
 impl ::std::cmp::Eq for KSCAMERA_EXTENDEDPROP_CAMERAOFFSET {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_CAMERAOFFSET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSCAMERA_EXTENDEDPROP_CAPS_ASYNCCONTROL: u64 = 9223372036854775808u64;
@@ -8041,7 +7940,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS {
 impl ::std::cmp::Eq for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8069,7 +7967,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEA
 impl ::std::cmp::Eq for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_MANUAL: u64 = 0u64;
@@ -8101,7 +7998,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING {
 impl ::std::cmp::Eq for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8132,7 +8028,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_EVCOMPENSATION {
 impl ::std::cmp::Eq for KSCAMERA_EXTENDEDPROP_EVCOMPENSATION {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_EVCOMPENSATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSCAMERA_EXTENDEDPROP_EVCOMP_FULLSTEP: u64 = 16u64;
@@ -8196,7 +8091,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_FIELDOFVIEW {
 impl ::std::cmp::Eq for KSCAMERA_EXTENDEDPROP_FIELDOFVIEW {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_FIELDOFVIEW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSCAMERA_EXTENDEDPROP_FILTERSCOPE: u32 = 4294967295u32;
@@ -8246,7 +8140,6 @@ impl ::std::convert::From<i32> for KSCAMERA_EXTENDEDPROP_FOCUSSTATE {
 }
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_FOCUSSTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSCAMERA_EXTENDEDPROP_FOCUS_CONTINUOUS: u64 = 256u64;
@@ -8304,7 +8197,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_HEADER {
 impl ::std::cmp::Eq for KSCAMERA_EXTENDEDPROP_HEADER {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSCAMERA_EXTENDEDPROP_HISTOGRAM_OFF: u64 = 0u64;
@@ -8368,7 +8260,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_METADATAINFO {
 impl ::std::cmp::Eq for KSCAMERA_EXTENDEDPROP_METADATAINFO {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_METADATAINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSCAMERA_EXTENDEDPROP_METADATA_ALIGNMENTREQUIRED: u64 = 256u64;
@@ -8397,7 +8288,6 @@ impl ::std::convert::From<i32> for KSCAMERA_EXTENDEDPROP_MetadataAlignment {
 }
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_MetadataAlignment {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSCAMERA_EXTENDEDPROP_OIS_AUTO: u64 = 2u64;
@@ -8449,7 +8339,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_PHOTOMODE {
 impl ::std::cmp::Eq for KSCAMERA_EXTENDEDPROP_PHOTOMODE {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_PHOTOMODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSCAMERA_EXTENDEDPROP_PHOTOMODE_NORMAL: u64 = 0u64;
@@ -8496,7 +8385,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_PROFILE {
 impl ::std::cmp::Eq for KSCAMERA_EXTENDEDPROP_PROFILE {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_PROFILE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSCAMERA_EXTENDEDPROP_RELATIVEPANELOPTIMIZATION_DYNAMIC: u64 = 2u64;
@@ -8517,7 +8405,6 @@ impl ::std::convert::From<i32> for KSCAMERA_EXTENDEDPROP_ROITYPE {
 }
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_ROITYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8546,7 +8433,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS {
 impl ::std::cmp::Eq for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8575,7 +8461,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER {
 impl ::std::cmp::Eq for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8610,7 +8495,6 @@ impl ::std::cmp::Eq for KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8645,7 +8529,6 @@ impl ::std::cmp::Eq for KSCAMERA_EXTENDEDPROP_ROI_FOCUS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_ROI_FOCUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8682,7 +8565,6 @@ impl ::std::cmp::Eq for KSCAMERA_EXTENDEDPROP_ROI_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_ROI_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8712,7 +8594,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL {
 impl ::std::cmp::Eq for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8741,7 +8622,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER {
 impl ::std::cmp::Eq for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8776,7 +8656,6 @@ impl ::std::cmp::Eq for KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_AUTO: u64 = 0u64;
@@ -8828,7 +8707,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_VALUE {
 impl ::std::cmp::Eq for KSCAMERA_EXTENDEDPROP_VALUE {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8855,7 +8733,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_VALUE_0 {
 impl ::std::cmp::Eq for KSCAMERA_EXTENDEDPROP_VALUE_0 {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_VALUE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSCAMERA_EXTENDEDPROP_VFR_OFF: u64 = 0u64;
@@ -8898,7 +8775,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
 impl ::std::cmp::Eq for KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSCAMERA_EXTENDEDPROP_VIDEOSTABILIZATION_AUTO: u64 = 2u64;
@@ -8939,7 +8815,6 @@ impl ::std::convert::From<i32> for KSCAMERA_EXTENDEDPROP_WBPRESET {
 }
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_WBPRESET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8954,7 +8829,6 @@ impl ::std::convert::From<i32> for KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE {
 }
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSCAMERA_EXTENDEDPROP_ZOOM_DEFAULT: u64 = 0u64;
@@ -8999,7 +8873,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_MAXVIDEOFPS_FORPHOTORES {
 impl ::std::cmp::Eq for KSCAMERA_MAXVIDEOFPS_FORPHOTORES {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_MAXVIDEOFPS_FORPHOTORES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9043,7 +8916,6 @@ impl ::std::cmp::Eq for KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9114,7 +8986,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_METADATA_CAPTURESTATS {
 impl ::std::cmp::Eq for KSCAMERA_METADATA_CAPTURESTATS {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_METADATA_CAPTURESTATS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_EXPOSURECOMPENSATION: u32 = 2u32;
@@ -9164,7 +9035,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_METADATA_DIGITALWINDOW {
 impl ::std::cmp::Eq for KSCAMERA_METADATA_DIGITALWINDOW {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_METADATA_DIGITALWINDOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9193,7 +9063,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_METADATA_FRAMEILLUMINATION {
 impl ::std::cmp::Eq for KSCAMERA_METADATA_FRAMEILLUMINATION {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_METADATA_FRAMEILLUMINATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSCAMERA_METADATA_FRAMEILLUMINATION_FLAG_ON: u32 = 1u32;
@@ -9223,7 +9092,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_METADATA_ITEMHEADER {
 impl ::std::cmp::Eq for KSCAMERA_METADATA_ITEMHEADER {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_METADATA_ITEMHEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9252,7 +9120,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_METADATA_PHOTOCONFIRMATION {
 impl ::std::cmp::Eq for KSCAMERA_METADATA_PHOTOCONFIRMATION {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_METADATA_PHOTOCONFIRMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9276,7 +9143,6 @@ impl ::std::convert::From<i32> for KSCAMERA_MetadataId {
 }
 unsafe impl ::windows::runtime::Abi for KSCAMERA_MetadataId {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSCAMERA_PERFRAMESETTING_AUTO: u64 = 4294967296u64;
@@ -9307,7 +9173,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_PERFRAMESETTING_CAP_HEADER {
 impl ::std::cmp::Eq for KSCAMERA_PERFRAMESETTING_CAP_HEADER {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_PERFRAMESETTING_CAP_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9336,7 +9201,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER {
 impl ::std::cmp::Eq for KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9365,7 +9229,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM {
 impl ::std::cmp::Eq for KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9395,7 +9258,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_PERFRAMESETTING_FRAME_HEADER {
 impl ::std::cmp::Eq for KSCAMERA_PERFRAMESETTING_FRAME_HEADER {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_PERFRAMESETTING_FRAME_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9427,7 +9289,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_PERFRAMESETTING_HEADER {
 impl ::std::cmp::Eq for KSCAMERA_PERFRAMESETTING_HEADER {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_PERFRAMESETTING_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9456,7 +9317,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_PERFRAMESETTING_ITEM_HEADER {
 impl ::std::cmp::Eq for KSCAMERA_PERFRAMESETTING_ITEM_HEADER {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_PERFRAMESETTING_ITEM_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9476,7 +9336,6 @@ impl ::std::convert::From<i32> for KSCAMERA_PERFRAMESETTING_ITEM_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for KSCAMERA_PERFRAMESETTING_ITEM_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSCAMERA_PERFRAMESETTING_MANUAL: u64 = 8589934592u64;
@@ -9508,7 +9367,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_PROFILE_CONCURRENCYINFO {
 impl ::std::cmp::Eq for KSCAMERA_PROFILE_CONCURRENCYINFO {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_PROFILE_CONCURRENCYINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9538,7 +9396,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_PROFILE_INFO {
 impl ::std::cmp::Eq for KSCAMERA_PROFILE_INFO {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_PROFILE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9571,7 +9428,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_PROFILE_MEDIAINFO {
 impl ::std::cmp::Eq for KSCAMERA_PROFILE_MEDIAINFO {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_PROFILE_MEDIAINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9599,7 +9455,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_PROFILE_MEDIAINFO_0 {
 impl ::std::cmp::Eq for KSCAMERA_PROFILE_MEDIAINFO_0 {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_PROFILE_MEDIAINFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9627,7 +9482,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_PROFILE_MEDIAINFO_1 {
 impl ::std::cmp::Eq for KSCAMERA_PROFILE_MEDIAINFO_1 {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_PROFILE_MEDIAINFO_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9652,7 +9506,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_PROFILE_PININFO {
 impl ::std::cmp::Eq for KSCAMERA_PROFILE_PININFO {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_PROFILE_PININFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9675,7 +9528,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_PROFILE_PININFO_0 {
 impl ::std::cmp::Eq for KSCAMERA_PROFILE_PININFO_0 {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_PROFILE_PININFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9703,7 +9555,6 @@ impl ::std::cmp::PartialEq for KSCAMERA_PROFILE_PININFO_0_0 {
 impl ::std::cmp::Eq for KSCAMERA_PROFILE_PININFO_0_0 {}
 unsafe impl ::windows::runtime::Abi for KSCAMERA_PROFILE_PININFO_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const KSCATEGORY_ACOUSTIC_ECHO_CANCEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3214294400, 50521, 4560, [138, 43, 0, 160, 201, 37, 90, 193]);
 pub const KSCATEGORY_AUDIO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1771351300, 37871, 4560, [163, 204, 0, 160, 201, 34, 49, 150]);
@@ -9767,7 +9618,6 @@ impl ::std::cmp::PartialEq for KSCLOCK_CREATE {
 impl ::std::cmp::Eq for KSCLOCK_CREATE {}
 unsafe impl ::windows::runtime::Abi for KSCLOCK_CREATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9799,7 +9649,6 @@ impl ::std::cmp::PartialEq for KSCOMPONENTID {
 impl ::std::cmp::Eq for KSCOMPONENTID {}
 unsafe impl ::windows::runtime::Abi for KSCOMPONENTID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const KSCOMPONENTID_USBAUDIO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400351728, 9961, 16996, [186, 77, 57, 255, 240, 29, 148, 170]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -9828,7 +9677,6 @@ impl ::std::cmp::PartialEq for KSCORRELATED_TIME {
 impl ::std::cmp::Eq for KSCORRELATED_TIME {}
 unsafe impl ::windows::runtime::Abi for KSCORRELATED_TIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSCREATE_ITEM_FREEONSTOP: u32 = 8u32;
@@ -9871,7 +9719,6 @@ impl ::std::cmp::PartialEq for KSDATAFORMAT {
 impl ::std::cmp::Eq for KSDATAFORMAT {}
 unsafe impl ::windows::runtime::Abi for KSDATAFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9904,7 +9751,6 @@ impl ::std::cmp::PartialEq for KSDATAFORMAT_0 {
 impl ::std::cmp::Eq for KSDATAFORMAT_0 {}
 unsafe impl ::windows::runtime::Abi for KSDATAFORMAT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSDATAFORMAT_BIT_ATTRIBUTES: u32 = 1u32;
@@ -9937,7 +9783,6 @@ impl ::std::cmp::Eq for KSDATAFORMAT_DSOUND {}
 #[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for KSDATAFORMAT_DSOUND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const KSDATAFORMAT_SPECIFIER_AC3_AUDIO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3765272804, 56134, 4559, [180, 209, 0, 128, 95, 108, 187, 234]);
 pub const KSDATAFORMAT_SPECIFIER_ANALOGVIDEO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(75685344, 30743, 4559, [138, 3, 0, 170, 0, 110, 203, 101]);
@@ -10082,7 +9927,6 @@ impl ::std::cmp::Eq for KSDATAFORMAT_WAVEFORMATEX {}
 #[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for KSDATAFORMAT_WAVEFORMATEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -10111,7 +9955,6 @@ impl ::std::cmp::Eq for KSDATAFORMAT_WAVEFORMATEXTENSIBLE {}
 #[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for KSDATAFORMAT_WAVEFORMATEXTENSIBLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10138,7 +9981,6 @@ impl ::std::cmp::PartialEq for KSDATARANGE_AUDIO {
 impl ::std::cmp::Eq for KSDATARANGE_AUDIO {}
 unsafe impl ::windows::runtime::Abi for KSDATARANGE_AUDIO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSDATARANGE_BIT_ATTRIBUTES: u32 = 1u32;
@@ -10168,7 +10010,6 @@ impl ::std::cmp::PartialEq for KSDATARANGE_MUSIC {
 impl ::std::cmp::Eq for KSDATARANGE_MUSIC {}
 unsafe impl ::windows::runtime::Abi for KSDATARANGE_MUSIC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const KSDEGRADESETID_Standard: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2673230208, 28748, 4560, [165, 214, 40, 219, 4, 193, 0, 0]);
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
@@ -10186,7 +10027,6 @@ impl ::std::convert::From<i32> for KSDEGRADE_STANDARD {
 }
 unsafe impl ::windows::runtime::Abi for KSDEGRADE_STANDARD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSDEVICE_DESCRIPTOR_VERSION: u32 = 256u32;
@@ -10220,7 +10060,6 @@ impl ::std::cmp::PartialEq for KSDEVICE_PROFILE_INFO {
 impl ::std::cmp::Eq for KSDEVICE_PROFILE_INFO {}
 unsafe impl ::windows::runtime::Abi for KSDEVICE_PROFILE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10242,7 +10081,6 @@ impl ::std::cmp::PartialEq for KSDEVICE_PROFILE_INFO_0 {
 impl ::std::cmp::Eq for KSDEVICE_PROFILE_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for KSDEVICE_PROFILE_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10272,7 +10110,6 @@ impl ::std::cmp::PartialEq for KSDEVICE_PROFILE_INFO_0_0 {
 impl ::std::cmp::Eq for KSDEVICE_PROFILE_INFO_0_0 {}
 unsafe impl ::windows::runtime::Abi for KSDEVICE_PROFILE_INFO_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSDEVICE_PROFILE_TYPE_CAMERA: u32 = 1u32;
@@ -10291,7 +10128,6 @@ impl ::std::convert::From<i32> for KSDEVICE_THERMAL_STATE {
 }
 unsafe impl ::windows::runtime::Abi for KSDEVICE_THERMAL_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSDISPATCH_FASTIO: u32 = 2147483648u32;
@@ -10323,7 +10159,6 @@ impl ::std::cmp::PartialEq for KSDISPLAYCHANGE {
 impl ::std::cmp::Eq for KSDISPLAYCHANGE {}
 unsafe impl ::windows::runtime::Abi for KSDISPLAYCHANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10353,7 +10188,6 @@ impl ::std::cmp::PartialEq for KSDS3D_BUFFER_ALL {
 impl ::std::cmp::Eq for KSDS3D_BUFFER_ALL {}
 unsafe impl ::windows::runtime::Abi for KSDS3D_BUFFER_ALL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10381,7 +10215,6 @@ impl ::std::cmp::PartialEq for KSDS3D_BUFFER_CONE_ANGLES {
 impl ::std::cmp::Eq for KSDS3D_BUFFER_CONE_ANGLES {}
 unsafe impl ::windows::runtime::Abi for KSDS3D_BUFFER_CONE_ANGLES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10397,7 +10230,6 @@ impl ::std::convert::From<i32> for KSDS3D_HRTF_COEFF_FORMAT {
 }
 unsafe impl ::windows::runtime::Abi for KSDS3D_HRTF_COEFF_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10427,7 +10259,6 @@ impl ::std::cmp::PartialEq for KSDS3D_HRTF_FILTER_FORMAT_MSG {
 impl ::std::cmp::Eq for KSDS3D_HRTF_FILTER_FORMAT_MSG {}
 unsafe impl ::windows::runtime::Abi for KSDS3D_HRTF_FILTER_FORMAT_MSG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10443,7 +10274,6 @@ impl ::std::convert::From<i32> for KSDS3D_HRTF_FILTER_METHOD {
 }
 unsafe impl ::windows::runtime::Abi for KSDS3D_HRTF_FILTER_METHOD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10459,7 +10289,6 @@ impl ::std::convert::From<i32> for KSDS3D_HRTF_FILTER_QUALITY {
 }
 unsafe impl ::windows::runtime::Abi for KSDS3D_HRTF_FILTER_QUALITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10473,7 +10302,6 @@ impl ::std::convert::From<i32> for KSDS3D_HRTF_FILTER_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for KSDS3D_HRTF_FILTER_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10516,7 +10344,6 @@ impl ::std::cmp::PartialEq for KSDS3D_HRTF_INIT_MSG {
 impl ::std::cmp::Eq for KSDS3D_HRTF_INIT_MSG {}
 unsafe impl ::windows::runtime::Abi for KSDS3D_HRTF_INIT_MSG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10555,7 +10382,6 @@ impl ::std::cmp::Eq for KSDS3D_HRTF_PARAMS_MSG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSDS3D_HRTF_PARAMS_MSG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10594,7 +10420,6 @@ impl ::std::cmp::PartialEq for KSDS3D_ITD_PARAMS {
 impl ::std::cmp::Eq for KSDS3D_ITD_PARAMS {}
 unsafe impl ::windows::runtime::Abi for KSDS3D_ITD_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10624,7 +10449,6 @@ impl ::std::cmp::PartialEq for KSDS3D_ITD_PARAMS_MSG {
 impl ::std::cmp::Eq for KSDS3D_ITD_PARAMS_MSG {}
 unsafe impl ::windows::runtime::Abi for KSDS3D_ITD_PARAMS_MSG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10652,7 +10476,6 @@ impl ::std::cmp::PartialEq for KSDS3D_LISTENER_ALL {
 impl ::std::cmp::Eq for KSDS3D_LISTENER_ALL {}
 unsafe impl ::windows::runtime::Abi for KSDS3D_LISTENER_ALL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10675,7 +10498,6 @@ impl ::std::cmp::PartialEq for KSDS3D_LISTENER_ORIENTATION {
 impl ::std::cmp::Eq for KSDS3D_LISTENER_ORIENTATION {}
 unsafe impl ::windows::runtime::Abi for KSDS3D_LISTENER_ORIENTATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSDSOUND_3D_MODE_DISABLE: u32 = 2u32;
@@ -10711,7 +10533,6 @@ impl ::std::cmp::Eq for KSDSOUND_BUFFERDESC {}
 #[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for KSDSOUND_BUFFERDESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSDSOUND_BUFFER_CTRL_3D: u32 = 1u32;
@@ -10759,7 +10580,6 @@ impl ::std::cmp::PartialEq for KSERROR {
 impl ::std::cmp::Eq for KSERROR {}
 unsafe impl ::windows::runtime::Abi for KSERROR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10788,7 +10608,6 @@ impl ::std::cmp::Eq for KSEVENTDATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSEVENTDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10818,7 +10637,6 @@ impl ::std::cmp::Eq for KSEVENTDATA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSEVENTDATA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10846,7 +10664,6 @@ impl ::std::cmp::PartialEq for KSEVENTDATA_0_0 {
 impl ::std::cmp::Eq for KSEVENTDATA_0_0 {}
 unsafe impl ::windows::runtime::Abi for KSEVENTDATA_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10881,7 +10698,6 @@ impl ::std::cmp::Eq for KSEVENTDATA_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSEVENTDATA_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10917,7 +10733,6 @@ impl ::std::cmp::Eq for KSEVENTDATA_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSEVENTDATA_0_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSEVENTF_DPC: u32 = 16u32;
@@ -10964,7 +10779,6 @@ impl ::std::convert::From<i32> for KSEVENT_AUDIO_CONTROL_CHANGE {
 }
 unsafe impl ::windows::runtime::Abi for KSEVENT_AUDIO_CONTROL_CHANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10979,7 +10793,6 @@ impl ::std::convert::From<i32> for KSEVENT_CAMERACONTROL {
 }
 unsafe impl ::windows::runtime::Abi for KSEVENT_CAMERACONTROL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10993,7 +10806,6 @@ impl ::std::convert::From<i32> for KSEVENT_CAMERAEVENT {
 }
 unsafe impl ::windows::runtime::Abi for KSEVENT_CAMERAEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11008,7 +10820,6 @@ impl ::std::convert::From<i32> for KSEVENT_CLOCK_POSITION {
 }
 unsafe impl ::windows::runtime::Abi for KSEVENT_CLOCK_POSITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11026,7 +10837,6 @@ impl ::std::convert::From<i32> for KSEVENT_CONNECTION {
 }
 unsafe impl ::windows::runtime::Abi for KSEVENT_CONNECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11040,7 +10850,6 @@ impl ::std::convert::From<i32> for KSEVENT_CROSSBAR {
 }
 unsafe impl ::windows::runtime::Abi for KSEVENT_CROSSBAR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11061,7 +10870,6 @@ impl ::std::convert::From<i32> for KSEVENT_DEVCMD {
 }
 unsafe impl ::windows::runtime::Abi for KSEVENT_DEVCMD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11078,7 +10886,6 @@ impl ::std::convert::From<i32> for KSEVENT_DEVICE {
 }
 unsafe impl ::windows::runtime::Abi for KSEVENT_DEVICE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11092,7 +10899,6 @@ impl ::std::convert::From<i32> for KSEVENT_DYNAMICFORMATCHANGE {
 }
 unsafe impl ::windows::runtime::Abi for KSEVENT_DYNAMICFORMATCHANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSEVENT_ENTRY_BUFFERED: u32 = 4u32;
@@ -11112,7 +10918,6 @@ impl ::std::convert::From<i32> for KSEVENT_LOOPEDSTREAMING {
 }
 unsafe impl ::windows::runtime::Abi for KSEVENT_LOOPEDSTREAMING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11127,7 +10932,6 @@ impl ::std::convert::From<i32> for KSEVENT_PINCAPS_CHANGENOTIFICATIONS {
 }
 unsafe impl ::windows::runtime::Abi for KSEVENT_PINCAPS_CHANGENOTIFICATIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11141,7 +10945,6 @@ impl ::std::convert::From<i32> for KSEVENT_SOUNDDETECTOR {
 }
 unsafe impl ::windows::runtime::Abi for KSEVENT_SOUNDDETECTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11156,7 +10959,6 @@ impl ::std::convert::From<i32> for KSEVENT_STREAMALLOCATOR {
 }
 unsafe impl ::windows::runtime::Abi for KSEVENT_STREAMALLOCATOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11170,7 +10972,6 @@ impl ::std::convert::From<i32> for KSEVENT_TELEPHONY {
 }
 unsafe impl ::windows::runtime::Abi for KSEVENT_TELEPHONY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11200,7 +11001,6 @@ impl ::std::cmp::Eq for KSEVENT_TIME_INTERVAL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSEVENT_TIME_INTERVAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11229,7 +11029,6 @@ impl ::std::cmp::Eq for KSEVENT_TIME_MARK {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSEVENT_TIME_MARK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11244,7 +11043,6 @@ impl ::std::convert::From<i32> for KSEVENT_TUNER {
 }
 unsafe impl ::windows::runtime::Abi for KSEVENT_TUNER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11274,7 +11072,6 @@ impl ::std::cmp::Eq for KSEVENT_TUNER_INITIATE_SCAN_S {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSEVENT_TUNER_INITIATE_SCAN_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11288,7 +11085,6 @@ impl ::std::convert::From<i32> for KSEVENT_TVAUDIO {
 }
 unsafe impl ::windows::runtime::Abi for KSEVENT_TVAUDIO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSEVENT_TYPE_BASICSUPPORT: u32 = 512u32;
@@ -11318,7 +11114,6 @@ impl ::std::convert::From<i32> for KSEVENT_VIDCAPTOSTI {
 }
 unsafe impl ::windows::runtime::Abi for KSEVENT_VIDCAPTOSTI {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11332,7 +11127,6 @@ impl ::std::convert::From<i32> for KSEVENT_VIDEODECODER {
 }
 unsafe impl ::windows::runtime::Abi for KSEVENT_VIDEODECODER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11346,7 +11140,6 @@ impl ::std::convert::From<i32> for KSEVENT_VOLUMELIMIT {
 }
 unsafe impl ::windows::runtime::Abi for KSEVENT_VOLUMELIMIT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11360,7 +11153,6 @@ impl ::std::convert::From<i32> for KSEVENT_VPNOTIFY {
 }
 unsafe impl ::windows::runtime::Abi for KSEVENT_VPNOTIFY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11374,7 +11166,6 @@ impl ::std::convert::From<i32> for KSEVENT_VPVBINOTIFY {
 }
 unsafe impl ::windows::runtime::Abi for KSEVENT_VPVBINOTIFY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11398,7 +11189,6 @@ impl ::std::cmp::PartialEq for KSE_NODE {
 impl ::std::cmp::Eq for KSE_NODE {}
 unsafe impl ::windows::runtime::Abi for KSE_NODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11422,7 +11212,6 @@ impl ::std::cmp::PartialEq for KSE_PIN {
 impl ::std::cmp::Eq for KSE_PIN {}
 unsafe impl ::windows::runtime::Abi for KSE_PIN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSFILTER_FLAG_CRITICAL_PROCESSING: u32 = 2u32;
@@ -11463,7 +11252,6 @@ impl ::std::cmp::PartialEq for KSFRAMETIME {
 impl ::std::cmp::Eq for KSFRAMETIME {}
 unsafe impl ::windows::runtime::Abi for KSFRAMETIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSFRAMETIME_VARIABLESIZE: u32 = 1u32;
@@ -11502,7 +11290,6 @@ impl ::std::cmp::Eq for KSGOP_USERDATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSGOP_USERDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11524,7 +11311,6 @@ impl ::std::cmp::PartialEq for KSIDENTIFIER {
 impl ::std::cmp::Eq for KSIDENTIFIER {}
 unsafe impl ::windows::runtime::Abi for KSIDENTIFIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11547,7 +11333,6 @@ impl ::std::cmp::PartialEq for KSIDENTIFIER_0 {
 impl ::std::cmp::Eq for KSIDENTIFIER_0 {}
 unsafe impl ::windows::runtime::Abi for KSIDENTIFIER_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11576,7 +11361,6 @@ impl ::std::cmp::PartialEq for KSIDENTIFIER_0_0 {
 impl ::std::cmp::Eq for KSIDENTIFIER_0_0 {}
 unsafe impl ::windows::runtime::Abi for KSIDENTIFIER_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const KSINTERFACESETID_FileIo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2356122412, 59249, 4560, [184, 255, 0, 160, 201, 34, 49, 150]);
 pub const KSINTERFACESETID_Media: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(974383936, 12455, 4560, [165, 214, 40, 219, 4, 193, 0, 0]);
@@ -11593,7 +11377,6 @@ impl ::std::convert::From<i32> for KSINTERFACE_FILEIO {
 }
 unsafe impl ::windows::runtime::Abi for KSINTERFACE_FILEIO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11609,7 +11392,6 @@ impl ::std::convert::From<i32> for KSINTERFACE_MEDIA {
 }
 unsafe impl ::windows::runtime::Abi for KSINTERFACE_MEDIA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11625,7 +11407,6 @@ impl ::std::convert::From<i32> for KSINTERFACE_STANDARD {
 }
 unsafe impl ::windows::runtime::Abi for KSINTERFACE_STANDARD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11653,7 +11434,6 @@ impl ::std::cmp::PartialEq for KSINTERVAL {
 impl ::std::cmp::Eq for KSINTERVAL {}
 unsafe impl ::windows::runtime::Abi for KSINTERVAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11701,7 +11481,6 @@ impl ::std::cmp::Eq for KSJACK_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSJACK_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11729,7 +11508,6 @@ impl ::std::cmp::PartialEq for KSJACK_DESCRIPTION2 {
 impl ::std::cmp::Eq for KSJACK_DESCRIPTION2 {}
 unsafe impl ::windows::runtime::Abi for KSJACK_DESCRIPTION2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11744,7 +11522,6 @@ impl ::std::convert::From<i32> for KSJACK_SINK_CONNECTIONTYPE {
 }
 unsafe impl ::windows::runtime::Abi for KSJACK_SINK_CONNECTIONTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11796,7 +11573,6 @@ impl ::std::cmp::Eq for KSJACK_SINK_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSJACK_SINK_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const KSMEDIUMSETID_MidiBus: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(93356096, 12870, 4560, [165, 214, 40, 219, 4, 193, 0, 0]);
 pub const KSMEDIUMSETID_Standard: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1195881248, 25294, 4559, [165, 214, 40, 219, 4, 193, 0, 0]);
@@ -11826,7 +11602,6 @@ impl ::std::convert::From<i32> for KSMETHOD_STREAMALLOCATOR {
 }
 unsafe impl ::windows::runtime::Abi for KSMETHOD_STREAMALLOCATOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11841,7 +11616,6 @@ impl ::std::convert::From<i32> for KSMETHOD_STREAMIO {
 }
 unsafe impl ::windows::runtime::Abi for KSMETHOD_STREAMIO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSMETHOD_TYPE_BASICSUPPORT: u32 = 512u32;
@@ -11876,7 +11650,6 @@ impl ::std::convert::From<i32> for KSMETHOD_WAVETABLE {
 }
 unsafe impl ::windows::runtime::Abi for KSMETHOD_WAVETABLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSMETHOD_WAVE_QUEUED_BREAKLOOP: u32 = 1u32;
@@ -11904,7 +11677,6 @@ impl ::std::convert::From<i32> for KSMICARRAY_MICARRAYTYPE {
 }
 unsafe impl ::windows::runtime::Abi for KSMICARRAY_MICARRAYTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11924,7 +11696,6 @@ impl ::std::convert::From<i32> for KSMICARRAY_MICTYPE {
 }
 unsafe impl ::windows::runtime::Abi for KSMICARRAY_MICTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSMPEGVIDMODE_LTRBOX: u32 = 2u32;
@@ -11960,7 +11731,6 @@ impl ::std::cmp::PartialEq for KSMPEGVID_RECT {
 impl ::std::cmp::Eq for KSMPEGVID_RECT {}
 unsafe impl ::windows::runtime::Abi for KSMPEGVID_RECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11983,7 +11753,6 @@ impl ::std::cmp::PartialEq for KSMULTIPLE_DATA_PROP {
 impl ::std::cmp::Eq for KSMULTIPLE_DATA_PROP {}
 unsafe impl ::windows::runtime::Abi for KSMULTIPLE_DATA_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12011,7 +11780,6 @@ impl ::std::cmp::PartialEq for KSMULTIPLE_ITEM {
 impl ::std::cmp::Eq for KSMULTIPLE_ITEM {}
 unsafe impl ::windows::runtime::Abi for KSMULTIPLE_ITEM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12039,7 +11807,6 @@ impl ::std::cmp::PartialEq for KSMUSICFORMAT {
 impl ::std::cmp::Eq for KSMUSICFORMAT {}
 unsafe impl ::windows::runtime::Abi for KSMUSICFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const KSMUSIC_TECHNOLOGY_FMSYNTH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(623664256, 25321, 4559, [165, 214, 40, 219, 4, 193, 0, 0]);
 pub const KSMUSIC_TECHNOLOGY_PORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2261331552, 25320, 4559, [165, 214, 40, 219, 4, 193, 0, 0]);
@@ -12068,7 +11835,6 @@ impl ::std::cmp::PartialEq for KSM_NODE {
 impl ::std::cmp::Eq for KSM_NODE {}
 unsafe impl ::windows::runtime::Abi for KSM_NODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const KSNAME_Allocator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1680825600, 18321, 4560, [165, 214, 40, 219, 4, 193, 0, 0]);
 pub const KSNAME_Clock: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1394025600, 18321, 4560, [165, 214, 40, 219, 4, 193, 0, 0]);
@@ -12117,7 +11883,6 @@ impl ::std::cmp::PartialEq for KSNODEPROPERTY {
 impl ::std::cmp::Eq for KSNODEPROPERTY {}
 unsafe impl ::windows::runtime::Abi for KSNODEPROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12140,7 +11905,6 @@ impl ::std::cmp::PartialEq for KSNODEPROPERTY_AUDIO_3D_LISTENER {
 impl ::std::cmp::Eq for KSNODEPROPERTY_AUDIO_3D_LISTENER {}
 unsafe impl ::windows::runtime::Abi for KSNODEPROPERTY_AUDIO_3D_LISTENER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12164,7 +11928,6 @@ impl ::std::cmp::PartialEq for KSNODEPROPERTY_AUDIO_CHANNEL {
 impl ::std::cmp::Eq for KSNODEPROPERTY_AUDIO_CHANNEL {}
 unsafe impl ::windows::runtime::Abi for KSNODEPROPERTY_AUDIO_CHANNEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12189,7 +11952,6 @@ impl ::std::cmp::PartialEq for KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
 impl ::std::cmp::Eq for KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {}
 unsafe impl ::windows::runtime::Abi for KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12213,7 +11975,6 @@ impl ::std::cmp::PartialEq for KSNODEPROPERTY_AUDIO_PROPERTY {
 impl ::std::cmp::Eq for KSNODEPROPERTY_AUDIO_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for KSNODEPROPERTY_AUDIO_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const KSNODETYPE_1394_DA_STREAM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3757187046, 63247, 4560, [185, 23, 0, 160, 201, 34, 49, 150]);
 pub const KSNODETYPE_1394_DV_STREAM_SOUNDTRACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3757187047, 63247, 4560, [185, 23, 0, 160, 201, 34, 49, 150]);
@@ -12340,7 +12101,6 @@ impl ::std::cmp::PartialEq for KSNODE_CREATE {
 impl ::std::cmp::Eq for KSNODE_CREATE {}
 unsafe impl ::windows::runtime::Abi for KSNODE_CREATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const KSNOTIFICATIONID_AudioModule: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2619482352, 55718, 19804, [160, 54, 87, 56, 87, 253, 80, 210]);
 pub const KSNOTIFICATIONID_SoundDetector: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1669978180, 47922, 19532, [168, 2, 244, 180, 183, 122, 254, 173]);
@@ -12370,7 +12130,6 @@ impl ::std::cmp::PartialEq for KSPIN_CINSTANCES {
 impl ::std::cmp::Eq for KSPIN_CINSTANCES {}
 unsafe impl ::windows::runtime::Abi for KSPIN_CINSTANCES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12388,7 +12147,6 @@ impl ::std::convert::From<i32> for KSPIN_COMMUNICATION {
 }
 unsafe impl ::windows::runtime::Abi for KSPIN_COMMUNICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12420,7 +12178,6 @@ impl ::std::cmp::Eq for KSPIN_CONNECT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSPIN_CONNECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12435,7 +12192,6 @@ impl ::std::convert::From<i32> for KSPIN_DATAFLOW {
 }
 unsafe impl ::windows::runtime::Abi for KSPIN_DATAFLOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSPIN_FLAG_ASYNCHRONOUS_PROCESSING: u32 = 8u32;
@@ -12492,7 +12248,6 @@ impl ::std::convert::From<i32> for KSPIN_MDL_CACHING_EVENT {
 }
 unsafe impl ::windows::runtime::Abi for KSPIN_MDL_CACHING_EVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12520,7 +12275,6 @@ impl ::std::cmp::PartialEq for KSPIN_MDL_CACHING_NOTIFICATION {
 impl ::std::cmp::Eq for KSPIN_MDL_CACHING_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for KSPIN_MDL_CACHING_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12548,7 +12302,6 @@ impl ::std::cmp::PartialEq for KSPIN_MDL_CACHING_NOTIFICATION32 {
 impl ::std::cmp::Eq for KSPIN_MDL_CACHING_NOTIFICATION32 {}
 unsafe impl ::windows::runtime::Abi for KSPIN_MDL_CACHING_NOTIFICATION32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12577,7 +12330,6 @@ impl ::std::cmp::PartialEq for KSPIN_PHYSICALCONNECTION {
 impl ::std::cmp::Eq for KSPIN_PHYSICALCONNECTION {}
 unsafe impl ::windows::runtime::Abi for KSPIN_PHYSICALCONNECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12591,7 +12343,6 @@ impl ::std::convert::From<i32> for KSPPROPERTY_ALLOCATOR_MDLCACHING {
 }
 unsafe impl ::windows::runtime::Abi for KSPPROPERTY_ALLOCATOR_MDLCACHING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12619,7 +12370,6 @@ impl ::std::cmp::PartialEq for KSPRIORITY {
 impl ::std::cmp::Eq for KSPRIORITY {}
 unsafe impl ::windows::runtime::Abi for KSPRIORITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSPRIORITY_EXCLUSIVE: u32 = 4294967295u32;
@@ -12664,7 +12414,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_AC3 {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_AC3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12681,7 +12430,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_ALLOCATOR_CONTROL {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_ALLOCATOR_CONTROL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12708,7 +12456,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S {
 impl ::std::cmp::Eq for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12735,7 +12482,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S
 impl ::std::cmp::Eq for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12763,7 +12509,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S {
 impl ::std::cmp::Eq for KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12778,7 +12523,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_AUDDECOUT {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_AUDDECOUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12851,7 +12595,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_AUDIO {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_AUDIO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12873,7 +12616,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_AUDIOENGINE {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_AUDIOENGINE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12889,7 +12631,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_AUDIOMODULE {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_AUDIOMODULE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12903,7 +12644,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_AUDIOPOSTURE {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_AUDIOPOSTURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12917,7 +12657,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_AUDIORESOURCEMANAGEMENT {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_AUDIORESOURCEMANAGEMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12931,7 +12670,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_AUDIOSIGNALPROCESSING {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_AUDIOSIGNALPROCESSING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSPROPERTY_AUDIO_BUFFER_DURATION: u32 = 1u32;
@@ -12982,7 +12720,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_BIBLIOGRAPHIC {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_BIBLIOGRAPHIC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13005,7 +12742,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_BOUNDS_LONG {
 impl ::std::cmp::Eq for KSPROPERTY_BOUNDS_LONG {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_BOUNDS_LONG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13033,7 +12769,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_BOUNDS_LONG_0 {
 impl ::std::cmp::Eq for KSPROPERTY_BOUNDS_LONG_0 {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_BOUNDS_LONG_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13061,7 +12796,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_BOUNDS_LONG_1 {
 impl ::std::cmp::Eq for KSPROPERTY_BOUNDS_LONG_1 {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_BOUNDS_LONG_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13084,7 +12818,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_BOUNDS_LONGLONG {
 impl ::std::cmp::Eq for KSPROPERTY_BOUNDS_LONGLONG {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_BOUNDS_LONGLONG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13112,7 +12845,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_BOUNDS_LONGLONG_0 {
 impl ::std::cmp::Eq for KSPROPERTY_BOUNDS_LONGLONG_0 {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_BOUNDS_LONGLONG_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13140,7 +12872,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_BOUNDS_LONGLONG_1 {
 impl ::std::cmp::Eq for KSPROPERTY_BOUNDS_LONGLONG_1 {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_BOUNDS_LONGLONG_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13155,7 +12886,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_BTAUDIO {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_BTAUDIO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13214,7 +12944,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSPROPERTY_CAMERACONTROL_FLAGS_ABSOLUTE: i32 = 0i32;
@@ -13238,7 +12967,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_CAMERACONTROL_FLASH {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_CAMERACONTROL_FLASH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSPROPERTY_CAMERACONTROL_FLASH_AUTO: i32 = 2i32;
@@ -13276,7 +13004,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_CAMERACONTROL_FLASH_S {
 impl ::std::cmp::Eq for KSPROPERTY_CAMERACONTROL_FLASH_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_CAMERACONTROL_FLASH_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13301,7 +13028,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {
 impl ::std::cmp::Eq for KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13315,7 +13041,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_EXCLUSIVE_WITH_RECORD: i32 = 1i32;
@@ -13345,7 +13070,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S {
 impl ::std::cmp::Eq for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_SEQUENCE_EXCLUSIVE_WITH_RECORD: i32 = 2i32;
@@ -13372,7 +13096,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {
 impl ::std::cmp::Eq for KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13397,7 +13120,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_CAMERACONTROL_NODE_S {
 impl ::std::cmp::Eq for KSPROPERTY_CAMERACONTROL_NODE_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_CAMERACONTROL_NODE_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13423,7 +13145,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_CAMERACONTROL_NODE_S2 {
 impl ::std::cmp::Eq for KSPROPERTY_CAMERACONTROL_NODE_S2 {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_CAMERACONTROL_NODE_S2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13439,7 +13160,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROP
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13453,7 +13173,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_CONFIG_EXPOSURE: i32 = 512i32;
@@ -13499,7 +13218,6 @@ impl ::std::cmp::Eq for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13522,7 +13240,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {
 impl ::std::cmp::Eq for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13547,7 +13264,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_CAMERACONTROL_S {
 impl ::std::cmp::Eq for KSPROPERTY_CAMERACONTROL_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_CAMERACONTROL_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13573,7 +13289,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_CAMERACONTROL_S2 {
 impl ::std::cmp::Eq for KSPROPERTY_CAMERACONTROL_S2 {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_CAMERACONTROL_S2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13605,7 +13320,6 @@ impl ::std::cmp::Eq for KSPROPERTY_CAMERACONTROL_S_EX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_CAMERACONTROL_S_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_AUTO: i32 = 4i32;
@@ -13647,7 +13361,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_
 impl ::std::cmp::Eq for KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13661,7 +13374,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13676,7 +13388,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13695,7 +13406,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_CLOCK {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_CLOCK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13716,7 +13426,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_CONNECTION {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_CONNECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13737,7 +13446,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_COPYPROT {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_COPYPROT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13761,7 +13469,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_CROSSBAR_ACTIVE_S {
 impl ::std::cmp::Eq for KSPROPERTY_CROSSBAR_ACTIVE_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_CROSSBAR_ACTIVE_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13785,7 +13492,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_CROSSBAR_CAPS_S {
 impl ::std::cmp::Eq for KSPROPERTY_CROSSBAR_CAPS_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_CROSSBAR_CAPS_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13812,7 +13518,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_CROSSBAR_PININFO_S {
 impl ::std::cmp::Eq for KSPROPERTY_CROSSBAR_PININFO_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_CROSSBAR_PININFO_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13837,7 +13542,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_CROSSBAR_ROUTE_S {
 impl ::std::cmp::Eq for KSPROPERTY_CROSSBAR_ROUTE_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_CROSSBAR_ROUTE_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13851,7 +13555,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_CYCLIC {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_CYCLIC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13877,7 +13580,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_DESCRIPTION {
 impl ::std::cmp::Eq for KSPROPERTY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13899,7 +13601,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_DIRECTSOUND3DBUFFER {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_DIRECTSOUND3DBUFFER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13921,7 +13622,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_DIRECTSOUND3DLISTENER {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_DIRECTSOUND3DLISTENER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13935,7 +13635,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_DRMAUDIOSTREAM {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_DRMAUDIOSTREAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13960,7 +13659,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_DROPPEDFRAMES_CURRENT_S {
 impl ::std::cmp::Eq for KSPROPERTY_DROPPEDFRAMES_CURRENT_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_DROPPEDFRAMES_CURRENT_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13976,7 +13674,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_DVDSUBPIC {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_DVDSUBPIC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13994,7 +13691,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_EXTDEVICE {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_EXTDEVICE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14017,7 +13713,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_EXTDEVICE_S {
 impl ::std::cmp::Eq for KSPROPERTY_EXTDEVICE_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_EXTDEVICE_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14043,7 +13738,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_EXTDEVICE_S_0 {
 impl ::std::cmp::Eq for KSPROPERTY_EXTDEVICE_S_0 {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_EXTDEVICE_S_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14059,7 +13753,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_EXTENSION_UNIT {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_EXTENSION_UNIT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14083,7 +13776,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_EXTXPORT {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_EXTXPORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14112,7 +13804,6 @@ impl ::std::cmp::Eq for KSPROPERTY_EXTXPORT_NODE_S {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_EXTXPORT_NODE_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14148,7 +13839,6 @@ impl ::std::cmp::Eq for KSPROPERTY_EXTXPORT_NODE_S_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_EXTXPORT_NODE_S_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14176,7 +13866,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_EXTXPORT_NODE_S_0_0 {
 impl ::std::cmp::Eq for KSPROPERTY_EXTXPORT_NODE_S_0_0 {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_EXTXPORT_NODE_S_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14206,7 +13895,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_EXTXPORT_NODE_S_0_1 {
 impl ::std::cmp::Eq for KSPROPERTY_EXTXPORT_NODE_S_0_1 {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_EXTXPORT_NODE_S_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14235,7 +13923,6 @@ impl ::std::cmp::Eq for KSPROPERTY_EXTXPORT_S {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_EXTXPORT_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14271,7 +13958,6 @@ impl ::std::cmp::Eq for KSPROPERTY_EXTXPORT_S_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_EXTXPORT_S_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14299,7 +13985,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_EXTXPORT_S_0_0 {
 impl ::std::cmp::Eq for KSPROPERTY_EXTXPORT_S_0_0 {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_EXTXPORT_S_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14329,7 +14014,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_EXTXPORT_S_0_1 {
 impl ::std::cmp::Eq for KSPROPERTY_EXTXPORT_S_0_1 {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_EXTXPORT_S_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14343,7 +14027,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_FMRX_CONTROL {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_FMRX_CONTROL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14359,7 +14042,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_FMRX_TOPOLOGY {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_FMRX_TOPOLOGY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14373,7 +14055,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_GENERAL {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_GENERAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14389,7 +14070,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_HRTF3D {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_HRTF3D {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14403,7 +14083,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_INTERLEAVEDAUDIO {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_INTERLEAVEDAUDIO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14417,7 +14096,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_ITD3D {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_ITD3D {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14434,7 +14112,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_JACK {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_JACK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14462,7 +14139,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_MEDIAAVAILABLE {
 impl ::std::cmp::Eq for KSPROPERTY_MEDIAAVAILABLE {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_MEDIAAVAILABLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14485,7 +14161,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_MEDIASEEKING {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_MEDIASEEKING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14515,7 +14190,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_MEMBERSHEADER {
 impl ::std::cmp::Eq for KSPROPERTY_MEMBERSHEADER {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_MEMBERSHEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSPROPERTY_MEMBER_FLAG_BASICSUPPORT_MULTICHANNEL: u32 = 2u32;
@@ -14547,7 +14221,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_MPEG2VID {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_MPEG2VID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14561,7 +14234,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14589,7 +14261,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {
 impl ::std::cmp::Eq for KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14628,7 +14299,6 @@ impl ::std::cmp::Eq for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14642,7 +14312,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14670,7 +14339,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER {
 impl ::std::cmp::Eq for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14686,7 +14354,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE 
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14703,7 +14370,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14723,7 +14389,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_OVERLAYUPDATE {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_OVERLAYUPDATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14753,7 +14418,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_PIN {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_PIN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSPROPERTY_PIN_FLAGS_ATTRIBUTE_RANGE_AWARE: u32 = 1u32;
@@ -14787,7 +14451,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_POSITIONS {
 impl ::std::cmp::Eq for KSPROPERTY_POSITIONS {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_POSITIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14802,7 +14465,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_QUALITY {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_QUALITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14829,7 +14491,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_RTAUDIO {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_RTAUDIO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14854,7 +14515,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_SELECTOR_NODE_S {
 impl ::std::cmp::Eq for KSPROPERTY_SELECTOR_NODE_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_SELECTOR_NODE_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14879,7 +14539,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_SELECTOR_S {
 impl ::std::cmp::Eq for KSPROPERTY_SELECTOR_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_SELECTOR_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14903,7 +14562,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_SERIAL {
 impl ::std::cmp::Eq for KSPROPERTY_SERIAL {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_SERIAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -14926,7 +14584,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_SERIALHDR {
 impl ::std::cmp::Eq for KSPROPERTY_SERIALHDR {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_SERIALHDR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14945,7 +14602,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_SOUNDDETECTOR {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_SOUNDDETECTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14990,7 +14646,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_SPHLI {
 impl ::std::cmp::Eq for KSPROPERTY_SPHLI {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_SPHLI {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15017,7 +14672,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_SPPAL {
 impl ::std::cmp::Eq for KSPROPERTY_SPPAL {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_SPPAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15041,7 +14695,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_STEPPING_LONG {
 impl ::std::cmp::Eq for KSPROPERTY_STEPPING_LONG {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_STEPPING_LONG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15064,7 +14717,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_STEPPING_LONGLONG {
 impl ::std::cmp::Eq for KSPROPERTY_STEPPING_LONGLONG {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_STEPPING_LONGLONG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -15088,7 +14740,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_STREAM {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_STREAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -15102,7 +14753,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_STREAMINTERFACE {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_STREAMINTERFACE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -15121,7 +14771,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_TELEPHONY_CONTROL {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_TELEPHONY_CONTROL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -15136,7 +14785,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_TELEPHONY_TOPOLOGY {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_TELEPHONY_TOPOLOGY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -15152,7 +14800,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_TIMECODE {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_TIMECODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15181,7 +14828,6 @@ impl ::std::cmp::Eq for KSPROPERTY_TIMECODE_NODE_S {}
 #[cfg(feature = "Win32_Graphics_DirectShow")]
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_TIMECODE_NODE_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15210,7 +14856,6 @@ impl ::std::cmp::Eq for KSPROPERTY_TIMECODE_S {}
 #[cfg(feature = "Win32_Graphics_DirectShow")]
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_TIMECODE_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -15227,7 +14872,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_TOPOLOGY {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_TOPOLOGY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -15242,7 +14886,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_TOPOLOGYNODE {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_TOPOLOGYNODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -15267,7 +14910,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_TUNER {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_TUNER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15293,7 +14935,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_TUNER_CAPS_S {
 impl ::std::cmp::Eq for KSPROPERTY_TUNER_CAPS_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_TUNER_CAPS_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15322,7 +14963,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_TUNER_FREQUENCY_S {
 impl ::std::cmp::Eq for KSPROPERTY_TUNER_FREQUENCY_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_TUNER_FREQUENCY_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15345,7 +14985,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_TUNER_IF_MEDIUM_S {
 impl ::std::cmp::Eq for KSPROPERTY_TUNER_IF_MEDIUM_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_TUNER_IF_MEDIUM_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15368,7 +15007,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_TUNER_INPUT_S {
 impl ::std::cmp::Eq for KSPROPERTY_TUNER_INPUT_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_TUNER_INPUT_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -15386,7 +15024,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_TUNER_MODES {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_TUNER_MODES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15416,7 +15053,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_TUNER_MODE_CAPS_S {
 impl ::std::cmp::Eq for KSPROPERTY_TUNER_MODE_CAPS_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_TUNER_MODE_CAPS_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15439,7 +15075,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_TUNER_MODE_S {
 impl ::std::cmp::Eq for KSPROPERTY_TUNER_MODE_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_TUNER_MODE_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15464,7 +15099,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {
 impl ::std::cmp::Eq for KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15496,7 +15130,6 @@ impl ::std::cmp::Eq for KSPROPERTY_TUNER_SCAN_CAPS_S {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_TUNER_SCAN_CAPS_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15520,7 +15153,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_TUNER_SCAN_STATUS_S {
 impl ::std::cmp::Eq for KSPROPERTY_TUNER_SCAN_STATUS_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_TUNER_SCAN_STATUS_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15549,7 +15181,6 @@ impl ::std::cmp::Eq for KSPROPERTY_TUNER_STANDARD_MODE_S {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_TUNER_STANDARD_MODE_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15572,7 +15203,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_TUNER_STANDARD_S {
 impl ::std::cmp::Eq for KSPROPERTY_TUNER_STANDARD_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_TUNER_STANDARD_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15598,7 +15228,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_TUNER_STATUS_S {
 impl ::std::cmp::Eq for KSPROPERTY_TUNER_STATUS_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_TUNER_STATUS_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15623,7 +15252,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_TVAUDIO_CAPS_S {
 impl ::std::cmp::Eq for KSPROPERTY_TVAUDIO_CAPS_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_TVAUDIO_CAPS_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15646,7 +15274,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_TVAUDIO_S {
 impl ::std::cmp::Eq for KSPROPERTY_TVAUDIO_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_TVAUDIO_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSPROPERTY_TYPE_BASICSUPPORT: u32 = 512u32;
@@ -15692,7 +15319,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_VBICAP {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VBICAP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -15710,7 +15336,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_VBICODECFILTERING {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VBICODECFILTERING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15733,7 +15358,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S {
 impl ::std::cmp::Eq for KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15756,7 +15380,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {
 impl ::std::cmp::Eq for KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15779,7 +15402,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_VBICODECFILTERING_SCANLINES_S {
 impl ::std::cmp::Eq for KSPROPERTY_VBICODECFILTERING_SCANLINES_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VBICODECFILTERING_SCANLINES_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15802,7 +15424,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S 
 impl ::std::cmp::Eq for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15825,7 +15446,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S {
 impl ::std::cmp::Eq for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15848,7 +15468,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PI
 impl ::std::cmp::Eq for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15871,7 +15490,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S 
 impl ::std::cmp::Eq for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15894,7 +15512,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN
 impl ::std::cmp::Eq for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15917,7 +15534,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {
 impl ::std::cmp::Eq for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -15950,7 +15566,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_VIDCAP_CAMERACONTROL {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VIDCAP_CAMERACONTROL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -15968,7 +15583,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_VIDCAP_CROSSBAR {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VIDCAP_CROSSBAR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -15982,7 +15596,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_VIDCAP_DROPPEDFRAMES {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VIDCAP_DROPPEDFRAMES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -15997,7 +15610,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_VIDCAP_SELECTOR {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VIDCAP_SELECTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16013,7 +15625,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_VIDCAP_TVAUDIO {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VIDCAP_TVAUDIO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16033,7 +15644,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_VIDCAP_VIDEOCOMPRESSION {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VIDCAP_VIDEOCOMPRESSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16050,7 +15660,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_VIDCAP_VIDEOCONTROL {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VIDCAP_VIDEOCONTROL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16069,7 +15678,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_VIDCAP_VIDEODECODER {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VIDCAP_VIDEODECODER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16086,7 +15694,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_VIDCAP_VIDEOENCODER {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VIDCAP_VIDEOENCODER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16113,7 +15720,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_VIDCAP_VIDEOPROCAMP {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VIDCAP_VIDEOPROCAMP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16141,7 +15747,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {
 impl ::std::cmp::Eq for KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16165,7 +15770,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_VIDEOCOMPRESSION_S {
 impl ::std::cmp::Eq for KSPROPERTY_VIDEOCOMPRESSION_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VIDEOCOMPRESSION_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16190,7 +15794,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_VIDEOCOMPRESSION_S1 {
 impl ::std::cmp::Eq for KSPROPERTY_VIDEOCOMPRESSION_S1 {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VIDEOCOMPRESSION_S1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16223,7 +15826,6 @@ impl ::std::cmp::Eq for KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16247,7 +15849,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_VIDEOCONTROL_CAPS_S {
 impl ::std::cmp::Eq for KSPROPERTY_VIDEOCONTROL_CAPS_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VIDEOCONTROL_CAPS_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16278,7 +15879,6 @@ impl ::std::cmp::Eq for KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16302,7 +15902,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_VIDEOCONTROL_MODE_S {
 impl ::std::cmp::Eq for KSPROPERTY_VIDEOCONTROL_MODE_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VIDEOCONTROL_MODE_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16328,7 +15927,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_VIDEODECODER_CAPS_S {
 impl ::std::cmp::Eq for KSPROPERTY_VIDEODECODER_CAPS_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VIDEODECODER_CAPS_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16351,7 +15949,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_VIDEODECODER_S {
 impl ::std::cmp::Eq for KSPROPERTY_VIDEODECODER_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VIDEODECODER_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16376,7 +15973,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_VIDEODECODER_STATUS2_S {
 impl ::std::cmp::Eq for KSPROPERTY_VIDEODECODER_STATUS2_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VIDEODECODER_STATUS2_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16400,7 +15996,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_VIDEODECODER_STATUS_S {
 impl ::std::cmp::Eq for KSPROPERTY_VIDEODECODER_STATUS_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VIDEODECODER_STATUS_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16425,7 +16020,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_VIDEOENCODER_S {
 impl ::std::cmp::Eq for KSPROPERTY_VIDEOENCODER_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VIDEOENCODER_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSPROPERTY_VIDEOPROCAMP_FLAGS_AUTO: i32 = 1i32;
@@ -16454,7 +16048,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_VIDEOPROCAMP_NODE_S {
 impl ::std::cmp::Eq for KSPROPERTY_VIDEOPROCAMP_NODE_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VIDEOPROCAMP_NODE_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16480,7 +16073,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_VIDEOPROCAMP_NODE_S2 {
 impl ::std::cmp::Eq for KSPROPERTY_VIDEOPROCAMP_NODE_S2 {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VIDEOPROCAMP_NODE_S2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16505,7 +16097,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_VIDEOPROCAMP_S {
 impl ::std::cmp::Eq for KSPROPERTY_VIDEOPROCAMP_S {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VIDEOPROCAMP_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16531,7 +16122,6 @@ impl ::std::cmp::PartialEq for KSPROPERTY_VIDEOPROCAMP_S2 {
 impl ::std::cmp::Eq for KSPROPERTY_VIDEOPROCAMP_S2 {}
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VIDEOPROCAMP_S2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16548,7 +16138,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_VIDMEM_TRANSPORT {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VIDMEM_TRANSPORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16577,7 +16166,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_VPCONFIG {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_VPCONFIG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16597,7 +16185,6 @@ impl ::std::convert::From<i32> for KSPROPERTY_WAVE {
 }
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_WAVE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSPROPERTY_WAVE_QUEUED_POSITION: u32 = 1u32;
@@ -16675,7 +16262,6 @@ impl ::std::cmp::PartialEq for KSP_NODE {
 impl ::std::cmp::Eq for KSP_NODE {}
 unsafe impl ::windows::runtime::Abi for KSP_NODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16699,7 +16285,6 @@ impl ::std::cmp::PartialEq for KSP_PIN {
 impl ::std::cmp::Eq for KSP_PIN {}
 unsafe impl ::windows::runtime::Abi for KSP_PIN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16722,7 +16307,6 @@ impl ::std::cmp::PartialEq for KSP_PIN_0 {
 impl ::std::cmp::Eq for KSP_PIN_0 {}
 unsafe impl ::windows::runtime::Abi for KSP_PIN_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16747,7 +16331,6 @@ impl ::std::cmp::PartialEq for KSP_TIMEFORMAT {
 impl ::std::cmp::Eq for KSP_TIMEFORMAT {}
 unsafe impl ::windows::runtime::Abi for KSP_TIMEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16776,7 +16359,6 @@ impl ::std::cmp::PartialEq for KSQUALITY {
 impl ::std::cmp::Eq for KSQUALITY {}
 unsafe impl ::windows::runtime::Abi for KSQUALITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16811,7 +16393,6 @@ impl ::std::cmp::Eq for KSQUALITY_MANAGER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSQUALITY_MANAGER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16841,7 +16422,6 @@ impl ::std::cmp::Eq for KSQUERYBUFFER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSQUERYBUFFER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16867,7 +16447,6 @@ impl ::std::cmp::PartialEq for KSRATE {
 impl ::std::cmp::Eq for KSRATE {}
 unsafe impl ::windows::runtime::Abi for KSRATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16890,7 +16469,6 @@ impl ::std::cmp::PartialEq for KSRATE_CAPABILITY {
 impl ::std::cmp::Eq for KSRATE_CAPABILITY {}
 unsafe impl ::windows::runtime::Abi for KSRATE_CAPABILITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSRATE_NOPRESENTATIONDURATION: u32 = 2u32;
@@ -16927,7 +16505,6 @@ impl ::std::cmp::Eq for KSRELATIVEEVENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSRELATIVEEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16956,7 +16533,6 @@ impl ::std::cmp::Eq for KSRELATIVEEVENT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSRELATIVEEVENT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSRELATIVEEVENT_FLAG_HANDLE: u32 = 1u32;
@@ -16975,7 +16551,6 @@ impl ::std::convert::From<i32> for KSRESET {
 }
 unsafe impl ::windows::runtime::Abi for KSRESET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17003,7 +16578,6 @@ impl ::std::cmp::PartialEq for KSRESOLUTION {
 impl ::std::cmp::Eq for KSRESOLUTION {}
 unsafe impl ::windows::runtime::Abi for KSRESOLUTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17039,7 +16613,6 @@ impl ::std::cmp::Eq for KSRTAUDIO_BUFFER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSRTAUDIO_BUFFER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17075,7 +16648,6 @@ impl ::std::cmp::Eq for KSRTAUDIO_BUFFER32 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSRTAUDIO_BUFFER32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17099,7 +16671,6 @@ impl ::std::cmp::PartialEq for KSRTAUDIO_BUFFER_PROPERTY {
 impl ::std::cmp::Eq for KSRTAUDIO_BUFFER_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for KSRTAUDIO_BUFFER_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17123,7 +16694,6 @@ impl ::std::cmp::PartialEq for KSRTAUDIO_BUFFER_PROPERTY32 {
 impl ::std::cmp::Eq for KSRTAUDIO_BUFFER_PROPERTY32 {}
 unsafe impl ::windows::runtime::Abi for KSRTAUDIO_BUFFER_PROPERTY32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17148,7 +16718,6 @@ impl ::std::cmp::PartialEq for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION {
 impl ::std::cmp::Eq for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17173,7 +16742,6 @@ impl ::std::cmp::PartialEq for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {
 impl ::std::cmp::Eq for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {}
 unsafe impl ::windows::runtime::Abi for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17210,7 +16778,6 @@ impl ::std::cmp::Eq for KSRTAUDIO_GETREADPACKET_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSRTAUDIO_GETREADPACKET_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17239,7 +16806,6 @@ impl ::std::cmp::PartialEq for KSRTAUDIO_HWLATENCY {
 impl ::std::cmp::Eq for KSRTAUDIO_HWLATENCY {}
 unsafe impl ::windows::runtime::Abi for KSRTAUDIO_HWLATENCY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17270,7 +16836,6 @@ impl ::std::cmp::PartialEq for KSRTAUDIO_HWREGISTER {
 impl ::std::cmp::Eq for KSRTAUDIO_HWREGISTER {}
 unsafe impl ::windows::runtime::Abi for KSRTAUDIO_HWREGISTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17301,7 +16866,6 @@ impl ::std::cmp::PartialEq for KSRTAUDIO_HWREGISTER32 {
 impl ::std::cmp::Eq for KSRTAUDIO_HWREGISTER32 {}
 unsafe impl ::windows::runtime::Abi for KSRTAUDIO_HWREGISTER32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17324,7 +16888,6 @@ impl ::std::cmp::PartialEq for KSRTAUDIO_HWREGISTER_PROPERTY {
 impl ::std::cmp::Eq for KSRTAUDIO_HWREGISTER_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for KSRTAUDIO_HWREGISTER_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17347,7 +16910,6 @@ impl ::std::cmp::PartialEq for KSRTAUDIO_HWREGISTER_PROPERTY32 {
 impl ::std::cmp::Eq for KSRTAUDIO_HWREGISTER_PROPERTY32 {}
 unsafe impl ::windows::runtime::Abi for KSRTAUDIO_HWREGISTER_PROPERTY32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17376,7 +16938,6 @@ impl ::std::cmp::Eq for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17399,7 +16960,6 @@ impl ::std::cmp::PartialEq for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {
 impl ::std::cmp::Eq for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {}
 unsafe impl ::windows::runtime::Abi for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17428,7 +16988,6 @@ impl ::std::cmp::PartialEq for KSRTAUDIO_PACKETVREGISTER {
 impl ::std::cmp::Eq for KSRTAUDIO_PACKETVREGISTER {}
 unsafe impl ::windows::runtime::Abi for KSRTAUDIO_PACKETVREGISTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17451,7 +17010,6 @@ impl ::std::cmp::PartialEq for KSRTAUDIO_PACKETVREGISTER_PROPERTY {
 impl ::std::cmp::Eq for KSRTAUDIO_PACKETVREGISTER_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for KSRTAUDIO_PACKETVREGISTER_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17480,7 +17038,6 @@ impl ::std::cmp::PartialEq for KSRTAUDIO_SETWRITEPACKET_INFO {
 impl ::std::cmp::Eq for KSRTAUDIO_SETWRITEPACKET_INFO {}
 unsafe impl ::windows::runtime::Abi for KSRTAUDIO_SETWRITEPACKET_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17503,7 +17060,6 @@ impl ::std::cmp::PartialEq for KSSOUNDDETECTORPROPERTY {
 impl ::std::cmp::Eq for KSSOUNDDETECTORPROPERTY {}
 unsafe impl ::windows::runtime::Abi for KSSOUNDDETECTORPROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -17520,7 +17076,6 @@ impl ::std::convert::From<i32> for KSSTATE {
 }
 unsafe impl ::windows::runtime::Abi for KSSTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17544,7 +17099,6 @@ impl ::std::cmp::PartialEq for KSSTREAMALLOCATOR_STATUS {
 impl ::std::cmp::Eq for KSSTREAMALLOCATOR_STATUS {}
 unsafe impl ::windows::runtime::Abi for KSSTREAMALLOCATOR_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17568,7 +17122,6 @@ impl ::std::cmp::PartialEq for KSSTREAMALLOCATOR_STATUS_EX {
 impl ::std::cmp::Eq for KSSTREAMALLOCATOR_STATUS_EX {}
 unsafe impl ::windows::runtime::Abi for KSSTREAMALLOCATOR_STATUS_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSSTREAM_FAILUREEXCEPTION: u32 = 8192u32;
@@ -17615,7 +17168,6 @@ impl ::std::cmp::PartialEq for KSSTREAM_HEADER {
 impl ::std::cmp::Eq for KSSTREAM_HEADER {}
 unsafe impl ::windows::runtime::Abi for KSSTREAM_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSSTREAM_HEADER_OPTIONSF_BUFFEREDTRANSFER: u32 = 1024u32;
@@ -17685,7 +17237,6 @@ impl ::std::cmp::PartialEq for KSSTREAM_METADATA_INFO {
 impl ::std::cmp::Eq for KSSTREAM_METADATA_INFO {}
 unsafe impl ::windows::runtime::Abi for KSSTREAM_METADATA_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSSTREAM_NONPAGED_DATA: u32 = 256u32;
@@ -17716,7 +17267,6 @@ impl ::std::cmp::PartialEq for KSSTREAM_UVC_METADATA {
 impl ::std::cmp::Eq for KSSTREAM_UVC_METADATA {}
 unsafe impl ::windows::runtime::Abi for KSSTREAM_UVC_METADATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17742,7 +17292,6 @@ impl ::std::cmp::PartialEq for KSSTREAM_UVC_METADATATYPE_TIMESTAMP {
 impl ::std::cmp::Eq for KSSTREAM_UVC_METADATATYPE_TIMESTAMP {}
 unsafe impl ::windows::runtime::Abi for KSSTREAM_UVC_METADATATYPE_TIMESTAMP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17765,7 +17314,6 @@ impl ::std::cmp::PartialEq for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0 {
 impl ::std::cmp::Eq for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0 {}
 unsafe impl ::windows::runtime::Abi for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17792,7 +17340,6 @@ impl ::std::cmp::PartialEq for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0_0 {
 impl ::std::cmp::Eq for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0_0 {}
 unsafe impl ::windows::runtime::Abi for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSSTREAM_UVC_SECURE_ATTRIBUTE_SIZE: u32 = 8192u32;
@@ -17824,7 +17371,6 @@ impl ::std::cmp::PartialEq for KSTELEPHONY_CALLCONTROL {
 impl ::std::cmp::Eq for KSTELEPHONY_CALLCONTROL {}
 unsafe impl ::windows::runtime::Abi for KSTELEPHONY_CALLCONTROL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17852,7 +17398,6 @@ impl ::std::cmp::PartialEq for KSTELEPHONY_CALLINFO {
 impl ::std::cmp::Eq for KSTELEPHONY_CALLINFO {}
 unsafe impl ::windows::runtime::Abi for KSTELEPHONY_CALLINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17880,7 +17425,6 @@ impl ::std::cmp::PartialEq for KSTELEPHONY_PROVIDERCHANGE {
 impl ::std::cmp::Eq for KSTELEPHONY_PROVIDERCHANGE {}
 unsafe impl ::windows::runtime::Abi for KSTELEPHONY_PROVIDERCHANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17909,7 +17453,6 @@ impl ::std::cmp::PartialEq for KSTIME {
 impl ::std::cmp::Eq for KSTIME {}
 unsafe impl ::windows::runtime::Abi for KSTIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const KSTIME_FORMAT_BYTE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2071483761, 35970, 4559, [188, 12, 0, 170, 0, 172, 116, 246]);
 pub const KSTIME_FORMAT_FIELD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2071483763, 35970, 4559, [188, 12, 0, 170, 0, 172, 116, 246]);
@@ -17964,7 +17507,6 @@ impl ::std::cmp::Eq for KSTOPOLOGY {}
 #[cfg(feature = "Win32_Graphics_DirectShow")]
 unsafe impl ::windows::runtime::Abi for KSTOPOLOGY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17992,7 +17534,6 @@ impl ::std::cmp::PartialEq for KSTOPOLOGY_ENDPOINTID {
 impl ::std::cmp::Eq for KSTOPOLOGY_ENDPOINTID {}
 unsafe impl ::windows::runtime::Abi for KSTOPOLOGY_ENDPOINTID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -18020,7 +17561,6 @@ impl ::std::cmp::PartialEq for KSTOPOLOGY_ENDPOINTIDPAIR {
 impl ::std::cmp::Eq for KSTOPOLOGY_ENDPOINTIDPAIR {}
 unsafe impl ::windows::runtime::Abi for KSTOPOLOGY_ENDPOINTIDPAIR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -18049,7 +17589,6 @@ impl ::std::cmp::PartialEq for KSVPMAXPIXELRATE {
 impl ::std::cmp::Eq for KSVPMAXPIXELRATE {}
 unsafe impl ::windows::runtime::Abi for KSVPMAXPIXELRATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -18072,7 +17611,6 @@ impl ::std::cmp::PartialEq for KSVPSIZE_PROP {
 impl ::std::cmp::Eq for KSVPSIZE_PROP {}
 unsafe impl ::windows::runtime::Abi for KSVPSIZE_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -18101,7 +17639,6 @@ impl ::std::cmp::PartialEq for KSVPSURFACEPARAMS {
 impl ::std::cmp::Eq for KSVPSURFACEPARAMS {}
 unsafe impl ::windows::runtime::Abi for KSVPSURFACEPARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -18134,7 +17671,6 @@ impl ::std::cmp::Eq for KSWAVETABLE_WAVE_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSWAVETABLE_WAVE_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -18163,7 +17699,6 @@ impl ::std::cmp::PartialEq for KSWAVE_BUFFER {
 impl ::std::cmp::Eq for KSWAVE_BUFFER {}
 unsafe impl ::windows::runtime::Abi for KSWAVE_BUFFER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSWAVE_BUFFER_ATTRIBUTEF_LOOPING: u32 = 1u32;
@@ -18194,7 +17729,6 @@ impl ::std::cmp::PartialEq for KSWAVE_COMPATCAPS {
 impl ::std::cmp::Eq for KSWAVE_COMPATCAPS {}
 unsafe impl ::windows::runtime::Abi for KSWAVE_COMPATCAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KSWAVE_COMPATCAPS_INPUT: u32 = 0u32;
@@ -18239,7 +17773,6 @@ impl ::std::cmp::PartialEq for KSWAVE_INPUT_CAPABILITIES {
 impl ::std::cmp::Eq for KSWAVE_INPUT_CAPABILITIES {}
 unsafe impl ::windows::runtime::Abi for KSWAVE_INPUT_CAPABILITIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -18325,7 +17858,6 @@ impl ::std::cmp::PartialEq for KSWAVE_OUTPUT_CAPABILITIES {
 impl ::std::cmp::Eq for KSWAVE_OUTPUT_CAPABILITIES {}
 unsafe impl ::windows::runtime::Abi for KSWAVE_OUTPUT_CAPABILITIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -18353,7 +17885,6 @@ impl ::std::cmp::PartialEq for KSWAVE_VOLUME {
 impl ::std::cmp::Eq for KSWAVE_VOLUME {}
 unsafe impl ::windows::runtime::Abi for KSWAVE_VOLUME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KS_AMCONTROL_COLORINFO_PRESENT: u32 = 128u32;
@@ -18378,7 +17909,6 @@ impl ::std::convert::From<i32> for KS_AMPixAspectRatio {
 }
 unsafe impl ::windows::runtime::Abi for KS_AMPixAspectRatio {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -18450,7 +17980,6 @@ impl ::std::cmp::Eq for KS_AMVPDATAINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_AMVPDATAINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -18488,7 +18017,6 @@ impl ::std::cmp::Eq for KS_AMVPDIMINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_AMVPDIMINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -18516,7 +18044,6 @@ impl ::std::cmp::PartialEq for KS_AMVPSIZE {
 impl ::std::cmp::Eq for KS_AMVPSIZE {}
 unsafe impl ::windows::runtime::Abi for KS_AMVPSIZE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -18534,7 +18061,6 @@ impl ::std::convert::From<i32> for KS_AMVP_MODE {
 }
 unsafe impl ::windows::runtime::Abi for KS_AMVP_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -18550,7 +18076,6 @@ impl ::std::convert::From<i32> for KS_AMVP_SELECTFORMATBY {
 }
 unsafe impl ::windows::runtime::Abi for KS_AMVP_SELECTFORMATBY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -18578,7 +18103,6 @@ impl ::std::cmp::PartialEq for KS_AM_ExactRateChange {
 impl ::std::cmp::Eq for KS_AM_ExactRateChange {}
 unsafe impl ::windows::runtime::Abi for KS_AM_ExactRateChange {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -18595,7 +18119,6 @@ impl ::std::convert::From<i32> for KS_AM_PROPERTY_TS_RATE_CHANGE {
 }
 unsafe impl ::windows::runtime::Abi for KS_AM_PROPERTY_TS_RATE_CHANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -18623,7 +18146,6 @@ impl ::std::cmp::PartialEq for KS_AM_SimpleRateChange {
 impl ::std::cmp::Eq for KS_AM_SimpleRateChange {}
 unsafe impl ::windows::runtime::Abi for KS_AM_SimpleRateChange {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KS_AM_UseNewCSSKey: i32 = 1i32;
@@ -18663,7 +18185,6 @@ impl ::std::cmp::Eq for KS_AnalogVideoInfo {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_AnalogVideoInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -18697,7 +18218,6 @@ impl ::std::convert::From<i32> for KS_AnalogVideoStandard {
 }
 unsafe impl ::windows::runtime::Abi for KS_AnalogVideoStandard {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KS_AnalogVideo_NTSC_Mask: u32 = 7u32;
@@ -18752,7 +18272,6 @@ impl ::std::cmp::PartialEq for KS_BITMAPINFOHEADER {
 impl ::std::cmp::Eq for KS_BITMAPINFOHEADER {}
 unsafe impl ::windows::runtime::Abi for KS_BITMAPINFOHEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KS_BI_BITFIELDS: i32 = 3i32;
@@ -18818,7 +18337,6 @@ impl ::std::cmp::PartialEq for KS_COLCON {
 impl ::std::cmp::Eq for KS_COLCON {}
 unsafe impl ::windows::runtime::Abi for KS_COLCON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -18847,7 +18365,6 @@ impl ::std::cmp::PartialEq for KS_COMPRESSION {
 impl ::std::cmp::Eq for KS_COMPRESSION {}
 unsafe impl ::windows::runtime::Abi for KS_COMPRESSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KS_COPYPROTECT_RestrictDuplication: u32 = 1u32;
@@ -18876,7 +18393,6 @@ impl ::std::cmp::PartialEq for KS_COPY_MACROVISION {
 impl ::std::cmp::Eq for KS_COPY_MACROVISION {}
 unsafe impl ::windows::runtime::Abi for KS_COPY_MACROVISION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -18893,7 +18409,6 @@ impl ::std::convert::From<i32> for KS_COPY_MACROVISION_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for KS_COPY_MACROVISION_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -18909,7 +18424,6 @@ impl ::std::convert::From<i32> for KS_CameraControlAsyncOperation {
 }
 unsafe impl ::windows::runtime::Abi for KS_CameraControlAsyncOperation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -18927,7 +18441,6 @@ impl ::std::convert::From<i32> for KS_CompressionCaps {
 }
 unsafe impl ::windows::runtime::Abi for KS_CompressionCaps {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -18950,7 +18463,6 @@ impl ::std::cmp::PartialEq for KS_DATAFORMAT_H264VIDEOINFO {
 impl ::std::cmp::Eq for KS_DATAFORMAT_H264VIDEOINFO {}
 unsafe impl ::windows::runtime::Abi for KS_DATAFORMAT_H264VIDEOINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -18973,7 +18485,6 @@ impl ::std::cmp::PartialEq for KS_DATAFORMAT_IMAGEINFO {
 impl ::std::cmp::Eq for KS_DATAFORMAT_IMAGEINFO {}
 unsafe impl ::windows::runtime::Abi for KS_DATAFORMAT_IMAGEINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19002,7 +18513,6 @@ impl ::std::cmp::Eq for KS_DATAFORMAT_MPEGVIDEOINFO2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_DATAFORMAT_MPEGVIDEOINFO2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19025,7 +18535,6 @@ impl ::std::cmp::PartialEq for KS_DATAFORMAT_VBIINFOHEADER {
 impl ::std::cmp::Eq for KS_DATAFORMAT_VBIINFOHEADER {}
 unsafe impl ::windows::runtime::Abi for KS_DATAFORMAT_VBIINFOHEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19054,7 +18563,6 @@ impl ::std::cmp::Eq for KS_DATAFORMAT_VIDEOINFOHEADER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_DATAFORMAT_VIDEOINFOHEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19083,7 +18591,6 @@ impl ::std::cmp::Eq for KS_DATAFORMAT_VIDEOINFOHEADER2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_DATAFORMAT_VIDEOINFOHEADER2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19112,7 +18619,6 @@ impl ::std::cmp::Eq for KS_DATAFORMAT_VIDEOINFO_PALETTE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_DATAFORMAT_VIDEOINFO_PALETTE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19141,7 +18647,6 @@ impl ::std::cmp::Eq for KS_DATARANGE_ANALOGVIDEO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_DATARANGE_ANALOGVIDEO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19175,7 +18680,6 @@ impl ::std::cmp::Eq for KS_DATARANGE_H264_VIDEO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_DATARANGE_H264_VIDEO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19205,7 +18709,6 @@ impl ::std::cmp::Eq for KS_DATARANGE_IMAGE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_DATARANGE_IMAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19239,7 +18742,6 @@ impl ::std::cmp::Eq for KS_DATARANGE_MPEG1_VIDEO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_DATARANGE_MPEG1_VIDEO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19273,7 +18775,6 @@ impl ::std::cmp::Eq for KS_DATARANGE_MPEG2_VIDEO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_DATARANGE_MPEG2_VIDEO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19307,7 +18808,6 @@ impl ::std::cmp::Eq for KS_DATARANGE_VIDEO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_DATARANGE_VIDEO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19341,7 +18841,6 @@ impl ::std::cmp::Eq for KS_DATARANGE_VIDEO2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_DATARANGE_VIDEO2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19375,7 +18874,6 @@ impl ::std::cmp::Eq for KS_DATARANGE_VIDEO_PALETTE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_DATARANGE_VIDEO_PALETTE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19409,7 +18907,6 @@ impl ::std::cmp::Eq for KS_DATARANGE_VIDEO_VBI {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_DATARANGE_VIDEO_VBI {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -19427,7 +18924,6 @@ impl ::std::convert::From<i32> for KS_DVDCOPYSTATE {
 }
 unsafe impl ::windows::runtime::Abi for KS_DVDCOPYSTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19455,7 +18951,6 @@ impl ::std::cmp::PartialEq for KS_DVDCOPY_BUSKEY {
 impl ::std::cmp::Eq for KS_DVDCOPY_BUSKEY {}
 unsafe impl ::windows::runtime::Abi for KS_DVDCOPY_BUSKEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19483,7 +18978,6 @@ impl ::std::cmp::PartialEq for KS_DVDCOPY_CHLGKEY {
 impl ::std::cmp::Eq for KS_DVDCOPY_CHLGKEY {}
 unsafe impl ::windows::runtime::Abi for KS_DVDCOPY_CHLGKEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19510,7 +19004,6 @@ impl ::std::cmp::PartialEq for KS_DVDCOPY_DISCKEY {
 impl ::std::cmp::Eq for KS_DVDCOPY_DISCKEY {}
 unsafe impl ::windows::runtime::Abi for KS_DVDCOPY_DISCKEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19539,7 +19032,6 @@ impl ::std::cmp::PartialEq for KS_DVDCOPY_REGION {
 impl ::std::cmp::Eq for KS_DVDCOPY_REGION {}
 unsafe impl ::windows::runtime::Abi for KS_DVDCOPY_REGION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19566,7 +19058,6 @@ impl ::std::cmp::PartialEq for KS_DVDCOPY_SET_COPY_STATE {
 impl ::std::cmp::Eq for KS_DVDCOPY_SET_COPY_STATE {}
 unsafe impl ::windows::runtime::Abi for KS_DVDCOPY_SET_COPY_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19596,7 +19087,6 @@ impl ::std::cmp::PartialEq for KS_DVDCOPY_TITLEKEY {
 impl ::std::cmp::Eq for KS_DVDCOPY_TITLEKEY {}
 unsafe impl ::windows::runtime::Abi for KS_DVDCOPY_TITLEKEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KS_DVD_CGMS_COPY_ONCE: u32 = 16u32;
@@ -19648,7 +19138,6 @@ impl ::std::cmp::PartialEq for KS_DVD_YCrCb {
 impl ::std::cmp::Eq for KS_DVD_YCrCb {}
 unsafe impl ::windows::runtime::Abi for KS_DVD_YCrCb {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19678,7 +19167,6 @@ impl ::std::cmp::PartialEq for KS_DVD_YUV {
 impl ::std::cmp::Eq for KS_DVD_YUV {}
 unsafe impl ::windows::runtime::Abi for KS_DVD_YUV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19715,7 +19203,6 @@ impl ::std::cmp::Eq for KS_FRAME_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_FRAME_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19738,7 +19225,6 @@ impl ::std::cmp::PartialEq for KS_FRAME_INFO_0 {
 impl ::std::cmp::Eq for KS_FRAME_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for KS_FRAME_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19761,7 +19247,6 @@ impl ::std::cmp::PartialEq for KS_FRAME_INFO_1 {
 impl ::std::cmp::Eq for KS_FRAME_INFO_1 {}
 unsafe impl ::windows::runtime::Abi for KS_FRAME_INFO_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19789,7 +19274,6 @@ impl ::std::cmp::PartialEq for KS_FRAME_INFO_1_0 {
 impl ::std::cmp::Eq for KS_FRAME_INFO_1_0 {}
 unsafe impl ::windows::runtime::Abi for KS_FRAME_INFO_1_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19820,7 +19304,6 @@ impl ::std::cmp::PartialEq for KS_FRAMING_ITEM {
 impl ::std::cmp::Eq for KS_FRAMING_ITEM {}
 unsafe impl ::windows::runtime::Abi for KS_FRAMING_ITEM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19843,7 +19326,6 @@ impl ::std::cmp::PartialEq for KS_FRAMING_ITEM_0 {
 impl ::std::cmp::Eq for KS_FRAMING_ITEM_0 {}
 unsafe impl ::windows::runtime::Abi for KS_FRAMING_ITEM_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19872,7 +19354,6 @@ impl ::std::cmp::PartialEq for KS_FRAMING_RANGE {
 impl ::std::cmp::Eq for KS_FRAMING_RANGE {}
 unsafe impl ::windows::runtime::Abi for KS_FRAMING_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19901,7 +19382,6 @@ impl ::std::cmp::PartialEq for KS_FRAMING_RANGE_WEIGHTED {
 impl ::std::cmp::Eq for KS_FRAMING_RANGE_WEIGHTED {}
 unsafe impl ::windows::runtime::Abi for KS_FRAMING_RANGE_WEIGHTED {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -20041,7 +19521,6 @@ impl ::std::cmp::PartialEq for KS_H264VIDEOINFO {
 impl ::std::cmp::Eq for KS_H264VIDEOINFO {}
 unsafe impl ::windows::runtime::Abi for KS_H264VIDEOINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KS_INTERLACE_1FieldPerSample: u32 = 2u32;
@@ -20099,7 +19578,6 @@ impl ::std::cmp::PartialEq for KS_MPEAUDIOINFO {
 impl ::std::cmp::Eq for KS_MPEAUDIOINFO {}
 unsafe impl ::windows::runtime::Abi for KS_MPEAUDIOINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -20136,7 +19614,6 @@ impl ::std::cmp::Eq for KS_MPEG1VIDEOINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_MPEG1VIDEOINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -20153,7 +19630,6 @@ impl ::std::convert::From<i32> for KS_MPEG2Level {
 }
 unsafe impl ::windows::runtime::Abi for KS_MPEG2Level {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -20171,7 +19647,6 @@ impl ::std::convert::From<i32> for KS_MPEG2Profile {
 }
 unsafe impl ::windows::runtime::Abi for KS_MPEG2Profile {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KS_MPEG2_27MhzTimebase: u32 = 256u32;
@@ -20227,7 +19702,6 @@ impl ::std::cmp::Eq for KS_MPEGVIDEOINFO2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_MPEGVIDEOINFO2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KS_NABTS_GROUPID_LOCAL_CABLE_SYSTEM_ADVERTISER_BASE: u32 = 2224u32;
@@ -20290,7 +19764,6 @@ impl ::std::convert::From<i32> for KS_PhysicalConnectorType {
 }
 unsafe impl ::windows::runtime::Abi for KS_PhysicalConnectorType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -20320,7 +19793,6 @@ impl ::std::cmp::PartialEq for KS_RGBQUAD {
 impl ::std::cmp::Eq for KS_RGBQUAD {}
 unsafe impl ::windows::runtime::Abi for KS_RGBQUAD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const KS_SECURE_CAMERA_SCENARIO_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2924739694, 36233, 17544, [157, 46, 77, 0, 135, 49, 197, 253]);
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
@@ -20341,7 +19813,6 @@ impl ::std::convert::From<i32> for KS_SEEKING_CAPABILITIES {
 }
 unsafe impl ::windows::runtime::Abi for KS_SEEKING_CAPABILITIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -20361,7 +19832,6 @@ impl ::std::convert::From<i32> for KS_SEEKING_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for KS_SEEKING_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -20389,7 +19859,6 @@ impl ::std::cmp::PartialEq for KS_TRUECOLORINFO {
 impl ::std::cmp::Eq for KS_TRUECOLORINFO {}
 unsafe impl ::windows::runtime::Abi for KS_TRUECOLORINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -20405,7 +19874,6 @@ impl ::std::convert::From<i32> for KS_TUNER_STRATEGY {
 }
 unsafe impl ::windows::runtime::Abi for KS_TUNER_STRATEGY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -20421,7 +19889,6 @@ impl ::std::convert::From<i32> for KS_TUNER_TUNING_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for KS_TUNER_TUNING_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KS_TVAUDIO_MODE_LANG_A: u32 = 16u32;
@@ -20473,7 +19940,6 @@ impl ::std::cmp::PartialEq for KS_TVTUNER_CHANGE_INFO {
 impl ::std::cmp::Eq for KS_TVTUNER_CHANGE_INFO {}
 unsafe impl ::windows::runtime::Abi for KS_TVTUNER_CHANGE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KS_VBICAP_PROTECTION_MV_DETECTED: i32 = 4i32;
@@ -20542,7 +20008,6 @@ impl ::std::cmp::PartialEq for KS_VBIINFOHEADER {
 impl ::std::cmp::Eq for KS_VBIINFOHEADER {}
 unsafe impl ::windows::runtime::Abi for KS_VBIINFOHEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KS_VBI_FLAG_FIELD1: i32 = 1i32;
@@ -20599,7 +20064,6 @@ impl ::std::cmp::PartialEq for KS_VBI_FRAME_INFO {
 impl ::std::cmp::Eq for KS_VBI_FRAME_INFO {}
 unsafe impl ::windows::runtime::Abi for KS_VBI_FRAME_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -20615,7 +20079,6 @@ impl ::std::convert::From<i32> for KS_VIDEODECODER_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for KS_VIDEODECODER_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -20649,7 +20112,6 @@ impl ::std::cmp::Eq for KS_VIDEOINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_VIDEOINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -20673,7 +20135,6 @@ impl ::std::cmp::PartialEq for KS_VIDEOINFO_0 {
 impl ::std::cmp::Eq for KS_VIDEOINFO_0 {}
 unsafe impl ::windows::runtime::Abi for KS_VIDEOINFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -20712,7 +20173,6 @@ impl ::std::cmp::Eq for KS_VIDEOINFOHEADER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_VIDEOINFOHEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -20751,7 +20211,6 @@ impl ::std::cmp::Eq for KS_VIDEOINFOHEADER2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_VIDEOINFOHEADER2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -20774,7 +20233,6 @@ impl ::std::cmp::PartialEq for KS_VIDEOINFOHEADER2_0 {
 impl ::std::cmp::Eq for KS_VIDEOINFOHEADER2_0 {}
 unsafe impl ::windows::runtime::Abi for KS_VIDEOINFOHEADER2_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KS_VIDEOSTREAM_CAPTURE: u32 = 2u32;
@@ -20916,7 +20374,6 @@ impl ::std::cmp::Eq for KS_VIDEO_STREAM_CONFIG_CAPS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_VIDEO_STREAM_CONFIG_CAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -20939,7 +20396,6 @@ impl ::std::convert::From<i32> for KS_VideoControlFlags {
 }
 unsafe impl ::windows::runtime::Abi for KS_VideoControlFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -20957,7 +20413,6 @@ impl ::std::convert::From<i32> for KS_VideoStreamingHints {
 }
 unsafe impl ::windows::runtime::Abi for KS_VideoStreamingHints {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KS_iBLUE: u32 = 2u32;
@@ -21128,7 +20583,6 @@ impl ::std::cmp::Eq for LOOPEDSTREAMING_POSITION_EVENT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for LOOPEDSTREAMING_POSITION_EVENT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MAX_NABTS_VBI_LINES_PER_FIELD: u32 = 11u32;
@@ -21342,7 +20796,6 @@ impl ::std::cmp::Eq for MCI_ANIM_OPEN_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_ANIM_OPEN_PARMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -21376,7 +20829,6 @@ impl ::std::cmp::Eq for MCI_ANIM_OPEN_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_ANIM_OPEN_PARMSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_ANIM_OPEN_WS: i32 = 65536i32;
@@ -21405,7 +20857,6 @@ impl ::std::cmp::PartialEq for MCI_ANIM_PLAY_PARMS {
 impl ::std::cmp::Eq for MCI_ANIM_PLAY_PARMS {}
 unsafe impl ::windows::runtime::Abi for MCI_ANIM_PLAY_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_ANIM_PLAY_REVERSE: i32 = 131072i32;
@@ -21452,7 +20903,6 @@ impl ::std::cmp::Eq for MCI_ANIM_RECT_PARMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_ANIM_RECT_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_ANIM_STATUS_FORWARD: i32 = 16386i32;
@@ -21487,7 +20937,6 @@ impl ::std::cmp::PartialEq for MCI_ANIM_STEP_PARMS {
 impl ::std::cmp::Eq for MCI_ANIM_STEP_PARMS {}
 unsafe impl ::windows::runtime::Abi for MCI_ANIM_STEP_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_ANIM_STEP_REVERSE: i32 = 65536i32;
@@ -21521,7 +20970,6 @@ impl ::std::cmp::Eq for MCI_ANIM_UPDATE_PARMS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for MCI_ANIM_UPDATE_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_ANIM_WHERE_DESTINATION: i32 = 262144i32;
@@ -21564,7 +21012,6 @@ impl ::std::cmp::Eq for MCI_ANIM_WINDOW_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_ANIM_WINDOW_PARMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -21595,7 +21042,6 @@ impl ::std::cmp::Eq for MCI_ANIM_WINDOW_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_ANIM_WINDOW_PARMSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_ANIM_WINDOW_STATE: i32 = 262144i32;
@@ -21637,7 +21083,6 @@ impl ::std::cmp::Eq for MCI_BREAK_PARMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_BREAK_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_CDA_STATUS_TYPE_TRACK: i32 = 16385i32;
@@ -21733,7 +21178,6 @@ impl ::std::cmp::PartialEq for MCI_GENERIC_PARMS {
 impl ::std::cmp::Eq for MCI_GENERIC_PARMS {}
 unsafe impl ::windows::runtime::Abi for MCI_GENERIC_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_GETDEVCAPS: u32 = 2059u32;
@@ -21777,7 +21221,6 @@ impl ::std::cmp::PartialEq for MCI_GETDEVCAPS_PARMS {
 impl ::std::cmp::Eq for MCI_GETDEVCAPS_PARMS {}
 unsafe impl ::windows::runtime::Abi for MCI_GETDEVCAPS_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_GETDEVCAPS_USES_FILES: i32 = 5i32;
@@ -21821,7 +21264,6 @@ impl ::std::cmp::Eq for MCI_INFO_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_INFO_PARMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -21851,7 +21293,6 @@ impl ::std::cmp::Eq for MCI_INFO_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_INFO_PARMSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_INFO_PRODUCT: i32 = 256i32;
@@ -21888,7 +21329,6 @@ impl ::std::cmp::Eq for MCI_LOAD_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_LOAD_PARMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -21917,7 +21357,6 @@ impl ::std::cmp::Eq for MCI_LOAD_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_LOAD_PARMSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_MODE_NOT_READY: u32 = 524u32;
@@ -21981,7 +21420,6 @@ impl ::std::cmp::Eq for MCI_OPEN_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_OPEN_PARMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -22013,7 +21451,6 @@ impl ::std::cmp::Eq for MCI_OPEN_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_OPEN_PARMSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_OPEN_SHAREABLE: i32 = 256i32;
@@ -22057,7 +21494,6 @@ impl ::std::cmp::Eq for MCI_OVLY_LOAD_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_OVLY_LOAD_PARMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -22087,7 +21523,6 @@ impl ::std::cmp::Eq for MCI_OVLY_LOAD_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_OVLY_LOAD_PARMSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_OVLY_OPEN_PARENT: i32 = 131072i32;
@@ -22123,7 +21558,6 @@ impl ::std::cmp::Eq for MCI_OVLY_OPEN_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_OVLY_OPEN_PARMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -22157,7 +21591,6 @@ impl ::std::cmp::Eq for MCI_OVLY_OPEN_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_OVLY_OPEN_PARMSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_OVLY_OPEN_WS: i32 = 65536i32;
@@ -22198,7 +21631,6 @@ impl ::std::cmp::Eq for MCI_OVLY_RECT_PARMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_OVLY_RECT_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -22228,7 +21660,6 @@ impl ::std::cmp::Eq for MCI_OVLY_SAVE_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_OVLY_SAVE_PARMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -22258,7 +21689,6 @@ impl ::std::cmp::Eq for MCI_OVLY_SAVE_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_OVLY_SAVE_PARMSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_OVLY_STATUS_HWND: i32 = 16385i32;
@@ -22309,7 +21739,6 @@ impl ::std::cmp::Eq for MCI_OVLY_WINDOW_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_OVLY_WINDOW_PARMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -22340,7 +21769,6 @@ impl ::std::cmp::Eq for MCI_OVLY_WINDOW_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_OVLY_WINDOW_PARMSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_OVLY_WINDOW_STATE: i32 = 262144i32;
@@ -22374,7 +21802,6 @@ impl ::std::cmp::PartialEq for MCI_PLAY_PARMS {
 impl ::std::cmp::Eq for MCI_PLAY_PARMS {}
 unsafe impl ::windows::runtime::Abi for MCI_PLAY_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_PUT: u32 = 2114u32;
@@ -22408,7 +21835,6 @@ impl ::std::cmp::PartialEq for MCI_RECORD_PARMS {
 impl ::std::cmp::Eq for MCI_RECORD_PARMS {}
 unsafe impl ::windows::runtime::Abi for MCI_RECORD_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_RESUME: u32 = 2133u32;
@@ -22443,7 +21869,6 @@ impl ::std::cmp::Eq for MCI_SAVE_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_SAVE_PARMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -22472,7 +21897,6 @@ impl ::std::cmp::Eq for MCI_SAVE_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_SAVE_PARMSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_SEEK: u32 = 2055u32;
@@ -22497,7 +21921,6 @@ impl ::std::cmp::PartialEq for MCI_SEEK_PARMS {
 impl ::std::cmp::Eq for MCI_SEEK_PARMS {}
 unsafe impl ::windows::runtime::Abi for MCI_SEEK_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_SEEK_TO_END: i32 = 512i32;
@@ -22544,7 +21967,6 @@ impl ::std::cmp::PartialEq for MCI_SEQ_SET_PARMS {
 impl ::std::cmp::Eq for MCI_SEQ_SET_PARMS {}
 unsafe impl ::windows::runtime::Abi for MCI_SEQ_SET_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_SEQ_SET_PORT: i32 = 131072i32;
@@ -22610,7 +22032,6 @@ impl ::std::cmp::PartialEq for MCI_SET_PARMS {
 impl ::std::cmp::Eq for MCI_SET_PARMS {}
 unsafe impl ::windows::runtime::Abi for MCI_SET_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_SET_TIME_FORMAT: i32 = 1024i32;
@@ -22655,7 +22076,6 @@ impl ::std::cmp::PartialEq for MCI_STATUS_PARMS {
 impl ::std::cmp::Eq for MCI_STATUS_PARMS {}
 unsafe impl ::windows::runtime::Abi for MCI_STATUS_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_STATUS_POSITION: i32 = 2i32;
@@ -22707,7 +22127,6 @@ impl ::std::cmp::Eq for MCI_SYSINFO_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_SYSINFO_PARMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -22739,7 +22158,6 @@ impl ::std::cmp::Eq for MCI_SYSINFO_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_SYSINFO_PARMSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_SYSINFO_QUANTITY: i32 = 256i32;
@@ -22780,7 +22198,6 @@ impl ::std::cmp::Eq for MCI_VD_ESCAPE_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_VD_ESCAPE_PARMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -22809,7 +22226,6 @@ impl ::std::cmp::Eq for MCI_VD_ESCAPE_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_VD_ESCAPE_PARMSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_VD_ESCAPE_STRING: i32 = 256i32;
@@ -22860,7 +22276,6 @@ impl ::std::cmp::PartialEq for MCI_VD_PLAY_PARMS {
 impl ::std::cmp::Eq for MCI_VD_PLAY_PARMS {}
 unsafe impl ::windows::runtime::Abi for MCI_VD_PLAY_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_VD_PLAY_REVERSE: i32 = 65536i32;
@@ -22909,7 +22324,6 @@ impl ::std::cmp::PartialEq for MCI_VD_STEP_PARMS {
 impl ::std::cmp::Eq for MCI_VD_STEP_PARMS {}
 unsafe impl ::windows::runtime::Abi for MCI_VD_STEP_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_VD_STEP_REVERSE: i32 = 131072i32;
@@ -22937,7 +22351,6 @@ impl ::std::cmp::PartialEq for MCI_WAVE_DELETE_PARMS {
 impl ::std::cmp::Eq for MCI_WAVE_DELETE_PARMS {}
 unsafe impl ::windows::runtime::Abi for MCI_WAVE_DELETE_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_WAVE_GETDEVCAPS_INPUTS: i32 = 16385i32;
@@ -22980,7 +22393,6 @@ impl ::std::cmp::Eq for MCI_WAVE_OPEN_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_WAVE_OPEN_PARMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -23013,7 +22425,6 @@ impl ::std::cmp::Eq for MCI_WAVE_OPEN_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_WAVE_OPEN_PARMSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_WAVE_OUTPUT: i32 = 8388608i32;
@@ -23067,7 +22478,6 @@ impl ::std::cmp::PartialEq for MCI_WAVE_SET_PARMS {
 impl ::std::cmp::Eq for MCI_WAVE_SET_PARMS {}
 unsafe impl ::windows::runtime::Abi for MCI_WAVE_SET_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MCI_WAVE_SET_SAMPLESPERSEC: i32 = 262144i32;
@@ -23123,7 +22533,6 @@ impl ::std::cmp::Eq for MEDIUM_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MEDIUM_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -23146,7 +22555,6 @@ impl ::std::cmp::PartialEq for MF_MDL_SHARED_PAYLOAD_KEY {
 impl ::std::cmp::Eq for MF_MDL_SHARED_PAYLOAD_KEY {}
 unsafe impl ::windows::runtime::Abi for MF_MDL_SHARED_PAYLOAD_KEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -23175,7 +22583,6 @@ impl ::std::cmp::PartialEq for MF_MDL_SHARED_PAYLOAD_KEY_0 {
 impl ::std::cmp::Eq for MF_MDL_SHARED_PAYLOAD_KEY_0 {}
 unsafe impl ::windows::runtime::Abi for MF_MDL_SHARED_PAYLOAD_KEY_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const MIDL_ANYSIZE_ARRAY: u32 = 1u32;
@@ -23212,7 +22619,6 @@ impl ::std::cmp::PartialEq for NABTSFEC_BUFFER {
 impl ::std::cmp::Eq for NABTSFEC_BUFFER {}
 unsafe impl ::windows::runtime::Abi for NABTSFEC_BUFFER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -23236,7 +22642,6 @@ impl ::std::cmp::PartialEq for NABTS_BUFFER {
 impl ::std::cmp::Eq for NABTS_BUFFER {}
 unsafe impl ::windows::runtime::Abi for NABTS_BUFFER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -23264,7 +22669,6 @@ impl ::std::cmp::PartialEq for NABTS_BUFFER_LINE {
 impl ::std::cmp::Eq for NABTS_BUFFER_LINE {}
 unsafe impl ::windows::runtime::Abi for NABTS_BUFFER_LINE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const NABTS_BUFFER_PICTURENUMBER_SUPPORT: u32 = 1u32;
@@ -23309,7 +22713,6 @@ impl ::std::convert::From<i32> for PROCESS_LOOPBACK_MODE {
 }
 unsafe impl ::windows::runtime::Abi for PROCESS_LOOPBACK_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const PROPSETID_ALLOCATOR_CONTROL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1394022752, 5262, 4562, [153, 121, 0, 0, 192, 204, 22, 186]);
 pub const PROPSETID_EXT_DEVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3044215440, 6700, 4559, [140, 35, 0, 170, 0, 107, 104, 20]);
@@ -23343,7 +22746,6 @@ impl ::std::convert::From<i32> for PartType {
 }
 unsafe impl ::windows::runtime::Abi for PartType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
@@ -23379,7 +22781,6 @@ impl ::std::cmp::PartialEq for SECURE_BUFFER_INFO {
 impl ::std::cmp::Eq for SECURE_BUFFER_INFO {}
 unsafe impl ::windows::runtime::Abi for SECURE_BUFFER_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const SID_AudioProcessingObjectLoggingService: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2340423855, 2553, 17774, [161, 115, 189, 181, 132, 153, 188, 231]);
 pub const SID_AudioProcessingObjectRTQueue: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1166809631, 26777, 19474, [153, 172, 226, 230, 172, 37, 49, 4]);
@@ -23409,7 +22810,6 @@ impl ::std::cmp::PartialEq for SOUNDDETECTOR_PATTERNHEADER {
 impl ::std::cmp::Eq for SOUNDDETECTOR_PATTERNHEADER {}
 unsafe impl ::windows::runtime::Abi for SOUNDDETECTOR_PATTERNHEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const SPATIAL_AUDIO_POSITION: u32 = 200u32;
@@ -23428,7 +22828,6 @@ impl ::std::convert::From<u32> for SPATIAL_AUDIO_STREAM_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for SPATIAL_AUDIO_STREAM_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SPATIAL_AUDIO_STREAM_OPTIONS {
     type Output = Self;
@@ -23617,7 +23016,6 @@ impl ::std::cmp::PartialEq for SpatialAudioClientActivationParams {
 impl ::std::cmp::Eq for SpatialAudioClientActivationParams {}
 unsafe impl ::windows::runtime::Abi for SpatialAudioClientActivationParams {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
 impl ::std::clone::Clone for SpatialAudioHrtfActivationParams {
@@ -23660,7 +23058,6 @@ impl ::std::cmp::Eq for SpatialAudioHrtfActivationParams {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
 unsafe impl ::windows::runtime::Abi for SpatialAudioHrtfActivationParams {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
 impl ::std::clone::Clone for SpatialAudioHrtfActivationParams2 {
@@ -23704,7 +23101,6 @@ impl ::std::cmp::Eq for SpatialAudioHrtfActivationParams2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
 unsafe impl ::windows::runtime::Abi for SpatialAudioHrtfActivationParams2 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -23727,7 +23123,6 @@ impl ::std::cmp::PartialEq for SpatialAudioHrtfDirectivity {
 impl ::std::cmp::Eq for SpatialAudioHrtfDirectivity {}
 unsafe impl ::windows::runtime::Abi for SpatialAudioHrtfDirectivity {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -23750,7 +23145,6 @@ impl ::std::cmp::PartialEq for SpatialAudioHrtfDirectivityCardioid {
 impl ::std::cmp::Eq for SpatialAudioHrtfDirectivityCardioid {}
 unsafe impl ::windows::runtime::Abi for SpatialAudioHrtfDirectivityCardioid {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -23774,7 +23168,6 @@ impl ::std::cmp::PartialEq for SpatialAudioHrtfDirectivityCone {
 impl ::std::cmp::Eq for SpatialAudioHrtfDirectivityCone {}
 unsafe impl ::windows::runtime::Abi for SpatialAudioHrtfDirectivityCone {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -23790,7 +23183,6 @@ impl ::std::convert::From<i32> for SpatialAudioHrtfDirectivityType {
 }
 unsafe impl ::windows::runtime::Abi for SpatialAudioHrtfDirectivityType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -23814,7 +23206,6 @@ impl ::std::cmp::PartialEq for SpatialAudioHrtfDirectivityUnion {
 impl ::std::cmp::Eq for SpatialAudioHrtfDirectivityUnion {}
 unsafe impl ::windows::runtime::Abi for SpatialAudioHrtfDirectivityUnion {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -23840,7 +23231,6 @@ impl ::std::cmp::PartialEq for SpatialAudioHrtfDistanceDecay {
 impl ::std::cmp::Eq for SpatialAudioHrtfDistanceDecay {}
 unsafe impl ::windows::runtime::Abi for SpatialAudioHrtfDistanceDecay {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -23855,7 +23245,6 @@ impl ::std::convert::From<i32> for SpatialAudioHrtfDistanceDecayType {
 }
 unsafe impl ::windows::runtime::Abi for SpatialAudioHrtfDistanceDecayType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -23873,7 +23262,6 @@ impl ::std::convert::From<i32> for SpatialAudioHrtfEnvironmentType {
 }
 unsafe impl ::windows::runtime::Abi for SpatialAudioHrtfEnvironmentType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -23890,7 +23278,6 @@ impl ::std::convert::From<i32> for SpatialAudioMetadataCopyMode {
 }
 unsafe impl ::windows::runtime::Abi for SpatialAudioMetadataCopyMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -23915,7 +23302,6 @@ impl ::std::cmp::PartialEq for SpatialAudioMetadataItemsInfo {
 impl ::std::cmp::Eq for SpatialAudioMetadataItemsInfo {}
 unsafe impl ::windows::runtime::Abi for SpatialAudioMetadataItemsInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -23931,7 +23317,6 @@ impl ::std::convert::From<i32> for SpatialAudioMetadataWriterOverflowMode {
 }
 unsafe impl ::windows::runtime::Abi for SpatialAudioMetadataWriterOverflowMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
 impl ::std::clone::Clone for SpatialAudioObjectRenderStreamActivationParams {
@@ -23970,7 +23355,6 @@ impl ::std::cmp::Eq for SpatialAudioObjectRenderStreamActivationParams {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
 unsafe impl ::windows::runtime::Abi for SpatialAudioObjectRenderStreamActivationParams {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
 impl ::std::clone::Clone for SpatialAudioObjectRenderStreamActivationParams2 {
@@ -24010,7 +23394,6 @@ impl ::std::cmp::Eq for SpatialAudioObjectRenderStreamActivationParams2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
 unsafe impl ::windows::runtime::Abi for SpatialAudioObjectRenderStreamActivationParams2 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for SpatialAudioObjectRenderStreamForMetadataActivationParams {
@@ -24052,7 +23435,6 @@ impl ::std::cmp::Eq for SpatialAudioObjectRenderStreamForMetadataActivationParam
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for SpatialAudioObjectRenderStreamForMetadataActivationParams {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
@@ -24095,7 +23477,6 @@ impl ::std::cmp::Eq for SpatialAudioObjectRenderStreamForMetadataActivationParam
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -24110,7 +23491,6 @@ impl ::std::convert::From<i32> for TELEPHONY_CALLCONTROLOP {
 }
 unsafe impl ::windows::runtime::Abi for TELEPHONY_CALLCONTROLOP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -24127,7 +23507,6 @@ impl ::std::convert::From<i32> for TELEPHONY_CALLSTATE {
 }
 unsafe impl ::windows::runtime::Abi for TELEPHONY_CALLSTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -24143,7 +23522,6 @@ impl ::std::convert::From<i32> for TELEPHONY_CALLTYPE {
 }
 unsafe impl ::windows::runtime::Abi for TELEPHONY_CALLTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -24159,7 +23537,6 @@ impl ::std::convert::From<i32> for TELEPHONY_PROVIDERCHANGEOP {
 }
 unsafe impl ::windows::runtime::Abi for TELEPHONY_PROVIDERCHANGEOP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24190,7 +23567,6 @@ impl ::std::cmp::PartialEq for TRANSPORTAUDIOPARMS {
 impl ::std::cmp::Eq for TRANSPORTAUDIOPARMS {}
 unsafe impl ::windows::runtime::Abi for TRANSPORTAUDIOPARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24306,7 +23682,6 @@ impl ::std::cmp::PartialEq for TRANSPORTBASICPARMS {
 impl ::std::cmp::Eq for TRANSPORTBASICPARMS {}
 unsafe impl ::windows::runtime::Abi for TRANSPORTBASICPARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24371,7 +23746,6 @@ impl ::std::cmp::PartialEq for TRANSPORTSTATUS {
 impl ::std::cmp::Eq for TRANSPORTSTATUS {}
 unsafe impl ::windows::runtime::Abi for TRANSPORTSTATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24399,7 +23773,6 @@ impl ::std::cmp::PartialEq for TRANSPORTVIDEOPARMS {
 impl ::std::cmp::Eq for TRANSPORTVIDEOPARMS {}
 unsafe impl ::windows::runtime::Abi for TRANSPORTVIDEOPARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24427,7 +23800,6 @@ impl ::std::cmp::PartialEq for TRANSPORT_STATE {
 impl ::std::cmp::Eq for TRANSPORT_STATE {}
 unsafe impl ::windows::runtime::Abi for TRANSPORT_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24470,7 +23842,6 @@ impl ::std::cmp::PartialEq for TUNER_ANALOG_CAPS_S {
 impl ::std::cmp::Eq for TUNER_ANALOG_CAPS_S {}
 unsafe impl ::windows::runtime::Abi for TUNER_ANALOG_CAPS_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24494,7 +23865,6 @@ impl ::std::cmp::PartialEq for VBICAP_PROPERTIES_PROTECTION_S {
 impl ::std::cmp::Eq for VBICAP_PROPERTIES_PROTECTION_S {}
 unsafe impl ::windows::runtime::Abi for VBICAP_PROPERTIES_PROTECTION_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24521,7 +23891,6 @@ impl ::std::cmp::PartialEq for VBICODECFILTERING_CC_SUBSTREAMS {
 impl ::std::cmp::Eq for VBICODECFILTERING_CC_SUBSTREAMS {}
 unsafe impl ::windows::runtime::Abi for VBICODECFILTERING_CC_SUBSTREAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24548,7 +23917,6 @@ impl ::std::cmp::PartialEq for VBICODECFILTERING_NABTS_SUBSTREAMS {
 impl ::std::cmp::Eq for VBICODECFILTERING_NABTS_SUBSTREAMS {}
 unsafe impl ::windows::runtime::Abi for VBICODECFILTERING_NABTS_SUBSTREAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24575,7 +23943,6 @@ impl ::std::cmp::PartialEq for VBICODECFILTERING_SCANLINES {
 impl ::std::cmp::Eq for VBICODECFILTERING_SCANLINES {}
 unsafe impl ::windows::runtime::Abi for VBICODECFILTERING_SCANLINES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24602,7 +23969,6 @@ impl ::std::cmp::PartialEq for VBICODECFILTERING_STATISTICS_CC {
 impl ::std::cmp::Eq for VBICODECFILTERING_STATISTICS_CC {}
 unsafe impl ::windows::runtime::Abi for VBICODECFILTERING_STATISTICS_CC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24629,7 +23995,6 @@ impl ::std::cmp::PartialEq for VBICODECFILTERING_STATISTICS_CC_PIN {
 impl ::std::cmp::Eq for VBICODECFILTERING_STATISTICS_CC_PIN {}
 unsafe impl ::windows::runtime::Abi for VBICODECFILTERING_STATISTICS_CC_PIN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24697,7 +24062,6 @@ impl ::std::cmp::PartialEq for VBICODECFILTERING_STATISTICS_COMMON {
 impl ::std::cmp::Eq for VBICODECFILTERING_STATISTICS_COMMON {}
 unsafe impl ::windows::runtime::Abi for VBICODECFILTERING_STATISTICS_COMMON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24740,7 +24104,6 @@ impl ::std::cmp::PartialEq for VBICODECFILTERING_STATISTICS_COMMON_PIN {
 impl ::std::cmp::Eq for VBICODECFILTERING_STATISTICS_COMMON_PIN {}
 unsafe impl ::windows::runtime::Abi for VBICODECFILTERING_STATISTICS_COMMON_PIN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24783,7 +24146,6 @@ impl ::std::cmp::PartialEq for VBICODECFILTERING_STATISTICS_NABTS {
 impl ::std::cmp::Eq for VBICODECFILTERING_STATISTICS_NABTS {}
 unsafe impl ::windows::runtime::Abi for VBICODECFILTERING_STATISTICS_NABTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24810,7 +24172,6 @@ impl ::std::cmp::PartialEq for VBICODECFILTERING_STATISTICS_NABTS_PIN {
 impl ::std::cmp::Eq for VBICODECFILTERING_STATISTICS_NABTS_PIN {}
 unsafe impl ::windows::runtime::Abi for VBICODECFILTERING_STATISTICS_NABTS_PIN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24837,7 +24198,6 @@ impl ::std::cmp::PartialEq for VBICODECFILTERING_STATISTICS_TELETEXT {
 impl ::std::cmp::Eq for VBICODECFILTERING_STATISTICS_TELETEXT {}
 unsafe impl ::windows::runtime::Abi for VBICODECFILTERING_STATISTICS_TELETEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24864,7 +24224,6 @@ impl ::std::cmp::PartialEq for VBICODECFILTERING_STATISTICS_TELETEXT_PIN {
 impl ::std::cmp::Eq for VBICODECFILTERING_STATISTICS_TELETEXT_PIN {}
 unsafe impl ::windows::runtime::Abi for VBICODECFILTERING_STATISTICS_TELETEXT_PIN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24907,7 +24266,6 @@ impl ::std::cmp::PartialEq for VRAM_SURFACE_INFO {
 impl ::std::cmp::Eq for VRAM_SURFACE_INFO {}
 unsafe impl ::windows::runtime::Abi for VRAM_SURFACE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24930,7 +24288,6 @@ impl ::std::cmp::PartialEq for VRAM_SURFACE_INFO_PROPERTY_S {
 impl ::std::cmp::Eq for VRAM_SURFACE_INFO_PROPERTY_S {}
 unsafe impl ::windows::runtime::Abi for VRAM_SURFACE_INFO_PROPERTY_S {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -24961,7 +24318,6 @@ impl ::std::cmp::Eq for WAVEFORMATEXTENSIBLE_IEC61937 {}
 #[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for WAVEFORMATEXTENSIBLE_IEC61937 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const WAVE_FORMAT_EXTENSIBLE: u32 = 65534u32;
@@ -24993,7 +24349,6 @@ impl ::std::cmp::PartialEq for WNF_KSCAMERA_STREAMSTATE_INFO {
 impl ::std::cmp::Eq for WNF_KSCAMERA_STREAMSTATE_INFO {}
 unsafe impl ::windows::runtime::Abi for WNF_KSCAMERA_STREAMSTATE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -25021,7 +24376,6 @@ impl ::std::cmp::PartialEq for WST_BUFFER {
 impl ::std::cmp::Eq for WST_BUFFER {}
 unsafe impl ::windows::runtime::Abi for WST_BUFFER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -25049,7 +24403,6 @@ impl ::std::cmp::PartialEq for WST_BUFFER_LINE {
 impl ::std::cmp::Eq for WST_BUFFER_LINE {}
 unsafe impl ::windows::runtime::Abi for WST_BUFFER_LINE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const WST_BYTES_PER_LINE: u32 = 42u32;
@@ -25072,7 +24425,6 @@ impl ::std::convert::From<i32> for _AUDCLNT_BUFFERFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for _AUDCLNT_BUFFERFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -25101,7 +24453,6 @@ impl ::std::cmp::PartialEq for _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAI
 impl ::std::cmp::Eq for _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT {}
 unsafe impl ::windows::runtime::Abi for _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -25117,7 +24468,6 @@ impl ::std::convert::From<i32> for _TunerDecoderLockType {
 }
 unsafe impl ::windows::runtime::Abi for _TunerDecoderLockType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -25134,7 +24484,6 @@ impl ::std::convert::From<i32> for __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 
 }
 unsafe impl ::windows::runtime::Abi for __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]

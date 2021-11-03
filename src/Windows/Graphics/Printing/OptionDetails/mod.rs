@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintBindingOptionDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintBindingOptionDetails {
@@ -22,7 +21,6 @@ pub struct IPrintBindingOptionDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintBorderingOptionDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintBorderingOptionDetails {
@@ -44,7 +42,6 @@ pub struct IPrintBorderingOptionDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintCollationOptionDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintCollationOptionDetails {
@@ -66,7 +63,6 @@ pub struct IPrintCollationOptionDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintColorModeOptionDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintColorModeOptionDetails {
@@ -88,7 +84,6 @@ pub struct IPrintColorModeOptionDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintCopiesOptionDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintCopiesOptionDetails {
@@ -110,7 +105,6 @@ pub struct IPrintCopiesOptionDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintCustomItemDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintCustomItemDetails {
@@ -131,7 +125,6 @@ pub struct IPrintCustomItemDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintCustomItemListOptionDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintCustomItemListOptionDetails {
@@ -150,7 +143,6 @@ pub struct IPrintCustomItemListOptionDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itemid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, displayname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintCustomItemListOptionDetails2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintCustomItemListOptionDetails2 {
@@ -170,7 +162,6 @@ pub struct IPrintCustomItemListOptionDetails2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintCustomItemListOptionDetails3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintCustomItemListOptionDetails3 {
@@ -310,7 +301,6 @@ pub struct IPrintCustomOptionDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintCustomTextOptionDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintCustomTextOptionDetails {
@@ -330,7 +320,6 @@ pub struct IPrintCustomTextOptionDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintCustomTextOptionDetails2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintCustomTextOptionDetails2 {
@@ -352,7 +341,6 @@ pub struct IPrintCustomTextOptionDetails2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintCustomToggleOptionDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintCustomToggleOptionDetails {
@@ -374,7 +362,6 @@ pub struct IPrintCustomToggleOptionDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintDuplexOptionDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintDuplexOptionDetails {
@@ -396,7 +383,6 @@ pub struct IPrintDuplexOptionDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintHolePunchOptionDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintHolePunchOptionDetails {
@@ -532,7 +518,6 @@ pub struct IPrintItemListOptionDetails_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintMediaSizeOptionDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintMediaSizeOptionDetails {
@@ -554,7 +539,6 @@ pub struct IPrintMediaSizeOptionDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintMediaTypeOptionDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintMediaTypeOptionDetails {
@@ -786,7 +770,6 @@ pub struct IPrintOptionDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintOrientationOptionDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintOrientationOptionDetails {
@@ -808,7 +791,6 @@ pub struct IPrintOrientationOptionDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintPageRangeOptionDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintPageRangeOptionDetails {
@@ -830,7 +812,6 @@ pub struct IPrintPageRangeOptionDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintQualityOptionDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintQualityOptionDetails {
@@ -852,7 +833,6 @@ pub struct IPrintQualityOptionDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintStapleOptionDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintStapleOptionDetails {
@@ -874,7 +854,6 @@ pub struct IPrintStapleOptionDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintTaskOptionChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTaskOptionChangedEventArgs {
@@ -893,7 +872,6 @@ pub struct IPrintTaskOptionChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintTaskOptionDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTaskOptionDetails {
@@ -923,7 +901,6 @@ pub struct IPrintTaskOptionDetails_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintTaskOptionDetails2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTaskOptionDetails2 {
@@ -942,7 +919,6 @@ pub struct IPrintTaskOptionDetails2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, optionid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, displayname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintTaskOptionDetailsStatic(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTaskOptionDetailsStatic {
@@ -3037,10 +3013,12 @@ impl ::std::convert::From<u32> for PrintOptionStates {
 }
 unsafe impl ::windows::runtime::Abi for PrintOptionStates {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PrintOptionStates {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.OptionDetails.PrintOptionStates;u4)");
+}
+impl ::windows::runtime::DefaultType for PrintOptionStates {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PrintOptionStates {
     type Output = Self;
@@ -3088,10 +3066,12 @@ impl ::std::convert::From<i32> for PrintOptionType {
 }
 unsafe impl ::windows::runtime::Abi for PrintOptionType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PrintOptionType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.OptionDetails.PrintOptionType;i4)");
+}
+impl ::windows::runtime::DefaultType for PrintOptionType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing_OptionDetails`*"]
 #[repr(transparent)]

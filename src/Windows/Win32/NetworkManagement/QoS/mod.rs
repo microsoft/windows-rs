@@ -34,7 +34,6 @@ impl ::std::cmp::Eq for ADDRESS_LIST_DESCRIPTOR {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for ADDRESS_LIST_DESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ADM_CTRL_FAILED: u32 = 3u32;
@@ -64,7 +63,6 @@ impl ::std::cmp::PartialEq for ADSPEC {
 impl ::std::cmp::Eq for ADSPEC {}
 unsafe impl ::windows::runtime::Abi for ADSPEC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const AD_FLAG_BREAK_BIT: u32 = 1u32;
@@ -97,7 +95,6 @@ impl ::std::cmp::PartialEq for AD_GENERAL_PARAMS {
 impl ::std::cmp::Eq for AD_GENERAL_PARAMS {}
 unsafe impl ::windows::runtime::Abi for AD_GENERAL_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -127,7 +124,6 @@ impl ::std::cmp::PartialEq for AD_GUARANTEED {
 impl ::std::cmp::Eq for AD_GUARANTEED {}
 unsafe impl ::windows::runtime::Abi for AD_GUARANTEED {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ALLOWED_TO_SEND_DATA: u32 = 50001u32;
@@ -162,7 +158,6 @@ impl ::std::cmp::PartialEq for CONTROL_SERVICE {
 impl ::std::cmp::Eq for CONTROL_SERVICE {}
 unsafe impl ::windows::runtime::Abi for CONTROL_SERVICE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -185,7 +180,6 @@ impl ::std::cmp::PartialEq for CONTROL_SERVICE_0 {
 impl ::std::cmp::Eq for CONTROL_SERVICE_0 {}
 unsafe impl ::windows::runtime::Abi for CONTROL_SERVICE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const CREDENTIAL_SUB_TYPE_ASCII_ID: u32 = 1u32;
@@ -226,7 +220,6 @@ impl ::std::cmp::PartialEq for CtrlLoadFlowspec {
 impl ::std::cmp::Eq for CtrlLoadFlowspec {}
 unsafe impl ::windows::runtime::Abi for CtrlLoadFlowspec {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const DUP_RESULTS: u32 = 4u32;
@@ -271,7 +264,6 @@ impl ::std::cmp::PartialEq for ENUMERATION_BUFFER {
 impl ::std::cmp::Eq for ENUMERATION_BUFFER {}
 unsafe impl ::windows::runtime::Abi for ENUMERATION_BUFFER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_ADDRESS_TYPE_NOT_SUPPORTED: u32 = 7511u32;
@@ -336,7 +328,6 @@ impl ::std::cmp::Eq for ERROR_SPEC {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for ERROR_SPEC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -364,7 +355,6 @@ impl ::std::cmp::Eq for ERROR_SPEC_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for ERROR_SPEC_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ERROR_SPECF_InPlace: u32 = 1u32;
@@ -419,7 +409,6 @@ impl ::std::cmp::Eq for Error_Spec_IPv4 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for Error_Spec_IPv4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -448,7 +437,6 @@ impl ::std::cmp::Eq for FILTER_SPEC {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for FILTER_SPEC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -477,7 +465,6 @@ impl ::std::cmp::Eq for FILTER_SPEC_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for FILTER_SPEC_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -506,7 +493,6 @@ impl ::std::cmp::PartialEq for FLOWDESCRIPTOR {
 impl ::std::cmp::Eq for FLOWDESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for FLOWDESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -549,7 +535,6 @@ impl ::std::cmp::PartialEq for FLOWSPEC {
 impl ::std::cmp::Eq for FLOWSPEC {}
 unsafe impl ::windows::runtime::Abi for FLOWSPEC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const FLOW_DURATION: u32 = 5u32;
@@ -594,7 +579,6 @@ impl ::std::convert::From<i32> for FilterType {
 }
 unsafe impl ::windows::runtime::Abi for FilterType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -624,7 +608,6 @@ impl ::std::cmp::Eq for Filter_Spec_IPv4 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for Filter_Spec_IPv4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -653,7 +636,6 @@ impl ::std::cmp::Eq for Filter_Spec_IPv4GPI {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for Filter_Spec_IPv4GPI {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const GENERAL_INFO: u32 = 1u32;
@@ -752,7 +734,6 @@ impl ::std::cmp::PartialEq for Gads_parms_t {
 impl ::std::cmp::Eq for Gads_parms_t {}
 unsafe impl ::windows::runtime::Abi for Gads_parms_t {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -797,7 +778,6 @@ impl ::std::cmp::PartialEq for GenAdspecParams {
 impl ::std::cmp::Eq for GenAdspecParams {}
 unsafe impl ::windows::runtime::Abi for GenAdspecParams {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -826,7 +806,6 @@ impl ::std::cmp::PartialEq for GenTspec {
 impl ::std::cmp::Eq for GenTspec {}
 unsafe impl ::windows::runtime::Abi for GenTspec {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -857,7 +836,6 @@ impl ::std::cmp::PartialEq for GenTspecParms {
 impl ::std::cmp::Eq for GenTspecParms {}
 unsafe impl ::windows::runtime::Abi for GenTspecParms {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -888,7 +866,6 @@ impl ::std::cmp::PartialEq for GuarFlowSpec {
 impl ::std::cmp::Eq for GuarFlowSpec {}
 unsafe impl ::windows::runtime::Abi for GuarFlowSpec {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -916,7 +893,6 @@ impl ::std::cmp::PartialEq for GuarRspec {
 impl ::std::cmp::Eq for GuarRspec {}
 unsafe impl ::windows::runtime::Abi for GuarRspec {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const HIGHLY_DELAY_SENSITIVE: u32 = 4294967294u32;
@@ -950,7 +926,6 @@ impl ::std::cmp::PartialEq for IDPE_ATTR {
 impl ::std::cmp::Eq for IDPE_ATTR {}
 unsafe impl ::windows::runtime::Abi for IDPE_ATTR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -982,7 +957,6 @@ impl ::std::cmp::PartialEq for ID_ERROR_OBJECT {
 impl ::std::cmp::Eq for ID_ERROR_OBJECT {}
 unsafe impl ::windows::runtime::Abi for ID_ERROR_OBJECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const IF_MIB_STATS_ID: u32 = 1u32;
@@ -1021,7 +995,6 @@ impl ::std::cmp::PartialEq for IN_ADDR_IPV4 {
 impl ::std::cmp::Eq for IN_ADDR_IPV4 {}
 unsafe impl ::windows::runtime::Abi for IN_ADDR_IPV4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1048,7 +1021,6 @@ impl ::std::cmp::PartialEq for IN_ADDR_IPV6 {
 impl ::std::cmp::Eq for IN_ADDR_IPV6 {}
 unsafe impl ::windows::runtime::Abi for IN_ADDR_IPV6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1076,7 +1048,6 @@ impl ::std::cmp::PartialEq for IPX_PATTERN {
 impl ::std::cmp::Eq for IPX_PATTERN {}
 unsafe impl ::windows::runtime::Abi for IPX_PATTERN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1105,7 +1076,6 @@ impl ::std::cmp::PartialEq for IPX_PATTERN_0 {
 impl ::std::cmp::Eq for IPX_PATTERN_0 {}
 unsafe impl ::windows::runtime::Abi for IPX_PATTERN_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const IP_INTFC_INFO_ID: u32 = 259u32;
@@ -1139,7 +1109,6 @@ impl ::std::cmp::PartialEq for IP_PATTERN {
 impl ::std::cmp::Eq for IP_PATTERN {}
 unsafe impl ::windows::runtime::Abi for IP_PATTERN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1163,7 +1132,6 @@ impl ::std::cmp::PartialEq for IP_PATTERN_0 {
 impl ::std::cmp::Eq for IP_PATTERN_0 {}
 unsafe impl ::windows::runtime::Abi for IP_PATTERN_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1192,7 +1160,6 @@ impl ::std::cmp::PartialEq for IP_PATTERN_0_0 {
 impl ::std::cmp::Eq for IP_PATTERN_0_0 {}
 unsafe impl ::windows::runtime::Abi for IP_PATTERN_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1220,7 +1187,6 @@ impl ::std::cmp::PartialEq for IP_PATTERN_0_1 {
 impl ::std::cmp::Eq for IP_PATTERN_0_1 {}
 unsafe impl ::windows::runtime::Abi for IP_PATTERN_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const ISPH_FLG_INV: u32 = 128u32;
@@ -1252,7 +1218,6 @@ impl ::std::cmp::PartialEq for IS_ADSPEC_BODY {
 impl ::std::cmp::Eq for IS_ADSPEC_BODY {}
 unsafe impl ::windows::runtime::Abi for IS_ADSPEC_BODY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1275,7 +1240,6 @@ impl ::std::cmp::PartialEq for IS_FLOWSPEC {
 impl ::std::cmp::Eq for IS_FLOWSPEC {}
 unsafe impl ::windows::runtime::Abi for IS_FLOWSPEC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const IS_GUAR_RSPEC: i32 = 130i32;
@@ -1300,7 +1264,6 @@ impl ::std::cmp::PartialEq for IntServFlowSpec {
 impl ::std::cmp::Eq for IntServFlowSpec {}
 unsafe impl ::windows::runtime::Abi for IntServFlowSpec {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1324,7 +1287,6 @@ impl ::std::cmp::PartialEq for IntServFlowSpec_0 {
 impl ::std::cmp::Eq for IntServFlowSpec_0 {}
 unsafe impl ::windows::runtime::Abi for IntServFlowSpec_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1353,7 +1315,6 @@ impl ::std::cmp::PartialEq for IntServMainHdr {
 impl ::std::cmp::Eq for IntServMainHdr {}
 unsafe impl ::windows::runtime::Abi for IntServMainHdr {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1382,7 +1343,6 @@ impl ::std::cmp::PartialEq for IntServParmHdr {
 impl ::std::cmp::Eq for IntServParmHdr {}
 unsafe impl ::windows::runtime::Abi for IntServParmHdr {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1411,7 +1371,6 @@ impl ::std::cmp::PartialEq for IntServServiceHdr {
 impl ::std::cmp::Eq for IntServServiceHdr {}
 unsafe impl ::windows::runtime::Abi for IntServServiceHdr {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1434,7 +1393,6 @@ impl ::std::cmp::PartialEq for IntServTspecBody {
 impl ::std::cmp::Eq for IntServTspecBody {}
 unsafe impl ::windows::runtime::Abi for IntServTspecBody {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1457,7 +1415,6 @@ impl ::std::cmp::PartialEq for IntServTspecBody_0 {
 impl ::std::cmp::Eq for IntServTspecBody_0 {}
 unsafe impl ::windows::runtime::Abi for IntServTspecBody_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const LINE_RATE: u32 = 50003u32;
@@ -1478,7 +1435,6 @@ impl ::std::default::Default for LPM_HANDLE {
 unsafe impl ::windows::runtime::Handle for LPM_HANDLE {}
 unsafe impl ::windows::runtime::Abi for LPM_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1517,7 +1473,6 @@ impl ::std::cmp::PartialEq for LPM_INIT_INFO {
 impl ::std::cmp::Eq for LPM_INIT_INFO {}
 unsafe impl ::windows::runtime::Abi for LPM_INIT_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const LPM_OK: u32 = 0u32;
@@ -1615,7 +1570,6 @@ impl ::std::cmp::PartialEq for PARAM_BUFFER {
 impl ::std::cmp::Eq for PARAM_BUFFER {}
 unsafe impl ::windows::runtime::Abi for PARAM_BUFFER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const PCM_VERSION_1: u32 = 1u32;
@@ -1653,7 +1607,6 @@ impl ::std::cmp::PartialEq for POLICY_DATA {
 impl ::std::cmp::Eq for POLICY_DATA {}
 unsafe impl ::windows::runtime::Abi for POLICY_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1682,7 +1635,6 @@ impl ::std::cmp::PartialEq for POLICY_ELEMENT {
 impl ::std::cmp::Eq for POLICY_ELEMENT {}
 unsafe impl ::windows::runtime::Abi for POLICY_ELEMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const POLICY_ERRV_CRAZY_FLOWSPEC: u32 = 57u32;
@@ -1856,7 +1808,6 @@ impl ::std::cmp::Eq for QOS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for QOS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
@@ -2061,7 +2012,6 @@ impl ::std::cmp::Eq for QOS_DESTADDR {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for QOS_DESTADDR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2090,7 +2040,6 @@ impl ::std::cmp::PartialEq for QOS_DIFFSERV {
 impl ::std::cmp::Eq for QOS_DIFFSERV {}
 unsafe impl ::windows::runtime::Abi for QOS_DIFFSERV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2127,7 +2076,6 @@ impl ::std::cmp::PartialEq for QOS_DIFFSERV_RULE {
 impl ::std::cmp::Eq for QOS_DIFFSERV_RULE {}
 unsafe impl ::windows::runtime::Abi for QOS_DIFFSERV_RULE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2155,7 +2103,6 @@ impl ::std::cmp::PartialEq for QOS_DS_CLASS {
 impl ::std::cmp::Eq for QOS_DS_CLASS {}
 unsafe impl ::windows::runtime::Abi for QOS_DS_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2184,7 +2131,6 @@ impl ::std::cmp::PartialEq for QOS_FLOWRATE_OUTGOING {
 impl ::std::cmp::Eq for QOS_FLOWRATE_OUTGOING {}
 unsafe impl ::windows::runtime::Abi for QOS_FLOWRATE_OUTGOING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2202,7 +2148,6 @@ impl ::std::convert::From<i32> for QOS_FLOWRATE_REASON {
 }
 unsafe impl ::windows::runtime::Abi for QOS_FLOWRATE_REASON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2248,7 +2193,6 @@ impl ::std::cmp::Eq for QOS_FLOW_FUNDAMENTALS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for QOS_FLOW_FUNDAMENTALS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2276,7 +2220,6 @@ impl ::std::cmp::PartialEq for QOS_FRIENDLY_NAME {
 impl ::std::cmp::Eq for QOS_FRIENDLY_NAME {}
 unsafe impl ::windows::runtime::Abi for QOS_FRIENDLY_NAME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const QOS_GENERAL_ID_BASE: u32 = 2000u32;
@@ -2298,7 +2241,6 @@ impl ::std::convert::From<i32> for QOS_NOTIFY_FLOW {
 }
 unsafe impl ::windows::runtime::Abi for QOS_NOTIFY_FLOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const QOS_NOT_SPECIFIED: u32 = 4294967295u32;
@@ -2328,7 +2270,6 @@ impl ::std::cmp::PartialEq for QOS_OBJECT_HDR {
 impl ::std::cmp::Eq for QOS_OBJECT_HDR {}
 unsafe impl ::windows::runtime::Abi for QOS_OBJECT_HDR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const QOS_OUTGOING_DEFAULT_MINIMUM_BANDWIDTH: u32 = 4294967295u32;
@@ -2360,7 +2301,6 @@ impl ::std::cmp::PartialEq for QOS_PACKET_PRIORITY {
 impl ::std::cmp::Eq for QOS_PACKET_PRIORITY {}
 unsafe impl ::windows::runtime::Abi for QOS_PACKET_PRIORITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const QOS_QUERYFLOW_FRESH: u32 = 1u32;
@@ -2378,7 +2318,6 @@ impl ::std::convert::From<i32> for QOS_QUERY_FLOW {
 }
 unsafe impl ::windows::runtime::Abi for QOS_QUERY_FLOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2406,7 +2345,6 @@ impl ::std::cmp::PartialEq for QOS_SD_MODE {
 impl ::std::cmp::Eq for QOS_SD_MODE {}
 unsafe impl ::windows::runtime::Abi for QOS_SD_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2422,7 +2360,6 @@ impl ::std::convert::From<i32> for QOS_SET_FLOW {
 }
 unsafe impl ::windows::runtime::Abi for QOS_SET_FLOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2438,7 +2375,6 @@ impl ::std::convert::From<i32> for QOS_SHAPING {
 }
 unsafe impl ::windows::runtime::Abi for QOS_SHAPING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2466,7 +2402,6 @@ impl ::std::cmp::PartialEq for QOS_SHAPING_RATE {
 impl ::std::cmp::Eq for QOS_SHAPING_RATE {}
 unsafe impl ::windows::runtime::Abi for QOS_SHAPING_RATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2493,7 +2428,6 @@ impl ::std::cmp::PartialEq for QOS_TCP_TRAFFIC {
 impl ::std::cmp::Eq for QOS_TCP_TRAFFIC {}
 unsafe impl ::windows::runtime::Abi for QOS_TCP_TRAFFIC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2521,7 +2455,6 @@ impl ::std::cmp::PartialEq for QOS_TRAFFIC_CLASS {
 impl ::std::cmp::Eq for QOS_TRAFFIC_CLASS {}
 unsafe impl ::windows::runtime::Abi for QOS_TRAFFIC_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const QOS_TRAFFIC_GENERAL_ID_BASE: u32 = 4000u32;
@@ -2542,7 +2475,6 @@ impl ::std::convert::From<i32> for QOS_TRAFFIC_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for QOS_TRAFFIC_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2570,7 +2502,6 @@ impl ::std::cmp::PartialEq for QOS_VERSION {
 impl ::std::cmp::Eq for QOS_VERSION {}
 unsafe impl ::windows::runtime::Abi for QOS_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const QUALITATIVE_SERV: u32 = 6u32;
@@ -2601,7 +2532,6 @@ impl ::std::cmp::PartialEq for QualAppFlowSpec {
 impl ::std::cmp::Eq for QualAppFlowSpec {}
 unsafe impl ::windows::runtime::Abi for QualAppFlowSpec {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2630,7 +2560,6 @@ impl ::std::cmp::PartialEq for QualTspec {
 impl ::std::cmp::Eq for QualTspec {}
 unsafe impl ::windows::runtime::Abi for QualTspec {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2657,7 +2586,6 @@ impl ::std::cmp::PartialEq for QualTspecParms {
 impl ::std::cmp::Eq for QualTspecParms {}
 unsafe impl ::windows::runtime::Abi for QualTspecParms {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RCVD_PATH_TEAR: u32 = 1u32;
@@ -2693,7 +2621,6 @@ impl ::std::cmp::PartialEq for RESV_STYLE {
 impl ::std::cmp::Eq for RESV_STYLE {}
 unsafe impl ::windows::runtime::Abi for RESV_STYLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -2706,7 +2633,6 @@ impl ::std::default::Default for RHANDLE {
 unsafe impl ::windows::runtime::Handle for RHANDLE {}
 unsafe impl ::windows::runtime::Abi for RHANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2731,7 +2657,6 @@ impl ::std::cmp::PartialEq for RSVP_ADSPEC {
 impl ::std::cmp::Eq for RSVP_ADSPEC {}
 unsafe impl ::windows::runtime::Abi for RSVP_ADSPEC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_DEFAULT_STYLE: u32 = 0u32;
@@ -2820,7 +2745,6 @@ impl ::std::cmp::PartialEq for RSVP_FILTERSPEC {
 impl ::std::cmp::Eq for RSVP_FILTERSPEC {}
 unsafe impl ::windows::runtime::Abi for RSVP_FILTERSPEC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2846,7 +2770,6 @@ impl ::std::cmp::PartialEq for RSVP_FILTERSPEC_0 {
 impl ::std::cmp::Eq for RSVP_FILTERSPEC_0 {}
 unsafe impl ::windows::runtime::Abi for RSVP_FILTERSPEC_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2870,7 +2793,6 @@ impl ::std::cmp::PartialEq for RSVP_FILTERSPEC_V4 {
 impl ::std::cmp::Eq for RSVP_FILTERSPEC_V4 {}
 unsafe impl ::windows::runtime::Abi for RSVP_FILTERSPEC_V4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2893,7 +2815,6 @@ impl ::std::cmp::PartialEq for RSVP_FILTERSPEC_V4_GPI {
 impl ::std::cmp::Eq for RSVP_FILTERSPEC_V4_GPI {}
 unsafe impl ::windows::runtime::Abi for RSVP_FILTERSPEC_V4_GPI {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2922,7 +2843,6 @@ impl ::std::cmp::PartialEq for RSVP_FILTERSPEC_V6 {
 impl ::std::cmp::Eq for RSVP_FILTERSPEC_V6 {}
 unsafe impl ::windows::runtime::Abi for RSVP_FILTERSPEC_V6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2951,7 +2871,6 @@ impl ::std::cmp::PartialEq for RSVP_FILTERSPEC_V6_FLOW {
 impl ::std::cmp::Eq for RSVP_FILTERSPEC_V6_FLOW {}
 unsafe impl ::windows::runtime::Abi for RSVP_FILTERSPEC_V6_FLOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2979,7 +2898,6 @@ impl ::std::cmp::PartialEq for RSVP_FILTERSPEC_V6_GPI {
 impl ::std::cmp::Eq for RSVP_FILTERSPEC_V6_GPI {}
 unsafe impl ::windows::runtime::Abi for RSVP_FILTERSPEC_V6_GPI {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_FIXED_FILTER_STYLE: u32 = 2u32;
@@ -3010,7 +2928,6 @@ impl ::std::cmp::Eq for RSVP_HOP {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for RSVP_HOP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3038,7 +2955,6 @@ impl ::std::cmp::Eq for RSVP_HOP_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for RSVP_HOP_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3096,7 +3012,6 @@ impl ::std::cmp::Eq for RSVP_MSG_OBJS {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for RSVP_MSG_OBJS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_OBJECT_ID_BASE: u32 = 1000u32;
@@ -3133,7 +3048,6 @@ impl ::std::cmp::PartialEq for RSVP_POLICY {
 impl ::std::cmp::Eq for RSVP_POLICY {}
 unsafe impl ::windows::runtime::Abi for RSVP_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3162,7 +3076,6 @@ impl ::std::cmp::PartialEq for RSVP_POLICY_INFO {
 impl ::std::cmp::Eq for RSVP_POLICY_INFO {}
 unsafe impl ::windows::runtime::Abi for RSVP_POLICY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3194,7 +3107,6 @@ impl ::std::cmp::PartialEq for RSVP_RESERVE_INFO {
 impl ::std::cmp::Eq for RSVP_RESERVE_INFO {}
 unsafe impl ::windows::runtime::Abi for RSVP_RESERVE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_RESV: u32 = 2u32;
@@ -3229,7 +3141,6 @@ impl ::std::cmp::Eq for RSVP_SCOPE {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for RSVP_SCOPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3257,7 +3168,6 @@ impl ::std::cmp::Eq for RSVP_SCOPE_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for RSVP_SCOPE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3286,7 +3196,6 @@ impl ::std::cmp::Eq for RSVP_SESSION {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for RSVP_SESSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3314,7 +3223,6 @@ impl ::std::cmp::Eq for RSVP_SESSION_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for RSVP_SESSION_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_SHARED_EXPLICIT_STYLE: u32 = 3u32;
@@ -3346,7 +3254,6 @@ impl ::std::cmp::PartialEq for RSVP_STATUS_INFO {
 impl ::std::cmp::Eq for RSVP_STATUS_INFO {}
 unsafe impl ::windows::runtime::Abi for RSVP_STATUS_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const RSVP_WILDCARD_STYLE: u32 = 1u32;
@@ -3377,7 +3284,6 @@ impl ::std::cmp::PartialEq for RsvpObjHdr {
 impl ::std::cmp::Eq for RsvpObjHdr {}
 unsafe impl ::windows::runtime::Abi for RsvpObjHdr {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3406,7 +3312,6 @@ impl ::std::cmp::Eq for Rsvp_Hop_IPv4 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for Rsvp_Hop_IPv4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3429,7 +3334,6 @@ impl ::std::cmp::PartialEq for SENDER_TSPEC {
 impl ::std::cmp::Eq for SENDER_TSPEC {}
 unsafe impl ::windows::runtime::Abi for SENDER_TSPEC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const SERVICETYPE_BESTEFFORT: u32 = 1u32;
@@ -3817,7 +3721,6 @@ impl ::std::cmp::Eq for Scope_list_ipv4 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for Scope_list_ipv4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3848,7 +3751,6 @@ impl ::std::cmp::Eq for Session_IPv4 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for Session_IPv4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const TCBASE: u32 = 7500u32;
@@ -3876,7 +3778,6 @@ impl ::std::cmp::PartialEq for TCG_PCClientPCREventStruct {
 impl ::std::cmp::Eq for TCG_PCClientPCREventStruct {}
 unsafe impl ::windows::runtime::Abi for TCG_PCClientPCREventStruct {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -3900,7 +3801,6 @@ impl ::std::cmp::PartialEq for TCG_PCClientTaggedEventStruct {
 impl ::std::cmp::Eq for TCG_PCClientTaggedEventStruct {}
 unsafe impl ::windows::runtime::Abi for TCG_PCClientTaggedEventStruct {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type TCI_ADD_FLOW_COMPLETE_HANDLER = unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32);
@@ -3939,7 +3839,6 @@ impl ::std::cmp::Eq for TCI_CLIENT_FUNC_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TCI_CLIENT_FUNC_LIST {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type TCI_DEL_FLOW_COMPLETE_HANDLER = unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32);
@@ -3975,7 +3874,6 @@ impl ::std::cmp::PartialEq for TC_GEN_FILTER {
 impl ::std::cmp::Eq for TC_GEN_FILTER {}
 unsafe impl ::windows::runtime::Abi for TC_GEN_FILTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4005,7 +3903,6 @@ impl ::std::cmp::PartialEq for TC_GEN_FLOW {
 impl ::std::cmp::Eq for TC_GEN_FLOW {}
 unsafe impl ::windows::runtime::Abi for TC_GEN_FLOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4042,7 +3939,6 @@ impl ::std::cmp::Eq for TC_IFC_DESCRIPTOR {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for TC_IFC_DESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const TC_NONCONF_BORROW: u32 = 0u32;
@@ -4097,7 +3993,6 @@ impl ::std::cmp::Eq for TC_SUPPORTED_INFO_BUFFER {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for TC_SUPPORTED_INFO_BUFFER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
@@ -4464,7 +4359,6 @@ impl ::std::cmp::PartialEq for WBCL_Iterator {
 impl ::std::cmp::Eq for WBCL_Iterator {}
 unsafe impl ::windows::runtime::Abi for WBCL_Iterator {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -4489,7 +4383,6 @@ impl ::std::cmp::PartialEq for WBCL_LogHdr {
 impl ::std::cmp::Eq for WBCL_LogHdr {}
 unsafe impl ::windows::runtime::Abi for WBCL_LogHdr {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4518,7 +4411,6 @@ impl ::std::cmp::Eq for flow_desc {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for flow_desc {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4541,7 +4433,6 @@ impl ::std::cmp::PartialEq for flow_desc_0 {
 impl ::std::cmp::Eq for flow_desc_0 {}
 unsafe impl ::windows::runtime::Abi for flow_desc_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4570,7 +4461,6 @@ impl ::std::cmp::Eq for flow_desc_1 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for flow_desc_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4589,7 +4479,6 @@ impl ::std::convert::From<i32> for int_serv_wkp {
 }
 unsafe impl ::windows::runtime::Abi for int_serv_wkp {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4620,7 +4509,6 @@ impl ::std::cmp::Eq for lpmiptable {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for lpmiptable {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4649,7 +4537,6 @@ impl ::std::cmp::PartialEq for policy_decision {
 impl ::std::cmp::Eq for policy_decision {}
 unsafe impl ::windows::runtime::Abi for policy_decision {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -4673,7 +4560,6 @@ impl ::std::cmp::PartialEq for tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
 impl ::std::cmp::Eq for tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {}
 unsafe impl ::windows::runtime::Abi for tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -4698,7 +4584,6 @@ impl ::std::cmp::PartialEq for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {
 impl ::std::cmp::Eq for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {}
 unsafe impl ::windows::runtime::Abi for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -4726,7 +4611,6 @@ impl ::std::cmp::PartialEq for tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
 impl ::std::cmp::Eq for tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {}
 unsafe impl ::windows::runtime::Abi for tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -4752,7 +4636,6 @@ impl ::std::cmp::PartialEq for tag_SIPAEVENT_SI_POLICY_PAYLOAD {
 impl ::std::cmp::Eq for tag_SIPAEVENT_SI_POLICY_PAYLOAD {}
 unsafe impl ::windows::runtime::Abi for tag_SIPAEVENT_SI_POLICY_PAYLOAD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -4775,7 +4658,6 @@ impl ::std::cmp::PartialEq for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
 impl ::std::cmp::Eq for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {}
 unsafe impl ::windows::runtime::Abi for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4797,7 +4679,6 @@ impl ::std::cmp::PartialEq for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
 impl ::std::cmp::Eq for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {}
 unsafe impl ::windows::runtime::Abi for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -4822,5 +4703,4 @@ impl ::std::cmp::PartialEq for tag_SIPAEVENT_VSM_IDK_RSA_INFO {
 impl ::std::cmp::Eq for tag_SIPAEVENT_VSM_IDK_RSA_INFO {}
 unsafe impl ::windows::runtime::Abi for tag_SIPAEVENT_VSM_IDK_RSA_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }

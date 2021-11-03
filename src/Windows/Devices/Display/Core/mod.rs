@@ -115,10 +115,12 @@ impl ::std::convert::From<u32> for DisplayBitsPerChannel {
 }
 unsafe impl ::windows::runtime::Abi for DisplayBitsPerChannel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplayBitsPerChannel {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayBitsPerChannel;u4)");
+}
+impl ::windows::runtime::DefaultType for DisplayBitsPerChannel {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DisplayBitsPerChannel {
     type Output = Self;
@@ -243,10 +245,12 @@ impl ::std::convert::From<i32> for DisplayDeviceCapability {
 }
 unsafe impl ::windows::runtime::Abi for DisplayDeviceCapability {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplayDeviceCapability {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayDeviceCapability;i4)");
+}
+impl ::windows::runtime::DefaultType for DisplayDeviceCapability {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
@@ -606,10 +610,12 @@ impl ::std::convert::From<u32> for DisplayManagerOptions {
 }
 unsafe impl ::windows::runtime::Abi for DisplayManagerOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplayManagerOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayManagerOptions;u4)");
+}
+impl ::windows::runtime::DefaultType for DisplayManagerOptions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DisplayManagerOptions {
     type Output = Self;
@@ -697,10 +703,12 @@ impl ::std::convert::From<i32> for DisplayManagerResult {
 }
 unsafe impl ::windows::runtime::Abi for DisplayManagerResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplayManagerResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayManagerResult;i4)");
+}
+impl ::windows::runtime::DefaultType for DisplayManagerResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
@@ -863,10 +871,12 @@ impl ::std::convert::From<u32> for DisplayModeQueryOptions {
 }
 unsafe impl ::windows::runtime::Abi for DisplayModeQueryOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplayModeQueryOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayModeQueryOptions;u4)");
+}
+impl ::windows::runtime::DefaultType for DisplayModeQueryOptions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DisplayModeQueryOptions {
     type Output = Self;
@@ -1122,10 +1132,12 @@ impl ::std::convert::From<i32> for DisplayPathScaling {
 }
 unsafe impl ::windows::runtime::Abi for DisplayPathScaling {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplayPathScaling {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPathScaling;i4)");
+}
+impl ::windows::runtime::DefaultType for DisplayPathScaling {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1146,10 +1158,12 @@ impl ::std::convert::From<i32> for DisplayPathStatus {
 }
 unsafe impl ::windows::runtime::Abi for DisplayPathStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplayPathStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPathStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for DisplayPathStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1170,10 +1184,12 @@ impl ::std::convert::From<i32> for DisplayPresentStatus {
 }
 unsafe impl ::windows::runtime::Abi for DisplayPresentStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplayPresentStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPresentStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for DisplayPresentStatus {
+    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1208,11 +1224,13 @@ impl ::std::cmp::Eq for DisplayPresentationRate {}
 #[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::runtime::Abi for DisplayPresentationRate {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::runtime::RuntimeType for DisplayPresentationRate {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Devices.Display.Core.DisplayPresentationRate;struct(Windows.Foundation.Numerics.Rational;u4;u4);i4)");
+}
+impl ::windows::runtime::DefaultType for DisplayPresentationRate {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
@@ -1341,10 +1359,12 @@ impl ::std::convert::From<i32> for DisplayRotation {
 }
 unsafe impl ::windows::runtime::Abi for DisplayRotation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplayRotation {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayRotation;i4)");
+}
+impl ::windows::runtime::DefaultType for DisplayRotation {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
@@ -1378,10 +1398,12 @@ impl ::std::convert::From<u32> for DisplayScanoutOptions {
 }
 unsafe impl ::windows::runtime::Abi for DisplayScanoutOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplayScanoutOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayScanoutOptions;u4)");
+}
+impl ::windows::runtime::DefaultType for DisplayScanoutOptions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DisplayScanoutOptions {
     type Output = Self;
@@ -1496,10 +1518,12 @@ impl ::std::convert::From<i32> for DisplaySourceStatus {
 }
 unsafe impl ::windows::runtime::Abi for DisplaySourceStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplaySourceStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplaySourceStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for DisplaySourceStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
@@ -1648,10 +1672,12 @@ impl ::std::convert::From<u32> for DisplayStateApplyOptions {
 }
 unsafe impl ::windows::runtime::Abi for DisplayStateApplyOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplayStateApplyOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateApplyOptions;u4)");
+}
+impl ::windows::runtime::DefaultType for DisplayStateApplyOptions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DisplayStateApplyOptions {
     type Output = Self;
@@ -1697,10 +1723,12 @@ impl ::std::convert::From<u32> for DisplayStateFunctionalizeOptions {
 }
 unsafe impl ::windows::runtime::Abi for DisplayStateFunctionalizeOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplayStateFunctionalizeOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateFunctionalizeOptions;u4)");
+}
+impl ::windows::runtime::DefaultType for DisplayStateFunctionalizeOptions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DisplayStateFunctionalizeOptions {
     type Output = Self;
@@ -1785,10 +1813,12 @@ impl ::std::convert::From<i32> for DisplayStateOperationStatus {
 }
 unsafe impl ::windows::runtime::Abi for DisplayStateOperationStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplayStateOperationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateOperationStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for DisplayStateOperationStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
@@ -1955,10 +1985,12 @@ impl ::std::convert::From<i32> for DisplayTargetPersistence {
 }
 unsafe impl ::windows::runtime::Abi for DisplayTargetPersistence {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplayTargetPersistence {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayTargetPersistence;i4)");
+}
+impl ::windows::runtime::DefaultType for DisplayTargetPersistence {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
@@ -2090,10 +2122,12 @@ impl ::std::convert::From<i32> for DisplayTaskSignalKind {
 }
 unsafe impl ::windows::runtime::Abi for DisplayTaskSignalKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplayTaskSignalKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayTaskSignalKind;i4)");
+}
+impl ::windows::runtime::DefaultType for DisplayTaskSignalKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[repr(transparent)]
@@ -2264,10 +2298,12 @@ impl ::std::convert::From<i32> for DisplayWireFormatColorSpace {
 }
 unsafe impl ::windows::runtime::Abi for DisplayWireFormatColorSpace {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplayWireFormatColorSpace {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatColorSpace;i4)");
+}
+impl ::windows::runtime::DefaultType for DisplayWireFormatColorSpace {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2284,10 +2320,12 @@ impl ::std::convert::From<i32> for DisplayWireFormatEotf {
 }
 unsafe impl ::windows::runtime::Abi for DisplayWireFormatEotf {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplayWireFormatEotf {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatEotf;i4)");
+}
+impl ::windows::runtime::DefaultType for DisplayWireFormatEotf {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2306,10 +2344,12 @@ impl ::std::convert::From<i32> for DisplayWireFormatHdrMetadata {
 }
 unsafe impl ::windows::runtime::Abi for DisplayWireFormatHdrMetadata {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplayWireFormatHdrMetadata {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatHdrMetadata;i4)");
+}
+impl ::windows::runtime::DefaultType for DisplayWireFormatHdrMetadata {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Display_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2329,13 +2369,14 @@ impl ::std::convert::From<i32> for DisplayWireFormatPixelEncoding {
 }
 unsafe impl ::windows::runtime::Abi for DisplayWireFormatPixelEncoding {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplayWireFormatPixelEncoding {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatPixelEncoding;i4)");
 }
+impl ::windows::runtime::DefaultType for DisplayWireFormatPixelEncoding {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayAdapter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayAdapter {
@@ -2363,7 +2404,6 @@ pub struct IDisplayAdapter_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayAdapterStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayAdapterStatics {
@@ -2383,7 +2423,6 @@ pub struct IDisplayAdapterStatics_abi(
     #[cfg(not(feature = "Graphics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayDevice(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayDevice {
@@ -2409,7 +2448,6 @@ pub struct IDisplayDevice_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, capability: DisplayDeviceCapability, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayDevice2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayDevice2 {
@@ -2429,7 +2467,6 @@ pub struct IDisplayDevice2_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayFence(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayFence {
@@ -2447,7 +2484,6 @@ pub struct IDisplayFence_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayManager {
@@ -2497,7 +2533,6 @@ pub struct IDisplayManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayManagerChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayManagerChangedEventArgs {
@@ -2519,7 +2554,6 @@ pub struct IDisplayManagerChangedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayManagerDisabledEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayManagerDisabledEventArgs {
@@ -2541,7 +2575,6 @@ pub struct IDisplayManagerDisabledEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayManagerEnabledEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayManagerEnabledEventArgs {
@@ -2563,7 +2596,6 @@ pub struct IDisplayManagerEnabledEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayManagerPathsFailedOrInvalidatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayManagerPathsFailedOrInvalidatedEventArgs {
@@ -2585,7 +2617,6 @@ pub struct IDisplayManagerPathsFailedOrInvalidatedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayManagerResultWithState(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayManagerResultWithState {
@@ -2606,7 +2637,6 @@ pub struct IDisplayManagerResultWithState_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayManagerStatics {
@@ -2625,7 +2655,6 @@ pub struct IDisplayManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, options: DisplayManagerOptions, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayModeInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayModeInfo {
@@ -2657,7 +2686,6 @@ pub struct IDisplayModeInfo_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayModeInfo2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayModeInfo2 {
@@ -2677,7 +2705,6 @@ pub struct IDisplayModeInfo2_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayPath(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayPath {
@@ -2731,7 +2758,6 @@ pub struct IDisplayPath_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayPath2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayPath2 {
@@ -2753,7 +2779,6 @@ pub struct IDisplayPath2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayPrimaryDescription(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayPrimaryDescription {
@@ -2782,7 +2807,6 @@ pub struct IDisplayPrimaryDescription_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayPrimaryDescriptionFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayPrimaryDescriptionFactory {
@@ -2803,7 +2827,6 @@ pub struct IDisplayPrimaryDescriptionFactory_abi(
     #[cfg(not(all(feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayPrimaryDescriptionStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayPrimaryDescriptionStatics {
@@ -2824,7 +2847,6 @@ pub struct IDisplayPrimaryDescriptionStatics_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayScanout(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayScanout {
@@ -2842,7 +2864,6 @@ pub struct IDisplayScanout_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplaySource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplaySource {
@@ -2865,7 +2886,6 @@ pub struct IDisplaySource_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplaySource2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplaySource2 {
@@ -2888,7 +2908,6 @@ pub struct IDisplaySource2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayState(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayState {
@@ -2923,7 +2942,6 @@ pub struct IDisplayState_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayStateOperationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayStateOperationResult {
@@ -2943,7 +2961,6 @@ pub struct IDisplayStateOperationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplaySurface(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplaySurface {
@@ -2961,7 +2978,6 @@ pub struct IDisplaySurface_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayTarget(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayTarget {
@@ -2994,7 +3010,6 @@ pub struct IDisplayTarget_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, othertarget: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayTask(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayTask {
@@ -3014,7 +3029,6 @@ pub struct IDisplayTask_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, readyfence: ::windows::runtime::RawPtr, readyfencevalue: u64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayTask2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayTask2 {
@@ -3033,7 +3047,6 @@ pub struct IDisplayTask2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, signalkind: DisplayTaskSignalKind, fence: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayTaskPool(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayTaskPool {
@@ -3053,7 +3066,6 @@ pub struct IDisplayTaskPool_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, task: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayTaskPool2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayTaskPool2 {
@@ -3072,7 +3084,6 @@ pub struct IDisplayTaskPool2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, task: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayTaskResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayTaskResult {
@@ -3093,7 +3104,6 @@ pub struct IDisplayTaskResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut DisplaySourceStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayView(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayView {
@@ -3120,7 +3130,6 @@ pub struct IDisplayView_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayWireFormat(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayWireFormat {
@@ -3145,7 +3154,6 @@ pub struct IDisplayWireFormat_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayWireFormatFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayWireFormatFactory {
@@ -3164,7 +3172,6 @@ pub struct IDisplayWireFormatFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pixelencoding: DisplayWireFormatPixelEncoding, bitsperchannel: i32, colorspace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrmetadata: DisplayWireFormatHdrMetadata, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayWireFormatStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayWireFormatStatics {

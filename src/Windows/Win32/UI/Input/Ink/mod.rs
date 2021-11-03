@@ -179,7 +179,6 @@ impl ::std::convert::From<i32> for INK_HIGH_CONTRAST_ADJUSTMENT {
 }
 unsafe impl ::windows::runtime::Abi for INK_HIGH_CONTRAST_ADJUSTMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const InkD2DRenderer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1078257164, 31489, 18033, [169, 124, 4, 224, 33, 10, 7, 165]);
 pub const InkDesktopHost: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(103122086, 63536, 19420, [164, 210, 10, 16, 171, 6, 43, 29]);

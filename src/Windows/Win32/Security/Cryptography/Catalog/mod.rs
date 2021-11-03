@@ -25,7 +25,6 @@ impl ::std::cmp::PartialEq for CATALOG_INFO {
 impl ::std::cmp::Eq for CATALOG_INFO {}
 unsafe impl ::windows::runtime::Abi for CATALOG_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -64,7 +63,6 @@ impl ::std::cmp::Eq for CRYPTCATATTRIBUTE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPTCATATTRIBUTE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -112,7 +110,6 @@ impl ::std::cmp::Eq for CRYPTCATCDF {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPTCATCDF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -178,7 +175,6 @@ impl ::std::cmp::Eq for CRYPTCATMEMBER {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
 unsafe impl ::windows::runtime::Abi for CRYPTCATMEMBER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -232,7 +228,6 @@ impl ::std::cmp::Eq for CRYPTCATSTORE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPTCATSTORE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Catalog`*"]
 pub const CRYPTCAT_ADDCATALOG_HARDLINK: u32 = 1u32;
@@ -302,7 +297,6 @@ impl ::std::convert::From<u32> for CRYPTCAT_OPEN_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CRYPTCAT_OPEN_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPTCAT_OPEN_FLAGS {
     type Output = Self;
@@ -345,7 +339,6 @@ impl ::std::convert::From<u32> for CRYPTCAT_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for CRYPTCAT_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRYPTCAT_VERSION {
     type Output = Self;

@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IImageScanner(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageScanner {
@@ -29,7 +28,6 @@ pub struct IImageScanner_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IImageScannerFeederConfiguration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageScannerFeederConfiguration {
@@ -126,7 +124,6 @@ pub struct IImageScannerFormatConfiguration_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ImageScannerFormat, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IImageScannerPreviewResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageScannerPreviewResult {
@@ -146,7 +143,6 @@ pub struct IImageScannerPreviewResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ImageScannerFormat) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IImageScannerScanResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageScannerScanResult {
@@ -491,7 +487,6 @@ pub struct IImageScannerSourceConfiguration_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IImageScannerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageScannerStatics {
@@ -705,10 +700,12 @@ impl ::std::convert::From<i32> for ImageScannerAutoCroppingMode {
 }
 unsafe impl ::windows::runtime::Abi for ImageScannerAutoCroppingMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ImageScannerAutoCroppingMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerAutoCroppingMode;i4)");
+}
+impl ::windows::runtime::DefaultType for ImageScannerAutoCroppingMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Scanners`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -727,10 +724,12 @@ impl ::std::convert::From<i32> for ImageScannerColorMode {
 }
 unsafe impl ::windows::runtime::Abi for ImageScannerColorMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ImageScannerColorMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerColorMode;i4)");
+}
+impl ::windows::runtime::DefaultType for ImageScannerColorMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Scanners`*"]
 #[repr(transparent)]
@@ -1490,10 +1489,12 @@ impl ::std::convert::From<i32> for ImageScannerFormat {
 }
 unsafe impl ::windows::runtime::Abi for ImageScannerFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ImageScannerFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerFormat;i4)");
+}
+impl ::windows::runtime::DefaultType for ImageScannerFormat {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Scanners`*"]
 #[repr(transparent)]
@@ -1555,10 +1556,12 @@ impl ::std::cmp::PartialEq for ImageScannerResolution {
 impl ::std::cmp::Eq for ImageScannerResolution {}
 unsafe impl ::windows::runtime::Abi for ImageScannerResolution {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ImageScannerResolution {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Devices.Scanners.ImageScannerResolution;f4;f4)");
+}
+impl ::windows::runtime::DefaultType for ImageScannerResolution {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Scanners`*"]
 #[repr(transparent)]
@@ -1604,10 +1607,12 @@ impl ::std::convert::From<i32> for ImageScannerScanSource {
 }
 unsafe impl ::windows::runtime::Abi for ImageScannerScanSource {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ImageScannerScanSource {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerScanSource;i4)");
+}
+impl ::windows::runtime::DefaultType for ImageScannerScanSource {
+    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]

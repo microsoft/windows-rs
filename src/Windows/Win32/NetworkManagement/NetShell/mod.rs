@@ -36,7 +36,6 @@ impl ::std::cmp::Eq for CMD_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMD_ENTRY {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -75,7 +74,6 @@ impl ::std::cmp::Eq for CMD_GROUP_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMD_GROUP_ENTRY {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`*"]
 pub const DEFAULT_CONTEXT_PRIORITY: u32 = 100u32;
@@ -181,7 +179,6 @@ impl ::std::convert::From<i32> for NS_CMD_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for NS_CMD_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for NS_CONTEXT_ATTRIBUTES {
@@ -227,7 +224,6 @@ impl ::std::cmp::Eq for NS_CONTEXT_ATTRIBUTES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NS_CONTEXT_ATTRIBUTES {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -250,7 +246,6 @@ impl ::std::cmp::PartialEq for NS_CONTEXT_ATTRIBUTES_0 {
 impl ::std::cmp::Eq for NS_CONTEXT_ATTRIBUTES_0 {}
 unsafe impl ::windows::runtime::Abi for NS_CONTEXT_ATTRIBUTES_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -278,7 +273,6 @@ impl ::std::cmp::PartialEq for NS_CONTEXT_ATTRIBUTES_0_0 {
 impl ::std::cmp::Eq for NS_CONTEXT_ATTRIBUTES_0_0 {}
 unsafe impl ::windows::runtime::Abi for NS_CONTEXT_ATTRIBUTES_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -296,7 +290,6 @@ impl ::std::convert::From<i32> for NS_EVENTS {
 }
 unsafe impl ::windows::runtime::Abi for NS_EVENTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::clone::Clone for NS_HELPER_ATTRIBUTES {
     fn clone(&self) -> Self {
@@ -325,7 +318,6 @@ impl ::std::cmp::PartialEq for NS_HELPER_ATTRIBUTES {
 impl ::std::cmp::Eq for NS_HELPER_ATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for NS_HELPER_ATTRIBUTES {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -348,7 +340,6 @@ impl ::std::cmp::PartialEq for NS_HELPER_ATTRIBUTES_0 {
 impl ::std::cmp::Eq for NS_HELPER_ATTRIBUTES_0 {}
 unsafe impl ::windows::runtime::Abi for NS_HELPER_ATTRIBUTES_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -376,7 +367,6 @@ impl ::std::cmp::PartialEq for NS_HELPER_ATTRIBUTES_0_0 {
 impl ::std::cmp::Eq for NS_HELPER_ATTRIBUTES_0_0 {}
 unsafe impl ::windows::runtime::Abi for NS_HELPER_ATTRIBUTES_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -394,7 +384,6 @@ impl ::std::convert::From<i32> for NS_MODE_CHANGE {
 }
 unsafe impl ::windows::runtime::Abi for NS_MODE_CHANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -411,7 +400,6 @@ impl ::std::convert::From<i32> for NS_REQS {
 }
 unsafe impl ::windows::runtime::Abi for NS_REQS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_HANDLE_CMD = unsafe extern "system" fn(pwszmachine: super::super::Foundation::PWSTR, ppwcarguments: *mut super::super::Foundation::PWSTR, dwcurrentindex: u32, dwargcount: u32, dwflags: u32, pvdata: *const ::std::ffi::c_void, pbdone: *mut super::super::Foundation::BOOL) -> u32;
@@ -561,7 +549,6 @@ impl ::std::cmp::Eq for TAG_TYPE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TAG_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -596,5 +583,4 @@ impl ::std::cmp::Eq for TOKEN_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TOKEN_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }

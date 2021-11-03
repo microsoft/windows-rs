@@ -106,10 +106,12 @@ impl ::std::convert::From<u32> for AttributeTargets {
 }
 unsafe impl ::windows::runtime::Abi for AttributeTargets {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AttributeTargets {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.AttributeTargets;u4)");
+}
+impl ::windows::runtime::DefaultType for AttributeTargets {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for AttributeTargets {
     type Output = Self;
@@ -154,10 +156,12 @@ impl ::std::convert::From<i32> for CompositionType {
 }
 unsafe impl ::windows::runtime::Abi for CompositionType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CompositionType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.CompositionType;i4)");
+}
+impl ::windows::runtime::DefaultType for CompositionType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Foundation_Metadata`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -174,10 +178,12 @@ impl ::std::convert::From<i32> for DeprecationType {
 }
 unsafe impl ::windows::runtime::Abi for DeprecationType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DeprecationType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.DeprecationType;i4)");
+}
+impl ::windows::runtime::DefaultType for DeprecationType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Foundation_Metadata`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -196,10 +202,12 @@ impl ::std::convert::From<i32> for FeatureStage {
 }
 unsafe impl ::windows::runtime::Abi for FeatureStage {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for FeatureStage {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.FeatureStage;i4)");
+}
+impl ::windows::runtime::DefaultType for FeatureStage {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Foundation_Metadata`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -217,13 +225,14 @@ impl ::std::convert::From<i32> for GCPressureAmount {
 }
 unsafe impl ::windows::runtime::Abi for GCPressureAmount {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GCPressureAmount {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.GCPressureAmount;i4)");
 }
+impl ::windows::runtime::DefaultType for GCPressureAmount {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IApiInformationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApiInformationStatics {
@@ -267,10 +276,12 @@ impl ::std::convert::From<i32> for MarshalingType {
 }
 unsafe impl ::windows::runtime::Abi for MarshalingType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MarshalingType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.MarshalingType;i4)");
+}
+impl ::windows::runtime::DefaultType for MarshalingType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Foundation_Metadata`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -287,10 +298,12 @@ impl ::std::convert::From<i32> for Platform {
 }
 unsafe impl ::windows::runtime::Abi for Platform {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for Platform {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.Platform;i4)");
+}
+impl ::windows::runtime::DefaultType for Platform {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Foundation_Metadata`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -309,8 +322,10 @@ impl ::std::convert::From<i32> for ThreadingModel {
 }
 unsafe impl ::windows::runtime::Abi for ThreadingModel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ThreadingModel {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.ThreadingModel;i4)");
+}
+impl ::windows::runtime::DefaultType for ThreadingModel {
+    type DefaultType = Self;
 }

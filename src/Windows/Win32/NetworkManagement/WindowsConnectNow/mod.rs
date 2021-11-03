@@ -232,7 +232,6 @@ impl ::std::convert::From<i32> for WCN_ATTRIBUTE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WCN_ATTRIBUTE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_E_AUTHENTICATION_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147206142i32 as _);
@@ -270,7 +269,6 @@ impl ::std::convert::From<i32> for WCN_PASSWORD_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WCN_PASSWORD_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -286,7 +284,6 @@ impl ::std::convert::From<i32> for WCN_SESSION_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for WCN_SESSION_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 pub const WCN_VALUE_DT_CATEGORY_AUDIO_DEVICE: u32 = 11u32;
@@ -448,7 +445,6 @@ impl ::std::convert::From<i32> for WCN_VALUE_TYPE_ASSOCIATION_STATE {
 }
 unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_ASSOCIATION_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -468,7 +464,6 @@ impl ::std::convert::From<i32> for WCN_VALUE_TYPE_AUTHENTICATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_AUTHENTICATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -483,7 +478,6 @@ impl ::std::convert::From<i32> for WCN_VALUE_TYPE_BOOLEAN {
 }
 unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_BOOLEAN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -515,7 +509,6 @@ impl ::std::convert::From<i32> for WCN_VALUE_TYPE_CONFIGURATION_ERROR {
 }
 unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_CONFIGURATION_ERROR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -541,7 +534,6 @@ impl ::std::convert::From<i32> for WCN_VALUE_TYPE_CONFIG_METHODS {
 }
 unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_CONFIG_METHODS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -556,7 +548,6 @@ impl ::std::convert::From<i32> for WCN_VALUE_TYPE_CONNECTION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_CONNECTION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -579,7 +570,6 @@ impl ::std::convert::From<i32> for WCN_VALUE_TYPE_DEVICE_PASSWORD_ID {
 }
 unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_DEVICE_PASSWORD_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -597,7 +587,6 @@ impl ::std::convert::From<i32> for WCN_VALUE_TYPE_ENCRYPTION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_ENCRYPTION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -625,7 +614,6 @@ impl ::std::convert::From<i32> for WCN_VALUE_TYPE_MESSAGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_MESSAGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -649,7 +637,6 @@ impl ::std::cmp::PartialEq for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
 impl ::std::cmp::Eq for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {}
 unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -666,7 +653,6 @@ impl ::std::convert::From<i32> for WCN_VALUE_TYPE_REQUEST_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_REQUEST_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -683,7 +669,6 @@ impl ::std::convert::From<i32> for WCN_VALUE_TYPE_RESPONSE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_RESPONSE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -698,7 +683,6 @@ impl ::std::convert::From<i32> for WCN_VALUE_TYPE_RF_BANDS {
 }
 unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_RF_BANDS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -713,7 +697,6 @@ impl ::std::convert::From<i32> for WCN_VALUE_TYPE_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectNow`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -729,7 +712,6 @@ impl ::std::convert::From<i32> for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE {
 }
 unsafe impl ::windows::runtime::Abi for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -759,5 +741,4 @@ impl ::std::cmp::PartialEq for WCN_VENDOR_EXTENSION_SPEC {
 impl ::std::cmp::Eq for WCN_VENDOR_EXTENSION_SPEC {}
 unsafe impl ::windows::runtime::Abi for WCN_VENDOR_EXTENSION_SPEC {
     type Abi = Self;
-    type DefaultType = Self;
 }

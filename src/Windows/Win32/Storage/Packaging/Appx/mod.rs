@@ -15,7 +15,6 @@ impl ::std::convert::From<i32> for APPX_BUNDLE_FOOTPRINT_FILE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for APPX_BUNDLE_FOOTPRINT_FILE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -30,7 +29,6 @@ impl ::std::convert::From<i32> for APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -55,7 +53,6 @@ impl ::std::convert::From<u32> for APPX_CAPABILITIES {
 }
 unsafe impl ::windows::runtime::Abi for APPX_CAPABILITIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for APPX_CAPABILITIES {
     type Output = Self;
@@ -102,7 +99,6 @@ impl ::std::convert::From<i32> for APPX_CAPABILITY_CLASS_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for APPX_CAPABILITY_CLASS_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -120,7 +116,6 @@ impl ::std::convert::From<i32> for APPX_COMPRESSION_OPTION {
 }
 unsafe impl ::windows::runtime::Abi for APPX_COMPRESSION_OPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -155,7 +150,6 @@ impl ::std::cmp::Eq for APPX_ENCRYPTED_EXEMPTIONS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for APPX_ENCRYPTED_EXEMPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -171,7 +165,6 @@ impl ::std::convert::From<u32> for APPX_ENCRYPTED_PACKAGE_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for APPX_ENCRYPTED_PACKAGE_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for APPX_ENCRYPTED_PACKAGE_OPTIONS {
     type Output = Self;
@@ -236,7 +229,6 @@ impl ::std::cmp::Eq for APPX_ENCRYPTED_PACKAGE_SETTINGS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for APPX_ENCRYPTED_PACKAGE_SETTINGS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -273,7 +265,6 @@ impl ::std::cmp::Eq for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -291,7 +282,6 @@ impl ::std::convert::From<i32> for APPX_FOOTPRINT_FILE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for APPX_FOOTPRINT_FILE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -321,7 +311,6 @@ impl ::std::cmp::PartialEq for APPX_KEY_INFO {
 impl ::std::cmp::Eq for APPX_KEY_INFO {}
 unsafe impl ::windows::runtime::Abi for APPX_KEY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -339,7 +328,6 @@ impl ::std::convert::From<i32> for APPX_PACKAGE_ARCHITECTURE {
 }
 unsafe impl ::windows::runtime::Abi for APPX_PACKAGE_ARCHITECTURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -359,7 +347,6 @@ impl ::std::convert::From<i32> for APPX_PACKAGE_ARCHITECTURE2 {
 }
 unsafe impl ::windows::runtime::Abi for APPX_PACKAGE_ARCHITECTURE2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -375,7 +362,6 @@ impl ::std::convert::From<u32> for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_O
 }
 unsafe impl ::windows::runtime::Abi for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
     type Output = Self;
@@ -417,7 +403,6 @@ impl ::std::convert::From<i32> for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {
 }
 unsafe impl ::windows::runtime::Abi for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -452,7 +437,6 @@ impl ::std::cmp::Eq for APPX_PACKAGE_SETTINGS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for APPX_PACKAGE_SETTINGS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -489,7 +473,6 @@ impl ::std::cmp::Eq for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -506,7 +489,6 @@ impl ::std::convert::From<i32> for APPX_PACKAGING_CONTEXT_CHANGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for APPX_PACKAGING_CONTEXT_CHANGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[inline]
@@ -551,7 +533,6 @@ impl ::std::convert::From<i32> for AddPackageDependencyOptions {
 }
 unsafe impl ::windows::runtime::Abi for AddPackageDependencyOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -568,7 +549,6 @@ impl ::std::convert::From<i32> for AppPolicyClrCompat {
 }
 unsafe impl ::windows::runtime::Abi for AppPolicyClrCompat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -583,7 +563,6 @@ impl ::std::convert::From<i32> for AppPolicyCreateFileAccess {
 }
 unsafe impl ::windows::runtime::Abi for AppPolicyCreateFileAccess {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -718,7 +697,6 @@ impl ::std::convert::From<i32> for AppPolicyLifecycleManagement {
 }
 unsafe impl ::windows::runtime::Abi for AppPolicyLifecycleManagement {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -733,7 +711,6 @@ impl ::std::convert::From<i32> for AppPolicyMediaFoundationCodecLoading {
 }
 unsafe impl ::windows::runtime::Abi for AppPolicyMediaFoundationCodecLoading {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -748,7 +725,6 @@ impl ::std::convert::From<i32> for AppPolicyProcessTerminationMethod {
 }
 unsafe impl ::windows::runtime::Abi for AppPolicyProcessTerminationMethod {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -763,7 +739,6 @@ impl ::std::convert::From<i32> for AppPolicyShowDeveloperDiagnostic {
 }
 unsafe impl ::windows::runtime::Abi for AppPolicyShowDeveloperDiagnostic {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -778,7 +753,6 @@ impl ::std::convert::From<i32> for AppPolicyThreadInitializationType {
 }
 unsafe impl ::windows::runtime::Abi for AppPolicyThreadInitializationType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -795,7 +769,6 @@ impl ::std::convert::From<i32> for AppPolicyWindowingModel {
 }
 unsafe impl ::windows::runtime::Abi for AppPolicyWindowingModel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const AppxBundleFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(932054086, 21380, 17335, [136, 119, 231, 219, 221, 136, 52, 70]);
 pub const AppxEncryptionFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3697692637, 55400, 18158, [135, 128, 141, 25, 108, 183, 57, 247]);
@@ -846,7 +819,6 @@ impl ::std::convert::From<i32> for CreatePackageDependencyOptions {
 }
 unsafe impl ::windows::runtime::Abi for CreatePackageDependencyOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -879,7 +851,6 @@ impl ::std::convert::From<i32> for DX_FEATURE_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for DX_FEATURE_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[inline]
@@ -4849,7 +4820,6 @@ impl ::std::cmp::PartialEq for PACKAGEDEPENDENCY_CONTEXT__ {
 impl ::std::cmp::Eq for PACKAGEDEPENDENCY_CONTEXT__ {}
 unsafe impl ::windows::runtime::Abi for PACKAGEDEPENDENCY_CONTEXT__ {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 pub const PACKAGE_DEPENDENCY_RANK_DEFAULT: u32 = 0u32;
@@ -4905,7 +4875,6 @@ impl ::std::cmp::Eq for PACKAGE_ID {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PACKAGE_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
@@ -4938,7 +4907,6 @@ impl ::std::cmp::Eq for PACKAGE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PACKAGE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 pub const PACKAGE_INFORMATION_BASIC: u32 = 0u32;
@@ -4982,7 +4950,6 @@ impl ::std::cmp::PartialEq for PACKAGE_VERSION {
 impl ::std::cmp::Eq for PACKAGE_VERSION {}
 unsafe impl ::windows::runtime::Abi for PACKAGE_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
@@ -5005,7 +4972,6 @@ impl ::std::cmp::PartialEq for PACKAGE_VERSION_0 {
 impl ::std::cmp::Eq for PACKAGE_VERSION_0 {}
 unsafe impl ::windows::runtime::Abi for PACKAGE_VERSION_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5035,7 +5001,6 @@ impl ::std::cmp::PartialEq for PACKAGE_VERSION_0_0 {
 impl ::std::cmp::Eq for PACKAGE_VERSION_0_0 {}
 unsafe impl ::windows::runtime::Abi for PACKAGE_VERSION_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5062,7 +5027,6 @@ impl ::std::cmp::PartialEq for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
 impl ::std::cmp::Eq for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {}
 unsafe impl ::windows::runtime::Abi for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5078,7 +5042,6 @@ impl ::std::convert::From<i32> for PackageDependencyLifetimeKind {
 }
 unsafe impl ::windows::runtime::Abi for PackageDependencyLifetimeKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5098,7 +5061,6 @@ impl ::std::convert::From<i32> for PackageDependencyProcessorArchitectures {
 }
 unsafe impl ::windows::runtime::Abi for PackageDependencyProcessorArchitectures {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -5193,7 +5155,6 @@ impl ::std::convert::From<i32> for PackageOrigin {
 }
 unsafe impl ::windows::runtime::Abi for PackageOrigin {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5212,7 +5173,6 @@ impl ::std::convert::From<i32> for PackagePathType {
 }
 unsafe impl ::windows::runtime::Abi for PackagePathType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
@@ -5381,5 +5341,4 @@ impl ::std::cmp::PartialEq for _PACKAGE_INFO_REFERENCE {
 impl ::std::cmp::Eq for _PACKAGE_INFO_REFERENCE {}
 unsafe impl ::windows::runtime::Abi for _PACKAGE_INFO_REFERENCE {
     type Abi = Self;
-    type DefaultType = Self;
 }

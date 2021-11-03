@@ -189,10 +189,12 @@ impl ::std::convert::From<i32> for EmailAttachmentDownloadState {
 }
 unsafe impl ::windows::runtime::Abi for EmailAttachmentDownloadState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailAttachmentDownloadState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailAttachmentDownloadState;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailAttachmentDownloadState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -210,10 +212,12 @@ impl ::std::convert::From<i32> for EmailBatchStatus {
 }
 unsafe impl ::windows::runtime::Abi for EmailBatchStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailBatchStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailBatchStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailBatchStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -239,10 +243,12 @@ impl ::std::convert::From<i32> for EmailCertificateValidationStatus {
 }
 unsafe impl ::windows::runtime::Abi for EmailCertificateValidationStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailCertificateValidationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailCertificateValidationStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailCertificateValidationStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
@@ -464,10 +470,12 @@ impl ::std::convert::From<i32> for EmailFlagState {
 }
 unsafe impl ::windows::runtime::Abi for EmailFlagState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailFlagState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailFlagState;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailFlagState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
@@ -702,10 +710,12 @@ impl ::std::convert::From<i32> for EmailImportance {
 }
 unsafe impl ::windows::runtime::Abi for EmailImportance {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailImportance {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailImportance;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailImportance {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
@@ -1618,10 +1628,12 @@ impl ::std::convert::From<i32> for EmailMailboxActionKind {
 }
 unsafe impl ::windows::runtime::Abi for EmailMailboxActionKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailMailboxActionKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxActionKind;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailMailboxActionKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1639,10 +1651,12 @@ impl ::std::convert::From<i32> for EmailMailboxAllowedSmimeEncryptionAlgorithmNe
 }
 unsafe impl ::windows::runtime::Abi for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
@@ -1703,10 +1717,12 @@ impl ::std::convert::From<i32> for EmailMailboxAutoReplyMessageResponseKind {
 }
 unsafe impl ::windows::runtime::Abi for EmailMailboxAutoReplyMessageResponseKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailMailboxAutoReplyMessageResponseKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxAutoReplyMessageResponseKind;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailMailboxAutoReplyMessageResponseKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
@@ -2165,10 +2181,12 @@ impl ::std::convert::From<i32> for EmailMailboxChangeType {
 }
 unsafe impl ::windows::runtime::Abi for EmailMailboxChangeType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailMailboxChangeType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxChangeType;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailMailboxChangeType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
@@ -2273,10 +2291,12 @@ impl ::std::convert::From<i32> for EmailMailboxCreateFolderStatus {
 }
 unsafe impl ::windows::runtime::Abi for EmailMailboxCreateFolderStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailMailboxCreateFolderStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxCreateFolderStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailMailboxCreateFolderStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2297,10 +2317,12 @@ impl ::std::convert::From<i32> for EmailMailboxDeleteFolderStatus {
 }
 unsafe impl ::windows::runtime::Abi for EmailMailboxDeleteFolderStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailMailboxDeleteFolderStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxDeleteFolderStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailMailboxDeleteFolderStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2321,10 +2343,12 @@ impl ::std::convert::From<i32> for EmailMailboxEmptyFolderStatus {
 }
 unsafe impl ::windows::runtime::Abi for EmailMailboxEmptyFolderStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailMailboxEmptyFolderStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxEmptyFolderStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailMailboxEmptyFolderStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2342,10 +2366,12 @@ impl ::std::convert::From<i32> for EmailMailboxOtherAppReadAccess {
 }
 unsafe impl ::windows::runtime::Abi for EmailMailboxOtherAppReadAccess {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailMailboxOtherAppReadAccess {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxOtherAppReadAccess;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailMailboxOtherAppReadAccess {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2362,10 +2388,12 @@ impl ::std::convert::From<i32> for EmailMailboxOtherAppWriteAccess {
 }
 unsafe impl ::windows::runtime::Abi for EmailMailboxOtherAppWriteAccess {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailMailboxOtherAppWriteAccess {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxOtherAppWriteAccess;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailMailboxOtherAppWriteAccess {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
@@ -2486,10 +2514,12 @@ impl ::std::convert::From<i32> for EmailMailboxSmimeEncryptionAlgorithm {
 }
 unsafe impl ::windows::runtime::Abi for EmailMailboxSmimeEncryptionAlgorithm {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailMailboxSmimeEncryptionAlgorithm {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSmimeEncryptionAlgorithm;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailMailboxSmimeEncryptionAlgorithm {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2507,10 +2537,12 @@ impl ::std::convert::From<i32> for EmailMailboxSmimeSigningAlgorithm {
 }
 unsafe impl ::windows::runtime::Abi for EmailMailboxSmimeSigningAlgorithm {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailMailboxSmimeSigningAlgorithm {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSmimeSigningAlgorithm;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailMailboxSmimeSigningAlgorithm {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
@@ -2617,10 +2649,12 @@ impl ::std::convert::From<i32> for EmailMailboxSyncStatus {
 }
 unsafe impl ::windows::runtime::Abi for EmailMailboxSyncStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailMailboxSyncStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSyncStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailMailboxSyncStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 pub struct EmailManager {}
@@ -2942,10 +2976,12 @@ impl ::std::convert::From<i32> for EmailMeetingResponseType {
 }
 unsafe impl ::windows::runtime::Abi for EmailMeetingResponseType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailMeetingResponseType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMeetingResponseType;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailMeetingResponseType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
@@ -3447,10 +3483,12 @@ impl ::std::convert::From<i32> for EmailMessageBodyKind {
 }
 unsafe impl ::windows::runtime::Abi for EmailMessageBodyKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailMessageBodyKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageBodyKind;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailMessageBodyKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3469,10 +3507,12 @@ impl ::std::convert::From<i32> for EmailMessageDownloadState {
 }
 unsafe impl ::windows::runtime::Abi for EmailMessageDownloadState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailMessageDownloadState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageDownloadState;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailMessageDownloadState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
@@ -3518,10 +3558,12 @@ impl ::std::convert::From<i32> for EmailMessageResponseKind {
 }
 unsafe impl ::windows::runtime::Abi for EmailMessageResponseKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailMessageResponseKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageResponseKind;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailMessageResponseKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3540,10 +3582,12 @@ impl ::std::convert::From<i32> for EmailMessageSmimeKind {
 }
 unsafe impl ::windows::runtime::Abi for EmailMessageSmimeKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailMessageSmimeKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageSmimeKind;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailMessageSmimeKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3564,10 +3608,12 @@ impl ::std::convert::From<i32> for EmailQueryKind {
 }
 unsafe impl ::windows::runtime::Abi for EmailQueryKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailQueryKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQueryKind;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailQueryKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
@@ -3687,10 +3733,12 @@ impl ::std::convert::From<u32> for EmailQuerySearchFields {
 }
 unsafe impl ::windows::runtime::Abi for EmailQuerySearchFields {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailQuerySearchFields {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySearchFields;u4)");
+}
+impl ::windows::runtime::DefaultType for EmailQuerySearchFields {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for EmailQuerySearchFields {
     type Output = Self;
@@ -3735,10 +3783,12 @@ impl ::std::convert::From<i32> for EmailQuerySearchScope {
 }
 unsafe impl ::windows::runtime::Abi for EmailQuerySearchScope {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailQuerySearchScope {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySearchScope;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailQuerySearchScope {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3755,10 +3805,12 @@ impl ::std::convert::From<i32> for EmailQuerySortDirection {
 }
 unsafe impl ::windows::runtime::Abi for EmailQuerySortDirection {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailQuerySortDirection {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySortDirection;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailQuerySortDirection {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3774,10 +3826,12 @@ impl ::std::convert::From<i32> for EmailQuerySortProperty {
 }
 unsafe impl ::windows::runtime::Abi for EmailQuerySortProperty {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailQuerySortProperty {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySortProperty;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailQuerySortProperty {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
@@ -3979,10 +4033,12 @@ impl ::std::convert::From<i32> for EmailRecipientResolutionStatus {
 }
 unsafe impl ::windows::runtime::Abi for EmailRecipientResolutionStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailRecipientResolutionStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailRecipientResolutionStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailRecipientResolutionStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4004,10 +4060,12 @@ impl ::std::convert::From<i32> for EmailSpecialFolderKind {
 }
 unsafe impl ::windows::runtime::Abi for EmailSpecialFolderKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailSpecialFolderKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailSpecialFolderKind;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailSpecialFolderKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
@@ -4137,10 +4195,12 @@ impl ::std::convert::From<i32> for EmailStoreAccessType {
 }
 unsafe impl ::windows::runtime::Abi for EmailStoreAccessType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EmailStoreAccessType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailStoreAccessType;i4)");
+}
+impl ::windows::runtime::DefaultType for EmailStoreAccessType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
@@ -4160,7 +4220,6 @@ impl ::windows::runtime::RuntimeName for EmailStoreNotificationTriggerDetails {
 unsafe impl ::std::marker::Send for EmailStoreNotificationTriggerDetails {}
 unsafe impl ::std::marker::Sync for EmailStoreNotificationTriggerDetails {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailAttachment(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailAttachment {
@@ -4184,7 +4243,6 @@ pub struct IEmailAttachment_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailAttachment2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailAttachment2 {
@@ -4216,7 +4274,6 @@ pub struct IEmailAttachment2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailAttachmentFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailAttachmentFactory {
@@ -4236,7 +4293,6 @@ pub struct IEmailAttachmentFactory_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailAttachmentFactory2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailAttachmentFactory2 {
@@ -4256,7 +4312,6 @@ pub struct IEmailAttachmentFactory2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailConversation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailConversation {
@@ -4292,7 +4347,6 @@ pub struct IEmailConversation_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailConversationBatch(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailConversationBatch {
@@ -4313,7 +4367,6 @@ pub struct IEmailConversationBatch_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut EmailBatchStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailConversationReader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailConversationReader {
@@ -4333,7 +4386,6 @@ pub struct IEmailConversationReader_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailFolder(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailFolder {
@@ -4387,7 +4439,6 @@ pub struct IEmailFolder_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailIrmInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailIrmInfo {
@@ -4431,7 +4482,6 @@ pub struct IEmailIrmInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailIrmInfoFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailIrmInfoFactory {
@@ -4451,7 +4501,6 @@ pub struct IEmailIrmInfoFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailIrmTemplate(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailIrmTemplate {
@@ -4475,7 +4524,6 @@ pub struct IEmailIrmTemplate_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailIrmTemplateFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailIrmTemplateFactory {
@@ -4494,7 +4542,6 @@ pub struct IEmailIrmTemplateFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, description: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailItemCounts(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailItemCounts {
@@ -4516,7 +4563,6 @@ pub struct IEmailItemCounts_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailbox(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailbox {
@@ -4614,7 +4660,6 @@ pub struct IEmailMailbox_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailbox2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailbox2 {
@@ -4635,7 +4680,6 @@ pub struct IEmailMailbox2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailbox3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailbox3 {
@@ -4663,7 +4707,6 @@ pub struct IEmailMailbox3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailbox4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailbox4 {
@@ -4683,7 +4726,6 @@ pub struct IEmailMailbox4_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailbox5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailbox5 {
@@ -4702,7 +4744,6 @@ pub struct IEmailMailbox5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, identity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxAction(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxAction {
@@ -4722,7 +4763,6 @@ pub struct IEmailMailboxAction_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxAutoReply(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxAutoReply {
@@ -4744,7 +4784,6 @@ pub struct IEmailMailboxAutoReply_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxAutoReplySettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxAutoReplySettings {
@@ -4777,7 +4816,6 @@ pub struct IEmailMailboxAutoReplySettings_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxCapabilities {
@@ -4803,7 +4841,6 @@ pub struct IEmailMailboxCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxCapabilities2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxCapabilities2 {
@@ -4827,7 +4864,6 @@ pub struct IEmailMailboxCapabilities2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxCapabilities3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxCapabilities3 {
@@ -4859,7 +4895,6 @@ pub struct IEmailMailboxCapabilities3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxChange(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxChange {
@@ -4882,7 +4917,6 @@ pub struct IEmailMailboxChange_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxChangeReader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxChangeReader {
@@ -4904,7 +4938,6 @@ pub struct IEmailMailboxChangeReader_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxChangeTracker(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxChangeTracker {
@@ -4926,7 +4959,6 @@ pub struct IEmailMailboxChangeTracker_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxChangedDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxChangedDeferral {
@@ -4945,7 +4977,6 @@ pub struct IEmailMailboxChangedDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxChangedEventArgs {
@@ -4964,7 +4995,6 @@ pub struct IEmailMailboxChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxCreateFolderResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxCreateFolderResult {
@@ -4984,7 +5014,6 @@ pub struct IEmailMailboxCreateFolderResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxPolicies(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxPolicies {
@@ -5008,7 +5037,6 @@ pub struct IEmailMailboxPolicies_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxPolicies2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxPolicies2 {
@@ -5028,7 +5056,6 @@ pub struct IEmailMailboxPolicies2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxPolicies3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxPolicies3 {
@@ -5054,7 +5081,6 @@ pub struct IEmailMailboxPolicies3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxSyncManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxSyncManager {
@@ -5083,7 +5109,6 @@ pub struct IEmailMailboxSyncManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxSyncManager2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxSyncManager2 {
@@ -5106,7 +5131,6 @@ pub struct IEmailMailboxSyncManager2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailManagerForUser(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailManagerForUser {
@@ -5130,7 +5154,6 @@ pub struct IEmailManagerForUser_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailManagerStatics {
@@ -5150,7 +5173,6 @@ pub struct IEmailManagerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailManagerStatics2 {
@@ -5170,7 +5192,6 @@ pub struct IEmailManagerStatics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailManagerStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailManagerStatics3 {
@@ -5190,7 +5211,6 @@ pub struct IEmailManagerStatics3_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMeetingInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMeetingInfo {
@@ -5248,7 +5268,6 @@ pub struct IEmailMeetingInfo_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMeetingInfo2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMeetingInfo2 {
@@ -5267,7 +5286,6 @@ pub struct IEmailMeetingInfo2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMessage {
@@ -5297,7 +5315,6 @@ pub struct IEmailMessage_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMessage2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMessage2 {
@@ -5364,7 +5381,6 @@ pub struct IEmailMessage2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMessage3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMessage3 {
@@ -5388,7 +5404,6 @@ pub struct IEmailMessage3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: EmailMessageSmimeKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMessage4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMessage4 {
@@ -5410,7 +5425,6 @@ pub struct IEmailMessage4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMessageBatch(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMessageBatch {
@@ -5431,7 +5445,6 @@ pub struct IEmailMessageBatch_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut EmailBatchStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMessageReader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMessageReader {
@@ -5451,7 +5464,6 @@ pub struct IEmailMessageReader_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailQueryOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailQueryOptions {
@@ -5478,7 +5490,6 @@ pub struct IEmailQueryOptions_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailQueryOptionsFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailQueryOptionsFactory {
@@ -5498,7 +5509,6 @@ pub struct IEmailQueryOptionsFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, text: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, fields: EmailQuerySearchFields, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailQueryTextSearch(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailQueryTextSearch {
@@ -5522,7 +5532,6 @@ pub struct IEmailQueryTextSearch_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailRecipient(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailRecipient {
@@ -5544,7 +5553,6 @@ pub struct IEmailRecipient_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailRecipientFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailRecipientFactory {
@@ -5564,7 +5572,6 @@ pub struct IEmailRecipientFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, address: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailRecipientResolutionResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailRecipientResolutionResult {
@@ -5585,7 +5592,6 @@ pub struct IEmailRecipientResolutionResult_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailRecipientResolutionResult2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailRecipientResolutionResult2 {
@@ -5606,7 +5612,6 @@ pub struct IEmailRecipientResolutionResult2_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailStore(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailStore {
@@ -5642,7 +5647,6 @@ pub struct IEmailStore_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailStoreNotificationTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailStoreNotificationTriggerDetails {

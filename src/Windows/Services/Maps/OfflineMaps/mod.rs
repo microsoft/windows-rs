@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IOfflineMapPackage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOfflineMapPackage {
@@ -28,7 +27,6 @@ pub struct IOfflineMapPackage_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IOfflineMapPackageQueryResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOfflineMapPackageQueryResult {
@@ -49,7 +47,6 @@ pub struct IOfflineMapPackageQueryResult_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IOfflineMapPackageStartDownloadResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOfflineMapPackageStartDownloadResult {
@@ -68,7 +65,6 @@ pub struct IOfflineMapPackageStartDownloadResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut OfflineMapPackageStartDownloadStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IOfflineMapPackageStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOfflineMapPackageStatics {
@@ -245,10 +241,12 @@ impl ::std::convert::From<i32> for OfflineMapPackageQueryStatus {
 }
 unsafe impl ::windows::runtime::Abi for OfflineMapPackageQueryStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for OfflineMapPackageQueryStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.OfflineMaps.OfflineMapPackageQueryStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for OfflineMapPackageQueryStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_Maps_OfflineMaps`*"]
 #[repr(transparent)]
@@ -293,10 +291,12 @@ impl ::std::convert::From<i32> for OfflineMapPackageStartDownloadStatus {
 }
 unsafe impl ::windows::runtime::Abi for OfflineMapPackageStartDownloadStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for OfflineMapPackageStartDownloadStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.OfflineMaps.OfflineMapPackageStartDownloadStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for OfflineMapPackageStartDownloadStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_Maps_OfflineMaps`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -315,8 +315,10 @@ impl ::std::convert::From<i32> for OfflineMapPackageStatus {
 }
 unsafe impl ::windows::runtime::Abi for OfflineMapPackageStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for OfflineMapPackageStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.OfflineMaps.OfflineMapPackageStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for OfflineMapPackageStatus {
+    type DefaultType = Self;
 }

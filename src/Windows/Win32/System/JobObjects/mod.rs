@@ -117,7 +117,6 @@ impl ::std::cmp::Eq for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 unsafe impl ::windows::runtime::Abi for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_JobObjects`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -157,7 +156,6 @@ impl ::std::convert::From<u32> for JOB_OBJECT_LIMIT {
 }
 unsafe impl ::windows::runtime::Abi for JOB_OBJECT_LIMIT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for JOB_OBJECT_LIMIT {
     type Output = Self;
@@ -203,7 +201,6 @@ impl ::std::convert::From<u32> for JOB_OBJECT_SECURITY {
 }
 unsafe impl ::windows::runtime::Abi for JOB_OBJECT_SECURITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for JOB_OBJECT_SECURITY {
     type Output = Self;
@@ -253,7 +250,6 @@ impl ::std::convert::From<u32> for JOB_OBJECT_UILIMIT {
 }
 unsafe impl ::windows::runtime::Abi for JOB_OBJECT_UILIMIT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for JOB_OBJECT_UILIMIT {
     type Output = Self;

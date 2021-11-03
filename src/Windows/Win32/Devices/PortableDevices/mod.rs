@@ -13,7 +13,6 @@ impl ::std::convert::From<i32> for DELETE_OBJECT_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for DELETE_OBJECT_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -34,7 +33,6 @@ impl ::std::convert::From<i32> for DEVICE_RADIO_STATE {
 }
 unsafe impl ::windows::runtime::Abi for DEVICE_RADIO_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_System_PropertiesSystem`*"]
@@ -2304,7 +2302,6 @@ impl ::std::convert::From<i32> for SMS_MESSAGE_TYPES {
 }
 unsafe impl ::windows::runtime::Abi for SMS_MESSAGE_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const SYNCSVC_FILTER_CALENDAR_WINDOW_WITH_RECURRENCE: u32 = 3u32;
@@ -2327,7 +2324,6 @@ impl ::std::convert::From<i32> for SYSTEM_RADIO_STATE {
 }
 unsafe impl ::windows::runtime::Abi for SYSTEM_RADIO_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const TYPE_AnchorSyncSvc: u32 = 1u32;
@@ -2381,7 +2377,6 @@ impl ::std::convert::From<i32> for WPD_BITRATE_TYPES {
 }
 unsafe impl ::windows::runtime::Abi for WPD_BITRATE_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2398,7 +2393,6 @@ impl ::std::convert::From<i32> for WPD_CAPTURE_MODES {
 }
 unsafe impl ::windows::runtime::Abi for WPD_CAPTURE_MODES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WPD_CATEGORY_CAPABILITIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(212593784, 27508, 16838, [146, 22, 38, 57, 209, 252, 227, 86]);
 pub const WPD_CATEGORY_COMMON: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4030868124, 24008, 17472, [181, 189, 93, 242, 136, 53, 101, 138]);
@@ -2438,7 +2432,6 @@ impl ::std::convert::From<i32> for WPD_COLOR_CORRECTED_STATUS_VALUES {
 }
 unsafe impl ::windows::runtime::Abi for WPD_COLOR_CORRECTED_STATUS_VALUES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2474,7 +2467,6 @@ impl ::std::cmp::Eq for WPD_COMMAND_ACCESS_LOOKUP_ENTRY {}
 #[cfg(feature = "Win32_System_PropertiesSystem")]
 unsafe impl ::windows::runtime::Abi for WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2492,7 +2484,6 @@ impl ::std::convert::From<i32> for WPD_COMMAND_ACCESS_TYPES {
 }
 unsafe impl ::windows::runtime::Abi for WPD_COMMAND_ACCESS_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WPD_COMMON_INFORMATION_OBJECT_PROPERTIES_V1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2995448139, 1444, 20110, [190, 1, 114, 204, 126, 9, 157, 143]);
 pub const WPD_CONTACT_OBJECT_PROPERTIES_V1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4225039787, 39037, 18295, [179, 249, 114, 97, 133, 169, 49, 43]);
@@ -2541,7 +2532,6 @@ impl ::std::convert::From<i32> for WPD_CROPPED_STATUS_VALUES {
 }
 unsafe impl ::windows::runtime::Abi for WPD_CROPPED_STATUS_VALUES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WPD_DEVICE_PROPERTIES_V1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(651466650, 58947, 17958, [158, 43, 115, 109, 192, 201, 47, 220]);
 pub const WPD_DEVICE_PROPERTIES_V2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1178457698, 32708, 17041, [145, 28, 127, 76, 156, 202, 151, 153]);
@@ -2561,7 +2551,6 @@ impl ::std::convert::From<i32> for WPD_DEVICE_TRANSPORTS {
 }
 unsafe impl ::windows::runtime::Abi for WPD_DEVICE_TRANSPORTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2581,7 +2570,6 @@ impl ::std::convert::From<i32> for WPD_DEVICE_TYPES {
 }
 unsafe impl ::windows::runtime::Abi for WPD_DEVICE_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WPD_DOCUMENT_OBJECT_PROPERTIES_V1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(185664003, 60309, 20226, [147, 224, 151, 198, 49, 73, 58, 213]);
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
@@ -2599,7 +2587,6 @@ impl ::std::convert::From<i32> for WPD_EFFECT_MODES {
 }
 unsafe impl ::windows::runtime::Abi for WPD_EFFECT_MODES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WPD_EMAIL_OBJECT_PROPERTIES_V1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1106835034, 21636, 18306, [177, 61, 71, 64, 221, 124, 55, 197]);
 pub const WPD_EVENT_ATTRIBUTES_V1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(281634168, 11905, 16657, [173, 222, 224, 140, 166, 19, 143, 109]);
@@ -2633,7 +2620,6 @@ impl ::std::convert::From<i32> for WPD_EXPOSURE_METERING_MODES {
 }
 unsafe impl ::windows::runtime::Abi for WPD_EXPOSURE_METERING_MODES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2654,7 +2640,6 @@ impl ::std::convert::From<i32> for WPD_EXPOSURE_PROGRAM_MODES {
 }
 unsafe impl ::windows::runtime::Abi for WPD_EXPOSURE_PROGRAM_MODES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2674,7 +2659,6 @@ impl ::std::convert::From<i32> for WPD_FLASH_MODES {
 }
 unsafe impl ::windows::runtime::Abi for WPD_FLASH_MODES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2690,7 +2674,6 @@ impl ::std::convert::From<i32> for WPD_FOCUS_METERING_MODES {
 }
 unsafe impl ::windows::runtime::Abi for WPD_FOCUS_METERING_MODES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2707,7 +2690,6 @@ impl ::std::convert::From<i32> for WPD_FOCUS_MODES {
 }
 unsafe impl ::windows::runtime::Abi for WPD_FOCUS_MODES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WPD_FOLDER_OBJECT_PROPERTIES_V1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2124053183, 58728, 19252, [170, 47, 19, 187, 18, 171, 23, 125]);
 pub const WPD_FORMAT_ATTRIBUTES_V1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2694848512, 48303, 19432, [179, 245, 35, 63, 35, 28, 245, 143]);
@@ -2754,7 +2736,6 @@ impl ::std::convert::From<i32> for WPD_META_GENRES {
 }
 unsafe impl ::windows::runtime::Abi for WPD_META_GENRES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WPD_METHOD_ATTRIBUTES_V1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4051325041, 61497, 17583, [142, 254, 67, 44, 243, 46, 67, 42]);
 pub const WPD_MUSIC_OBJECT_PROPERTIES_V1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3005543786, 56413, 18149, [182, 223, 210, 234, 65, 72, 136, 198]);
@@ -2850,7 +2831,6 @@ impl ::std::convert::From<i32> for WPD_OPERATION_STATES {
 }
 unsafe impl ::windows::runtime::Abi for WPD_OPERATION_STATES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WPD_PARAMETER_ATTRIBUTES_V1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3867561431, 62245, 17898, [161, 213, 151, 207, 115, 182, 202, 88]);
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
@@ -2868,7 +2848,6 @@ impl ::std::convert::From<i32> for WPD_PARAMETER_USAGE_TYPES {
 }
 unsafe impl ::windows::runtime::Abi for WPD_PARAMETER_USAGE_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2883,7 +2862,6 @@ impl ::std::convert::From<i32> for WPD_POWER_SOURCES {
 }
 unsafe impl ::windows::runtime::Abi for WPD_POWER_SOURCES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WPD_PROPERTIES_MTP_VENDOR_EXTENDED_DEVICE_PROPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1297371224, 35072, 16563, [143, 29, 220, 36, 110, 30, 131, 112]);
 pub const WPD_PROPERTIES_MTP_VENDOR_EXTENDED_OBJECT_PROPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1297371224, 20430, 17784, [149, 200, 134, 152, 169, 188, 15, 73]);
@@ -2903,7 +2881,6 @@ impl ::std::convert::From<i32> for WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES
 }
 unsafe impl ::windows::runtime::Abi for WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WPD_RESOURCE_ATTRIBUTES_V1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(515307012, 37496, 17055, [147, 204, 91, 184, 192, 102, 86, 182]);
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
@@ -2919,7 +2896,6 @@ impl ::std::convert::From<i32> for WPD_SECTION_DATA_UNITS_VALUES {
 }
 unsafe impl ::windows::runtime::Abi for WPD_SECTION_DATA_UNITS_VALUES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WPD_SECTION_OBJECT_PROPERTIES_V1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1365966123, 50766, 17648, [152, 220, 190, 225, 200, 143, 125, 102]);
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
@@ -2934,7 +2910,6 @@ impl ::std::convert::From<i32> for WPD_SERVICE_INHERITANCE_TYPES {
 }
 unsafe impl ::windows::runtime::Abi for WPD_SERVICE_INHERITANCE_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WPD_SERVICE_PROPERTIES_V1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1964009866, 52052, 18460, [184, 219, 13, 117, 201, 63, 28, 6]);
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
@@ -2951,7 +2926,6 @@ impl ::std::convert::From<i32> for WPD_SMS_ENCODING_TYPES {
 }
 unsafe impl ::windows::runtime::Abi for WPD_SMS_ENCODING_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WPD_SMS_OBJECT_PROPERTIES_V1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2115007692, 20735, 19921, [167, 66, 83, 190, 111, 9, 58, 13]);
 pub const WPD_STILL_IMAGE_CAPTURE_OBJECT_PROPERTIES_V1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1489334764, 7115, 17063, [138, 197, 187, 41, 21, 115, 162, 96]);
@@ -2969,7 +2943,6 @@ impl ::std::convert::From<i32> for WPD_STORAGE_ACCESS_CAPABILITY_VALUES {
 }
 unsafe impl ::windows::runtime::Abi for WPD_STORAGE_ACCESS_CAPABILITY_VALUES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WPD_STORAGE_OBJECT_PROPERTIES_V1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(27460986, 29910, 20096, [190, 167, 220, 76, 33, 44, 229, 10]);
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
@@ -2988,7 +2961,6 @@ impl ::std::convert::From<i32> for WPD_STORAGE_TYPE_VALUES {
 }
 unsafe impl ::windows::runtime::Abi for WPD_STORAGE_TYPE_VALUES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3006,7 +2978,6 @@ impl ::std::convert::From<i32> for WPD_STREAM_UNITS {
 }
 unsafe impl ::windows::runtime::Abi for WPD_STREAM_UNITS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WPD_TASK_OBJECT_PROPERTIES_V1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3813992798, 55456, 17975, [160, 58, 12, 178, 104, 56, 219, 199]);
 pub const WPD_VIDEO_OBJECT_PROPERTIES_V1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(879698275, 63896, 16710, [139, 1, 209, 155, 76, 0, 222, 154]);
@@ -3029,7 +3000,6 @@ impl ::std::convert::From<i32> for WPD_VIDEO_SCAN_TYPES {
 }
 unsafe impl ::windows::runtime::Abi for WPD_VIDEO_SCAN_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3050,7 +3020,6 @@ impl ::std::convert::From<i32> for WPD_WHITE_BALANCE_SETTINGS {
 }
 unsafe impl ::windows::runtime::Abi for WPD_WHITE_BALANCE_SETTINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3068,7 +3037,6 @@ impl ::std::convert::From<i32> for WpdAttributeForm {
 }
 unsafe impl ::windows::runtime::Abi for WpdAttributeForm {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3086,6 +3054,5 @@ impl ::std::convert::From<i32> for WpdParameterAttributeForm {
 }
 unsafe impl ::windows::runtime::Abi for WpdParameterAttributeForm {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WpdSerializer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(194094923, 44412, 19101, [181, 99, 41, 238, 249, 22, 113, 114]);

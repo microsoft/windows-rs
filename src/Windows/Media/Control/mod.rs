@@ -652,10 +652,12 @@ impl ::std::convert::From<i32> for GlobalSystemMediaTransportControlsSessionPlay
 }
 unsafe impl ::windows::runtime::Abi for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Control`*"]
 #[repr(transparent)]
@@ -730,7 +732,6 @@ impl ::windows::runtime::RuntimeName for GlobalSystemMediaTransportControlsSessi
 unsafe impl ::std::marker::Send for GlobalSystemMediaTransportControlsSessionTimelineProperties {}
 unsafe impl ::std::marker::Sync for GlobalSystemMediaTransportControlsSessionTimelineProperties {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICurrentSessionChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentSessionChangedEventArgs {
@@ -748,7 +749,6 @@ pub struct ICurrentSessionChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGlobalSystemMediaTransportControlsSession(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlobalSystemMediaTransportControlsSession {
@@ -813,7 +813,6 @@ pub struct IGlobalSystemMediaTransportControlsSession_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGlobalSystemMediaTransportControlsSessionManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlobalSystemMediaTransportControlsSessionManager {
@@ -842,7 +841,6 @@ pub struct IGlobalSystemMediaTransportControlsSessionManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGlobalSystemMediaTransportControlsSessionManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlobalSystemMediaTransportControlsSessionManagerStatics {
@@ -862,7 +860,6 @@ pub struct IGlobalSystemMediaTransportControlsSessionManagerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGlobalSystemMediaTransportControlsSessionMediaProperties(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlobalSystemMediaTransportControlsSessionMediaProperties {
@@ -893,7 +890,6 @@ pub struct IGlobalSystemMediaTransportControlsSessionMediaProperties_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGlobalSystemMediaTransportControlsSessionPlaybackControls(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlobalSystemMediaTransportControlsSessionPlaybackControls {
@@ -926,7 +922,6 @@ pub struct IGlobalSystemMediaTransportControlsSessionPlaybackControls_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGlobalSystemMediaTransportControlsSessionPlaybackInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlobalSystemMediaTransportControlsSessionPlaybackInfo {
@@ -954,7 +949,6 @@ pub struct IGlobalSystemMediaTransportControlsSessionPlaybackInfo_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGlobalSystemMediaTransportControlsSessionTimelineProperties(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGlobalSystemMediaTransportControlsSessionTimelineProperties {
@@ -984,7 +978,6 @@ pub struct IGlobalSystemMediaTransportControlsSessionTimelineProperties_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaPropertiesChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaPropertiesChangedEventArgs {
@@ -1002,7 +995,6 @@ pub struct IMediaPropertiesChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlaybackInfoChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlaybackInfoChangedEventArgs {
@@ -1020,7 +1012,6 @@ pub struct IPlaybackInfoChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISessionsChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISessionsChangedEventArgs {
@@ -1038,7 +1029,6 @@ pub struct ISessionsChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITimelinePropertiesChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimelinePropertiesChangedEventArgs {

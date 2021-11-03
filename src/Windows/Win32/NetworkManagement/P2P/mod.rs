@@ -34,7 +34,6 @@ impl ::std::cmp::Eq for DRT_ADDRESS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for DRT_ADDRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -55,7 +54,6 @@ impl ::std::convert::From<i32> for DRT_ADDRESS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for DRT_ADDRESS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -90,7 +88,6 @@ impl ::std::cmp::Eq for DRT_ADDRESS_LIST {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for DRT_ADDRESS_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -133,7 +130,6 @@ impl ::std::cmp::PartialEq for DRT_BOOTSTRAP_PROVIDER {
 impl ::std::cmp::Eq for DRT_BOOTSTRAP_PROVIDER {}
 unsafe impl ::windows::runtime::Abi for DRT_BOOTSTRAP_PROVIDER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub type DRT_BOOTSTRAP_RESOLVE_CALLBACK = unsafe extern "system" fn(hr: ::windows::runtime::HRESULT, pvcontext: *mut ::std::ffi::c_void, paddresses: *mut super::super::Networking::WinSock::SOCKET_ADDRESS_LIST, ffatalerror: super::super::Foundation::BOOL);
@@ -163,7 +159,6 @@ impl ::std::cmp::PartialEq for DRT_DATA {
 impl ::std::cmp::Eq for DRT_DATA {}
 unsafe impl ::windows::runtime::Abi for DRT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -194,7 +189,6 @@ impl ::std::cmp::Eq for DRT_EVENT_DATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for DRT_EVENT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -224,7 +218,6 @@ impl ::std::cmp::Eq for DRT_EVENT_DATA_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for DRT_EVENT_DATA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -253,7 +246,6 @@ impl ::std::cmp::PartialEq for DRT_EVENT_DATA_0_0 {
 impl ::std::cmp::Eq for DRT_EVENT_DATA_0_0 {}
 unsafe impl ::windows::runtime::Abi for DRT_EVENT_DATA_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -281,7 +273,6 @@ impl ::std::cmp::PartialEq for DRT_EVENT_DATA_0_1 {
 impl ::std::cmp::Eq for DRT_EVENT_DATA_0_1 {}
 unsafe impl ::windows::runtime::Abi for DRT_EVENT_DATA_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -316,7 +307,6 @@ impl ::std::cmp::Eq for DRT_EVENT_DATA_0_2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for DRT_EVENT_DATA_0_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -351,7 +341,6 @@ impl ::std::cmp::Eq for DRT_EVENT_DATA_0_2_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for DRT_EVENT_DATA_0_2_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -367,7 +356,6 @@ impl ::std::convert::From<i32> for DRT_EVENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DRT_EVENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_E_BOOTSTRAPPROVIDER_IN_USE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2141052914i32 as _);
@@ -464,7 +452,6 @@ impl ::std::convert::From<i32> for DRT_LEAFSET_KEY_CHANGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DRT_LEAFSET_KEY_CHANGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_LINK_LOCAL_ISATAP_SCOPEID: u32 = 4294967295u32;
@@ -482,7 +469,6 @@ impl ::std::convert::From<i32> for DRT_MATCH_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DRT_MATCH_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_MAX_INSTANCE_PREFIX_LEN: u32 = 128u32;
@@ -520,7 +506,6 @@ impl ::std::cmp::PartialEq for DRT_REGISTRATION {
 impl ::std::cmp::Eq for DRT_REGISTRATION {}
 unsafe impl ::windows::runtime::Abi for DRT_REGISTRATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -534,7 +519,6 @@ impl ::std::convert::From<i32> for DRT_REGISTRATION_STATE {
 }
 unsafe impl ::windows::runtime::Abi for DRT_REGISTRATION_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -550,7 +534,6 @@ impl ::std::convert::From<i32> for DRT_SCOPE {
 }
 unsafe impl ::windows::runtime::Abi for DRT_SCOPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -598,7 +581,6 @@ impl ::std::cmp::Eq for DRT_SEARCH_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DRT_SEARCH_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -628,7 +610,6 @@ impl ::std::cmp::PartialEq for DRT_SEARCH_RESULT {
 impl ::std::cmp::Eq for DRT_SEARCH_RESULT {}
 unsafe impl ::windows::runtime::Abi for DRT_SEARCH_RESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -644,7 +625,6 @@ impl ::std::convert::From<i32> for DRT_SECURITY_MODE {
 }
 unsafe impl ::windows::runtime::Abi for DRT_SECURITY_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -712,7 +692,6 @@ impl ::std::cmp::PartialEq for DRT_SECURITY_PROVIDER {
 impl ::std::cmp::Eq for DRT_SECURITY_PROVIDER {}
 unsafe impl ::windows::runtime::Abi for DRT_SECURITY_PROVIDER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -766,7 +745,6 @@ impl ::std::cmp::Eq for DRT_SETTINGS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DRT_SETTINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -783,7 +761,6 @@ impl ::std::convert::From<i32> for DRT_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for DRT_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const DRT_S_RETRY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(6426640i32 as _);
@@ -1229,7 +1206,6 @@ impl ::std::cmp::Eq for PEERDIST_CLIENT_BASIC_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PEERDIST_CLIENT_BASIC_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1244,7 +1220,6 @@ impl ::std::convert::From<i32> for PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1271,7 +1246,6 @@ impl ::std::cmp::PartialEq for PEERDIST_CONTENT_TAG {
 impl ::std::cmp::Eq for PEERDIST_CONTENT_TAG {}
 unsafe impl ::windows::runtime::Abi for PEERDIST_CONTENT_TAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1299,7 +1273,6 @@ impl ::std::cmp::PartialEq for PEERDIST_PUBLICATION_OPTIONS {
 impl ::std::cmp::Eq for PEERDIST_PUBLICATION_OPTIONS {}
 unsafe impl ::windows::runtime::Abi for PEERDIST_PUBLICATION_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const PEERDIST_PUBLICATION_OPTIONS_VERSION: i32 = 2i32;
@@ -1339,7 +1312,6 @@ impl ::std::cmp::PartialEq for PEERDIST_RETRIEVAL_OPTIONS {
 impl ::std::cmp::Eq for PEERDIST_RETRIEVAL_OPTIONS {}
 unsafe impl ::windows::runtime::Abi for PEERDIST_RETRIEVAL_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1355,7 +1327,6 @@ impl ::std::convert::From<u32> for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSIO
 }
 unsafe impl ::windows::runtime::Abi for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE {
     type Output = Self;
@@ -1399,7 +1370,6 @@ impl ::std::convert::From<i32> for PEERDIST_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for PEERDIST_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1429,7 +1399,6 @@ impl ::std::cmp::PartialEq for PEERDIST_STATUS_INFO {
 impl ::std::cmp::Eq for PEERDIST_STATUS_INFO {}
 unsafe impl ::windows::runtime::Abi for PEERDIST_STATUS_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1458,7 +1427,6 @@ impl ::std::cmp::Eq for PEER_ADDRESS {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for PEER_ADDRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1494,7 +1462,6 @@ impl ::std::cmp::Eq for PEER_APPLICATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PEER_APPLICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1531,7 +1498,6 @@ impl ::std::cmp::Eq for PEER_APPLICATION_REGISTRATION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PEER_APPLICATION_REGISTRATION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1546,7 +1512,6 @@ impl ::std::convert::From<i32> for PEER_APPLICATION_REGISTRATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PEER_APPLICATION_REGISTRATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1582,7 +1547,6 @@ impl ::std::cmp::Eq for PEER_APP_LAUNCH_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for PEER_APP_LAUNCH_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1598,7 +1562,6 @@ impl ::std::convert::From<i32> for PEER_CHANGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PEER_CHANGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1627,7 +1590,6 @@ impl ::std::cmp::Eq for PEER_COLLAB_EVENT_DATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for PEER_COLLAB_EVENT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1661,7 +1623,6 @@ impl ::std::cmp::Eq for PEER_COLLAB_EVENT_DATA_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for PEER_COLLAB_EVENT_DATA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1689,7 +1650,6 @@ impl ::std::cmp::PartialEq for PEER_COLLAB_EVENT_REGISTRATION {
 impl ::std::cmp::Eq for PEER_COLLAB_EVENT_REGISTRATION {}
 unsafe impl ::windows::runtime::Abi for PEER_COLLAB_EVENT_REGISTRATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1713,7 +1673,6 @@ impl ::std::convert::From<i32> for PEER_COLLAB_EVENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PEER_COLLAB_EVENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const PEER_COLLAB_OBJECTID_USER_PICTURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3709203487, 64590, 18722, [176, 53, 76, 6, 167, 84, 208, 29]);
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
@@ -1729,7 +1688,6 @@ impl ::std::convert::From<i32> for PEER_CONNECTION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PEER_CONNECTION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1762,7 +1720,6 @@ impl ::std::cmp::Eq for PEER_CONNECTION_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for PEER_CONNECTION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1778,7 +1735,6 @@ impl ::std::convert::From<i32> for PEER_CONNECTION_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for PEER_CONNECTION_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1826,7 +1782,6 @@ impl ::std::cmp::Eq for PEER_CONTACT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PEER_CONTACT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1880,7 +1835,6 @@ impl ::std::cmp::Eq for PEER_CREDENTIAL_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for PEER_CREDENTIAL_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1908,7 +1862,6 @@ impl ::std::cmp::PartialEq for PEER_DATA {
 impl ::std::cmp::Eq for PEER_DATA {}
 unsafe impl ::windows::runtime::Abi for PEER_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1937,7 +1890,6 @@ impl ::std::cmp::Eq for PEER_ENDPOINT {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for PEER_ENDPOINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1974,7 +1926,6 @@ impl ::std::cmp::Eq for PEER_EVENT_APPLICATION_CHANGED_DATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for PEER_EVENT_APPLICATION_CHANGED_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2013,7 +1964,6 @@ impl ::std::cmp::PartialEq for PEER_EVENT_CONNECTION_CHANGE_DATA {
 impl ::std::cmp::Eq for PEER_EVENT_CONNECTION_CHANGE_DATA {}
 unsafe impl ::windows::runtime::Abi for PEER_EVENT_CONNECTION_CHANGE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2048,7 +1998,6 @@ impl ::std::cmp::Eq for PEER_EVENT_ENDPOINT_CHANGED_DATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for PEER_EVENT_ENDPOINT_CHANGED_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2078,7 +2027,6 @@ impl ::std::cmp::PartialEq for PEER_EVENT_INCOMING_DATA {
 impl ::std::cmp::Eq for PEER_EVENT_INCOMING_DATA {}
 unsafe impl ::windows::runtime::Abi for PEER_EVENT_INCOMING_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2114,7 +2062,6 @@ impl ::std::cmp::Eq for PEER_EVENT_MEMBER_CHANGE_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PEER_EVENT_MEMBER_CHANGE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2151,7 +2098,6 @@ impl ::std::cmp::Eq for PEER_EVENT_NODE_CHANGE_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PEER_EVENT_NODE_CHANGE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2188,7 +2134,6 @@ impl ::std::cmp::Eq for PEER_EVENT_OBJECT_CHANGED_DATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for PEER_EVENT_OBJECT_CHANGED_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2223,7 +2168,6 @@ impl ::std::cmp::Eq for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2260,7 +2204,6 @@ impl ::std::cmp::Eq for PEER_EVENT_PRESENCE_CHANGED_DATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for PEER_EVENT_PRESENCE_CHANGED_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2290,7 +2233,6 @@ impl ::std::cmp::PartialEq for PEER_EVENT_RECORD_CHANGE_DATA {
 impl ::std::cmp::Eq for PEER_EVENT_RECORD_CHANGE_DATA {}
 unsafe impl ::windows::runtime::Abi for PEER_EVENT_RECORD_CHANGE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2325,7 +2267,6 @@ impl ::std::cmp::Eq for PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2353,7 +2294,6 @@ impl ::std::cmp::PartialEq for PEER_EVENT_SYNCHRONIZED_DATA {
 impl ::std::cmp::Eq for PEER_EVENT_SYNCHRONIZED_DATA {}
 unsafe impl ::windows::runtime::Abi for PEER_EVENT_SYNCHRONIZED_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2388,7 +2328,6 @@ impl ::std::cmp::Eq for PEER_EVENT_WATCHLIST_CHANGED_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PEER_EVENT_WATCHLIST_CHANGED_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const PEER_E_ALREADY_EXISTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147024713i32 as _);
@@ -2439,7 +2378,6 @@ impl ::std::cmp::Eq for PEER_GRAPH_EVENT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PEER_GRAPH_EVENT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2472,7 +2410,6 @@ impl ::std::cmp::Eq for PEER_GRAPH_EVENT_DATA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PEER_GRAPH_EVENT_DATA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2500,7 +2437,6 @@ impl ::std::cmp::PartialEq for PEER_GRAPH_EVENT_REGISTRATION {
 impl ::std::cmp::Eq for PEER_GRAPH_EVENT_REGISTRATION {}
 unsafe impl ::windows::runtime::Abi for PEER_GRAPH_EVENT_REGISTRATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2522,7 +2458,6 @@ impl ::std::convert::From<i32> for PEER_GRAPH_EVENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PEER_GRAPH_EVENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2576,7 +2511,6 @@ impl ::std::cmp::Eq for PEER_GRAPH_PROPERTIES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PEER_GRAPH_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2591,7 +2525,6 @@ impl ::std::convert::From<i32> for PEER_GRAPH_PROPERTY_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PEER_GRAPH_PROPERTY_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2609,7 +2542,6 @@ impl ::std::convert::From<i32> for PEER_GRAPH_SCOPE {
 }
 unsafe impl ::windows::runtime::Abi for PEER_GRAPH_SCOPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2625,7 +2557,6 @@ impl ::std::convert::From<i32> for PEER_GRAPH_STATUS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PEER_GRAPH_STATUS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2640,7 +2571,6 @@ impl ::std::convert::From<i32> for PEER_GROUP_AUTHENTICATION_SCHEME {
 }
 unsafe impl ::windows::runtime::Abi for PEER_GROUP_AUTHENTICATION_SCHEME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2669,7 +2599,6 @@ impl ::std::cmp::Eq for PEER_GROUP_EVENT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PEER_GROUP_EVENT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2702,7 +2631,6 @@ impl ::std::cmp::Eq for PEER_GROUP_EVENT_DATA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PEER_GROUP_EVENT_DATA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2730,7 +2658,6 @@ impl ::std::cmp::PartialEq for PEER_GROUP_EVENT_REGISTRATION {
 impl ::std::cmp::Eq for PEER_GROUP_EVENT_REGISTRATION {}
 unsafe impl ::windows::runtime::Abi for PEER_GROUP_EVENT_REGISTRATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2752,7 +2679,6 @@ impl ::std::convert::From<i32> for PEER_GROUP_EVENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PEER_GROUP_EVENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2766,7 +2692,6 @@ impl ::std::convert::From<i32> for PEER_GROUP_ISSUE_CREDENTIAL_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PEER_GROUP_ISSUE_CREDENTIAL_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2838,7 +2763,6 @@ impl ::std::cmp::Eq for PEER_GROUP_PROPERTIES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PEER_GROUP_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2854,7 +2778,6 @@ impl ::std::convert::From<i32> for PEER_GROUP_PROPERTY_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PEER_GROUP_PROPERTY_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const PEER_GROUP_ROLE_ADMIN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(70807847, 43606, 17674, [140, 229, 79, 86, 92, 103, 144, 244]);
 pub const PEER_GROUP_ROLE_INVITING_MEMBER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1131478409, 56344, 19707, [141, 191, 152, 83, 168, 169, 249, 5]);
@@ -2872,7 +2795,6 @@ impl ::std::convert::From<i32> for PEER_GROUP_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for PEER_GROUP_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2908,7 +2830,6 @@ impl ::std::cmp::Eq for PEER_INVITATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PEER_INVITATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2998,7 +2919,6 @@ impl ::std::cmp::Eq for PEER_INVITATION_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for PEER_INVITATION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3034,7 +2954,6 @@ impl ::std::cmp::Eq for PEER_INVITATION_RESPONSE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PEER_INVITATION_RESPONSE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3051,7 +2970,6 @@ impl ::std::convert::From<i32> for PEER_INVITATION_RESPONSE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PEER_INVITATION_RESPONSE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3101,7 +3019,6 @@ impl ::std::cmp::Eq for PEER_MEMBER {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for PEER_MEMBER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3119,7 +3036,6 @@ impl ::std::convert::From<i32> for PEER_MEMBER_CHANGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PEER_MEMBER_CHANGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3133,7 +3049,6 @@ impl ::std::convert::From<i32> for PEER_MEMBER_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PEER_MEMBER_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3169,7 +3084,6 @@ impl ::std::cmp::Eq for PEER_NAME_PAIR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PEER_NAME_PAIR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3185,7 +3099,6 @@ impl ::std::convert::From<i32> for PEER_NODE_CHANGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PEER_NODE_CHANGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3224,7 +3137,6 @@ impl ::std::cmp::Eq for PEER_NODE_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for PEER_NODE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3253,7 +3165,6 @@ impl ::std::cmp::PartialEq for PEER_OBJECT {
 impl ::std::cmp::Eq for PEER_OBJECT {}
 unsafe impl ::windows::runtime::Abi for PEER_OBJECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3283,7 +3194,6 @@ impl ::std::cmp::Eq for PEER_PEOPLE_NEAR_ME {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for PEER_PEOPLE_NEAR_ME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3319,7 +3229,6 @@ impl ::std::cmp::Eq for PEER_PNRP_CLOUD_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PEER_PNRP_CLOUD_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3357,7 +3266,6 @@ impl ::std::cmp::Eq for PEER_PNRP_ENDPOINT_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for PEER_PNRP_ENDPOINT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3405,7 +3313,6 @@ impl ::std::cmp::Eq for PEER_PNRP_REGISTRATION_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for PEER_PNRP_REGISTRATION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3440,7 +3347,6 @@ impl ::std::cmp::Eq for PEER_PRESENCE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PEER_PRESENCE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3461,7 +3367,6 @@ impl ::std::convert::From<i32> for PEER_PRESENCE_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for PEER_PRESENCE_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3478,7 +3383,6 @@ impl ::std::convert::From<i32> for PEER_PUBLICATION_SCOPE {
 }
 unsafe impl ::windows::runtime::Abi for PEER_PUBLICATION_SCOPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3538,7 +3442,6 @@ impl ::std::cmp::Eq for PEER_RECORD {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PEER_RECORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3555,7 +3458,6 @@ impl ::std::convert::From<i32> for PEER_RECORD_CHANGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PEER_RECORD_CHANGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3570,7 +3472,6 @@ impl ::std::convert::From<i32> for PEER_RECORD_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PEER_RECORD_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3629,7 +3530,6 @@ impl ::std::cmp::Eq for PEER_SECURITY_INTERFACE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PEER_SECURITY_INTERFACE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3646,7 +3546,6 @@ impl ::std::convert::From<i32> for PEER_SIGNIN_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PEER_SIGNIN_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3674,7 +3573,6 @@ impl ::std::cmp::PartialEq for PEER_VERSION_DATA {
 impl ::std::cmp::Eq for PEER_VERSION_DATA {}
 unsafe impl ::windows::runtime::Abi for PEER_VERSION_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3689,7 +3587,6 @@ impl ::std::convert::From<i32> for PEER_WATCH_PERMISSION {
 }
 unsafe impl ::windows::runtime::Abi for PEER_WATCH_PERMISSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type PFNPEER_FREE_SECURITY_DATA = unsafe extern "system" fn(hgraph: *const ::std::ffi::c_void, pvcontext: *const ::std::ffi::c_void, psecuritydata: *const PEER_DATA) -> ::windows::runtime::HRESULT;
 pub type PFNPEER_ON_PASSWORD_AUTH_FAILED = unsafe extern "system" fn(hgraph: *const ::std::ffi::c_void, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
@@ -3725,7 +3622,6 @@ impl ::std::cmp::PartialEq for PNRPCLOUDINFO {
 impl ::std::cmp::Eq for PNRPCLOUDINFO {}
 unsafe impl ::windows::runtime::Abi for PNRPCLOUDINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const PNRPINFO_HINT: u32 = 1u32;
@@ -3779,7 +3675,6 @@ impl ::std::cmp::Eq for PNRPINFO_V1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for PNRPINFO_V1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3817,7 +3712,6 @@ impl ::std::cmp::Eq for PNRPINFO_V2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for PNRPINFO_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3846,7 +3740,6 @@ impl ::std::cmp::Eq for PNRPINFO_V2_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for PNRPINFO_V2_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3863,7 +3756,6 @@ impl ::std::convert::From<i32> for PNRP_CLOUD_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PNRP_CLOUD_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3892,7 +3784,6 @@ impl ::std::cmp::PartialEq for PNRP_CLOUD_ID {
 impl ::std::cmp::Eq for PNRP_CLOUD_ID {}
 unsafe impl ::windows::runtime::Abi for PNRP_CLOUD_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3912,7 +3803,6 @@ impl ::std::convert::From<i32> for PNRP_CLOUD_STATE {
 }
 unsafe impl ::windows::runtime::Abi for PNRP_CLOUD_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3928,7 +3818,6 @@ impl ::std::convert::From<i32> for PNRP_EXTENDED_PAYLOAD_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PNRP_EXTENDED_PAYLOAD_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub const PNRP_MAX_ENDPOINT_ADDRESSES: u32 = 10u32;
@@ -3947,7 +3836,6 @@ impl ::std::convert::From<i32> for PNRP_REGISTERED_ID_STATE {
 }
 unsafe impl ::windows::runtime::Abi for PNRP_REGISTERED_ID_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3967,7 +3855,6 @@ impl ::std::convert::From<i32> for PNRP_RESOLVE_CRITERIA {
 }
 unsafe impl ::windows::runtime::Abi for PNRP_RESOLVE_CRITERIA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3984,7 +3871,6 @@ impl ::std::convert::From<i32> for PNRP_SCOPE {
 }
 unsafe impl ::windows::runtime::Abi for PNRP_SCOPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]

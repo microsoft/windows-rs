@@ -30,7 +30,6 @@ pub struct IPrintDocumentSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintManager {
@@ -52,7 +51,6 @@ pub struct IPrintManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintManagerStatic(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintManagerStatic {
@@ -73,7 +71,6 @@ pub struct IPrintManagerStatic_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintManagerStatic2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintManagerStatic2 {
@@ -92,7 +89,6 @@ pub struct IPrintManagerStatic2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintPageInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintPageInfo {
@@ -122,7 +118,6 @@ pub struct IPrintPageInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut PrintOrientation) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintPageRange(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintPageRange {
@@ -142,7 +137,6 @@ pub struct IPrintPageRange_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintPageRangeFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintPageRangeFactory {
@@ -162,7 +156,6 @@ pub struct IPrintPageRangeFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, page: i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintPageRangeOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintPageRangeOptions {
@@ -186,7 +179,6 @@ pub struct IPrintPageRangeOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintTask(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTask {
@@ -224,7 +216,6 @@ pub struct IPrintTask_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintTask2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTask2 {
@@ -244,7 +235,6 @@ pub struct IPrintTask2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintTaskCompletedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTaskCompletedEventArgs {
@@ -263,7 +253,6 @@ pub struct IPrintTaskCompletedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut PrintTaskCompletion) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintTaskOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTaskOptions {
@@ -285,7 +274,6 @@ pub struct IPrintTaskOptions_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintTaskOptions2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTaskOptions2 {
@@ -580,7 +568,6 @@ pub struct IPrintTaskOptionsCoreUIConfiguration_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintTaskProgressingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTaskProgressingEventArgs {
@@ -599,7 +586,6 @@ pub struct IPrintTaskProgressingEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintTaskRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTaskRequest {
@@ -621,7 +607,6 @@ pub struct IPrintTaskRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintTaskRequestedDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTaskRequestedDeferral {
@@ -640,7 +625,6 @@ pub struct IPrintTaskRequestedDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintTaskRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTaskRequestedEventArgs {
@@ -659,7 +643,6 @@ pub struct IPrintTaskRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintTaskSourceRequestedArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTaskSourceRequestedArgs {
@@ -681,7 +664,6 @@ pub struct IPrintTaskSourceRequestedArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintTaskSourceRequestedDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTaskSourceRequestedDeferral {
@@ -700,7 +682,6 @@ pub struct IPrintTaskSourceRequestedDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintTaskTargetDeviceSupport(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTaskTargetDeviceSupport {
@@ -722,7 +703,6 @@ pub struct IPrintTaskTargetDeviceSupport_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStandardPrintTaskOptionsStatic(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStandardPrintTaskOptionsStatic {
@@ -753,7 +733,6 @@ pub struct IStandardPrintTaskOptionsStatic_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStandardPrintTaskOptionsStatic2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStandardPrintTaskOptionsStatic2 {
@@ -772,7 +751,6 @@ pub struct IStandardPrintTaskOptionsStatic2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStandardPrintTaskOptionsStatic3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStandardPrintTaskOptionsStatic3 {
@@ -820,10 +798,12 @@ impl ::std::convert::From<i32> for PrintBinding {
 }
 unsafe impl ::windows::runtime::Abi for PrintBinding {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PrintBinding {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintBinding;i4)");
+}
+impl ::windows::runtime::DefaultType for PrintBinding {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -843,10 +823,12 @@ impl ::std::convert::From<i32> for PrintBordering {
 }
 unsafe impl ::windows::runtime::Abi for PrintBordering {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PrintBordering {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintBordering;i4)");
+}
+impl ::windows::runtime::DefaultType for PrintBordering {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -866,10 +848,12 @@ impl ::std::convert::From<i32> for PrintCollation {
 }
 unsafe impl ::windows::runtime::Abi for PrintCollation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PrintCollation {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintCollation;i4)");
+}
+impl ::windows::runtime::DefaultType for PrintCollation {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -890,10 +874,12 @@ impl ::std::convert::From<i32> for PrintColorMode {
 }
 unsafe impl ::windows::runtime::Abi for PrintColorMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PrintColorMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintColorMode;i4)");
+}
+impl ::windows::runtime::DefaultType for PrintColorMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -914,10 +900,12 @@ impl ::std::convert::From<i32> for PrintDuplex {
 }
 unsafe impl ::windows::runtime::Abi for PrintDuplex {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PrintDuplex {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintDuplex;i4)");
+}
+impl ::windows::runtime::DefaultType for PrintDuplex {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -940,10 +928,12 @@ impl ::std::convert::From<i32> for PrintHolePunch {
 }
 unsafe impl ::windows::runtime::Abi for PrintHolePunch {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PrintHolePunch {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintHolePunch;i4)");
+}
+impl ::windows::runtime::DefaultType for PrintHolePunch {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
@@ -1194,10 +1184,12 @@ impl ::std::convert::From<i32> for PrintMediaSize {
 }
 unsafe impl ::windows::runtime::Abi for PrintMediaSize {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PrintMediaSize {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintMediaSize;i4)");
+}
+impl ::windows::runtime::DefaultType for PrintMediaSize {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1244,10 +1236,12 @@ impl ::std::convert::From<i32> for PrintMediaType {
 }
 unsafe impl ::windows::runtime::Abi for PrintMediaType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PrintMediaType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintMediaType;i4)");
+}
+impl ::windows::runtime::DefaultType for PrintMediaType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1269,10 +1263,12 @@ impl ::std::convert::From<i32> for PrintOrientation {
 }
 unsafe impl ::windows::runtime::Abi for PrintOrientation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PrintOrientation {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintOrientation;i4)");
+}
+impl ::windows::runtime::DefaultType for PrintOrientation {
+    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1309,11 +1305,13 @@ impl ::std::cmp::Eq for PrintPageDescription {}
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::runtime::Abi for PrintPageDescription {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::runtime::RuntimeType for PrintPageDescription {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Graphics.Printing.PrintPageDescription;struct(Windows.Foundation.Size;f4;f4);struct(Windows.Foundation.Rect;f4;f4;f4;f4);u4;u4)");
+}
+impl ::windows::runtime::DefaultType for PrintPageDescription {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
@@ -1539,10 +1537,12 @@ impl ::std::convert::From<i32> for PrintQuality {
 }
 unsafe impl ::windows::runtime::Abi for PrintQuality {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PrintQuality {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintQuality;i4)");
+}
+impl ::windows::runtime::DefaultType for PrintQuality {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1570,10 +1570,12 @@ impl ::std::convert::From<i32> for PrintStaple {
 }
 unsafe impl ::windows::runtime::Abi for PrintStaple {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PrintStaple {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintStaple;i4)");
+}
+impl ::windows::runtime::DefaultType for PrintStaple {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
@@ -1760,10 +1762,12 @@ impl ::std::convert::From<i32> for PrintTaskCompletion {
 }
 unsafe impl ::windows::runtime::Abi for PrintTaskCompletion {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PrintTaskCompletion {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTaskCompletion;i4)");
+}
+impl ::windows::runtime::DefaultType for PrintTaskCompletion {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Printing`*"]
 #[repr(transparent)]
@@ -2314,7 +2318,7 @@ impl<F: FnMut(&::std::option::Option<PrintTaskSourceRequestedArgs>) -> ::windows
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, args: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&args as *const <PrintTaskSourceRequestedArgs as ::windows::runtime::Abi>::Abi as *const <PrintTaskSourceRequestedArgs as ::windows::runtime::Abi>::DefaultType)).into()
+        ((*this).invoke)(&*(&args as *const <PrintTaskSourceRequestedArgs as ::windows::runtime::Abi>::Abi as *const <PrintTaskSourceRequestedArgs as ::windows::runtime::DefaultType>::DefaultType)).into()
     }
 }
 #[doc = "*Required features: `Graphics_Printing`*"]

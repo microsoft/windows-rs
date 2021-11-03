@@ -76,13 +76,13 @@ impl CameraIntrinsics {
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
     #[doc = "*Required features: `Media_Devices_Core`, `Foundation`, `Foundation_Numerics`*"]
-    pub fn ProjectManyOntoFrame(&self, coordinates: &[<super::super::super::Foundation::Numerics::Vector3 as ::windows::runtime::Abi>::DefaultType], results: &mut [<super::super::super::Foundation::Point as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn ProjectManyOntoFrame(&self, coordinates: &[<super::super::super::Foundation::Numerics::Vector3 as ::windows::runtime::DefaultType>::DefaultType], results: &mut [<super::super::super::Foundation::Point as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), coordinates.len() as u32, ::std::mem::transmute(coordinates.as_ptr()), results.len() as u32, ::std::mem::transmute_copy(&results)).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
     #[doc = "*Required features: `Media_Devices_Core`, `Foundation`, `Foundation_Numerics`*"]
-    pub fn UnprojectPixelsAtUnitDepth(&self, pixelcoordinates: &[<super::super::super::Foundation::Point as ::windows::runtime::Abi>::DefaultType], results: &mut [<super::super::super::Foundation::Numerics::Vector2 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn UnprojectPixelsAtUnitDepth(&self, pixelcoordinates: &[<super::super::super::Foundation::Point as ::windows::runtime::DefaultType>::DefaultType], results: &mut [<super::super::super::Foundation::Numerics::Vector2 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), pixelcoordinates.len() as u32, ::std::mem::transmute(pixelcoordinates.as_ptr()), results.len() as u32, ::std::mem::transmute_copy(&results)).ok() }
     }
@@ -121,7 +121,7 @@ impl CameraIntrinsics {
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Devices_Core`, `Foundation`*"]
-    pub fn DistortPoints(&self, inputs: &[<super::super::super::Foundation::Point as ::windows::runtime::Abi>::DefaultType], results: &mut [<super::super::super::Foundation::Point as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn DistortPoints(&self, inputs: &[<super::super::super::Foundation::Point as ::windows::runtime::DefaultType>::DefaultType], results: &mut [<super::super::super::Foundation::Point as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICameraIntrinsics2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), inputs.len() as u32, ::std::mem::transmute(inputs.as_ptr()), results.len() as u32, ::std::mem::transmute_copy(&results)).ok() }
     }
@@ -136,7 +136,7 @@ impl CameraIntrinsics {
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Devices_Core`, `Foundation`*"]
-    pub fn UndistortPoints(&self, inputs: &[<super::super::super::Foundation::Point as ::windows::runtime::Abi>::DefaultType], results: &mut [<super::super::super::Foundation::Point as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn UndistortPoints(&self, inputs: &[<super::super::super::Foundation::Point as ::windows::runtime::DefaultType>::DefaultType], results: &mut [<super::super::super::Foundation::Point as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICameraIntrinsics2>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), inputs.len() as u32, ::std::mem::transmute(inputs.as_ptr()), results.len() as u32, ::std::mem::transmute_copy(&results)).ok() }
     }
@@ -179,7 +179,7 @@ impl DepthCorrelatedCoordinateMapper {
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     #[doc = "*Required features: `Media_Devices_Core`, `Foundation`, `Foundation_Numerics`, `Perception_Spatial`*"]
-    pub fn UnprojectPoints<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, sourcepoints: &[<super::super::super::Foundation::Point as ::windows::runtime::Abi>::DefaultType], targetcoordinatesystem: Param1, results: &mut [<super::super::super::Foundation::Numerics::Vector3 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn UnprojectPoints<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, sourcepoints: &[<super::super::super::Foundation::Point as ::windows::runtime::DefaultType>::DefaultType], targetcoordinatesystem: Param1, results: &mut [<super::super::super::Foundation::Numerics::Vector3 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), sourcepoints.len() as u32, ::std::mem::transmute(sourcepoints.as_ptr()), targetcoordinatesystem.into_param().abi(), results.len() as u32, ::std::mem::transmute_copy(&results)).ok() }
     }
@@ -194,7 +194,13 @@ impl DepthCorrelatedCoordinateMapper {
     }
     #[cfg(all(feature = "Foundation", feature = "Perception_Spatial"))]
     #[doc = "*Required features: `Media_Devices_Core`, `Foundation`, `Perception_Spatial`*"]
-    pub fn MapPoints<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>, Param2: ::windows::runtime::IntoParam<'a, CameraIntrinsics>>(&self, sourcepoints: &[<super::super::super::Foundation::Point as ::windows::runtime::Abi>::DefaultType], targetcoordinatesystem: Param1, targetcameraintrinsics: Param2, results: &mut [<super::super::super::Foundation::Point as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn MapPoints<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>, Param2: ::windows::runtime::IntoParam<'a, CameraIntrinsics>>(
+        &self,
+        sourcepoints: &[<super::super::super::Foundation::Point as ::windows::runtime::DefaultType>::DefaultType],
+        targetcoordinatesystem: Param1,
+        targetcameraintrinsics: Param2,
+        results: &mut [<super::super::super::Foundation::Point as ::windows::runtime::DefaultType>::DefaultType],
+    ) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), sourcepoints.len() as u32, ::std::mem::transmute(sourcepoints.as_ptr()), targetcoordinatesystem.into_param().abi(), targetcameraintrinsics.into_param().abi(), results.len() as u32, ::std::mem::transmute_copy(&results)).ok() }
     }
@@ -679,10 +685,12 @@ impl ::std::convert::From<i32> for FrameFlashMode {
 }
 unsafe impl ::windows::runtime::Abi for FrameFlashMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for FrameFlashMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.Core.FrameFlashMode;i4)");
+}
+impl ::windows::runtime::DefaultType for FrameFlashMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Devices_Core`*"]
 #[repr(transparent)]
@@ -856,7 +864,6 @@ impl ::windows::runtime::RuntimeName for FrameIsoSpeedControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameIsoSpeedControl";
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICameraIntrinsics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICameraIntrinsics {
@@ -892,7 +899,6 @@ pub struct ICameraIntrinsics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICameraIntrinsics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICameraIntrinsics2 {
@@ -920,7 +926,6 @@ pub struct ICameraIntrinsics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICameraIntrinsicsFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICameraIntrinsicsFactory {
@@ -940,7 +945,6 @@ pub struct ICameraIntrinsicsFactory_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDepthCorrelatedCoordinateMapper(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDepthCorrelatedCoordinateMapper {
@@ -966,7 +970,6 @@ pub struct IDepthCorrelatedCoordinateMapper_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Perception_Spatial")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameControlCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameControlCapabilities {
@@ -989,7 +992,6 @@ pub struct IFrameControlCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameControlCapabilities2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameControlCapabilities2 {
@@ -1008,7 +1010,6 @@ pub struct IFrameControlCapabilities2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameController(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameController {
@@ -1034,7 +1035,6 @@ pub struct IFrameController_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameController2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameController2 {
@@ -1053,7 +1053,6 @@ pub struct IFrameController2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameExposureCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameExposureCapabilities {
@@ -1078,7 +1077,6 @@ pub struct IFrameExposureCapabilities_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameExposureCompensationCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameExposureCompensationCapabilities {
@@ -1100,7 +1098,6 @@ pub struct IFrameExposureCompensationCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameExposureCompensationControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameExposureCompensationControl {
@@ -1122,7 +1119,6 @@ pub struct IFrameExposureCompensationControl_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameExposureControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameExposureControl {
@@ -1146,7 +1142,6 @@ pub struct IFrameExposureControl_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameFlashCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameFlashCapabilities {
@@ -1167,7 +1162,6 @@ pub struct IFrameFlashCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameFlashControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameFlashControl {
@@ -1193,7 +1187,6 @@ pub struct IFrameFlashControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameFocusCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameFocusCapabilities {
@@ -1215,7 +1208,6 @@ pub struct IFrameFocusCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameFocusControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameFocusControl {
@@ -1237,7 +1229,6 @@ pub struct IFrameFocusControl_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameIsoSpeedCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameIsoSpeedCapabilities {
@@ -1259,7 +1250,6 @@ pub struct IFrameIsoSpeedCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameIsoSpeedControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameIsoSpeedControl {
@@ -1283,7 +1273,6 @@ pub struct IFrameIsoSpeedControl_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVariablePhotoSequenceController(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVariablePhotoSequenceController {

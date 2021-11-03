@@ -504,7 +504,6 @@ impl ::std::convert::From<i32> for TPMVSCMGR_ERROR {
 }
 unsafe impl ::windows::runtime::Abi for TPMVSCMGR_ERROR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Tpm`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -531,7 +530,6 @@ impl ::std::convert::From<i32> for TPMVSCMGR_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for TPMVSCMGR_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Tpm`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -547,7 +545,6 @@ impl ::std::convert::From<i32> for TPMVSC_ATTESTATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for TPMVSC_ATTESTATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Tpm`*"]
 pub const TPMVSC_DEFAULT_ADMIN_ALGORITHM_ID: u32 = 130u32;

@@ -337,13 +337,14 @@ impl ::std::convert::From<i32> for FulfillmentResult {
 }
 unsafe impl ::windows::runtime::Abi for FulfillmentResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for FulfillmentResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.FulfillmentResult;i4)");
 }
+impl ::windows::runtime::DefaultType for FulfillmentResult {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICurrentApp(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentApp {
@@ -375,7 +376,6 @@ pub struct ICurrentApp_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICurrentApp2Statics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentApp2Statics {
@@ -397,7 +397,6 @@ pub struct ICurrentApp2Statics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICurrentAppSimulator(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentAppSimulator {
@@ -431,7 +430,6 @@ pub struct ICurrentAppSimulator_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICurrentAppSimulatorStaticsWithFiltering(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentAppSimulatorStaticsWithFiltering {
@@ -453,7 +451,6 @@ pub struct ICurrentAppSimulatorStaticsWithFiltering_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICurrentAppSimulatorWithCampaignId(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentAppSimulatorWithCampaignId {
@@ -473,7 +470,6 @@ pub struct ICurrentAppSimulatorWithCampaignId_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICurrentAppSimulatorWithConsumables(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentAppSimulatorWithConsumables {
@@ -499,7 +495,6 @@ pub struct ICurrentAppSimulatorWithConsumables_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICurrentAppStaticsWithFiltering(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentAppStaticsWithFiltering {
@@ -522,7 +517,6 @@ pub struct ICurrentAppStaticsWithFiltering_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, productid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICurrentAppWithCampaignId(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentAppWithCampaignId {
@@ -542,7 +536,6 @@ pub struct ICurrentAppWithCampaignId_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICurrentAppWithConsumables(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentAppWithConsumables {
@@ -568,7 +561,6 @@ pub struct ICurrentAppWithConsumables_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILicenseInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILicenseInformation {
@@ -596,7 +588,6 @@ pub struct ILicenseInformation_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IListingInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IListingInformation {
@@ -621,7 +612,6 @@ pub struct IListingInformation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IListingInformation2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IListingInformation2 {
@@ -644,7 +634,6 @@ pub struct IListingInformation2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProductLicense(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProductLicense {
@@ -666,7 +655,6 @@ pub struct IProductLicense_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProductLicenseWithFulfillment(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProductLicenseWithFulfillment {
@@ -685,7 +673,6 @@ pub struct IProductLicenseWithFulfillment_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProductListing(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProductListing {
@@ -706,7 +693,6 @@ pub struct IProductListing_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProductListing2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProductListing2 {
@@ -729,7 +715,6 @@ pub struct IProductListing2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProductListingWithConsumables(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProductListingWithConsumables {
@@ -748,7 +733,6 @@ pub struct IProductListingWithConsumables_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ProductType) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProductListingWithMetadata(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProductListingWithMetadata {
@@ -773,7 +757,6 @@ pub struct IProductListingWithMetadata_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProductPurchaseDisplayProperties(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProductPurchaseDisplayProperties {
@@ -799,7 +782,6 @@ pub struct IProductPurchaseDisplayProperties_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProductPurchaseDisplayPropertiesFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProductPurchaseDisplayPropertiesFactory {
@@ -818,7 +800,6 @@ pub struct IProductPurchaseDisplayPropertiesFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPurchaseResults(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPurchaseResults {
@@ -840,7 +821,6 @@ pub struct IPurchaseResults_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUnfulfilledConsumable(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUnfulfilledConsumable {
@@ -1362,10 +1342,12 @@ impl ::std::convert::From<i32> for ProductPurchaseStatus {
 }
 unsafe impl ::windows::runtime::Abi for ProductPurchaseStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ProductPurchaseStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.ProductPurchaseStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for ProductPurchaseStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Store`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1383,10 +1365,12 @@ impl ::std::convert::From<i32> for ProductType {
 }
 unsafe impl ::windows::runtime::Abi for ProductType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ProductType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.ProductType;i4)");
+}
+impl ::windows::runtime::DefaultType for ProductType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Store`*"]
 #[repr(transparent)]

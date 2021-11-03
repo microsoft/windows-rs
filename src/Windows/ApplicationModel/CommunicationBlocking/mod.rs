@@ -87,7 +87,6 @@ impl ::windows::runtime::RuntimeName for CommunicationBlockingAppManager {
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct CommunicationBlockingContract(pub u8);
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICommunicationBlockingAccessManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICommunicationBlockingAccessManagerStatics {
@@ -114,7 +113,6 @@ pub struct ICommunicationBlockingAccessManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICommunicationBlockingAppManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICommunicationBlockingAppManagerStatics {
@@ -134,7 +132,6 @@ pub struct ICommunicationBlockingAppManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICommunicationBlockingAppManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICommunicationBlockingAppManagerStatics2 {

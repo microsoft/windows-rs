@@ -15,10 +15,12 @@ impl ::std::convert::From<i32> for BitmapAlphaMode {
 }
 unsafe impl ::windows::runtime::Abi for BitmapAlphaMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BitmapAlphaMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapAlphaMode;i4)");
+}
+impl ::windows::runtime::DefaultType for BitmapAlphaMode {
+    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -48,10 +50,12 @@ impl ::std::cmp::PartialEq for BitmapBounds {
 impl ::std::cmp::Eq for BitmapBounds {}
 unsafe impl ::windows::runtime::Abi for BitmapBounds {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BitmapBounds {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Graphics.Imaging.BitmapBounds;u4;u4;u4;u4)");
+}
+impl ::windows::runtime::DefaultType for BitmapBounds {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
@@ -170,10 +174,12 @@ impl ::std::convert::From<i32> for BitmapBufferAccessMode {
 }
 unsafe impl ::windows::runtime::Abi for BitmapBufferAccessMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BitmapBufferAccessMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapBufferAccessMode;i4)");
+}
+impl ::windows::runtime::DefaultType for BitmapBufferAccessMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
@@ -629,7 +635,7 @@ impl BitmapEncoder {
         }
     }
     #[doc = "*Required features: `Graphics_Imaging`*"]
-    pub fn SetPixelData(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, width: u32, height: u32, dpix: f64, dpiy: f64, pixels: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn SetPixelData(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, width: u32, height: u32, dpix: f64, dpiy: f64, pixels: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), pixelformat, alphamode, width, height, dpix, dpiy, pixels.len() as u32, ::std::mem::transmute(pixels.as_ptr())).ok() }
     }
@@ -795,10 +801,12 @@ impl ::std::convert::From<i32> for BitmapFlip {
 }
 unsafe impl ::windows::runtime::Abi for BitmapFlip {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BitmapFlip {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapFlip;i4)");
+}
+impl ::windows::runtime::DefaultType for BitmapFlip {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
@@ -1003,10 +1011,12 @@ impl ::std::convert::From<i32> for BitmapInterpolationMode {
 }
 unsafe impl ::windows::runtime::Abi for BitmapInterpolationMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BitmapInterpolationMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapInterpolationMode;i4)");
+}
+impl ::windows::runtime::DefaultType for BitmapInterpolationMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1030,10 +1040,12 @@ impl ::std::convert::From<i32> for BitmapPixelFormat {
 }
 unsafe impl ::windows::runtime::Abi for BitmapPixelFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BitmapPixelFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapPixelFormat;i4)");
+}
+impl ::windows::runtime::DefaultType for BitmapPixelFormat {
+    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1063,10 +1075,12 @@ impl ::std::cmp::PartialEq for BitmapPlaneDescription {
 impl ::std::cmp::Eq for BitmapPlaneDescription {}
 unsafe impl ::windows::runtime::Abi for BitmapPlaneDescription {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BitmapPlaneDescription {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Graphics.Imaging.BitmapPlaneDescription;i4;i4;i4;i4)");
+}
+impl ::windows::runtime::DefaultType for BitmapPlaneDescription {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
@@ -1354,10 +1368,12 @@ impl ::std::convert::From<i32> for BitmapRotation {
 }
 unsafe impl ::windows::runtime::Abi for BitmapRotation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BitmapRotation {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapRotation;i4)");
+}
+impl ::windows::runtime::DefaultType for BitmapRotation {
+    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1385,10 +1401,12 @@ impl ::std::cmp::PartialEq for BitmapSize {
 impl ::std::cmp::Eq for BitmapSize {}
 unsafe impl ::windows::runtime::Abi for BitmapSize {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BitmapSize {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Graphics.Imaging.BitmapSize;u4;u4)");
+}
+impl ::windows::runtime::DefaultType for BitmapSize {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
@@ -1555,10 +1573,12 @@ impl ::std::convert::From<i32> for ColorManagementMode {
 }
 unsafe impl ::windows::runtime::Abi for ColorManagementMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ColorManagementMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.ColorManagementMode;i4)");
+}
+impl ::windows::runtime::DefaultType for ColorManagementMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1575,13 +1595,14 @@ impl ::std::convert::From<i32> for ExifOrientationMode {
 }
 unsafe impl ::windows::runtime::Abi for ExifOrientationMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ExifOrientationMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.ExifOrientationMode;i4)");
 }
+impl ::windows::runtime::DefaultType for ExifOrientationMode {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBitmapBuffer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapBuffer {
@@ -1601,7 +1622,6 @@ pub struct IBitmapBuffer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: i32, result__: *mut BitmapPlaneDescription) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBitmapCodecInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapCodecInformation {
@@ -1625,7 +1645,6 @@ pub struct IBitmapCodecInformation_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBitmapDecoder(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapDecoder {
@@ -1650,7 +1669,6 @@ pub struct IBitmapDecoder_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBitmapDecoderStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapDecoderStatics {
@@ -1681,7 +1699,6 @@ pub struct IBitmapDecoderStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBitmapDecoderStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapDecoderStatics2 {
@@ -1701,7 +1718,6 @@ pub struct IBitmapDecoderStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBitmapEncoder(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapEncoder {
@@ -1736,7 +1752,6 @@ pub struct IBitmapEncoder_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBitmapEncoderStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapEncoderStatics {
@@ -1770,7 +1785,6 @@ pub struct IBitmapEncoderStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBitmapEncoderStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapEncoderStatics2 {
@@ -1789,7 +1803,6 @@ pub struct IBitmapEncoderStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBitmapEncoderWithSoftwareBitmap(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapEncoderWithSoftwareBitmap {
@@ -2122,7 +2135,6 @@ pub struct IBitmapFrameWithSoftwareBitmap_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBitmapProperties(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapProperties {
@@ -2176,7 +2188,6 @@ pub struct IBitmapPropertiesView_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBitmapTransform(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapTransform {
@@ -2206,7 +2217,6 @@ pub struct IBitmapTransform_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: BitmapBounds) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBitmapTypedValue(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapTypedValue {
@@ -2227,7 +2237,6 @@ pub struct IBitmapTypedValue_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBitmapTypedValueFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapTypedValueFactory {
@@ -2247,7 +2256,6 @@ pub struct IBitmapTypedValueFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPixelDataProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPixelDataProvider {
@@ -2266,7 +2274,6 @@ pub struct IPixelDataProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISoftwareBitmap(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISoftwareBitmap {
@@ -2300,7 +2307,6 @@ pub struct ISoftwareBitmap_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISoftwareBitmapFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISoftwareBitmapFactory {
@@ -2320,7 +2326,6 @@ pub struct ISoftwareBitmapFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, format: BitmapPixelFormat, width: i32, height: i32, alpha: BitmapAlphaMode, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISoftwareBitmapStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISoftwareBitmapStatics {
@@ -2661,10 +2666,12 @@ impl ::std::convert::From<i32> for JpegSubsamplingMode {
 }
 unsafe impl ::windows::runtime::Abi for JpegSubsamplingMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for JpegSubsamplingMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.JpegSubsamplingMode;i4)");
+}
+impl ::windows::runtime::DefaultType for JpegSubsamplingMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
@@ -2712,10 +2719,12 @@ impl ::std::convert::From<i32> for PngFilterMode {
 }
 unsafe impl ::windows::runtime::Abi for PngFilterMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PngFilterMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.PngFilterMode;i4)");
+}
+impl ::windows::runtime::DefaultType for PngFilterMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_Imaging`*"]
 #[repr(transparent)]
@@ -2962,8 +2971,10 @@ impl ::std::convert::From<i32> for TiffCompressionMode {
 }
 unsafe impl ::windows::runtime::Abi for TiffCompressionMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TiffCompressionMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.TiffCompressionMode;i4)");
+}
+impl ::windows::runtime::DefaultType for TiffCompressionMode {
+    type DefaultType = Self;
 }

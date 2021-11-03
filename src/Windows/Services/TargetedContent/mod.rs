@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITargetedContentAction(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentAction {
@@ -20,7 +19,6 @@ pub struct ITargetedContentAction_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITargetedContentAvailabilityChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentAvailabilityChangedEventArgs {
@@ -40,7 +38,6 @@ pub struct ITargetedContentAvailabilityChangedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITargetedContentChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentChangedEventArgs {
@@ -61,7 +58,6 @@ pub struct ITargetedContentChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITargetedContentCollection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentCollection {
@@ -89,7 +85,6 @@ pub struct ITargetedContentCollection_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITargetedContentContainer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentContainer {
@@ -113,7 +108,6 @@ pub struct ITargetedContentContainer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, path: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITargetedContentContainerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentContainerStatics {
@@ -133,7 +127,6 @@ pub struct ITargetedContentContainerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITargetedContentImage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentImage {
@@ -153,7 +146,6 @@ pub struct ITargetedContentImage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITargetedContentItem(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentItem {
@@ -179,7 +171,6 @@ pub struct ITargetedContentItem_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITargetedContentItemState(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentItemState {
@@ -199,7 +190,6 @@ pub struct ITargetedContentItemState_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut TargetedContentAppInstallationState) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITargetedContentObject(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentObject {
@@ -221,7 +211,6 @@ pub struct ITargetedContentObject_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITargetedContentStateChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentStateChangedEventArgs {
@@ -241,7 +230,6 @@ pub struct ITargetedContentStateChangedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITargetedContentSubscription(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentSubscription {
@@ -274,7 +262,6 @@ pub struct ITargetedContentSubscription_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITargetedContentSubscriptionOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentSubscriptionOptions {
@@ -300,7 +287,6 @@ pub struct ITargetedContentSubscriptionOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITargetedContentSubscriptionStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentSubscriptionStatics {
@@ -321,7 +307,6 @@ pub struct ITargetedContentSubscriptionStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, subscriptionid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITargetedContentValue(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetedContentValue {
@@ -406,10 +391,12 @@ impl ::std::convert::From<i32> for TargetedContentAppInstallationState {
 }
 unsafe impl ::windows::runtime::Abi for TargetedContentAppInstallationState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TargetedContentAppInstallationState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentAppInstallationState;i4)");
+}
+impl ::windows::runtime::DefaultType for TargetedContentAppInstallationState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -427,10 +414,12 @@ impl ::std::convert::From<i32> for TargetedContentAvailability {
 }
 unsafe impl ::windows::runtime::Abi for TargetedContentAvailability {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TargetedContentAvailability {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentAvailability;i4)");
+}
+impl ::windows::runtime::DefaultType for TargetedContentAvailability {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
@@ -792,10 +781,12 @@ impl ::std::convert::From<i32> for TargetedContentInteraction {
 }
 unsafe impl ::windows::runtime::Abi for TargetedContentInteraction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TargetedContentInteraction {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentInteraction;i4)");
+}
+impl ::windows::runtime::DefaultType for TargetedContentInteraction {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
@@ -959,10 +950,12 @@ impl ::std::convert::From<i32> for TargetedContentObjectKind {
 }
 unsafe impl ::windows::runtime::Abi for TargetedContentObjectKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TargetedContentObjectKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentObjectKind;i4)");
+}
+impl ::windows::runtime::DefaultType for TargetedContentObjectKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_TargetedContent`*"]
 #[repr(transparent)]
@@ -1334,8 +1327,10 @@ impl ::std::convert::From<i32> for TargetedContentValueKind {
 }
 unsafe impl ::windows::runtime::Abi for TargetedContentValueKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TargetedContentValueKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentValueKind;i4)");
+}
+impl ::windows::runtime::DefaultType for TargetedContentValueKind {
+    type DefaultType = Self;
 }

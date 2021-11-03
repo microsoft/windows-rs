@@ -14,7 +14,6 @@ impl ::std::convert::From<i32> for DWMFLIP3DWINDOWPOLICY {
 }
 unsafe impl ::windows::runtime::Abi for DWMFLIP3DWINDOWPOLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -31,7 +30,6 @@ impl ::std::convert::From<i32> for DWMNCRENDERINGPOLICY {
 }
 unsafe impl ::windows::runtime::Abi for DWMNCRENDERINGPOLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -46,7 +44,6 @@ impl ::std::convert::From<i32> for DWMTRANSITION_OWNEDWINDOW_TARGET {
 }
 unsafe impl ::windows::runtime::Abi for DWMTRANSITION_OWNEDWINDOW_TARGET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
 pub const DWMWA_COLOR_DEFAULT: u32 = 4294967295u32;
@@ -87,7 +84,6 @@ impl ::std::convert::From<i32> for DWMWINDOWATTRIBUTE {
 }
 unsafe impl ::windows::runtime::Abi for DWMWINDOWATTRIBUTE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
 pub const DWM_BB_BLURREGION: u32 = 2u32;
@@ -124,7 +120,6 @@ impl ::std::cmp::Eq for DWM_BLURBEHIND {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for DWM_BLURBEHIND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
 pub const DWM_CLOAKED_APP: u32 = 1u32;
@@ -171,7 +166,6 @@ impl ::std::cmp::Eq for DWM_PRESENT_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DWM_PRESENT_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -191,7 +185,6 @@ impl ::std::convert::From<u32> for DWM_SHOWCONTACT {
 }
 unsafe impl ::windows::runtime::Abi for DWM_SHOWCONTACT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DWM_SHOWCONTACT {
     type Output = Self;
@@ -237,7 +230,6 @@ impl ::std::convert::From<i32> for DWM_SOURCE_FRAME_SAMPLING {
 }
 unsafe impl ::windows::runtime::Abi for DWM_SOURCE_FRAME_SAMPLING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -261,7 +253,6 @@ impl ::std::convert::From<u32> for DWM_TAB_WINDOW_REQUIREMENTS {
 }
 unsafe impl ::windows::runtime::Abi for DWM_TAB_WINDOW_REQUIREMENTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DWM_TAB_WINDOW_REQUIREMENTS {
     type Output = Self;
@@ -322,7 +313,6 @@ impl ::std::cmp::Eq for DWM_THUMBNAIL_PROPERTIES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DWM_THUMBNAIL_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -383,7 +373,6 @@ impl ::std::cmp::PartialEq for DWM_TIMING_INFO {
 impl ::std::cmp::Eq for DWM_TIMING_INFO {}
 unsafe impl ::windows::runtime::Abi for DWM_TIMING_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
 pub const DWM_TNP_OPACITY: u32 = 4u32;
@@ -410,7 +399,6 @@ impl ::std::convert::From<i32> for DWM_WINDOW_CORNER_PREFERENCE {
 }
 unsafe impl ::windows::runtime::Abi for DWM_WINDOW_CORNER_PREFERENCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Dwm`, `Win32_Foundation`*"]
@@ -900,7 +888,6 @@ impl ::std::convert::From<i32> for GESTURE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for GESTURE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -927,7 +914,6 @@ impl ::std::cmp::PartialEq for MilMatrix3x2D {
 impl ::std::cmp::Eq for MilMatrix3x2D {}
 unsafe impl ::windows::runtime::Abi for MilMatrix3x2D {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -950,7 +936,6 @@ impl ::std::cmp::PartialEq for UNSIGNED_RATIO {
 impl ::std::cmp::Eq for UNSIGNED_RATIO {}
 unsafe impl ::windows::runtime::Abi for UNSIGNED_RATIO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Dwm`*"]
 pub const c_DwmMaxAdapters: u32 = 16u32;

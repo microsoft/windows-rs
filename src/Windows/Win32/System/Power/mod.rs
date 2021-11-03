@@ -46,7 +46,6 @@ impl ::std::cmp::PartialEq for ACPI_REAL_TIME {
 impl ::std::cmp::Eq for ACPI_REAL_TIME {}
 unsafe impl ::windows::runtime::Abi for ACPI_REAL_TIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const ACPI_TIME_ADJUST_DAYLIGHT: u32 = 1u32;
@@ -93,7 +92,6 @@ impl ::std::cmp::PartialEq for ADMINISTRATOR_POWER_POLICY {
 impl ::std::cmp::Eq for ADMINISTRATOR_POWER_POLICY {}
 unsafe impl ::windows::runtime::Abi for ADMINISTRATOR_POWER_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const BATTERY_CAPACITY_RELATIVE: u32 = 1073741824u32;
@@ -123,7 +121,6 @@ impl ::std::cmp::PartialEq for BATTERY_CHARGER_STATUS {
 impl ::std::cmp::Eq for BATTERY_CHARGER_STATUS {}
 unsafe impl ::windows::runtime::Abi for BATTERY_CHARGER_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const BATTERY_CHARGING: u32 = 4u32;
@@ -153,7 +150,6 @@ impl ::std::cmp::PartialEq for BATTERY_CHARGING_SOURCE {
 impl ::std::cmp::Eq for BATTERY_CHARGING_SOURCE {}
 unsafe impl ::windows::runtime::Abi for BATTERY_CHARGING_SOURCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -188,7 +184,6 @@ impl ::std::cmp::Eq for BATTERY_CHARGING_SOURCE_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BATTERY_CHARGING_SOURCE_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Power`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -205,7 +200,6 @@ impl ::std::convert::From<i32> for BATTERY_CHARGING_SOURCE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for BATTERY_CHARGING_SOURCE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const BATTERY_CLASS_MAJOR_VERSION: u32 = 1u32;
@@ -264,7 +258,6 @@ impl ::std::cmp::PartialEq for BATTERY_INFORMATION {
 impl ::std::cmp::Eq for BATTERY_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for BATTERY_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const BATTERY_IS_SHORT_TERM: u32 = 536870912u32;
@@ -295,7 +288,6 @@ impl ::std::cmp::PartialEq for BATTERY_MANUFACTURE_DATE {
 impl ::std::cmp::Eq for BATTERY_MANUFACTURE_DATE {}
 unsafe impl ::windows::runtime::Abi for BATTERY_MANUFACTURE_DATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const BATTERY_MINIPORT_UPDATE_DATA_VER_1: u32 = 1u32;
@@ -330,7 +322,6 @@ impl ::std::cmp::PartialEq for BATTERY_QUERY_INFORMATION {
 impl ::std::cmp::Eq for BATTERY_QUERY_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for BATTERY_QUERY_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Power`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -352,7 +343,6 @@ impl ::std::convert::From<i32> for BATTERY_QUERY_INFORMATION_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for BATTERY_QUERY_INFORMATION_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -380,7 +370,6 @@ impl ::std::cmp::PartialEq for BATTERY_REPORTING_SCALE {
 impl ::std::cmp::Eq for BATTERY_REPORTING_SCALE {}
 unsafe impl ::windows::runtime::Abi for BATTERY_REPORTING_SCALE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const BATTERY_RUNTIME_WMI_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1398421351, 6850, 18876, [160, 119, 63, 122, 2, 228, 10, 236]);
 #[doc = "*Required features: `Win32_System_Power`*"]
@@ -420,7 +409,6 @@ impl ::std::cmp::PartialEq for BATTERY_SET_INFORMATION {
 impl ::std::cmp::Eq for BATTERY_SET_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for BATTERY_SET_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Power`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -439,7 +427,6 @@ impl ::std::convert::From<i32> for BATTERY_SET_INFORMATION_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for BATTERY_SET_INFORMATION_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const BATTERY_STATIC_DATA_WMI_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(98690147, 58594, 20137, [128, 203, 155, 212, 179, 202, 6, 85]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -470,7 +457,6 @@ impl ::std::cmp::PartialEq for BATTERY_STATUS {
 impl ::std::cmp::Eq for BATTERY_STATUS {}
 unsafe impl ::windows::runtime::Abi for BATTERY_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const BATTERY_STATUS_CHANGE_WMI_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3453984963, 31835, 20035, [160, 52, 5, 159, 165, 184, 67, 100]);
 pub const BATTERY_STATUS_WMI_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4232474833, 60351, 16750, [135, 206, 55, 74, 78, 188, 17, 26]);
@@ -533,7 +519,6 @@ impl ::std::cmp::PartialEq for BATTERY_USB_CHARGER_STATUS {
 impl ::std::cmp::Eq for BATTERY_USB_CHARGER_STATUS {}
 unsafe impl ::windows::runtime::Abi for BATTERY_USB_CHARGER_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const BATTERY_USB_CHARGER_STATUS_FN_DEFAULT_USB: u32 = 1u32;
@@ -568,7 +553,6 @@ impl ::std::cmp::PartialEq for BATTERY_WAIT_STATUS {
 impl ::std::cmp::Eq for BATTERY_WAIT_STATUS {}
 unsafe impl ::windows::runtime::Abi for BATTERY_WAIT_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_SystemServices")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_SystemServices`*"]
@@ -644,7 +628,6 @@ impl ::std::cmp::PartialEq for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
 impl ::std::cmp::Eq for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
@@ -739,7 +722,6 @@ impl ::std::convert::From<i32> for EFFECTIVE_POWER_MODE {
 }
 unsafe impl ::windows::runtime::Abi for EFFECTIVE_POWER_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type EFFECTIVE_POWER_MODE_CALLBACK = unsafe extern "system" fn(mode: EFFECTIVE_POWER_MODE, context: *const ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Power`*"]
@@ -772,7 +754,6 @@ impl ::std::cmp::PartialEq for EMI_CHANNEL_MEASUREMENT_DATA {
 impl ::std::cmp::Eq for EMI_CHANNEL_MEASUREMENT_DATA {}
 unsafe impl ::windows::runtime::Abi for EMI_CHANNEL_MEASUREMENT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -801,7 +782,6 @@ impl ::std::cmp::PartialEq for EMI_CHANNEL_V2 {
 impl ::std::cmp::Eq for EMI_CHANNEL_V2 {}
 unsafe impl ::windows::runtime::Abi for EMI_CHANNEL_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -828,7 +808,6 @@ impl ::std::cmp::PartialEq for EMI_MEASUREMENT_DATA_V2 {
 impl ::std::cmp::Eq for EMI_MEASUREMENT_DATA_V2 {}
 unsafe impl ::windows::runtime::Abi for EMI_MEASUREMENT_DATA_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Power`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -842,7 +821,6 @@ impl ::std::convert::From<i32> for EMI_MEASUREMENT_UNIT {
 }
 unsafe impl ::windows::runtime::Abi for EMI_MEASUREMENT_UNIT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -869,7 +847,6 @@ impl ::std::cmp::PartialEq for EMI_METADATA_SIZE {
 impl ::std::cmp::Eq for EMI_METADATA_SIZE {}
 unsafe impl ::windows::runtime::Abi for EMI_METADATA_SIZE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -908,7 +885,6 @@ impl ::std::cmp::PartialEq for EMI_METADATA_V1 {
 impl ::std::cmp::Eq for EMI_METADATA_V1 {}
 unsafe impl ::windows::runtime::Abi for EMI_METADATA_V1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -939,7 +915,6 @@ impl ::std::cmp::PartialEq for EMI_METADATA_V2 {
 impl ::std::cmp::Eq for EMI_METADATA_V2 {}
 unsafe impl ::windows::runtime::Abi for EMI_METADATA_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const EMI_NAME_MAX: u32 = 16u32;
@@ -968,7 +943,6 @@ impl ::std::cmp::PartialEq for EMI_VERSION {
 impl ::std::cmp::Eq for EMI_VERSION {}
 unsafe impl ::windows::runtime::Abi for EMI_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const EMI_VERSION_V1: u32 = 1u32;
@@ -990,7 +964,6 @@ impl ::std::convert::From<u32> for EXECUTION_STATE {
 }
 unsafe impl ::windows::runtime::Abi for EXECUTION_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for EXECUTION_STATE {
     type Output = Self;
@@ -1073,7 +1046,6 @@ impl ::std::cmp::PartialEq for GLOBAL_MACHINE_POWER_POLICY {
 impl ::std::cmp::Eq for GLOBAL_MACHINE_POWER_POLICY {}
 unsafe impl ::windows::runtime::Abi for GLOBAL_MACHINE_POWER_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1108,7 +1080,6 @@ impl ::std::cmp::Eq for GLOBAL_POWER_POLICY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GLOBAL_POWER_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1160,7 +1131,6 @@ impl ::std::cmp::Eq for GLOBAL_USER_POWER_POLICY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GLOBAL_USER_POWER_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const GUID_CLASS_INPUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1293833650, 61807, 4559, [136, 203, 0, 17, 17, 0, 0, 48]);
 pub const GUID_DEVICE_ACPI_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2549718006, 17559, 20248, [187, 34, 75, 159, 178, 251, 239, 156]);
@@ -1277,7 +1247,6 @@ impl ::std::default::Default for HPOWERNOTIFY {
 unsafe impl ::windows::runtime::Handle for HPOWERNOTIFY {}
 unsafe impl ::windows::runtime::Abi for HPOWERNOTIFY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const IOCTL_ACPI_GET_REAL_TIME: u32 = 2703888u32;
@@ -1423,7 +1392,6 @@ impl ::std::convert::From<i32> for LATENCY_TIME {
 }
 unsafe impl ::windows::runtime::Abi for LATENCY_TIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1491,7 +1459,6 @@ impl ::std::cmp::PartialEq for MACHINE_POWER_POLICY {
 impl ::std::cmp::Eq for MACHINE_POWER_POLICY {}
 unsafe impl ::windows::runtime::Abi for MACHINE_POWER_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1520,7 +1487,6 @@ impl ::std::cmp::PartialEq for MACHINE_PROCESSOR_POWER_POLICY {
 impl ::std::cmp::Eq for MACHINE_PROCESSOR_POWER_POLICY {}
 unsafe impl ::windows::runtime::Abi for MACHINE_PROCESSOR_POWER_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const MAX_ACTIVE_COOLING_LEVELS: u32 = 10u32;
@@ -1576,7 +1542,6 @@ impl ::std::cmp::PartialEq for POWERBROADCAST_SETTING {
 impl ::std::cmp::Eq for POWERBROADCAST_SETTING {}
 unsafe impl ::windows::runtime::Abi for POWERBROADCAST_SETTING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Power`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1598,7 +1563,6 @@ impl ::std::convert::From<i32> for POWER_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for POWER_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1627,7 +1591,6 @@ impl ::std::cmp::PartialEq for POWER_ACTION_POLICY {
 impl ::std::cmp::Eq for POWER_ACTION_POLICY {}
 unsafe impl ::windows::runtime::Abi for POWER_ACTION_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Power`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1646,7 +1609,6 @@ impl ::std::convert::From<u32> for POWER_ACTION_POLICY_EVENT_CODE {
 }
 unsafe impl ::windows::runtime::Abi for POWER_ACTION_POLICY_EVENT_CODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for POWER_ACTION_POLICY_EVENT_CODE {
     type Output = Self;
@@ -1719,7 +1681,6 @@ impl ::std::convert::From<i32> for POWER_DATA_ACCESSOR {
 }
 unsafe impl ::windows::runtime::Abi for POWER_DATA_ACCESSOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Power`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1742,7 +1703,6 @@ impl ::std::convert::From<i32> for POWER_PLATFORM_ROLE {
 }
 unsafe impl ::windows::runtime::Abi for POWER_PLATFORM_ROLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Power`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1757,7 +1717,6 @@ impl ::std::convert::From<u32> for POWER_PLATFORM_ROLE_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for POWER_PLATFORM_ROLE_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for POWER_PLATFORM_ROLE_VERSION {
     type Output = Self;
@@ -1820,7 +1779,6 @@ impl ::std::cmp::Eq for POWER_POLICY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for POWER_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Power`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1836,7 +1794,6 @@ impl ::std::convert::From<u32> for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
     type Output = Self;
@@ -1899,7 +1856,6 @@ impl ::std::cmp::PartialEq for PROCESSOR_OBJECT_INFO {
 impl ::std::cmp::Eq for PROCESSOR_OBJECT_INFO {}
 unsafe impl ::windows::runtime::Abi for PROCESSOR_OBJECT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1929,7 +1885,6 @@ impl ::std::cmp::PartialEq for PROCESSOR_OBJECT_INFO_EX {
 impl ::std::cmp::Eq for PROCESSOR_OBJECT_INFO_EX {}
 unsafe impl ::windows::runtime::Abi for PROCESSOR_OBJECT_INFO_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1961,7 +1916,6 @@ impl ::std::cmp::PartialEq for PROCESSOR_POWER_POLICY {
 impl ::std::cmp::Eq for PROCESSOR_POWER_POLICY {}
 unsafe impl ::windows::runtime::Abi for PROCESSOR_POWER_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2002,7 +1956,6 @@ impl ::std::cmp::PartialEq for PROCESSOR_POWER_POLICY_INFO {
 impl ::std::cmp::Eq for PROCESSOR_POWER_POLICY_INFO {}
 unsafe impl ::windows::runtime::Abi for PROCESSOR_POWER_POLICY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type PWRSCHEMESENUMPROC = unsafe extern "system" fn(index: u32, namesize: u32, name: super::super::Foundation::PWSTR, descriptionsize: u32, description: super::super::Foundation::PWSTR, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN;
@@ -3070,7 +3023,6 @@ impl ::std::cmp::Eq for SYSTEM_BATTERY_STATE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SYSTEM_BATTERY_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3202,7 +3154,6 @@ impl ::std::cmp::Eq for SYSTEM_POWER_CAPABILITIES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SYSTEM_POWER_CAPABILITIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Power`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3219,7 +3170,6 @@ impl ::std::convert::From<i32> for SYSTEM_POWER_CONDITION {
 }
 unsafe impl ::windows::runtime::Abi for SYSTEM_POWER_CONDITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3257,7 +3207,6 @@ impl ::std::cmp::Eq for SYSTEM_POWER_LEVEL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SYSTEM_POWER_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3374,7 +3323,6 @@ impl ::std::cmp::Eq for SYSTEM_POWER_POLICY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SYSTEM_POWER_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Power`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3395,7 +3343,6 @@ impl ::std::convert::From<i32> for SYSTEM_POWER_STATE {
 }
 unsafe impl ::windows::runtime::Abi for SYSTEM_POWER_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3434,7 +3381,6 @@ impl ::std::cmp::PartialEq for SYSTEM_POWER_STATUS {
 impl ::std::cmp::Eq for SYSTEM_POWER_STATUS {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_POWER_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const SYS_BUTTON_LID: u32 = 4u32;
@@ -3554,7 +3500,6 @@ impl ::std::cmp::Eq for THERMAL_EVENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for THERMAL_EVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const THERMAL_EVENT_VERSION: u32 = 1u32;
@@ -3612,7 +3557,6 @@ impl ::std::cmp::PartialEq for THERMAL_INFORMATION {
 impl ::std::cmp::Eq for THERMAL_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for THERMAL_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3664,7 +3608,6 @@ impl ::std::cmp::Eq for THERMAL_POLICY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for THERMAL_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const THERMAL_POLICY_VERSION_1: u32 = 1u32;
@@ -3697,7 +3640,6 @@ impl ::std::cmp::PartialEq for THERMAL_WAIT_READ {
 impl ::std::cmp::Eq for THERMAL_WAIT_READ {}
 unsafe impl ::windows::runtime::Abi for THERMAL_WAIT_READ {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const TZ_ACTIVATION_REASON_CURRENT: u32 = 2u32;
@@ -3725,7 +3667,6 @@ impl ::std::convert::From<i32> for USB_CHARGER_PORT {
 }
 unsafe impl ::windows::runtime::Abi for USB_CHARGER_PORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3824,7 +3765,6 @@ impl ::std::cmp::Eq for USER_POWER_POLICY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USER_POWER_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
@@ -3897,7 +3837,6 @@ impl ::std::cmp::PartialEq for WAKE_ALARM_INFORMATION {
 impl ::std::cmp::Eq for WAKE_ALARM_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for WAKE_ALARM_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]

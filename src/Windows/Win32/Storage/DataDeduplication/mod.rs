@@ -25,7 +25,6 @@ impl ::std::cmp::PartialEq for DDP_FILE_EXTENT {
 impl ::std::cmp::Eq for DDP_FILE_EXTENT {}
 unsafe impl ::windows::runtime::Abi for DDP_FILE_EXTENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -40,7 +39,6 @@ impl ::std::convert::From<i32> for DEDUP_BACKUP_SUPPORT_PARAM_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DEDUP_BACKUP_SUPPORT_PARAM_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 pub const DEDUP_CHUNKLIB_MAX_CHUNKS_ENUM: u32 = 1024u32;
@@ -72,7 +70,6 @@ impl ::std::cmp::PartialEq for DEDUP_CHUNK_INFO_HASH32 {
 impl ::std::cmp::Eq for DEDUP_CHUNK_INFO_HASH32 {}
 unsafe impl ::windows::runtime::Abi for DEDUP_CHUNK_INFO_HASH32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -101,7 +98,6 @@ impl ::std::cmp::PartialEq for DEDUP_CONTAINER_EXTENT {
 impl ::std::cmp::Eq for DEDUP_CONTAINER_EXTENT {}
 unsafe impl ::windows::runtime::Abi for DEDUP_CONTAINER_EXTENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -119,7 +115,6 @@ impl ::std::convert::From<i32> for DEDUP_SET_PARAM_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DEDUP_SET_PARAM_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const DedupBackupSupport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1943450285, 10628, 18197, [178, 227, 146, 76, 20, 151, 68, 221]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -150,7 +145,6 @@ impl ::std::cmp::PartialEq for DedupChunk {
 impl ::std::cmp::Eq for DedupChunk {}
 unsafe impl ::windows::runtime::Abi for DedupChunk {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -165,7 +159,6 @@ impl ::std::convert::From<i32> for DedupChunkFlags {
 }
 unsafe impl ::windows::runtime::Abi for DedupChunkFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -180,7 +173,6 @@ impl ::std::convert::From<i32> for DedupChunkingAlgorithm {
 }
 unsafe impl ::windows::runtime::Abi for DedupChunkingAlgorithm {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -195,7 +187,6 @@ impl ::std::convert::From<i32> for DedupCompressionAlgorithm {
 }
 unsafe impl ::windows::runtime::Abi for DedupCompressionAlgorithm {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const DedupDataPort: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400219655, 6185, 18610, [166, 75, 230, 31, 142, 13, 154, 203]);
 #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
@@ -212,7 +203,6 @@ impl ::std::convert::From<i32> for DedupDataPortManagerOption {
 }
 unsafe impl ::windows::runtime::Abi for DedupDataPortManagerOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -231,7 +221,6 @@ impl ::std::convert::From<i32> for DedupDataPortRequestStatus {
 }
 unsafe impl ::windows::runtime::Abi for DedupDataPortRequestStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -251,7 +240,6 @@ impl ::std::convert::From<i32> for DedupDataPortVolumeStatus {
 }
 unsafe impl ::windows::runtime::Abi for DedupDataPortVolumeStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -278,7 +266,6 @@ impl ::std::cmp::PartialEq for DedupHash {
 impl ::std::cmp::Eq for DedupHash {}
 unsafe impl ::windows::runtime::Abi for DedupHash {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -293,7 +280,6 @@ impl ::std::convert::From<i32> for DedupHashingAlgorithm {
 }
 unsafe impl ::windows::runtime::Abi for DedupHashingAlgorithm {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -330,7 +316,6 @@ impl ::std::cmp::Eq for DedupStream {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DedupStream {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -359,7 +344,6 @@ impl ::std::cmp::PartialEq for DedupStreamEntry {
 impl ::std::cmp::Eq for DedupStreamEntry {}
 unsafe impl ::windows::runtime::Abi for DedupStreamEntry {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[repr(transparent)]

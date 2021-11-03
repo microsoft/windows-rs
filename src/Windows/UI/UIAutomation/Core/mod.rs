@@ -24,10 +24,12 @@ impl ::std::cmp::PartialEq for AutomationAnnotationTypeRegistration {
 impl ::std::cmp::Eq for AutomationAnnotationTypeRegistration {}
 unsafe impl ::windows::runtime::Abi for AutomationAnnotationTypeRegistration {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AutomationAnnotationTypeRegistration {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.UIAutomation.Core.AutomationAnnotationTypeRegistration;i4)");
+}
+impl ::windows::runtime::DefaultType for AutomationAnnotationTypeRegistration {
+    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -54,10 +56,12 @@ impl ::std::cmp::PartialEq for AutomationRemoteOperationOperandId {
 impl ::std::cmp::Eq for AutomationRemoteOperationOperandId {}
 unsafe impl ::windows::runtime::Abi for AutomationRemoteOperationOperandId {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AutomationRemoteOperationOperandId {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.UIAutomation.Core.AutomationRemoteOperationOperandId;i4)");
+}
+impl ::windows::runtime::DefaultType for AutomationRemoteOperationOperandId {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_UIAutomation_Core`*"]
 #[repr(transparent)]
@@ -135,10 +139,12 @@ impl ::std::convert::From<i32> for AutomationRemoteOperationStatus {
 }
 unsafe impl ::windows::runtime::Abi for AutomationRemoteOperationStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AutomationRemoteOperationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.UIAutomation.Core.AutomationRemoteOperationStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for AutomationRemoteOperationStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_UIAutomation_Core`*"]
 pub struct CoreAutomationRegistrar {}
@@ -198,7 +204,7 @@ impl CoreAutomationRemoteOperation {
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), operandid.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
-    pub fn Execute(&self, bytecodebuffer: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<AutomationRemoteOperationResult> {
+    pub fn Execute(&self, bytecodebuffer: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<AutomationRemoteOperationResult> {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -260,7 +266,6 @@ impl ::windows::runtime::RuntimeName for CoreAutomationRemoteOperationContext {
 unsafe impl ::std::marker::Send for CoreAutomationRemoteOperationContext {}
 unsafe impl ::std::marker::Sync for CoreAutomationRemoteOperationContext {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationRemoteOperationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationRemoteOperationResult {
@@ -315,7 +320,6 @@ pub struct ICoreAutomationConnectionBoundObjectProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreAutomationRegistrarStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreAutomationRegistrarStatics {
@@ -335,7 +339,6 @@ pub struct ICoreAutomationRegistrarStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, registration: AutomationAnnotationTypeRegistration) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreAutomationRemoteOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreAutomationRemoteOperation {
@@ -358,7 +361,6 @@ pub struct ICoreAutomationRemoteOperation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bytecodeBuffer_array_size: u32, bytecodebuffer: *const u8, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreAutomationRemoteOperation2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreAutomationRemoteOperation2 {
@@ -377,7 +379,6 @@ pub struct ICoreAutomationRemoteOperation2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, operandid: AutomationRemoteOperationOperandId, connectionboundobject: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreAutomationRemoteOperationContext(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreAutomationRemoteOperationContext {
@@ -407,7 +408,7 @@ unsafe impl ::windows::runtime::Interface for ICoreAutomationRemoteOperationExte
 }
 impl ICoreAutomationRemoteOperationExtensionProvider {
     #[doc = "*Required features: `UI_UIAutomation_Core`*"]
-    pub fn CallExtension<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param1: ::windows::runtime::IntoParam<'a, CoreAutomationRemoteOperationContext>>(&self, extensionid: Param0, context: Param1, operandids: &[<AutomationRemoteOperationOperandId as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn CallExtension<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param1: ::windows::runtime::IntoParam<'a, CoreAutomationRemoteOperationContext>>(&self, extensionid: Param0, context: Param1, operandids: &[<AutomationRemoteOperationOperandId as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), extensionid.into_param().abi(), context.into_param().abi(), operandids.len() as u32, ::std::mem::transmute(operandids.as_ptr())).ok() }
     }
@@ -436,7 +437,6 @@ pub struct ICoreAutomationRemoteOperationExtensionProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, extensionid: ::windows::runtime::GUID, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteAutomationClientSession(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteAutomationClientSession {
@@ -467,7 +467,6 @@ pub struct IRemoteAutomationClientSession_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteAutomationClientSessionFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteAutomationClientSessionFactory {
@@ -487,7 +486,6 @@ pub struct IRemoteAutomationClientSessionFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, sessionid: ::windows::runtime::GUID, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteAutomationConnectionRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteAutomationConnectionRequestedEventArgs {
@@ -507,7 +505,6 @@ pub struct IRemoteAutomationConnectionRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteAutomationDisconnectedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteAutomationDisconnectedEventArgs {
@@ -526,7 +523,6 @@ pub struct IRemoteAutomationDisconnectedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteAutomationServerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteAutomationServerStatics {
@@ -545,7 +541,6 @@ pub struct IRemoteAutomationServerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sessionid: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteAutomationWindow(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteAutomationWindow {

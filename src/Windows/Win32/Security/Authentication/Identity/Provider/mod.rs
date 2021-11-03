@@ -13,7 +13,6 @@ impl ::std::convert::From<i32> for ACCOUNT_STATE {
 }
 unsafe impl ::windows::runtime::Abi for ACCOUNT_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
@@ -568,7 +567,6 @@ impl ::std::convert::From<i32> for IDENTITY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for IDENTITY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -588,7 +586,6 @@ impl ::std::convert::From<i32> for IDENTITY_URL {
 }
 unsafe impl ::windows::runtime::Abi for IDENTITY_URL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
@@ -824,7 +821,6 @@ impl ::std::convert::From<u32> for IdentityUpdateEvent {
 }
 unsafe impl ::windows::runtime::Abi for IdentityUpdateEvent {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for IdentityUpdateEvent {
     type Output = Self;

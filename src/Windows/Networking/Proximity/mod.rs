@@ -95,7 +95,7 @@ impl<F: FnMut(&::std::option::Option<ProximityDevice>) -> ::windows::runtime::Re
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <ProximityDevice as ::windows::runtime::Abi>::Abi as *const <ProximityDevice as ::windows::runtime::Abi>::DefaultType)).into()
+        ((*this).invoke)(&*(&sender as *const <ProximityDevice as ::windows::runtime::Abi>::Abi as *const <ProximityDevice as ::windows::runtime::DefaultType>::DefaultType)).into()
     }
 }
 #[doc = "*Required features: `Networking_Proximity`*"]
@@ -168,11 +168,10 @@ impl<F: FnMut(&::std::option::Option<ProximityDevice>) -> ::windows::runtime::Re
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <ProximityDevice as ::windows::runtime::Abi>::Abi as *const <ProximityDevice as ::windows::runtime::Abi>::DefaultType)).into()
+        ((*this).invoke)(&*(&sender as *const <ProximityDevice as ::windows::runtime::Abi>::Abi as *const <ProximityDevice as ::windows::runtime::DefaultType>::DefaultType)).into()
     }
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConnectionRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectionRequestedEventArgs {
@@ -191,7 +190,6 @@ pub struct IConnectionRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPeerFinderStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPeerFinderStatics {
@@ -235,7 +233,6 @@ pub struct IPeerFinderStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Networking_Sockets")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPeerFinderStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPeerFinderStatics2 {
@@ -260,7 +257,6 @@ pub struct IPeerFinderStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPeerInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPeerInformation {
@@ -279,7 +275,6 @@ pub struct IPeerInformation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPeerInformation3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPeerInformation3 {
@@ -300,7 +295,6 @@ pub struct IPeerInformation3_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPeerInformationWithHostAndService(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPeerInformationWithHostAndService {
@@ -320,7 +314,6 @@ pub struct IPeerInformationWithHostAndService_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPeerWatcher(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPeerWatcher {
@@ -361,7 +354,6 @@ pub struct IPeerWatcher_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProximityDevice(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProximityDevice {
@@ -403,7 +395,6 @@ pub struct IProximityDevice_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProximityDeviceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProximityDeviceStatics {
@@ -424,7 +415,6 @@ pub struct IProximityDeviceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProximityMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProximityMessage {
@@ -447,7 +437,6 @@ pub struct IProximityMessage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITriggeredConnectionStateChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITriggeredConnectionStateChangedEventArgs {
@@ -538,7 +527,7 @@ impl<F: FnMut(&::std::option::Option<ProximityDevice>, &::std::option::Option<Pr
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, message: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <ProximityDevice as ::windows::runtime::Abi>::Abi as *const <ProximityDevice as ::windows::runtime::Abi>::DefaultType), &*(&message as *const <ProximityMessage as ::windows::runtime::Abi>::Abi as *const <ProximityMessage as ::windows::runtime::Abi>::DefaultType)).into()
+        ((*this).invoke)(&*(&sender as *const <ProximityDevice as ::windows::runtime::Abi>::Abi as *const <ProximityDevice as ::windows::runtime::DefaultType>::DefaultType), &*(&message as *const <ProximityMessage as ::windows::runtime::Abi>::Abi as *const <ProximityMessage as ::windows::runtime::DefaultType>::DefaultType)).into()
     }
 }
 #[doc = "*Required features: `Networking_Proximity`*"]
@@ -611,7 +600,7 @@ impl<F: FnMut(&::std::option::Option<ProximityDevice>, i64) -> ::windows::runtim
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, messageid: i64) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <ProximityDevice as ::windows::runtime::Abi>::Abi as *const <ProximityDevice as ::windows::runtime::Abi>::DefaultType), messageid).into()
+        ((*this).invoke)(&*(&sender as *const <ProximityDevice as ::windows::runtime::Abi>::Abi as *const <ProximityDevice as ::windows::runtime::DefaultType>::DefaultType), messageid).into()
     }
 }
 #[doc = "*Required features: `Networking_Proximity`*"]
@@ -630,10 +619,12 @@ impl ::std::convert::From<u32> for PeerDiscoveryTypes {
 }
 unsafe impl ::windows::runtime::Abi for PeerDiscoveryTypes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PeerDiscoveryTypes {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerDiscoveryTypes;u4)");
+}
+impl ::windows::runtime::DefaultType for PeerDiscoveryTypes {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PeerDiscoveryTypes {
     type Output = Self;
@@ -897,10 +888,12 @@ impl ::std::convert::From<i32> for PeerRole {
 }
 unsafe impl ::windows::runtime::Abi for PeerRole {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PeerRole {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerRole;i4)");
+}
+impl ::windows::runtime::DefaultType for PeerRole {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Proximity`*"]
 #[repr(transparent)]
@@ -1032,10 +1025,12 @@ impl ::std::convert::From<i32> for PeerWatcherStatus {
 }
 unsafe impl ::windows::runtime::Abi for PeerWatcherStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PeerWatcherStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerWatcherStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for PeerWatcherStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Proximity`*"]
 #[repr(transparent)]
@@ -1274,10 +1269,12 @@ impl ::std::convert::From<i32> for TriggeredConnectState {
 }
 unsafe impl ::windows::runtime::Abi for TriggeredConnectState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TriggeredConnectState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.TriggeredConnectState;i4)");
+}
+impl ::windows::runtime::DefaultType for TriggeredConnectState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Proximity`*"]
 #[repr(transparent)]

@@ -371,7 +371,6 @@ impl ::std::cmp::PartialEq for INPUT_INJECTION_VALUE {
 impl ::std::cmp::Eq for INPUT_INJECTION_VALUE {}
 unsafe impl ::windows::runtime::Abi for INPUT_INJECTION_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -393,7 +392,6 @@ impl ::std::cmp::PartialEq for INPUT_TRANSFORM {
 impl ::std::cmp::Eq for INPUT_TRANSFORM {}
 unsafe impl ::windows::runtime::Abi for INPUT_TRANSFORM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -416,7 +414,6 @@ impl ::std::cmp::PartialEq for INPUT_TRANSFORM_0 {
 impl ::std::cmp::Eq for INPUT_TRANSFORM_0 {}
 unsafe impl ::windows::runtime::Abi for INPUT_TRANSFORM_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -475,7 +472,6 @@ impl ::std::cmp::PartialEq for INPUT_TRANSFORM_0_0 {
 impl ::std::cmp::Eq for INPUT_TRANSFORM_0_0 {}
 unsafe impl ::windows::runtime::Abi for INPUT_TRANSFORM_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Pointer`, `Win32_Foundation`*"]
@@ -559,7 +555,6 @@ impl ::std::convert::From<i32> for POINTER_BUTTON_CHANGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for POINTER_BUTTON_CHANGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Pointer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -591,7 +586,6 @@ impl ::std::convert::From<u32> for POINTER_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for POINTER_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for POINTER_FLAGS {
     type Output = Self;
@@ -700,7 +694,6 @@ impl ::std::cmp::Eq for POINTER_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for POINTER_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -740,7 +733,6 @@ impl ::std::cmp::Eq for POINTER_PEN_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for POINTER_PEN_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -788,7 +780,6 @@ impl ::std::cmp::Eq for POINTER_TOUCH_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for POINTER_TOUCH_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Pointer`, `Win32_Foundation`*"]
@@ -819,7 +810,6 @@ impl ::std::convert::From<u32> for TOUCH_FEEDBACK_MODE {
 }
 unsafe impl ::windows::runtime::Abi for TOUCH_FEEDBACK_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for TOUCH_FEEDBACK_MODE {
     type Output = Self;

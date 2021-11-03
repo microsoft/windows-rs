@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPreallocatedWorkItem(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPreallocatedWorkItem {
@@ -20,7 +19,6 @@ pub struct IPreallocatedWorkItem_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPreallocatedWorkItemFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPreallocatedWorkItemFactory {
@@ -44,7 +42,6 @@ pub struct IPreallocatedWorkItemFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISignalNotifier(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISignalNotifier {
@@ -64,7 +61,6 @@ pub struct ISignalNotifier_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISignalNotifierStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISignalNotifierStatics {
@@ -212,7 +208,7 @@ impl<F: FnMut(&::std::option::Option<SignalNotifier>, bool) -> ::windows::runtim
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, signalnotifier: ::windows::runtime::RawPtr, timedout: bool) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&signalnotifier as *const <SignalNotifier as ::windows::runtime::Abi>::Abi as *const <SignalNotifier as ::windows::runtime::Abi>::DefaultType), timedout).into()
+        ((*this).invoke)(&*(&signalnotifier as *const <SignalNotifier as ::windows::runtime::Abi>::Abi as *const <SignalNotifier as ::windows::runtime::DefaultType>::DefaultType), timedout).into()
     }
 }
 #[doc = "*Required features: `System_Threading_Core`*"]

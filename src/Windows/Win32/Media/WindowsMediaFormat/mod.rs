@@ -25,7 +25,6 @@ impl ::std::cmp::PartialEq for AM_WMT_EVENT_DATA {
 impl ::std::cmp::Eq for AM_WMT_EVENT_DATA {}
 unsafe impl ::windows::runtime::Abi for AM_WMT_EVENT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const CLSID_ClientNetManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3440550862, 40002, 4562, [190, 237, 0, 96, 8, 47, 32, 84]);
 pub const CLSID_WMBandwidthSharing_Exclusive: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2942329002, 20887, 4562, [182, 175, 0, 192, 79, 217, 8, 233]);
@@ -61,7 +60,6 @@ impl ::std::cmp::PartialEq for DRM_COPY_OPL {
 impl ::std::cmp::Eq for DRM_COPY_OPL {}
 unsafe impl ::windows::runtime::Abi for DRM_COPY_OPL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -98,7 +96,6 @@ impl ::std::cmp::PartialEq for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
 impl ::std::cmp::Eq for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {}
 unsafe impl ::windows::runtime::Abi for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -126,7 +123,6 @@ impl ::std::cmp::PartialEq for DRM_OPL_OUTPUT_IDS {
 impl ::std::cmp::Eq for DRM_OPL_OUTPUT_IDS {}
 unsafe impl ::windows::runtime::Abi for DRM_OPL_OUTPUT_IDS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const DRM_OPL_TYPES: u32 = 1u32;
@@ -156,7 +152,6 @@ impl ::std::cmp::PartialEq for DRM_OUTPUT_PROTECTION {
 impl ::std::cmp::Eq for DRM_OUTPUT_PROTECTION {}
 unsafe impl ::windows::runtime::Abi for DRM_OUTPUT_PROTECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -185,7 +180,6 @@ impl ::std::cmp::PartialEq for DRM_PLAY_OPL {
 impl ::std::cmp::Eq for DRM_PLAY_OPL {}
 unsafe impl ::windows::runtime::Abi for DRM_PLAY_OPL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -212,7 +206,6 @@ impl ::std::cmp::PartialEq for DRM_VAL16 {
 impl ::std::cmp::Eq for DRM_VAL16 {}
 unsafe impl ::windows::runtime::Abi for DRM_VAL16 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -240,7 +233,6 @@ impl ::std::cmp::PartialEq for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
 impl ::std::cmp::Eq for DRM_VIDEO_OUTPUT_PROTECTION_IDS {}
 unsafe impl ::windows::runtime::Abi for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[repr(transparent)]
@@ -10011,7 +10003,6 @@ impl ::std::convert::From<i32> for NETSOURCE_URLCREDPOLICY_SETTINGS {
 }
 unsafe impl ::windows::runtime::Abi for NETSOURCE_URLCREDPOLICY_SETTINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10026,7 +10017,6 @@ impl ::std::convert::From<i32> for WEBSTREAM_SAMPLE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WEBSTREAM_SAMPLE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[inline]
@@ -10213,7 +10203,6 @@ impl ::std::cmp::PartialEq for WMDRM_IMPORT_INIT_STRUCT {
 impl ::std::cmp::Eq for WMDRM_IMPORT_INIT_STRUCT {}
 unsafe impl ::windows::runtime::Abi for WMDRM_IMPORT_INIT_STRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMDRM_IMPORT_INIT_STRUCT_DEFINED: u32 = 1u32;
@@ -10331,7 +10320,6 @@ impl ::std::cmp::Eq for WMMPEG2VIDEOINFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for WMMPEG2VIDEOINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10358,7 +10346,6 @@ impl ::std::cmp::PartialEq for WMSCRIPTFORMAT {
 impl ::std::cmp::Eq for WMSCRIPTFORMAT {}
 unsafe impl ::windows::runtime::Abi for WMSCRIPTFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WMSCRIPTTYPE_TwoStrings: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2196998768, 49823, 4561, [151, 173, 0, 160, 201, 94, 168, 80]);
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
@@ -10379,7 +10366,6 @@ impl ::std::convert::From<i32> for WMT_ATTR_DATATYPE {
 }
 unsafe impl ::windows::runtime::Abi for WMT_ATTR_DATATYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10395,7 +10381,6 @@ impl ::std::convert::From<i32> for WMT_ATTR_IMAGETYPE {
 }
 unsafe impl ::windows::runtime::Abi for WMT_ATTR_IMAGETYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -10424,7 +10409,6 @@ impl ::std::cmp::PartialEq for WMT_BUFFER_SEGMENT {
 impl ::std::cmp::Eq for WMT_BUFFER_SEGMENT {}
 unsafe impl ::windows::runtime::Abi for WMT_BUFFER_SEGMENT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10440,7 +10424,6 @@ impl ::std::convert::From<i32> for WMT_CODEC_INFO_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WMT_CODEC_INFO_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10469,7 +10452,6 @@ impl ::std::cmp::PartialEq for WMT_COLORSPACEINFO_EXTENSION_DATA {
 impl ::std::cmp::Eq for WMT_COLORSPACEINFO_EXTENSION_DATA {}
 unsafe impl ::windows::runtime::Abi for WMT_COLORSPACEINFO_EXTENSION_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10487,7 +10469,6 @@ impl ::std::convert::From<i32> for WMT_CREDENTIAL_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for WMT_CREDENTIAL_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WMT_DMOCATEGORY_AUDIO_WATERMARK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1696734298, 64117, 19257, [181, 12, 6, 195, 54, 182, 163, 239]);
 pub const WMT_DMOCATEGORY_VIDEO_WATERMARK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(410831138, 36604, 17412, [157, 175, 99, 244, 131, 13, 241, 188]);
@@ -10505,7 +10486,6 @@ impl ::std::convert::From<i32> for WMT_DRMLA_TRUST {
 }
 unsafe impl ::windows::runtime::Abi for WMT_DRMLA_TRUST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -10542,7 +10522,6 @@ impl ::std::cmp::PartialEq for WMT_FILESINK_DATA_UNIT {
 impl ::std::cmp::Eq for WMT_FILESINK_DATA_UNIT {}
 unsafe impl ::windows::runtime::Abi for WMT_FILESINK_DATA_UNIT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10558,7 +10537,6 @@ impl ::std::convert::From<i32> for WMT_FILESINK_MODE {
 }
 unsafe impl ::windows::runtime::Abi for WMT_FILESINK_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10575,7 +10553,6 @@ impl ::std::convert::From<i32> for WMT_IMAGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WMT_IMAGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10591,7 +10568,6 @@ impl ::std::convert::From<i32> for WMT_INDEXER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WMT_INDEXER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10607,7 +10583,6 @@ impl ::std::convert::From<i32> for WMT_INDEX_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WMT_INDEX_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10623,7 +10598,6 @@ impl ::std::convert::From<i32> for WMT_MUSICSPEECH_CLASS_MODE {
 }
 unsafe impl ::windows::runtime::Abi for WMT_MUSICSPEECH_CLASS_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10637,7 +10611,6 @@ impl ::std::convert::From<i32> for WMT_NET_PROTOCOL {
 }
 unsafe impl ::windows::runtime::Abi for WMT_NET_PROTOCOL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10655,7 +10628,6 @@ impl ::std::convert::From<i32> for WMT_OFFSET_FORMAT {
 }
 unsafe impl ::windows::runtime::Abi for WMT_OFFSET_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -10683,7 +10655,6 @@ impl ::std::cmp::PartialEq for WMT_PAYLOAD_FRAGMENT {
 impl ::std::cmp::Eq for WMT_PAYLOAD_FRAGMENT {}
 unsafe impl ::windows::runtime::Abi for WMT_PAYLOAD_FRAGMENT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10700,7 +10671,6 @@ impl ::std::convert::From<i32> for WMT_PLAY_MODE {
 }
 unsafe impl ::windows::runtime::Abi for WMT_PLAY_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10718,7 +10688,6 @@ impl ::std::convert::From<i32> for WMT_PROXY_SETTINGS {
 }
 unsafe impl ::windows::runtime::Abi for WMT_PROXY_SETTINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10741,7 +10710,6 @@ impl ::std::convert::From<i32> for WMT_RIGHTS {
 }
 unsafe impl ::windows::runtime::Abi for WMT_RIGHTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10807,7 +10775,6 @@ impl ::std::convert::From<i32> for WMT_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for WMT_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10822,7 +10789,6 @@ impl ::std::convert::From<i32> for WMT_STORAGE_FORMAT {
 }
 unsafe impl ::windows::runtime::Abi for WMT_STORAGE_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10838,7 +10804,6 @@ impl ::std::convert::From<i32> for WMT_STREAM_SELECTION {
 }
 unsafe impl ::windows::runtime::Abi for WMT_STREAM_SELECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
@@ -10863,7 +10828,6 @@ impl ::std::cmp::PartialEq for WMT_TIMECODE_EXTENSION_DATA {
 impl ::std::cmp::Eq for WMT_TIMECODE_EXTENSION_DATA {}
 unsafe impl ::windows::runtime::Abi for WMT_TIMECODE_EXTENSION_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10880,7 +10844,6 @@ impl ::std::convert::From<i32> for WMT_TIMECODE_FRAMERATE {
 }
 unsafe impl ::windows::runtime::Abi for WMT_TIMECODE_FRAMERATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10895,7 +10858,6 @@ impl ::std::convert::From<i32> for WMT_TRANSPORT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WMT_TRANSPORT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10912,7 +10874,6 @@ impl ::std::convert::From<i32> for WMT_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for WMT_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_INTEGER_DENOMINATOR: i32 = 65536i32;
@@ -11007,7 +10968,6 @@ impl ::std::cmp::PartialEq for WMT_VIDEOIMAGE_SAMPLE {
 impl ::std::cmp::Eq for WMT_VIDEOIMAGE_SAMPLE {}
 unsafe impl ::windows::runtime::Abi for WMT_VIDEOIMAGE_SAMPLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11121,7 +11081,6 @@ impl ::std::cmp::Eq for WMT_VIDEOIMAGE_SAMPLE2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WMT_VIDEOIMAGE_SAMPLE2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WMT_VIDEOIMAGE_SAMPLE_ADV_BLENDING: u32 = 8u32;
@@ -11208,7 +11167,6 @@ impl ::std::cmp::Eq for WMT_WATERMARK_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WMT_WATERMARK_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11223,7 +11181,6 @@ impl ::std::convert::From<i32> for WMT_WATERMARK_ENTRY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WMT_WATERMARK_ENTRY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11253,7 +11210,6 @@ impl ::std::cmp::PartialEq for WMT_WEBSTREAM_FORMAT {
 impl ::std::cmp::Eq for WMT_WEBSTREAM_FORMAT {}
 unsafe impl ::windows::runtime::Abi for WMT_WEBSTREAM_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11284,7 +11240,6 @@ impl ::std::cmp::PartialEq for WMT_WEBSTREAM_SAMPLE_HEADER {
 impl ::std::cmp::Eq for WMT_WEBSTREAM_SAMPLE_HEADER {}
 unsafe impl ::windows::runtime::Abi for WMT_WEBSTREAM_SAMPLE_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11323,7 +11278,6 @@ impl ::std::cmp::Eq for WMVIDEOINFOHEADER {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for WMVIDEOINFOHEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11392,7 +11346,6 @@ impl ::std::cmp::Eq for WMVIDEOINFOHEADER2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for WMVIDEOINFOHEADER2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11420,7 +11373,6 @@ impl ::std::cmp::PartialEq for WM_ADDRESS_ACCESSENTRY {
 impl ::std::cmp::Eq for WM_ADDRESS_ACCESSENTRY {}
 unsafe impl ::windows::runtime::Abi for WM_ADDRESS_ACCESSENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11435,7 +11387,6 @@ impl ::std::convert::From<i32> for WM_AETYPE {
 }
 unsafe impl ::windows::runtime::Abi for WM_AETYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11463,7 +11414,6 @@ impl ::std::cmp::PartialEq for WM_CLIENT_PROPERTIES {
 impl ::std::cmp::Eq for WM_CLIENT_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for WM_CLIENT_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11500,7 +11450,6 @@ impl ::std::cmp::Eq for WM_CLIENT_PROPERTIES_EX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WM_CLIENT_PROPERTIES_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WM_CL_INTERLACED420: u32 = 0u32;
@@ -11531,7 +11480,6 @@ impl ::std::convert::From<i32> for WM_DM_INTERLACED_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WM_DM_INTERLACED_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11555,7 +11503,6 @@ impl ::std::convert::From<i32> for WM_DM_IT_FIRST_FRAME_COHERENCY {
 }
 unsafe impl ::windows::runtime::Abi for WM_DM_IT_FIRST_FRAME_COHERENCY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -11578,7 +11525,6 @@ impl ::std::cmp::PartialEq for WM_LEAKY_BUCKET_PAIR {
 impl ::std::cmp::Eq for WM_LEAKY_BUCKET_PAIR {}
 unsafe impl ::windows::runtime::Abi for WM_LEAKY_BUCKET_PAIR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const WM_MAX_STREAMS: u32 = 63u32;
@@ -11634,7 +11580,6 @@ impl ::std::cmp::Eq for WM_MEDIA_TYPE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WM_MEDIA_TYPE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -11666,7 +11611,6 @@ impl ::std::cmp::Eq for WM_PICTURE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WM_PICTURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11682,7 +11626,6 @@ impl ::std::convert::From<i32> for WM_PLAYBACK_DRC_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for WM_PLAYBACK_DRC_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11710,7 +11653,6 @@ impl ::std::cmp::PartialEq for WM_PORT_NUMBER_RANGE {
 impl ::std::cmp::Eq for WM_PORT_NUMBER_RANGE {}
 unsafe impl ::windows::runtime::Abi for WM_PORT_NUMBER_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11762,7 +11704,6 @@ impl ::std::cmp::Eq for WM_READER_CLIENTINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WM_READER_CLIENTINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11794,7 +11735,6 @@ impl ::std::cmp::PartialEq for WM_READER_STATISTICS {
 impl ::std::cmp::Eq for WM_READER_STATISTICS {}
 unsafe impl ::windows::runtime::Abi for WM_READER_STATISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11809,7 +11749,6 @@ impl ::std::convert::From<i32> for WM_SFEX_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WM_SFEX_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11825,7 +11764,6 @@ impl ::std::convert::From<i32> for WM_SF_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WM_SF_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
@@ -11854,7 +11792,6 @@ impl ::std::cmp::Eq for WM_STREAM_PRIORITY_RECORD {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WM_STREAM_PRIORITY_RECORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -11877,7 +11814,6 @@ impl ::std::cmp::PartialEq for WM_STREAM_TYPE_INFO {
 impl ::std::cmp::Eq for WM_STREAM_TYPE_INFO {}
 unsafe impl ::windows::runtime::Abi for WM_STREAM_TYPE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -11909,7 +11845,6 @@ impl ::std::cmp::Eq for WM_SYNCHRONISED_LYRICS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WM_SYNCHRONISED_LYRICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WM_SampleExtensionGUID_ChromaLocation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1281019040, 37494, 19244, [158, 76, 160, 237, 239, 221, 33, 126]);
 pub const WM_SampleExtensionGUID_ColorSpaceInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4154120790, 12523, 20267, [159, 122, 242, 75, 19, 154, 17, 87]);
@@ -11960,7 +11895,6 @@ impl ::std::cmp::Eq for WM_USER_TEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WM_USER_TEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -11989,7 +11923,6 @@ impl ::std::cmp::Eq for WM_USER_WEB_URL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WM_USER_WEB_URL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12045,7 +11978,6 @@ impl ::std::cmp::PartialEq for WM_WRITER_STATISTICS {
 impl ::std::cmp::Eq for WM_WRITER_STATISTICS {}
 unsafe impl ::windows::runtime::Abi for WM_WRITER_STATISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12092,7 +12024,6 @@ impl ::std::cmp::PartialEq for WM_WRITER_STATISTICS_EX {
 impl ::std::cmp::Eq for WM_WRITER_STATISTICS_EX {}
 unsafe impl ::windows::runtime::Abi for WM_WRITER_STATISTICS_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12108,7 +12039,6 @@ impl ::std::convert::From<i32> for _AM_ASFWRITERCONFIG_PARAM {
 }
 unsafe impl ::windows::runtime::Abi for _AM_ASFWRITERCONFIG_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`*"]
 pub const g_dwWMContentAttributes: u32 = 5u32;

@@ -374,10 +374,12 @@ impl ::std::convert::From<u32> for AccessoryNotificationType {
 }
 unsafe impl ::windows::runtime::Abi for AccessoryNotificationType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AccessoryNotificationType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.AccessoryNotificationType;u4)");
+}
+impl ::windows::runtime::DefaultType for AccessoryNotificationType {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for AccessoryNotificationType {
     type Output = Self;
@@ -616,10 +618,12 @@ impl ::std::convert::From<i32> for CalendarChangedEvent {
 }
 unsafe impl ::windows::runtime::Abi for CalendarChangedEvent {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CalendarChangedEvent {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.CalendarChangedEvent;i4)");
+}
+impl ::windows::runtime::DefaultType for CalendarChangedEvent {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
@@ -1208,7 +1212,6 @@ impl<'a> ::windows::runtime::IntoParam<'a, IAccessoryNotificationTriggerDetails>
     }
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAccessoryManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccessoryManager {
@@ -1275,7 +1278,6 @@ pub struct IAccessoryManager_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAccessoryManager2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccessoryManager2 {
@@ -1312,7 +1314,6 @@ pub struct IAccessoryManager2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, messageentryid: ::windows::runtime::RawPtr, isread: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAccessoryManager3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccessoryManager3 {
@@ -1410,7 +1411,6 @@ pub struct IAccessoryNotificationTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAlarmNotificationTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAlarmNotificationTriggerDetails {
@@ -1433,7 +1433,6 @@ pub struct IAlarmNotificationTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ReminderState) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAlarmNotificationTriggerDetails2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAlarmNotificationTriggerDetails2 {
@@ -1452,7 +1451,6 @@ pub struct IAlarmNotificationTriggerDetails2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppNotificationInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppNotificationInfo {
@@ -1472,7 +1470,6 @@ pub struct IAppNotificationInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBinaryId(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBinaryId {
@@ -1492,7 +1489,6 @@ pub struct IBinaryId_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICalendarChangedNotificationTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICalendarChangedNotificationTriggerDetails {
@@ -1512,7 +1508,6 @@ pub struct ICalendarChangedNotificationTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICortanaTileNotificationTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICortanaTileNotificationTriggerDetails {
@@ -1540,7 +1535,6 @@ pub struct ICortanaTileNotificationTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailAccountInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailAccountInfo {
@@ -1560,7 +1554,6 @@ pub struct IEmailAccountInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailFolderInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailFolderInfo {
@@ -1580,7 +1573,6 @@ pub struct IEmailFolderInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailNotificationTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailNotificationTriggerDetails {
@@ -1606,7 +1598,6 @@ pub struct IEmailNotificationTriggerDetails_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailNotificationTriggerDetails2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailNotificationTriggerDetails2 {
@@ -1625,7 +1616,6 @@ pub struct IEmailNotificationTriggerDetails2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailReadNotificationTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailReadNotificationTriggerDetails {
@@ -1647,7 +1637,6 @@ pub struct IEmailReadNotificationTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaControlsTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaControlsTriggerDetails {
@@ -1667,7 +1656,6 @@ pub struct IMediaControlsTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaMetadata(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaMetadata {
@@ -1694,7 +1682,6 @@ pub struct IMediaMetadata_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneCallDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallDetails {
@@ -1727,7 +1714,6 @@ pub struct IPhoneCallDetails_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneLineDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLineDetails {
@@ -1751,7 +1737,6 @@ pub struct IPhoneLineDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut PhoneLineRegistrationState) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneLineDetails2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLineDetails2 {
@@ -1770,7 +1755,6 @@ pub struct IPhoneLineDetails2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneNotificationTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneNotificationTriggerDetails {
@@ -1791,7 +1775,6 @@ pub struct IPhoneNotificationTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IReminderNotificationTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IReminderNotificationTriggerDetails {
@@ -1818,7 +1801,6 @@ pub struct IReminderNotificationTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ReminderState) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IReminderNotificationTriggerDetails2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IReminderNotificationTriggerDetails2 {
@@ -1837,7 +1819,6 @@ pub struct IReminderNotificationTriggerDetails2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeedDialEntry(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeedDialEntry {
@@ -1858,7 +1839,6 @@ pub struct ISpeedDialEntry_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITextResponse(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextResponse {
@@ -1878,7 +1858,6 @@ pub struct ITextResponse_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastNotificationTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationTriggerDetails {
@@ -1901,7 +1880,6 @@ pub struct IToastNotificationTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastNotificationTriggerDetails2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationTriggerDetails2 {
@@ -1920,7 +1898,6 @@ pub struct IToastNotificationTriggerDetails2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVolumeInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVolumeInfo {
@@ -2132,10 +2109,12 @@ impl ::std::convert::From<i32> for PhoneCallAudioEndpoint {
 }
 unsafe impl ::windows::runtime::Abi for PhoneCallAudioEndpoint {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneCallAudioEndpoint {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneCallAudioEndpoint;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneCallAudioEndpoint {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
@@ -2267,10 +2246,12 @@ impl ::std::convert::From<i32> for PhoneCallDirection {
 }
 unsafe impl ::windows::runtime::Abi for PhoneCallDirection {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneCallDirection {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneCallDirection;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneCallDirection {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2290,10 +2271,12 @@ impl ::std::convert::From<i32> for PhoneCallState {
 }
 unsafe impl ::windows::runtime::Abi for PhoneCallState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneCallState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneCallState;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneCallState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2310,10 +2293,12 @@ impl ::std::convert::From<i32> for PhoneCallTransport {
 }
 unsafe impl ::windows::runtime::Abi for PhoneCallTransport {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneCallTransport {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneCallTransport;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneCallTransport {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
@@ -2403,10 +2388,12 @@ impl ::std::convert::From<i32> for PhoneLineRegistrationState {
 }
 unsafe impl ::windows::runtime::Abi for PhoneLineRegistrationState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneLineRegistrationState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneLineRegistrationState;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneLineRegistrationState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2423,10 +2410,12 @@ impl ::std::convert::From<i32> for PhoneMediaType {
 }
 unsafe impl ::windows::runtime::Abi for PhoneMediaType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneMediaType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneMediaType;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneMediaType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
@@ -2554,10 +2543,12 @@ impl ::std::convert::From<i32> for PhoneNotificationType {
 }
 unsafe impl ::windows::runtime::Abi for PhoneNotificationType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneNotificationType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneNotificationType;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneNotificationType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2583,10 +2574,12 @@ impl ::std::convert::From<u32> for PlaybackCapability {
 }
 unsafe impl ::windows::runtime::Abi for PlaybackCapability {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PlaybackCapability {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PlaybackCapability;u4)");
+}
+impl ::windows::runtime::DefaultType for PlaybackCapability {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PlaybackCapability {
     type Output = Self;
@@ -2639,10 +2632,12 @@ impl ::std::convert::From<i32> for PlaybackCommand {
 }
 unsafe impl ::windows::runtime::Abi for PlaybackCommand {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PlaybackCommand {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PlaybackCommand;i4)");
+}
+impl ::windows::runtime::DefaultType for PlaybackCommand {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2662,10 +2657,12 @@ impl ::std::convert::From<i32> for PlaybackStatus {
 }
 unsafe impl ::windows::runtime::Abi for PlaybackStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PlaybackStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PlaybackStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for PlaybackStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
@@ -2833,10 +2830,12 @@ impl ::std::convert::From<i32> for ReminderState {
 }
 unsafe impl ::windows::runtime::Abi for ReminderState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ReminderState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.ReminderState;i4)");
+}
+impl ::windows::runtime::DefaultType for ReminderState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]
@@ -3059,10 +3058,12 @@ impl ::std::convert::From<i32> for VibrateState {
 }
 unsafe impl ::windows::runtime::Abi for VibrateState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VibrateState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.VibrateState;i4)");
+}
+impl ::windows::runtime::DefaultType for VibrateState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Phone_Notification_Management`*"]
 #[repr(transparent)]

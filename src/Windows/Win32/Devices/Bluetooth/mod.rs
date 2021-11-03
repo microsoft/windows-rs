@@ -37,7 +37,6 @@ impl ::std::convert::From<i32> for AUTHENTICATION_REQUIREMENTS {
 }
 unsafe impl ::windows::runtime::Abi for AUTHENTICATION_REQUIREMENTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const AVCTP_PROTOCOL_UUID16: u32 = 23u32;
@@ -171,7 +170,6 @@ impl ::std::cmp::PartialEq for BLUETOOTH_ADDRESS {
 impl ::std::cmp::Eq for BLUETOOTH_ADDRESS {}
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_ADDRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -194,7 +192,6 @@ impl ::std::cmp::PartialEq for BLUETOOTH_ADDRESS_0 {
 impl ::std::cmp::Eq for BLUETOOTH_ADDRESS_0 {}
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_ADDRESS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -219,7 +216,6 @@ impl ::std::cmp::PartialEq for BLUETOOTH_AUTHENTICATE_RESPONSE {
 impl ::std::cmp::Eq for BLUETOOTH_AUTHENTICATE_RESPONSE {}
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_AUTHENTICATE_RESPONSE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -244,7 +240,6 @@ impl ::std::cmp::PartialEq for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
 impl ::std::cmp::Eq for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {}
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -276,7 +271,6 @@ impl ::std::cmp::Eq for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -299,7 +293,6 @@ impl ::std::cmp::PartialEq for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
 impl ::std::cmp::Eq for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {}
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -317,7 +310,6 @@ impl ::std::convert::From<i32> for BLUETOOTH_AUTHENTICATION_METHOD {
 }
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_AUTHENTICATION_METHOD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -337,7 +329,6 @@ impl ::std::convert::From<i32> for BLUETOOTH_AUTHENTICATION_REQUIREMENTS {
 }
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_AUTHENTICATION_REQUIREMENTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -372,7 +363,6 @@ impl ::std::cmp::Eq for BLUETOOTH_COD_PAIRS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_COD_PAIRS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -408,7 +398,6 @@ impl ::std::cmp::Eq for BLUETOOTH_DEVICE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_DEVICE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BLUETOOTH_DEVICE_NAME_SIZE: u32 = 256u32;
@@ -460,7 +449,6 @@ impl ::std::cmp::Eq for BLUETOOTH_DEVICE_SEARCH_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_DEVICE_SEARCH_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -487,7 +475,6 @@ impl ::std::cmp::PartialEq for BLUETOOTH_FIND_RADIO_PARAMS {
 impl ::std::cmp::Eq for BLUETOOTH_FIND_RADIO_PARAMS {}
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_FIND_RADIO_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BLUETOOTH_GATT_FLAG_CONNECTION_AUTHENTICATED: u32 = 2u32;
@@ -521,7 +508,6 @@ impl ::std::convert::From<i32> for BLUETOOTH_IO_CAPABILITY {
 }
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_IO_CAPABILITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -552,7 +538,6 @@ impl ::std::cmp::Eq for BLUETOOTH_LOCAL_SERVICE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_LOCAL_SERVICE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BLUETOOTH_MAX_NAME_SIZE: u32 = 248u32;
@@ -587,7 +572,6 @@ impl ::std::cmp::PartialEq for BLUETOOTH_NUMERIC_COMPARISON_INFO {
 impl ::std::cmp::Eq for BLUETOOTH_NUMERIC_COMPARISON_INFO {}
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_NUMERIC_COMPARISON_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -615,7 +599,6 @@ impl ::std::cmp::PartialEq for BLUETOOTH_OOB_DATA_INFO {
 impl ::std::cmp::Eq for BLUETOOTH_OOB_DATA_INFO {}
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_OOB_DATA_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -642,7 +625,6 @@ impl ::std::cmp::PartialEq for BLUETOOTH_PASSKEY_INFO {
 impl ::std::cmp::Eq for BLUETOOTH_PASSKEY_INFO {}
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_PASSKEY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -670,7 +652,6 @@ impl ::std::cmp::PartialEq for BLUETOOTH_PIN_INFO {
 impl ::std::cmp::Eq for BLUETOOTH_PIN_INFO {}
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_PIN_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -697,7 +678,6 @@ impl ::std::cmp::PartialEq for BLUETOOTH_RADIO_INFO {
 impl ::std::cmp::Eq for BLUETOOTH_RADIO_INFO {}
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_RADIO_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -774,7 +754,6 @@ impl ::std::cmp::Eq for BLUETOOTH_SELECT_DEVICE_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_SELECT_DEVICE_PARAMS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BLUETOOTH_SERVICE_DISABLE: u32 = 0u32;
@@ -845,7 +824,6 @@ impl ::std::cmp::Eq for BTH_DEVICE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BTH_DEVICE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BTH_EIR_128_UUIDS_COMPLETE_ID: u32 = 7u32;
@@ -1044,7 +1022,6 @@ impl ::std::cmp::PartialEq for BTH_HCI_EVENT_INFO {
 impl ::std::cmp::Eq for BTH_HCI_EVENT_INFO {}
 unsafe impl ::windows::runtime::Abi for BTH_HCI_EVENT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BTH_HOST_FEATURE_ENHANCED_RETRANSMISSION_MODE: u64 = 1u64;
@@ -1077,7 +1054,6 @@ impl ::std::cmp::PartialEq for BTH_INFO_REQ {
 impl ::std::cmp::Eq for BTH_INFO_REQ {}
 unsafe impl ::windows::runtime::Abi for BTH_INFO_REQ {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -1101,7 +1077,6 @@ impl ::std::cmp::PartialEq for BTH_INFO_RSP {
 impl ::std::cmp::Eq for BTH_INFO_RSP {}
 unsafe impl ::windows::runtime::Abi for BTH_INFO_RSP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -1124,7 +1099,6 @@ impl ::std::cmp::PartialEq for BTH_INFO_RSP_0 {
 impl ::std::cmp::Eq for BTH_INFO_RSP_0 {}
 unsafe impl ::windows::runtime::Abi for BTH_INFO_RSP_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BTH_IOCTL_BASE: u32 = 0u32;
@@ -1156,7 +1130,6 @@ impl ::std::cmp::PartialEq for BTH_L2CAP_EVENT_INFO {
 impl ::std::cmp::Eq for BTH_L2CAP_EVENT_INFO {}
 unsafe impl ::windows::runtime::Abi for BTH_L2CAP_EVENT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const BTH_LE_ATT_BLUETOOTH_BASE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(0, 0, 4096, [128, 0, 0, 128, 95, 155, 52, 251]);
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
@@ -1479,7 +1452,6 @@ impl ::std::cmp::PartialEq for BTH_PING_REQ {
 impl ::std::cmp::Eq for BTH_PING_REQ {}
 unsafe impl ::windows::runtime::Abi for BTH_PING_REQ {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1507,7 +1479,6 @@ impl ::std::cmp::PartialEq for BTH_PING_RSP {
 impl ::std::cmp::Eq for BTH_PING_RSP {}
 unsafe impl ::windows::runtime::Abi for BTH_PING_RSP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -1530,7 +1501,6 @@ impl ::std::cmp::PartialEq for BTH_QUERY_DEVICE {
 impl ::std::cmp::Eq for BTH_QUERY_DEVICE {}
 unsafe impl ::windows::runtime::Abi for BTH_QUERY_DEVICE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -1556,7 +1526,6 @@ impl ::std::cmp::PartialEq for BTH_QUERY_SERVICE {
 impl ::std::cmp::Eq for BTH_QUERY_SERVICE {}
 unsafe impl ::windows::runtime::Abi for BTH_QUERY_SERVICE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1591,7 +1560,6 @@ impl ::std::cmp::Eq for BTH_RADIO_IN_RANGE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BTH_RADIO_IN_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BTH_SDP_VERSION: u32 = 1u32;
@@ -1626,7 +1594,6 @@ impl ::std::cmp::Eq for BTH_SET_SERVICE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BTH_SET_SERVICE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const BTH_VID_DEFAULT_VALUE: u32 = 65535u32;
@@ -2438,7 +2405,6 @@ impl ::std::default::Default for HANDLE_SDP_TYPE {
 unsafe impl ::windows::runtime::Handle for HANDLE_SDP_TYPE {}
 unsafe impl ::windows::runtime::Abi for HANDLE_SDP_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const HCCC_PROTOCOL_UUID16: u32 = 18u32;
@@ -2502,7 +2468,6 @@ impl ::std::convert::From<i32> for IO_CAPABILITY {
 }
 unsafe impl ::windows::runtime::Abi for IO_CAPABILITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const IP_PROTOCOL_UUID16: u32 = 9u32;
@@ -2579,7 +2544,6 @@ impl ::std::convert::From<i32> for NodeContainerType {
 }
 unsafe impl ::windows::runtime::Abi for NodeContainerType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const OBEXFileTransferServiceClassID_UUID16: u32 = 4358u32;
@@ -2688,7 +2652,6 @@ impl ::std::cmp::PartialEq for RFCOMM_COMMAND {
 impl ::std::cmp::Eq for RFCOMM_COMMAND {}
 unsafe impl ::windows::runtime::Abi for RFCOMM_COMMAND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2712,7 +2675,6 @@ impl ::std::cmp::PartialEq for RFCOMM_COMMAND_0 {
 impl ::std::cmp::Eq for RFCOMM_COMMAND_0 {}
 unsafe impl ::windows::runtime::Abi for RFCOMM_COMMAND_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const RFCOMM_MAX_MTU: u32 = 1011u32;
@@ -2744,7 +2706,6 @@ impl ::std::cmp::PartialEq for RFCOMM_MSC_DATA {
 impl ::std::cmp::Eq for RFCOMM_MSC_DATA {}
 unsafe impl ::windows::runtime::Abi for RFCOMM_MSC_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const RFCOMM_PROTOCOL_UUID16: u32 = 3u32;
@@ -2773,7 +2734,6 @@ impl ::std::cmp::PartialEq for RFCOMM_RLS_DATA {
 impl ::std::cmp::Eq for RFCOMM_RLS_DATA {}
 unsafe impl ::windows::runtime::Abi for RFCOMM_RLS_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2806,7 +2766,6 @@ impl ::std::cmp::PartialEq for RFCOMM_RPN_DATA {
 impl ::std::cmp::Eq for RFCOMM_RPN_DATA {}
 unsafe impl ::windows::runtime::Abi for RFCOMM_RPN_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const RLS_ERROR: u32 = 1u32;
@@ -3066,7 +3025,6 @@ impl ::std::cmp::Eq for SDP_ELEMENT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SDP_ELEMENT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3111,7 +3069,6 @@ impl ::std::cmp::Eq for SDP_ELEMENT_DATA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SDP_ELEMENT_DATA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3139,7 +3096,6 @@ impl ::std::cmp::PartialEq for SDP_ELEMENT_DATA_0_0 {
 impl ::std::cmp::Eq for SDP_ELEMENT_DATA_0_0 {}
 unsafe impl ::windows::runtime::Abi for SDP_ELEMENT_DATA_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3167,7 +3123,6 @@ impl ::std::cmp::PartialEq for SDP_ELEMENT_DATA_0_1 {
 impl ::std::cmp::Eq for SDP_ELEMENT_DATA_0_1 {}
 unsafe impl ::windows::runtime::Abi for SDP_ELEMENT_DATA_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3195,7 +3150,6 @@ impl ::std::cmp::PartialEq for SDP_ELEMENT_DATA_0_2 {
 impl ::std::cmp::Eq for SDP_ELEMENT_DATA_0_2 {}
 unsafe impl ::windows::runtime::Abi for SDP_ELEMENT_DATA_0_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3223,7 +3177,6 @@ impl ::std::cmp::PartialEq for SDP_ELEMENT_DATA_0_3 {
 impl ::std::cmp::Eq for SDP_ELEMENT_DATA_0_3 {}
 unsafe impl ::windows::runtime::Abi for SDP_ELEMENT_DATA_0_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const SDP_ERROR_INSUFFICIENT_RESOURCES: u32 = 6u32;
@@ -3263,7 +3216,6 @@ impl ::std::cmp::PartialEq for SDP_LARGE_INTEGER_16 {
 impl ::std::cmp::Eq for SDP_LARGE_INTEGER_16 {}
 unsafe impl ::windows::runtime::Abi for SDP_LARGE_INTEGER_16 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const SDP_MAX_INQUIRY_SECONDS: u32 = 60u32;
@@ -3310,7 +3262,6 @@ impl ::std::convert::From<i32> for SDP_SPECIFICTYPE {
 }
 unsafe impl ::windows::runtime::Abi for SDP_SPECIFICTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3339,7 +3290,6 @@ impl ::std::cmp::PartialEq for SDP_STRING_TYPE_DATA {
 impl ::std::cmp::Eq for SDP_STRING_TYPE_DATA {}
 unsafe impl ::windows::runtime::Abi for SDP_STRING_TYPE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3362,7 +3312,6 @@ impl ::std::convert::From<i32> for SDP_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SDP_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3390,7 +3339,6 @@ impl ::std::cmp::PartialEq for SDP_ULARGE_INTEGER_16 {
 impl ::std::cmp::Eq for SDP_ULARGE_INTEGER_16 {}
 unsafe impl ::windows::runtime::Abi for SDP_ULARGE_INTEGER_16 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const SERVICE_OPTION_DO_NOT_PUBLISH: u32 = 2u32;
@@ -3437,7 +3385,6 @@ impl ::std::cmp::PartialEq for SOCKADDR_BTH {
 impl ::std::cmp::Eq for SOCKADDR_BTH {}
 unsafe impl ::windows::runtime::Abi for SOCKADDR_BTH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const SOL_L2CAP: u32 = 256u32;
@@ -3496,7 +3443,6 @@ impl ::std::cmp::PartialEq for SdpAttributeRange {
 impl ::std::cmp::Eq for SdpAttributeRange {}
 unsafe impl ::windows::runtime::Abi for SdpAttributeRange {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3519,7 +3465,6 @@ impl ::std::cmp::PartialEq for SdpQueryUuid {
 impl ::std::cmp::Eq for SdpQueryUuid {}
 unsafe impl ::windows::runtime::Abi for SdpQueryUuid {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3543,7 +3488,6 @@ impl ::std::cmp::PartialEq for SdpQueryUuidUnion {
 impl ::std::cmp::Eq for SdpQueryUuidUnion {}
 unsafe impl ::windows::runtime::Abi for SdpQueryUuidUnion {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
 pub const SerialPortServiceClassID_UUID16: u32 = 4353u32;

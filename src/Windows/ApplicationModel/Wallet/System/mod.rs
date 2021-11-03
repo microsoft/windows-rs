@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWalletItemSystemStore(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletItemSystemStore {
@@ -27,7 +26,6 @@ pub struct IWalletItemSystemStore_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWalletItemSystemStore2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletItemSystemStore2 {
@@ -49,7 +47,6 @@ pub struct IWalletItemSystemStore2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWalletManagerSystemStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletManagerSystemStatics {
@@ -84,10 +81,12 @@ impl ::std::convert::From<i32> for WalletItemAppAssociation {
 }
 unsafe impl ::windows::runtime::Abi for WalletItemAppAssociation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WalletItemAppAssociation {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.System.WalletItemAppAssociation;i4)");
+}
+impl ::windows::runtime::DefaultType for WalletItemAppAssociation {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Wallet_System`*"]
 #[repr(transparent)]

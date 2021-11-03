@@ -336,10 +336,12 @@ impl ::std::convert::From<i32> for ActivationSignalDetectionConfigurationCreatio
 }
 unsafe impl ::windows::runtime::Abi for ActivationSignalDetectionConfigurationCreationStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ActivationSignalDetectionConfigurationCreationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for ActivationSignalDetectionConfigurationCreationStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -358,10 +360,12 @@ impl ::std::convert::From<i32> for ActivationSignalDetectionConfigurationRemoval
 }
 unsafe impl ::windows::runtime::Abi for ActivationSignalDetectionConfigurationRemovalResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ActivationSignalDetectionConfigurationRemovalResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationRemovalResult;i4)");
+}
+impl ::windows::runtime::DefaultType for ActivationSignalDetectionConfigurationRemovalResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -384,10 +388,12 @@ impl ::std::convert::From<i32> for ActivationSignalDetectionConfigurationSetMode
 }
 unsafe impl ::windows::runtime::Abi for ActivationSignalDetectionConfigurationSetModelDataResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ActivationSignalDetectionConfigurationSetModelDataResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationSetModelDataResult;i4)");
+}
+impl ::windows::runtime::DefaultType for ActivationSignalDetectionConfigurationSetModelDataResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -405,10 +411,12 @@ impl ::std::convert::From<i32> for ActivationSignalDetectionConfigurationStateCh
 }
 unsafe impl ::windows::runtime::Abi for ActivationSignalDetectionConfigurationStateChangeResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ActivationSignalDetectionConfigurationStateChangeResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationStateChangeResult;i4)");
+}
+impl ::windows::runtime::DefaultType for ActivationSignalDetectionConfigurationStateChangeResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -434,10 +442,12 @@ impl ::std::convert::From<i32> for ActivationSignalDetectionTrainingDataFormat {
 }
 unsafe impl ::windows::runtime::Abi for ActivationSignalDetectionTrainingDataFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ActivationSignalDetectionTrainingDataFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat;i4)");
+}
+impl ::windows::runtime::DefaultType for ActivationSignalDetectionTrainingDataFormat {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
@@ -665,10 +675,12 @@ impl ::std::convert::From<i32> for ActivationSignalDetectorKind {
 }
 unsafe impl ::windows::runtime::Abi for ActivationSignalDetectorKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ActivationSignalDetectorKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorKind;i4)");
+}
+impl ::windows::runtime::DefaultType for ActivationSignalDetectorKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -686,10 +698,12 @@ impl ::std::convert::From<i32> for ActivationSignalDetectorPowerState {
 }
 unsafe impl ::windows::runtime::Abi for ActivationSignalDetectorPowerState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ActivationSignalDetectorPowerState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorPowerState;i4)");
+}
+impl ::windows::runtime::DefaultType for ActivationSignalDetectorPowerState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -706,10 +720,12 @@ impl ::std::convert::From<i32> for ConversationalAgentActivationKind {
 }
 unsafe impl ::windows::runtime::Abi for ConversationalAgentActivationKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentActivationKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationKind;i4)");
+}
+impl ::windows::runtime::DefaultType for ConversationalAgentActivationKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -728,10 +744,12 @@ impl ::std::convert::From<i32> for ConversationalAgentActivationResult {
 }
 unsafe impl ::windows::runtime::Abi for ConversationalAgentActivationResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentActivationResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationResult;i4)");
+}
+impl ::windows::runtime::DefaultType for ConversationalAgentActivationResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
@@ -1246,10 +1264,12 @@ impl ::std::convert::From<i32> for ConversationalAgentSessionUpdateResponse {
 }
 unsafe impl ::windows::runtime::Abi for ConversationalAgentSessionUpdateResponse {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentSessionUpdateResponse {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionUpdateResponse;i4)");
+}
+impl ::windows::runtime::DefaultType for ConversationalAgentSessionUpdateResponse {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
@@ -1403,10 +1423,12 @@ impl ::std::convert::From<i32> for ConversationalAgentState {
 }
 unsafe impl ::windows::runtime::Abi for ConversationalAgentState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentState;i4)");
+}
+impl ::windows::runtime::DefaultType for ConversationalAgentState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1425,10 +1447,12 @@ impl ::std::convert::From<i32> for ConversationalAgentSystemStateChangeType {
 }
 unsafe impl ::windows::runtime::Abi for ConversationalAgentSystemStateChangeType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentSystemStateChangeType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangeType;i4)");
+}
+impl ::windows::runtime::DefaultType for ConversationalAgentSystemStateChangeType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
@@ -1475,10 +1499,12 @@ impl ::std::convert::From<i32> for ConversationalAgentVoiceActivationPrerequisit
 }
 unsafe impl ::windows::runtime::Abi for ConversationalAgentVoiceActivationPrerequisiteKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ConversationalAgentVoiceActivationPrerequisiteKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentVoiceActivationPrerequisiteKind;i4)");
+}
+impl ::windows::runtime::DefaultType for ConversationalAgentVoiceActivationPrerequisiteKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1496,10 +1522,12 @@ impl ::std::convert::From<i32> for DetectionConfigurationAvailabilityChangeKind 
 }
 unsafe impl ::windows::runtime::Abi for DetectionConfigurationAvailabilityChangeKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DetectionConfigurationAvailabilityChangeKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangeKind;i4)");
+}
+impl ::windows::runtime::DefaultType for DetectionConfigurationAvailabilityChangeKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ConversationalAgent`*"]
 #[repr(transparent)]
@@ -1609,13 +1637,14 @@ impl ::std::convert::From<i32> for DetectionConfigurationTrainingStatus {
 }
 unsafe impl ::windows::runtime::Abi for DetectionConfigurationTrainingStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DetectionConfigurationTrainingStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationTrainingStatus;i4)");
 }
+impl ::windows::runtime::DefaultType for DetectionConfigurationTrainingStatus {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IActivationSignalDetectionConfiguration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivationSignalDetectionConfiguration {
@@ -1669,7 +1698,6 @@ pub struct IActivationSignalDetectionConfiguration_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IActivationSignalDetectionConfiguration2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivationSignalDetectionConfiguration2 {
@@ -1695,7 +1723,6 @@ pub struct IActivationSignalDetectionConfiguration2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IActivationSignalDetectionConfigurationCreationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivationSignalDetectionConfigurationCreationResult {
@@ -1715,7 +1742,6 @@ pub struct IActivationSignalDetectionConfigurationCreationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IActivationSignalDetector(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivationSignalDetector {
@@ -1759,7 +1785,6 @@ pub struct IActivationSignalDetector_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IActivationSignalDetector2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivationSignalDetector2 {
@@ -1788,7 +1813,6 @@ pub struct IActivationSignalDetector2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConversationalAgentDetectorManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentDetectorManager {
@@ -1814,7 +1838,6 @@ pub struct IConversationalAgentDetectorManager_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConversationalAgentDetectorManager2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentDetectorManager2 {
@@ -1835,7 +1858,6 @@ pub struct IConversationalAgentDetectorManager2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConversationalAgentDetectorManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentDetectorManagerStatics {
@@ -1854,7 +1876,6 @@ pub struct IConversationalAgentDetectorManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConversationalAgentSession(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSession {
@@ -1924,7 +1945,6 @@ pub struct IConversationalAgentSession_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConversationalAgentSession2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSession2 {
@@ -1952,7 +1972,6 @@ pub struct IConversationalAgentSession2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConversationalAgentSessionInterruptedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSessionInterruptedEventArgs {
@@ -1970,7 +1989,6 @@ pub struct IConversationalAgentSessionInterruptedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConversationalAgentSessionStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSessionStatics {
@@ -1991,7 +2009,6 @@ pub struct IConversationalAgentSessionStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConversationalAgentSignal(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSignal {
@@ -2025,7 +2042,6 @@ pub struct IConversationalAgentSignal_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConversationalAgentSignal2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSignal2 {
@@ -2045,7 +2061,6 @@ pub struct IConversationalAgentSignal2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ActivationSignalDetectorKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConversationalAgentSignalDetectedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSignalDetectedEventArgs {
@@ -2063,7 +2078,6 @@ pub struct IConversationalAgentSignalDetectedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConversationalAgentSystemStateChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSystemStateChangedEventArgs {
@@ -2082,7 +2096,6 @@ pub struct IConversationalAgentSystemStateChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ConversationalAgentSystemStateChangeType) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDetectionConfigurationAvailabilityChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDetectionConfigurationAvailabilityChangedEventArgs {
@@ -2101,7 +2114,6 @@ pub struct IDetectionConfigurationAvailabilityChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut DetectionConfigurationAvailabilityChangeKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDetectionConfigurationAvailabilityInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDetectionConfigurationAvailabilityInfo {
@@ -2123,7 +2135,6 @@ pub struct IDetectionConfigurationAvailabilityInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDetectionConfigurationAvailabilityInfo2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDetectionConfigurationAvailabilityInfo2 {
@@ -2169,8 +2180,10 @@ impl ::std::convert::From<i32> for SignalDetectorResourceKind {
 }
 unsafe impl ::windows::runtime::Abi for SignalDetectorResourceKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SignalDetectorResourceKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.SignalDetectorResourceKind;i4)");
+}
+impl ::windows::runtime::DefaultType for SignalDetectorResourceKind {
+    type DefaultType = Self;
 }

@@ -51,7 +51,6 @@ impl ::std::convert::From<i32> for EFaultRepRetVal {
 }
 unsafe impl ::windows::runtime::Abi for EFaultRepRetVal {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -64,7 +63,6 @@ impl ::std::default::Default for HREPORT {
 unsafe impl ::windows::runtime::Handle for HREPORT {}
 unsafe impl ::windows::runtime::Abi for HREPORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -77,7 +75,6 @@ impl ::std::default::Default for HREPORTSTORE {
 unsafe impl ::windows::runtime::Handle for HREPORTSTORE {}
 unsafe impl ::windows::runtime::Abi for HREPORTSTORE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH = unsafe extern "system" fn(pcontext: *const ::std::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbiscustomdebugger: *mut super::super::Foundation::BOOL, pwszdebuggerlaunch: super::super::Foundation::PWSTR, pchdebuggerlaunch: *mut u32, pbisdebuggerautolaunch: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
@@ -101,7 +98,6 @@ impl ::std::convert::From<i32> for REPORT_STORE_TYPES {
 }
 unsafe impl ::windows::runtime::Abi for REPORT_STORE_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_SystemServices`*"]
@@ -134,7 +130,6 @@ impl ::std::convert::From<i32> for WER_CONSENT {
 }
 unsafe impl ::windows::runtime::Abi for WER_CONSENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_DUMP_AUXILIARY: u32 = 2u32;
@@ -202,7 +197,6 @@ impl ::std::cmp::Eq for WER_DUMP_CUSTOM_OPTIONS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WER_DUMP_CUSTOM_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -274,7 +268,6 @@ impl ::std::cmp::Eq for WER_DUMP_CUSTOM_OPTIONS_V2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WER_DUMP_CUSTOM_OPTIONS_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -355,7 +348,6 @@ impl ::std::cmp::Eq for WER_DUMP_CUSTOM_OPTIONS_V3 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WER_DUMP_CUSTOM_OPTIONS_V3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_DUMP_MASK_START: u32 = 1u32;
@@ -378,7 +370,6 @@ impl ::std::convert::From<i32> for WER_DUMP_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WER_DUMP_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -413,7 +404,6 @@ impl ::std::cmp::Eq for WER_EXCEPTION_INFORMATION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
 unsafe impl ::windows::runtime::Abi for WER_EXCEPTION_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -431,7 +421,6 @@ impl ::std::convert::From<u32> for WER_FAULT_REPORTING {
 }
 unsafe impl ::windows::runtime::Abi for WER_FAULT_REPORTING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WER_FAULT_REPORTING {
     type Output = Self;
@@ -486,7 +475,6 @@ impl ::std::convert::From<u32> for WER_FILE {
 }
 unsafe impl ::windows::runtime::Abi for WER_FILE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WER_FILE {
     type Output = Self;
@@ -539,7 +527,6 @@ impl ::std::convert::From<i32> for WER_FILE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WER_FILE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_MAX_APPLICATION_NAME_LENGTH: u32 = 128u32;
@@ -611,7 +598,6 @@ impl ::std::convert::From<i32> for WER_REGISTER_FILE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WER_REGISTER_FILE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -661,7 +647,6 @@ impl ::std::cmp::Eq for WER_REPORT_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WER_REPORT_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -715,7 +700,6 @@ impl ::std::cmp::Eq for WER_REPORT_INFORMATION_V3 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WER_REPORT_INFORMATION_V3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -787,7 +771,6 @@ impl ::std::cmp::Eq for WER_REPORT_INFORMATION_V4 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WER_REPORT_INFORMATION_V4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -862,7 +845,6 @@ impl ::std::cmp::Eq for WER_REPORT_INFORMATION_V5 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WER_REPORT_INFORMATION_V5 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -900,7 +882,6 @@ impl ::std::cmp::Eq for WER_REPORT_METADATA_V1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WER_REPORT_METADATA_V1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -956,7 +937,6 @@ impl ::std::cmp::Eq for WER_REPORT_METADATA_V2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WER_REPORT_METADATA_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1040,7 +1020,6 @@ impl ::std::cmp::Eq for WER_REPORT_METADATA_V3 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WER_REPORT_METADATA_V3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1068,7 +1047,6 @@ impl ::std::cmp::PartialEq for WER_REPORT_PARAMETER {
 impl ::std::cmp::Eq for WER_REPORT_PARAMETER {}
 unsafe impl ::windows::runtime::Abi for WER_REPORT_PARAMETER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1096,7 +1074,6 @@ impl ::std::cmp::PartialEq for WER_REPORT_SIGNATURE {
 impl ::std::cmp::Eq for WER_REPORT_SIGNATURE {}
 unsafe impl ::windows::runtime::Abi for WER_REPORT_SIGNATURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1115,7 +1092,6 @@ impl ::std::convert::From<i32> for WER_REPORT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WER_REPORT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1139,7 +1115,6 @@ impl ::std::convert::From<i32> for WER_REPORT_UI {
 }
 unsafe impl ::windows::runtime::Abi for WER_REPORT_UI {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1174,7 +1149,6 @@ impl ::std::cmp::Eq for WER_RUNTIME_EXCEPTION_INFORMATION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
 unsafe impl ::windows::runtime::Abi for WER_RUNTIME_EXCEPTION_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ErrorReporting`*"]
 pub const WER_SUBMIT_BYPASS_NETWORK_COST_THROTTLING: u32 = 32768u32;
@@ -1205,7 +1179,6 @@ impl ::std::convert::From<u32> for WER_SUBMIT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for WER_SUBMIT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WER_SUBMIT_FLAGS {
     type Output = Self;
@@ -1259,7 +1232,6 @@ impl ::std::convert::From<i32> for WER_SUBMIT_RESULT {
 }
 unsafe impl ::windows::runtime::Abi for WER_SUBMIT_RESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_ErrorReporting`, `Win32_Foundation`*"]

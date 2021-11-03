@@ -45,7 +45,6 @@ impl ::std::convert::From<i32> for FAXROUTE_ENABLE {
 }
 unsafe impl ::windows::runtime::Abi for FAXROUTE_ENABLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -69,7 +68,6 @@ impl ::std::convert::From<i32> for FAX_ACCESS_RIGHTS_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for FAX_ACCESS_RIGHTS_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -92,7 +90,6 @@ impl ::std::convert::From<i32> for FAX_ACCESS_RIGHTS_ENUM_2 {
 }
 unsafe impl ::windows::runtime::Abi for FAX_ACCESS_RIGHTS_ENUM_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -111,7 +108,6 @@ impl ::std::convert::From<i32> for FAX_ACCOUNT_EVENTS_TYPE_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for FAX_ACCOUNT_EVENTS_TYPE_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -183,7 +179,6 @@ impl ::std::cmp::Eq for FAX_CONFIGURATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FAX_CONFIGURATIONA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -255,7 +250,6 @@ impl ::std::cmp::Eq for FAX_CONFIGURATIONW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FAX_CONFIGURATIONW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const FAX_CONFIG_QUERY: u32 = 4u32;
@@ -295,7 +289,6 @@ impl ::std::cmp::Eq for FAX_CONTEXT_INFOA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for FAX_CONTEXT_INFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -331,7 +324,6 @@ impl ::std::cmp::Eq for FAX_CONTEXT_INFOW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for FAX_CONTEXT_INFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -451,7 +443,6 @@ impl ::std::cmp::Eq for FAX_COVERPAGE_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FAX_COVERPAGE_INFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -571,7 +562,6 @@ impl ::std::cmp::Eq for FAX_COVERPAGE_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FAX_COVERPAGE_INFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -587,7 +577,6 @@ impl ::std::convert::From<i32> for FAX_COVERPAGE_TYPE_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for FAX_COVERPAGE_TYPE_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -603,7 +592,6 @@ impl ::std::convert::From<i32> for FAX_DEVICE_RECEIVE_MODE_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for FAX_DEVICE_RECEIVE_MODE_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -696,7 +684,6 @@ impl ::std::cmp::Eq for FAX_DEVICE_STATUSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FAX_DEVICE_STATUSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -789,7 +776,6 @@ impl ::std::cmp::Eq for FAX_DEVICE_STATUSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FAX_DEVICE_STATUSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -841,7 +827,6 @@ impl ::std::cmp::Eq for FAX_DEV_STATUS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FAX_DEV_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -857,7 +842,6 @@ impl ::std::convert::From<i32> for FAX_ENUM_DELIVERY_REPORT_TYPES {
 }
 unsafe impl ::windows::runtime::Abi for FAX_ENUM_DELIVERY_REPORT_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -872,7 +856,6 @@ impl ::std::convert::From<i32> for FAX_ENUM_DEVICE_ID_SOURCE {
 }
 unsafe impl ::windows::runtime::Abi for FAX_ENUM_DEVICE_ID_SOURCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -889,7 +872,6 @@ impl ::std::convert::From<i32> for FAX_ENUM_JOB_COMMANDS {
 }
 unsafe impl ::windows::runtime::Abi for FAX_ENUM_JOB_COMMANDS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -905,7 +887,6 @@ impl ::std::convert::From<i32> for FAX_ENUM_JOB_SEND_ATTRIBUTES {
 }
 unsafe impl ::windows::runtime::Abi for FAX_ENUM_JOB_SEND_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -922,7 +903,6 @@ impl ::std::convert::From<i32> for FAX_ENUM_LOG_CATEGORIES {
 }
 unsafe impl ::windows::runtime::Abi for FAX_ENUM_LOG_CATEGORIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -939,7 +919,6 @@ impl ::std::convert::From<i32> for FAX_ENUM_LOG_LEVELS {
 }
 unsafe impl ::windows::runtime::Abi for FAX_ENUM_LOG_LEVELS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -954,7 +933,6 @@ impl ::std::convert::From<i32> for FAX_ENUM_PORT_OPEN_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for FAX_ENUM_PORT_OPEN_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const FAX_ERR_BAD_GROUP_CONFIGURATION: i32 = 7003i32;
@@ -1022,7 +1000,6 @@ impl ::std::cmp::Eq for FAX_EVENTA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FAX_EVENTA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1060,7 +1037,6 @@ impl ::std::cmp::Eq for FAX_EVENTW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FAX_EVENTW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const FAX_E_BAD_GROUP_CONFIGURATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147214501i32 as _);
@@ -1134,7 +1110,6 @@ impl ::std::cmp::Eq for FAX_GLOBAL_ROUTING_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FAX_GLOBAL_ROUTING_INFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1182,7 +1157,6 @@ impl ::std::cmp::Eq for FAX_GLOBAL_ROUTING_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FAX_GLOBAL_ROUTING_INFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1199,7 +1173,6 @@ impl ::std::convert::From<i32> for FAX_GROUP_STATUS_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for FAX_GROUP_STATUS_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1292,7 +1265,6 @@ impl ::std::cmp::Eq for FAX_JOB_ENTRYA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FAX_JOB_ENTRYA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1385,7 +1357,6 @@ impl ::std::cmp::Eq for FAX_JOB_ENTRYW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FAX_JOB_ENTRYW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1419,7 +1390,6 @@ impl ::std::convert::From<i32> for FAX_JOB_EXTENDED_STATUS_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for FAX_JOB_EXTENDED_STATUS_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const FAX_JOB_MANAGE: u32 = 64u32;
@@ -1441,7 +1411,6 @@ impl ::std::convert::From<i32> for FAX_JOB_OPERATIONS_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for FAX_JOB_OPERATIONS_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1519,7 +1488,6 @@ impl ::std::cmp::Eq for FAX_JOB_PARAMA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FAX_JOB_PARAMA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1597,7 +1565,6 @@ impl ::std::cmp::Eq for FAX_JOB_PARAMW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FAX_JOB_PARAMW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const FAX_JOB_QUERY: u32 = 2u32;
@@ -1623,7 +1590,6 @@ impl ::std::convert::From<i32> for FAX_JOB_STATUS_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for FAX_JOB_STATUS_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const FAX_JOB_SUBMIT: u32 = 1u32;
@@ -1641,7 +1607,6 @@ impl ::std::convert::From<i32> for FAX_JOB_TYPE_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for FAX_JOB_TYPE_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1677,7 +1642,6 @@ impl ::std::cmp::Eq for FAX_LOG_CATEGORYA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FAX_LOG_CATEGORYA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1713,7 +1677,6 @@ impl ::std::cmp::Eq for FAX_LOG_CATEGORYW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FAX_LOG_CATEGORYW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1730,7 +1693,6 @@ impl ::std::convert::From<i32> for FAX_LOG_LEVEL_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for FAX_LOG_LEVEL_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1782,7 +1744,6 @@ impl ::std::cmp::Eq for FAX_PORT_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FAX_PORT_INFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1834,7 +1795,6 @@ impl ::std::cmp::Eq for FAX_PORT_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FAX_PORT_INFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const FAX_PORT_QUERY: u32 = 16u32;
@@ -1894,7 +1854,6 @@ impl ::std::cmp::Eq for FAX_PRINT_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FAX_PRINT_INFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1950,7 +1909,6 @@ impl ::std::cmp::Eq for FAX_PRINT_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FAX_PRINT_INFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1966,7 +1924,6 @@ impl ::std::convert::From<i32> for FAX_PRIORITY_TYPE_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for FAX_PRIORITY_TYPE_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1986,7 +1943,6 @@ impl ::std::convert::From<i32> for FAX_PROVIDER_STATUS_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for FAX_PROVIDER_STATUS_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2002,7 +1958,6 @@ impl ::std::convert::From<i32> for FAX_RECEIPT_TYPE_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for FAX_RECEIPT_TYPE_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2040,7 +1995,6 @@ impl ::std::cmp::Eq for FAX_RECEIVE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FAX_RECEIVE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2118,7 +2072,6 @@ impl ::std::cmp::Eq for FAX_ROUTE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FAX_ROUTE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2162,7 +2115,6 @@ impl ::std::cmp::Eq for FAX_ROUTE_CALLBACKROUTINES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FAX_ROUTE_CALLBACKROUTINES {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2214,7 +2166,6 @@ impl ::std::cmp::Eq for FAX_ROUTING_METHODA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FAX_ROUTING_METHODA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2266,7 +2217,6 @@ impl ::std::cmp::Eq for FAX_ROUTING_METHODW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FAX_ROUTING_METHODW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2280,7 +2230,6 @@ impl ::std::convert::From<i32> for FAX_ROUTING_RULE_CODE_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for FAX_ROUTING_RULE_CODE_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2298,7 +2247,6 @@ impl ::std::convert::From<i32> for FAX_RULE_STATUS_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for FAX_RULE_STATUS_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2314,7 +2262,6 @@ impl ::std::convert::From<i32> for FAX_SCHEDULE_TYPE_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for FAX_SCHEDULE_TYPE_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2366,7 +2313,6 @@ impl ::std::cmp::Eq for FAX_SEND {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FAX_SEND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2383,7 +2329,6 @@ impl ::std::convert::From<i32> for FAX_SERVER_APIVERSION_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for FAX_SERVER_APIVERSION_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2407,7 +2352,6 @@ impl ::std::convert::From<i32> for FAX_SERVER_EVENTS_TYPE_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for FAX_SERVER_EVENTS_TYPE_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2423,7 +2367,6 @@ impl ::std::convert::From<i32> for FAX_SMTP_AUTHENTICATION_TYPE_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for FAX_SMTP_AUTHENTICATION_TYPE_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2451,7 +2394,6 @@ impl ::std::cmp::PartialEq for FAX_TIME {
 impl ::std::cmp::Eq for FAX_TIME {}
 unsafe impl ::windows::runtime::Abi for FAX_TIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const FEI_ABORTING: u32 = 15u32;
@@ -11606,7 +11548,6 @@ impl ::std::cmp::PartialEq for STINOTIFY {
 impl ::std::cmp::Eq for STINOTIFY {}
 unsafe impl ::windows::runtime::Abi for STINOTIFY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11645,7 +11586,6 @@ impl ::std::cmp::Eq for STISUBSCRIBE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for STISUBSCRIBE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const STI_CHANGENOEFFECT: i32 = 1i32;
@@ -11720,7 +11660,6 @@ impl ::std::cmp::Eq for STI_DEVICE_INFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for STI_DEVICE_INFORMATIONW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11737,7 +11676,6 @@ impl ::std::convert::From<i32> for STI_DEVICE_MJ_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for STI_DEVICE_MJ_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11776,7 +11714,6 @@ impl ::std::cmp::PartialEq for STI_DEVICE_STATUS {
 impl ::std::cmp::Eq for STI_DEVICE_STATUS {}
 unsafe impl ::windows::runtime::Abi for STI_DEVICE_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const STI_DEVSTATUS_EVENTS_STATE: u32 = 2u32;
@@ -11807,7 +11744,6 @@ impl ::std::cmp::PartialEq for STI_DEV_CAPS {
 impl ::std::cmp::Eq for STI_DEV_CAPS {}
 unsafe impl ::windows::runtime::Abi for STI_DEV_CAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11838,7 +11774,6 @@ impl ::std::cmp::PartialEq for STI_DIAG {
 impl ::std::cmp::Eq for STI_DIAG {}
 unsafe impl ::windows::runtime::Abi for STI_DIAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const STI_DIAGCODE_HWPRESENCE: u32 = 1u32;
@@ -11946,7 +11881,6 @@ impl ::std::cmp::PartialEq for STI_USD_CAPS {
 impl ::std::cmp::Eq for STI_USD_CAPS {}
 unsafe impl ::windows::runtime::Abi for STI_USD_CAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const STI_USD_GENCAP_NATIVE_PUSHSUPPORT: u32 = 1u32;
@@ -12027,7 +11961,6 @@ impl ::std::cmp::Eq for STI_WIA_DEVICE_INFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for STI_WIA_DEVICE_INFORMATIONW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 pub const SUPPORTS_MSCPLUS_VAL: u32 = 1u32;
@@ -12058,7 +11991,6 @@ impl ::std::convert::From<i32> for SendToMode {
 }
 unsafe impl ::windows::runtime::Abi for SendToMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`*"]
@@ -12105,7 +12037,6 @@ impl ::std::cmp::PartialEq for _ERROR_INFOW {
 impl ::std::cmp::Eq for _ERROR_INFOW {}
 unsafe impl ::windows::runtime::Abi for _ERROR_INFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]

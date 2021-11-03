@@ -15,10 +15,12 @@ impl ::std::convert::From<i32> for AddContactResult {
 }
 unsafe impl ::windows::runtime::Abi for AddContactResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AddContactResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.Provider.AddContactResult;i4)");
+}
+impl ::windows::runtime::DefaultType for AddContactResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Contacts_Provider`*"]
 #[repr(transparent)]
@@ -133,7 +135,6 @@ impl ::windows::runtime::RuntimeName for ContactRemovedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.Provider.ContactRemovedEventArgs";
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactPickerUI(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactPickerUI {
@@ -161,7 +162,6 @@ pub struct IContactPickerUI_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactPickerUI2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactPickerUI2 {
@@ -182,7 +182,6 @@ pub struct IContactPickerUI2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactRemovedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactRemovedEventArgs {

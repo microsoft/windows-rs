@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INamedResource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INamedResource {
@@ -28,7 +27,6 @@ pub struct INamedResource_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IResourceCandidate(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceCandidate {
@@ -55,7 +53,6 @@ pub struct IResourceCandidate_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, qualifiername: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IResourceCandidate2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceCandidate2 {
@@ -75,7 +72,6 @@ pub struct IResourceCandidate2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IResourceCandidate3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceCandidate3 {
@@ -94,7 +90,6 @@ pub struct IResourceCandidate3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ResourceCandidateKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IResourceContext(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceContext {
@@ -124,7 +119,6 @@ pub struct IResourceContext_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IResourceContextStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceContextStatics {
@@ -144,7 +138,6 @@ pub struct IResourceContextStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IResourceContextStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceContextStatics2 {
@@ -168,7 +161,6 @@ pub struct IResourceContextStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IResourceContextStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceContextStatics3 {
@@ -187,7 +179,6 @@ pub struct IResourceContextStatics3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, key: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, persistence: ResourceQualifierPersistence) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IResourceContextStatics4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceContextStatics4 {
@@ -207,7 +198,6 @@ pub struct IResourceContextStatics4_abi(
     #[cfg(not(feature = "UI"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IResourceManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceManager {
@@ -233,7 +223,6 @@ pub struct IResourceManager_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IResourceManager2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceManager2 {
@@ -255,7 +244,6 @@ pub struct IResourceManager2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IResourceManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceManagerStatics {
@@ -275,7 +263,6 @@ pub struct IResourceManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resourcereference: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IResourceMap(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceMap {
@@ -298,7 +285,6 @@ pub struct IResourceMap_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reference: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IResourceQualifier(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceQualifier {
@@ -499,10 +485,12 @@ impl ::std::convert::From<i32> for ResourceCandidateKind {
 }
 unsafe impl ::windows::runtime::Abi for ResourceCandidateKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ResourceCandidateKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Core.ResourceCandidateKind;i4)");
+}
+impl ::windows::runtime::DefaultType for ResourceCandidateKind {
+    type DefaultType = Self;
 }
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
@@ -540,7 +528,7 @@ impl ResourceCandidateVectorView {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<ResourceCandidate as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [<ResourceCandidate as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -813,7 +801,7 @@ impl ResourceContextLanguagesVectorView {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<::windows::runtime::HSTRING as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [<::windows::runtime::HSTRING as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -942,10 +930,12 @@ impl ::std::cmp::PartialEq for ResourceLayoutInfo {
 impl ::std::cmp::Eq for ResourceLayoutInfo {}
 unsafe impl ::windows::runtime::Abi for ResourceLayoutInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ResourceLayoutInfo {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.ApplicationModel.Resources.Core.ResourceLayoutInfo;u4;u4;u4;u4;i4)");
+}
+impl ::windows::runtime::DefaultType for ResourceLayoutInfo {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Resources_Core`*"]
 #[repr(transparent)]
@@ -1235,7 +1225,7 @@ impl ResourceMapIterator {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
-    pub fn GetMany(&self, items: &mut [<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, NamedResource> as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn GetMany(&self, items: &mut [<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, NamedResource> as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -1453,7 +1443,7 @@ impl ResourceMapMapViewIterator {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
-    pub fn GetMany(&self, items: &mut [<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ResourceMap> as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn GetMany(&self, items: &mut [<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ResourceMap> as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -1906,10 +1896,12 @@ impl ::std::convert::From<i32> for ResourceQualifierPersistence {
 }
 unsafe impl ::windows::runtime::Abi for ResourceQualifierPersistence {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ResourceQualifierPersistence {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Core.ResourceQualifierPersistence;i4)");
+}
+impl ::windows::runtime::DefaultType for ResourceQualifierPersistence {
+    type DefaultType = Self;
 }
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
@@ -1947,7 +1939,7 @@ impl ResourceQualifierVectorView {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_Resources_Core`, `Foundation_Collections`*"]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<ResourceQualifier as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [<ResourceQualifier as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();

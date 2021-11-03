@@ -375,7 +375,6 @@ impl ::std::convert::From<u32> for ENUM_SERVICE_STATE {
 }
 unsafe impl ::windows::runtime::Abi for ENUM_SERVICE_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ENUM_SERVICE_STATE {
     type Output = Self;
@@ -439,7 +438,6 @@ impl ::std::cmp::Eq for ENUM_SERVICE_STATUSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ENUM_SERVICE_STATUSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -475,7 +473,6 @@ impl ::std::cmp::Eq for ENUM_SERVICE_STATUSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ENUM_SERVICE_STATUSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -511,7 +508,6 @@ impl ::std::cmp::Eq for ENUM_SERVICE_STATUS_PROCESSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ENUM_SERVICE_STATUS_PROCESSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -547,7 +543,6 @@ impl ::std::cmp::Eq for ENUM_SERVICE_STATUS_PROCESSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ENUM_SERVICE_STATUS_PROCESSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -572,7 +567,6 @@ impl ::std::convert::From<u32> for ENUM_SERVICE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for ENUM_SERVICE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ENUM_SERVICE_TYPE {
     type Output = Self;
@@ -1038,7 +1032,6 @@ impl ::std::cmp::Eq for QUERY_SERVICE_CONFIGA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for QUERY_SERVICE_CONFIGA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1090,7 +1083,6 @@ impl ::std::cmp::Eq for QUERY_SERVICE_CONFIGW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for QUERY_SERVICE_CONFIGW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1126,7 +1118,6 @@ impl ::std::cmp::Eq for QUERY_SERVICE_LOCK_STATUSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for QUERY_SERVICE_LOCK_STATUSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1162,7 +1153,6 @@ impl ::std::cmp::Eq for QUERY_SERVICE_LOCK_STATUSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for QUERY_SERVICE_LOCK_STATUSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`, `Win32_Security`*"]
@@ -1401,7 +1391,6 @@ impl ::std::cmp::PartialEq for SC_ACTION {
 impl ::std::cmp::Eq for SC_ACTION {}
 unsafe impl ::windows::runtime::Abi for SC_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1419,7 +1408,6 @@ impl ::std::convert::From<i32> for SC_ACTION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SC_ACTION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1433,7 +1421,6 @@ impl ::std::convert::From<i32> for SC_ENUM_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SC_ENUM_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1449,7 +1436,6 @@ impl ::std::convert::From<i32> for SC_EVENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SC_EVENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
 pub const SC_MANAGER_ALL_ACCESS: u32 = 983103u32;
@@ -1477,7 +1463,6 @@ impl ::std::convert::From<i32> for SC_STATUS_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SC_STATUS_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
 pub const SERVICE_ACCEPT_HARDWAREPROFILECHANGE: u32 = 32u32;
@@ -1532,7 +1517,6 @@ impl ::std::convert::From<u32> for SERVICE_CONFIG {
 }
 unsafe impl ::windows::runtime::Abi for SERVICE_CONFIG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SERVICE_CONFIG {
     type Output = Self;
@@ -1628,7 +1612,6 @@ impl ::std::cmp::Eq for SERVICE_CONTROL_STATUS_REASON_PARAMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1664,7 +1647,6 @@ impl ::std::cmp::Eq for SERVICE_CONTROL_STATUS_REASON_PARAMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
 pub const SERVICE_CONTROL_STOP: u32 = 1u32;
@@ -1694,7 +1676,6 @@ impl ::std::cmp::PartialEq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
 impl ::std::cmp::Eq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {}
 unsafe impl ::windows::runtime::Abi for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1717,7 +1698,6 @@ impl ::std::cmp::PartialEq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
 impl ::std::cmp::Eq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {}
 unsafe impl ::windows::runtime::Abi for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1745,7 +1725,6 @@ impl ::std::cmp::PartialEq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 
 impl ::std::cmp::Eq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {}
 unsafe impl ::windows::runtime::Abi for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1779,7 +1758,6 @@ impl ::std::cmp::Eq for SERVICE_DELAYED_AUTO_START_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVICE_DELAYED_AUTO_START_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1813,7 +1791,6 @@ impl ::std::cmp::Eq for SERVICE_DESCRIPTIONA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVICE_DESCRIPTIONA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1847,7 +1824,6 @@ impl ::std::cmp::Eq for SERVICE_DESCRIPTIONW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVICE_DESCRIPTIONW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1862,7 +1838,6 @@ impl ::std::convert::From<i32> for SERVICE_DIRECTORY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SERVICE_DIRECTORY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
 pub const SERVICE_DYNAMIC_INFORMATION_LEVEL_START_REASON: u32 = 1u32;
@@ -1883,7 +1858,6 @@ impl ::std::convert::From<u32> for SERVICE_ERROR {
 }
 unsafe impl ::windows::runtime::Abi for SERVICE_ERROR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SERVICE_ERROR {
     type Output = Self;
@@ -1949,7 +1923,6 @@ impl ::std::cmp::Eq for SERVICE_FAILURE_ACTIONSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVICE_FAILURE_ACTIONSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1987,7 +1960,6 @@ impl ::std::cmp::Eq for SERVICE_FAILURE_ACTIONSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVICE_FAILURE_ACTIONSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2021,7 +1993,6 @@ impl ::std::cmp::Eq for SERVICE_FAILURE_ACTIONS_FLAG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVICE_FAILURE_ACTIONS_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
 pub const SERVICE_INTERROGATE: u32 = 128u32;
@@ -2052,7 +2023,6 @@ impl ::std::cmp::PartialEq for SERVICE_LAUNCH_PROTECTED_INFO {
 impl ::std::cmp::Eq for SERVICE_LAUNCH_PROTECTED_INFO {}
 unsafe impl ::windows::runtime::Abi for SERVICE_LAUNCH_PROTECTED_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
 pub const SERVICE_LAUNCH_PROTECTED_NONE: u32 = 0u32;
@@ -2084,7 +2054,6 @@ impl ::std::convert::From<u32> for SERVICE_NOTIFY {
 }
 unsafe impl ::windows::runtime::Abi for SERVICE_NOTIFY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SERVICE_NOTIFY {
     type Output = Self;
@@ -2143,7 +2112,6 @@ impl ::std::cmp::PartialEq for SERVICE_NOTIFY_1 {
 impl ::std::cmp::Eq for SERVICE_NOTIFY_1 {}
 unsafe impl ::windows::runtime::Abi for SERVICE_NOTIFY_1 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2190,7 +2158,6 @@ impl ::std::cmp::Eq for SERVICE_NOTIFY_2A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVICE_NOTIFY_2A {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2237,7 +2204,6 @@ impl ::std::cmp::Eq for SERVICE_NOTIFY_2W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVICE_NOTIFY_2W {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
 pub const SERVICE_NOTIFY_STATUS_CHANGE: u32 = 2u32;
@@ -2282,7 +2248,6 @@ impl ::std::cmp::Eq for SERVICE_PREFERRED_NODE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVICE_PREFERRED_NODE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2309,7 +2274,6 @@ impl ::std::cmp::PartialEq for SERVICE_PRESHUTDOWN_INFO {
 impl ::std::cmp::Eq for SERVICE_PRESHUTDOWN_INFO {}
 unsafe impl ::windows::runtime::Abi for SERVICE_PRESHUTDOWN_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
 pub const SERVICE_QUERY_CONFIG: u32 = 1u32;
@@ -2329,7 +2293,6 @@ impl ::std::convert::From<i32> for SERVICE_REGISTRY_STATE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SERVICE_REGISTRY_STATE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2363,7 +2326,6 @@ impl ::std::cmp::Eq for SERVICE_REQUIRED_PRIVILEGES_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVICE_REQUIRED_PRIVILEGES_INFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2397,7 +2359,6 @@ impl ::std::cmp::Eq for SERVICE_REQUIRED_PRIVILEGES_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVICE_REQUIRED_PRIVILEGES_INFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2412,7 +2373,6 @@ impl ::std::convert::From<u32> for SERVICE_RUNS_IN_PROCESS {
 }
 unsafe impl ::windows::runtime::Abi for SERVICE_RUNS_IN_PROCESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SERVICE_RUNS_IN_PROCESS {
     type Output = Self;
@@ -2454,7 +2414,6 @@ impl ::std::convert::From<i32> for SERVICE_SHARED_DIRECTORY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SERVICE_SHARED_DIRECTORY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2468,7 +2427,6 @@ impl ::std::convert::From<i32> for SERVICE_SHARED_REGISTRY_STATE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SERVICE_SHARED_REGISTRY_STATE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2495,7 +2453,6 @@ impl ::std::cmp::PartialEq for SERVICE_SID_INFO {
 impl ::std::cmp::Eq for SERVICE_SID_INFO {}
 unsafe impl ::windows::runtime::Abi for SERVICE_SID_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
 pub const SERVICE_SID_TYPE_NONE: u32 = 0u32;
@@ -2528,7 +2485,6 @@ impl ::std::cmp::PartialEq for SERVICE_START_REASON {
 impl ::std::cmp::Eq for SERVICE_START_REASON {}
 unsafe impl ::windows::runtime::Abi for SERVICE_START_REASON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
 pub const SERVICE_START_REASON_AUTO: u32 = 2u32;
@@ -2556,7 +2512,6 @@ impl ::std::convert::From<u32> for SERVICE_START_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SERVICE_START_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SERVICE_START_TYPE {
     type Output = Self;
@@ -2625,7 +2580,6 @@ impl ::std::cmp::PartialEq for SERVICE_STATUS {
 impl ::std::cmp::Eq for SERVICE_STATUS {}
 unsafe impl ::windows::runtime::Abi for SERVICE_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2645,7 +2599,6 @@ impl ::std::convert::From<u32> for SERVICE_STATUS_CURRENT_STATE {
 }
 unsafe impl ::windows::runtime::Abi for SERVICE_STATUS_CURRENT_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SERVICE_STATUS_CURRENT_STATE {
     type Output = Self;
@@ -2686,7 +2639,6 @@ impl ::std::default::Default for SERVICE_STATUS_HANDLE {
 unsafe impl ::windows::runtime::Handle for SERVICE_STATUS_HANDLE {}
 unsafe impl ::windows::runtime::Abi for SERVICE_STATUS_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2731,7 +2683,6 @@ impl ::std::cmp::PartialEq for SERVICE_STATUS_PROCESS {
 impl ::std::cmp::Eq for SERVICE_STATUS_PROCESS {}
 unsafe impl ::windows::runtime::Abi for SERVICE_STATUS_PROCESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
 pub const SERVICE_STOP: u32 = 32u32;
@@ -2854,7 +2805,6 @@ impl ::std::cmp::Eq for SERVICE_TABLE_ENTRYA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVICE_TABLE_ENTRYA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2889,7 +2839,6 @@ impl ::std::cmp::Eq for SERVICE_TABLE_ENTRYW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERVICE_TABLE_ENTRYW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2917,7 +2866,6 @@ impl ::std::cmp::PartialEq for SERVICE_TIMECHANGE_INFO {
 impl ::std::cmp::Eq for SERVICE_TIMECHANGE_INFO {}
 unsafe impl ::windows::runtime::Abi for SERVICE_TIMECHANGE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2948,7 +2896,6 @@ impl ::std::cmp::PartialEq for SERVICE_TRIGGER {
 impl ::std::cmp::Eq for SERVICE_TRIGGER {}
 unsafe impl ::windows::runtime::Abi for SERVICE_TRIGGER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2963,7 +2910,6 @@ impl ::std::convert::From<u32> for SERVICE_TRIGGER_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for SERVICE_TRIGGER_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SERVICE_TRIGGER_ACTION {
     type Output = Self;
@@ -3018,7 +2964,6 @@ impl ::std::cmp::PartialEq for SERVICE_TRIGGER_CUSTOM_STATE_ID {
 impl ::std::cmp::Eq for SERVICE_TRIGGER_CUSTOM_STATE_ID {}
 unsafe impl ::windows::runtime::Abi for SERVICE_TRIGGER_CUSTOM_STATE_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3047,7 +2992,6 @@ impl ::std::cmp::PartialEq for SERVICE_TRIGGER_INFO {
 impl ::std::cmp::Eq for SERVICE_TRIGGER_INFO {}
 unsafe impl ::windows::runtime::Abi for SERVICE_TRIGGER_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3076,7 +3020,6 @@ impl ::std::cmp::PartialEq for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
 impl ::std::cmp::Eq for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {}
 unsafe impl ::windows::runtime::Abi for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Services`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3094,7 +3037,6 @@ impl ::std::convert::From<u32> for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE 
 }
 unsafe impl ::windows::runtime::Abi for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
     type Output = Self;
@@ -3142,7 +3084,6 @@ impl ::std::convert::From<u32> for SERVICE_TRIGGER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SERVICE_TRIGGER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SERVICE_TRIGGER_TYPE {
     type Output = Self;

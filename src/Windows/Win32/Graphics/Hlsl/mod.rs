@@ -29,7 +29,6 @@ impl ::std::convert::From<i32> for D3DCOMPILER_STRIP_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3DCOMPILER_STRIP_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_ALL_RESOURCES_BOUND: u32 = 2097152u32;
@@ -603,7 +602,6 @@ impl ::std::convert::From<i32> for D3D_BLOB_PART {
 }
 unsafe impl ::windows::runtime::Abi for D3D_BLOB_PART {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3D_COMPILER_VERSION: u32 = 47u32;
@@ -655,7 +653,6 @@ impl ::std::cmp::PartialEq for D3D_SHADER_DATA {
 impl ::std::cmp::Eq for D3D_SHADER_DATA {}
 unsafe impl ::windows::runtime::Abi for D3D_SHADER_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -671,7 +668,6 @@ impl ::std::convert::From<u32> for DXC_CP {
 }
 unsafe impl ::windows::runtime::Abi for DXC_CP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DXC_CP {
     type Output = Self;
@@ -726,7 +722,6 @@ impl ::std::convert::From<i32> for DXC_OUT_KIND {
 }
 unsafe impl ::windows::runtime::Abi for DXC_OUT_KIND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -761,7 +756,6 @@ impl ::std::cmp::Eq for DxcArgPair {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DxcArgPair {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -790,7 +784,6 @@ impl ::std::cmp::PartialEq for DxcBuffer {
 impl ::std::cmp::Eq for DxcBuffer {}
 unsafe impl ::windows::runtime::Abi for DxcBuffer {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 #[inline]
@@ -857,7 +850,6 @@ impl ::std::cmp::Eq for DxcDefine {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DxcDefine {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -885,7 +877,6 @@ impl ::std::cmp::PartialEq for DxcShaderHash {
 impl ::std::cmp::Eq for DxcShaderHash {}
 unsafe impl ::windows::runtime::Abi for DxcShaderHash {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const DxcValidatorFlags_Default: u32 = 0u32;

@@ -118,10 +118,12 @@ impl ::std::convert::From<i32> for DeviceAccessStatus {
 }
 unsafe impl ::windows::runtime::Abi for DeviceAccessStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DeviceAccessStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceAccessStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for DeviceAccessStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Enumeration`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -143,10 +145,12 @@ impl ::std::convert::From<i32> for DeviceClass {
 }
 unsafe impl ::windows::runtime::Abi for DeviceClass {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DeviceClass {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceClass;i4)");
+}
+impl ::windows::runtime::DefaultType for DeviceClass {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Enumeration`*"]
 #[repr(transparent)]
@@ -458,7 +462,7 @@ impl DeviceInformationCollection {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Devices_Enumeration`, `Foundation_Collections`*"]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<DeviceInformation as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [<DeviceInformation as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -640,10 +644,12 @@ impl ::std::convert::From<i32> for DeviceInformationKind {
 }
 unsafe impl ::windows::runtime::Abi for DeviceInformationKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DeviceInformationKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceInformationKind;i4)");
+}
+impl ::windows::runtime::DefaultType for DeviceInformationKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Enumeration`*"]
 #[repr(transparent)]
@@ -815,10 +821,12 @@ impl ::std::convert::From<u32> for DevicePairingKinds {
 }
 unsafe impl ::windows::runtime::Abi for DevicePairingKinds {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DevicePairingKinds {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePairingKinds;u4)");
+}
+impl ::windows::runtime::DefaultType for DevicePairingKinds {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DevicePairingKinds {
     type Output = Self;
@@ -865,10 +873,12 @@ impl ::std::convert::From<i32> for DevicePairingProtectionLevel {
 }
 unsafe impl ::windows::runtime::Abi for DevicePairingProtectionLevel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DevicePairingProtectionLevel {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePairingProtectionLevel;i4)");
+}
+impl ::windows::runtime::DefaultType for DevicePairingProtectionLevel {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Enumeration`*"]
 #[repr(transparent)]
@@ -1004,10 +1014,12 @@ impl ::std::convert::From<i32> for DevicePairingResultStatus {
 }
 unsafe impl ::windows::runtime::Abi for DevicePairingResultStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DevicePairingResultStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePairingResultStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for DevicePairingResultStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Enumeration`*"]
 #[repr(transparent)]
@@ -1282,10 +1294,12 @@ impl ::std::convert::From<u32> for DevicePickerDisplayStatusOptions {
 }
 unsafe impl ::windows::runtime::Abi for DevicePickerDisplayStatusOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DevicePickerDisplayStatusOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePickerDisplayStatusOptions;u4)");
+}
+impl ::windows::runtime::DefaultType for DevicePickerDisplayStatusOptions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DevicePickerDisplayStatusOptions {
     type Output = Self;
@@ -1717,10 +1731,12 @@ impl ::std::convert::From<i32> for DeviceUnpairingResultStatus {
 }
 unsafe impl ::windows::runtime::Abi for DeviceUnpairingResultStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DeviceUnpairingResultStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceUnpairingResultStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for DeviceUnpairingResultStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Enumeration`*"]
 #[repr(transparent)]
@@ -1900,10 +1916,12 @@ impl ::std::convert::From<i32> for DeviceWatcherEventKind {
 }
 unsafe impl ::windows::runtime::Abi for DeviceWatcherEventKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DeviceWatcherEventKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceWatcherEventKind;i4)");
+}
+impl ::windows::runtime::DefaultType for DeviceWatcherEventKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Enumeration`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1924,10 +1942,12 @@ impl ::std::convert::From<i32> for DeviceWatcherStatus {
 }
 unsafe impl ::windows::runtime::Abi for DeviceWatcherStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DeviceWatcherStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceWatcherStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for DeviceWatcherStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Enumeration`*"]
 #[repr(transparent)]
@@ -2007,7 +2027,6 @@ impl ::windows::runtime::RuntimeName for EnclosureLocation {
 unsafe impl ::std::marker::Send for EnclosureLocation {}
 unsafe impl ::std::marker::Sync for EnclosureLocation {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceAccessChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceAccessChangedEventArgs {
@@ -2026,7 +2045,6 @@ pub struct IDeviceAccessChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut DeviceAccessStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceAccessChangedEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceAccessChangedEventArgs2 {
@@ -2045,7 +2063,6 @@ pub struct IDeviceAccessChangedEventArgs2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceAccessInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceAccessInformation {
@@ -2068,7 +2085,6 @@ pub struct IDeviceAccessInformation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut DeviceAccessStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceAccessInformationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceAccessInformationStatics {
@@ -2089,7 +2105,6 @@ pub struct IDeviceAccessInformationStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceclass: DeviceClass, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceConnectionChangeTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceConnectionChangeTriggerDetails {
@@ -2108,7 +2123,6 @@ pub struct IDeviceConnectionChangeTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceDisconnectButtonClickedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceDisconnectButtonClickedEventArgs {
@@ -2127,7 +2141,6 @@ pub struct IDeviceDisconnectButtonClickedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceInformation {
@@ -2157,7 +2170,6 @@ pub struct IDeviceInformation_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceInformation2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceInformation2 {
@@ -2177,7 +2189,6 @@ pub struct IDeviceInformation2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceInformationCustomPairing(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceInformationCustomPairing {
@@ -2205,7 +2216,6 @@ pub struct IDeviceInformationCustomPairing_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceInformationPairing(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceInformationPairing {
@@ -2229,7 +2239,6 @@ pub struct IDeviceInformationPairing_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceInformationPairing2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceInformationPairing2 {
@@ -2253,7 +2262,6 @@ pub struct IDeviceInformationPairing2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceInformationPairingStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceInformationPairingStatics {
@@ -2272,7 +2280,6 @@ pub struct IDeviceInformationPairingStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pairingkindssupported: DevicePairingKinds, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceInformationPairingStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceInformationPairingStatics2 {
@@ -2291,7 +2298,6 @@ pub struct IDeviceInformationPairingStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceInformationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceInformationStatics {
@@ -2326,7 +2332,6 @@ pub struct IDeviceInformationStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceInformationStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceInformationStatics2 {
@@ -2351,7 +2356,6 @@ pub struct IDeviceInformationStatics2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceInformationUpdate(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceInformationUpdate {
@@ -2372,7 +2376,6 @@ pub struct IDeviceInformationUpdate_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceInformationUpdate2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceInformationUpdate2 {
@@ -2391,7 +2394,6 @@ pub struct IDeviceInformationUpdate2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut DeviceInformationKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDevicePairingRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePairingRequestedEventArgs {
@@ -2416,7 +2418,6 @@ pub struct IDevicePairingRequestedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDevicePairingRequestedEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePairingRequestedEventArgs2 {
@@ -2436,7 +2437,6 @@ pub struct IDevicePairingRequestedEventArgs2_abi(
     #[cfg(not(feature = "Security_Credentials"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDevicePairingResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePairingResult {
@@ -2478,7 +2478,6 @@ pub struct IDevicePairingSettings_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDevicePicker(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePicker {
@@ -2522,7 +2521,6 @@ pub struct IDevicePicker_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, device: ::windows::runtime::RawPtr, status: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, options: DevicePickerDisplayStatusOptions) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDevicePickerAppearance(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePickerAppearance {
@@ -2566,7 +2564,6 @@ pub struct IDevicePickerAppearance_abi(
     #[cfg(not(feature = "UI"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDevicePickerFilter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePickerFilter {
@@ -2588,7 +2585,6 @@ pub struct IDevicePickerFilter_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceSelectedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceSelectedEventArgs {
@@ -2607,7 +2603,6 @@ pub struct IDeviceSelectedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceUnpairingResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceUnpairingResult {
@@ -2626,7 +2621,6 @@ pub struct IDeviceUnpairingResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut DeviceUnpairingResultStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceWatcher(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceWatcher {
@@ -2667,7 +2661,6 @@ pub struct IDeviceWatcher_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceWatcher2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceWatcher2 {
@@ -2687,7 +2680,6 @@ pub struct IDeviceWatcher2_abi(
     #[cfg(not(all(feature = "ApplicationModel_Background", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceWatcherEvent(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceWatcherEvent {
@@ -2708,7 +2700,6 @@ pub struct IDeviceWatcherEvent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceWatcherTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceWatcherTriggerDetails {
@@ -2728,7 +2719,6 @@ pub struct IDeviceWatcherTriggerDetails_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEnclosureLocation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEnclosureLocation {
@@ -2749,7 +2739,6 @@ pub struct IEnclosureLocation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut Panel) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEnclosureLocation2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEnclosureLocation2 {
@@ -2787,8 +2776,10 @@ impl ::std::convert::From<i32> for Panel {
 }
 unsafe impl ::windows::runtime::Abi for Panel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for Panel {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.Panel;i4)");
+}
+impl ::windows::runtime::DefaultType for Panel {
+    type DefaultType = Self;
 }

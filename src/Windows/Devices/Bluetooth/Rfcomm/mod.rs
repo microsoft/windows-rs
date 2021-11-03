@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRfcommDeviceService(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommDeviceService {
@@ -30,7 +29,6 @@ pub struct IRfcommDeviceService_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRfcommDeviceService2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommDeviceService2 {
@@ -49,7 +47,6 @@ pub struct IRfcommDeviceService2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRfcommDeviceService3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommDeviceService3 {
@@ -71,7 +68,6 @@ pub struct IRfcommDeviceService3_abi(
     #[cfg(not(all(feature = "Devices_Enumeration", feature = "Foundation")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRfcommDeviceServiceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommDeviceServiceStatics {
@@ -92,7 +88,6 @@ pub struct IRfcommDeviceServiceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, serviceid: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRfcommDeviceServiceStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommDeviceServiceStatics2 {
@@ -114,7 +109,6 @@ pub struct IRfcommDeviceServiceStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bluetoothdevice: ::windows::runtime::RawPtr, serviceid: ::windows::runtime::RawPtr, cachemode: super::BluetoothCacheMode, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRfcommDeviceServicesResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommDeviceServicesResult {
@@ -135,7 +129,6 @@ pub struct IRfcommDeviceServicesResult_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRfcommServiceId(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommServiceId {
@@ -156,7 +149,6 @@ pub struct IRfcommServiceId_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRfcommServiceIdStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommServiceIdStatics {
@@ -182,7 +174,6 @@ pub struct IRfcommServiceIdStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRfcommServiceProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommServiceProvider {
@@ -206,7 +197,6 @@ pub struct IRfcommServiceProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRfcommServiceProvider2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommServiceProvider2 {
@@ -226,7 +216,6 @@ pub struct IRfcommServiceProvider2_abi(
     #[cfg(not(feature = "Networking_Sockets"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRfcommServiceProviderStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommServiceProviderStatics {

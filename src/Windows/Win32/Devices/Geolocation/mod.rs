@@ -54,7 +54,6 @@ impl ::std::cmp::Eq for GNSS_AGNSS_INJECT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_AGNSS_INJECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -84,7 +83,6 @@ impl ::std::cmp::Eq for GNSS_AGNSS_INJECT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_AGNSS_INJECT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -117,7 +115,6 @@ impl ::std::cmp::PartialEq for GNSS_AGNSS_INJECTBLOB {
 impl ::std::cmp::Eq for GNSS_AGNSS_INJECTBLOB {}
 unsafe impl ::windows::runtime::Abi for GNSS_AGNSS_INJECTBLOB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -148,7 +145,6 @@ impl ::std::cmp::PartialEq for GNSS_AGNSS_INJECTPOSITION {
 impl ::std::cmp::Eq for GNSS_AGNSS_INJECTPOSITION {}
 unsafe impl ::windows::runtime::Abi for GNSS_AGNSS_INJECTPOSITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -185,7 +181,6 @@ impl ::std::cmp::Eq for GNSS_AGNSS_INJECTTIME {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_AGNSS_INJECTTIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -215,7 +210,6 @@ impl ::std::cmp::PartialEq for GNSS_AGNSS_REQUEST_PARAM {
 impl ::std::cmp::Eq for GNSS_AGNSS_REQUEST_PARAM {}
 unsafe impl ::windows::runtime::Abi for GNSS_AGNSS_REQUEST_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -231,7 +225,6 @@ impl ::std::convert::From<i32> for GNSS_AGNSS_REQUEST_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for GNSS_AGNSS_REQUEST_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -260,7 +253,6 @@ impl ::std::cmp::PartialEq for GNSS_BREADCRUMBING_ALERT_DATA {
 impl ::std::cmp::Eq for GNSS_BREADCRUMBING_ALERT_DATA {}
 unsafe impl ::windows::runtime::Abi for GNSS_BREADCRUMBING_ALERT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -299,7 +291,6 @@ impl ::std::cmp::PartialEq for GNSS_BREADCRUMBING_PARAM {
 impl ::std::cmp::Eq for GNSS_BREADCRUMBING_PARAM {}
 unsafe impl ::windows::runtime::Abi for GNSS_BREADCRUMBING_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -330,7 +321,6 @@ impl ::std::cmp::Eq for GNSS_BREADCRUMB_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_BREADCRUMB_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -358,7 +348,6 @@ impl ::std::cmp::Eq for GNSS_BREADCRUMB_LIST_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_BREADCRUMB_LIST_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -414,7 +403,6 @@ impl ::std::cmp::Eq for GNSS_BREADCRUMB_V1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_BREADCRUMB_V1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -446,7 +434,6 @@ impl ::std::cmp::PartialEq for GNSS_CHIPSETINFO {
 impl ::std::cmp::Eq for GNSS_CHIPSETINFO {}
 unsafe impl ::windows::runtime::Abi for GNSS_CHIPSETINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -475,7 +462,6 @@ impl ::std::cmp::PartialEq for GNSS_CONTINUOUSTRACKING_PARAM {
 impl ::std::cmp::Eq for GNSS_CONTINUOUSTRACKING_PARAM {}
 unsafe impl ::windows::runtime::Abi for GNSS_CONTINUOUSTRACKING_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -505,7 +491,6 @@ impl ::std::cmp::PartialEq for GNSS_CP_NI_INFO {
 impl ::std::cmp::Eq for GNSS_CP_NI_INFO {}
 unsafe impl ::windows::runtime::Abi for GNSS_CP_NI_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -544,7 +529,6 @@ impl ::std::cmp::Eq for GNSS_CWTESTDATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_CWTESTDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -658,7 +642,6 @@ impl ::std::cmp::Eq for GNSS_DEVICE_CAPABILITY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_DEVICE_CAPABILITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -687,7 +670,6 @@ impl ::std::cmp::PartialEq for GNSS_DISTANCETRACKING_PARAM {
 impl ::std::cmp::Eq for GNSS_DISTANCETRACKING_PARAM {}
 unsafe impl ::windows::runtime::Abi for GNSS_DISTANCETRACKING_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -728,7 +710,6 @@ impl ::std::cmp::PartialEq for GNSS_DRIVERCOMMAND_PARAM {
 impl ::std::cmp::Eq for GNSS_DRIVERCOMMAND_PARAM {}
 unsafe impl ::windows::runtime::Abi for GNSS_DRIVERCOMMAND_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -754,7 +735,6 @@ impl ::std::convert::From<i32> for GNSS_DRIVERCOMMAND_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for GNSS_DRIVERCOMMAND_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -768,7 +748,6 @@ impl ::std::convert::From<i32> for GNSS_DRIVER_REQUEST {
 }
 unsafe impl ::windows::runtime::Abi for GNSS_DRIVER_REQUEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -798,7 +777,6 @@ impl ::std::cmp::PartialEq for GNSS_DRIVER_REQUEST_DATA {
 impl ::std::cmp::Eq for GNSS_DRIVER_REQUEST_DATA {}
 unsafe impl ::windows::runtime::Abi for GNSS_DRIVER_REQUEST_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 pub const GNSS_DRIVER_VERSION_1: u32 = 1u32;
@@ -849,7 +827,6 @@ impl ::std::cmp::Eq for GNSS_ERRORINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_ERRORINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -882,7 +859,6 @@ impl ::std::cmp::Eq for GNSS_EVENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_EVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -919,7 +895,6 @@ impl ::std::cmp::Eq for GNSS_EVENT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_EVENT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -952,7 +927,6 @@ impl ::std::cmp::Eq for GNSS_EVENT_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_EVENT_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -990,7 +964,6 @@ impl ::std::cmp::Eq for GNSS_EVENT_2_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_EVENT_2_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1014,7 +987,6 @@ impl ::std::convert::From<i32> for GNSS_EVENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for GNSS_EVENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1068,7 +1040,6 @@ impl ::std::cmp::Eq for GNSS_FIXDATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_FIXDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1122,7 +1093,6 @@ impl ::std::cmp::Eq for GNSS_FIXDATA_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_FIXDATA_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1196,7 +1166,6 @@ impl ::std::cmp::PartialEq for GNSS_FIXDATA_ACCURACY {
 impl ::std::cmp::Eq for GNSS_FIXDATA_ACCURACY {}
 unsafe impl ::windows::runtime::Abi for GNSS_FIXDATA_ACCURACY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1276,7 +1245,6 @@ impl ::std::cmp::PartialEq for GNSS_FIXDATA_ACCURACY_2 {
 impl ::std::cmp::Eq for GNSS_FIXDATA_ACCURACY_2 {}
 unsafe impl ::windows::runtime::Abi for GNSS_FIXDATA_ACCURACY_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1309,7 +1277,6 @@ impl ::std::cmp::PartialEq for GNSS_FIXDATA_BASIC {
 impl ::std::cmp::Eq for GNSS_FIXDATA_BASIC {}
 unsafe impl ::windows::runtime::Abi for GNSS_FIXDATA_BASIC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1352,7 +1319,6 @@ impl ::std::cmp::PartialEq for GNSS_FIXDATA_BASIC_2 {
 impl ::std::cmp::Eq for GNSS_FIXDATA_BASIC_2 {}
 unsafe impl ::windows::runtime::Abi for GNSS_FIXDATA_BASIC_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1389,7 +1355,6 @@ impl ::std::cmp::Eq for GNSS_FIXDATA_SATELLITE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_FIXDATA_SATELLITE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 pub const GNSS_FIXDETAIL_ACCURACY: u32 = 2u32;
@@ -1412,7 +1377,6 @@ impl ::std::convert::From<i32> for GNSS_FIXSESSIONTYPE {
 }
 unsafe impl ::windows::runtime::Abi for GNSS_FIXSESSIONTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1443,7 +1407,6 @@ impl ::std::cmp::PartialEq for GNSS_FIXSESSION_PARAM {
 impl ::std::cmp::Eq for GNSS_FIXSESSION_PARAM {}
 unsafe impl ::windows::runtime::Abi for GNSS_FIXSESSION_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1469,7 +1432,6 @@ impl ::std::cmp::PartialEq for GNSS_FIXSESSION_PARAM_0 {
 impl ::std::cmp::Eq for GNSS_FIXSESSION_PARAM_0 {}
 unsafe impl ::windows::runtime::Abi for GNSS_FIXSESSION_PARAM_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 pub const GNSS_GEOFENCESUPPORT_CIRCLE: u32 = 2u32;
@@ -1511,7 +1473,6 @@ impl ::std::cmp::Eq for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1552,7 +1513,6 @@ impl ::std::cmp::PartialEq for GNSS_GEOFENCE_ALERT_DATA {
 impl ::std::cmp::Eq for GNSS_GEOFENCE_ALERT_DATA {}
 unsafe impl ::windows::runtime::Abi for GNSS_GEOFENCE_ALERT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1579,7 +1539,6 @@ impl ::std::cmp::PartialEq for GNSS_GEOFENCE_CREATE_PARAM {
 impl ::std::cmp::Eq for GNSS_GEOFENCE_CREATE_PARAM {}
 unsafe impl ::windows::runtime::Abi for GNSS_GEOFENCE_CREATE_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1617,7 +1576,6 @@ impl ::std::cmp::Eq for GNSS_GEOFENCE_CREATE_RESPONSE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_GEOFENCE_CREATE_RESPONSE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1647,7 +1605,6 @@ impl ::std::cmp::PartialEq for GNSS_GEOFENCE_DELETE_PARAM {
 impl ::std::cmp::Eq for GNSS_GEOFENCE_DELETE_PARAM {}
 unsafe impl ::windows::runtime::Abi for GNSS_GEOFENCE_DELETE_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1663,7 +1620,6 @@ impl ::std::convert::From<i32> for GNSS_GEOFENCE_STATE {
 }
 unsafe impl ::windows::runtime::Abi for GNSS_GEOFENCE_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1688,7 +1644,6 @@ impl ::std::cmp::PartialEq for GNSS_GEOREGION {
 impl ::std::cmp::Eq for GNSS_GEOREGION {}
 unsafe impl ::windows::runtime::Abi for GNSS_GEOREGION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1711,7 +1666,6 @@ impl ::std::cmp::PartialEq for GNSS_GEOREGION_0 {
 impl ::std::cmp::Eq for GNSS_GEOREGION_0 {}
 unsafe impl ::windows::runtime::Abi for GNSS_GEOREGION_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1725,7 +1679,6 @@ impl ::std::convert::From<i32> for GNSS_GEOREGIONTYPE {
 }
 unsafe impl ::windows::runtime::Abi for GNSS_GEOREGIONTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1754,7 +1707,6 @@ impl ::std::cmp::PartialEq for GNSS_GEOREGION_CIRCLE {
 impl ::std::cmp::Eq for GNSS_GEOREGION_CIRCLE {}
 unsafe impl ::windows::runtime::Abi for GNSS_GEOREGION_CIRCLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1782,7 +1734,6 @@ impl ::std::cmp::PartialEq for GNSS_LKGFIX_PARAM {
 impl ::std::cmp::Eq for GNSS_LKGFIX_PARAM {}
 unsafe impl ::windows::runtime::Abi for GNSS_LKGFIX_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 pub const GNSS_MAXSATELLITE: u32 = 64u32;
@@ -1802,7 +1753,6 @@ impl ::std::convert::From<i32> for GNSS_NI_NOTIFICATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for GNSS_NI_NOTIFICATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1818,7 +1768,6 @@ impl ::std::convert::From<i32> for GNSS_NI_PLANE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for GNSS_NI_PLANE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1854,7 +1803,6 @@ impl ::std::cmp::Eq for GNSS_NI_REQUEST_PARAM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_NI_REQUEST_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1884,7 +1832,6 @@ impl ::std::cmp::Eq for GNSS_NI_REQUEST_PARAM_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_NI_REQUEST_PARAM_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1899,7 +1846,6 @@ impl ::std::convert::From<i32> for GNSS_NI_REQUEST_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for GNSS_NI_REQUEST_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1929,7 +1875,6 @@ impl ::std::cmp::PartialEq for GNSS_NI_RESPONSE {
 impl ::std::cmp::Eq for GNSS_NI_RESPONSE {}
 unsafe impl ::windows::runtime::Abi for GNSS_NI_RESPONSE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1945,7 +1890,6 @@ impl ::std::convert::From<i32> for GNSS_NI_USER_RESPONSE {
 }
 unsafe impl ::windows::runtime::Abi for GNSS_NI_USER_RESPONSE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 pub const GNSS_NMEALOGGING_ALL: u32 = 255u32;
@@ -1985,7 +1929,6 @@ impl ::std::cmp::Eq for GNSS_NMEA_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_NMEA_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 pub const GNSS_OPERMODE_AFLT: u32 = 16u32;
@@ -2037,7 +1980,6 @@ impl ::std::cmp::Eq for GNSS_PLATFORM_CAPABILITY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_PLATFORM_CAPABILITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2075,7 +2017,6 @@ impl ::std::cmp::Eq for GNSS_SATELLITEINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_SATELLITEINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 pub const GNSS_SATELLITE_ANY: u32 = 0u32;
@@ -2117,7 +2058,6 @@ impl ::std::cmp::PartialEq for GNSS_SELFTESTCONFIG {
 impl ::std::cmp::Eq for GNSS_SELFTESTCONFIG {}
 unsafe impl ::windows::runtime::Abi for GNSS_SELFTESTCONFIG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2167,7 +2107,6 @@ impl ::std::cmp::Eq for GNSS_SELFTESTRESULT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_SELFTESTRESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2196,7 +2135,6 @@ impl ::std::cmp::PartialEq for GNSS_SINGLESHOT_PARAM {
 impl ::std::cmp::Eq for GNSS_SINGLESHOT_PARAM {}
 unsafe impl ::windows::runtime::Abi for GNSS_SINGLESHOT_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2226,7 +2164,6 @@ impl ::std::cmp::PartialEq for GNSS_STOPFIXSESSION_PARAM {
 impl ::std::cmp::Eq for GNSS_STOPFIXSESSION_PARAM {}
 unsafe impl ::windows::runtime::Abi for GNSS_STOPFIXSESSION_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2242,7 +2179,6 @@ impl ::std::convert::From<i32> for GNSS_SUPL_CERT_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for GNSS_SUPL_CERT_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2282,7 +2218,6 @@ impl ::std::cmp::Eq for GNSS_SUPL_CERT_CONFIG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_SUPL_CERT_CONFIG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2321,7 +2256,6 @@ impl ::std::cmp::Eq for GNSS_SUPL_HSLP_CONFIG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_SUPL_HSLP_CONFIG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2359,7 +2293,6 @@ impl ::std::cmp::Eq for GNSS_SUPL_NI_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_SUPL_NI_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2387,7 +2320,6 @@ impl ::std::cmp::PartialEq for GNSS_SUPL_VERSION {
 impl ::std::cmp::Eq for GNSS_SUPL_VERSION {}
 unsafe impl ::windows::runtime::Abi for GNSS_SUPL_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2416,7 +2348,6 @@ impl ::std::cmp::PartialEq for GNSS_SUPL_VERSION_2 {
 impl ::std::cmp::Eq for GNSS_SUPL_VERSION_2 {}
 unsafe impl ::windows::runtime::Abi for GNSS_SUPL_VERSION_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2455,7 +2386,6 @@ impl ::std::cmp::Eq for GNSS_V2UPL_CONFIG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GNSS_V2UPL_CONFIG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2484,7 +2414,6 @@ impl ::std::cmp::PartialEq for GNSS_V2UPL_NI_INFO {
 impl ::std::cmp::Eq for GNSS_V2UPL_NI_INFO {}
 unsafe impl ::windows::runtime::Abi for GNSS_V2UPL_NI_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const GUID_DEVINTERFACE_GNSS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(859235812, 394, 18025, [132, 197, 189, 5, 243, 189, 54, 139]);
 #[doc = "*Required features: `Win32_Devices_Geolocation`*"]
@@ -3520,7 +3449,6 @@ impl ::std::convert::From<i32> for LOCATION_REPORT_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for LOCATION_REPORT_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const LatLongReport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3984703603, 8068, 19624, [161, 97, 24, 60, 119, 107, 198, 81]);
 pub const LatLongReportFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2647407816, 34313, 18531, [186, 212, 3, 96, 31, 76, 101, 232]);

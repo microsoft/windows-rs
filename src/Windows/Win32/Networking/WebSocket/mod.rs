@@ -15,7 +15,6 @@ impl ::std::convert::From<i32> for WEB_SOCKET_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for WEB_SOCKET_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WebSocket`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -31,7 +30,6 @@ impl ::std::convert::From<i32> for WEB_SOCKET_ACTION_QUEUE {
 }
 unsafe impl ::windows::runtime::Abi for WEB_SOCKET_ACTION_QUEUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -54,7 +52,6 @@ impl ::std::cmp::PartialEq for WEB_SOCKET_BUFFER {
 impl ::std::cmp::Eq for WEB_SOCKET_BUFFER {}
 unsafe impl ::windows::runtime::Abi for WEB_SOCKET_BUFFER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -83,7 +80,6 @@ impl ::std::cmp::PartialEq for WEB_SOCKET_BUFFER_0 {
 impl ::std::cmp::Eq for WEB_SOCKET_BUFFER_0 {}
 unsafe impl ::windows::runtime::Abi for WEB_SOCKET_BUFFER_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -111,7 +107,6 @@ impl ::std::cmp::PartialEq for WEB_SOCKET_BUFFER_1 {
 impl ::std::cmp::Eq for WEB_SOCKET_BUFFER_1 {}
 unsafe impl ::windows::runtime::Abi for WEB_SOCKET_BUFFER_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WebSocket`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -131,7 +126,6 @@ impl ::std::convert::From<i32> for WEB_SOCKET_BUFFER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WEB_SOCKET_BUFFER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WebSocket`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -156,7 +150,6 @@ impl ::std::convert::From<i32> for WEB_SOCKET_CLOSE_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for WEB_SOCKET_CLOSE_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -169,7 +162,6 @@ impl ::std::default::Default for WEB_SOCKET_HANDLE {
 unsafe impl ::windows::runtime::Handle for WEB_SOCKET_HANDLE {}
 unsafe impl ::windows::runtime::Abi for WEB_SOCKET_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -206,7 +198,6 @@ impl ::std::cmp::Eq for WEB_SOCKET_HTTP_HEADER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WEB_SOCKET_HTTP_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WebSocket`*"]
 pub const WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: u32 = 123u32;
@@ -237,7 +228,6 @@ impl ::std::cmp::PartialEq for WEB_SOCKET_PROPERTY {
 impl ::std::cmp::Eq for WEB_SOCKET_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for WEB_SOCKET_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WebSocket`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -257,7 +247,6 @@ impl ::std::convert::From<i32> for WEB_SOCKET_PROPERTY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WEB_SOCKET_PROPERTY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WebSocket`*"]
 #[inline]

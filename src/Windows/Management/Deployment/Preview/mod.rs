@@ -21,7 +21,6 @@ impl ::windows::runtime::RuntimeName for ClassicAppManager {
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct DeploymentPreviewContract(pub u8);
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClassicAppManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClassicAppManagerStatics {
@@ -40,7 +39,6 @@ pub struct IClassicAppManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appuninstallkey: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInstalledClassicAppInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInstalledClassicAppInfo {

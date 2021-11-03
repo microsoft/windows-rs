@@ -39,7 +39,6 @@ impl ::windows::runtime::RuntimeName for ContactPartnerProvisioningManager {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.Provisioning.ContactPartnerProvisioningManager";
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactPartnerProvisioningManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactPartnerProvisioningManagerStatics {
@@ -61,7 +60,6 @@ pub struct IContactPartnerProvisioningManagerStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactPartnerProvisioningManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactPartnerProvisioningManagerStatics2 {
@@ -81,7 +79,6 @@ pub struct IContactPartnerProvisioningManagerStatics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMessagePartnerProvisioningManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMessagePartnerProvisioningManagerStatics {

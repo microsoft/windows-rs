@@ -350,10 +350,12 @@ impl ::std::convert::From<i32> for EasDisallowConvenienceLogonResult {
 }
 unsafe impl ::windows::runtime::Abi for EasDisallowConvenienceLogonResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EasDisallowConvenienceLogonResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasDisallowConvenienceLogonResult;i4)");
+}
+impl ::windows::runtime::DefaultType for EasDisallowConvenienceLogonResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -371,10 +373,12 @@ impl ::std::convert::From<i32> for EasEncryptionProviderType {
 }
 unsafe impl ::windows::runtime::Abi for EasEncryptionProviderType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EasEncryptionProviderType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasEncryptionProviderType;i4)");
+}
+impl ::windows::runtime::DefaultType for EasEncryptionProviderType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -394,10 +398,12 @@ impl ::std::convert::From<i32> for EasMaxInactivityTimeLockResult {
 }
 unsafe impl ::windows::runtime::Abi for EasMaxInactivityTimeLockResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EasMaxInactivityTimeLockResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMaxInactivityTimeLockResult;i4)");
+}
+impl ::windows::runtime::DefaultType for EasMaxInactivityTimeLockResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -417,10 +423,12 @@ impl ::std::convert::From<i32> for EasMaxPasswordFailedAttemptsResult {
 }
 unsafe impl ::windows::runtime::Abi for EasMaxPasswordFailedAttemptsResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EasMaxPasswordFailedAttemptsResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMaxPasswordFailedAttemptsResult;i4)");
+}
+impl ::windows::runtime::DefaultType for EasMaxPasswordFailedAttemptsResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -450,10 +458,12 @@ impl ::std::convert::From<i32> for EasMinPasswordComplexCharactersResult {
 }
 unsafe impl ::windows::runtime::Abi for EasMinPasswordComplexCharactersResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EasMinPasswordComplexCharactersResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMinPasswordComplexCharactersResult;i4)");
+}
+impl ::windows::runtime::DefaultType for EasMinPasswordComplexCharactersResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -483,10 +493,12 @@ impl ::std::convert::From<i32> for EasMinPasswordLengthResult {
 }
 unsafe impl ::windows::runtime::Abi for EasMinPasswordLengthResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EasMinPasswordLengthResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMinPasswordLengthResult;i4)");
+}
+impl ::windows::runtime::DefaultType for EasMinPasswordLengthResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -510,10 +522,12 @@ impl ::std::convert::From<i32> for EasPasswordExpirationResult {
 }
 unsafe impl ::windows::runtime::Abi for EasPasswordExpirationResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EasPasswordExpirationResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasPasswordExpirationResult;i4)");
+}
+impl ::windows::runtime::DefaultType for EasPasswordExpirationResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -533,10 +547,12 @@ impl ::std::convert::From<i32> for EasPasswordHistoryResult {
 }
 unsafe impl ::windows::runtime::Abi for EasPasswordHistoryResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EasPasswordHistoryResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasPasswordHistoryResult;i4)");
+}
+impl ::windows::runtime::DefaultType for EasPasswordHistoryResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_ExchangeActiveSyncProvisioning`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -570,13 +586,14 @@ impl ::std::convert::From<i32> for EasRequireEncryptionResult {
 }
 unsafe impl ::windows::runtime::Abi for EasRequireEncryptionResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EasRequireEncryptionResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasRequireEncryptionResult;i4)");
 }
+impl ::windows::runtime::DefaultType for EasRequireEncryptionResult {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEasClientDeviceInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEasClientDeviceInformation {
@@ -600,7 +617,6 @@ pub struct IEasClientDeviceInformation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEasClientDeviceInformation2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEasClientDeviceInformation2 {
@@ -620,7 +636,6 @@ pub struct IEasClientDeviceInformation2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEasClientSecurityPolicy(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEasClientSecurityPolicy {
@@ -661,7 +676,6 @@ pub struct IEasClientSecurityPolicy_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEasComplianceResults(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEasComplianceResults {
@@ -688,7 +702,6 @@ pub struct IEasComplianceResults_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut EasMaxInactivityTimeLockResult) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEasComplianceResults2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEasComplianceResults2 {

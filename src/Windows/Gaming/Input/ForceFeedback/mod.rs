@@ -110,10 +110,12 @@ impl ::std::convert::From<i32> for ConditionForceEffectKind {
 }
 unsafe impl ::windows::runtime::Abi for ConditionForceEffectKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ConditionForceEffectKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ConditionForceEffectKind;i4)");
+}
+impl ::windows::runtime::DefaultType for ConditionForceEffectKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
 #[repr(transparent)]
@@ -231,10 +233,12 @@ impl ::std::convert::From<u32> for ForceFeedbackEffectAxes {
 }
 unsafe impl ::windows::runtime::Abi for ForceFeedbackEffectAxes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ForceFeedbackEffectAxes {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ForceFeedbackEffectAxes;u4)");
+}
+impl ::windows::runtime::DefaultType for ForceFeedbackEffectAxes {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ForceFeedbackEffectAxes {
     type Output = Self;
@@ -281,10 +285,12 @@ impl ::std::convert::From<i32> for ForceFeedbackEffectState {
 }
 unsafe impl ::windows::runtime::Abi for ForceFeedbackEffectState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ForceFeedbackEffectState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ForceFeedbackEffectState;i4)");
+}
+impl ::windows::runtime::DefaultType for ForceFeedbackEffectState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -302,10 +308,12 @@ impl ::std::convert::From<i32> for ForceFeedbackLoadEffectResult {
 }
 unsafe impl ::windows::runtime::Abi for ForceFeedbackLoadEffectResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ForceFeedbackLoadEffectResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ForceFeedbackLoadEffectResult;i4)");
+}
+impl ::windows::runtime::DefaultType for ForceFeedbackLoadEffectResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
 #[repr(transparent)]
@@ -423,7 +431,6 @@ impl ::windows::runtime::RuntimeName for ForceFeedbackMotor {
 unsafe impl ::std::marker::Send for ForceFeedbackMotor {}
 unsafe impl ::std::marker::Sync for ForceFeedbackMotor {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConditionForceEffect(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConditionForceEffect {
@@ -444,7 +451,6 @@ pub struct IConditionForceEffect_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConditionForceEffectFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConditionForceEffectFactory {
@@ -463,7 +469,6 @@ pub struct IConditionForceEffectFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effectkind: ConditionForceEffectKind, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConstantForceEffect(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConstantForceEffect {
@@ -545,7 +550,6 @@ pub struct IForceFeedbackEffect_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IForceFeedbackMotor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IForceFeedbackMotor {
@@ -581,7 +585,6 @@ pub struct IForceFeedbackMotor_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPeriodicForceEffect(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPeriodicForceEffect {
@@ -619,7 +622,6 @@ pub struct IPeriodicForceEffect_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPeriodicForceEffectFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPeriodicForceEffectFactory {
@@ -638,7 +640,6 @@ pub struct IPeriodicForceEffectFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effectkind: PeriodicForceEffectKind, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRampForceEffect(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRampForceEffect {
@@ -804,10 +805,12 @@ impl ::std::convert::From<i32> for PeriodicForceEffectKind {
 }
 unsafe impl ::windows::runtime::Abi for PeriodicForceEffectKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PeriodicForceEffectKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.PeriodicForceEffectKind;i4)");
+}
+impl ::windows::runtime::DefaultType for PeriodicForceEffectKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Gaming_Input_ForceFeedback`*"]
 #[repr(transparent)]

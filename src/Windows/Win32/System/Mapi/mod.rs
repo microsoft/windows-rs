@@ -182,7 +182,6 @@ impl ::std::cmp::Eq for MapiFileDesc {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MapiFileDesc {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -221,7 +220,6 @@ impl ::std::cmp::Eq for MapiFileDescW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MapiFileDescW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -252,7 +250,6 @@ impl ::std::cmp::PartialEq for MapiFileTagExt {
 impl ::std::cmp::Eq for MapiFileTagExt {}
 unsafe impl ::windows::runtime::Abi for MapiFileTagExt {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -321,7 +318,6 @@ impl ::std::cmp::Eq for MapiMessage {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MapiMessage {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -390,7 +386,6 @@ impl ::std::cmp::Eq for MapiMessageW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MapiMessageW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -429,7 +424,6 @@ impl ::std::cmp::Eq for MapiRecipDesc {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MapiRecipDesc {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -468,7 +462,6 @@ impl ::std::cmp::Eq for MapiRecipDescW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MapiRecipDescW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Mapi`*"]
 pub const SUCCESS_SUCCESS: u32 = 0u32;

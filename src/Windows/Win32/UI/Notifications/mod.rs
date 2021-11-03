@@ -56,5 +56,4 @@ impl ::std::cmp::Eq for NOTIFICATION_USER_INPUT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NOTIFICATION_USER_INPUT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }

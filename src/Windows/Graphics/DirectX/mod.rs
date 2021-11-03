@@ -18,10 +18,12 @@ impl ::std::convert::From<i32> for DirectXAlphaMode {
 }
 unsafe impl ::windows::runtime::Abi for DirectXAlphaMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DirectXAlphaMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXAlphaMode;i4)");
+}
+impl ::windows::runtime::DefaultType for DirectXAlphaMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_DirectX`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -61,10 +63,12 @@ impl ::std::convert::From<i32> for DirectXColorSpace {
 }
 unsafe impl ::windows::runtime::Abi for DirectXColorSpace {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DirectXColorSpace {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXColorSpace;i4)");
+}
+impl ::windows::runtime::DefaultType for DirectXColorSpace {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_DirectX`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -200,10 +204,12 @@ impl ::std::convert::From<i32> for DirectXPixelFormat {
 }
 unsafe impl ::windows::runtime::Abi for DirectXPixelFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DirectXPixelFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPixelFormat;i4)");
+}
+impl ::windows::runtime::DefaultType for DirectXPixelFormat {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_DirectX`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -224,8 +230,10 @@ impl ::std::convert::From<i32> for DirectXPrimitiveTopology {
 }
 unsafe impl ::windows::runtime::Abi for DirectXPrimitiveTopology {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DirectXPrimitiveTopology {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPrimitiveTopology;i4)");
+}
+impl ::windows::runtime::DefaultType for DirectXPrimitiveTopology {
+    type DefaultType = Self;
 }

@@ -47,7 +47,6 @@ impl ::std::cmp::PartialEq for XINPUT_BATTERY_INFORMATION {
 impl ::std::cmp::Eq for XINPUT_BATTERY_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for XINPUT_BATTERY_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -78,7 +77,6 @@ impl ::std::cmp::PartialEq for XINPUT_CAPABILITIES {
 impl ::std::cmp::Eq for XINPUT_CAPABILITIES {}
 unsafe impl ::windows::runtime::Abi for XINPUT_CAPABILITIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_CAPS_FFB_SUPPORTED: u32 = 1u32;
@@ -147,7 +145,6 @@ impl ::std::cmp::PartialEq for XINPUT_GAMEPAD {
 impl ::std::cmp::Eq for XINPUT_GAMEPAD {}
 unsafe impl ::windows::runtime::Abi for XINPUT_GAMEPAD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_GAMEPAD_A: u32 = 4096u32;
@@ -212,7 +209,6 @@ impl ::std::cmp::PartialEq for XINPUT_KEYSTROKE {
 impl ::std::cmp::Eq for XINPUT_KEYSTROKE {}
 unsafe impl ::windows::runtime::Abi for XINPUT_KEYSTROKE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 pub const XINPUT_KEYSTROKE_KEYDOWN: u32 = 1u32;
@@ -246,7 +242,6 @@ impl ::std::cmp::PartialEq for XINPUT_STATE {
 impl ::std::cmp::Eq for XINPUT_STATE {}
 unsafe impl ::windows::runtime::Abi for XINPUT_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -274,7 +269,6 @@ impl ::std::cmp::PartialEq for XINPUT_VIBRATION {
 impl ::std::cmp::Eq for XINPUT_VIBRATION {}
 unsafe impl ::windows::runtime::Abi for XINPUT_VIBRATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_XboxController`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -319,7 +313,6 @@ impl ::std::convert::From<u16> for XINPUT_VIRTUAL_KEY {
 }
 unsafe impl ::windows::runtime::Abi for XINPUT_VIRTUAL_KEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_XboxController`, `Win32_Foundation`*"]

@@ -84,7 +84,6 @@ impl ::std::cmp::Eq for ACMDRIVERDETAILSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for ACMDRIVERDETAILSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -127,7 +126,6 @@ impl ::std::cmp::Eq for ACMDRIVERDETAILSW {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 unsafe impl ::windows::runtime::Abi for ACMDRIVERDETAILSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ACMDRIVERDETAILS_COPYRIGHT_CHARS: u32 = 80u32;
@@ -211,7 +209,6 @@ impl ::std::cmp::Eq for ACMFILTERCHOOSEA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACMFILTERCHOOSEA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFILTERCHOOSEHOOKPROCA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
@@ -263,7 +260,6 @@ impl ::std::cmp::Eq for ACMFILTERCHOOSEW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACMFILTERCHOOSEW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ACMFILTERCHOOSE_STYLEF_CONTEXTHELP: i32 = 128i32;
@@ -309,7 +305,6 @@ impl ::std::cmp::Eq for ACMFILTERDETAILSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACMFILTERDETAILSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -337,7 +332,6 @@ impl ::std::cmp::PartialEq for ACMFILTERDETAILSW {
 impl ::std::cmp::Eq for ACMFILTERDETAILSW {}
 unsafe impl ::windows::runtime::Abi for ACMFILTERDETAILSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ACMFILTERDETAILS_FILTER_CHARS: u32 = 128u32;
@@ -377,7 +371,6 @@ impl ::std::cmp::Eq for ACMFILTERTAGDETAILSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACMFILTERTAGDETAILSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -405,7 +398,6 @@ impl ::std::cmp::PartialEq for ACMFILTERTAGDETAILSW {
 impl ::std::cmp::Eq for ACMFILTERTAGDETAILSW {}
 unsafe impl ::windows::runtime::Abi for ACMFILTERTAGDETAILSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ACMFILTERTAGDETAILS_FILTERTAG_CHARS: u32 = 48u32;
@@ -459,7 +451,6 @@ impl ::std::cmp::Eq for ACMFORMATCHOOSEA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACMFORMATCHOOSEA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFORMATCHOOSEHOOKPROCA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
@@ -511,7 +502,6 @@ impl ::std::cmp::Eq for ACMFORMATCHOOSEW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACMFORMATCHOOSEW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ACMFORMATCHOOSE_STYLEF_CONTEXTHELP: i32 = 128i32;
@@ -557,7 +547,6 @@ impl ::std::cmp::Eq for ACMFORMATDETAILSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACMFORMATDETAILSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ACMFORMATDETAILS_FORMAT_CHARS: u32 = 128u32;
@@ -597,7 +586,6 @@ impl ::std::cmp::Eq for ACMFORMATTAGDETAILSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACMFORMATTAGDETAILSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -625,7 +613,6 @@ impl ::std::cmp::PartialEq for ACMFORMATTAGDETAILSW {
 impl ::std::cmp::Eq for ACMFORMATTAGDETAILSW {}
 unsafe impl ::windows::runtime::Abi for ACMFORMATTAGDETAILSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ACMFORMATTAGDETAILS_FORMATTAG_CHARS: u32 = 48u32;
@@ -664,7 +651,6 @@ impl ::std::cmp::PartialEq for ACMSTREAMHEADER {
 impl ::std::cmp::Eq for ACMSTREAMHEADER {}
 unsafe impl ::windows::runtime::Abi for ACMSTREAMHEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ACMSTREAMHEADER_STATUSF_DONE: i32 = 65536i32;
@@ -855,7 +841,6 @@ impl ::std::cmp::PartialEq for ADPCMCOEFSET {
 impl ::std::cmp::Eq for ADPCMCOEFSET {}
 unsafe impl ::windows::runtime::Abi for ADPCMCOEFSET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -878,7 +863,6 @@ impl ::std::cmp::PartialEq for ADPCMEWAVEFORMAT {
 impl ::std::cmp::Eq for ADPCMEWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for ADPCMEWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -903,7 +887,6 @@ impl ::std::cmp::PartialEq for ADPCMWAVEFORMAT {
 impl ::std::cmp::Eq for ADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for ADPCMWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -925,7 +908,6 @@ impl ::std::cmp::PartialEq for APTXWAVEFORMAT {
 impl ::std::cmp::Eq for APTXWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for APTXWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -947,7 +929,6 @@ impl ::std::cmp::PartialEq for AUDIOFILE_AF10WAVEFORMAT {
 impl ::std::cmp::Eq for AUDIOFILE_AF10WAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for AUDIOFILE_AF10WAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -969,7 +950,6 @@ impl ::std::cmp::PartialEq for AUDIOFILE_AF36WAVEFORMAT {
 impl ::std::cmp::Eq for AUDIOFILE_AF36WAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for AUDIOFILE_AF36WAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -1006,7 +986,6 @@ impl ::std::cmp::Eq for AUXCAPS2A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUXCAPS2A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -1037,7 +1016,6 @@ impl ::std::cmp::PartialEq for AUXCAPS2W {
 impl ::std::cmp::Eq for AUXCAPS2W {}
 unsafe impl ::windows::runtime::Abi for AUXCAPS2W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -1071,7 +1049,6 @@ impl ::std::cmp::Eq for AUXCAPSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUXCAPSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -1099,7 +1076,6 @@ impl ::std::cmp::PartialEq for AUXCAPSW {
 impl ::std::cmp::Eq for AUXCAPSW {}
 unsafe impl ::windows::runtime::Abi for AUXCAPSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const AUXCAPS_AUXIN: u32 = 2u32;
@@ -1206,7 +1182,6 @@ impl ::std::cmp::PartialEq for AVICOMPRESSOPTIONS {
 impl ::std::cmp::Eq for AVICOMPRESSOPTIONS {}
 unsafe impl ::windows::runtime::Abi for AVICOMPRESSOPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]
@@ -1294,7 +1269,6 @@ impl ::std::cmp::Eq for AVIFILEINFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AVIFILEINFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1345,7 +1319,6 @@ impl ::std::cmp::PartialEq for AVIFILEINFOW {
 impl ::std::cmp::Eq for AVIFILEINFOW {}
 unsafe impl ::windows::runtime::Abi for AVIFILEINFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const AVIFILEINFO_COPYRIGHTED: u32 = 131072u32;
@@ -1724,7 +1697,6 @@ impl ::std::cmp::Eq for AVISTREAMINFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AVISTREAMINFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1811,7 +1783,6 @@ impl ::std::cmp::Eq for AVISTREAMINFOW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AVISTREAMINFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const AVISTREAMINFO_DISABLED: u32 = 1u32;
@@ -2307,7 +2278,6 @@ impl ::std::cmp::Eq for CAPDRIVERCAPS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CAPDRIVERCAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPERRORCALLBACKA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PSTR) -> super::super::Foundation::LRESULT;
@@ -2340,7 +2310,6 @@ impl ::std::cmp::PartialEq for CAPINFOCHUNK {
 impl ::std::cmp::Eq for CAPINFOCHUNK {}
 unsafe impl ::windows::runtime::Abi for CAPINFOCHUNK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2427,7 +2396,6 @@ impl ::std::cmp::Eq for CAPSTATUS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for CAPSTATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPSTATUSCALLBACKA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PSTR) -> super::super::Foundation::LRESULT;
@@ -2536,7 +2504,6 @@ impl ::std::cmp::Eq for CAPTUREPARMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CAPTUREPARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPVIDEOCALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpvhdr: *const VIDEOHDR) -> super::super::Foundation::LRESULT;
@@ -2587,7 +2554,6 @@ impl ::std::cmp::PartialEq for CHANNEL_CAPS {
 impl ::std::cmp::Eq for CHANNEL_CAPS {}
 unsafe impl ::windows::runtime::Abi for CHANNEL_CAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const CLSID_AVIFile: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131072, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 pub const CLSID_AVISimpleUnMarshal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131081, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
@@ -2670,7 +2636,6 @@ impl ::std::cmp::Eq for COMPVARS {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for COMPVARS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -2693,7 +2658,6 @@ impl ::std::cmp::PartialEq for CONTRESCR10WAVEFORMAT {
 impl ::std::cmp::Eq for CONTRESCR10WAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for CONTRESCR10WAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -2716,7 +2680,6 @@ impl ::std::cmp::PartialEq for CONTRESVQLPCWAVEFORMAT {
 impl ::std::cmp::Eq for CONTRESVQLPCWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for CONTRESVQLPCWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const CONTROLCALLBACK_CAPTURING: u32 = 2u32;
@@ -2743,7 +2706,6 @@ impl ::std::cmp::PartialEq for CREATIVEADPCMWAVEFORMAT {
 impl ::std::cmp::Eq for CREATIVEADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for CREATIVEADPCMWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -2766,7 +2728,6 @@ impl ::std::cmp::PartialEq for CREATIVEFASTSPEECH10WAVEFORMAT {
 impl ::std::cmp::Eq for CREATIVEFASTSPEECH10WAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for CREATIVEFASTSPEECH10WAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -2789,7 +2750,6 @@ impl ::std::cmp::PartialEq for CREATIVEFASTSPEECH8WAVEFORMAT {
 impl ::std::cmp::Eq for CREATIVEFASTSPEECH8WAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for CREATIVEFASTSPEECH8WAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const CRYSTAL_NET_SFM_CODEC: u32 = 1u32;
@@ -2813,7 +2773,6 @@ impl ::std::cmp::PartialEq for CSIMAADPCMWAVEFORMAT {
 impl ::std::cmp::Eq for CSIMAADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for CSIMAADPCMWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -2912,7 +2871,6 @@ impl ::std::cmp::PartialEq for DIALOGICOKIADPCMWAVEFORMAT {
 impl ::std::cmp::Eq for DIALOGICOKIADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for DIALOGICOKIADPCMWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -2935,7 +2893,6 @@ impl ::std::cmp::PartialEq for DIGIADPCMWAVEFORMAT {
 impl ::std::cmp::Eq for DIGIADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for DIGIADPCMWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2957,7 +2914,6 @@ impl ::std::cmp::PartialEq for DIGIFIXWAVEFORMAT {
 impl ::std::cmp::Eq for DIGIFIXWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for DIGIFIXWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -2980,7 +2936,6 @@ impl ::std::cmp::PartialEq for DIGIREALWAVEFORMAT {
 impl ::std::cmp::Eq for DIGIREALWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for DIGIREALWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3002,7 +2957,6 @@ impl ::std::cmp::PartialEq for DIGISTDWAVEFORMAT {
 impl ::std::cmp::Eq for DIGISTDWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for DIGISTDWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const DLG_ACMFILTERCHOOSE_ID: u32 = 71u32;
@@ -3029,7 +2983,6 @@ impl ::std::cmp::PartialEq for DOLBYAC2WAVEFORMAT {
 impl ::std::cmp::Eq for DOLBYAC2WAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for DOLBYAC2WAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3070,7 +3023,6 @@ impl ::std::cmp::PartialEq for DRAWDIBTIME {
 impl ::std::cmp::Eq for DRAWDIBTIME {}
 unsafe impl ::windows::runtime::Abi for DRAWDIBTIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type DRIVERMSGPROC = unsafe extern "system" fn(param0: u32, param1: u32, param2: usize, param3: usize, param4: usize) -> u32;
 #[cfg(feature = "Win32_Foundation")]
@@ -3098,7 +3050,6 @@ impl ::std::cmp::PartialEq for DRMWAVEFORMAT {
 impl ::std::cmp::Eq for DRMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for DRMWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const DRVCNF_CANCEL: u32 = 0u32;
@@ -3134,7 +3085,6 @@ impl ::std::cmp::Eq for DRVCONFIGINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DRVCONFIGINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -3165,7 +3115,6 @@ impl ::std::cmp::Eq for DRVCONFIGINFOEX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DRVCONFIGINFOEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const DRVM_ADD_THRU: u32 = 257u32;
@@ -3206,7 +3155,6 @@ impl ::std::cmp::PartialEq for DRVM_IOCTL_DATA {
 impl ::std::cmp::Eq for DRVM_IOCTL_DATA {}
 unsafe impl ::windows::runtime::Abi for DRVM_IOCTL_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const DRVM_IOCTL_LAST: u32 = 261u32;
@@ -3311,7 +3259,6 @@ impl ::std::cmp::PartialEq for DVIADPCMWAVEFORMAT {
 impl ::std::cmp::Eq for DVIADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for DVIADPCMWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const DVM_CONFIGURE_END: u32 = 8191u32;
@@ -3689,7 +3636,6 @@ impl ::std::cmp::PartialEq for ECHOSC1WAVEFORMAT {
 impl ::std::cmp::Eq for ECHOSC1WAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for ECHOSC1WAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -3713,7 +3659,6 @@ impl ::std::cmp::PartialEq for ECHOWAVEFILTER {
 impl ::std::cmp::Eq for ECHOWAVEFILTER {}
 unsafe impl ::windows::runtime::Abi for ECHOWAVEFILTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -3742,7 +3687,6 @@ impl ::std::cmp::Eq for EXBMINFOHEADER {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for EXBMINFOHEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]
@@ -3922,7 +3866,6 @@ impl ::std::cmp::PartialEq for FMTOWNS_SND_WAVEFORMAT {
 impl ::std::cmp::Eq for FMTOWNS_SND_WAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for FMTOWNS_SND_WAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const FORMATCHOOSE_CUSTOM_VERIFY: u32 = 2u32;
@@ -3953,7 +3896,6 @@ impl ::std::cmp::PartialEq for G721_ADPCMWAVEFORMAT {
 impl ::std::cmp::Eq for G721_ADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for G721_ADPCMWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -3977,7 +3919,6 @@ impl ::std::cmp::PartialEq for G723_ADPCMWAVEFORMAT {
 impl ::std::cmp::Eq for G723_ADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for G723_ADPCMWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -4000,7 +3941,6 @@ impl ::std::cmp::PartialEq for GSM610WAVEFORMAT {
 impl ::std::cmp::Eq for GSM610WAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for GSM610WAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -4088,7 +4028,6 @@ impl ::std::default::Default for HACMDRIVER {
 unsafe impl ::windows::runtime::Handle for HACMDRIVER {}
 unsafe impl ::windows::runtime::Abi for HACMDRIVER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -4101,7 +4040,6 @@ impl ::std::default::Default for HACMDRIVERID {
 unsafe impl ::windows::runtime::Handle for HACMDRIVERID {}
 unsafe impl ::windows::runtime::Abi for HACMDRIVERID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -4114,7 +4052,6 @@ impl ::std::default::Default for HACMOBJ {
 unsafe impl ::windows::runtime::Handle for HACMOBJ {}
 unsafe impl ::windows::runtime::Abi for HACMOBJ {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -4127,7 +4064,6 @@ impl ::std::default::Default for HACMSTREAM {
 unsafe impl ::windows::runtime::Handle for HACMSTREAM {}
 unsafe impl ::windows::runtime::Abi for HACMSTREAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -4140,7 +4076,6 @@ impl ::std::default::Default for HDRVR {
 unsafe impl ::windows::runtime::Handle for HDRVR {}
 unsafe impl ::windows::runtime::Abi for HDRVR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -4153,7 +4088,6 @@ impl ::std::default::Default for HIC {
 unsafe impl ::windows::runtime::Handle for HIC {}
 unsafe impl ::windows::runtime::Abi for HIC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -4166,7 +4100,6 @@ impl ::std::default::Default for HMIDI {
 unsafe impl ::windows::runtime::Handle for HMIDI {}
 unsafe impl ::windows::runtime::Abi for HMIDI {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -4179,7 +4112,6 @@ impl ::std::default::Default for HMIDIIN {
 unsafe impl ::windows::runtime::Handle for HMIDIIN {}
 unsafe impl ::windows::runtime::Abi for HMIDIIN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -4192,7 +4124,6 @@ impl ::std::default::Default for HMIDIOUT {
 unsafe impl ::windows::runtime::Handle for HMIDIOUT {}
 unsafe impl ::windows::runtime::Abi for HMIDIOUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -4205,7 +4136,6 @@ impl ::std::default::Default for HMIDISTRM {
 unsafe impl ::windows::runtime::Handle for HMIDISTRM {}
 unsafe impl ::windows::runtime::Abi for HMIDISTRM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -4218,7 +4148,6 @@ impl ::std::default::Default for HMIXER {
 unsafe impl ::windows::runtime::Handle for HMIXER {}
 unsafe impl ::windows::runtime::Abi for HMIXER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -4231,7 +4160,6 @@ impl ::std::default::Default for HMIXEROBJ {
 unsafe impl ::windows::runtime::Handle for HMIXEROBJ {}
 unsafe impl ::windows::runtime::Abi for HMIXEROBJ {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -4244,7 +4172,6 @@ impl ::std::default::Default for HMMIO {
 unsafe impl ::windows::runtime::Handle for HMMIO {}
 unsafe impl ::windows::runtime::Abi for HMMIO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -4257,7 +4184,6 @@ impl ::std::default::Default for HVIDEO {
 unsafe impl ::windows::runtime::Handle for HVIDEO {}
 unsafe impl ::windows::runtime::Abi for HVIDEO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -4270,7 +4196,6 @@ impl ::std::default::Default for HWAVE {
 unsafe impl ::windows::runtime::Handle for HWAVE {}
 unsafe impl ::windows::runtime::Abi for HWAVE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -4283,7 +4208,6 @@ impl ::std::default::Default for HWAVEIN {
 unsafe impl ::windows::runtime::Handle for HWAVEIN {}
 unsafe impl ::windows::runtime::Abi for HWAVEIN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -4296,7 +4220,6 @@ impl ::std::default::Default for HWAVEOUT {
 unsafe impl ::windows::runtime::Handle for HWAVEOUT {}
 unsafe impl ::windows::runtime::Abi for HWAVEOUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[repr(transparent)]
@@ -4668,7 +4591,6 @@ impl ::std::cmp::Eq for ICCOMPRESS {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for ICCOMPRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4749,7 +4671,6 @@ impl ::std::cmp::Eq for ICCOMPRESSFRAMES {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for ICCOMPRESSFRAMES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ICCOMPRESSFRAMES_PADDING: u32 = 1u32;
@@ -4866,7 +4787,6 @@ impl ::std::cmp::Eq for ICDECOMPRESS {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for ICDECOMPRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4926,7 +4846,6 @@ impl ::std::cmp::Eq for ICDECOMPRESSEX {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for ICDECOMPRESSEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ICDECOMPRESS_HURRYUP: i32 = -2147483648i32;
@@ -4967,7 +4886,6 @@ impl ::std::cmp::PartialEq for ICDRAW {
 impl ::std::cmp::Eq for ICDRAW {}
 unsafe impl ::windows::runtime::Abi for ICDRAW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5031,7 +4949,6 @@ impl ::std::cmp::Eq for ICDRAWBEGIN {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for ICDRAWBEGIN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5071,7 +4988,6 @@ impl ::std::cmp::Eq for ICDRAWSUGGEST {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for ICDRAWSUGGEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ICDRAW_ANIMATE: i32 = 8i32;
@@ -5290,7 +5206,6 @@ impl ::std::cmp::PartialEq for ICINFO {
 impl ::std::cmp::Eq for ICINFO {}
 unsafe impl ::windows::runtime::Abi for ICINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ICINSTALL_DRIVER: u32 = 2u32;
@@ -5575,7 +5490,6 @@ impl ::std::cmp::Eq for ICOPEN {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ICOPEN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]
@@ -5641,7 +5555,6 @@ impl ::std::cmp::Eq for ICPALETTE {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for ICPALETTE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ICQUALITY_DEFAULT: i32 = -1i32;
@@ -5698,7 +5611,6 @@ impl ::std::cmp::Eq for ICSETSTATUSPROC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ICSETSTATUSPROC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ICSTATUS_END: u32 = 2u32;
@@ -5972,7 +5884,6 @@ impl ::std::cmp::PartialEq for IMAADPCMWAVEFORMAT {
 impl ::std::cmp::Eq for IMAADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for IMAADPCMWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const JDD_CONFIGCHANGED: u32 = 2307u32;
@@ -6129,7 +6040,6 @@ impl ::std::cmp::PartialEq for JOYCALIBRATE {
 impl ::std::cmp::Eq for JOYCALIBRATE {}
 unsafe impl ::windows::runtime::Abi for JOYCALIBRATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -6183,7 +6093,6 @@ impl ::std::cmp::Eq for JOYCAPS2A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JOYCAPS2A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -6231,7 +6140,6 @@ impl ::std::cmp::PartialEq for JOYCAPS2W {
 impl ::std::cmp::Eq for JOYCAPS2W {}
 unsafe impl ::windows::runtime::Abi for JOYCAPS2W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -6282,7 +6190,6 @@ impl ::std::cmp::Eq for JOYCAPSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JOYCAPSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -6327,7 +6234,6 @@ impl ::std::cmp::PartialEq for JOYCAPSW {
 impl ::std::cmp::Eq for JOYCAPSW {}
 unsafe impl ::windows::runtime::Abi for JOYCAPSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const JOYCAPS_HASPOV: u32 = 16u32;
@@ -6376,7 +6282,6 @@ impl ::std::cmp::PartialEq for JOYINFO {
 impl ::std::cmp::Eq for JOYINFO {}
 unsafe impl ::windows::runtime::Abi for JOYINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -6410,7 +6315,6 @@ impl ::std::cmp::PartialEq for JOYINFOEX {
 impl ::std::cmp::Eq for JOYINFOEX {}
 unsafe impl ::windows::runtime::Abi for JOYINFOEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -6437,7 +6341,6 @@ impl ::std::cmp::PartialEq for JOYPOS {
 impl ::std::cmp::Eq for JOYPOS {}
 unsafe impl ::windows::runtime::Abi for JOYPOS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6461,7 +6364,6 @@ impl ::std::cmp::PartialEq for JOYRANGE {
 impl ::std::cmp::Eq for JOYRANGE {}
 unsafe impl ::windows::runtime::Abi for JOYRANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -6493,7 +6395,6 @@ impl ::std::cmp::Eq for JOYREGHWCONFIG {}
 #[cfg(feature = "Win32_Devices_HumanInterfaceDevice")]
 unsafe impl ::windows::runtime::Abi for JOYREGHWCONFIG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -6516,7 +6417,6 @@ impl ::std::cmp::PartialEq for JOYREGHWSETTINGS {
 impl ::std::cmp::Eq for JOYREGHWSETTINGS {}
 unsafe impl ::windows::runtime::Abi for JOYREGHWSETTINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -6540,7 +6440,6 @@ impl ::std::cmp::PartialEq for JOYREGUSERVALUES {
 impl ::std::cmp::Eq for JOYREGUSERVALUES {}
 unsafe impl ::windows::runtime::Abi for JOYREGUSERVALUES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const JOYSTICKID1: u32 = 0u32;
@@ -6699,7 +6598,6 @@ impl ::std::cmp::PartialEq for JPEGINFOHEADER {
 impl ::std::cmp::Eq for JPEGINFOHEADER {}
 unsafe impl ::windows::runtime::Abi for JPEGINFOHEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const JPEG_PROCESS_BASELINE: u32 = 0u32;
@@ -7068,7 +6966,6 @@ impl ::std::cmp::Eq for MCI_DGV_CAPTURE_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_CAPTURE_PARMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -7098,7 +6995,6 @@ impl ::std::cmp::Eq for MCI_DGV_CAPTURE_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_CAPTURE_PARMSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_COPY_AT: i32 = 65536i32;
@@ -7135,7 +7031,6 @@ impl ::std::cmp::Eq for MCI_DGV_COPY_PARMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_COPY_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_COPY_VIDEO_STREAM: i32 = 262144i32;
@@ -7166,7 +7061,6 @@ impl ::std::cmp::PartialEq for MCI_DGV_CUE_PARMS {
 impl ::std::cmp::Eq for MCI_DGV_CUE_PARMS {}
 unsafe impl ::windows::runtime::Abi for MCI_DGV_CUE_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_CUT_AT: i32 = 65536i32;
@@ -7203,7 +7097,6 @@ impl ::std::cmp::Eq for MCI_DGV_CUT_PARMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_CUT_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_CUT_VIDEO_STREAM: i32 = 262144i32;
@@ -7242,7 +7135,6 @@ impl ::std::cmp::Eq for MCI_DGV_DELETE_PARMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_DELETE_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_DELETE_VIDEO_STREAM: i32 = 262144i32;
@@ -7341,7 +7233,6 @@ impl ::std::cmp::Eq for MCI_DGV_INFO_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_INFO_PARMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -7372,7 +7263,6 @@ impl ::std::cmp::Eq for MCI_DGV_INFO_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_INFO_PARMSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_INFO_STILL_ALG: i32 = 16389i32;
@@ -7433,7 +7323,6 @@ impl ::std::cmp::Eq for MCI_DGV_LIST_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_LIST_PARMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -7466,7 +7355,6 @@ impl ::std::cmp::Eq for MCI_DGV_LIST_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_LIST_PARMSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_LIST_STILL_ALG: i32 = 16387i32;
@@ -7514,7 +7402,6 @@ impl ::std::cmp::PartialEq for MCI_DGV_MONITOR_PARMS {
 impl ::std::cmp::Eq for MCI_DGV_MONITOR_PARMS {}
 unsafe impl ::windows::runtime::Abi for MCI_DGV_MONITOR_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_MONITOR_SOURCE: i32 = 131072i32;
@@ -7558,7 +7445,6 @@ impl ::std::cmp::Eq for MCI_DGV_OPEN_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_OPEN_PARMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -7592,7 +7478,6 @@ impl ::std::cmp::Eq for MCI_DGV_OPEN_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_OPEN_PARMSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_OPEN_WS: i32 = 65536i32;
@@ -7634,7 +7519,6 @@ impl ::std::cmp::Eq for MCI_DGV_PASTE_PARMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_PASTE_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_PASTE_VIDEO_STREAM: i32 = 262144i32;
@@ -7684,7 +7568,6 @@ impl ::std::cmp::Eq for MCI_DGV_QUALITY_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_QUALITY_PARMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -7716,7 +7599,6 @@ impl ::std::cmp::Eq for MCI_DGV_QUALITY_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_QUALITY_PARMSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_REALIZE_BKGD: i32 = 131072i32;
@@ -7757,7 +7639,6 @@ impl ::std::cmp::Eq for MCI_DGV_RECORD_PARMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_RECORD_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_RECORD_VIDEO_STREAM: i32 = 524288i32;
@@ -7790,7 +7671,6 @@ impl ::std::cmp::Eq for MCI_DGV_RECT_PARMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_RECT_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_RESERVE_IN: i32 = 65536i32;
@@ -7822,7 +7702,6 @@ impl ::std::cmp::Eq for MCI_DGV_RESERVE_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_RESERVE_PARMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -7852,7 +7731,6 @@ impl ::std::cmp::Eq for MCI_DGV_RESERVE_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_RESERVE_PARMSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_RESERVE_SIZE: i32 = 131072i32;
@@ -7888,7 +7766,6 @@ impl ::std::cmp::Eq for MCI_DGV_RESTORE_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_RESTORE_PARMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -7918,7 +7795,6 @@ impl ::std::cmp::Eq for MCI_DGV_RESTORE_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_RESTORE_PARMSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_SAVE_ABORT: i32 = 131072i32;
@@ -7952,7 +7828,6 @@ impl ::std::cmp::Eq for MCI_DGV_SAVE_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_SAVE_PARMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -7982,7 +7857,6 @@ impl ::std::cmp::Eq for MCI_DGV_SAVE_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_SAVE_PARMSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_SETAUDIO_ALG: i32 = 262144i32;
@@ -8037,7 +7911,6 @@ impl ::std::cmp::Eq for MCI_DGV_SETAUDIO_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_SETAUDIO_PARMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -8070,7 +7943,6 @@ impl ::std::cmp::Eq for MCI_DGV_SETAUDIO_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_SETAUDIO_PARMSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_SETAUDIO_QUALITY: i32 = 524288i32;
@@ -8168,7 +8040,6 @@ impl ::std::cmp::Eq for MCI_DGV_SETVIDEO_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_SETVIDEO_PARMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -8202,7 +8073,6 @@ impl ::std::cmp::Eq for MCI_DGV_SETVIDEO_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_SETVIDEO_PARMSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_SETVIDEO_QUALITY: i32 = 65536i32;
@@ -8272,7 +8142,6 @@ impl ::std::cmp::PartialEq for MCI_DGV_SET_PARMS {
 impl ::std::cmp::Eq for MCI_DGV_SET_PARMS {}
 unsafe impl ::windows::runtime::Abi for MCI_DGV_SET_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_SET_SEEK_EXACTLY: i32 = 65536i32;
@@ -8309,7 +8178,6 @@ impl ::std::cmp::PartialEq for MCI_DGV_SIGNAL_PARMS {
 impl ::std::cmp::Eq for MCI_DGV_SIGNAL_PARMS {}
 unsafe impl ::windows::runtime::Abi for MCI_DGV_SIGNAL_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_SIGNAL_POSITION: i32 = 1048576i32;
@@ -8406,7 +8274,6 @@ impl ::std::cmp::Eq for MCI_DGV_STATUS_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_STATUS_PARMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -8439,7 +8306,6 @@ impl ::std::cmp::Eq for MCI_DGV_STATUS_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_STATUS_PARMSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_STATUS_PAUSE_MODE: i32 = 16422i32;
@@ -8510,7 +8376,6 @@ impl ::std::cmp::PartialEq for MCI_DGV_STEP_PARMS {
 impl ::std::cmp::Eq for MCI_DGV_STEP_PARMS {}
 unsafe impl ::windows::runtime::Abi for MCI_DGV_STEP_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_STEP_REVERSE: i32 = 65536i32;
@@ -8548,7 +8413,6 @@ impl ::std::cmp::Eq for MCI_DGV_UPDATE_PARMS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_UPDATE_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_WHERE_DESTINATION: i32 = 262144i32;
@@ -8595,7 +8459,6 @@ impl ::std::cmp::Eq for MCI_DGV_WINDOW_PARMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_WINDOW_PARMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -8626,7 +8489,6 @@ impl ::std::cmp::Eq for MCI_DGV_WINDOW_PARMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_DGV_WINDOW_PARMSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_DGV_WINDOW_STATE: i32 = 262144i32;
@@ -8729,7 +8591,6 @@ impl ::std::cmp::Eq for MCI_OPEN_DRIVER_PARMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCI_OPEN_DRIVER_PARMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MCI_QUALITY: u32 = 2167u32;
@@ -8822,7 +8683,6 @@ impl ::std::cmp::PartialEq for MEDIASPACEADPCMWAVEFORMAT {
 impl ::std::cmp::Eq for MEDIASPACEADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for MEDIASPACEADPCMWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MEVT_F_CALLBACK: i32 = 1073741824i32;
@@ -8889,7 +8749,6 @@ impl ::std::cmp::PartialEq for MIDIEVENT {
 impl ::std::cmp::Eq for MIDIEVENT {}
 unsafe impl ::windows::runtime::Abi for MIDIEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -8925,7 +8784,6 @@ impl ::std::cmp::Eq for MIDIHDR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIDIHDR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -8960,7 +8818,6 @@ impl ::std::cmp::Eq for MIDIINCAPS2A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIDIINCAPS2A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -8989,7 +8846,6 @@ impl ::std::cmp::PartialEq for MIDIINCAPS2W {
 impl ::std::cmp::Eq for MIDIINCAPS2W {}
 unsafe impl ::windows::runtime::Abi for MIDIINCAPS2W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -9021,7 +8877,6 @@ impl ::std::cmp::Eq for MIDIINCAPSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIDIINCAPSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -9047,7 +8902,6 @@ impl ::std::cmp::PartialEq for MIDIINCAPSW {
 impl ::std::cmp::Eq for MIDIINCAPSW {}
 unsafe impl ::windows::runtime::Abi for MIDIINCAPSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MIDIMAPPER_S: u32 = 1227u32;
@@ -9072,7 +8926,6 @@ impl ::std::cmp::PartialEq for MIDIOPENSTRMID {
 impl ::std::cmp::Eq for MIDIOPENSTRMID {}
 unsafe impl ::windows::runtime::Abi for MIDIOPENSTRMID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -9111,7 +8964,6 @@ impl ::std::cmp::Eq for MIDIOUTCAPS2A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIDIOUTCAPS2A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -9144,7 +8996,6 @@ impl ::std::cmp::PartialEq for MIDIOUTCAPS2W {
 impl ::std::cmp::Eq for MIDIOUTCAPS2W {}
 unsafe impl ::windows::runtime::Abi for MIDIOUTCAPS2W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -9180,7 +9031,6 @@ impl ::std::cmp::Eq for MIDIOUTCAPSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIDIOUTCAPSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -9210,7 +9060,6 @@ impl ::std::cmp::PartialEq for MIDIOUTCAPSW {
 impl ::std::cmp::Eq for MIDIOUTCAPSW {}
 unsafe impl ::windows::runtime::Abi for MIDIOUTCAPSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MIDIPATCHSIZE: u32 = 128u32;
@@ -9235,7 +9084,6 @@ impl ::std::cmp::PartialEq for MIDIPROPTEMPO {
 impl ::std::cmp::Eq for MIDIPROPTEMPO {}
 unsafe impl ::windows::runtime::Abi for MIDIPROPTEMPO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -9258,7 +9106,6 @@ impl ::std::cmp::PartialEq for MIDIPROPTIMEDIV {
 impl ::std::cmp::Eq for MIDIPROPTIMEDIV {}
 unsafe impl ::windows::runtime::Abi for MIDIPROPTIMEDIV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MIDIPROP_GET: i32 = 1073741824i32;
@@ -9290,7 +9137,6 @@ impl ::std::cmp::PartialEq for MIDISTRMBUFFVER {
 impl ::std::cmp::Eq for MIDISTRMBUFFVER {}
 unsafe impl ::windows::runtime::Abi for MIDISTRMBUFFVER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MIDISTRM_ERROR: i32 = -2i32;
@@ -9331,7 +9177,6 @@ impl ::std::convert::From<u32> for MIDI_WAVE_OPEN_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MIDI_WAVE_OPEN_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MIDI_WAVE_OPEN_TYPE {
     type Output = Self;
@@ -9437,7 +9282,6 @@ impl ::std::cmp::Eq for MIXERCAPS2A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERCAPS2A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -9467,7 +9311,6 @@ impl ::std::cmp::PartialEq for MIXERCAPS2W {
 impl ::std::cmp::Eq for MIXERCAPS2W {}
 unsafe impl ::windows::runtime::Abi for MIXERCAPS2W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -9500,7 +9343,6 @@ impl ::std::cmp::Eq for MIXERCAPSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERCAPSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -9527,7 +9369,6 @@ impl ::std::cmp::PartialEq for MIXERCAPSW {
 impl ::std::cmp::Eq for MIXERCAPSW {}
 unsafe impl ::windows::runtime::Abi for MIXERCAPSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -9563,7 +9404,6 @@ impl ::std::cmp::Eq for MIXERCONTROLA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -9587,7 +9427,6 @@ impl ::std::cmp::PartialEq for MIXERCONTROLA_0 {
 impl ::std::cmp::Eq for MIXERCONTROLA_0 {}
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -9610,7 +9449,6 @@ impl ::std::cmp::PartialEq for MIXERCONTROLA_0_0 {
 impl ::std::cmp::Eq for MIXERCONTROLA_0_0 {}
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLA_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -9633,7 +9471,6 @@ impl ::std::cmp::PartialEq for MIXERCONTROLA_0_1 {
 impl ::std::cmp::Eq for MIXERCONTROLA_0_1 {}
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLA_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -9657,7 +9494,6 @@ impl ::std::cmp::PartialEq for MIXERCONTROLA_1 {
 impl ::std::cmp::Eq for MIXERCONTROLA_1 {}
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLA_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -9690,7 +9526,6 @@ impl ::std::cmp::Eq for MIXERCONTROLDETAILS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLDETAILS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -9719,7 +9554,6 @@ impl ::std::cmp::Eq for MIXERCONTROLDETAILS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLDETAILS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -9741,7 +9575,6 @@ impl ::std::cmp::PartialEq for MIXERCONTROLDETAILS_BOOLEAN {
 impl ::std::cmp::Eq for MIXERCONTROLDETAILS_BOOLEAN {}
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLDETAILS_BOOLEAN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -9771,7 +9604,6 @@ impl ::std::cmp::Eq for MIXERCONTROLDETAILS_LISTTEXTA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLDETAILS_LISTTEXTA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -9795,7 +9627,6 @@ impl ::std::cmp::PartialEq for MIXERCONTROLDETAILS_LISTTEXTW {
 impl ::std::cmp::Eq for MIXERCONTROLDETAILS_LISTTEXTW {}
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLDETAILS_LISTTEXTW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -9817,7 +9648,6 @@ impl ::std::cmp::PartialEq for MIXERCONTROLDETAILS_SIGNED {
 impl ::std::cmp::Eq for MIXERCONTROLDETAILS_SIGNED {}
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLDETAILS_SIGNED {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -9839,7 +9669,6 @@ impl ::std::cmp::PartialEq for MIXERCONTROLDETAILS_UNSIGNED {
 impl ::std::cmp::Eq for MIXERCONTROLDETAILS_UNSIGNED {}
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLDETAILS_UNSIGNED {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -9869,7 +9698,6 @@ impl ::std::cmp::PartialEq for MIXERCONTROLW {
 impl ::std::cmp::Eq for MIXERCONTROLW {}
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -9893,7 +9721,6 @@ impl ::std::cmp::PartialEq for MIXERCONTROLW_0 {
 impl ::std::cmp::Eq for MIXERCONTROLW_0 {}
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLW_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -9916,7 +9743,6 @@ impl ::std::cmp::PartialEq for MIXERCONTROLW_0_0 {
 impl ::std::cmp::Eq for MIXERCONTROLW_0_0 {}
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLW_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -9939,7 +9765,6 @@ impl ::std::cmp::PartialEq for MIXERCONTROLW_0_1 {
 impl ::std::cmp::Eq for MIXERCONTROLW_0_1 {}
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLW_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -9963,7 +9788,6 @@ impl ::std::cmp::PartialEq for MIXERCONTROLW_1 {
 impl ::std::cmp::Eq for MIXERCONTROLW_1 {}
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLW_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MIXERCONTROL_CONTROLF_DISABLED: i32 = -2147483648i32;
@@ -10125,7 +9949,6 @@ impl ::std::cmp::Eq for MIXERLINEA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERLINEA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -10158,7 +9981,6 @@ impl ::std::cmp::Eq for MIXERLINEA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERLINEA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -10191,7 +10013,6 @@ impl ::std::cmp::Eq for MIXERLINECONTROLSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERLINECONTROLSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -10214,7 +10035,6 @@ impl ::std::cmp::PartialEq for MIXERLINECONTROLSA_0 {
 impl ::std::cmp::Eq for MIXERLINECONTROLSA_0 {}
 unsafe impl ::windows::runtime::Abi for MIXERLINECONTROLSA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -10241,7 +10061,6 @@ impl ::std::cmp::PartialEq for MIXERLINECONTROLSW {
 impl ::std::cmp::Eq for MIXERLINECONTROLSW {}
 unsafe impl ::windows::runtime::Abi for MIXERLINECONTROLSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -10264,7 +10083,6 @@ impl ::std::cmp::PartialEq for MIXERLINECONTROLSW_0 {
 impl ::std::cmp::Eq for MIXERLINECONTROLSW_0 {}
 unsafe impl ::windows::runtime::Abi for MIXERLINECONTROLSW_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -10298,7 +10116,6 @@ impl ::std::cmp::PartialEq for MIXERLINEW {
 impl ::std::cmp::Eq for MIXERLINEW {}
 unsafe impl ::windows::runtime::Abi for MIXERLINEW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -10325,7 +10142,6 @@ impl ::std::cmp::PartialEq for MIXERLINEW_0 {
 impl ::std::cmp::Eq for MIXERLINEW_0 {}
 unsafe impl ::windows::runtime::Abi for MIXERLINEW_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10358,7 +10174,6 @@ impl ::std::convert::From<u32> for MIXERLINE_COMPONENTTYPE {
 }
 unsafe impl ::windows::runtime::Abi for MIXERLINE_COMPONENTTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MIXERLINE_COMPONENTTYPE {
     type Output = Self;
@@ -10438,7 +10253,6 @@ impl ::std::cmp::PartialEq for MIXEROPENDESC {
 impl ::std::cmp::Eq for MIXEROPENDESC {}
 unsafe impl ::windows::runtime::Abi for MIXEROPENDESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MIXERR_BASE: u32 = 1024u32;
@@ -10524,7 +10338,6 @@ impl ::std::cmp::PartialEq for MMCKINFO {
 impl ::std::cmp::Eq for MMCKINFO {}
 unsafe impl ::windows::runtime::Abi for MMCKINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MMIOERR_ACCESSDENIED: u32 = 268u32;
@@ -10606,7 +10419,6 @@ impl ::std::cmp::Eq for MMIOINFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
 unsafe impl ::windows::runtime::Abi for MMIOINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MMIOM_CLOSE: u32 = 4u32;
@@ -10755,7 +10567,6 @@ impl ::std::cmp::PartialEq for MMTIME {
 impl ::std::cmp::Eq for MMTIME {}
 unsafe impl ::windows::runtime::Abi for MMTIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -10782,7 +10593,6 @@ impl ::std::cmp::PartialEq for MMTIME_0 {
 impl ::std::cmp::Eq for MMTIME_0 {}
 unsafe impl ::windows::runtime::Abi for MMTIME_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -10804,7 +10614,6 @@ impl ::std::cmp::PartialEq for MMTIME_0_0 {
 impl ::std::cmp::Eq for MMTIME_0_0 {}
 unsafe impl ::windows::runtime::Abi for MMTIME_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10837,7 +10646,6 @@ impl ::std::cmp::PartialEq for MMTIME_0_1 {
 impl ::std::cmp::Eq for MMTIME_0_1 {}
 unsafe impl ::windows::runtime::Abi for MMTIME_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MM_3COM: u32 = 260u32;
@@ -14067,7 +13875,6 @@ impl ::std::cmp::PartialEq for MSAUDIO1WAVEFORMAT {
 impl ::std::cmp::Eq for MSAUDIO1WAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for MSAUDIO1WAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MSAUDIO1_BITS_PER_SAMPLE: u32 = 16u32;
@@ -14118,7 +13925,6 @@ impl ::std::cmp::PartialEq for NMS_VBXADPCMWAVEFORMAT {
 impl ::std::cmp::Eq for NMS_VBXADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for NMS_VBXADPCMWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const NS_DRM_E_MIGRATION_IMAGE_ALREADY_EXISTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879730i32 as _);
@@ -16550,7 +16356,6 @@ impl ::std::cmp::PartialEq for OLIADPCMWAVEFORMAT {
 impl ::std::cmp::Eq for OLIADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for OLIADPCMWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16572,7 +16377,6 @@ impl ::std::cmp::PartialEq for OLICELPWAVEFORMAT {
 impl ::std::cmp::Eq for OLICELPWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for OLICELPWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16594,7 +16398,6 @@ impl ::std::cmp::PartialEq for OLIGSMWAVEFORMAT {
 impl ::std::cmp::Eq for OLIGSMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for OLIGSMWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16616,7 +16419,6 @@ impl ::std::cmp::PartialEq for OLIOPRWAVEFORMAT {
 impl ::std::cmp::Eq for OLIOPRWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for OLIOPRWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16638,7 +16440,6 @@ impl ::std::cmp::PartialEq for OLISBCWAVEFORMAT {
 impl ::std::cmp::Eq for OLISBCWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for OLISBCWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -16676,7 +16477,6 @@ impl ::std::cmp::PartialEq for PCMWAVEFORMAT {
 impl ::std::cmp::Eq for PCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for PCMWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const PD_CAN_DRAW_DIB: u32 = 1u32;
@@ -16779,7 +16579,6 @@ impl ::std::cmp::PartialEq for SIERRAADPCMWAVEFORMAT {
 impl ::std::cmp::Eq for SIERRAADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for SIERRAADPCMWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const SND_ALIAS: i32 = 65536i32;
@@ -16836,7 +16635,6 @@ impl ::std::cmp::PartialEq for SONARCWAVEFORMAT {
 impl ::std::cmp::Eq for SONARCWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for SONARCWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -16890,7 +16688,6 @@ impl ::std::cmp::PartialEq for TIMECAPS {
 impl ::std::cmp::Eq for TIMECAPS {}
 unsafe impl ::windows::runtime::Abi for TIMECAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_SystemServices")]
 impl ::std::clone::Clone for TIMEREVENT {
@@ -16928,7 +16725,6 @@ impl ::std::cmp::Eq for TIMEREVENT {}
 #[cfg(feature = "Win32_System_SystemServices")]
 unsafe impl ::windows::runtime::Abi for TIMEREVENT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const TIMERR_BASE: u32 = 96u32;
@@ -16973,7 +16769,6 @@ impl ::std::cmp::PartialEq for TRUESPEECHWAVEFORMAT {
 impl ::std::cmp::Eq for TRUESPEECHWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for TRUESPEECHWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const VADMAD_Device_ID: u32 = 1092u32;
@@ -17056,7 +16851,6 @@ impl ::std::cmp::PartialEq for VIDEOHDR {
 impl ::std::cmp::Eq for VIDEOHDR {}
 unsafe impl ::windows::runtime::Abi for VIDEOHDR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const VIDEO_CONFIGURE_CURRENT: u32 = 16u32;
@@ -17105,7 +16899,6 @@ impl ::std::cmp::PartialEq for VOLUMEWAVEFILTER {
 impl ::std::cmp::Eq for VOLUMEWAVEFILTER {}
 unsafe impl ::windows::runtime::Abi for VOLUMEWAVEFILTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const VP_COMMAND_GET: u32 = 1u32;
@@ -17232,7 +17025,6 @@ impl ::std::cmp::PartialEq for WAVEFILTER {
 impl ::std::cmp::Eq for WAVEFILTER {}
 unsafe impl ::windows::runtime::Abi for WAVEFILTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -17258,7 +17050,6 @@ impl ::std::cmp::PartialEq for WAVEFORMAT {
 impl ::std::cmp::Eq for WAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for WAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -17286,7 +17077,6 @@ impl ::std::cmp::PartialEq for WAVEFORMATEX {
 impl ::std::cmp::Eq for WAVEFORMATEX {}
 unsafe impl ::windows::runtime::Abi for WAVEFORMATEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -17311,7 +17101,6 @@ impl ::std::cmp::PartialEq for WAVEFORMATEXTENSIBLE {
 impl ::std::cmp::Eq for WAVEFORMATEXTENSIBLE {}
 unsafe impl ::windows::runtime::Abi for WAVEFORMATEXTENSIBLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -17335,7 +17124,6 @@ impl ::std::cmp::PartialEq for WAVEFORMATEXTENSIBLE_0 {
 impl ::std::cmp::Eq for WAVEFORMATEXTENSIBLE_0 {}
 unsafe impl ::windows::runtime::Abi for WAVEFORMATEXTENSIBLE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -17370,7 +17158,6 @@ impl ::std::cmp::Eq for WAVEHDR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WAVEHDR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -17407,7 +17194,6 @@ impl ::std::cmp::Eq for WAVEINCAPS2A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WAVEINCAPS2A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -17438,7 +17224,6 @@ impl ::std::cmp::PartialEq for WAVEINCAPS2W {
 impl ::std::cmp::Eq for WAVEINCAPS2W {}
 unsafe impl ::windows::runtime::Abi for WAVEINCAPS2W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -17472,7 +17257,6 @@ impl ::std::cmp::Eq for WAVEINCAPSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WAVEINCAPSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -17500,7 +17284,6 @@ impl ::std::cmp::PartialEq for WAVEINCAPSW {
 impl ::std::cmp::Eq for WAVEINCAPSW {}
 unsafe impl ::windows::runtime::Abi for WAVEINCAPSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const WAVEIN_MAPPER_STATUS_DEVICE: u32 = 0u32;
@@ -17533,7 +17316,6 @@ impl ::std::cmp::PartialEq for WAVEOPENDESC {
 impl ::std::cmp::Eq for WAVEOPENDESC {}
 unsafe impl ::windows::runtime::Abi for WAVEOPENDESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -17571,7 +17353,6 @@ impl ::std::cmp::Eq for WAVEOUTCAPS2A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WAVEOUTCAPS2A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -17603,7 +17384,6 @@ impl ::std::cmp::PartialEq for WAVEOUTCAPS2W {
 impl ::std::cmp::Eq for WAVEOUTCAPS2W {}
 unsafe impl ::windows::runtime::Abi for WAVEOUTCAPS2W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -17638,7 +17418,6 @@ impl ::std::cmp::Eq for WAVEOUTCAPSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WAVEOUTCAPSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -17667,7 +17446,6 @@ impl ::std::cmp::PartialEq for WAVEOUTCAPSW {
 impl ::std::cmp::Eq for WAVEOUTCAPSW {}
 unsafe impl ::windows::runtime::Abi for WAVEOUTCAPSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const WAVEOUT_MAPPER_STATUS_DEVICE: u32 = 0u32;
@@ -18356,7 +18134,6 @@ impl ::std::cmp::PartialEq for WMAUDIO2WAVEFORMAT {
 impl ::std::cmp::Eq for WMAUDIO2WAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for WMAUDIO2WAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const WMAUDIO2_BITS_PER_SAMPLE: u32 = 16u32;
@@ -18388,7 +18165,6 @@ impl ::std::cmp::PartialEq for WMAUDIO3WAVEFORMAT {
 impl ::std::cmp::Eq for WMAUDIO3WAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for WMAUDIO3WAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const WMAUDIO_BITS_PER_SAMPLE: u32 = 16u32;
@@ -18630,7 +18406,6 @@ impl ::std::cmp::PartialEq for YAMAHA_ADPCMWAVEFORMAT {
 impl ::std::cmp::Eq for YAMAHA_ADPCMWAVEFORMAT {}
 unsafe impl ::windows::runtime::Abi for YAMAHA_ADPCMWAVEFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -20774,7 +20549,6 @@ impl ::std::cmp::Eq for s_RIFFWAVE_inst {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for s_RIFFWAVE_inst {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
@@ -20846,7 +20620,6 @@ impl ::std::cmp::PartialEq for tACMDRVFORMATSUGGEST {
 impl ::std::cmp::Eq for tACMDRVFORMATSUGGEST {}
 unsafe impl ::windows::runtime::Abi for tACMDRVFORMATSUGGEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -20882,7 +20655,6 @@ impl ::std::cmp::Eq for tACMDRVOPENDESCA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for tACMDRVOPENDESCA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -20918,7 +20690,6 @@ impl ::std::cmp::Eq for tACMDRVOPENDESCW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for tACMDRVOPENDESCW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -20960,7 +20731,6 @@ impl ::std::cmp::PartialEq for tACMDRVSTREAMHEADER {
 impl ::std::cmp::Eq for tACMDRVSTREAMHEADER {}
 unsafe impl ::windows::runtime::Abi for tACMDRVSTREAMHEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -20991,7 +20761,6 @@ impl ::std::cmp::PartialEq for tACMDRVSTREAMINSTANCE {
 impl ::std::cmp::Eq for tACMDRVSTREAMINSTANCE {}
 unsafe impl ::windows::runtime::Abi for tACMDRVSTREAMINSTANCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -21016,7 +20785,6 @@ impl ::std::cmp::PartialEq for tACMDRVSTREAMSIZE {
 impl ::std::cmp::Eq for tACMDRVSTREAMSIZE {}
 unsafe impl ::windows::runtime::Abi for tACMDRVSTREAMSIZE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -21044,7 +20812,6 @@ impl ::std::cmp::PartialEq for tACMFORMATDETAILSW {
 impl ::std::cmp::Eq for tACMFORMATDETAILSW {}
 unsafe impl ::windows::runtime::Abi for tACMFORMATDETAILSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 #[inline]

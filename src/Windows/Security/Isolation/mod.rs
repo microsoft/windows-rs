@@ -78,14 +78,13 @@ impl<F: FnMut(&::windows::runtime::GUID, &::std::option::Option<super::super::Fo
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, receiverid: ::windows::runtime::GUID, message: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         ((*this).invoke)(
-            &*(&receiverid as *const <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::GUID as ::windows::runtime::Abi>::DefaultType),
-            &*(&message as *const <super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable> as ::windows::runtime::Abi>::Abi as *const <super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable> as ::windows::runtime::Abi>::DefaultType),
+            &*(&receiverid as *const <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::GUID as ::windows::runtime::DefaultType>::DefaultType),
+            &*(&message as *const <super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable> as ::windows::runtime::Abi>::Abi as *const <super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable> as ::windows::runtime::DefaultType>::DefaultType),
         )
         .into()
     }
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironment(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironment {
@@ -123,7 +122,6 @@ pub struct IIsolatedWindowsEnvironment_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, receiverid: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironment2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironment2 {
@@ -145,7 +143,6 @@ pub struct IIsolatedWindowsEnvironment2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironment3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironment3 {
@@ -168,7 +165,6 @@ pub struct IIsolatedWindowsEnvironment3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentCreateResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentCreateResult {
@@ -189,7 +185,6 @@ pub struct IIsolatedWindowsEnvironmentCreateResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentFactory {
@@ -214,7 +209,6 @@ pub struct IIsolatedWindowsEnvironmentFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentFile(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentFile {
@@ -235,7 +229,6 @@ pub struct IIsolatedWindowsEnvironmentFile_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentFile2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentFile2 {
@@ -255,7 +248,6 @@ pub struct IIsolatedWindowsEnvironmentFile2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentHostStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentHostStatics {
@@ -276,7 +268,6 @@ pub struct IIsolatedWindowsEnvironmentHostStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentLaunchFileResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentLaunchFileResult {
@@ -297,7 +288,6 @@ pub struct IIsolatedWindowsEnvironmentLaunchFileResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentOptions {
@@ -332,7 +322,6 @@ pub struct IIsolatedWindowsEnvironmentOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOptions2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentOptions2 {
@@ -352,7 +341,6 @@ pub struct IIsolatedWindowsEnvironmentOptions2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOwnerRegistrationData(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentOwnerRegistrationData {
@@ -378,7 +366,6 @@ pub struct IIsolatedWindowsEnvironmentOwnerRegistrationData_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOwnerRegistrationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentOwnerRegistrationResult {
@@ -398,7 +385,6 @@ pub struct IIsolatedWindowsEnvironmentOwnerRegistrationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOwnerRegistrationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentOwnerRegistrationStatics {
@@ -418,7 +404,6 @@ pub struct IIsolatedWindowsEnvironmentOwnerRegistrationStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ownername: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentPostMessageResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentPostMessageResult {
@@ -438,7 +423,6 @@ pub struct IIsolatedWindowsEnvironmentPostMessageResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentProcess(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentProcess {
@@ -462,7 +446,6 @@ pub struct IIsolatedWindowsEnvironmentProcess_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentShareFileRequestOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentShareFileRequestOptions {
@@ -482,7 +465,6 @@ pub struct IIsolatedWindowsEnvironmentShareFileRequestOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentShareFileResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentShareFileResult {
@@ -503,7 +485,6 @@ pub struct IIsolatedWindowsEnvironmentShareFileResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentShareFolderRequestOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentShareFolderRequestOptions {
@@ -523,7 +504,6 @@ pub struct IIsolatedWindowsEnvironmentShareFolderRequestOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentShareFolderResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentShareFolderResult {
@@ -543,7 +523,6 @@ pub struct IIsolatedWindowsEnvironmentShareFolderResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentStartProcessResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentStartProcessResult {
@@ -564,7 +543,6 @@ pub struct IIsolatedWindowsEnvironmentStartProcessResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentTelemetryParameters(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentTelemetryParameters {
@@ -584,7 +562,6 @@ pub struct IIsolatedWindowsEnvironmentTelemetryParameters_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentUserInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsEnvironmentUserInfo {
@@ -606,7 +583,6 @@ pub struct IIsolatedWindowsEnvironmentUserInfo_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsHostMessengerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsHostMessengerStatics {
@@ -627,7 +603,6 @@ pub struct IIsolatedWindowsHostMessengerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, filepath: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsHostMessengerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIsolatedWindowsHostMessengerStatics2 {
@@ -872,10 +847,12 @@ impl ::std::convert::From<i32> for IsolatedWindowsEnvironmentActivator {
 }
 unsafe impl ::windows::runtime::Abi for IsolatedWindowsEnvironmentActivator {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentActivator {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentActivator;i4)");
+}
+impl ::windows::runtime::DefaultType for IsolatedWindowsEnvironmentActivator {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Isolation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -893,10 +870,12 @@ impl ::std::convert::From<u32> for IsolatedWindowsEnvironmentAllowedClipboardFor
 }
 unsafe impl ::windows::runtime::Abi for IsolatedWindowsEnvironmentAllowedClipboardFormats {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentAllowedClipboardFormats {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentAllowedClipboardFormats;u4)");
+}
+impl ::windows::runtime::DefaultType for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for IsolatedWindowsEnvironmentAllowedClipboardFormats {
     type Output = Self;
@@ -944,10 +923,12 @@ impl ::std::convert::From<u32> for IsolatedWindowsEnvironmentAvailablePrinters {
 }
 unsafe impl ::windows::runtime::Abi for IsolatedWindowsEnvironmentAvailablePrinters {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentAvailablePrinters {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentAvailablePrinters;u4)");
+}
+impl ::windows::runtime::DefaultType for IsolatedWindowsEnvironmentAvailablePrinters {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for IsolatedWindowsEnvironmentAvailablePrinters {
     type Output = Self;
@@ -993,10 +974,12 @@ impl ::std::convert::From<u32> for IsolatedWindowsEnvironmentClipboardCopyPasteD
 }
 unsafe impl ::windows::runtime::Abi for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentClipboardCopyPasteDirections;u4)");
+}
+impl ::windows::runtime::DefaultType for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
     type Output = Self;
@@ -1055,10 +1038,12 @@ impl ::std::cmp::PartialEq for IsolatedWindowsEnvironmentCreateProgress {
 impl ::std::cmp::Eq for IsolatedWindowsEnvironmentCreateProgress {}
 unsafe impl ::windows::runtime::Abi for IsolatedWindowsEnvironmentCreateProgress {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentCreateProgress {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateProgress;enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProgressState;i4);u4)");
+}
+impl ::windows::runtime::DefaultType for IsolatedWindowsEnvironmentCreateProgress {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Isolation`*"]
 #[repr(transparent)]
@@ -1118,10 +1103,12 @@ impl ::std::convert::From<i32> for IsolatedWindowsEnvironmentCreateStatus {
 }
 unsafe impl ::windows::runtime::Abi for IsolatedWindowsEnvironmentCreateStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentCreateStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for IsolatedWindowsEnvironmentCreateStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Isolation`*"]
 #[repr(transparent)]
@@ -1222,10 +1209,12 @@ impl ::std::convert::From<i32> for IsolatedWindowsEnvironmentHostError {
 }
 unsafe impl ::windows::runtime::Abi for IsolatedWindowsEnvironmentHostError {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentHostError {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentHostError;i4)");
+}
+impl ::windows::runtime::DefaultType for IsolatedWindowsEnvironmentHostError {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Isolation`*"]
 #[repr(transparent)]
@@ -1288,10 +1277,12 @@ impl ::std::convert::From<i32> for IsolatedWindowsEnvironmentLaunchFileStatus {
 }
 unsafe impl ::windows::runtime::Abi for IsolatedWindowsEnvironmentLaunchFileStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentLaunchFileStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentLaunchFileStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for IsolatedWindowsEnvironmentLaunchFileStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Isolation`*"]
 #[repr(transparent)]
@@ -1578,10 +1569,12 @@ impl ::std::convert::From<i32> for IsolatedWindowsEnvironmentOwnerRegistrationSt
 }
 unsafe impl ::windows::runtime::Abi for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Isolation`*"]
 #[repr(transparent)]
@@ -1633,10 +1626,12 @@ impl ::std::convert::From<i32> for IsolatedWindowsEnvironmentPostMessageStatus {
 }
 unsafe impl ::windows::runtime::Abi for IsolatedWindowsEnvironmentPostMessageStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentPostMessageStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for IsolatedWindowsEnvironmentPostMessageStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Isolation`*"]
 #[repr(transparent)]
@@ -1707,10 +1702,12 @@ impl ::std::convert::From<i32> for IsolatedWindowsEnvironmentProcessState {
 }
 unsafe impl ::windows::runtime::Abi for IsolatedWindowsEnvironmentProcessState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentProcessState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProcessState;i4)");
+}
+impl ::windows::runtime::DefaultType for IsolatedWindowsEnvironmentProcessState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Isolation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1728,10 +1725,12 @@ impl ::std::convert::From<i32> for IsolatedWindowsEnvironmentProgressState {
 }
 unsafe impl ::windows::runtime::Abi for IsolatedWindowsEnvironmentProgressState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentProgressState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProgressState;i4)");
+}
+impl ::windows::runtime::DefaultType for IsolatedWindowsEnvironmentProgressState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Isolation`*"]
 #[repr(transparent)]
@@ -1832,10 +1831,12 @@ impl ::std::convert::From<i32> for IsolatedWindowsEnvironmentShareFileStatus {
 }
 unsafe impl ::windows::runtime::Abi for IsolatedWindowsEnvironmentShareFileStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentShareFileStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for IsolatedWindowsEnvironmentShareFileStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Isolation`*"]
 #[repr(transparent)]
@@ -1927,10 +1928,12 @@ impl ::std::convert::From<i32> for IsolatedWindowsEnvironmentShareFolderStatus {
 }
 unsafe impl ::windows::runtime::Abi for IsolatedWindowsEnvironmentShareFolderStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentShareFolderStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for IsolatedWindowsEnvironmentShareFolderStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Isolation`*"]
 #[repr(transparent)]
@@ -1992,10 +1995,12 @@ impl ::std::convert::From<i32> for IsolatedWindowsEnvironmentStartProcessStatus 
 }
 unsafe impl ::windows::runtime::Abi for IsolatedWindowsEnvironmentStartProcessStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for IsolatedWindowsEnvironmentStartProcessStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for IsolatedWindowsEnvironmentStartProcessStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Isolation`*"]
 #[repr(transparent)]
@@ -2193,8 +2198,8 @@ impl<F: FnMut(&::windows::runtime::GUID, &::std::option::Option<super::super::Fo
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, receiverid: ::windows::runtime::GUID, message: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         ((*this).invoke)(
-            &*(&receiverid as *const <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::GUID as ::windows::runtime::Abi>::DefaultType),
-            &*(&message as *const <super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable> as ::windows::runtime::Abi>::Abi as *const <super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable> as ::windows::runtime::Abi>::DefaultType),
+            &*(&receiverid as *const <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::GUID as ::windows::runtime::DefaultType>::DefaultType),
+            &*(&message as *const <super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable> as ::windows::runtime::Abi>::Abi as *const <super::super::Foundation::Collections::IVectorView<::windows::runtime::IInspectable> as ::windows::runtime::DefaultType>::DefaultType),
         )
         .into()
     }

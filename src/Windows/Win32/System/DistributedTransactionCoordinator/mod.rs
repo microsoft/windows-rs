@@ -12,7 +12,6 @@ impl ::std::convert::From<i32> for APPLICATIONTYPE {
 }
 unsafe impl ::windows::runtime::Abi for APPLICATIONTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -28,7 +27,6 @@ impl ::std::convert::From<i32> for AUTHENTICATION_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for AUTHENTICATION_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -55,7 +53,6 @@ impl ::std::cmp::PartialEq for BOID {
 impl ::std::cmp::Eq for BOID {}
 unsafe impl ::windows::runtime::Abi for BOID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const CLSID_MSDtcTransaction: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(972609387, 2344, 4561, [151, 223, 0, 192, 79, 185, 97, 138]);
 pub const CLSID_MSDtcTransactionManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1528343393, 2333, 4561, [151, 223, 0, 192, 79, 185, 97, 138]);
@@ -95,7 +92,6 @@ impl ::std::convert::From<i32> for DTC_STATUS_ {
 }
 unsafe impl ::windows::runtime::Abi for DTC_STATUS_ {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`, `Win32_Foundation`*"]
@@ -1858,7 +1854,6 @@ impl ::std::convert::From<i32> for ISOFLAG {
 }
 unsafe impl ::windows::runtime::Abi for ISOFLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1880,7 +1875,6 @@ impl ::std::convert::From<i32> for ISOLATIONLEVEL {
 }
 unsafe impl ::windows::runtime::Abi for ISOLATIONLEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[repr(transparent)]
@@ -3024,7 +3018,6 @@ impl ::std::cmp::PartialEq for OLE_TM_CONFIG_PARAMS_V1 {
 impl ::std::cmp::Eq for OLE_TM_CONFIG_PARAMS_V1 {}
 unsafe impl ::windows::runtime::Abi for OLE_TM_CONFIG_PARAMS_V1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3054,7 +3047,6 @@ impl ::std::cmp::PartialEq for OLE_TM_CONFIG_PARAMS_V2 {
 impl ::std::cmp::Eq for OLE_TM_CONFIG_PARAMS_V2 {}
 unsafe impl ::windows::runtime::Abi for OLE_TM_CONFIG_PARAMS_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const OLE_TM_CONFIG_VERSION_1: u32 = 1u32;
@@ -3128,7 +3120,6 @@ impl ::std::convert::From<i32> for TX_MISC_CONSTANTS {
 }
 unsafe impl ::windows::runtime::Abi for TX_MISC_CONSTANTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3142,7 +3133,6 @@ impl ::std::convert::From<i32> for XACTCONST {
 }
 unsafe impl ::windows::runtime::Abi for XACTCONST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3159,7 +3149,6 @@ impl ::std::convert::From<i32> for XACTHEURISTIC {
 }
 unsafe impl ::windows::runtime::Abi for XACTHEURISTIC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3187,7 +3176,6 @@ impl ::std::cmp::PartialEq for XACTOPT {
 impl ::std::cmp::Eq for XACTOPT {}
 unsafe impl ::windows::runtime::Abi for XACTOPT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3202,7 +3190,6 @@ impl ::std::convert::From<i32> for XACTRM {
 }
 unsafe impl ::windows::runtime::Abi for XACTRM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3238,7 +3225,6 @@ impl ::std::convert::From<i32> for XACTSTAT {
 }
 unsafe impl ::windows::runtime::Abi for XACTSTAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3288,7 +3274,6 @@ impl ::std::cmp::Eq for XACTSTATS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for XACTSTATS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3307,7 +3292,6 @@ impl ::std::convert::From<i32> for XACTTC {
 }
 unsafe impl ::windows::runtime::Abi for XACTTC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3348,7 +3332,6 @@ impl ::std::cmp::PartialEq for XACTTRANSINFO {
 impl ::std::cmp::Eq for XACTTRANSINFO {}
 unsafe impl ::windows::runtime::Abi for XACTTRANSINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3384,7 +3367,6 @@ impl ::std::convert::From<i32> for XACT_DTC_CONSTANTS {
 }
 unsafe impl ::windows::runtime::Abi for XACT_DTC_CONSTANTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 pub const XAER_ASYNC: i32 = -2i32;
@@ -3482,7 +3464,6 @@ impl ::std::convert::From<i32> for _DtcLu_CompareState {
 }
 unsafe impl ::windows::runtime::Abi for _DtcLu_CompareState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3497,7 +3478,6 @@ impl ::std::convert::From<i32> for _DtcLu_CompareStates_Confirmation {
 }
 unsafe impl ::windows::runtime::Abi for _DtcLu_CompareStates_Confirmation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3511,7 +3491,6 @@ impl ::std::convert::From<i32> for _DtcLu_CompareStates_Error {
 }
 unsafe impl ::windows::runtime::Abi for _DtcLu_CompareStates_Error {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3526,7 +3505,6 @@ impl ::std::convert::From<i32> for _DtcLu_CompareStates_Response {
 }
 unsafe impl ::windows::runtime::Abi for _DtcLu_CompareStates_Response {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3542,7 +3520,6 @@ impl ::std::convert::From<i32> for _DtcLu_LocalRecovery_Work {
 }
 unsafe impl ::windows::runtime::Abi for _DtcLu_LocalRecovery_Work {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3557,7 +3534,6 @@ impl ::std::convert::From<i32> for _DtcLu_Xln {
 }
 unsafe impl ::windows::runtime::Abi for _DtcLu_Xln {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3574,7 +3550,6 @@ impl ::std::convert::From<i32> for _DtcLu_Xln_Confirmation {
 }
 unsafe impl ::windows::runtime::Abi for _DtcLu_Xln_Confirmation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3590,7 +3565,6 @@ impl ::std::convert::From<i32> for _DtcLu_Xln_Error {
 }
 unsafe impl ::windows::runtime::Abi for _DtcLu_Xln_Error {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DistributedTransactionCoordinator`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3607,7 +3581,6 @@ impl ::std::convert::From<i32> for _DtcLu_Xln_Response {
 }
 unsafe impl ::windows::runtime::Abi for _DtcLu_Xln_Response {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3634,7 +3607,6 @@ impl ::std::cmp::PartialEq for _ProxyConfigParams {
 impl ::std::cmp::Eq for _ProxyConfigParams {}
 unsafe impl ::windows::runtime::Abi for _ProxyConfigParams {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3706,7 +3678,6 @@ impl ::std::cmp::Eq for xa_switch_t {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for xa_switch_t {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3743,5 +3714,4 @@ impl ::std::cmp::Eq for xid_t {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for xid_t {
     type Abi = Self;
-    type DefaultType = Self;
 }

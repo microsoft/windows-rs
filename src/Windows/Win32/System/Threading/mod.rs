@@ -27,7 +27,6 @@ impl ::std::cmp::PartialEq for APP_MEMORY_INFORMATION {
 impl ::std::cmp::Eq for APP_MEMORY_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for APP_MEMORY_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_SystemServices")]
 #[doc = "*Required features: `Win32_System_Threading`, `Win32_System_SystemServices`*"]
@@ -115,7 +114,6 @@ impl ::std::default::Default for BoundaryDescriptorHandle {
 unsafe impl ::windows::runtime::Handle for BoundaryDescriptorHandle {}
 unsafe impl ::windows::runtime::Abi for BoundaryDescriptorHandle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Threading`*"]
 pub const CONDITION_VARIABLE_LOCKMODE_SHARED: u32 = 1u32;
@@ -132,7 +130,6 @@ impl ::std::convert::From<u32> for CREATE_EVENT {
 }
 unsafe impl ::windows::runtime::Abi for CREATE_EVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CREATE_EVENT {
     type Output = Self;
@@ -177,7 +174,6 @@ impl ::std::convert::From<u32> for CREATE_PROCESS_LOGON_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CREATE_PROCESS_LOGON_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CREATE_PROCESS_LOGON_FLAGS {
     type Output = Self;
@@ -1603,7 +1599,6 @@ impl ::std::convert::From<u32> for GET_GUI_RESOURCES_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for GET_GUI_RESOURCES_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for GET_GUI_RESOURCES_FLAGS {
     type Output = Self;
@@ -2902,7 +2897,6 @@ impl ::std::default::Default for LPPROC_THREAD_ATTRIBUTE_LIST {
 unsafe impl ::windows::runtime::Handle for LPPROC_THREAD_ATTRIBUTE_LIST {}
 unsafe impl ::windows::runtime::Abi for LPPROC_THREAD_ATTRIBUTE_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_System_Kernel`, `Win32_System_SystemServices`*"]
@@ -2948,7 +2942,6 @@ impl ::std::convert::From<u32> for MACHINE_ATTRIBUTES {
 }
 unsafe impl ::windows::runtime::Abi for MACHINE_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MACHINE_ATTRIBUTES {
     type Output = Self;
@@ -2994,7 +2987,6 @@ impl ::std::convert::From<u32> for MEMORY_PRIORITY {
 }
 unsafe impl ::windows::runtime::Abi for MEMORY_PRIORITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MEMORY_PRIORITY {
     type Output = Self;
@@ -3049,7 +3041,6 @@ impl ::std::cmp::PartialEq for MEMORY_PRIORITY_INFORMATION {
 impl ::std::cmp::Eq for MEMORY_PRIORITY_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for MEMORY_PRIORITY_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Threading`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3066,7 +3057,6 @@ impl ::std::convert::From<u32> for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
     type Output = Self;
@@ -3139,7 +3129,6 @@ impl ::std::default::Default for NamespaceHandle {
 unsafe impl ::windows::runtime::Handle for NamespaceHandle {}
 unsafe impl ::windows::runtime::Abi for NamespaceHandle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
@@ -3423,7 +3412,6 @@ impl ::std::cmp::Eq for PEB {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_WindowsProgramming"))]
 unsafe impl ::windows::runtime::Abi for PEB {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3459,7 +3447,6 @@ impl ::std::cmp::Eq for PEB_LDR_DATA {}
 #[cfg(feature = "Win32_System_Kernel")]
 unsafe impl ::windows::runtime::Abi for PEB_LDR_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 pub type PINIT_ONCE_FN = unsafe extern "system" fn(initonce: *mut super::SystemServices::RTL_RUN_ONCE, parameter: *mut ::std::ffi::c_void, context: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
@@ -3487,7 +3474,6 @@ impl ::std::convert::From<i32> for PROCESSINFOCLASS {
 }
 unsafe impl ::windows::runtime::Abi for PROCESSINFOCLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Threading`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3528,7 +3514,6 @@ impl ::std::convert::From<u32> for PROCESSOR_FEATURE_ID {
 }
 unsafe impl ::windows::runtime::Abi for PROCESSOR_FEATURE_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PROCESSOR_FEATURE_ID {
     type Output = Self;
@@ -3590,7 +3575,6 @@ impl ::std::convert::From<u32> for PROCESS_ACCESS_RIGHTS {
 }
 unsafe impl ::windows::runtime::Abi for PROCESS_ACCESS_RIGHTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PROCESS_ACCESS_RIGHTS {
     type Output = Self;
@@ -3633,7 +3617,6 @@ impl ::std::convert::From<u32> for PROCESS_AFFINITY_AUTO_UPDATE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PROCESS_AFFINITY_AUTO_UPDATE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PROCESS_AFFINITY_AUTO_UPDATE_FLAGS {
     type Output = Self;
@@ -3699,7 +3682,6 @@ impl ::std::cmp::Eq for PROCESS_BASIC_INFORMATION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_WindowsProgramming"))]
 unsafe impl ::windows::runtime::Abi for PROCESS_BASIC_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Threading`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3743,7 +3725,6 @@ impl ::std::convert::From<u32> for PROCESS_CREATION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PROCESS_CREATION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PROCESS_CREATION_FLAGS {
     type Output = Self;
@@ -3787,7 +3768,6 @@ impl ::std::convert::From<u32> for PROCESS_DEP_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PROCESS_DEP_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PROCESS_DEP_FLAGS {
     type Output = Self;
@@ -3852,7 +3832,6 @@ impl ::std::cmp::Eq for PROCESS_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PROCESS_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Threading`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3876,7 +3855,6 @@ impl ::std::convert::From<i32> for PROCESS_INFORMATION_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for PROCESS_INFORMATION_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3904,7 +3882,6 @@ impl ::std::cmp::PartialEq for PROCESS_LEAP_SECOND_INFO {
 impl ::std::cmp::Eq for PROCESS_LEAP_SECOND_INFO {}
 unsafe impl ::windows::runtime::Abi for PROCESS_LEAP_SECOND_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Threading`*"]
 pub const PROCESS_LEAP_SECOND_INFO_FLAG_ENABLE_SIXTY_SECOND: u32 = 1u32;
@@ -3937,7 +3914,6 @@ impl ::std::cmp::PartialEq for PROCESS_MACHINE_INFORMATION {
 impl ::std::cmp::Eq for PROCESS_MACHINE_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for PROCESS_MACHINE_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3967,7 +3943,6 @@ impl ::std::cmp::PartialEq for PROCESS_MEMORY_EXHAUSTION_INFO {
 impl ::std::cmp::Eq for PROCESS_MEMORY_EXHAUSTION_INFO {}
 unsafe impl ::windows::runtime::Abi for PROCESS_MEMORY_EXHAUSTION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Threading`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3982,7 +3957,6 @@ impl ::std::convert::From<i32> for PROCESS_MEMORY_EXHAUSTION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PROCESS_MEMORY_EXHAUSTION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Threading`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3997,7 +3971,6 @@ impl ::std::convert::From<u32> for PROCESS_NAME_FORMAT {
 }
 unsafe impl ::windows::runtime::Abi for PROCESS_NAME_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PROCESS_NAME_FORMAT {
     type Output = Self;
@@ -4060,7 +4033,6 @@ impl ::std::cmp::PartialEq for PROCESS_POWER_THROTTLING_STATE {
 impl ::std::cmp::Eq for PROCESS_POWER_THROTTLING_STATE {}
 unsafe impl ::windows::runtime::Abi for PROCESS_POWER_THROTTLING_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Threading`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4083,7 +4055,6 @@ impl ::std::convert::From<u32> for PROCESS_PROTECTION_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for PROCESS_PROTECTION_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PROCESS_PROTECTION_LEVEL {
     type Output = Self;
@@ -4138,7 +4109,6 @@ impl ::std::cmp::PartialEq for PROCESS_PROTECTION_LEVEL_INFORMATION {
 impl ::std::cmp::Eq for PROCESS_PROTECTION_LEVEL_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for PROCESS_PROTECTION_LEVEL_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Threading`*"]
 pub const PROC_THREAD_ATTRIBUTE_REPLACE_VALUE: u32 = 1u32;
@@ -4154,7 +4124,6 @@ impl ::std::default::Default for PTP_POOL {
 unsafe impl ::windows::runtime::Handle for PTP_POOL {}
 unsafe impl ::windows::runtime::Abi for PTP_POOL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_SystemServices")]
 pub type PTP_WIN32_IO_CALLBACK = unsafe extern "system" fn(instance: *mut super::SystemServices::TP_CALLBACK_INSTANCE, context: *mut ::std::ffi::c_void, overlapped: *mut ::std::ffi::c_void, ioresult: u32, numberofbytestransferred: usize, io: *mut super::SystemServices::TP_IO);
@@ -4186,7 +4155,6 @@ impl ::std::convert::From<i32> for QUEUE_USER_APC_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for QUEUE_USER_APC_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[doc = "*Required features: `Win32_System_Threading`, `Win32_System_Kernel`*"]
@@ -4373,7 +4341,6 @@ impl ::std::cmp::Eq for RTL_USER_PROCESS_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RTL_USER_PROCESS_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
@@ -4595,7 +4562,6 @@ impl ::std::cmp::Eq for STARTUPINFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for STARTUPINFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4630,7 +4596,6 @@ impl ::std::cmp::Eq for STARTUPINFOEXA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for STARTUPINFOEXA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4665,7 +4630,6 @@ impl ::std::cmp::Eq for STARTUPINFOEXW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for STARTUPINFOEXW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4752,7 +4716,6 @@ impl ::std::cmp::Eq for STARTUPINFOW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for STARTUPINFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Threading`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4779,7 +4742,6 @@ impl ::std::convert::From<u32> for STARTUPINFOW_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for STARTUPINFOW_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for STARTUPINFOW_FLAGS {
     type Output = Self;
@@ -5560,7 +5522,6 @@ impl ::std::convert::From<i32> for THREADINFOCLASS {
 }
 unsafe impl ::windows::runtime::Abi for THREADINFOCLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Threading`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5592,7 +5553,6 @@ impl ::std::convert::From<u32> for THREAD_ACCESS_RIGHTS {
 }
 unsafe impl ::windows::runtime::Abi for THREAD_ACCESS_RIGHTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for THREAD_ACCESS_RIGHTS {
     type Output = Self;
@@ -5636,7 +5596,6 @@ impl ::std::convert::From<u32> for THREAD_CREATION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for THREAD_CREATION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for THREAD_CREATION_FLAGS {
     type Output = Self;
@@ -5682,7 +5641,6 @@ impl ::std::convert::From<i32> for THREAD_INFORMATION_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for THREAD_INFORMATION_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Threading`*"]
 pub const THREAD_POWER_THROTTLING_CURRENT_VERSION: u32 = 1u32;
@@ -5715,7 +5673,6 @@ impl ::std::cmp::PartialEq for THREAD_POWER_THROTTLING_STATE {
 impl ::std::cmp::Eq for THREAD_POWER_THROTTLING_STATE {}
 unsafe impl ::windows::runtime::Abi for THREAD_POWER_THROTTLING_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Threading`*"]
 pub const THREAD_POWER_THROTTLING_VALID_FLAGS: u32 = 1u32;
@@ -5740,7 +5697,6 @@ impl ::std::convert::From<i32> for THREAD_PRIORITY {
 }
 unsafe impl ::windows::runtime::Abi for THREAD_PRIORITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
@@ -5783,7 +5739,6 @@ impl ::std::default::Default for TimerQueueHandle {
 unsafe impl ::windows::runtime::Handle for TimerQueueHandle {}
 unsafe impl ::windows::runtime::Abi for TimerQueueHandle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Threading`*"]
 #[inline]
@@ -5938,7 +5893,6 @@ impl ::std::cmp::Eq for UMS_SCHEDULER_STARTUP_INFO {}
 #[cfg(feature = "Win32_System_SystemServices")]
 unsafe impl ::windows::runtime::Abi for UMS_SCHEDULER_STARTUP_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5961,7 +5915,6 @@ impl ::std::cmp::PartialEq for UMS_SYSTEM_THREAD_INFORMATION {
 impl ::std::cmp::Eq for UMS_SYSTEM_THREAD_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for UMS_SYSTEM_THREAD_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5984,7 +5937,6 @@ impl ::std::cmp::PartialEq for UMS_SYSTEM_THREAD_INFORMATION_0 {
 impl ::std::cmp::Eq for UMS_SYSTEM_THREAD_INFORMATION_0 {}
 unsafe impl ::windows::runtime::Abi for UMS_SYSTEM_THREAD_INFORMATION_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6011,7 +5963,6 @@ impl ::std::cmp::PartialEq for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
 impl ::std::cmp::Eq for UMS_SYSTEM_THREAD_INFORMATION_0_0 {}
 unsafe impl ::windows::runtime::Abi for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]
@@ -6100,7 +6051,6 @@ impl ::std::convert::From<u32> for WORKER_THREAD_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for WORKER_THREAD_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WORKER_THREAD_FLAGS {
     type Output = Self;

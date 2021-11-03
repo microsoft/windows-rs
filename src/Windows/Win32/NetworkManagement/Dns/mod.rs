@@ -133,7 +133,6 @@ impl ::std::cmp::PartialEq for DNS_AAAA_DATA {
 impl ::std::cmp::Eq for DNS_AAAA_DATA {}
 unsafe impl ::windows::runtime::Abi for DNS_AAAA_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -162,7 +161,6 @@ impl ::std::cmp::Eq for DNS_ADDR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_ADDR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -184,7 +182,6 @@ impl ::std::cmp::PartialEq for DNS_ADDR_0 {
 impl ::std::cmp::Eq for DNS_ADDR_0 {}
 unsafe impl ::windows::runtime::Abi for DNS_ADDR_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_ADDRESS_STRING_LENGTH: u32 = 65u32;
@@ -223,7 +220,6 @@ impl ::std::cmp::Eq for DNS_ADDR_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_ADDR_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_ADDR_MAX_SOCKADDR_LENGTH: u32 = 32u32;
@@ -253,7 +249,6 @@ impl ::std::cmp::PartialEq for DNS_APPLICATION_SETTINGS {
 impl ::std::cmp::Eq for DNS_APPLICATION_SETTINGS {}
 unsafe impl ::windows::runtime::Abi for DNS_APPLICATION_SETTINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_APP_SETTINGS_EXCLUSIVE_SERVERS: u32 = 1u32;
@@ -287,7 +282,6 @@ impl ::std::cmp::PartialEq for DNS_ATMA_DATA {
 impl ::std::cmp::Eq for DNS_ATMA_DATA {}
 unsafe impl ::windows::runtime::Abi for DNS_ATMA_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_ATMA_FORMAT_AESA: u32 = 2u32;
@@ -322,7 +316,6 @@ impl ::std::cmp::PartialEq for DNS_A_DATA {
 impl ::std::cmp::Eq for DNS_A_DATA {}
 unsafe impl ::windows::runtime::Abi for DNS_A_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -339,7 +332,6 @@ impl ::std::convert::From<i32> for DNS_CHARSET {
 }
 unsafe impl ::windows::runtime::Abi for DNS_CHARSET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CLASS_ALL: u32 = 255u32;
@@ -391,7 +383,6 @@ impl ::std::convert::From<i32> for DNS_CONFIG_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DNS_CONFIG_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -426,7 +417,6 @@ impl ::std::cmp::Eq for DNS_CONNECTION_IFINDEX_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_CONNECTION_IFINDEX_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -461,7 +451,6 @@ impl ::std::cmp::Eq for DNS_CONNECTION_IFINDEX_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_CONNECTION_IFINDEX_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -488,7 +477,6 @@ impl ::std::cmp::PartialEq for DNS_CONNECTION_NAME {
 impl ::std::cmp::Eq for DNS_CONNECTION_NAME {}
 unsafe impl ::windows::runtime::Abi for DNS_CONNECTION_NAME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -516,7 +504,6 @@ impl ::std::cmp::PartialEq for DNS_CONNECTION_NAME_LIST {
 impl ::std::cmp::Eq for DNS_CONNECTION_NAME_LIST {}
 unsafe impl ::windows::runtime::Abi for DNS_CONNECTION_NAME_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CONNECTION_NAME_MAX_LENGTH: u32 = 64u32;
@@ -566,7 +553,6 @@ impl ::std::cmp::Eq for DNS_CONNECTION_POLICY_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_CONNECTION_POLICY_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -601,7 +587,6 @@ impl ::std::cmp::Eq for DNS_CONNECTION_POLICY_ENTRY_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_CONNECTION_POLICY_ENTRY_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CONNECTION_POLICY_ENTRY_ONDEMAND: u32 = 1u32;
@@ -619,7 +604,6 @@ impl ::std::convert::From<i32> for DNS_CONNECTION_POLICY_TAG {
 }
 unsafe impl ::windows::runtime::Abi for DNS_CONNECTION_POLICY_TAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -648,7 +632,6 @@ impl ::std::cmp::Eq for DNS_CONNECTION_PROXY_ELEMENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_CONNECTION_PROXY_ELEMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -680,7 +663,6 @@ impl ::std::cmp::Eq for DNS_CONNECTION_PROXY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_CONNECTION_PROXY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -709,7 +691,6 @@ impl ::std::cmp::Eq for DNS_CONNECTION_PROXY_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_CONNECTION_PROXY_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -748,7 +729,6 @@ impl ::std::cmp::Eq for DNS_CONNECTION_PROXY_INFO_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_CONNECTION_PROXY_INFO_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -784,7 +764,6 @@ impl ::std::cmp::Eq for DNS_CONNECTION_PROXY_INFO_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_CONNECTION_PROXY_INFO_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CONNECTION_PROXY_INFO_CURRENT_VERSION: u32 = 1u32;
@@ -818,7 +797,6 @@ impl ::std::cmp::Eq for DNS_CONNECTION_PROXY_INFO_EX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_CONNECTION_PROXY_INFO_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CONNECTION_PROXY_INFO_EXCEPTION_MAX_LENGTH: u32 = 1024u32;
@@ -848,7 +826,6 @@ impl ::std::convert::From<i32> for DNS_CONNECTION_PROXY_INFO_SWITCH {
 }
 unsafe impl ::windows::runtime::Abi for DNS_CONNECTION_PROXY_INFO_SWITCH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CONNECTION_PROXY_INFO_USERNAME_MAX_LENGTH: u32 = 128u32;
@@ -885,7 +862,6 @@ impl ::std::cmp::Eq for DNS_CONNECTION_PROXY_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_CONNECTION_PROXY_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -903,7 +879,6 @@ impl ::std::convert::From<i32> for DNS_CONNECTION_PROXY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DNS_CONNECTION_PROXY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -934,7 +909,6 @@ impl ::std::cmp::Eq for DNS_CUSTOM_SERVER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_CUSTOM_SERVER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -962,7 +936,6 @@ impl ::std::cmp::Eq for DNS_CUSTOM_SERVER_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_CUSTOM_SERVER_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -990,7 +963,6 @@ impl ::std::cmp::Eq for DNS_CUSTOM_SERVER_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_CUSTOM_SERVER_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_CUSTOM_SERVER_TYPE_DOH: u32 = 2u32;
@@ -1024,7 +996,6 @@ impl ::std::cmp::PartialEq for DNS_DHCID_DATA {
 impl ::std::cmp::Eq for DNS_DHCID_DATA {}
 unsafe impl ::windows::runtime::Abi for DNS_DHCID_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1056,7 +1027,6 @@ impl ::std::cmp::PartialEq for DNS_DS_DATA {
 impl ::std::cmp::Eq for DNS_DS_DATA {}
 unsafe impl ::windows::runtime::Abi for DNS_DS_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1072,7 +1042,6 @@ impl ::std::convert::From<i32> for DNS_FREE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DNS_FREE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -1100,7 +1069,6 @@ impl ::std::cmp::PartialEq for DNS_HEADER {
 impl ::std::cmp::Eq for DNS_HEADER {}
 unsafe impl ::windows::runtime::Abi for DNS_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -1124,7 +1092,6 @@ impl ::std::cmp::PartialEq for DNS_HEADER_EXT {
 impl ::std::cmp::Eq for DNS_HEADER_EXT {}
 unsafe impl ::windows::runtime::Abi for DNS_HEADER_EXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1156,7 +1123,6 @@ impl ::std::cmp::PartialEq for DNS_KEY_DATA {
 impl ::std::cmp::Eq for DNS_KEY_DATA {}
 unsafe impl ::windows::runtime::Abi for DNS_KEY_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1189,7 +1155,6 @@ impl ::std::cmp::PartialEq for DNS_LOC_DATA {
 impl ::std::cmp::Eq for DNS_LOC_DATA {}
 unsafe impl ::windows::runtime::Abi for DNS_LOC_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_MAX_IP4_REVERSE_NAME_BUFFER_LENGTH: u32 = 31u32;
@@ -1240,7 +1205,6 @@ impl ::std::cmp::Eq for DNS_MESSAGE_BUFFER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_MESSAGE_BUFFER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1275,7 +1239,6 @@ impl ::std::cmp::Eq for DNS_MINFO_DATAA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_MINFO_DATAA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1310,7 +1273,6 @@ impl ::std::cmp::Eq for DNS_MINFO_DATAW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_MINFO_DATAW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1346,7 +1308,6 @@ impl ::std::cmp::Eq for DNS_MX_DATAA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_MX_DATAA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1382,7 +1343,6 @@ impl ::std::cmp::Eq for DNS_MX_DATAW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_MX_DATAW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1402,7 +1362,6 @@ impl ::std::convert::From<i32> for DNS_NAME_FORMAT {
 }
 unsafe impl ::windows::runtime::Abi for DNS_NAME_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1441,7 +1400,6 @@ impl ::std::cmp::Eq for DNS_NAPTR_DATAA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_NAPTR_DATAA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1480,7 +1438,6 @@ impl ::std::cmp::Eq for DNS_NAPTR_DATAW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_NAPTR_DATAW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1512,7 +1469,6 @@ impl ::std::cmp::PartialEq for DNS_NSEC3PARAM_DATA {
 impl ::std::cmp::Eq for DNS_NSEC3PARAM_DATA {}
 unsafe impl ::windows::runtime::Abi for DNS_NSEC3PARAM_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1553,7 +1509,6 @@ impl ::std::cmp::PartialEq for DNS_NSEC3_DATA {
 impl ::std::cmp::Eq for DNS_NSEC3_DATA {}
 unsafe impl ::windows::runtime::Abi for DNS_NSEC3_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1590,7 +1545,6 @@ impl ::std::cmp::Eq for DNS_NSEC_DATAA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_NSEC_DATAA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1627,7 +1581,6 @@ impl ::std::cmp::Eq for DNS_NSEC_DATAW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_NSEC_DATAW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1655,7 +1608,6 @@ impl ::std::cmp::PartialEq for DNS_NULL_DATA {
 impl ::std::cmp::Eq for DNS_NULL_DATA {}
 unsafe impl ::windows::runtime::Abi for DNS_NULL_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1691,7 +1643,6 @@ impl ::std::cmp::Eq for DNS_NXT_DATAA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_NXT_DATAA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1727,7 +1678,6 @@ impl ::std::cmp::Eq for DNS_NXT_DATAW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_NXT_DATAW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_OPCODE_IQUERY: u32 = 1u32;
@@ -1768,7 +1718,6 @@ impl ::std::cmp::PartialEq for DNS_OPT_DATA {
 impl ::std::cmp::Eq for DNS_OPT_DATA {}
 unsafe impl ::windows::runtime::Abi for DNS_OPT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_PORT_HOST_ORDER: u32 = 53u32;
@@ -1809,7 +1758,6 @@ impl ::std::cmp::Eq for DNS_PROXY_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_PROXY_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1826,7 +1774,6 @@ impl ::std::convert::From<i32> for DNS_PROXY_INFORMATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DNS_PROXY_INFORMATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1860,7 +1807,6 @@ impl ::std::cmp::Eq for DNS_PTR_DATAA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_PTR_DATAA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1894,7 +1840,6 @@ impl ::std::cmp::Eq for DNS_PTR_DATAW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_PTR_DATAW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_ACCEPT_TRUNCATED_RESPONSE: u32 = 1u32;
@@ -1938,7 +1883,6 @@ impl ::std::cmp::Eq for DNS_QUERY_CANCEL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_QUERY_CANCEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_DISABLE_IDN_ENCODING: u32 = 2097152u32;
@@ -2011,7 +1955,6 @@ impl ::std::cmp::Eq for DNS_QUERY_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_QUERY_REQUEST {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2079,7 +2022,6 @@ impl ::std::cmp::Eq for DNS_QUERY_REQUEST3 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_QUERY_REQUEST3 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_REQUEST_VERSION1: u32 = 1u32;
@@ -2125,7 +2067,6 @@ impl ::std::cmp::Eq for DNS_QUERY_RESULT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_QUERY_RESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_QUERY_RESULTS_VERSION1: u32 = 1u32;
@@ -2230,7 +2171,6 @@ impl ::std::cmp::Eq for DNS_RECORDA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_RECORDA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2341,7 +2281,6 @@ impl ::std::cmp::Eq for DNS_RECORDA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_RECORDA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2364,7 +2303,6 @@ impl ::std::cmp::PartialEq for DNS_RECORDA_1 {
 impl ::std::cmp::Eq for DNS_RECORDA_1 {}
 unsafe impl ::windows::runtime::Abi for DNS_RECORDA_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2399,7 +2337,6 @@ impl ::std::cmp::Eq for DNS_RECORDW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_RECORDW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2510,7 +2447,6 @@ impl ::std::cmp::Eq for DNS_RECORDW_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_RECORDW_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2533,7 +2469,6 @@ impl ::std::cmp::PartialEq for DNS_RECORDW_1 {
 impl ::std::cmp::Eq for DNS_RECORDW_1 {}
 unsafe impl ::windows::runtime::Abi for DNS_RECORDW_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2560,7 +2495,6 @@ impl ::std::cmp::PartialEq for DNS_RECORD_FLAGS {
 impl ::std::cmp::Eq for DNS_RECORD_FLAGS {}
 unsafe impl ::windows::runtime::Abi for DNS_RECORD_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RFC_MAX_UDP_PACKET_LENGTH: u32 = 512u32;
@@ -2597,7 +2531,6 @@ impl ::std::cmp::Eq for DNS_RRSET {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_RRSET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_RTYPE_A: u32 = 256u32;
@@ -2740,7 +2673,6 @@ impl ::std::convert::From<i32> for DNS_SECTION {
 }
 unsafe impl ::windows::runtime::Abi for DNS_SECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for DNS_SERVICE_BROWSE_REQUEST {
@@ -2777,7 +2709,6 @@ impl ::std::cmp::Eq for DNS_SERVICE_BROWSE_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_SERVICE_BROWSE_REQUEST {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for DNS_SERVICE_BROWSE_REQUEST_0 {
@@ -2811,7 +2742,6 @@ impl ::std::cmp::Eq for DNS_SERVICE_BROWSE_REQUEST_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_SERVICE_BROWSE_REQUEST_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2838,7 +2768,6 @@ impl ::std::cmp::PartialEq for DNS_SERVICE_CANCEL {
 impl ::std::cmp::Eq for DNS_SERVICE_CANCEL {}
 unsafe impl ::windows::runtime::Abi for DNS_SERVICE_CANCEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2894,7 +2823,6 @@ impl ::std::cmp::Eq for DNS_SERVICE_INSTANCE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_SERVICE_INSTANCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2941,7 +2869,6 @@ impl ::std::cmp::Eq for DNS_SERVICE_REGISTER_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_SERVICE_REGISTER_REQUEST {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2979,7 +2906,6 @@ impl ::std::cmp::Eq for DNS_SERVICE_RESOLVE_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_SERVICE_RESOLVE_REQUEST {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3033,7 +2959,6 @@ impl ::std::cmp::Eq for DNS_SIG_DATAA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_SIG_DATAA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3087,7 +3012,6 @@ impl ::std::cmp::Eq for DNS_SIG_DATAW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_SIG_DATAW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3135,7 +3059,6 @@ impl ::std::cmp::Eq for DNS_SOA_DATAA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_SOA_DATAA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3183,7 +3106,6 @@ impl ::std::cmp::Eq for DNS_SOA_DATAW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_SOA_DATAW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3221,7 +3143,6 @@ impl ::std::cmp::Eq for DNS_SRV_DATAA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_SRV_DATAA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3259,7 +3180,6 @@ impl ::std::cmp::Eq for DNS_SRV_DATAW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_SRV_DATAW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3317,7 +3237,6 @@ impl ::std::cmp::Eq for DNS_TKEY_DATAA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_TKEY_DATAA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3375,7 +3294,6 @@ impl ::std::cmp::Eq for DNS_TKEY_DATAW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_TKEY_DATAW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TKEY_MODE_DIFFIE_HELLMAN: u32 = 2u32;
@@ -3422,7 +3340,6 @@ impl ::std::cmp::PartialEq for DNS_TLSA_DATA {
 impl ::std::cmp::Eq for DNS_TLSA_DATA {}
 unsafe impl ::windows::runtime::Abi for DNS_TLSA_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3491,7 +3408,6 @@ impl ::std::cmp::Eq for DNS_TSIG_DATAA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_TSIG_DATAA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3560,7 +3476,6 @@ impl ::std::cmp::Eq for DNS_TSIG_DATAW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_TSIG_DATAW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3595,7 +3510,6 @@ impl ::std::cmp::Eq for DNS_TXT_DATAA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_TXT_DATAA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3630,7 +3544,6 @@ impl ::std::cmp::Eq for DNS_TXT_DATAW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_TXT_DATAW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_TYPE_A: u32 = 1u32;
@@ -3790,7 +3703,6 @@ impl ::std::cmp::PartialEq for DNS_UNKNOWN_DATA {
 impl ::std::cmp::Eq for DNS_UNKNOWN_DATA {}
 unsafe impl ::windows::runtime::Abi for DNS_UNKNOWN_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_UPDATE_CACHE_SECURITY_CONTEXT: u32 = 512u32;
@@ -3865,7 +3777,6 @@ impl ::std::cmp::Eq for DNS_WINSR_DATAA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_WINSR_DATAA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3902,7 +3813,6 @@ impl ::std::cmp::Eq for DNS_WINSR_DATAW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_WINSR_DATAW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3933,7 +3843,6 @@ impl ::std::cmp::PartialEq for DNS_WINS_DATA {
 impl ::std::cmp::Eq for DNS_WINS_DATA {}
 unsafe impl ::windows::runtime::Abi for DNS_WINS_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_WINS_FLAG_LOCAL: u32 = 65536u32;
@@ -3960,7 +3869,6 @@ impl ::std::cmp::PartialEq for DNS_WIRE_QUESTION {
 impl ::std::cmp::Eq for DNS_WIRE_QUESTION {}
 unsafe impl ::windows::runtime::Abi for DNS_WIRE_QUESTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -3985,7 +3893,6 @@ impl ::std::cmp::PartialEq for DNS_WIRE_RECORD {
 impl ::std::cmp::Eq for DNS_WIRE_RECORD {}
 unsafe impl ::windows::runtime::Abi for DNS_WIRE_RECORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4014,7 +3921,6 @@ impl ::std::cmp::PartialEq for DNS_WKS_DATA {
 impl ::std::cmp::Eq for DNS_WKS_DATA {}
 unsafe impl ::windows::runtime::Abi for DNS_WKS_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 #[inline]
@@ -4262,7 +4168,6 @@ impl ::std::default::Default for DnsContextHandle {
 unsafe impl ::windows::runtime::Handle for DnsContextHandle {}
 unsafe impl ::windows::runtime::Abi for DnsContextHandle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
@@ -4960,7 +4865,6 @@ impl ::std::cmp::PartialEq for IP4_ARRAY {
 impl ::std::cmp::Eq for IP4_ARRAY {}
 unsafe impl ::windows::runtime::Abi for IP4_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4985,7 +4889,6 @@ impl ::std::cmp::PartialEq for IP6_ADDRESS {
 impl ::std::cmp::Eq for IP6_ADDRESS {}
 unsafe impl ::windows::runtime::Abi for IP6_ADDRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const IP6_ADDRESS_STRING_BUFFER_LENGTH: u32 = 65u32;
@@ -5020,7 +4923,6 @@ impl ::std::cmp::PartialEq for MDNS_QUERY_HANDLE {
 impl ::std::cmp::Eq for MDNS_QUERY_HANDLE {}
 unsafe impl ::windows::runtime::Abi for MDNS_QUERY_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -5073,7 +4975,6 @@ impl ::std::cmp::Eq for MDNS_QUERY_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MDNS_QUERY_REQUEST {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type PDNS_QUERY_COMPLETION_ROUTINE = unsafe extern "system" fn(pquerycontext: *const ::std::ffi::c_void, pqueryresults: *mut DNS_QUERY_RESULT);
@@ -5121,7 +5022,6 @@ impl ::std::cmp::Eq for _DnsRecordOptA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for _DnsRecordOptA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5144,7 +5044,6 @@ impl ::std::cmp::PartialEq for _DnsRecordOptA_0 {
 impl ::std::cmp::Eq for _DnsRecordOptA_0 {}
 unsafe impl ::windows::runtime::Abi for _DnsRecordOptA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5167,7 +5066,6 @@ impl ::std::cmp::PartialEq for _DnsRecordOptA_1 {
 impl ::std::cmp::Eq for _DnsRecordOptA_1 {}
 unsafe impl ::windows::runtime::Abi for _DnsRecordOptA_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5203,7 +5101,6 @@ impl ::std::cmp::Eq for _DnsRecordOptW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for _DnsRecordOptW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5226,7 +5123,6 @@ impl ::std::cmp::PartialEq for _DnsRecordOptW_0 {
 impl ::std::cmp::Eq for _DnsRecordOptW_0 {}
 unsafe impl ::windows::runtime::Abi for _DnsRecordOptW_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5249,5 +5145,4 @@ impl ::std::cmp::PartialEq for _DnsRecordOptW_1 {
 impl ::std::cmp::Eq for _DnsRecordOptW_1 {}
 unsafe impl ::windows::runtime::Abi for _DnsRecordOptW_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }

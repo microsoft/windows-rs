@@ -100,7 +100,6 @@ impl ::std::cmp::Eq for CHAR_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CHAR_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -129,7 +128,6 @@ impl ::std::cmp::Eq for CHAR_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CHAR_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Console`*"]
 pub const COMMON_LVB_GRID_HORIZONTAL: u32 = 1024u32;
@@ -180,7 +178,6 @@ impl ::std::cmp::Eq for CONSOLE_CURSOR_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CONSOLE_CURSOR_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -208,7 +205,6 @@ impl ::std::cmp::PartialEq for CONSOLE_FONT_INFO {
 impl ::std::cmp::Eq for CONSOLE_FONT_INFO {}
 unsafe impl ::windows::runtime::Abi for CONSOLE_FONT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -240,7 +236,6 @@ impl ::std::cmp::PartialEq for CONSOLE_FONT_INFOEX {
 impl ::std::cmp::Eq for CONSOLE_FONT_INFOEX {}
 unsafe impl ::windows::runtime::Abi for CONSOLE_FONT_INFOEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Console`*"]
 pub const CONSOLE_FULLSCREEN: u32 = 1u32;
@@ -276,7 +271,6 @@ impl ::std::cmp::PartialEq for CONSOLE_HISTORY_INFO {
 impl ::std::cmp::Eq for CONSOLE_HISTORY_INFO {}
 unsafe impl ::windows::runtime::Abi for CONSOLE_HISTORY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Console`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -304,7 +298,6 @@ impl ::std::convert::From<u32> for CONSOLE_MODE {
 }
 unsafe impl ::windows::runtime::Abi for CONSOLE_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CONSOLE_MODE {
     type Output = Self;
@@ -368,7 +361,6 @@ impl ::std::cmp::PartialEq for CONSOLE_READCONSOLE_CONTROL {
 impl ::std::cmp::Eq for CONSOLE_READCONSOLE_CONTROL {}
 unsafe impl ::windows::runtime::Abi for CONSOLE_READCONSOLE_CONTROL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -399,7 +391,6 @@ impl ::std::cmp::PartialEq for CONSOLE_SCREEN_BUFFER_INFO {
 impl ::std::cmp::Eq for CONSOLE_SCREEN_BUFFER_INFO {}
 unsafe impl ::windows::runtime::Abi for CONSOLE_SCREEN_BUFFER_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -451,7 +442,6 @@ impl ::std::cmp::Eq for CONSOLE_SCREEN_BUFFER_INFOEX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CONSOLE_SCREEN_BUFFER_INFOEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -480,7 +470,6 @@ impl ::std::cmp::PartialEq for CONSOLE_SELECTION_INFO {
 impl ::std::cmp::Eq for CONSOLE_SELECTION_INFO {}
 unsafe impl ::windows::runtime::Abi for CONSOLE_SELECTION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Console`*"]
 pub const CONSOLE_SELECTION_IN_PROGRESS: u32 = 1u32;
@@ -516,7 +505,6 @@ impl ::std::cmp::PartialEq for COORD {
 impl ::std::cmp::Eq for COORD {}
 unsafe impl ::windows::runtime::Abi for COORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Console`*"]
 pub const CTRL_BREAK_EVENT: u32 = 1u32;
@@ -641,7 +629,6 @@ impl ::std::cmp::Eq for FOCUS_EVENT_RECORD {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FOCUS_EVENT_RECORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Console`*"]
 pub const FOREGROUND_BLUE: u32 = 1u32;
@@ -1297,7 +1284,6 @@ impl ::std::default::Default for HPCON {
 unsafe impl ::windows::runtime::Handle for HPCON {}
 unsafe impl ::windows::runtime::Abi for HPCON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1326,7 +1312,6 @@ impl ::std::cmp::Eq for INPUT_RECORD {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INPUT_RECORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1358,7 +1343,6 @@ impl ::std::cmp::Eq for INPUT_RECORD_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INPUT_RECORD_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Console`*"]
 pub const KEY_EVENT: u32 = 1u32;
@@ -1393,7 +1377,6 @@ impl ::std::cmp::Eq for KEY_EVENT_RECORD {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KEY_EVENT_RECORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1422,7 +1405,6 @@ impl ::std::cmp::Eq for KEY_EVENT_RECORD_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KEY_EVENT_RECORD_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Console`*"]
 pub const LEFT_ALT_PRESSED: u32 = 2u32;
@@ -1455,7 +1437,6 @@ impl ::std::cmp::PartialEq for MENU_EVENT_RECORD {
 impl ::std::cmp::Eq for MENU_EVENT_RECORD {}
 unsafe impl ::windows::runtime::Abi for MENU_EVENT_RECORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Console`*"]
 pub const MOUSE_EVENT: u32 = 2u32;
@@ -1487,7 +1468,6 @@ impl ::std::cmp::PartialEq for MOUSE_EVENT_RECORD {
 impl ::std::cmp::Eq for MOUSE_EVENT_RECORD {}
 unsafe impl ::windows::runtime::Abi for MOUSE_EVENT_RECORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Console`*"]
 pub const MOUSE_HWHEELED: u32 = 8u32;
@@ -1732,7 +1712,6 @@ impl ::std::cmp::PartialEq for SMALL_RECT {
 impl ::std::cmp::Eq for SMALL_RECT {}
 unsafe impl ::windows::runtime::Abi for SMALL_RECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Console`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1748,7 +1727,6 @@ impl ::std::convert::From<u32> for STD_HANDLE {
 }
 unsafe impl ::windows::runtime::Abi for STD_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for STD_HANDLE {
     type Output = Self;
@@ -2135,7 +2113,6 @@ impl ::std::cmp::PartialEq for WINDOW_BUFFER_SIZE_RECORD {
 impl ::std::cmp::Eq for WINDOW_BUFFER_SIZE_RECORD {}
 unsafe impl ::windows::runtime::Abi for WINDOW_BUFFER_SIZE_RECORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Console`, `Win32_Foundation`*"]

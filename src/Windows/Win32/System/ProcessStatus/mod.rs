@@ -28,7 +28,6 @@ impl ::std::cmp::PartialEq for ENUM_PAGE_FILE_INFORMATION {
 impl ::std::cmp::Eq for ENUM_PAGE_FILE_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for ENUM_PAGE_FILE_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ProcessStatus`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -45,7 +44,6 @@ impl ::std::convert::From<u32> for ENUM_PROCESS_MODULES_EX_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for ENUM_PROCESS_MODULES_EX_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ENUM_PROCESS_MODULES_EX_FLAGS {
     type Output = Self;
@@ -507,7 +505,6 @@ impl ::std::cmp::PartialEq for MODULEINFO {
 impl ::std::cmp::Eq for MODULEINFO {}
 unsafe impl ::windows::runtime::Abi for MODULEINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type PENUM_PAGE_FILE_CALLBACKA = unsafe extern "system" fn(pcontext: *mut ::std::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
@@ -579,7 +576,6 @@ impl ::std::cmp::PartialEq for PERFORMANCE_INFORMATION {
 impl ::std::cmp::Eq for PERFORMANCE_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for PERFORMANCE_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -635,7 +631,6 @@ impl ::std::cmp::PartialEq for PROCESS_MEMORY_COUNTERS {
 impl ::std::cmp::Eq for PROCESS_MEMORY_COUNTERS {}
 unsafe impl ::windows::runtime::Abi for PROCESS_MEMORY_COUNTERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -694,7 +689,6 @@ impl ::std::cmp::PartialEq for PROCESS_MEMORY_COUNTERS_EX {
 impl ::std::cmp::Eq for PROCESS_MEMORY_COUNTERS_EX {}
 unsafe impl ::windows::runtime::Abi for PROCESS_MEMORY_COUNTERS_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ProcessStatus`*"]
 pub const PSAPI_VERSION: u32 = 2u32;
@@ -719,7 +713,6 @@ impl ::std::cmp::PartialEq for PSAPI_WORKING_SET_BLOCK {
 impl ::std::cmp::Eq for PSAPI_WORKING_SET_BLOCK {}
 unsafe impl ::windows::runtime::Abi for PSAPI_WORKING_SET_BLOCK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -746,7 +739,6 @@ impl ::std::cmp::PartialEq for PSAPI_WORKING_SET_BLOCK_0 {
 impl ::std::cmp::Eq for PSAPI_WORKING_SET_BLOCK_0 {}
 unsafe impl ::windows::runtime::Abi for PSAPI_WORKING_SET_BLOCK_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -769,7 +761,6 @@ impl ::std::cmp::PartialEq for PSAPI_WORKING_SET_EX_BLOCK {
 impl ::std::cmp::Eq for PSAPI_WORKING_SET_EX_BLOCK {}
 unsafe impl ::windows::runtime::Abi for PSAPI_WORKING_SET_EX_BLOCK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -792,7 +783,6 @@ impl ::std::cmp::PartialEq for PSAPI_WORKING_SET_EX_BLOCK_0 {
 impl ::std::cmp::Eq for PSAPI_WORKING_SET_EX_BLOCK_0 {}
 unsafe impl ::windows::runtime::Abi for PSAPI_WORKING_SET_EX_BLOCK_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -819,7 +809,6 @@ impl ::std::cmp::PartialEq for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
 impl ::std::cmp::Eq for PSAPI_WORKING_SET_EX_BLOCK_0_0 {}
 unsafe impl ::windows::runtime::Abi for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -846,7 +835,6 @@ impl ::std::cmp::PartialEq for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
 impl ::std::cmp::Eq for PSAPI_WORKING_SET_EX_BLOCK_0_1 {}
 unsafe impl ::windows::runtime::Abi for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -869,7 +857,6 @@ impl ::std::cmp::PartialEq for PSAPI_WORKING_SET_EX_INFORMATION {
 impl ::std::cmp::Eq for PSAPI_WORKING_SET_EX_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for PSAPI_WORKING_SET_EX_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -892,7 +879,6 @@ impl ::std::cmp::PartialEq for PSAPI_WORKING_SET_INFORMATION {
 impl ::std::cmp::Eq for PSAPI_WORKING_SET_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for PSAPI_WORKING_SET_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -920,7 +906,6 @@ impl ::std::cmp::PartialEq for PSAPI_WS_WATCH_INFORMATION {
 impl ::std::cmp::Eq for PSAPI_WS_WATCH_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for PSAPI_WS_WATCH_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -949,5 +934,4 @@ impl ::std::cmp::PartialEq for PSAPI_WS_WATCH_INFORMATION_EX {
 impl ::std::cmp::Eq for PSAPI_WS_WATCH_INFORMATION_EX {}
 unsafe impl ::windows::runtime::Abi for PSAPI_WS_WATCH_INFORMATION_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }

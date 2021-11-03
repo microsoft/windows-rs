@@ -14,7 +14,6 @@ impl ::std::convert::From<u32> for WSL_DISTRIBUTION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for WSL_DISTRIBUTION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WSL_DISTRIBUTION_FLAGS {
     type Output = Self;
