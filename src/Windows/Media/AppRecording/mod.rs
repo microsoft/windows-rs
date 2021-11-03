@@ -372,7 +372,7 @@ impl ::windows::runtime::RuntimeName for AppRecordingStatusDetails {
 unsafe impl ::std::marker::Send for AppRecordingStatusDetails {}
 unsafe impl ::std::marker::Sync for AppRecordingStatusDetails {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppRecordingManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppRecordingManager {
@@ -399,7 +399,7 @@ pub struct IAppRecordingManager_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppRecordingManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppRecordingManagerStatics {
@@ -418,7 +418,7 @@ pub struct IAppRecordingManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppRecordingResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppRecordingResult {
@@ -441,7 +441,7 @@ pub struct IAppRecordingResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppRecordingSaveScreenshotResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppRecordingSaveScreenshotResult {
@@ -463,7 +463,7 @@ pub struct IAppRecordingSaveScreenshotResult_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppRecordingSavedScreenshotInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppRecordingSavedScreenshotInfo {
@@ -484,7 +484,7 @@ pub struct IAppRecordingSavedScreenshotInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppRecordingStatus(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppRecordingStatus {
@@ -507,7 +507,7 @@ pub struct IAppRecordingStatus_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppRecordingStatusDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppRecordingStatusDetails {

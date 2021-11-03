@@ -217,7 +217,7 @@ impl ::windows::runtime::RuntimeName for AppBroadcastingUI {
 unsafe impl ::std::marker::Send for AppBroadcastingUI {}
 unsafe impl ::std::marker::Sync for AppBroadcastingUI {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppBroadcastingMonitor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastingMonitor {
@@ -240,7 +240,7 @@ pub struct IAppBroadcastingMonitor_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppBroadcastingStatus(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastingStatus {
@@ -260,7 +260,7 @@ pub struct IAppBroadcastingStatus_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppBroadcastingStatusDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastingStatusDetails {
@@ -286,7 +286,7 @@ pub struct IAppBroadcastingStatusDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppBroadcastingUI(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastingUI {
@@ -306,7 +306,7 @@ pub struct IAppBroadcastingUI_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppBroadcastingUIStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastingUIStatics {

@@ -175,7 +175,7 @@ pub struct II2cProvider_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProviderI2cConnectionSettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProviderI2cConnectionSettings {

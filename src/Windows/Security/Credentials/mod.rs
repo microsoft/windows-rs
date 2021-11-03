@@ -2,7 +2,7 @@
 #[cfg(feature = "Security_Credentials_UI")]
 pub mod UI;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICredentialFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICredentialFactory {
@@ -21,7 +21,7 @@ pub struct ICredentialFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, resource: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, username: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, password: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyCredential(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyCredential {
@@ -48,7 +48,7 @@ pub struct IKeyCredential_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyCredentialAttestationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyCredentialAttestationResult {
@@ -71,7 +71,7 @@ pub struct IKeyCredentialAttestationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut KeyCredentialAttestationStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyCredentialManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyCredentialManagerStatics {
@@ -99,7 +99,7 @@ pub struct IKeyCredentialManagerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyCredentialOperationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyCredentialOperationResult {
@@ -120,7 +120,7 @@ pub struct IKeyCredentialOperationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut KeyCredentialStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyCredentialRetrievalResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyCredentialRetrievalResult {
@@ -140,7 +140,7 @@ pub struct IKeyCredentialRetrievalResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut KeyCredentialStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPasswordCredential(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPasswordCredential {
@@ -167,7 +167,7 @@ pub struct IPasswordCredential_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPasswordVault(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPasswordVault {
@@ -244,7 +244,7 @@ pub struct IWebAccount_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut WebAccountState) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebAccount2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccount2 {
@@ -271,7 +271,7 @@ pub struct IWebAccount2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebAccountFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountFactory {
@@ -290,7 +290,7 @@ pub struct IWebAccountFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, webaccountprovider: ::windows::runtime::RawPtr, username: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, state: WebAccountState, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebAccountProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProvider {
@@ -312,7 +312,7 @@ pub struct IWebAccountProvider_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebAccountProvider2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProvider2 {
@@ -332,7 +332,7 @@ pub struct IWebAccountProvider2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebAccountProvider3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProvider3 {
@@ -352,7 +352,7 @@ pub struct IWebAccountProvider3_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebAccountProvider4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProvider4 {
@@ -371,7 +371,7 @@ pub struct IWebAccountProvider4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebAccountProviderFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAccountProviderFactory {

@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IImageScanner(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageScanner {
@@ -29,7 +29,7 @@ pub struct IImageScanner_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IImageScannerFeederConfiguration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageScannerFeederConfiguration {
@@ -126,7 +126,7 @@ pub struct IImageScannerFormatConfiguration_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ImageScannerFormat, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IImageScannerPreviewResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageScannerPreviewResult {
@@ -146,7 +146,7 @@ pub struct IImageScannerPreviewResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ImageScannerFormat) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IImageScannerScanResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageScannerScanResult {
@@ -491,7 +491,7 @@ pub struct IImageScannerSourceConfiguration_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IImageScannerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageScannerStatics {

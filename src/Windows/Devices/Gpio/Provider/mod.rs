@@ -196,7 +196,7 @@ pub struct IGpioPinProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ProviderGpioPinValue) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGpioPinProviderValueChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioPinProviderValueChangedEventArgs {
@@ -215,7 +215,7 @@ pub struct IGpioPinProviderValueChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ProviderGpioPinEdge) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGpioPinProviderValueChangedEventArgsFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGpioPinProviderValueChangedEventArgsFactory {

@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMessageDialog(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMessageDialog {
@@ -32,7 +32,7 @@ pub struct IMessageDialog_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: MessageDialogOptions) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMessageDialogFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMessageDialogFactory {
@@ -52,7 +52,7 @@ pub struct IMessageDialogFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, content: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, title: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPopupMenu(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPopupMenu {
@@ -146,7 +146,7 @@ pub struct IUICommand_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUICommandFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUICommandFactory {

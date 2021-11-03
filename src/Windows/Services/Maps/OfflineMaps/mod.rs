@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IOfflineMapPackage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOfflineMapPackage {
@@ -28,7 +28,7 @@ pub struct IOfflineMapPackage_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IOfflineMapPackageQueryResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOfflineMapPackageQueryResult {
@@ -49,7 +49,7 @@ pub struct IOfflineMapPackageQueryResult_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IOfflineMapPackageStartDownloadResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOfflineMapPackageStartDownloadResult {
@@ -68,7 +68,7 @@ pub struct IOfflineMapPackageStartDownloadResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut OfflineMapPackageStartDownloadStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IOfflineMapPackageStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOfflineMapPackageStatics {

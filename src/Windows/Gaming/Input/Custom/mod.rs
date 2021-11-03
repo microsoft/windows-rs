@@ -436,7 +436,7 @@ pub struct ICustomGameControllerFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGameControllerFactoryManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameControllerFactoryManagerStatics {
@@ -457,7 +457,7 @@ pub struct IGameControllerFactoryManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, factory: ::windows::runtime::RawPtr, xusbtype: XusbDeviceType, xusbsubtype: XusbDeviceSubtype) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGameControllerFactoryManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameControllerFactoryManagerStatics2 {
@@ -579,7 +579,7 @@ pub struct IGameControllerProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGipFirmwareUpdateResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGipFirmwareUpdateResult {
@@ -667,7 +667,7 @@ pub struct IGipGameControllerInputSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, timestamp: u64, messageclass: GipMessageClass, messageid: u8, sequenceid: u8, messageBuffer_array_size: u32, messagebuffer: *const u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGipGameControllerProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGipGameControllerProvider {
@@ -750,7 +750,7 @@ pub struct IHidGameControllerInputSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, timestamp: u64, reportid: u8, reportBuffer_array_size: u32, reportbuffer: *const u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHidGameControllerProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidGameControllerProvider {
@@ -834,7 +834,7 @@ pub struct IXusbGameControllerInputSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, timestamp: u64, reportid: u8, inputBuffer_array_size: u32, inputbuffer: *const u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXusbGameControllerProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXusbGameControllerProvider {

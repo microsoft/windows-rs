@@ -27,7 +27,7 @@ unsafe impl ::windows::runtime::RuntimeType for HandwritingLineHeight {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.HandwritingLineHeight;i4)");
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkDrawingAttributes(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkDrawingAttributes {
@@ -57,7 +57,7 @@ pub struct IInkDrawingAttributes_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkDrawingAttributes2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkDrawingAttributes2 {
@@ -81,7 +81,7 @@ pub struct IInkDrawingAttributes2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkDrawingAttributes3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkDrawingAttributes3 {
@@ -101,7 +101,7 @@ pub struct IInkDrawingAttributes3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkDrawingAttributes4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkDrawingAttributes4 {
@@ -121,7 +121,7 @@ pub struct IInkDrawingAttributes4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkDrawingAttributes5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkDrawingAttributes5 {
@@ -140,7 +140,7 @@ pub struct IInkDrawingAttributes5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkDrawingAttributesPencilProperties(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkDrawingAttributesPencilProperties {
@@ -160,7 +160,7 @@ pub struct IInkDrawingAttributesPencilProperties_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkDrawingAttributesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkDrawingAttributesStatics {
@@ -179,7 +179,7 @@ pub struct IInkDrawingAttributesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkInputConfiguration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkInputConfiguration {
@@ -201,7 +201,7 @@ pub struct IInkInputConfiguration_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkInputConfiguration2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkInputConfiguration2 {
@@ -221,7 +221,7 @@ pub struct IInkInputConfiguration2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkInputProcessingConfiguration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkInputProcessingConfiguration {
@@ -243,7 +243,7 @@ pub struct IInkInputProcessingConfiguration_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: InkInputRightDragAction) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkManager {
@@ -270,7 +270,7 @@ pub struct IInkManager_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkModelerAttributes(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkModelerAttributes {
@@ -294,7 +294,7 @@ pub struct IInkModelerAttributes_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkModelerAttributes2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkModelerAttributes2 {
@@ -314,7 +314,7 @@ pub struct IInkModelerAttributes2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkPoint(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkPoint {
@@ -335,7 +335,7 @@ pub struct IInkPoint_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkPoint2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkPoint2 {
@@ -390,7 +390,7 @@ pub struct IInkPointFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkPointFactory2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkPointFactory2 {
@@ -410,7 +410,7 @@ pub struct IInkPointFactory2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkPresenter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkPresenter {
@@ -451,7 +451,7 @@ pub struct IInkPresenter_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkPresenter2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkPresenter2 {
@@ -471,7 +471,7 @@ pub struct IInkPresenter2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: InkHighContrastAdjustment) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkPresenter3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkPresenter3 {
@@ -490,7 +490,7 @@ pub struct IInkPresenter3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkPresenterProtractor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkPresenterProtractor {
@@ -522,7 +522,7 @@ pub struct IInkPresenterProtractor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: super::super::Color) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkPresenterProtractorFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkPresenterProtractorFactory {
@@ -541,7 +541,7 @@ pub struct IInkPresenterProtractorFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inkpresenter: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkPresenterRuler(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkPresenterRuler {
@@ -563,7 +563,7 @@ pub struct IInkPresenterRuler_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkPresenterRuler2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkPresenterRuler2 {
@@ -713,7 +713,7 @@ pub struct IInkPresenterStencil_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkRecognitionResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkRecognitionResult {
@@ -737,7 +737,7 @@ pub struct IInkRecognitionResult_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkRecognizer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkRecognizer {
@@ -807,7 +807,7 @@ pub struct IInkRecognizerContainer_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkStroke(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkStroke {
@@ -835,7 +835,7 @@ pub struct IInkStroke_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkStroke2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkStroke2 {
@@ -859,7 +859,7 @@ pub struct IInkStroke2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkStroke3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkStroke3 {
@@ -886,7 +886,7 @@ pub struct IInkStroke3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkStroke4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkStroke4 {
@@ -905,7 +905,7 @@ pub struct IInkStroke4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkStrokeBuilder(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkStrokeBuilder {
@@ -929,7 +929,7 @@ pub struct IInkStrokeBuilder_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, drawingattributes: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkStrokeBuilder2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkStrokeBuilder2 {
@@ -949,7 +949,7 @@ pub struct IInkStrokeBuilder2_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Foundation_Numerics")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkStrokeBuilder3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkStrokeBuilder3 {
@@ -1131,7 +1131,7 @@ pub struct IInkStrokeContainer_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkStrokeContainer2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkStrokeContainer2 {
@@ -1152,7 +1152,7 @@ pub struct IInkStrokeContainer2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkStrokeContainer3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkStrokeContainer3 {
@@ -1173,7 +1173,7 @@ pub struct IInkStrokeContainer3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkStrokeInput(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkStrokeInput {
@@ -1208,7 +1208,7 @@ pub struct IInkStrokeInput_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkStrokeRenderingSegment(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkStrokeRenderingSegment {
@@ -1236,7 +1236,7 @@ pub struct IInkStrokeRenderingSegment_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkStrokesCollectedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkStrokesCollectedEventArgs {
@@ -1256,7 +1256,7 @@ pub struct IInkStrokesCollectedEventArgs_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkStrokesErasedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkStrokesErasedEventArgs {
@@ -1276,7 +1276,7 @@ pub struct IInkStrokesErasedEventArgs_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkSynchronizer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkSynchronizer {
@@ -1297,7 +1297,7 @@ pub struct IInkSynchronizer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkUnprocessedInput(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkUnprocessedInput {
@@ -1344,7 +1344,7 @@ pub struct IInkUnprocessedInput_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPenAndInkSettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenAndInkSettings {
@@ -1368,7 +1368,7 @@ pub struct IPenAndInkSettings_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPenAndInkSettings2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenAndInkSettings2 {
@@ -1387,7 +1387,7 @@ pub struct IPenAndInkSettings2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: PenHandedness) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPenAndInkSettingsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenAndInkSettingsStatics {

@@ -2332,7 +2332,7 @@ unsafe impl ::std::marker::Sync for GeographicRegion {}
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct GlobalizationJapanesePhoneticAnalyzerContract(pub u8);
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IApplicationLanguagesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationLanguagesStatics {
@@ -2356,7 +2356,7 @@ pub struct IApplicationLanguagesStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IApplicationLanguagesStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationLanguagesStatics2 {
@@ -2376,7 +2376,7 @@ pub struct IApplicationLanguagesStatics2_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "System")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICalendar(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICalendar {
@@ -2496,7 +2496,7 @@ pub struct ICalendar_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICalendarFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICalendarFactory {
@@ -2518,7 +2518,7 @@ pub struct ICalendarFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICalendarFactory2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICalendarFactory2 {
@@ -2538,7 +2538,7 @@ pub struct ICalendarFactory2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICalendarIdentifiersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICalendarIdentifiersStatics {
@@ -2565,7 +2565,7 @@ pub struct ICalendarIdentifiersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICalendarIdentifiersStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICalendarIdentifiersStatics2 {
@@ -2584,7 +2584,7 @@ pub struct ICalendarIdentifiersStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICalendarIdentifiersStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICalendarIdentifiersStatics3 {
@@ -2607,7 +2607,7 @@ pub struct ICalendarIdentifiersStatics3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClockIdentifiersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClockIdentifiersStatics {
@@ -2627,7 +2627,7 @@ pub struct IClockIdentifiersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICurrencyAmount(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrencyAmount {
@@ -2647,7 +2647,7 @@ pub struct ICurrencyAmount_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICurrencyAmountFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrencyAmountFactory {
@@ -2666,7 +2666,7 @@ pub struct ICurrencyAmountFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, amount: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, currency: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICurrencyIdentifiersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrencyIdentifiersStatics {
@@ -2841,7 +2841,7 @@ pub struct ICurrencyIdentifiersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICurrencyIdentifiersStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrencyIdentifiersStatics2 {
@@ -2860,7 +2860,7 @@ pub struct ICurrencyIdentifiersStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICurrencyIdentifiersStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrencyIdentifiersStatics3 {
@@ -2882,7 +2882,7 @@ pub struct ICurrencyIdentifiersStatics3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeographicRegion(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeographicRegion {
@@ -2908,7 +2908,7 @@ pub struct IGeographicRegion_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeographicRegionFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeographicRegionFactory {
@@ -2927,7 +2927,7 @@ pub struct IGeographicRegionFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, geographicregioncode: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeographicRegionStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeographicRegionStatics {
@@ -2946,7 +2946,7 @@ pub struct IGeographicRegionStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, geographicregioncode: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IJapanesePhoneme(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJapanesePhoneme {
@@ -2967,7 +2967,7 @@ pub struct IJapanesePhoneme_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IJapanesePhoneticAnalyzerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IJapanesePhoneticAnalyzerStatics {
@@ -2989,7 +2989,7 @@ pub struct IJapanesePhoneticAnalyzerStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILanguage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguage {
@@ -3011,7 +3011,7 @@ pub struct ILanguage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILanguage2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguage2 {
@@ -3030,7 +3030,7 @@ pub struct ILanguage2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut LanguageLayoutDirection) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILanguage3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguage3 {
@@ -3049,7 +3049,7 @@ pub struct ILanguage3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILanguageExtensionSubtags(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguageExtensionSubtags {
@@ -3069,7 +3069,7 @@ pub struct ILanguageExtensionSubtags_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILanguageFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguageFactory {
@@ -3088,7 +3088,7 @@ pub struct ILanguageFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, languagetag: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILanguageStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguageStatics {
@@ -3108,7 +3108,7 @@ pub struct ILanguageStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILanguageStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguageStatics2 {
@@ -3127,7 +3127,7 @@ pub struct ILanguageStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, languagetag: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILanguageStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanguageStatics3 {
@@ -3147,7 +3147,7 @@ pub struct ILanguageStatics3_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INumeralSystemIdentifiersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumeralSystemIdentifiersStatics {
@@ -3201,7 +3201,7 @@ pub struct INumeralSystemIdentifiersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INumeralSystemIdentifiersStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumeralSystemIdentifiersStatics2 {
@@ -3231,7 +3231,7 @@ pub struct INumeralSystemIdentifiersStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITimeZoneOnCalendar(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimeZoneOnCalendar {

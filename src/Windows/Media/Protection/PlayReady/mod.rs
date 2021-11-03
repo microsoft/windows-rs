@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INDClient(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDClient {
@@ -45,7 +45,7 @@ pub struct INDClient_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INDClientFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDClientFactory {
@@ -160,7 +160,7 @@ pub struct INDCustomData_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INDCustomDataFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDCustomDataFactory {
@@ -439,7 +439,7 @@ pub struct INDLicenseFetchDescriptor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, licensefetchchallengecustomdata: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INDLicenseFetchDescriptorFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDLicenseFetchDescriptorFactory {
@@ -903,7 +903,7 @@ pub struct INDStreamParserNotifier_abi(
     #[cfg(not(feature = "Media_Core"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INDTCPMessengerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INDTCPMessengerFactory {
@@ -1057,7 +1057,7 @@ pub struct INDTransmitterProperties_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlayReadyContentHeader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyContentHeader {
@@ -1087,7 +1087,7 @@ pub struct IPlayReadyContentHeader_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlayReadyContentHeader2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyContentHeader2 {
@@ -1107,7 +1107,7 @@ pub struct IPlayReadyContentHeader2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result_size__: *mut u32, result__: *mut *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlayReadyContentHeaderFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyContentHeaderFactory {
@@ -1141,7 +1141,7 @@ pub struct IPlayReadyContentHeaderFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, headerBytes_array_size: u32, headerbytes: *const u8, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlayReadyContentHeaderFactory2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyContentHeaderFactory2 {
@@ -1175,7 +1175,7 @@ pub struct IPlayReadyContentHeaderFactory2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlayReadyContentResolver(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyContentResolver {
@@ -1264,7 +1264,7 @@ pub struct IPlayReadyDomain_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlayReadyDomainIterableFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyDomainIterableFactory {
@@ -1284,7 +1284,7 @@ pub struct IPlayReadyDomainIterableFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlayReadyDomainJoinServiceRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyDomainJoinServiceRequest {
@@ -1308,7 +1308,7 @@ pub struct IPlayReadyDomainJoinServiceRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlayReadyDomainLeaveServiceRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyDomainLeaveServiceRequest {
@@ -1330,7 +1330,7 @@ pub struct IPlayReadyDomainLeaveServiceRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlayReadyITADataGenerator(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyITADataGenerator {
@@ -1350,7 +1350,7 @@ pub struct IPlayReadyITADataGenerator_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlayReadyIndividualizationServiceRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyIndividualizationServiceRequest {
@@ -1456,7 +1456,7 @@ pub struct IPlayReadyLicense_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, chaindepth: u32, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlayReadyLicense2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyLicense2 {
@@ -1660,7 +1660,7 @@ pub struct IPlayReadyLicenseAcquisitionServiceRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlayReadyLicenseAcquisitionServiceRequest2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyLicenseAcquisitionServiceRequest2 {
@@ -1679,7 +1679,7 @@ pub struct IPlayReadyLicenseAcquisitionServiceRequest2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlayReadyLicenseAcquisitionServiceRequest3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyLicenseAcquisitionServiceRequest3 {
@@ -1699,7 +1699,7 @@ pub struct IPlayReadyLicenseAcquisitionServiceRequest3_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlayReadyLicenseIterableFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyLicenseIterableFactory {
@@ -1719,7 +1719,7 @@ pub struct IPlayReadyLicenseIterableFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlayReadyLicenseManagement(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyLicenseManagement {
@@ -1846,7 +1846,7 @@ pub struct IPlayReadyLicenseSession2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlayReadyLicenseSessionFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyLicenseSessionFactory {
@@ -1866,7 +1866,7 @@ pub struct IPlayReadyLicenseSessionFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlayReadyMeteringReportServiceRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyMeteringReportServiceRequest {
@@ -1886,7 +1886,7 @@ pub struct IPlayReadyMeteringReportServiceRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, meteringCertBytes_array_size: u32, meteringcertbytes: *const u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlayReadyRevocationServiceRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyRevocationServiceRequest {
@@ -1904,7 +1904,7 @@ pub struct IPlayReadyRevocationServiceRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlayReadySecureStopIterableFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadySecureStopIterableFactory {
@@ -2125,7 +2125,7 @@ pub struct IPlayReadySecureStopServiceRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlayReadySecureStopServiceRequestFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadySecureStopServiceRequestFactory {
@@ -2287,7 +2287,7 @@ pub struct IPlayReadyServiceRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, responseBytes_array_size: u32, responsebytes: *const u8, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlayReadySoapMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadySoapMessage {
@@ -2310,7 +2310,7 @@ pub struct IPlayReadySoapMessage_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlayReadyStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyStatics {
@@ -2336,7 +2336,7 @@ pub struct IPlayReadyStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlayReadyStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyStatics2 {
@@ -2355,7 +2355,7 @@ pub struct IPlayReadyStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlayReadyStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyStatics3 {
@@ -2375,7 +2375,7 @@ pub struct IPlayReadyStatics3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwdrmfeature: PlayReadyHardwareDRMFeatures, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlayReadyStatics4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyStatics4 {
@@ -2395,7 +2395,7 @@ pub struct IPlayReadyStatics4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlayReadyStatics5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlayReadyStatics5 {

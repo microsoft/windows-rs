@@ -661,7 +661,7 @@ unsafe impl ::windows::runtime::RuntimeType for CoreInputViewXYFocusTransferDire
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.Core.CoreInputViewXYFocusTransferDirection;i4)");
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreFrameworkInputView(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreFrameworkInputView {
@@ -687,7 +687,7 @@ pub struct ICoreFrameworkInputView_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreFrameworkInputViewAnimationStartingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreFrameworkInputViewAnimationStartingEventArgs {
@@ -710,7 +710,7 @@ pub struct ICoreFrameworkInputViewAnimationStartingEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreFrameworkInputViewOcclusionsChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreFrameworkInputViewOcclusionsChangedEventArgs {
@@ -731,7 +731,7 @@ pub struct ICoreFrameworkInputViewOcclusionsChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreFrameworkInputViewStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreFrameworkInputViewStatics {
@@ -751,7 +751,7 @@ pub struct ICoreFrameworkInputViewStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreInputView(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreInputView {
@@ -777,7 +777,7 @@ pub struct ICoreInputView_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreInputView2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreInputView2 {
@@ -805,7 +805,7 @@ pub struct ICoreInputView2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreInputView3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreInputView3 {
@@ -826,7 +826,7 @@ pub struct ICoreInputView3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreInputView4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreInputView4 {
@@ -852,7 +852,7 @@ pub struct ICoreInputView4_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreInputView5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreInputView5 {
@@ -879,7 +879,7 @@ pub struct ICoreInputView5_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreInputViewAnimationStartingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreInputViewAnimationStartingEventArgs {
@@ -903,7 +903,7 @@ pub struct ICoreInputViewAnimationStartingEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreInputViewHidingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreInputViewHidingEventArgs {
@@ -922,7 +922,7 @@ pub struct ICoreInputViewHidingEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreInputViewOcclusion(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreInputViewOcclusion {
@@ -943,7 +943,7 @@ pub struct ICoreInputViewOcclusion_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut CoreInputViewOcclusionKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreInputViewOcclusionsChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreInputViewOcclusionsChangedEventArgs {
@@ -965,7 +965,7 @@ pub struct ICoreInputViewOcclusionsChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreInputViewShowingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreInputViewShowingEventArgs {
@@ -984,7 +984,7 @@ pub struct ICoreInputViewShowingEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreInputViewStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreInputViewStatics {
@@ -1003,7 +1003,7 @@ pub struct ICoreInputViewStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreInputViewStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreInputViewStatics2 {
@@ -1022,7 +1022,7 @@ pub struct ICoreInputViewStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, context: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreInputViewTransferringXYFocusEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreInputViewTransferringXYFocusEventArgs {
@@ -1047,7 +1047,7 @@ pub struct ICoreInputViewTransferringXYFocusEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUISettingsController(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUISettingsController {
@@ -1070,7 +1070,7 @@ pub struct IUISettingsController_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUISettingsControllerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUISettingsControllerStatics {

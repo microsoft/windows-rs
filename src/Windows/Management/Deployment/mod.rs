@@ -925,7 +925,7 @@ impl ::windows::runtime::RuntimeName for FindSharedPackageContainerOptions {
 unsafe impl ::std::marker::Send for FindSharedPackageContainerOptions {}
 unsafe impl ::std::marker::Sync for FindSharedPackageContainerOptions {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAddPackageOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAddPackageOptions {
@@ -979,7 +979,7 @@ pub struct IAddPackageOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppInstallerManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallerManager {
@@ -1001,7 +1001,7 @@ pub struct IAppInstallerManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppInstallerManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallerManagerStatics {
@@ -1021,7 +1021,7 @@ pub struct IAppInstallerManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutoUpdateSettingsOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutoUpdateSettingsOptions {
@@ -1069,7 +1069,7 @@ pub struct IAutoUpdateSettingsOptions_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutoUpdateSettingsOptionsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutoUpdateSettingsOptionsStatics {
@@ -1089,7 +1089,7 @@ pub struct IAutoUpdateSettingsOptionsStatics_abi(
     #[cfg(not(feature = "ApplicationModel"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICreateSharedPackageContainerOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateSharedPackageContainerOptions {
@@ -1113,7 +1113,7 @@ pub struct ICreateSharedPackageContainerOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: SharedPackageContainerCreationCollisionOptions) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICreateSharedPackageContainerResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICreateSharedPackageContainerResult {
@@ -1134,7 +1134,7 @@ pub struct ICreateSharedPackageContainerResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeleteSharedPackageContainerOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeleteSharedPackageContainerOptions {
@@ -1156,7 +1156,7 @@ pub struct IDeleteSharedPackageContainerOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeleteSharedPackageContainerResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeleteSharedPackageContainerResult {
@@ -1176,7 +1176,7 @@ pub struct IDeleteSharedPackageContainerResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeploymentResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeploymentResult {
@@ -1197,7 +1197,7 @@ pub struct IDeploymentResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeploymentResult2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeploymentResult2 {
@@ -1216,7 +1216,7 @@ pub struct IDeploymentResult2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFindSharedPackageContainerOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFindSharedPackageContainerOptions {
@@ -1238,7 +1238,7 @@ pub struct IFindSharedPackageContainerOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPackageAllUserProvisioningOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageAllUserProvisioningOptions {
@@ -1260,7 +1260,7 @@ pub struct IPackageAllUserProvisioningOptions_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPackageManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager {
@@ -1309,7 +1309,7 @@ pub struct IPackageManager_abi(
     #[cfg(not(feature = "ApplicationModel"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPackageManager10(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager10 {
@@ -1329,7 +1329,7 @@ pub struct IPackageManager10_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPackageManager2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager2 {
@@ -1367,7 +1367,7 @@ pub struct IPackageManager2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPackageManager3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager3 {
@@ -1410,7 +1410,7 @@ pub struct IPackageManager3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPackageManager4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager4 {
@@ -1430,7 +1430,7 @@ pub struct IPackageManager4_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPackageManager5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager5 {
@@ -1455,7 +1455,7 @@ pub struct IPackageManager5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPackageManager6(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager6 {
@@ -1487,7 +1487,7 @@ pub struct IPackageManager6_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPackageManager7(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager7 {
@@ -1508,7 +1508,7 @@ pub struct IPackageManager7_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPackageManager8(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager8 {
@@ -1528,7 +1528,7 @@ pub struct IPackageManager8_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPackageManager9(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManager9 {
@@ -1558,7 +1558,7 @@ pub struct IPackageManager9_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packagefamilyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut PackageStubPreference) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPackageManagerDebugSettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageManagerDebugSettings {
@@ -1580,7 +1580,7 @@ pub struct IPackageManagerDebugSettings_abi(
     #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPackageUserInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageUserInformation {
@@ -1600,7 +1600,7 @@ pub struct IPackageUserInformation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut PackageInstallState) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPackageVolume(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageVolume {
@@ -1652,7 +1652,7 @@ pub struct IPackageVolume_abi(
     #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPackageVolume2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageVolume2 {
@@ -1674,7 +1674,7 @@ pub struct IPackageVolume2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRegisterPackageOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRegisterPackageOptions {
@@ -1718,7 +1718,7 @@ pub struct IRegisterPackageOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISharedPackageContainer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISharedPackageContainer {
@@ -1742,7 +1742,7 @@ pub struct ISharedPackageContainer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISharedPackageContainerManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISharedPackageContainerManager {
@@ -1767,7 +1767,7 @@ pub struct ISharedPackageContainerManager_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISharedPackageContainerManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISharedPackageContainerManagerStatics {
@@ -1788,7 +1788,7 @@ pub struct ISharedPackageContainerManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISharedPackageContainerMember(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISharedPackageContainerMember {
@@ -1807,7 +1807,7 @@ pub struct ISharedPackageContainerMember_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISharedPackageContainerMemberFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISharedPackageContainerMemberFactory {
@@ -1826,7 +1826,7 @@ pub struct ISharedPackageContainerMemberFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packagefamilyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStagePackageOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStagePackageOptions {
@@ -1872,7 +1872,7 @@ pub struct IStagePackageOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUpdateSharedPackageContainerOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUpdateSharedPackageContainerOptions {
@@ -1894,7 +1894,7 @@ pub struct IUpdateSharedPackageContainerOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUpdateSharedPackageContainerResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUpdateSharedPackageContainerResult {

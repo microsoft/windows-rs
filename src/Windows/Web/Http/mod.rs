@@ -3158,7 +3158,7 @@ unsafe impl ::windows::runtime::RuntimeType for HttpVersion {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpVersion;i4)");
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpBufferContentFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpBufferContentFactory {
@@ -3180,7 +3180,7 @@ pub struct IHttpBufferContentFactory_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpClient(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpClient {
@@ -3220,7 +3220,7 @@ pub struct IHttpClient_abi(
     #[cfg(not(feature = "Web_Http_Headers"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpClient2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpClient2 {
@@ -3258,7 +3258,7 @@ pub struct IHttpClient2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpClientFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpClientFactory {
@@ -3408,7 +3408,7 @@ pub struct IHttpContent_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpCookie(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpCookie {
@@ -3439,7 +3439,7 @@ pub struct IHttpCookie_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpCookieFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpCookieFactory {
@@ -3458,7 +3458,7 @@ pub struct IHttpCookieFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, domain: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, path: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpCookieManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpCookieManager {
@@ -3481,7 +3481,7 @@ pub struct IHttpCookieManager_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpFormUrlEncodedContentFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpFormUrlEncodedContentFactory {
@@ -3501,7 +3501,7 @@ pub struct IHttpFormUrlEncodedContentFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpGetBufferResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpGetBufferResult {
@@ -3525,7 +3525,7 @@ pub struct IHttpGetBufferResult_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpGetInputStreamResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpGetInputStreamResult {
@@ -3549,7 +3549,7 @@ pub struct IHttpGetInputStreamResult_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpGetStringResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpGetStringResult {
@@ -3572,7 +3572,7 @@ pub struct IHttpGetStringResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpMethod(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpMethod {
@@ -3591,7 +3591,7 @@ pub struct IHttpMethod_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpMethodFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpMethodFactory {
@@ -3610,7 +3610,7 @@ pub struct IHttpMethodFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, method: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpMethodStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpMethodStatics {
@@ -3635,7 +3635,7 @@ pub struct IHttpMethodStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpMultipartContent(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpMultipartContent {
@@ -3654,7 +3654,7 @@ pub struct IHttpMultipartContent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, content: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpMultipartContentFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpMultipartContentFactory {
@@ -3674,7 +3674,7 @@ pub struct IHttpMultipartContentFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, subtype: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, boundary: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpMultipartFormDataContent(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpMultipartFormDataContent {
@@ -3695,7 +3695,7 @@ pub struct IHttpMultipartFormDataContent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, content: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, filename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpMultipartFormDataContentFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpMultipartFormDataContentFactory {
@@ -3714,7 +3714,7 @@ pub struct IHttpMultipartFormDataContentFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, boundary: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpRequestMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpRequestMessage {
@@ -3745,7 +3745,7 @@ pub struct IHttpRequestMessage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpRequestMessageFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpRequestMessageFactory {
@@ -3765,7 +3765,7 @@ pub struct IHttpRequestMessageFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpRequestResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpRequestResult {
@@ -3787,7 +3787,7 @@ pub struct IHttpRequestResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpResponseMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpResponseMessage {
@@ -3821,7 +3821,7 @@ pub struct IHttpResponseMessage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpResponseMessageFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpResponseMessageFactory {
@@ -3840,7 +3840,7 @@ pub struct IHttpResponseMessageFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, statuscode: HttpStatusCode, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpStreamContentFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpStreamContentFactory {
@@ -3860,7 +3860,7 @@ pub struct IHttpStreamContentFactory_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpStringContentFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpStringContentFactory {
@@ -3883,7 +3883,7 @@ pub struct IHttpStringContentFactory_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpTransportInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpTransportInformation {

@@ -1686,7 +1686,7 @@ unsafe impl ::windows::runtime::RuntimeType for HolographicViewConfigurationKind
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicViewConfigurationKind;i4)");
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicCamera(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicCamera {
@@ -1712,7 +1712,7 @@ pub struct IHolographicCamera_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicCamera2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicCamera2 {
@@ -1733,7 +1733,7 @@ pub struct IHolographicCamera2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicCamera3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicCamera3 {
@@ -1756,7 +1756,7 @@ pub struct IHolographicCamera3_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicCamera4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicCamera4 {
@@ -1775,7 +1775,7 @@ pub struct IHolographicCamera4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicCamera5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicCamera5 {
@@ -1796,7 +1796,7 @@ pub struct IHolographicCamera5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicCamera6(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicCamera6 {
@@ -1815,7 +1815,7 @@ pub struct IHolographicCamera6_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicCameraPose(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicCameraPose {
@@ -1846,7 +1846,7 @@ pub struct IHolographicCameraPose_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicCameraPose2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicCameraPose2 {
@@ -1870,7 +1870,7 @@ pub struct IHolographicCameraPose2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicCameraRenderingParameters(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicCameraRenderingParameters {
@@ -1898,7 +1898,7 @@ pub struct IHolographicCameraRenderingParameters_abi(
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicCameraRenderingParameters2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicCameraRenderingParameters2 {
@@ -1920,7 +1920,7 @@ pub struct IHolographicCameraRenderingParameters2_abi(
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicCameraRenderingParameters3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicCameraRenderingParameters3 {
@@ -1940,7 +1940,7 @@ pub struct IHolographicCameraRenderingParameters3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicCameraRenderingParameters4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicCameraRenderingParameters4 {
@@ -1960,7 +1960,7 @@ pub struct IHolographicCameraRenderingParameters4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: HolographicDepthReprojectionMethod) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicCameraViewportParameters(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicCameraViewportParameters {
@@ -1982,7 +1982,7 @@ pub struct IHolographicCameraViewportParameters_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicDisplay(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicDisplay {
@@ -2008,7 +2008,7 @@ pub struct IHolographicDisplay_abi(
     #[cfg(not(feature = "Perception_Spatial"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicDisplay2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicDisplay2 {
@@ -2027,7 +2027,7 @@ pub struct IHolographicDisplay2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicDisplay3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicDisplay3 {
@@ -2046,7 +2046,7 @@ pub struct IHolographicDisplay3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, kind: HolographicViewConfigurationKind, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicDisplayStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicDisplayStatics {
@@ -2065,7 +2065,7 @@ pub struct IHolographicDisplayStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicFrame(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicFrame {
@@ -2095,7 +2095,7 @@ pub struct IHolographicFrame_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicFrame2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicFrame2 {
@@ -2114,7 +2114,7 @@ pub struct IHolographicFrame2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, layer: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicFrame3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicFrame3 {
@@ -2133,7 +2133,7 @@ pub struct IHolographicFrame3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut HolographicFrameId) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicFramePrediction(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicFramePrediction {
@@ -2155,7 +2155,7 @@ pub struct IHolographicFramePrediction_abi(
     #[cfg(not(feature = "Perception"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicFramePresentationMonitor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicFramePresentationMonitor {
@@ -2175,7 +2175,7 @@ pub struct IHolographicFramePresentationMonitor_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicFramePresentationReport(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicFramePresentationReport {
@@ -2201,7 +2201,7 @@ pub struct IHolographicFramePresentationReport_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicFrameRenderingReport(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicFrameRenderingReport {
@@ -2227,7 +2227,7 @@ pub struct IHolographicFrameRenderingReport_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicFrameScanoutMonitor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicFrameScanoutMonitor {
@@ -2247,7 +2247,7 @@ pub struct IHolographicFrameScanoutMonitor_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicFrameScanoutReport(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicFrameScanoutReport {
@@ -2273,7 +2273,7 @@ pub struct IHolographicFrameScanoutReport_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicQuadLayer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicQuadLayer {
@@ -2295,7 +2295,7 @@ pub struct IHolographicQuadLayer_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicQuadLayerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicQuadLayerFactory {
@@ -2317,7 +2317,7 @@ pub struct IHolographicQuadLayerFactory_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Graphics_DirectX")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicQuadLayerUpdateParameters(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicQuadLayerUpdateParameters {
@@ -2346,7 +2346,7 @@ pub struct IHolographicQuadLayerUpdateParameters_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicQuadLayerUpdateParameters2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicQuadLayerUpdateParameters2 {
@@ -2367,7 +2367,7 @@ pub struct IHolographicQuadLayerUpdateParameters2_abi(
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicSpace(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicSpace {
@@ -2397,7 +2397,7 @@ pub struct IHolographicSpace_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicSpace2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicSpace2 {
@@ -2424,7 +2424,7 @@ pub struct IHolographicSpace2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, maxqueuedreports: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicSpace3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicSpace3 {
@@ -2443,7 +2443,7 @@ pub struct IHolographicSpace3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, maxqueuedreports: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicSpaceCameraAddedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicSpaceCameraAddedEventArgs {
@@ -2464,7 +2464,7 @@ pub struct IHolographicSpaceCameraAddedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicSpaceCameraRemovedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicSpaceCameraRemovedEventArgs {
@@ -2483,7 +2483,7 @@ pub struct IHolographicSpaceCameraRemovedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicSpaceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicSpaceStatics {
@@ -2503,7 +2503,7 @@ pub struct IHolographicSpaceStatics_abi(
     #[cfg(not(feature = "UI_Core"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicSpaceStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicSpaceStatics2 {
@@ -2527,7 +2527,7 @@ pub struct IHolographicSpaceStatics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicSpaceStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicSpaceStatics3 {
@@ -2546,7 +2546,7 @@ pub struct IHolographicSpaceStatics3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicViewConfiguration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicViewConfiguration {
@@ -2582,7 +2582,7 @@ pub struct IHolographicViewConfiguration_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicViewConfiguration2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicViewConfiguration2 {

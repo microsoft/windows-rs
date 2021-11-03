@@ -856,7 +856,7 @@ impl ::windows::runtime::RuntimeName for FrameIsoSpeedControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameIsoSpeedControl";
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICameraIntrinsics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICameraIntrinsics {
@@ -892,7 +892,7 @@ pub struct ICameraIntrinsics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICameraIntrinsics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICameraIntrinsics2 {
@@ -920,7 +920,7 @@ pub struct ICameraIntrinsics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICameraIntrinsicsFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICameraIntrinsicsFactory {
@@ -940,7 +940,7 @@ pub struct ICameraIntrinsicsFactory_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDepthCorrelatedCoordinateMapper(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDepthCorrelatedCoordinateMapper {
@@ -966,7 +966,7 @@ pub struct IDepthCorrelatedCoordinateMapper_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Perception_Spatial")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameControlCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameControlCapabilities {
@@ -989,7 +989,7 @@ pub struct IFrameControlCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameControlCapabilities2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameControlCapabilities2 {
@@ -1008,7 +1008,7 @@ pub struct IFrameControlCapabilities2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameController(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameController {
@@ -1034,7 +1034,7 @@ pub struct IFrameController_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameController2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameController2 {
@@ -1053,7 +1053,7 @@ pub struct IFrameController2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameExposureCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameExposureCapabilities {
@@ -1078,7 +1078,7 @@ pub struct IFrameExposureCapabilities_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameExposureCompensationCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameExposureCompensationCapabilities {
@@ -1100,7 +1100,7 @@ pub struct IFrameExposureCompensationCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameExposureCompensationControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameExposureCompensationControl {
@@ -1122,7 +1122,7 @@ pub struct IFrameExposureCompensationControl_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameExposureControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameExposureControl {
@@ -1146,7 +1146,7 @@ pub struct IFrameExposureControl_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameFlashCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameFlashCapabilities {
@@ -1167,7 +1167,7 @@ pub struct IFrameFlashCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameFlashControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameFlashControl {
@@ -1193,7 +1193,7 @@ pub struct IFrameFlashControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameFocusCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameFocusCapabilities {
@@ -1215,7 +1215,7 @@ pub struct IFrameFocusCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameFocusControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameFocusControl {
@@ -1237,7 +1237,7 @@ pub struct IFrameFocusControl_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameIsoSpeedCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameIsoSpeedCapabilities {
@@ -1259,7 +1259,7 @@ pub struct IFrameIsoSpeedCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFrameIsoSpeedControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameIsoSpeedControl {
@@ -1283,7 +1283,7 @@ pub struct IFrameIsoSpeedControl_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVariablePhotoSequenceController(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVariablePhotoSequenceController {

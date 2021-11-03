@@ -1238,7 +1238,7 @@ unsafe impl ::windows::runtime::RuntimeType for HdrMetadataFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.HdrMetadataFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdvancedColorInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdvancedColorInfo {
@@ -1271,7 +1271,7 @@ pub struct IAdvancedColorInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, kind: AdvancedColorKind, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBrightnessOverride(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBrightnessOverride {
@@ -1309,7 +1309,7 @@ pub struct IBrightnessOverride_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBrightnessOverrideSettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBrightnessOverrideSettings {
@@ -1329,7 +1329,7 @@ pub struct IBrightnessOverrideSettings_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBrightnessOverrideSettingsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBrightnessOverrideSettingsStatics {
@@ -1350,7 +1350,7 @@ pub struct IBrightnessOverrideSettingsStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, overridescenario: DisplayBrightnessOverrideScenario, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBrightnessOverrideStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBrightnessOverrideStatics {
@@ -1372,7 +1372,7 @@ pub struct IBrightnessOverrideStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IColorOverrideSettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IColorOverrideSettings {
@@ -1391,7 +1391,7 @@ pub struct IColorOverrideSettings_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut DisplayColorOverrideScenario) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IColorOverrideSettingsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IColorOverrideSettingsStatics {
@@ -1410,7 +1410,7 @@ pub struct IColorOverrideSettingsStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, overridescenario: DisplayColorOverrideScenario, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayEnhancementOverride(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayEnhancementOverride {
@@ -1449,7 +1449,7 @@ pub struct IDisplayEnhancementOverride_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayEnhancementOverrideCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayEnhancementOverrideCapabilities {
@@ -1471,7 +1471,7 @@ pub struct IDisplayEnhancementOverrideCapabilities_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayEnhancementOverrideCapabilitiesChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayEnhancementOverrideCapabilitiesChangedEventArgs {
@@ -1490,7 +1490,7 @@ pub struct IDisplayEnhancementOverrideCapabilitiesChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayEnhancementOverrideStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayEnhancementOverrideStatics {
@@ -1509,7 +1509,7 @@ pub struct IDisplayEnhancementOverrideStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayInformation {
@@ -1552,7 +1552,7 @@ pub struct IDisplayInformation_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayInformation2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayInformation2 {
@@ -1571,7 +1571,7 @@ pub struct IDisplayInformation2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayInformation3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayInformation3 {
@@ -1591,7 +1591,7 @@ pub struct IDisplayInformation3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayInformation4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayInformation4 {
@@ -1611,7 +1611,7 @@ pub struct IDisplayInformation4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayInformation5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayInformation5 {
@@ -1634,7 +1634,7 @@ pub struct IDisplayInformation5_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayInformationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayInformationStatics {
@@ -1659,7 +1659,7 @@ pub struct IDisplayInformationStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayPropertiesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayPropertiesStatics {
@@ -1706,7 +1706,7 @@ pub struct IDisplayPropertiesStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayServices(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayServices {
@@ -1724,7 +1724,7 @@ pub struct IDisplayServices_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayServicesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayServicesStatics {

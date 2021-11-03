@@ -220,7 +220,7 @@ impl ::windows::runtime::RuntimeName for FaceTracker {
 unsafe impl ::std::marker::Send for FaceTracker {}
 unsafe impl ::std::marker::Sync for FaceTracker {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDetectedFace(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDetectedFace {
@@ -240,7 +240,7 @@ pub struct IDetectedFace_abi(
     #[cfg(not(feature = "Graphics_Imaging"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFaceDetector(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFaceDetector {
@@ -270,7 +270,7 @@ pub struct IFaceDetector_abi(
     #[cfg(not(feature = "Graphics_Imaging"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFaceDetectorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFaceDetectorStatics {
@@ -295,7 +295,7 @@ pub struct IFaceDetectorStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFaceTracker(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFaceTracker {
@@ -323,7 +323,7 @@ pub struct IFaceTracker_abi(
     #[cfg(not(feature = "Graphics_Imaging"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFaceTrackerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFaceTrackerStatics {

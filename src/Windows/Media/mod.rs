@@ -401,7 +401,7 @@ impl ::windows::runtime::RuntimeName for AutoRepeatModeChangeRequestedEventArgs 
 unsafe impl ::std::marker::Send for AutoRepeatModeChangeRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for AutoRepeatModeChangeRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAudioBuffer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioBuffer {
@@ -422,7 +422,7 @@ pub struct IAudioBuffer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAudioFrame(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioFrame {
@@ -441,7 +441,7 @@ pub struct IAudioFrame_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mode: AudioBufferAccessMode, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAudioFrameFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioFrameFactory {
@@ -460,7 +460,7 @@ pub struct IAudioFrameFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, capacity: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutoRepeatModeChangeRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutoRepeatModeChangeRequestedEventArgs {
@@ -479,7 +479,7 @@ pub struct IAutoRepeatModeChangeRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut MediaPlaybackAutoRepeatMode) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IImageDisplayProperties(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageDisplayProperties {
@@ -501,7 +501,7 @@ pub struct IImageDisplayProperties_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaControl {
@@ -609,7 +609,7 @@ pub struct IMediaExtension_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaExtensionManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaExtensionManager {
@@ -645,7 +645,7 @@ pub struct IMediaExtensionManager_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaExtensionManager2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaExtensionManager2 {
@@ -873,7 +873,7 @@ pub struct IMediaMarker_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaMarkerTypesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaMarkerTypesStatics {
@@ -926,7 +926,7 @@ pub struct IMediaMarkers_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaProcessingTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaProcessingTriggerDetails {
@@ -946,7 +946,7 @@ pub struct IMediaProcessingTriggerDetails_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaTimelineController(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaTimelineController {
@@ -982,7 +982,7 @@ pub struct IMediaTimelineController_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaTimelineController2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaTimelineController2 {
@@ -1014,7 +1014,7 @@ pub struct IMediaTimelineController2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaTimelineControllerFailedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaTimelineControllerFailedEventArgs {
@@ -1033,7 +1033,7 @@ pub struct IMediaTimelineControllerFailedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMusicDisplayProperties(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMusicDisplayProperties {
@@ -1057,7 +1057,7 @@ pub struct IMusicDisplayProperties_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMusicDisplayProperties2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMusicDisplayProperties2 {
@@ -1081,7 +1081,7 @@ pub struct IMusicDisplayProperties2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMusicDisplayProperties3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMusicDisplayProperties3 {
@@ -1101,7 +1101,7 @@ pub struct IMusicDisplayProperties3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlaybackPositionChangeRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlaybackPositionChangeRequestedEventArgs {
@@ -1121,7 +1121,7 @@ pub struct IPlaybackPositionChangeRequestedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlaybackRateChangeRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlaybackRateChangeRequestedEventArgs {
@@ -1140,7 +1140,7 @@ pub struct IPlaybackRateChangeRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IShuffleEnabledChangeRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShuffleEnabledChangeRequestedEventArgs {
@@ -1159,7 +1159,7 @@ pub struct IShuffleEnabledChangeRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISystemMediaTransportControls(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemMediaTransportControls {
@@ -1211,7 +1211,7 @@ pub struct ISystemMediaTransportControls_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISystemMediaTransportControls2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemMediaTransportControls2 {
@@ -1252,7 +1252,7 @@ pub struct ISystemMediaTransportControls2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISystemMediaTransportControlsButtonPressedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemMediaTransportControlsButtonPressedEventArgs {
@@ -1271,7 +1271,7 @@ pub struct ISystemMediaTransportControlsButtonPressedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SystemMediaTransportControlsButton) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISystemMediaTransportControlsDisplayUpdater(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemMediaTransportControlsDisplayUpdater {
@@ -1304,7 +1304,7 @@ pub struct ISystemMediaTransportControlsDisplayUpdater_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISystemMediaTransportControlsPropertyChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemMediaTransportControlsPropertyChangedEventArgs {
@@ -1323,7 +1323,7 @@ pub struct ISystemMediaTransportControlsPropertyChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SystemMediaTransportControlsProperty) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISystemMediaTransportControlsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemMediaTransportControlsStatics {
@@ -1342,7 +1342,7 @@ pub struct ISystemMediaTransportControlsStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISystemMediaTransportControlsTimelineProperties(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemMediaTransportControlsTimelineProperties {
@@ -1380,7 +1380,7 @@ pub struct ISystemMediaTransportControlsTimelineProperties_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVideoDisplayProperties(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoDisplayProperties {
@@ -1402,7 +1402,7 @@ pub struct IVideoDisplayProperties_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVideoDisplayProperties2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoDisplayProperties2 {
@@ -1422,7 +1422,7 @@ pub struct IVideoDisplayProperties2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVideoEffectsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoEffectsStatics {
@@ -1441,7 +1441,7 @@ pub struct IVideoEffectsStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVideoFrame(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoFrame {
@@ -1465,7 +1465,7 @@ pub struct IVideoFrame_abi(
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVideoFrame2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoFrame2 {
@@ -1485,7 +1485,7 @@ pub struct IVideoFrame2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Graphics_Imaging")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVideoFrameFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoFrameFactory {
@@ -1507,7 +1507,7 @@ pub struct IVideoFrameFactory_abi(
     #[cfg(not(feature = "Graphics_Imaging"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVideoFrameStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoFrameStatics {

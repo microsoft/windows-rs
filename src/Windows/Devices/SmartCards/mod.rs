@@ -52,7 +52,7 @@ impl ::windows::runtime::RuntimeName for CardRemovedEventArgs {
 unsafe impl ::std::marker::Send for CardRemovedEventArgs {}
 unsafe impl ::std::marker::Sync for CardRemovedEventArgs {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICardAddedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICardAddedEventArgs {
@@ -71,7 +71,7 @@ pub struct ICardAddedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICardRemovedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICardRemovedEventArgs {
@@ -90,7 +90,7 @@ pub struct ICardRemovedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKnownSmartCardAppletIds(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownSmartCardAppletIds {
@@ -112,7 +112,7 @@ pub struct IKnownSmartCardAppletIds_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCard(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCard {
@@ -135,7 +135,7 @@ pub struct ISmartCard_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardAppletIdGroup(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAppletIdGroup {
@@ -163,7 +163,7 @@ pub struct ISmartCardAppletIdGroup_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardAppletIdGroup2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAppletIdGroup2 {
@@ -191,7 +191,7 @@ pub struct ISmartCardAppletIdGroup2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardAppletIdGroupFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAppletIdGroupFactory {
@@ -211,7 +211,7 @@ pub struct ISmartCardAppletIdGroupFactory_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardAppletIdGroupRegistration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAppletIdGroupRegistration {
@@ -236,7 +236,7 @@ pub struct ISmartCardAppletIdGroupRegistration_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardAppletIdGroupRegistration2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAppletIdGroupRegistration2 {
@@ -257,7 +257,7 @@ pub struct ISmartCardAppletIdGroupRegistration2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardAppletIdGroupStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAppletIdGroupStatics {
@@ -276,7 +276,7 @@ pub struct ISmartCardAppletIdGroupStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u16) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardAutomaticResponseApdu(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAutomaticResponseApdu {
@@ -312,7 +312,7 @@ pub struct ISmartCardAutomaticResponseApdu_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardAutomaticResponseApdu2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAutomaticResponseApdu2 {
@@ -338,7 +338,7 @@ pub struct ISmartCardAutomaticResponseApdu2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardAutomaticResponseApdu3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAutomaticResponseApdu3 {
@@ -358,7 +358,7 @@ pub struct ISmartCardAutomaticResponseApdu3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardAutomaticResponseApduFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAutomaticResponseApduFactory {
@@ -378,7 +378,7 @@ pub struct ISmartCardAutomaticResponseApduFactory_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardChallengeContext(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardChallengeContext {
@@ -406,7 +406,7 @@ pub struct ISmartCardChallengeContext_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardConnect(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardConnect {
@@ -426,7 +426,7 @@ pub struct ISmartCardConnect_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardConnection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardConnection {
@@ -446,7 +446,7 @@ pub struct ISmartCardConnection_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramGenerator(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramGenerator {
@@ -489,7 +489,7 @@ pub struct ISmartCardCryptogramGenerator_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramGenerator2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramGenerator2 {
@@ -517,7 +517,7 @@ pub struct ISmartCardCryptogramGenerator2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramGeneratorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramGeneratorStatics {
@@ -537,7 +537,7 @@ pub struct ISmartCardCryptogramGeneratorStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramGeneratorStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramGeneratorStatics2 {
@@ -556,7 +556,7 @@ pub struct ISmartCardCryptogramGeneratorStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
@@ -577,7 +577,7 @@ pub struct ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_abi
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
@@ -598,7 +598,7 @@ pub struct ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsRes
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
@@ -619,7 +619,7 @@ pub struct ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_a
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramMaterialCharacteristics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramMaterialCharacteristics {
@@ -648,7 +648,7 @@ pub struct ISmartCardCryptogramMaterialCharacteristics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramMaterialPackageCharacteristics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramMaterialPackageCharacteristics {
@@ -671,7 +671,7 @@ pub struct ISmartCardCryptogramMaterialPackageCharacteristics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SmartCardCryptogramMaterialPackageFormat) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramMaterialPossessionProof(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramMaterialPossessionProof {
@@ -692,7 +692,7 @@ pub struct ISmartCardCryptogramMaterialPossessionProof_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramPlacementStep(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramPlacementStep {
@@ -730,7 +730,7 @@ pub struct ISmartCardCryptogramPlacementStep_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramStorageKeyCharacteristics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramStorageKeyCharacteristics {
@@ -753,7 +753,7 @@ pub struct ISmartCardCryptogramStorageKeyCharacteristics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SmartCardCryptogramStorageKeyCapabilities) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramStorageKeyInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramStorageKeyInfo {
@@ -782,7 +782,7 @@ pub struct ISmartCardCryptogramStorageKeyInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SmartCardCryptogramStorageKeyCapabilities) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramStorageKeyInfo2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramStorageKeyInfo2 {
@@ -801,7 +801,7 @@ pub struct ISmartCardCryptogramStorageKeyInfo2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardEmulator(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulator {
@@ -820,7 +820,7 @@ pub struct ISmartCardEmulator_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SmartCardEmulatorEnablementPolicy) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardEmulator2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulator2 {
@@ -848,7 +848,7 @@ pub struct ISmartCardEmulator2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorApduReceivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulatorApduReceivedEventArgs {
@@ -872,7 +872,7 @@ pub struct ISmartCardEmulatorApduReceivedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SmartCardAutomaticResponseStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorApduReceivedEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulatorApduReceivedEventArgs2 {
@@ -893,7 +893,7 @@ pub struct ISmartCardEmulatorApduReceivedEventArgs2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorApduReceivedEventArgsWithCryptograms(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulatorApduReceivedEventArgsWithCryptograms {
@@ -915,7 +915,7 @@ pub struct ISmartCardEmulatorApduReceivedEventArgsWithCryptograms_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorConnectionDeactivatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulatorConnectionDeactivatedEventArgs {
@@ -935,7 +935,7 @@ pub struct ISmartCardEmulatorConnectionDeactivatedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SmartCardEmulatorConnectionDeactivatedReason) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorConnectionProperties(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulatorConnectionProperties {
@@ -955,7 +955,7 @@ pub struct ISmartCardEmulatorConnectionProperties_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SmartCardEmulatorConnectionSource) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulatorStatics {
@@ -975,7 +975,7 @@ pub struct ISmartCardEmulatorStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulatorStatics2 {
@@ -1000,7 +1000,7 @@ pub struct ISmartCardEmulatorStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u16) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulatorStatics3 {
@@ -1019,7 +1019,7 @@ pub struct ISmartCardEmulatorStatics3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardPinPolicy(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardPinPolicy {
@@ -1049,7 +1049,7 @@ pub struct ISmartCardPinPolicy_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: SmartCardPinCharacterPolicyOption) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardPinResetDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardPinResetDeferral {
@@ -1068,7 +1068,7 @@ pub struct ISmartCardPinResetDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardPinResetRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardPinResetRequest {
@@ -1093,7 +1093,7 @@ pub struct ISmartCardPinResetRequest_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardProvisioning(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardProvisioning {
@@ -1122,7 +1122,7 @@ pub struct ISmartCardProvisioning_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardProvisioning2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardProvisioning2 {
@@ -1142,7 +1142,7 @@ pub struct ISmartCardProvisioning2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardProvisioningStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardProvisioningStatics {
@@ -1168,7 +1168,7 @@ pub struct ISmartCardProvisioningStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardProvisioningStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardProvisioningStatics2 {
@@ -1190,7 +1190,7 @@ pub struct ISmartCardProvisioningStatics2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardReader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardReader {
@@ -1223,7 +1223,7 @@ pub struct ISmartCardReader_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardReaderStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardReaderStatics {
@@ -1245,7 +1245,7 @@ pub struct ISmartCardReaderStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardTriggerDetails {
@@ -1268,7 +1268,7 @@ pub struct ISmartCardTriggerDetails_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardTriggerDetails2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardTriggerDetails2 {
@@ -1291,7 +1291,7 @@ pub struct ISmartCardTriggerDetails2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardTriggerDetails3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardTriggerDetails3 {

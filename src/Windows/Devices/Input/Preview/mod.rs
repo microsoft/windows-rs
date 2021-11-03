@@ -534,7 +534,7 @@ impl ::windows::runtime::RuntimeName for GazePointPreview {
 unsafe impl ::std::marker::Send for GazePointPreview {}
 unsafe impl ::std::marker::Sync for GazePointPreview {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGazeDevicePreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeDevicePreview {
@@ -562,7 +562,7 @@ pub struct IGazeDevicePreview_abi(
     #[cfg(not(all(feature = "Devices_HumanInterfaceDevice", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGazeDeviceWatcherAddedPreviewEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeDeviceWatcherAddedPreviewEventArgs {
@@ -581,7 +581,7 @@ pub struct IGazeDeviceWatcherAddedPreviewEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGazeDeviceWatcherPreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeDeviceWatcherPreview {
@@ -617,7 +617,7 @@ pub struct IGazeDeviceWatcherPreview_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGazeDeviceWatcherRemovedPreviewEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeDeviceWatcherRemovedPreviewEventArgs {
@@ -636,7 +636,7 @@ pub struct IGazeDeviceWatcherRemovedPreviewEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGazeDeviceWatcherUpdatedPreviewEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeDeviceWatcherUpdatedPreviewEventArgs {
@@ -655,7 +655,7 @@ pub struct IGazeDeviceWatcherUpdatedPreviewEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGazeEnteredPreviewEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeEnteredPreviewEventArgs {
@@ -676,7 +676,7 @@ pub struct IGazeEnteredPreviewEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGazeExitedPreviewEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeExitedPreviewEventArgs {
@@ -697,7 +697,7 @@ pub struct IGazeExitedPreviewEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGazeInputSourcePreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeInputSourcePreview {
@@ -727,7 +727,7 @@ pub struct IGazeInputSourcePreview_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGazeInputSourcePreviewStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeInputSourcePreviewStatics {
@@ -747,7 +747,7 @@ pub struct IGazeInputSourcePreviewStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGazeMovedPreviewEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazeMovedPreviewEventArgs {
@@ -770,7 +770,7 @@ pub struct IGazeMovedPreviewEventArgs_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGazePointPreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGazePointPreview {

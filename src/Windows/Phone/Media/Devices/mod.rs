@@ -141,7 +141,7 @@ impl ::std::ops::Not for AvailableAudioRoutingEndpoints {
     }
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAudioRoutingManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioRoutingManager {
@@ -166,7 +166,7 @@ pub struct IAudioRoutingManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut AvailableAudioRoutingEndpoints) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAudioRoutingManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioRoutingManagerStatics {

@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXsltProcessor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXsltProcessor {
@@ -20,7 +20,7 @@ pub struct IXsltProcessor_abi(
     #[cfg(not(feature = "Data_Xml_Dom"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXsltProcessor2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXsltProcessor2 {
@@ -40,7 +40,7 @@ pub struct IXsltProcessor2_abi(
     #[cfg(not(feature = "Data_Xml_Dom"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXsltProcessorFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXsltProcessorFactory {

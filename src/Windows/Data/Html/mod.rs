@@ -18,7 +18,7 @@ impl ::windows::runtime::RuntimeName for HtmlUtilities {
     const NAME: &'static str = "Windows.Data.Html.HtmlUtilities";
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHtmlUtilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHtmlUtilities {

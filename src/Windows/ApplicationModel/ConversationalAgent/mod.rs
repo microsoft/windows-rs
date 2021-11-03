@@ -1615,7 +1615,7 @@ unsafe impl ::windows::runtime::RuntimeType for DetectionConfigurationTrainingSt
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationTrainingStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IActivationSignalDetectionConfiguration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivationSignalDetectionConfiguration {
@@ -1669,7 +1669,7 @@ pub struct IActivationSignalDetectionConfiguration_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IActivationSignalDetectionConfiguration2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivationSignalDetectionConfiguration2 {
@@ -1695,7 +1695,7 @@ pub struct IActivationSignalDetectionConfiguration2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IActivationSignalDetectionConfigurationCreationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivationSignalDetectionConfigurationCreationResult {
@@ -1715,7 +1715,7 @@ pub struct IActivationSignalDetectionConfigurationCreationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IActivationSignalDetector(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivationSignalDetector {
@@ -1759,7 +1759,7 @@ pub struct IActivationSignalDetector_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IActivationSignalDetector2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivationSignalDetector2 {
@@ -1788,7 +1788,7 @@ pub struct IActivationSignalDetector2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConversationalAgentDetectorManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentDetectorManager {
@@ -1814,7 +1814,7 @@ pub struct IConversationalAgentDetectorManager_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConversationalAgentDetectorManager2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentDetectorManager2 {
@@ -1835,7 +1835,7 @@ pub struct IConversationalAgentDetectorManager2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConversationalAgentDetectorManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentDetectorManagerStatics {
@@ -1854,7 +1854,7 @@ pub struct IConversationalAgentDetectorManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConversationalAgentSession(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSession {
@@ -1924,7 +1924,7 @@ pub struct IConversationalAgentSession_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConversationalAgentSession2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSession2 {
@@ -1952,7 +1952,7 @@ pub struct IConversationalAgentSession2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConversationalAgentSessionInterruptedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSessionInterruptedEventArgs {
@@ -1970,7 +1970,7 @@ pub struct IConversationalAgentSessionInterruptedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConversationalAgentSessionStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSessionStatics {
@@ -1991,7 +1991,7 @@ pub struct IConversationalAgentSessionStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConversationalAgentSignal(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSignal {
@@ -2025,7 +2025,7 @@ pub struct IConversationalAgentSignal_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConversationalAgentSignal2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSignal2 {
@@ -2045,7 +2045,7 @@ pub struct IConversationalAgentSignal2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ActivationSignalDetectorKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConversationalAgentSignalDetectedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSignalDetectedEventArgs {
@@ -2063,7 +2063,7 @@ pub struct IConversationalAgentSignalDetectedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConversationalAgentSystemStateChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConversationalAgentSystemStateChangedEventArgs {
@@ -2082,7 +2082,7 @@ pub struct IConversationalAgentSystemStateChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ConversationalAgentSystemStateChangeType) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDetectionConfigurationAvailabilityChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDetectionConfigurationAvailabilityChangedEventArgs {
@@ -2101,7 +2101,7 @@ pub struct IDetectionConfigurationAvailabilityChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut DetectionConfigurationAvailabilityChangeKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDetectionConfigurationAvailabilityInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDetectionConfigurationAvailabilityInfo {
@@ -2123,7 +2123,7 @@ pub struct IDetectionConfigurationAvailabilityInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDetectionConfigurationAvailabilityInfo2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDetectionConfigurationAvailabilityInfo2 {

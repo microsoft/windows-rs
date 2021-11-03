@@ -225,7 +225,7 @@ impl ::windows::runtime::RuntimeName for DevicePortalConnectionRequestReceivedEv
 unsafe impl ::std::marker::Send for DevicePortalConnectionRequestReceivedEventArgs {}
 unsafe impl ::std::marker::Sync for DevicePortalConnectionRequestReceivedEventArgs {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDevicePortalConnection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePortalConnection {
@@ -251,7 +251,7 @@ pub struct IDevicePortalConnection_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDevicePortalConnectionClosedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePortalConnectionClosedEventArgs {
@@ -270,7 +270,7 @@ pub struct IDevicePortalConnectionClosedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut DevicePortalConnectionClosedReason) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDevicePortalConnectionRequestReceivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePortalConnectionRequestReceivedEventArgs {
@@ -292,7 +292,7 @@ pub struct IDevicePortalConnectionRequestReceivedEventArgs_abi(
     #[cfg(not(feature = "Web_Http"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDevicePortalConnectionStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePortalConnectionStatics {
@@ -312,7 +312,7 @@ pub struct IDevicePortalConnectionStatics_abi(
     #[cfg(not(feature = "ApplicationModel_AppService"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDevicePortalWebSocketConnection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePortalWebSocketConnection {
@@ -341,7 +341,7 @@ pub struct IDevicePortalWebSocketConnection_abi(
     #[cfg(not(all(feature = "Networking_Sockets", feature = "Web_Http")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDevicePortalWebSocketConnectionRequestReceivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDevicePortalWebSocketConnectionRequestReceivedEventArgs {

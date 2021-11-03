@@ -402,7 +402,7 @@ pub struct IGridProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, row: i32, column: i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIRawElementProviderSimple(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIRawElementProviderSimple {

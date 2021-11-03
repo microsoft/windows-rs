@@ -4160,7 +4160,7 @@ impl ::windows::runtime::RuntimeName for EmailStoreNotificationTriggerDetails {
 unsafe impl ::std::marker::Send for EmailStoreNotificationTriggerDetails {}
 unsafe impl ::std::marker::Sync for EmailStoreNotificationTriggerDetails {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailAttachment(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailAttachment {
@@ -4184,7 +4184,7 @@ pub struct IEmailAttachment_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailAttachment2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailAttachment2 {
@@ -4216,7 +4216,7 @@ pub struct IEmailAttachment2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailAttachmentFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailAttachmentFactory {
@@ -4236,7 +4236,7 @@ pub struct IEmailAttachmentFactory_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailAttachmentFactory2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailAttachmentFactory2 {
@@ -4256,7 +4256,7 @@ pub struct IEmailAttachmentFactory2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailConversation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailConversation {
@@ -4292,7 +4292,7 @@ pub struct IEmailConversation_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailConversationBatch(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailConversationBatch {
@@ -4313,7 +4313,7 @@ pub struct IEmailConversationBatch_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut EmailBatchStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailConversationReader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailConversationReader {
@@ -4333,7 +4333,7 @@ pub struct IEmailConversationReader_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailFolder(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailFolder {
@@ -4387,7 +4387,7 @@ pub struct IEmailFolder_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailIrmInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailIrmInfo {
@@ -4431,7 +4431,7 @@ pub struct IEmailIrmInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailIrmInfoFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailIrmInfoFactory {
@@ -4451,7 +4451,7 @@ pub struct IEmailIrmInfoFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailIrmTemplate(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailIrmTemplate {
@@ -4475,7 +4475,7 @@ pub struct IEmailIrmTemplate_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailIrmTemplateFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailIrmTemplateFactory {
@@ -4494,7 +4494,7 @@ pub struct IEmailIrmTemplateFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, description: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailItemCounts(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailItemCounts {
@@ -4516,7 +4516,7 @@ pub struct IEmailItemCounts_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailbox(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailbox {
@@ -4614,7 +4614,7 @@ pub struct IEmailMailbox_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailbox2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailbox2 {
@@ -4635,7 +4635,7 @@ pub struct IEmailMailbox2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailbox3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailbox3 {
@@ -4663,7 +4663,7 @@ pub struct IEmailMailbox3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailbox4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailbox4 {
@@ -4683,7 +4683,7 @@ pub struct IEmailMailbox4_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailbox5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailbox5 {
@@ -4702,7 +4702,7 @@ pub struct IEmailMailbox5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, identity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxAction(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxAction {
@@ -4722,7 +4722,7 @@ pub struct IEmailMailboxAction_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxAutoReply(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxAutoReply {
@@ -4744,7 +4744,7 @@ pub struct IEmailMailboxAutoReply_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxAutoReplySettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxAutoReplySettings {
@@ -4777,7 +4777,7 @@ pub struct IEmailMailboxAutoReplySettings_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxCapabilities {
@@ -4803,7 +4803,7 @@ pub struct IEmailMailboxCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxCapabilities2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxCapabilities2 {
@@ -4827,7 +4827,7 @@ pub struct IEmailMailboxCapabilities2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxCapabilities3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxCapabilities3 {
@@ -4859,7 +4859,7 @@ pub struct IEmailMailboxCapabilities3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxChange(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxChange {
@@ -4882,7 +4882,7 @@ pub struct IEmailMailboxChange_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxChangeReader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxChangeReader {
@@ -4904,7 +4904,7 @@ pub struct IEmailMailboxChangeReader_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxChangeTracker(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxChangeTracker {
@@ -4926,7 +4926,7 @@ pub struct IEmailMailboxChangeTracker_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxChangedDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxChangedDeferral {
@@ -4945,7 +4945,7 @@ pub struct IEmailMailboxChangedDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxChangedEventArgs {
@@ -4964,7 +4964,7 @@ pub struct IEmailMailboxChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxCreateFolderResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxCreateFolderResult {
@@ -4984,7 +4984,7 @@ pub struct IEmailMailboxCreateFolderResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxPolicies(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxPolicies {
@@ -5008,7 +5008,7 @@ pub struct IEmailMailboxPolicies_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxPolicies2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxPolicies2 {
@@ -5028,7 +5028,7 @@ pub struct IEmailMailboxPolicies2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxPolicies3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxPolicies3 {
@@ -5054,7 +5054,7 @@ pub struct IEmailMailboxPolicies3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxSyncManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxSyncManager {
@@ -5083,7 +5083,7 @@ pub struct IEmailMailboxSyncManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxSyncManager2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxSyncManager2 {
@@ -5106,7 +5106,7 @@ pub struct IEmailMailboxSyncManager2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailManagerForUser(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailManagerForUser {
@@ -5130,7 +5130,7 @@ pub struct IEmailManagerForUser_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailManagerStatics {
@@ -5150,7 +5150,7 @@ pub struct IEmailManagerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailManagerStatics2 {
@@ -5170,7 +5170,7 @@ pub struct IEmailManagerStatics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailManagerStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailManagerStatics3 {
@@ -5190,7 +5190,7 @@ pub struct IEmailManagerStatics3_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMeetingInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMeetingInfo {
@@ -5248,7 +5248,7 @@ pub struct IEmailMeetingInfo_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMeetingInfo2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMeetingInfo2 {
@@ -5267,7 +5267,7 @@ pub struct IEmailMeetingInfo2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMessage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMessage {
@@ -5297,7 +5297,7 @@ pub struct IEmailMessage_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMessage2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMessage2 {
@@ -5364,7 +5364,7 @@ pub struct IEmailMessage2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMessage3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMessage3 {
@@ -5388,7 +5388,7 @@ pub struct IEmailMessage3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: EmailMessageSmimeKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMessage4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMessage4 {
@@ -5410,7 +5410,7 @@ pub struct IEmailMessage4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMessageBatch(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMessageBatch {
@@ -5431,7 +5431,7 @@ pub struct IEmailMessageBatch_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut EmailBatchStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMessageReader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMessageReader {
@@ -5451,7 +5451,7 @@ pub struct IEmailMessageReader_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailQueryOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailQueryOptions {
@@ -5478,7 +5478,7 @@ pub struct IEmailQueryOptions_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailQueryOptionsFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailQueryOptionsFactory {
@@ -5498,7 +5498,7 @@ pub struct IEmailQueryOptionsFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, text: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, fields: EmailQuerySearchFields, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailQueryTextSearch(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailQueryTextSearch {
@@ -5522,7 +5522,7 @@ pub struct IEmailQueryTextSearch_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailRecipient(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailRecipient {
@@ -5544,7 +5544,7 @@ pub struct IEmailRecipient_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailRecipientFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailRecipientFactory {
@@ -5564,7 +5564,7 @@ pub struct IEmailRecipientFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, address: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailRecipientResolutionResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailRecipientResolutionResult {
@@ -5585,7 +5585,7 @@ pub struct IEmailRecipientResolutionResult_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailRecipientResolutionResult2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailRecipientResolutionResult2 {
@@ -5606,7 +5606,7 @@ pub struct IEmailRecipientResolutionResult2_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailStore(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailStore {
@@ -5642,7 +5642,7 @@ pub struct IEmailStore_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailStoreNotificationTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailStoreNotificationTriggerDetails {

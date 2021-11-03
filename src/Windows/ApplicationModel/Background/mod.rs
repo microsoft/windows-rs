@@ -2721,7 +2721,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &GeovisitTrig
 unsafe impl ::std::marker::Send for GeovisitTrigger {}
 unsafe impl ::std::marker::Sync for GeovisitTrigger {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IActivitySensorTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivitySensorTrigger {
@@ -2745,7 +2745,7 @@ pub struct IActivitySensorTrigger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IActivitySensorTriggerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivitySensorTriggerFactory {
@@ -2764,7 +2764,7 @@ pub struct IActivitySensorTriggerFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reportintervalinmilliseconds: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAlarmApplicationManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAlarmApplicationManagerStatics {
@@ -2785,7 +2785,7 @@ pub struct IAlarmApplicationManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut AlarmAccessStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppBroadcastTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastTrigger {
@@ -2805,7 +2805,7 @@ pub struct IAppBroadcastTrigger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppBroadcastTriggerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastTriggerFactory {
@@ -2824,7 +2824,7 @@ pub struct IAppBroadcastTriggerFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, providerkey: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppBroadcastTriggerProviderInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppBroadcastTriggerProviderInfo {
@@ -2856,7 +2856,7 @@ pub struct IAppBroadcastTriggerProviderInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IApplicationTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationTrigger {
@@ -2878,7 +2878,7 @@ pub struct IApplicationTrigger_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IApplicationTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationTriggerDetails {
@@ -2898,7 +2898,7 @@ pub struct IApplicationTriggerDetails_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppointmentStoreNotificationTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppointmentStoreNotificationTrigger {
@@ -2938,7 +2938,7 @@ pub struct IBackgroundCondition_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundExecutionManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundExecutionManagerStatics {
@@ -2964,7 +2964,7 @@ pub struct IBackgroundExecutionManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, applicationid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut BackgroundAccessStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundExecutionManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundExecutionManagerStatics2 {
@@ -2984,7 +2984,7 @@ pub struct IBackgroundExecutionManagerStatics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundExecutionManagerStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundExecutionManagerStatics3 {
@@ -3035,7 +3035,7 @@ pub struct IBackgroundTask_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, taskinstance: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundTaskBuilder(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskBuilder {
@@ -3060,7 +3060,7 @@ pub struct IBackgroundTaskBuilder_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundTaskBuilder2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskBuilder2 {
@@ -3080,7 +3080,7 @@ pub struct IBackgroundTaskBuilder2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundTaskBuilder3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskBuilder3 {
@@ -3100,7 +3100,7 @@ pub struct IBackgroundTaskBuilder3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundTaskBuilder4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskBuilder4 {
@@ -3120,7 +3120,7 @@ pub struct IBackgroundTaskBuilder4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundTaskBuilder5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskBuilder5 {
@@ -3139,7 +3139,7 @@ pub struct IBackgroundTaskBuilder5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, taskentrypoint: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundTaskCompletedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskCompletedEventArgs {
@@ -3159,7 +3159,7 @@ pub struct IBackgroundTaskCompletedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundTaskDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskDeferral {
@@ -3526,7 +3526,7 @@ pub struct IBackgroundTaskInstance4_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundTaskProgressEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskProgressEventArgs {
@@ -3841,7 +3841,7 @@ pub struct IBackgroundTaskRegistration3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundTaskRegistrationGroup(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskRegistrationGroup {
@@ -3867,7 +3867,7 @@ pub struct IBackgroundTaskRegistrationGroup_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundTaskRegistrationGroupFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskRegistrationGroupFactory {
@@ -3887,7 +3887,7 @@ pub struct IBackgroundTaskRegistrationGroupFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundTaskRegistrationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskRegistrationStatics {
@@ -3907,7 +3907,7 @@ pub struct IBackgroundTaskRegistrationStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundTaskRegistrationStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundTaskRegistrationStatics2 {
@@ -3950,7 +3950,7 @@ pub struct IBackgroundTrigger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundWorkCostStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundWorkCostStatics {
@@ -3969,7 +3969,7 @@ pub struct IBackgroundWorkCostStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut BackgroundWorkCostValue) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementPublisherTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementPublisherTrigger {
@@ -3989,7 +3989,7 @@ pub struct IBluetoothLEAdvertisementPublisherTrigger_abi(
     #[cfg(not(feature = "Devices_Bluetooth_Advertisement"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementPublisherTrigger2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementPublisherTrigger2 {
@@ -4017,7 +4017,7 @@ pub struct IBluetoothLEAdvertisementPublisherTrigger2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementWatcherTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementWatcherTrigger {
@@ -4051,7 +4051,7 @@ pub struct IBluetoothLEAdvertisementWatcherTrigger_abi(
     #[cfg(not(feature = "Devices_Bluetooth_Advertisement"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementWatcherTrigger2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementWatcherTrigger2 {
@@ -4071,7 +4071,7 @@ pub struct IBluetoothLEAdvertisementWatcherTrigger2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICachedFileUpdaterTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICachedFileUpdaterTrigger {
@@ -4089,7 +4089,7 @@ pub struct ICachedFileUpdaterTrigger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICachedFileUpdaterTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICachedFileUpdaterTriggerDetails {
@@ -4112,7 +4112,7 @@ pub struct ICachedFileUpdaterTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IChatMessageNotificationTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageNotificationTrigger {
@@ -4130,7 +4130,7 @@ pub struct IChatMessageNotificationTrigger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IChatMessageReceivedNotificationTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChatMessageReceivedNotificationTrigger {
@@ -4148,7 +4148,7 @@ pub struct IChatMessageReceivedNotificationTrigger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICommunicationBlockingAppSetAsActiveTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICommunicationBlockingAppSetAsActiveTrigger {
@@ -4166,7 +4166,7 @@ pub struct ICommunicationBlockingAppSetAsActiveTrigger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactStoreNotificationTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactStoreNotificationTrigger {
@@ -4184,7 +4184,7 @@ pub struct IContactStoreNotificationTrigger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContentPrefetchTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentPrefetchTrigger {
@@ -4204,7 +4204,7 @@ pub struct IContentPrefetchTrigger_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContentPrefetchTriggerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentPrefetchTriggerFactory {
@@ -4224,7 +4224,7 @@ pub struct IContentPrefetchTriggerFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICustomSystemEventTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomSystemEventTrigger {
@@ -4244,7 +4244,7 @@ pub struct ICustomSystemEventTrigger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut CustomSystemEventTriggerRecurrence) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICustomSystemEventTriggerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomSystemEventTriggerFactory {
@@ -4263,7 +4263,7 @@ pub struct ICustomSystemEventTriggerFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, triggerid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, recurrence: CustomSystemEventTriggerRecurrence, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceConnectionChangeTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceConnectionChangeTrigger {
@@ -4285,7 +4285,7 @@ pub struct IDeviceConnectionChangeTrigger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceConnectionChangeTriggerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceConnectionChangeTriggerStatics {
@@ -4305,7 +4305,7 @@ pub struct IDeviceConnectionChangeTriggerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceManufacturerNotificationTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceManufacturerNotificationTrigger {
@@ -4325,7 +4325,7 @@ pub struct IDeviceManufacturerNotificationTrigger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceManufacturerNotificationTriggerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceManufacturerNotificationTriggerFactory {
@@ -4344,7 +4344,7 @@ pub struct IDeviceManufacturerNotificationTriggerFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, triggerqualifier: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, oneshot: bool, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceServicingTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceServicingTrigger {
@@ -4366,7 +4366,7 @@ pub struct IDeviceServicingTrigger_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceUseTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceUseTrigger {
@@ -4388,7 +4388,7 @@ pub struct IDeviceUseTrigger_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceWatcherTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceWatcherTrigger {
@@ -4406,7 +4406,7 @@ pub struct IDeviceWatcherTrigger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailStoreNotificationTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailStoreNotificationTrigger {
@@ -4424,7 +4424,7 @@ pub struct IEmailStoreNotificationTrigger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGattCharacteristicNotificationTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattCharacteristicNotificationTrigger {
@@ -4444,7 +4444,7 @@ pub struct IGattCharacteristicNotificationTrigger_abi(
     #[cfg(not(feature = "Devices_Bluetooth_GenericAttributeProfile"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGattCharacteristicNotificationTrigger2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattCharacteristicNotificationTrigger2 {
@@ -4464,7 +4464,7 @@ pub struct IGattCharacteristicNotificationTrigger2_abi(
     #[cfg(not(feature = "Devices_Bluetooth_Background"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGattCharacteristicNotificationTriggerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattCharacteristicNotificationTriggerFactory {
@@ -4484,7 +4484,7 @@ pub struct IGattCharacteristicNotificationTriggerFactory_abi(
     #[cfg(not(feature = "Devices_Bluetooth_GenericAttributeProfile"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGattCharacteristicNotificationTriggerFactory2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattCharacteristicNotificationTriggerFactory2 {
@@ -4504,7 +4504,7 @@ pub struct IGattCharacteristicNotificationTriggerFactory2_abi(
     #[cfg(not(all(feature = "Devices_Bluetooth_Background", feature = "Devices_Bluetooth_GenericAttributeProfile")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGattServiceProviderTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattServiceProviderTrigger {
@@ -4529,7 +4529,7 @@ pub struct IGattServiceProviderTrigger_abi(
     #[cfg(not(feature = "Devices_Bluetooth_GenericAttributeProfile"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGattServiceProviderTriggerResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattServiceProviderTriggerResult {
@@ -4550,7 +4550,7 @@ pub struct IGattServiceProviderTriggerResult_abi(
     #[cfg(not(feature = "Devices_Bluetooth"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGattServiceProviderTriggerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattServiceProviderTriggerStatics {
@@ -4570,7 +4570,7 @@ pub struct IGattServiceProviderTriggerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeovisitTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeovisitTrigger {
@@ -4592,7 +4592,7 @@ pub struct IGeovisitTrigger_abi(
     #[cfg(not(feature = "Devices_Geolocation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILocationTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocationTrigger {
@@ -4611,7 +4611,7 @@ pub struct ILocationTrigger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut LocationTriggerType) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILocationTriggerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocationTriggerFactory {
@@ -4630,7 +4630,7 @@ pub struct ILocationTriggerFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, triggertype: LocationTriggerType, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMaintenanceTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMaintenanceTrigger {
@@ -4650,7 +4650,7 @@ pub struct IMaintenanceTrigger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMaintenanceTriggerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMaintenanceTriggerFactory {
@@ -4669,7 +4669,7 @@ pub struct IMaintenanceTriggerFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, freshnesstime: u32, oneshot: bool, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaProcessingTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaProcessingTrigger {
@@ -4691,7 +4691,7 @@ pub struct IMediaProcessingTrigger_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INetworkOperatorHotspotAuthenticationTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorHotspotAuthenticationTrigger {
@@ -4709,7 +4709,7 @@ pub struct INetworkOperatorHotspotAuthenticationTrigger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INetworkOperatorNotificationTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorNotificationTrigger {
@@ -4728,7 +4728,7 @@ pub struct INetworkOperatorNotificationTrigger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INetworkOperatorNotificationTriggerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorNotificationTriggerFactory {
@@ -4747,7 +4747,7 @@ pub struct INetworkOperatorNotificationTriggerFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, networkaccountid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneTrigger {
@@ -4768,7 +4768,7 @@ pub struct IPhoneTrigger_abi(
     #[cfg(not(feature = "ApplicationModel_Calls_Background"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneTriggerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneTriggerFactory {
@@ -4788,7 +4788,7 @@ pub struct IPhoneTriggerFactory_abi(
     #[cfg(not(feature = "ApplicationModel_Calls_Background"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPushNotificationTriggerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationTriggerFactory {
@@ -4807,7 +4807,7 @@ pub struct IPushNotificationTriggerFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, applicationid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRcsEndUserMessageAvailableTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRcsEndUserMessageAvailableTrigger {
@@ -4825,7 +4825,7 @@ pub struct IRcsEndUserMessageAvailableTrigger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRfcommConnectionTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommConnectionTrigger {
@@ -4857,7 +4857,7 @@ pub struct IRfcommConnectionTrigger_abi(
     #[cfg(not(feature = "Networking"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorAuthenticationTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorAuthenticationTrigger {
@@ -4875,7 +4875,7 @@ pub struct ISecondaryAuthenticationFactorAuthenticationTrigger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISensorDataThresholdTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISensorDataThresholdTrigger {
@@ -4893,7 +4893,7 @@ pub struct ISensorDataThresholdTrigger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISensorDataThresholdTriggerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISensorDataThresholdTriggerFactory {
@@ -4913,7 +4913,7 @@ pub struct ISensorDataThresholdTriggerFactory_abi(
     #[cfg(not(feature = "Devices_Sensors"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardTrigger {
@@ -4933,7 +4933,7 @@ pub struct ISmartCardTrigger_abi(
     #[cfg(not(feature = "Devices_SmartCards"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardTriggerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardTriggerFactory {
@@ -4953,7 +4953,7 @@ pub struct ISmartCardTriggerFactory_abi(
     #[cfg(not(feature = "Devices_SmartCards"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmsMessageReceivedTriggerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmsMessageReceivedTriggerFactory {
@@ -4973,7 +4973,7 @@ pub struct ISmsMessageReceivedTriggerFactory_abi(
     #[cfg(not(feature = "Devices_Sms"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISocketActivityTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocketActivityTrigger {
@@ -4992,7 +4992,7 @@ pub struct ISocketActivityTrigger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageLibraryChangeTrackerTriggerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageLibraryChangeTrackerTriggerFactory {
@@ -5012,7 +5012,7 @@ pub struct IStorageLibraryChangeTrackerTriggerFactory_abi(
     #[cfg(not(feature = "Storage"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageLibraryContentChangedTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageLibraryContentChangedTrigger {
@@ -5030,7 +5030,7 @@ pub struct IStorageLibraryContentChangedTrigger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageLibraryContentChangedTriggerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageLibraryContentChangedTriggerStatics {
@@ -5052,7 +5052,7 @@ pub struct IStorageLibraryContentChangedTriggerStatics_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISystemCondition(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemCondition {
@@ -5071,7 +5071,7 @@ pub struct ISystemCondition_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SystemConditionType) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISystemConditionFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemConditionFactory {
@@ -5090,7 +5090,7 @@ pub struct ISystemConditionFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, conditiontype: SystemConditionType, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISystemTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemTrigger {
@@ -5110,7 +5110,7 @@ pub struct ISystemTrigger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SystemTriggerType) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISystemTriggerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemTriggerFactory {
@@ -5129,7 +5129,7 @@ pub struct ISystemTriggerFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, triggertype: SystemTriggerType, oneshot: bool, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITimeTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimeTrigger {
@@ -5149,7 +5149,7 @@ pub struct ITimeTrigger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITimeTriggerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimeTriggerFactory {
@@ -5168,7 +5168,7 @@ pub struct ITimeTriggerFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, freshnesstime: u32, oneshot: bool, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastNotificationActionTriggerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationActionTriggerFactory {
@@ -5187,7 +5187,7 @@ pub struct IToastNotificationActionTriggerFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, applicationid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastNotificationHistoryChangedTriggerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationHistoryChangedTriggerFactory {
@@ -5206,7 +5206,7 @@ pub struct IToastNotificationHistoryChangedTriggerFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, applicationid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserNotificationChangedTriggerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserNotificationChangedTriggerFactory {

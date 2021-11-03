@@ -64,7 +64,7 @@ impl ::windows::runtime::RuntimeName for ForegroundEnergyDiagnostics {
     const NAME: &'static str = "Windows.System.Power.Diagnostics.ForegroundEnergyDiagnostics";
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundEnergyDiagnosticsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundEnergyDiagnosticsStatics {
@@ -85,7 +85,7 @@ pub struct IBackgroundEnergyDiagnosticsStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IForegroundEnergyDiagnosticsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IForegroundEnergyDiagnosticsStatics {

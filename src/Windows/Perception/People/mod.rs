@@ -362,7 +362,7 @@ impl ::windows::runtime::RuntimeName for HeadPose {
 unsafe impl ::std::marker::Send for HeadPose {}
 unsafe impl ::std::marker::Sync for HeadPose {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEyesPose(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEyesPose {
@@ -384,7 +384,7 @@ pub struct IEyesPose_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEyesPoseStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEyesPoseStatics {
@@ -405,7 +405,7 @@ pub struct IEyesPoseStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "UI_Input")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHandMeshObserver(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHandMeshObserver {
@@ -432,7 +432,7 @@ pub struct IHandMeshObserver_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHandMeshVertexState(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHandMeshVertexState {
@@ -455,7 +455,7 @@ pub struct IHandMeshVertexState_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHandPose(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHandPose {
@@ -481,7 +481,7 @@ pub struct IHandPose_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHeadPose(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHeadPose {

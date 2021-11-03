@@ -481,7 +481,7 @@ impl ::std::iter::IntoIterator for &CompositionInteractionSourceCollection {
     }
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionConditionalValue(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionConditionalValue {
@@ -503,7 +503,7 @@ pub struct ICompositionConditionalValue_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionConditionalValueStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionConditionalValueStatics {
@@ -544,7 +544,7 @@ pub struct ICompositionInteractionSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositionInteractionSourceCollection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositionInteractionSourceCollection {
@@ -566,7 +566,7 @@ pub struct ICompositionInteractionSourceCollection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionSourceConfiguration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionSourceConfiguration {
@@ -590,7 +590,7 @@ pub struct IInteractionSourceConfiguration_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: InteractionSourceRedirectionMode) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTracker(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTracker {
@@ -661,7 +661,7 @@ pub struct IInteractionTracker_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTracker2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTracker2 {
@@ -683,7 +683,7 @@ pub struct IInteractionTracker2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTracker3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTracker3 {
@@ -703,7 +703,7 @@ pub struct IInteractionTracker3_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTracker4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTracker4 {
@@ -726,7 +726,7 @@ pub struct IInteractionTracker4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTracker5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTracker5 {
@@ -746,7 +746,7 @@ pub struct IInteractionTracker5_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTrackerCustomAnimationStateEnteredArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTrackerCustomAnimationStateEnteredArgs {
@@ -765,7 +765,7 @@ pub struct IInteractionTrackerCustomAnimationStateEnteredArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTrackerCustomAnimationStateEnteredArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTrackerCustomAnimationStateEnteredArgs2 {
@@ -784,7 +784,7 @@ pub struct IInteractionTrackerCustomAnimationStateEnteredArgs2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTrackerIdleStateEnteredArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTrackerIdleStateEnteredArgs {
@@ -803,7 +803,7 @@ pub struct IInteractionTrackerIdleStateEnteredArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTrackerIdleStateEnteredArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTrackerIdleStateEnteredArgs2 {
@@ -822,7 +822,7 @@ pub struct IInteractionTrackerIdleStateEnteredArgs2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTrackerInertiaModifier(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTrackerInertiaModifier {
@@ -840,7 +840,7 @@ pub struct IInteractionTrackerInertiaModifier_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTrackerInertiaModifierFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTrackerInertiaModifierFactory {
@@ -858,7 +858,7 @@ pub struct IInteractionTrackerInertiaModifierFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTrackerInertiaMotion(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTrackerInertiaMotion {
@@ -880,7 +880,7 @@ pub struct IInteractionTrackerInertiaMotion_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTrackerInertiaMotionStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTrackerInertiaMotionStatics {
@@ -899,7 +899,7 @@ pub struct IInteractionTrackerInertiaMotionStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, compositor: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTrackerInertiaNaturalMotion(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTrackerInertiaNaturalMotion {
@@ -921,7 +921,7 @@ pub struct IInteractionTrackerInertiaNaturalMotion_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTrackerInertiaNaturalMotionStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTrackerInertiaNaturalMotionStatics {
@@ -940,7 +940,7 @@ pub struct IInteractionTrackerInertiaNaturalMotionStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, compositor: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTrackerInertiaRestingValue(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTrackerInertiaRestingValue {
@@ -962,7 +962,7 @@ pub struct IInteractionTrackerInertiaRestingValue_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTrackerInertiaRestingValueStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTrackerInertiaRestingValueStatics {
@@ -981,7 +981,7 @@ pub struct IInteractionTrackerInertiaRestingValueStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, compositor: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTrackerInertiaStateEnteredArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTrackerInertiaStateEnteredArgs {
@@ -1010,7 +1010,7 @@ pub struct IInteractionTrackerInertiaStateEnteredArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTrackerInertiaStateEnteredArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTrackerInertiaStateEnteredArgs2 {
@@ -1029,7 +1029,7 @@ pub struct IInteractionTrackerInertiaStateEnteredArgs2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTrackerInertiaStateEnteredArgs3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTrackerInertiaStateEnteredArgs3 {
@@ -1048,7 +1048,7 @@ pub struct IInteractionTrackerInertiaStateEnteredArgs3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTrackerInteractingStateEnteredArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTrackerInteractingStateEnteredArgs {
@@ -1067,7 +1067,7 @@ pub struct IInteractionTrackerInteractingStateEnteredArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTrackerInteractingStateEnteredArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTrackerInteractingStateEnteredArgs2 {
@@ -1145,7 +1145,7 @@ pub struct IInteractionTrackerOwner_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, args: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTrackerRequestIgnoredArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTrackerRequestIgnoredArgs {
@@ -1164,7 +1164,7 @@ pub struct IInteractionTrackerRequestIgnoredArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTrackerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTrackerStatics {
@@ -1184,7 +1184,7 @@ pub struct IInteractionTrackerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, compositor: ::windows::runtime::RawPtr, owner: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTrackerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTrackerStatics2 {
@@ -1204,7 +1204,7 @@ pub struct IInteractionTrackerStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, boundtracker1: ::windows::runtime::RawPtr, boundtracker2: ::windows::runtime::RawPtr, result__: *mut InteractionBindingAxisModes) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTrackerValuesChangedArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTrackerValuesChangedArgs {
@@ -1226,7 +1226,7 @@ pub struct IInteractionTrackerValuesChangedArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTrackerVector2InertiaModifier(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTrackerVector2InertiaModifier {
@@ -1244,7 +1244,7 @@ pub struct IInteractionTrackerVector2InertiaModifier_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTrackerVector2InertiaModifierFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTrackerVector2InertiaModifierFactory {
@@ -1262,7 +1262,7 @@ pub struct IInteractionTrackerVector2InertiaModifierFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTrackerVector2InertiaNaturalMotion(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTrackerVector2InertiaNaturalMotion {
@@ -1284,7 +1284,7 @@ pub struct IInteractionTrackerVector2InertiaNaturalMotion_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractionTrackerVector2InertiaNaturalMotionStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractionTrackerVector2InertiaNaturalMotionStatics {
@@ -1303,7 +1303,7 @@ pub struct IInteractionTrackerVector2InertiaNaturalMotionStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, compositor: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVisualInteractionSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisualInteractionSource {
@@ -1342,7 +1342,7 @@ pub struct IVisualInteractionSource_abi(
     #[cfg(not(feature = "UI_Input"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVisualInteractionSource2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisualInteractionSource2 {
@@ -1379,7 +1379,7 @@ pub struct IVisualInteractionSource2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVisualInteractionSource3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisualInteractionSource3 {
@@ -1398,7 +1398,7 @@ pub struct IVisualInteractionSource3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVisualInteractionSourceObjectFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisualInteractionSourceObjectFactory {
@@ -1416,7 +1416,7 @@ pub struct IVisualInteractionSourceObjectFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVisualInteractionSourceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisualInteractionSourceStatics {
@@ -1435,7 +1435,7 @@ pub struct IVisualInteractionSourceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, source: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVisualInteractionSourceStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVisualInteractionSourceStatics2 {

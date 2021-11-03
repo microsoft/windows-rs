@@ -313,7 +313,7 @@ unsafe impl ::windows::runtime::RuntimeType for HostNameType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.HostNameType;i4)");
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEndpointPair(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEndpointPair {
@@ -339,7 +339,7 @@ pub struct IEndpointPair_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEndpointPairFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEndpointPairFactory {
@@ -358,7 +358,7 @@ pub struct IEndpointPairFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, localhostname: ::windows::runtime::RawPtr, localservicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, remotehostname: ::windows::runtime::RawPtr, remoteservicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHostName(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHostName {
@@ -383,7 +383,7 @@ pub struct IHostName_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hostname: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHostNameFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHostNameFactory {
@@ -402,7 +402,7 @@ pub struct IHostNameFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hostname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHostNameStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHostNameStatics {

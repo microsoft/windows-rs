@@ -167,7 +167,7 @@ unsafe impl ::windows::runtime::RuntimeType for AnimationEffectTarget {
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct AnimationMetricsContract(pub u8);
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAnimationDescription(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAnimationDescription {
@@ -193,7 +193,7 @@ pub struct IAnimationDescription_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAnimationDescriptionFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAnimationDescriptionFactory {
@@ -212,7 +212,7 @@ pub struct IAnimationDescriptionFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effect: AnimationEffect, target: AnimationEffectTarget, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IOpacityAnimation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOpacityAnimation {
@@ -309,7 +309,7 @@ pub struct IPropertyAnimation_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IScaleAnimation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScaleAnimation {

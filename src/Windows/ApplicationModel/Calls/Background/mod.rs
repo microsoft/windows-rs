@@ -3,7 +3,7 @@
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct CallsBackgroundContract(pub u8);
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneCallBlockedTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallBlockedTriggerDetails {
@@ -24,7 +24,7 @@ pub struct IPhoneCallBlockedTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut PhoneCallBlockedReason) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneCallOriginDataRequestTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneCallOriginDataRequestTriggerDetails {
@@ -44,7 +44,7 @@ pub struct IPhoneCallOriginDataRequestTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneIncomingCallDismissedTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneIncomingCallDismissedTriggerDetails {
@@ -69,7 +69,7 @@ pub struct IPhoneIncomingCallDismissedTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut PhoneIncomingCallDismissedReason) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneIncomingCallNotificationTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneIncomingCallNotificationTriggerDetails {
@@ -89,7 +89,7 @@ pub struct IPhoneIncomingCallNotificationTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneLineChangedTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneLineChangedTriggerDetails {
@@ -110,7 +110,7 @@ pub struct IPhoneLineChangedTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lineproperty: PhoneLineProperties, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneNewVoicemailMessageTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneNewVoicemailMessageTriggerDetails {

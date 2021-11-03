@@ -4,7 +4,7 @@ pub mod Provider;
 #[cfg(feature = "ApplicationModel_UserDataAccounts_SystemAccess")]
 pub mod SystemAccess;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataAccount(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccount {
@@ -43,7 +43,7 @@ pub struct IUserDataAccount_abi(
     #[cfg(not(all(feature = "ApplicationModel_Contacts", feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataAccount2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccount2 {
@@ -63,7 +63,7 @@ pub struct IUserDataAccount2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataAccount3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccount3 {
@@ -85,7 +85,7 @@ pub struct IUserDataAccount3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataAccount4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccount4 {
@@ -116,7 +116,7 @@ pub struct IUserDataAccount4_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataAccountManagerForUser(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountManagerForUser {
@@ -138,7 +138,7 @@ pub struct IUserDataAccountManagerForUser_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataAccountManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountManagerStatics {
@@ -164,7 +164,7 @@ pub struct IUserDataAccountManagerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataAccountManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountManagerStatics2 {
@@ -184,7 +184,7 @@ pub struct IUserDataAccountManagerStatics2_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataAccountStore(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountStore {
@@ -208,7 +208,7 @@ pub struct IUserDataAccountStore_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataAccountStore2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountStore2 {
@@ -232,7 +232,7 @@ pub struct IUserDataAccountStore2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataAccountStore3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountStore3 {
@@ -252,7 +252,7 @@ pub struct IUserDataAccountStore3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataAccountStoreChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountStoreChangedEventArgs {

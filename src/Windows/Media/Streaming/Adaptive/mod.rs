@@ -1390,7 +1390,7 @@ unsafe impl ::windows::runtime::RuntimeType for AdaptiveMediaSourceResourceType 
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceResourceType;i4)");
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSource {
@@ -1453,7 +1453,7 @@ pub struct IAdaptiveMediaSource_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSource2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSource2 {
@@ -1472,7 +1472,7 @@ pub struct IAdaptiveMediaSource2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSource3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSource3 {
@@ -1500,7 +1500,7 @@ pub struct IAdaptiveMediaSource3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceAdvancedSettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSourceAdvancedSettings {
@@ -1528,7 +1528,7 @@ pub struct IAdaptiveMediaSourceAdvancedSettings_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceCorrelatedTimes(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSourceCorrelatedTimes {
@@ -1552,7 +1552,7 @@ pub struct IAdaptiveMediaSourceCorrelatedTimes_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceCreationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSourceCreationResult {
@@ -1574,7 +1574,7 @@ pub struct IAdaptiveMediaSourceCreationResult_abi(
     #[cfg(not(feature = "Web_Http"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceCreationResult2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSourceCreationResult2 {
@@ -1593,7 +1593,7 @@ pub struct IAdaptiveMediaSourceCreationResult2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSourceDiagnosticAvailableEventArgs {
@@ -1628,7 +1628,7 @@ pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSourceDiagnosticAvailableEventArgs2 {
@@ -1647,7 +1647,7 @@ pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSourceDiagnosticAvailableEventArgs3 {
@@ -1668,7 +1668,7 @@ pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDiagnostics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSourceDiagnostics {
@@ -1690,7 +1690,7 @@ pub struct IAdaptiveMediaSourceDiagnostics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadBitrateChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSourceDownloadBitrateChangedEventArgs {
@@ -1710,7 +1710,7 @@ pub struct IAdaptiveMediaSourceDownloadBitrateChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2 {
@@ -1729,7 +1729,7 @@ pub struct IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut AdaptiveMediaSourceDownloadBitrateChangedReason) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSourceDownloadCompletedEventArgs {
@@ -1756,7 +1756,7 @@ pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs_abi(
     #[cfg(not(feature = "Web_Http"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSourceDownloadCompletedEventArgs2 {
@@ -1778,7 +1778,7 @@ pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSourceDownloadCompletedEventArgs3 {
@@ -1799,7 +1799,7 @@ pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadFailedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSourceDownloadFailedEventArgs {
@@ -1826,7 +1826,7 @@ pub struct IAdaptiveMediaSourceDownloadFailedEventArgs_abi(
     #[cfg(not(feature = "Web_Http"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadFailedEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSourceDownloadFailedEventArgs2 {
@@ -1849,7 +1849,7 @@ pub struct IAdaptiveMediaSourceDownloadFailedEventArgs2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadFailedEventArgs3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSourceDownloadFailedEventArgs3 {
@@ -1870,7 +1870,7 @@ pub struct IAdaptiveMediaSourceDownloadFailedEventArgs3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadRequestedDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSourceDownloadRequestedDeferral {
@@ -1889,7 +1889,7 @@ pub struct IAdaptiveMediaSourceDownloadRequestedDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSourceDownloadRequestedEventArgs {
@@ -1916,7 +1916,7 @@ pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSourceDownloadRequestedEventArgs2 {
@@ -1937,7 +1937,7 @@ pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSourceDownloadRequestedEventArgs3 {
@@ -1958,7 +1958,7 @@ pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSourceDownloadResult {
@@ -1992,7 +1992,7 @@ pub struct IAdaptiveMediaSourceDownloadResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadResult2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSourceDownloadResult2 {
@@ -2018,7 +2018,7 @@ pub struct IAdaptiveMediaSourceDownloadResult2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceDownloadStatistics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSourceDownloadStatistics {
@@ -2043,7 +2043,7 @@ pub struct IAdaptiveMediaSourceDownloadStatistics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
@@ -2064,7 +2064,7 @@ pub struct IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveMediaSourceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveMediaSourceStatics {

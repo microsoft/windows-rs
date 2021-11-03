@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInjectedInputGamepadInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInjectedInputGamepadInfo {
@@ -34,7 +34,7 @@ pub struct IInjectedInputGamepadInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInjectedInputGamepadInfoFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInjectedInputGamepadInfoFactory {
@@ -54,7 +54,7 @@ pub struct IInjectedInputGamepadInfoFactory_abi(
     #[cfg(not(feature = "Gaming_Input"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInjectedInputKeyboardInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInjectedInputKeyboardInfo {
@@ -78,7 +78,7 @@ pub struct IInjectedInputKeyboardInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u16) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInjectedInputMouseInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInjectedInputMouseInfo {
@@ -106,7 +106,7 @@ pub struct IInjectedInputMouseInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInjectedInputPenInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInjectedInputPenInfo {
@@ -138,7 +138,7 @@ pub struct IInjectedInputPenInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInjectedInputTouchInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInjectedInputTouchInfo {
@@ -166,7 +166,7 @@ pub struct IInjectedInputTouchInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: InjectedInputTouchParameters) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInputInjector(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputInjector {
@@ -196,7 +196,7 @@ pub struct IInputInjector_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, shortcut: InjectedInputShortcut) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInputInjector2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputInjector2 {
@@ -217,7 +217,7 @@ pub struct IInputInjector2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInputInjectorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputInjectorStatics {
@@ -236,7 +236,7 @@ pub struct IInputInjectorStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInputInjectorStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputInjectorStatics2 {

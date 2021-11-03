@@ -457,7 +457,7 @@ impl ::windows::runtime::RuntimeName for FileUnprotectOptions {
 unsafe impl ::std::marker::Send for FileUnprotectOptions {}
 unsafe impl ::std::marker::Sync for FileUnprotectOptions {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBufferProtectUnprotectResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBufferProtectUnprotectResult {
@@ -478,7 +478,7 @@ pub struct IBufferProtectUnprotectResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataProtectionInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataProtectionInfo {
@@ -498,7 +498,7 @@ pub struct IDataProtectionInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataProtectionManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataProtectionManagerStatics {
@@ -528,7 +528,7 @@ pub struct IDataProtectionManagerStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFileProtectionInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileProtectionInfo {
@@ -549,7 +549,7 @@ pub struct IFileProtectionInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFileProtectionInfo2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileProtectionInfo2 {
@@ -568,7 +568,7 @@ pub struct IFileProtectionInfo2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFileProtectionManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileProtectionManagerStatics {
@@ -600,7 +600,7 @@ pub struct IFileProtectionManagerStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFileProtectionManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileProtectionManagerStatics2 {
@@ -624,7 +624,7 @@ pub struct IFileProtectionManagerStatics2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFileProtectionManagerStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileProtectionManagerStatics3 {
@@ -646,7 +646,7 @@ pub struct IFileProtectionManagerStatics3_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFileRevocationManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileRevocationManagerStatics {
@@ -671,7 +671,7 @@ pub struct IFileRevocationManagerStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFileUnprotectOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileUnprotectOptions {
@@ -691,7 +691,7 @@ pub struct IFileUnprotectOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFileUnprotectOptionsFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileUnprotectOptionsFactory {
@@ -710,7 +710,7 @@ pub struct IFileUnprotectOptionsFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, audit: bool, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProtectedAccessResumedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectedAccessResumedEventArgs {
@@ -730,7 +730,7 @@ pub struct IProtectedAccessResumedEventArgs_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProtectedAccessSuspendingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectedAccessSuspendingEventArgs {
@@ -754,7 +754,7 @@ pub struct IProtectedAccessSuspendingEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProtectedContainerExportResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectedContainerExportResult {
@@ -775,7 +775,7 @@ pub struct IProtectedContainerExportResult_abi(
     #[cfg(not(feature = "Storage"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProtectedContainerImportResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectedContainerImportResult {
@@ -796,7 +796,7 @@ pub struct IProtectedContainerImportResult_abi(
     #[cfg(not(feature = "Storage"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProtectedContentRevokedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectedContentRevokedEventArgs {
@@ -816,7 +816,7 @@ pub struct IProtectedContentRevokedEventArgs_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProtectedFileCreateResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectedFileCreateResult {
@@ -839,7 +839,7 @@ pub struct IProtectedFileCreateResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProtectionPolicyAuditInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectionPolicyAuditInfo {
@@ -865,7 +865,7 @@ pub struct IProtectionPolicyAuditInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProtectionPolicyAuditInfoFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectionPolicyAuditInfoFactory {
@@ -885,7 +885,7 @@ pub struct IProtectionPolicyAuditInfoFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, action: ProtectionPolicyAuditAction, datadescription: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProtectionPolicyManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectionPolicyManager {
@@ -905,7 +905,7 @@ pub struct IProtectionPolicyManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProtectionPolicyManager2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectionPolicyManager2 {
@@ -925,7 +925,7 @@ pub struct IProtectionPolicyManager2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProtectionPolicyManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectionPolicyManagerStatics {
@@ -966,7 +966,7 @@ pub struct IProtectionPolicyManagerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProtectionPolicyManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectionPolicyManagerStatics2 {
@@ -997,7 +997,7 @@ pub struct IProtectionPolicyManagerStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProtectionPolicyManagerStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectionPolicyManagerStatics3 {
@@ -1024,7 +1024,7 @@ pub struct IProtectionPolicyManagerStatics3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sourceidentity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, targetidentity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, auditinfo: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProtectionPolicyManagerStatics4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectionPolicyManagerStatics4 {
@@ -1062,7 +1062,7 @@ pub struct IProtectionPolicyManagerStatics4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, identity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IThreadNetworkContext(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IThreadNetworkContext {

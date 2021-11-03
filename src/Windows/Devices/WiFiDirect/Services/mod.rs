@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiDirectService(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectService {
@@ -39,7 +39,7 @@ pub struct IWiFiDirectService_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiDirectServiceAdvertiser(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectServiceAdvertiser {
@@ -98,7 +98,7 @@ pub struct IWiFiDirectServiceAdvertiser_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiDirectServiceAdvertiserFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectServiceAdvertiserFactory {
@@ -117,7 +117,7 @@ pub struct IWiFiDirectServiceAdvertiserFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, servicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
@@ -138,7 +138,7 @@ pub struct IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiDirectServiceProvisioningInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectServiceProvisioningInfo {
@@ -158,7 +158,7 @@ pub struct IWiFiDirectServiceProvisioningInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiDirectServiceRemotePortAddedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectServiceRemotePortAddedEventArgs {
@@ -179,7 +179,7 @@ pub struct IWiFiDirectServiceRemotePortAddedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut WiFiDirectServiceIPProtocol) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiDirectServiceSession(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectServiceSession {
@@ -218,7 +218,7 @@ pub struct IWiFiDirectServiceSession_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiDirectServiceSessionDeferredEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectServiceSessionDeferredEventArgs {
@@ -238,7 +238,7 @@ pub struct IWiFiDirectServiceSessionDeferredEventArgs_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiDirectServiceSessionRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectServiceSessionRequest {
@@ -261,7 +261,7 @@ pub struct IWiFiDirectServiceSessionRequest_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiDirectServiceSessionRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectServiceSessionRequestedEventArgs {
@@ -280,7 +280,7 @@ pub struct IWiFiDirectServiceSessionRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiDirectServiceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectServiceStatics {

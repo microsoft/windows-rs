@@ -209,7 +209,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 unsafe impl ::std::marker::Send for ExtendedExecutionSession {}
 unsafe impl ::std::marker::Sync for ExtendedExecutionSession {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IExtendedExecutionRevokedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExtendedExecutionRevokedEventArgs {
@@ -228,7 +228,7 @@ pub struct IExtendedExecutionRevokedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ExtendedExecutionRevokedReason) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IExtendedExecutionSession(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExtendedExecutionSession {

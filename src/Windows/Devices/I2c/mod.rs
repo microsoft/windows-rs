@@ -341,7 +341,7 @@ unsafe impl ::windows::runtime::RuntimeType for I2cTransferStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.I2cTransferStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct II2cConnectionSettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for II2cConnectionSettings {
@@ -365,7 +365,7 @@ pub struct II2cConnectionSettings_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: I2cSharingMode) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct II2cConnectionSettingsFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for II2cConnectionSettingsFactory {
@@ -384,7 +384,7 @@ pub struct II2cConnectionSettingsFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, slaveaddress: i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct II2cController(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for II2cController {
@@ -403,7 +403,7 @@ pub struct II2cController_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, settings: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct II2cControllerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for II2cControllerStatics {
@@ -425,7 +425,7 @@ pub struct II2cControllerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct II2cDevice(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for II2cDevice {

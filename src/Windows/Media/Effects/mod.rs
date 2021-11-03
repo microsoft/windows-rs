@@ -342,7 +342,7 @@ impl ::windows::runtime::RuntimeName for CompositeVideoFrameContext {
 unsafe impl ::std::marker::Send for CompositeVideoFrameContext {}
 unsafe impl ::std::marker::Sync for CompositeVideoFrameContext {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAudioCaptureEffectsManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioCaptureEffectsManager {
@@ -366,7 +366,7 @@ pub struct IAudioCaptureEffectsManager_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAudioEffect(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioEffect {
@@ -428,7 +428,7 @@ pub struct IAudioEffectDefinition_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAudioEffectDefinitionFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioEffectDefinitionFactory {
@@ -449,7 +449,7 @@ pub struct IAudioEffectDefinitionFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAudioEffectsManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioEffectsManagerStatics {
@@ -475,7 +475,7 @@ pub struct IAudioEffectsManagerStatics_abi(
     #[cfg(not(feature = "Media_Capture"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAudioRenderEffectsManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioRenderEffectsManager {
@@ -499,7 +499,7 @@ pub struct IAudioRenderEffectsManager_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAudioRenderEffectsManager2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioRenderEffectsManager2 {
@@ -733,7 +733,7 @@ pub struct IBasicVideoEffect_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompositeVideoFrameContext(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositeVideoFrameContext {
@@ -757,7 +757,7 @@ pub struct ICompositeVideoFrameContext_abi(
     #[cfg(not(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_Editing")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProcessAudioFrameContext(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProcessAudioFrameContext {
@@ -777,7 +777,7 @@ pub struct IProcessAudioFrameContext_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProcessVideoFrameContext(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProcessVideoFrameContext {
@@ -797,7 +797,7 @@ pub struct IProcessVideoFrameContext_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISlowMotionEffectDefinition(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISlowMotionEffectDefinition {
@@ -946,7 +946,7 @@ pub struct IVideoCompositorDefinition_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVideoCompositorDefinitionFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoCompositorDefinitionFactory {
@@ -1010,7 +1010,7 @@ pub struct IVideoEffectDefinition_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVideoEffectDefinitionFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoEffectDefinitionFactory {
@@ -1031,7 +1031,7 @@ pub struct IVideoEffectDefinitionFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVideoTransformEffectDefinition(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoTransformEffectDefinition {
@@ -1073,7 +1073,7 @@ pub struct IVideoTransformEffectDefinition_abi(
     #[cfg(not(feature = "Media_Transcoding"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVideoTransformEffectDefinition2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoTransformEffectDefinition2 {
@@ -1092,7 +1092,7 @@ pub struct IVideoTransformEffectDefinition2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVideoTransformSphericalProjection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoTransformSphericalProjection {

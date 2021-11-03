@@ -1745,7 +1745,7 @@ impl ::windows::runtime::RuntimeName for EmailMailboxValidateCertificatesRequest
 unsafe impl ::std::marker::Send for EmailMailboxValidateCertificatesRequestEventArgs {}
 unsafe impl ::std::marker::Sync for EmailMailboxValidateCertificatesRequestEventArgs {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailDataProviderConnection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailDataProviderConnection {
@@ -1824,7 +1824,7 @@ pub struct IEmailDataProviderConnection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailDataProviderTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailDataProviderTriggerDetails {
@@ -1843,7 +1843,7 @@ pub struct IEmailDataProviderTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxCreateFolderRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxCreateFolderRequest {
@@ -1868,7 +1868,7 @@ pub struct IEmailMailboxCreateFolderRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxCreateFolderRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxCreateFolderRequestEventArgs {
@@ -1889,7 +1889,7 @@ pub struct IEmailMailboxCreateFolderRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxDeleteFolderRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxDeleteFolderRequest {
@@ -1913,7 +1913,7 @@ pub struct IEmailMailboxDeleteFolderRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxDeleteFolderRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxDeleteFolderRequestEventArgs {
@@ -1934,7 +1934,7 @@ pub struct IEmailMailboxDeleteFolderRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxDownloadAttachmentRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxDownloadAttachmentRequest {
@@ -1959,7 +1959,7 @@ pub struct IEmailMailboxDownloadAttachmentRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxDownloadAttachmentRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxDownloadAttachmentRequestEventArgs {
@@ -1980,7 +1980,7 @@ pub struct IEmailMailboxDownloadAttachmentRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxDownloadMessageRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxDownloadMessageRequest {
@@ -2004,7 +2004,7 @@ pub struct IEmailMailboxDownloadMessageRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxDownloadMessageRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxDownloadMessageRequestEventArgs {
@@ -2025,7 +2025,7 @@ pub struct IEmailMailboxDownloadMessageRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxEmptyFolderRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxEmptyFolderRequest {
@@ -2049,7 +2049,7 @@ pub struct IEmailMailboxEmptyFolderRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxEmptyFolderRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxEmptyFolderRequestEventArgs {
@@ -2070,7 +2070,7 @@ pub struct IEmailMailboxEmptyFolderRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxForwardMeetingRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxForwardMeetingRequest {
@@ -2100,7 +2100,7 @@ pub struct IEmailMailboxForwardMeetingRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxForwardMeetingRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxForwardMeetingRequestEventArgs {
@@ -2121,7 +2121,7 @@ pub struct IEmailMailboxForwardMeetingRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxGetAutoReplySettingsRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxGetAutoReplySettingsRequest {
@@ -2145,7 +2145,7 @@ pub struct IEmailMailboxGetAutoReplySettingsRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxGetAutoReplySettingsRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxGetAutoReplySettingsRequestEventArgs {
@@ -2166,7 +2166,7 @@ pub struct IEmailMailboxGetAutoReplySettingsRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxMoveFolderRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxMoveFolderRequest {
@@ -2192,7 +2192,7 @@ pub struct IEmailMailboxMoveFolderRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxMoveFolderRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxMoveFolderRequestEventArgs {
@@ -2213,7 +2213,7 @@ pub struct IEmailMailboxMoveFolderRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxProposeNewTimeForMeetingRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxProposeNewTimeForMeetingRequest {
@@ -2243,7 +2243,7 @@ pub struct IEmailMailboxProposeNewTimeForMeetingRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxProposeNewTimeForMeetingRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxProposeNewTimeForMeetingRequestEventArgs {
@@ -2264,7 +2264,7 @@ pub struct IEmailMailboxProposeNewTimeForMeetingRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxResolveRecipientsRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxResolveRecipientsRequest {
@@ -2289,7 +2289,7 @@ pub struct IEmailMailboxResolveRecipientsRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxResolveRecipientsRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxResolveRecipientsRequestEventArgs {
@@ -2310,7 +2310,7 @@ pub struct IEmailMailboxResolveRecipientsRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxServerSearchReadBatchRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxServerSearchReadBatchRequest {
@@ -2339,7 +2339,7 @@ pub struct IEmailMailboxServerSearchReadBatchRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxServerSearchReadBatchRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxServerSearchReadBatchRequestEventArgs {
@@ -2360,7 +2360,7 @@ pub struct IEmailMailboxServerSearchReadBatchRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxSetAutoReplySettingsRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxSetAutoReplySettingsRequest {
@@ -2384,7 +2384,7 @@ pub struct IEmailMailboxSetAutoReplySettingsRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxSetAutoReplySettingsRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxSetAutoReplySettingsRequestEventArgs {
@@ -2405,7 +2405,7 @@ pub struct IEmailMailboxSetAutoReplySettingsRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxSyncManagerSyncRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxSyncManagerSyncRequest {
@@ -2428,7 +2428,7 @@ pub struct IEmailMailboxSyncManagerSyncRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxSyncManagerSyncRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxSyncManagerSyncRequestEventArgs {
@@ -2449,7 +2449,7 @@ pub struct IEmailMailboxSyncManagerSyncRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxUpdateMeetingResponseRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxUpdateMeetingResponseRequest {
@@ -2477,7 +2477,7 @@ pub struct IEmailMailboxUpdateMeetingResponseRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxUpdateMeetingResponseRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxUpdateMeetingResponseRequestEventArgs {
@@ -2498,7 +2498,7 @@ pub struct IEmailMailboxUpdateMeetingResponseRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxValidateCertificatesRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxValidateCertificatesRequest {
@@ -2523,7 +2523,7 @@ pub struct IEmailMailboxValidateCertificatesRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmailMailboxValidateCertificatesRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxValidateCertificatesRequestEventArgs {

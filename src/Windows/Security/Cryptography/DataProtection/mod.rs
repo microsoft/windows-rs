@@ -72,7 +72,7 @@ impl ::windows::runtime::RuntimeName for DataProtectionProvider {
 unsafe impl ::std::marker::Send for DataProtectionProvider {}
 unsafe impl ::std::marker::Sync for DataProtectionProvider {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataProtectionProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataProtectionProvider {
@@ -98,7 +98,7 @@ pub struct IDataProtectionProvider_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataProtectionProviderFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataProtectionProviderFactory {

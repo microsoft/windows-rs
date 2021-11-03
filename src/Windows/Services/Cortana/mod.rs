@@ -357,7 +357,7 @@ impl ::windows::runtime::RuntimeName for CortanaSettings {
 unsafe impl ::std::marker::Send for CortanaSettings {}
 unsafe impl ::std::marker::Sync for CortanaSettings {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICortanaActionableInsights(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICortanaActionableInsights {
@@ -391,7 +391,7 @@ pub struct ICortanaActionableInsights_abi(
     #[cfg(not(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICortanaActionableInsightsOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICortanaActionableInsightsOptions {
@@ -415,7 +415,7 @@ pub struct ICortanaActionableInsightsOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICortanaActionableInsightsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICortanaActionableInsightsStatics {
@@ -436,7 +436,7 @@ pub struct ICortanaActionableInsightsStatics_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICortanaPermissionsManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICortanaPermissionsManager {
@@ -461,7 +461,7 @@ pub struct ICortanaPermissionsManager_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICortanaPermissionsManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICortanaPermissionsManagerStatics {
@@ -480,7 +480,7 @@ pub struct ICortanaPermissionsManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICortanaSettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICortanaSettings {
@@ -501,7 +501,7 @@ pub struct ICortanaSettings_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICortanaSettingsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICortanaSettingsStatics {

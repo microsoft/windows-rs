@@ -4,7 +4,7 @@ pub mod Preview;
 #[cfg(feature = "Perception_Spatial_Surfaces")]
 pub mod Surfaces;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialAnchor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchor {
@@ -28,7 +28,7 @@ pub struct ISpatialAnchor_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialAnchor2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchor2 {
@@ -47,7 +47,7 @@ pub struct ISpatialAnchor2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialAnchorExportSufficiency(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchorExportSufficiency {
@@ -68,7 +68,7 @@ pub struct ISpatialAnchorExportSufficiency_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialAnchorExporter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchorExporter {
@@ -90,7 +90,7 @@ pub struct ISpatialAnchorExporter_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialAnchorExporterStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchorExporterStatics {
@@ -111,7 +111,7 @@ pub struct ISpatialAnchorExporterStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialAnchorManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchorManagerStatics {
@@ -131,7 +131,7 @@ pub struct ISpatialAnchorManagerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialAnchorRawCoordinateSystemAdjustedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchorRawCoordinateSystemAdjustedEventArgs {
@@ -151,7 +151,7 @@ pub struct ISpatialAnchorRawCoordinateSystemAdjustedEventArgs_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialAnchorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchorStatics {
@@ -174,7 +174,7 @@ pub struct ISpatialAnchorStatics_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialAnchorStore(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchorStore {
@@ -197,7 +197,7 @@ pub struct ISpatialAnchorStore_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialAnchorTransferManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialAnchorTransferManagerStatics {
@@ -221,7 +221,7 @@ pub struct ISpatialAnchorTransferManagerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialBoundingVolume(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialBoundingVolume {
@@ -239,7 +239,7 @@ pub struct ISpatialBoundingVolume_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialBoundingVolumeStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialBoundingVolumeStatics {
@@ -265,7 +265,7 @@ pub struct ISpatialBoundingVolumeStatics_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialCoordinateSystem(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialCoordinateSystem {
@@ -285,7 +285,7 @@ pub struct ISpatialCoordinateSystem_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialEntity(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialEntity {
@@ -307,7 +307,7 @@ pub struct ISpatialEntity_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialEntityAddedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialEntityAddedEventArgs {
@@ -326,7 +326,7 @@ pub struct ISpatialEntityAddedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialEntityFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialEntityFactory {
@@ -347,7 +347,7 @@ pub struct ISpatialEntityFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialEntityRemovedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialEntityRemovedEventArgs {
@@ -366,7 +366,7 @@ pub struct ISpatialEntityRemovedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialEntityStore(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialEntityStore {
@@ -389,7 +389,7 @@ pub struct ISpatialEntityStore_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialEntityStoreStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialEntityStoreStatics {
@@ -410,7 +410,7 @@ pub struct ISpatialEntityStoreStatics_abi(
     #[cfg(not(feature = "System_RemoteSystems"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialEntityUpdatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialEntityUpdatedEventArgs {
@@ -429,7 +429,7 @@ pub struct ISpatialEntityUpdatedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialEntityWatcher(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialEntityWatcher {
@@ -466,7 +466,7 @@ pub struct ISpatialEntityWatcher_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialLocation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialLocation {
@@ -496,7 +496,7 @@ pub struct ISpatialLocation_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialLocation2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialLocation2 {
@@ -518,7 +518,7 @@ pub struct ISpatialLocation2_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialLocator(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialLocator {
@@ -560,7 +560,7 @@ pub struct ISpatialLocator_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialLocatorAttachedFrameOfReference(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialLocatorAttachedFrameOfReference {
@@ -590,7 +590,7 @@ pub struct ISpatialLocatorAttachedFrameOfReference_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialLocatorPositionalTrackingDeactivatingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialLocatorPositionalTrackingDeactivatingEventArgs {
@@ -610,7 +610,7 @@ pub struct ISpatialLocatorPositionalTrackingDeactivatingEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialLocatorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialLocatorStatics {
@@ -629,7 +629,7 @@ pub struct ISpatialLocatorStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialStageFrameOfReference(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialStageFrameOfReference {
@@ -653,7 +653,7 @@ pub struct ISpatialStageFrameOfReference_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialStageFrameOfReferenceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialStageFrameOfReferenceStatics {
@@ -678,7 +678,7 @@ pub struct ISpatialStageFrameOfReferenceStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialStationaryFrameOfReference(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialStationaryFrameOfReference {

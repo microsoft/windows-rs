@@ -6,7 +6,7 @@ pub mod People;
 #[cfg(feature = "Perception_Spatial")]
 pub mod Spatial;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionTimestamp(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionTimestamp {
@@ -28,7 +28,7 @@ pub struct IPerceptionTimestamp_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionTimestamp2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionTimestamp2 {
@@ -48,7 +48,7 @@ pub struct IPerceptionTimestamp2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionTimestampHelperStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionTimestampHelperStatics {
@@ -68,7 +68,7 @@ pub struct IPerceptionTimestampHelperStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionTimestampHelperStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionTimestampHelperStatics2 {

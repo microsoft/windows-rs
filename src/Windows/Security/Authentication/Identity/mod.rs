@@ -100,7 +100,7 @@ impl ::windows::runtime::RuntimeName for EnterpriseKeyCredentialRegistrationMana
 unsafe impl ::std::marker::Send for EnterpriseKeyCredentialRegistrationManager {}
 unsafe impl ::std::marker::Sync for EnterpriseKeyCredentialRegistrationManager {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEnterpriseKeyCredentialRegistrationInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEnterpriseKeyCredentialRegistrationInfo {
@@ -123,7 +123,7 @@ pub struct IEnterpriseKeyCredentialRegistrationInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEnterpriseKeyCredentialRegistrationManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEnterpriseKeyCredentialRegistrationManager {
@@ -143,7 +143,7 @@ pub struct IEnterpriseKeyCredentialRegistrationManager_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEnterpriseKeyCredentialRegistrationManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEnterpriseKeyCredentialRegistrationManagerStatics {

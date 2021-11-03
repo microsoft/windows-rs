@@ -4,7 +4,7 @@ pub mod Core;
 #[cfg(feature = "Security_Authentication_Web_Provider")]
 pub mod Provider;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebAuthenticationBrokerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAuthenticationBrokerStatics {
@@ -28,7 +28,7 @@ pub struct IWebAuthenticationBrokerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebAuthenticationBrokerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAuthenticationBrokerStatics2 {
@@ -56,7 +56,7 @@ pub struct IWebAuthenticationBrokerStatics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebAuthenticationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAuthenticationResult {

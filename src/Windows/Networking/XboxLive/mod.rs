@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXboxLiveDeviceAddress(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveDeviceAddress {
@@ -30,7 +30,7 @@ pub struct IXboxLiveDeviceAddress_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut XboxLiveNetworkAccessKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXboxLiveDeviceAddressStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveDeviceAddressStatics {
@@ -54,7 +54,7 @@ pub struct IXboxLiveDeviceAddressStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXboxLiveEndpointPair(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveEndpointPair {
@@ -87,7 +87,7 @@ pub struct IXboxLiveEndpointPair_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXboxLiveEndpointPairCreationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveEndpointPairCreationResult {
@@ -109,7 +109,7 @@ pub struct IXboxLiveEndpointPairCreationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXboxLiveEndpointPairStateChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveEndpointPairStateChangedEventArgs {
@@ -129,7 +129,7 @@ pub struct IXboxLiveEndpointPairStateChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut XboxLiveEndpointPairState) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXboxLiveEndpointPairStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveEndpointPairStatics {
@@ -149,7 +149,7 @@ pub struct IXboxLiveEndpointPairStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, localhostname: ::windows::runtime::RawPtr, localport: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, remotehostname: ::windows::runtime::RawPtr, remoteport: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXboxLiveEndpointPairTemplate(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveEndpointPairTemplate {
@@ -187,7 +187,7 @@ pub struct IXboxLiveEndpointPairTemplate_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXboxLiveEndpointPairTemplateStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveEndpointPairTemplateStatics {
@@ -208,7 +208,7 @@ pub struct IXboxLiveEndpointPairTemplateStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXboxLiveInboundEndpointPairCreatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveInboundEndpointPairCreatedEventArgs {
@@ -227,7 +227,7 @@ pub struct IXboxLiveInboundEndpointPairCreatedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXboxLiveQualityOfServiceMeasurement(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveQualityOfServiceMeasurement {
@@ -268,7 +268,7 @@ pub struct IXboxLiveQualityOfServiceMeasurement_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXboxLiveQualityOfServiceMeasurementStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveQualityOfServiceMeasurementStatics {
@@ -299,7 +299,7 @@ pub struct IXboxLiveQualityOfServiceMeasurementStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXboxLiveQualityOfServiceMetricResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveQualityOfServiceMetricResult {
@@ -321,7 +321,7 @@ pub struct IXboxLiveQualityOfServiceMetricResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXboxLiveQualityOfServicePrivatePayloadResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXboxLiveQualityOfServicePrivatePayloadResult {

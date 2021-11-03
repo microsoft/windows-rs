@@ -742,7 +742,7 @@ impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::
     }
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBitmapImage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapImage {
@@ -782,7 +782,7 @@ pub struct IBitmapImage_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBitmapImage2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapImage2 {
@@ -802,7 +802,7 @@ pub struct IBitmapImage2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: DecodePixelType) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBitmapImage3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapImage3 {
@@ -826,7 +826,7 @@ pub struct IBitmapImage3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBitmapImageFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapImageFactory {
@@ -846,7 +846,7 @@ pub struct IBitmapImageFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBitmapImageStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapImageStatics {
@@ -868,7 +868,7 @@ pub struct IBitmapImageStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBitmapImageStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapImageStatics2 {
@@ -887,7 +887,7 @@ pub struct IBitmapImageStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBitmapImageStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapImageStatics3 {
@@ -908,7 +908,7 @@ pub struct IBitmapImageStatics3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBitmapSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapSource {
@@ -932,7 +932,7 @@ pub struct IBitmapSource_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBitmapSourceFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapSourceFactory {
@@ -951,7 +951,7 @@ pub struct IBitmapSourceFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baseinterface: ::windows::runtime::RawPtr, innerinterface: *mut ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBitmapSourceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapSourceStatics {
@@ -971,7 +971,7 @@ pub struct IBitmapSourceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDownloadProgressEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDownloadProgressEventArgs {
@@ -991,7 +991,7 @@ pub struct IDownloadProgressEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRenderTargetBitmap(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRenderTargetBitmap {
@@ -1017,7 +1017,7 @@ pub struct IRenderTargetBitmap_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRenderTargetBitmapStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRenderTargetBitmapStatics {
@@ -1037,7 +1037,7 @@ pub struct IRenderTargetBitmapStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISoftwareBitmapSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISoftwareBitmapSource {
@@ -1057,7 +1057,7 @@ pub struct ISoftwareBitmapSource_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Graphics_Imaging")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISurfaceImageSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISurfaceImageSource {
@@ -1075,7 +1075,7 @@ pub struct ISurfaceImageSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISurfaceImageSourceFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISurfaceImageSourceFactory {
@@ -1095,7 +1095,7 @@ pub struct ISurfaceImageSourceFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pixelwidth: i32, pixelheight: i32, isopaque: bool, baseinterface: ::windows::runtime::RawPtr, innerinterface: *mut ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISvgImageSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISvgImageSource {
@@ -1131,7 +1131,7 @@ pub struct ISvgImageSource_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISvgImageSourceFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISvgImageSourceFactory {
@@ -1152,7 +1152,7 @@ pub struct ISvgImageSourceFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISvgImageSourceFailedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISvgImageSourceFailedEventArgs {
@@ -1171,7 +1171,7 @@ pub struct ISvgImageSourceFailedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SvgImageSourceLoadStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISvgImageSourceOpenedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISvgImageSourceOpenedEventArgs {
@@ -1189,7 +1189,7 @@ pub struct ISvgImageSourceOpenedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISvgImageSourceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISvgImageSourceStatics {
@@ -1210,7 +1210,7 @@ pub struct ISvgImageSourceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVirtualSurfaceImageSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVirtualSurfaceImageSource {
@@ -1228,7 +1228,7 @@ pub struct IVirtualSurfaceImageSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVirtualSurfaceImageSourceFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVirtualSurfaceImageSourceFactory {
@@ -1248,7 +1248,7 @@ pub struct IVirtualSurfaceImageSourceFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pixelwidth: i32, pixelheight: i32, isopaque: bool, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWriteableBitmap(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWriteableBitmap {
@@ -1269,7 +1269,7 @@ pub struct IWriteableBitmap_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWriteableBitmapFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWriteableBitmapFactory {
@@ -1288,7 +1288,7 @@ pub struct IWriteableBitmapFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pixelwidth: i32, pixelheight: i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXamlRenderingBackgroundTask(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlRenderingBackgroundTask {
@@ -1306,7 +1306,7 @@ pub struct IXamlRenderingBackgroundTask_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXamlRenderingBackgroundTaskFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlRenderingBackgroundTaskFactory {
@@ -1325,7 +1325,7 @@ pub struct IXamlRenderingBackgroundTaskFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baseinterface: ::windows::runtime::RawPtr, innerinterface: *mut ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXamlRenderingBackgroundTaskOverrides(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlRenderingBackgroundTaskOverrides {

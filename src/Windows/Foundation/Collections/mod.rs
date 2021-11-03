@@ -22,7 +22,7 @@ unsafe impl ::windows::runtime::RuntimeType for CollectionChange {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Collections.CollectionChange;i4)");
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Foundation_Collections`*"]
 pub struct IIterable<T>(::windows::runtime::IInspectable, ::std::marker::PhantomData<T>)
 where
@@ -73,7 +73,7 @@ pub struct IIterable_abi<T>(
 where
     T: ::windows::runtime::RuntimeType + 'static;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Foundation_Collections`*"]
 pub struct IIterator<T>(::windows::runtime::IInspectable, ::std::marker::PhantomData<T>)
 where
@@ -147,7 +147,7 @@ pub struct IIterator_abi<T>(
 where
     T: ::windows::runtime::RuntimeType + 'static;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Foundation_Collections`*"]
 pub struct IKeyValuePair<K, V>(::windows::runtime::IInspectable, ::std::marker::PhantomData<K>, ::std::marker::PhantomData<V>)
 where
@@ -196,7 +196,7 @@ where
     K: ::windows::runtime::RuntimeType + 'static,
     V: ::windows::runtime::RuntimeType + 'static;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Foundation_Collections`*"]
 pub struct IMap<K, V>(::windows::runtime::IInspectable, ::std::marker::PhantomData<K>, ::std::marker::PhantomData<V>)
 where
@@ -330,7 +330,7 @@ where
     K: ::windows::runtime::RuntimeType + 'static,
     V: ::windows::runtime::RuntimeType + 'static;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Foundation_Collections`*"]
 pub struct IMapChangedEventArgs<K>(::windows::runtime::IInspectable, ::std::marker::PhantomData<K>)
 where
@@ -376,7 +376,7 @@ pub struct IMapChangedEventArgs_abi<K>(
 where
     K: ::windows::runtime::RuntimeType + 'static;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Foundation_Collections`*"]
 pub struct IMapView<K, V>(::windows::runtime::IInspectable, ::std::marker::PhantomData<K>, ::std::marker::PhantomData<V>)
 where
@@ -486,7 +486,7 @@ where
     K: ::windows::runtime::RuntimeType + 'static,
     V: ::windows::runtime::RuntimeType + 'static;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Foundation_Collections`*"]
 pub struct IObservableMap<K, V>(::windows::runtime::IInspectable, ::std::marker::PhantomData<K>, ::std::marker::PhantomData<V>)
 where
@@ -650,7 +650,7 @@ where
     K: ::windows::runtime::RuntimeType + 'static,
     V: ::windows::runtime::RuntimeType + 'static;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Foundation_Collections`*"]
 pub struct IObservableVector<T>(::windows::runtime::IInspectable, ::std::marker::PhantomData<T>)
 where
@@ -1012,7 +1012,7 @@ pub struct IPropertySet_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Foundation_Collections`*"]
 pub struct IVector<T>(::windows::runtime::IInspectable, ::std::marker::PhantomData<T>)
 where
@@ -1230,7 +1230,7 @@ pub struct IVectorChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Foundation_Collections`*"]
 pub struct IVectorView<T>(::windows::runtime::IInspectable, ::std::marker::PhantomData<T>)
 where

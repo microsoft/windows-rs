@@ -441,7 +441,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 unsafe impl ::std::marker::Send for GraphicsCaptureSession {}
 unsafe impl ::std::marker::Sync for GraphicsCaptureSession {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDirect3D11CaptureFrame(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDirect3D11CaptureFrame {
@@ -464,7 +464,7 @@ pub struct IDirect3D11CaptureFrame_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::SizeInt32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDirect3D11CaptureFramePool(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDirect3D11CaptureFramePool {
@@ -492,7 +492,7 @@ pub struct IDirect3D11CaptureFramePool_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDirect3D11CaptureFramePoolStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDirect3D11CaptureFramePoolStatics {
@@ -512,7 +512,7 @@ pub struct IDirect3D11CaptureFramePoolStatics_abi(
     #[cfg(not(all(feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDirect3D11CaptureFramePoolStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDirect3D11CaptureFramePoolStatics2 {
@@ -532,7 +532,7 @@ pub struct IDirect3D11CaptureFramePoolStatics2_abi(
     #[cfg(not(all(feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGraphicsCaptureAccessStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsCaptureAccessStatics {
@@ -552,7 +552,7 @@ pub struct IGraphicsCaptureAccessStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Security_Authorization_AppCapabilityAccess")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGraphicsCaptureItem(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsCaptureItem {
@@ -576,7 +576,7 @@ pub struct IGraphicsCaptureItem_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGraphicsCaptureItemStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsCaptureItemStatics {
@@ -596,7 +596,7 @@ pub struct IGraphicsCaptureItemStatics_abi(
     #[cfg(not(feature = "UI_Composition"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGraphicsCaptureItemStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsCaptureItemStatics2 {
@@ -617,7 +617,7 @@ pub struct IGraphicsCaptureItemStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, displayid: super::DisplayId, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGraphicsCapturePicker(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsCapturePicker {
@@ -637,7 +637,7 @@ pub struct IGraphicsCapturePicker_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGraphicsCaptureSession(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsCaptureSession {
@@ -656,7 +656,7 @@ pub struct IGraphicsCaptureSession_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGraphicsCaptureSession2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsCaptureSession2 {
@@ -676,7 +676,7 @@ pub struct IGraphicsCaptureSession2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGraphicsCaptureSession3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsCaptureSession3 {
@@ -696,7 +696,7 @@ pub struct IGraphicsCaptureSession3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGraphicsCaptureSessionStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGraphicsCaptureSessionStatics {

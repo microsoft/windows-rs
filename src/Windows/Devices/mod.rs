@@ -143,7 +143,7 @@ pub struct ILowLevelDevicesAggregateProvider_abi(
     #[cfg(not(feature = "Devices_Spi_Provider"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILowLevelDevicesAggregateProviderFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILowLevelDevicesAggregateProviderFactory {
@@ -163,7 +163,7 @@ pub struct ILowLevelDevicesAggregateProviderFactory_abi(
     #[cfg(not(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILowLevelDevicesController(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILowLevelDevicesController {
@@ -181,7 +181,7 @@ pub struct ILowLevelDevicesController_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILowLevelDevicesControllerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILowLevelDevicesControllerStatics {

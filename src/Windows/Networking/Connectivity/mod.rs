@@ -950,7 +950,7 @@ unsafe impl ::windows::runtime::RuntimeType for DomainConnectivityLevel {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DomainConnectivityLevel;i4)");
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAttributedNetworkUsage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAttributedNetworkUsage {
@@ -974,7 +974,7 @@ pub struct IAttributedNetworkUsage_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICellularApnContext(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICellularApnContext {
@@ -1004,7 +1004,7 @@ pub struct ICellularApnContext_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: CellularApnAuthenticationType) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICellularApnContext2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICellularApnContext2 {
@@ -1024,7 +1024,7 @@ pub struct ICellularApnContext2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConnectionCost(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectionCost {
@@ -1046,7 +1046,7 @@ pub struct IConnectionCost_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConnectionCost2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectionCost2 {
@@ -1065,7 +1065,7 @@ pub struct IConnectionCost2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConnectionProfile(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectionProfile {
@@ -1095,7 +1095,7 @@ pub struct IConnectionProfile_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConnectionProfile2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectionProfile2 {
@@ -1126,7 +1126,7 @@ pub struct IConnectionProfile2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConnectionProfile3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectionProfile3 {
@@ -1146,7 +1146,7 @@ pub struct IConnectionProfile3_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConnectionProfile4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectionProfile4 {
@@ -1166,7 +1166,7 @@ pub struct IConnectionProfile4_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConnectionProfile5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectionProfile5 {
@@ -1187,7 +1187,7 @@ pub struct IConnectionProfile5_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConnectionProfileFilter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectionProfileFilter {
@@ -1217,7 +1217,7 @@ pub struct IConnectionProfileFilter_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConnectionProfileFilter2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectionProfileFilter2 {
@@ -1249,7 +1249,7 @@ pub struct IConnectionProfileFilter2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConnectionProfileFilter3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectionProfileFilter3 {
@@ -1271,7 +1271,7 @@ pub struct IConnectionProfileFilter3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConnectionSession(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectionSession {
@@ -1290,7 +1290,7 @@ pub struct IConnectionSession_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConnectivityInterval(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectivityInterval {
@@ -1312,7 +1312,7 @@ pub struct IConnectivityInterval_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IConnectivityManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IConnectivityManagerStatics {
@@ -1334,7 +1334,7 @@ pub struct IConnectivityManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, routepolicy: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataPlanStatus(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPlanStatus {
@@ -1363,7 +1363,7 @@ pub struct IDataPlanStatus_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataPlanUsage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPlanUsage {
@@ -1384,7 +1384,7 @@ pub struct IDataPlanUsage_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataUsage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataUsage {
@@ -1404,7 +1404,7 @@ pub struct IDataUsage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIPInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIPInformation {
@@ -1425,7 +1425,7 @@ pub struct IIPInformation_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILanIdentifier(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanIdentifier {
@@ -1446,7 +1446,7 @@ pub struct ILanIdentifier_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILanIdentifierData(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILanIdentifierData {
@@ -1467,7 +1467,7 @@ pub struct ILanIdentifierData_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INetworkAdapter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkAdapter {
@@ -1492,7 +1492,7 @@ pub struct INetworkAdapter_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INetworkInformationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkInformationStatics {
@@ -1525,7 +1525,7 @@ pub struct INetworkInformationStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INetworkInformationStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkInformationStatics2 {
@@ -1545,7 +1545,7 @@ pub struct INetworkInformationStatics2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INetworkItem(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkItem {
@@ -1565,7 +1565,7 @@ pub struct INetworkItem_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut NetworkTypes) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INetworkSecuritySettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkSecuritySettings {
@@ -1585,7 +1585,7 @@ pub struct INetworkSecuritySettings_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut NetworkEncryptionType) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INetworkStateChangeEventDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkStateChangeEventDetails {
@@ -1609,7 +1609,7 @@ pub struct INetworkStateChangeEventDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INetworkStateChangeEventDetails2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkStateChangeEventDetails2 {
@@ -1629,7 +1629,7 @@ pub struct INetworkStateChangeEventDetails2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INetworkUsage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkUsage {
@@ -1686,7 +1686,7 @@ impl ::windows::runtime::RuntimeName for IPInformation {
 unsafe impl ::std::marker::Send for IPInformation {}
 unsafe impl ::std::marker::Sync for IPInformation {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProviderNetworkUsage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProviderNetworkUsage {
@@ -1707,7 +1707,7 @@ pub struct IProviderNetworkUsage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProxyConfiguration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProxyConfiguration {
@@ -1728,7 +1728,7 @@ pub struct IProxyConfiguration_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRoutePolicy(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRoutePolicy {
@@ -1749,7 +1749,7 @@ pub struct IRoutePolicy_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::DomainNameType) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRoutePolicyFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRoutePolicyFactory {
@@ -1768,7 +1768,7 @@ pub struct IRoutePolicyFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, connectionprofile: ::windows::runtime::RawPtr, hostname: ::windows::runtime::RawPtr, r#type: super::DomainNameType, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWlanConnectionProfileDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWlanConnectionProfileDetails {
@@ -1787,7 +1787,7 @@ pub struct IWlanConnectionProfileDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWwanConnectionProfileDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWwanConnectionProfileDetails {
@@ -1809,7 +1809,7 @@ pub struct IWwanConnectionProfileDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut WwanDataClass) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWwanConnectionProfileDetails2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWwanConnectionProfileDetails2 {

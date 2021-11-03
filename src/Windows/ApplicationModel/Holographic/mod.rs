@@ -52,7 +52,7 @@ impl ::windows::runtime::RuntimeName for HolographicKeyboard {
 unsafe impl ::std::marker::Send for HolographicKeyboard {}
 unsafe impl ::std::marker::Sync for HolographicKeyboard {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicKeyboard(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicKeyboard {
@@ -75,7 +75,7 @@ pub struct IHolographicKeyboard_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicKeyboardStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicKeyboardStatics {

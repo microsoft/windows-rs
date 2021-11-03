@@ -6,7 +6,7 @@ pub mod Profile;
 #[cfg(feature = "Phone_System_UserProfile")]
 pub mod UserProfile;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISystemProtectionStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemProtectionStatics {
@@ -25,7 +25,7 @@ pub struct ISystemProtectionStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISystemProtectionUnlockStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemProtectionUnlockStatics {

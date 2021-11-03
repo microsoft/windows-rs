@@ -351,7 +351,7 @@ impl ::windows::runtime::RuntimeName for CoreDropOperationTargetRequestedEventAr
 unsafe impl ::std::marker::Send for CoreDropOperationTargetRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for CoreDropOperationTargetRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreDragDropManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDragDropManager {
@@ -375,7 +375,7 @@ pub struct ICoreDragDropManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreDragDropManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDragDropManagerStatics {
@@ -394,7 +394,7 @@ pub struct ICoreDragDropManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreDragInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDragInfo {
@@ -416,7 +416,7 @@ pub struct ICoreDragInfo_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreDragInfo2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDragInfo2 {
@@ -435,7 +435,7 @@ pub struct ICoreDragInfo2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::DataPackageOperation) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreDragOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDragOperation {
@@ -463,7 +463,7 @@ pub struct ICoreDragOperation_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreDragOperation2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDragOperation2 {
@@ -483,7 +483,7 @@ pub struct ICoreDragOperation2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: super::super::DataPackageOperation) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreDragUIOverride(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDragUIOverride {
@@ -581,7 +581,7 @@ pub struct ICoreDropOperationTarget_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreDropOperationTargetRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreDropOperationTargetRequestedEventArgs {

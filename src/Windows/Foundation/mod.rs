@@ -981,7 +981,7 @@ pub struct IAsyncAction_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Foundation`*"]
 pub struct IAsyncActionWithProgress<TProgress>(::windows::runtime::IInspectable, ::std::marker::PhantomData<TProgress>)
 where
@@ -1192,7 +1192,7 @@ pub struct IAsyncInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Foundation`*"]
 pub struct IAsyncOperation<TResult>(::windows::runtime::IInspectable, ::std::marker::PhantomData<TResult>)
 where
@@ -1329,7 +1329,7 @@ pub struct IAsyncOperation_abi<TResult>(
 where
     TResult: ::windows::runtime::RuntimeType + 'static;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Foundation`*"]
 pub struct IAsyncOperationWithProgress<TResult, TProgress>(::windows::runtime::IInspectable, ::std::marker::PhantomData<TResult>, ::std::marker::PhantomData<TProgress>)
 where
@@ -1522,7 +1522,7 @@ pub struct IClosable_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeferral {
@@ -1541,7 +1541,7 @@ pub struct IDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeferralFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeferralFactory {
@@ -1592,7 +1592,7 @@ pub struct IGetActivationFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, activatableclassid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGuidHelperStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidHelperStatics {
@@ -1672,7 +1672,7 @@ pub struct IMemoryBuffer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMemoryBufferFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMemoryBufferFactory {
@@ -2082,7 +2082,7 @@ pub struct IPropertyValue_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value_array_size: *mut u32, value: *mut *mut Rect) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPropertyValueStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPropertyValueStatics {
@@ -2139,7 +2139,7 @@ pub struct IPropertyValueStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value_array_size: u32, value: *const Rect, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Foundation`*"]
 pub struct IReference<T>(::windows::runtime::IInspectable, ::std::marker::PhantomData<T>)
 where
@@ -2453,7 +2453,7 @@ pub struct IReference_abi<T>(
 where
     T: ::windows::runtime::RuntimeType + 'static;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
 #[doc = "*Required features: `Foundation`*"]
 pub struct IReferenceArray<T>(::windows::runtime::IInspectable, ::std::marker::PhantomData<T>)
 where
@@ -2799,7 +2799,7 @@ pub struct IStringable_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUriEscapeStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUriEscapeStatics {
@@ -2819,7 +2819,7 @@ pub struct IUriEscapeStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, toescape: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUriRuntimeClass(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUriRuntimeClass {
@@ -2854,7 +2854,7 @@ pub struct IUriRuntimeClass_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, relativeuri: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUriRuntimeClassFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUriRuntimeClassFactory {
@@ -2874,7 +2874,7 @@ pub struct IUriRuntimeClassFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baseuri: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, relativeuri: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUriRuntimeClassWithAbsoluteCanonicalUri(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUriRuntimeClassWithAbsoluteCanonicalUri {
@@ -2935,7 +2935,7 @@ pub struct IWwwFormUrlDecoderEntry_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWwwFormUrlDecoderRuntimeClass(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWwwFormUrlDecoderRuntimeClass {
@@ -2954,7 +2954,7 @@ pub struct IWwwFormUrlDecoderRuntimeClass_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWwwFormUrlDecoderRuntimeClassFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWwwFormUrlDecoderRuntimeClassFactory {

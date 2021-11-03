@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorAuthentication(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorAuthentication {
@@ -30,7 +30,7 @@ pub struct ISecondaryAuthenticationFactorAuthentication_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorAuthenticationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorAuthenticationResult {
@@ -50,7 +50,7 @@ pub struct ISecondaryAuthenticationFactorAuthenticationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {
@@ -69,7 +69,7 @@ pub struct ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_abi
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorAuthenticationStageInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorAuthenticationStageInfo {
@@ -90,7 +90,7 @@ pub struct ISecondaryAuthenticationFactorAuthenticationStageInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorAuthenticationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorAuthenticationStatics {
@@ -118,7 +118,7 @@ pub struct ISecondaryAuthenticationFactorAuthenticationStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics {
@@ -153,7 +153,7 @@ pub struct ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationSta
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorInfo {
@@ -176,7 +176,7 @@ pub struct ISecondaryAuthenticationFactorInfo_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorInfo2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorInfo2 {
@@ -198,7 +198,7 @@ pub struct ISecondaryAuthenticationFactorInfo2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorRegistration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorRegistration {
@@ -220,7 +220,7 @@ pub struct ISecondaryAuthenticationFactorRegistration_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorRegistrationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorRegistrationResult {
@@ -240,7 +240,7 @@ pub struct ISecondaryAuthenticationFactorRegistrationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorRegistrationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorRegistrationStatics {

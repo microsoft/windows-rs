@@ -70,7 +70,7 @@ impl ::windows::runtime::RuntimeName for DeviceLockdownProfileInformation {
 unsafe impl ::std::marker::Send for DeviceLockdownProfileInformation {}
 unsafe impl ::std::marker::Sync for DeviceLockdownProfileInformation {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceLockdownProfileInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceLockdownProfileInformation {
@@ -89,7 +89,7 @@ pub struct IDeviceLockdownProfileInformation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDeviceLockdownProfileStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDeviceLockdownProfileStatics {

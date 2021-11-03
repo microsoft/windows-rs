@@ -664,7 +664,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IXmlNodeSerializer> for &DtdNotation 
 unsafe impl ::std::marker::Send for DtdNotation {}
 unsafe impl ::std::marker::Sync for DtdNotation {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDtdEntity(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDtdEntity {
@@ -685,7 +685,7 @@ pub struct IDtdEntity_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDtdNotation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDtdNotation {
@@ -705,7 +705,7 @@ pub struct IDtdNotation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXmlAttribute(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlAttribute {
@@ -727,7 +727,7 @@ pub struct IXmlAttribute_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXmlCDataSection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlCDataSection {
@@ -1119,7 +1119,7 @@ pub struct IXmlCharacterData_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, offset: u32, count: u32, data: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXmlComment(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlComment {
@@ -1137,7 +1137,7 @@ pub struct IXmlComment_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXmlDocument(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlDocument {
@@ -1172,7 +1172,7 @@ pub struct IXmlDocument_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, node: ::windows::runtime::RawPtr, deep: bool, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXmlDocumentFragment(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlDocumentFragment {
@@ -1190,7 +1190,7 @@ pub struct IXmlDocumentFragment_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXmlDocumentIO(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlDocumentIO {
@@ -1212,7 +1212,7 @@ pub struct IXmlDocumentIO_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXmlDocumentIO2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlDocumentIO2 {
@@ -1234,7 +1234,7 @@ pub struct IXmlDocumentIO2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXmlDocumentStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlDocumentStatics {
@@ -1260,7 +1260,7 @@ pub struct IXmlDocumentStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXmlDocumentType(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlDocumentType {
@@ -1281,7 +1281,7 @@ pub struct IXmlDocumentType_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXmlDomImplementation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlDomImplementation {
@@ -1300,7 +1300,7 @@ pub struct IXmlDomImplementation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, feature: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, version: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXmlElement(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlElement {
@@ -1331,7 +1331,7 @@ pub struct IXmlElement_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, namespaceuri: ::windows::runtime::RawPtr, localname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXmlEntityReference(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlEntityReference {
@@ -1349,7 +1349,7 @@ pub struct IXmlEntityReference_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXmlLoadSettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlLoadSettings {
@@ -1377,7 +1377,7 @@ pub struct IXmlLoadSettings_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXmlNamedNodeMap(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlNamedNodeMap {
@@ -1721,7 +1721,7 @@ pub struct IXmlNode_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXmlNodeList(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlNodeList {
@@ -1847,7 +1847,7 @@ pub struct IXmlNodeSerializer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXmlProcessingInstruction(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXmlProcessingInstruction {

@@ -226,7 +226,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::CompositionObject> for &Deskto
 unsafe impl ::std::marker::Send for DesktopWindowTarget {}
 unsafe impl ::std::marker::Sync for DesktopWindowTarget {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDesktopWindowTarget(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesktopWindowTarget {

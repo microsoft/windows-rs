@@ -1043,7 +1043,7 @@ unsafe impl ::windows::runtime::RuntimeType for HoldingState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.HoldingState;i4)");
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAttachableInputObject(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAttachableInputObject {
@@ -1061,7 +1061,7 @@ pub struct IAttachableInputObject_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAttachableInputObjectFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAttachableInputObjectFactory {
@@ -1079,7 +1079,7 @@ pub struct IAttachableInputObjectFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICrossSlidingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICrossSlidingEventArgs {
@@ -1102,7 +1102,7 @@ pub struct ICrossSlidingEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut CrossSlidingState) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICrossSlidingEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICrossSlidingEventArgs2 {
@@ -1121,7 +1121,7 @@ pub struct ICrossSlidingEventArgs2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDraggingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDraggingEventArgs {
@@ -1144,7 +1144,7 @@ pub struct IDraggingEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut DraggingState) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDraggingEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDraggingEventArgs2 {
@@ -1163,7 +1163,7 @@ pub struct IDraggingEventArgs2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEdgeGesture(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEdgeGesture {
@@ -1193,7 +1193,7 @@ pub struct IEdgeGesture_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEdgeGestureEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEdgeGestureEventArgs {
@@ -1212,7 +1212,7 @@ pub struct IEdgeGestureEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut EdgeGestureKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEdgeGestureStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEdgeGestureStatics {
@@ -1231,7 +1231,7 @@ pub struct IEdgeGestureStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGestureRecognizer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGestureRecognizer {
@@ -1328,7 +1328,7 @@ pub struct IGestureRecognizer_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGestureRecognizer2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGestureRecognizer2 {
@@ -1364,7 +1364,7 @@ pub struct IGestureRecognizer2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHoldingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHoldingEventArgs {
@@ -1387,7 +1387,7 @@ pub struct IHoldingEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut HoldingState) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHoldingEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHoldingEventArgs2 {
@@ -1407,7 +1407,7 @@ pub struct IHoldingEventArgs2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInputActivationListener(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputActivationListener {
@@ -1430,7 +1430,7 @@ pub struct IInputActivationListener_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInputActivationListenerActivationChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputActivationListenerActivationChangedEventArgs {
@@ -1449,7 +1449,7 @@ pub struct IInputActivationListenerActivationChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut InputActivationState) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyboardDeliveryInterceptor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyboardDeliveryInterceptor {
@@ -1477,7 +1477,7 @@ pub struct IKeyboardDeliveryInterceptor_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyboardDeliveryInterceptorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyboardDeliveryInterceptorStatics {
@@ -1496,7 +1496,7 @@ pub struct IKeyboardDeliveryInterceptorStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IManipulationCompletedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IManipulationCompletedEventArgs {
@@ -1522,7 +1522,7 @@ pub struct IManipulationCompletedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IManipulationCompletedEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IManipulationCompletedEventArgs2 {
@@ -1542,7 +1542,7 @@ pub struct IManipulationCompletedEventArgs2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IManipulationInertiaStartingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IManipulationInertiaStartingEventArgs {
@@ -1570,7 +1570,7 @@ pub struct IManipulationInertiaStartingEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IManipulationInertiaStartingEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IManipulationInertiaStartingEventArgs2 {
@@ -1589,7 +1589,7 @@ pub struct IManipulationInertiaStartingEventArgs2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IManipulationStartedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IManipulationStartedEventArgs {
@@ -1613,7 +1613,7 @@ pub struct IManipulationStartedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IManipulationStartedEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IManipulationStartedEventArgs2 {
@@ -1632,7 +1632,7 @@ pub struct IManipulationStartedEventArgs2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IManipulationUpdatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IManipulationUpdatedEventArgs {
@@ -1660,7 +1660,7 @@ pub struct IManipulationUpdatedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IManipulationUpdatedEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IManipulationUpdatedEventArgs2 {
@@ -1680,7 +1680,7 @@ pub struct IManipulationUpdatedEventArgs2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMouseWheelParameters(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMouseWheelParameters {
@@ -1710,7 +1710,7 @@ pub struct IMouseWheelParameters_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPointerPoint(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointerPoint {
@@ -1739,7 +1739,7 @@ pub struct IPointerPoint_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPointerPointProperties(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointerPointProperties {
@@ -1783,7 +1783,7 @@ pub struct IPointerPointProperties_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, usagepage: u32, usageid: u32, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPointerPointProperties2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointerPointProperties2 {
@@ -1803,7 +1803,7 @@ pub struct IPointerPointProperties2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPointerPointStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointerPointStatics {
@@ -1881,7 +1881,7 @@ pub struct IPointerPointTransform_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPointerVisualizationSettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointerVisualizationSettings {
@@ -1903,7 +1903,7 @@ pub struct IPointerVisualizationSettings_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPointerVisualizationSettingsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointerVisualizationSettingsStatics {
@@ -1922,7 +1922,7 @@ pub struct IPointerVisualizationSettingsStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadialController(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialController {
@@ -1973,7 +1973,7 @@ pub struct IRadialController_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadialController2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialController2 {
@@ -2003,7 +2003,7 @@ pub struct IRadialController2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadialControllerButtonClickedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerButtonClickedEventArgs {
@@ -2022,7 +2022,7 @@ pub struct IRadialControllerButtonClickedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadialControllerButtonClickedEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerButtonClickedEventArgs2 {
@@ -2042,7 +2042,7 @@ pub struct IRadialControllerButtonClickedEventArgs2_abi(
     #[cfg(not(feature = "Devices_Haptics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadialControllerButtonHoldingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerButtonHoldingEventArgs {
@@ -2063,7 +2063,7 @@ pub struct IRadialControllerButtonHoldingEventArgs_abi(
     #[cfg(not(feature = "Devices_Haptics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadialControllerButtonPressedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerButtonPressedEventArgs {
@@ -2084,7 +2084,7 @@ pub struct IRadialControllerButtonPressedEventArgs_abi(
     #[cfg(not(feature = "Devices_Haptics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadialControllerButtonReleasedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerButtonReleasedEventArgs {
@@ -2105,7 +2105,7 @@ pub struct IRadialControllerButtonReleasedEventArgs_abi(
     #[cfg(not(feature = "Devices_Haptics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadialControllerConfiguration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerConfiguration {
@@ -2127,7 +2127,7 @@ pub struct IRadialControllerConfiguration_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: RadialControllerSystemMenuItemKind, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadialControllerConfiguration2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerConfiguration2 {
@@ -2149,7 +2149,7 @@ pub struct IRadialControllerConfiguration2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadialControllerConfigurationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerConfigurationStatics {
@@ -2168,7 +2168,7 @@ pub struct IRadialControllerConfigurationStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadialControllerConfigurationStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerConfigurationStatics2 {
@@ -2190,7 +2190,7 @@ pub struct IRadialControllerConfigurationStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadialControllerControlAcquiredEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerControlAcquiredEventArgs {
@@ -2209,7 +2209,7 @@ pub struct IRadialControllerControlAcquiredEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadialControllerControlAcquiredEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerControlAcquiredEventArgs2 {
@@ -2230,7 +2230,7 @@ pub struct IRadialControllerControlAcquiredEventArgs2_abi(
     #[cfg(not(feature = "Devices_Haptics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadialControllerMenu(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerMenu {
@@ -2255,7 +2255,7 @@ pub struct IRadialControllerMenu_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadialControllerMenuItem(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerMenuItem {
@@ -2280,7 +2280,7 @@ pub struct IRadialControllerMenuItem_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadialControllerMenuItemStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerMenuItemStatics {
@@ -2301,7 +2301,7 @@ pub struct IRadialControllerMenuItemStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, displaytext: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, value: RadialControllerMenuKnownIcon, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadialControllerMenuItemStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerMenuItemStatics2 {
@@ -2322,7 +2322,7 @@ pub struct IRadialControllerMenuItemStatics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadialControllerRotationChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerRotationChangedEventArgs {
@@ -2342,7 +2342,7 @@ pub struct IRadialControllerRotationChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadialControllerRotationChangedEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerRotationChangedEventArgs2 {
@@ -2363,7 +2363,7 @@ pub struct IRadialControllerRotationChangedEventArgs2_abi(
     #[cfg(not(feature = "Devices_Haptics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadialControllerScreenContact(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerScreenContact {
@@ -2385,7 +2385,7 @@ pub struct IRadialControllerScreenContact_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadialControllerScreenContactContinuedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerScreenContactContinuedEventArgs {
@@ -2404,7 +2404,7 @@ pub struct IRadialControllerScreenContactContinuedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadialControllerScreenContactContinuedEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerScreenContactContinuedEventArgs2 {
@@ -2425,7 +2425,7 @@ pub struct IRadialControllerScreenContactContinuedEventArgs2_abi(
     #[cfg(not(feature = "Devices_Haptics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadialControllerScreenContactEndedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerScreenContactEndedEventArgs {
@@ -2446,7 +2446,7 @@ pub struct IRadialControllerScreenContactEndedEventArgs_abi(
     #[cfg(not(feature = "Devices_Haptics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadialControllerScreenContactStartedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerScreenContactStartedEventArgs {
@@ -2465,7 +2465,7 @@ pub struct IRadialControllerScreenContactStartedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadialControllerScreenContactStartedEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerScreenContactStartedEventArgs2 {
@@ -2486,7 +2486,7 @@ pub struct IRadialControllerScreenContactStartedEventArgs2_abi(
     #[cfg(not(feature = "Devices_Haptics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadialControllerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadialControllerStatics {
@@ -2506,7 +2506,7 @@ pub struct IRadialControllerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRightTappedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRightTappedEventArgs {
@@ -2528,7 +2528,7 @@ pub struct IRightTappedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRightTappedEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRightTappedEventArgs2 {
@@ -2547,7 +2547,7 @@ pub struct IRightTappedEventArgs2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISystemButtonEventController(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemButtonEventController {
@@ -2581,7 +2581,7 @@ pub struct ISystemButtonEventController_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISystemButtonEventControllerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemButtonEventControllerStatics {
@@ -2601,7 +2601,7 @@ pub struct ISystemButtonEventControllerStatics_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISystemFunctionButtonEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemFunctionButtonEventArgs {
@@ -2622,7 +2622,7 @@ pub struct ISystemFunctionButtonEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISystemFunctionLockChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemFunctionLockChangedEventArgs {
@@ -2644,7 +2644,7 @@ pub struct ISystemFunctionLockChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISystemFunctionLockIndicatorChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemFunctionLockIndicatorChangedEventArgs {
@@ -2666,7 +2666,7 @@ pub struct ISystemFunctionLockIndicatorChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITappedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITappedEventArgs {
@@ -2689,7 +2689,7 @@ pub struct ITappedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITappedEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITappedEventArgs2 {
