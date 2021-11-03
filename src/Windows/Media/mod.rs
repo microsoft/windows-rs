@@ -2055,6 +2055,7 @@ unsafe impl ::windows::runtime::Abi for MediaTimeRange {
 unsafe impl ::windows::runtime::RuntimeType for MediaTimeRange {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Media.MediaTimeRange;struct(Windows.Foundation.TimeSpan;i8);struct(Windows.Foundation.TimeSpan;i8))");
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::runtime::DefaultType for MediaTimeRange {
     type DefaultType = Self;
 }

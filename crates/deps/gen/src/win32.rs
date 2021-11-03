@@ -97,8 +97,7 @@ pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) ->
             quote! {
                 match #inner(#(#invoke_args,)*) {
                     ::std::result::Result::Ok(ok__) => {
-                        *#result = ::std::mem::transmute_copy(&ok__);
-                        ::std::mem::forget(ok__);
+                        *#result = ::std::mem::transmute(ok__);
                         ::windows::runtime::HRESULT(0)
                     }
                     ::std::result::Result::Err(err) => err.into()

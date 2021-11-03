@@ -1229,6 +1229,7 @@ unsafe impl ::windows::runtime::Abi for DisplayPresentationRate {
 unsafe impl ::windows::runtime::RuntimeType for DisplayPresentationRate {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Devices.Display.Core.DisplayPresentationRate;struct(Windows.Foundation.Numerics.Rational;u4;u4);i4)");
 }
+#[cfg(feature = "Foundation_Numerics")]
 impl ::windows::runtime::DefaultType for DisplayPresentationRate {
     type DefaultType = Self;
 }

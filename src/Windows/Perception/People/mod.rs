@@ -225,6 +225,7 @@ unsafe impl ::windows::runtime::Abi for HandMeshVertex {
 unsafe impl ::windows::runtime::RuntimeType for HandMeshVertex {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Perception.People.HandMeshVertex;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4))");
 }
+#[cfg(feature = "Foundation_Numerics")]
 impl ::windows::runtime::DefaultType for HandMeshVertex {
     type DefaultType = Self;
 }
@@ -542,6 +543,7 @@ unsafe impl ::windows::runtime::Abi for JointPose {
 unsafe impl ::windows::runtime::RuntimeType for JointPose {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Perception.People.JointPose;struct(Windows.Foundation.Numerics.Quaternion;f4;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4;enum(Windows.Perception.People.JointPoseAccuracy;i4))");
 }
+#[cfg(feature = "Foundation_Numerics")]
 impl ::windows::runtime::DefaultType for JointPose {
     type DefaultType = Self;
 }

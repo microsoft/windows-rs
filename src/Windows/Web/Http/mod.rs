@@ -2055,6 +2055,7 @@ unsafe impl ::windows::runtime::Abi for HttpProgress {
 unsafe impl ::windows::runtime::RuntimeType for HttpProgress {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Web.Http.HttpProgress;enum(Windows.Web.Http.HttpProgressStage;i4);u8;pinterface({61c17706-2d65-11e0-9ae8-d48564015472};u8);u8;pinterface({61c17706-2d65-11e0-9ae8-d48564015472};u8);u4)");
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::runtime::DefaultType for HttpProgress {
     type DefaultType = Self;
 }

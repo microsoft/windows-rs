@@ -3591,6 +3591,7 @@ unsafe impl ::windows::runtime::Abi for Duration {
 unsafe impl ::windows::runtime::RuntimeType for Duration {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.Xaml.Duration;struct(Windows.Foundation.TimeSpan;i8);enum(Windows.UI.Xaml.DurationType;i4))");
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::runtime::DefaultType for Duration {
     type DefaultType = Self;
 }

@@ -6959,6 +6959,7 @@ unsafe impl ::windows::runtime::Abi for MseTimeRange {
 unsafe impl ::windows::runtime::RuntimeType for MseTimeRange {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Media.Core.MseTimeRange;struct(Windows.Foundation.TimeSpan;i8);struct(Windows.Foundation.TimeSpan;i8))");
 }
+#[cfg(feature = "Foundation")]
 impl ::windows::runtime::DefaultType for MseTimeRange {
     type DefaultType = Self;
 }
