@@ -6,7 +6,7 @@ use bindings::Windows::Win32::System::WinRT::IWeakReferenceSource;
 /// This trait is automatically used by the generated bindings and should not be
 /// used directly.
 /// # Safety
-pub unsafe trait Interface: Abi {
+pub unsafe trait Interface: Sized {
     #[doc(hidden)]
     type Vtable;
 

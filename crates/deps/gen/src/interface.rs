@@ -81,8 +81,7 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
 
         let derive = if is_exclusive {
             quote! {}
-        }
-        else {
+        } else {
             quote! { #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug, ::windows::runtime::DeriveInterface)] }
         };
 
