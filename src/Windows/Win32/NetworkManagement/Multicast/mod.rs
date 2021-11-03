@@ -20,7 +20,6 @@ impl ::std::cmp::PartialEq for IPNG_ADDRESS {
 impl ::std::cmp::Eq for IPNG_ADDRESS {}
 unsafe impl ::windows::runtime::Abi for IPNG_ADDRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Multicast`*"]
 pub const MCAST_API_CURRENT_VERSION: i32 = 1i32;
@@ -56,7 +55,6 @@ impl ::std::cmp::PartialEq for MCAST_CLIENT_UID {
 impl ::std::cmp::Eq for MCAST_CLIENT_UID {}
 unsafe impl ::windows::runtime::Abi for MCAST_CLIENT_UID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -85,7 +83,6 @@ impl ::std::cmp::PartialEq for MCAST_LEASE_REQUEST {
 impl ::std::cmp::Eq for MCAST_LEASE_REQUEST {}
 unsafe impl ::windows::runtime::Abi for MCAST_LEASE_REQUEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -111,7 +108,6 @@ impl ::std::cmp::PartialEq for MCAST_LEASE_RESPONSE {
 impl ::std::cmp::Eq for MCAST_LEASE_RESPONSE {}
 unsafe impl ::windows::runtime::Abi for MCAST_LEASE_RESPONSE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -135,7 +131,6 @@ impl ::std::cmp::PartialEq for MCAST_SCOPE_CTX {
 impl ::std::cmp::Eq for MCAST_SCOPE_CTX {}
 unsafe impl ::windows::runtime::Abi for MCAST_SCOPE_CTX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -166,7 +161,6 @@ impl ::std::cmp::Eq for MCAST_SCOPE_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCAST_SCOPE_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Multicast`*"]
 #[inline]

@@ -33,7 +33,6 @@ impl ::std::cmp::Eq for ADRENTRY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for ADRENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -68,7 +67,6 @@ impl ::std::cmp::Eq for ADRLIST {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for ADRLIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -153,7 +151,6 @@ impl ::std::cmp::Eq for ADRPARM {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for ADRPARM {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -274,7 +271,6 @@ impl ::std::cmp::PartialEq for DTBLBUTTON {
 impl ::std::cmp::Eq for DTBLBUTTON {}
 unsafe impl ::windows::runtime::Abi for DTBLBUTTON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -303,7 +299,6 @@ impl ::std::cmp::PartialEq for DTBLCHECKBOX {
 impl ::std::cmp::Eq for DTBLCHECKBOX {}
 unsafe impl ::windows::runtime::Abi for DTBLCHECKBOX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -334,7 +329,6 @@ impl ::std::cmp::PartialEq for DTBLCOMBOBOX {
 impl ::std::cmp::Eq for DTBLCOMBOBOX {}
 unsafe impl ::windows::runtime::Abi for DTBLCOMBOBOX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -364,7 +358,6 @@ impl ::std::cmp::PartialEq for DTBLDDLBX {
 impl ::std::cmp::Eq for DTBLDDLBX {}
 unsafe impl ::windows::runtime::Abi for DTBLDDLBX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -394,7 +387,6 @@ impl ::std::cmp::PartialEq for DTBLEDIT {
 impl ::std::cmp::Eq for DTBLEDIT {}
 unsafe impl ::windows::runtime::Abi for DTBLEDIT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -422,7 +414,6 @@ impl ::std::cmp::PartialEq for DTBLGROUPBOX {
 impl ::std::cmp::Eq for DTBLGROUPBOX {}
 unsafe impl ::windows::runtime::Abi for DTBLGROUPBOX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -450,7 +441,6 @@ impl ::std::cmp::PartialEq for DTBLLABEL {
 impl ::std::cmp::Eq for DTBLLABEL {}
 unsafe impl ::windows::runtime::Abi for DTBLLABEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -479,7 +469,6 @@ impl ::std::cmp::PartialEq for DTBLLBX {
 impl ::std::cmp::Eq for DTBLLBX {}
 unsafe impl ::windows::runtime::Abi for DTBLLBX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -507,7 +496,6 @@ impl ::std::cmp::PartialEq for DTBLMVDDLBX {
 impl ::std::cmp::Eq for DTBLMVDDLBX {}
 unsafe impl ::windows::runtime::Abi for DTBLMVDDLBX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -535,7 +523,6 @@ impl ::std::cmp::PartialEq for DTBLMVLISTBOX {
 impl ::std::cmp::Eq for DTBLMVLISTBOX {}
 unsafe impl ::windows::runtime::Abi for DTBLMVLISTBOX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -565,7 +552,6 @@ impl ::std::cmp::PartialEq for DTBLPAGE {
 impl ::std::cmp::Eq for DTBLPAGE {}
 unsafe impl ::windows::runtime::Abi for DTBLPAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -596,7 +582,6 @@ impl ::std::cmp::PartialEq for DTBLRADIOBUTTON {
 impl ::std::cmp::Eq for DTBLRADIOBUTTON {}
 unsafe impl ::windows::runtime::Abi for DTBLRADIOBUTTON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -624,7 +609,6 @@ impl ::std::cmp::PartialEq for DTCTL {
 impl ::std::cmp::Eq for DTCTL {}
 unsafe impl ::windows::runtime::Abi for DTCTL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -658,7 +642,6 @@ impl ::std::cmp::PartialEq for DTCTL_0 {
 impl ::std::cmp::Eq for DTCTL_0 {}
 unsafe impl ::windows::runtime::Abi for DTCTL_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -683,7 +666,6 @@ impl ::std::cmp::PartialEq for DTPAGE {
 impl ::std::cmp::Eq for DTPAGE {}
 unsafe impl ::windows::runtime::Abi for DTPAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -706,7 +688,6 @@ impl ::std::cmp::PartialEq for DTPAGE_0 {
 impl ::std::cmp::Eq for DTPAGE_0 {}
 unsafe impl ::windows::runtime::Abi for DTPAGE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[inline]
@@ -762,7 +743,6 @@ impl ::std::cmp::PartialEq for ENTRYID {
 impl ::std::cmp::Eq for ENTRYID {}
 unsafe impl ::windows::runtime::Abi for ENTRYID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -793,7 +773,6 @@ impl ::std::cmp::PartialEq for ERROR_NOTIFICATION {
 impl ::std::cmp::Eq for ERROR_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for ERROR_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -822,7 +801,6 @@ impl ::std::cmp::PartialEq for EXTENDED_NOTIFICATION {
 impl ::std::cmp::Eq for EXTENDED_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for EXTENDED_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const E_IMAPI_BURN_VERIFICATION_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1062600697i32 as _);
@@ -1050,7 +1028,6 @@ impl ::std::cmp::PartialEq for FLATENTRY {
 impl ::std::cmp::Eq for FLATENTRY {}
 unsafe impl ::windows::runtime::Abi for FLATENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1079,7 +1056,6 @@ impl ::std::cmp::PartialEq for FLATENTRYLIST {
 impl ::std::cmp::Eq for FLATENTRYLIST {}
 unsafe impl ::windows::runtime::Abi for FLATENTRYLIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1108,7 +1084,6 @@ impl ::std::cmp::PartialEq for FLATMTSIDLIST {
 impl ::std::cmp::Eq for FLATMTSIDLIST {}
 unsafe impl ::windows::runtime::Abi for FLATMTSIDLIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type FNIDLE = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
@@ -1291,7 +1266,6 @@ impl ::std::convert::From<i32> for Gender {
 }
 unsafe impl ::windows::runtime::Abi for Gender {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 #[inline]
@@ -4295,7 +4269,6 @@ impl ::std::cmp::PartialEq for MAPIERROR {
 impl ::std::cmp::Eq for MAPIERROR {}
 unsafe impl ::windows::runtime::Abi for MAPIERROR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_System_Com`*"]
@@ -4354,7 +4327,6 @@ impl ::std::cmp::Eq for MAPINAMEID {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MAPINAMEID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4383,7 +4355,6 @@ impl ::std::cmp::Eq for MAPINAMEID_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MAPINAMEID_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4410,7 +4381,6 @@ impl ::std::cmp::PartialEq for MAPIUID {
 impl ::std::cmp::Eq for MAPIUID {}
 unsafe impl ::windows::runtime::Abi for MAPIUID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const MAPI_COMPOUND: u32 = 128u32;
@@ -4476,7 +4446,6 @@ impl ::std::cmp::PartialEq for MTSID {
 impl ::std::cmp::Eq for MTSID {}
 unsafe impl ::windows::runtime::Abi for MTSID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const MV_FLAG: u32 = 4096u32;
@@ -4521,7 +4490,6 @@ impl ::std::cmp::PartialEq for NEWMAIL_NOTIFICATION {
 impl ::std::cmp::Eq for NEWMAIL_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for NEWMAIL_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4551,7 +4519,6 @@ impl ::std::cmp::Eq for NOTIFICATION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4584,7 +4551,6 @@ impl ::std::cmp::Eq for NOTIFICATION_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for NOTIFICATION_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4612,7 +4578,6 @@ impl ::std::cmp::PartialEq for NOTIFKEY {
 impl ::std::cmp::Eq for NOTIFKEY {}
 unsafe impl ::windows::runtime::Abi for NOTIFKEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4659,7 +4624,6 @@ impl ::std::cmp::PartialEq for OBJECT_NOTIFICATION {
 impl ::std::cmp::Eq for OBJECT_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for OBJECT_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_System_Com`*"]
@@ -4771,7 +4735,6 @@ impl ::std::cmp::Eq for SAndRestriction {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SAndRestriction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4799,7 +4762,6 @@ impl ::std::cmp::PartialEq for SAppTimeArray {
 impl ::std::cmp::Eq for SAppTimeArray {}
 unsafe impl ::windows::runtime::Abi for SAppTimeArray {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4827,7 +4789,6 @@ impl ::std::cmp::PartialEq for SBinary {
 impl ::std::cmp::Eq for SBinary {}
 unsafe impl ::windows::runtime::Abi for SBinary {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4855,7 +4816,6 @@ impl ::std::cmp::PartialEq for SBinaryArray {
 impl ::std::cmp::Eq for SBinaryArray {}
 unsafe impl ::windows::runtime::Abi for SBinaryArray {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4884,7 +4844,6 @@ impl ::std::cmp::PartialEq for SBitMaskRestriction {
 impl ::std::cmp::Eq for SBitMaskRestriction {}
 unsafe impl ::windows::runtime::Abi for SBitMaskRestriction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4920,7 +4879,6 @@ impl ::std::cmp::Eq for SCommentRestriction {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SCommentRestriction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4949,7 +4907,6 @@ impl ::std::cmp::PartialEq for SComparePropsRestriction {
 impl ::std::cmp::Eq for SComparePropsRestriction {}
 unsafe impl ::windows::runtime::Abi for SComparePropsRestriction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4985,7 +4942,6 @@ impl ::std::cmp::Eq for SContentRestriction {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SContentRestriction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5020,7 +4976,6 @@ impl ::std::cmp::Eq for SCurrencyArray {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for SCurrencyArray {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5055,7 +5010,6 @@ impl ::std::cmp::Eq for SDateTimeArray {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SDateTimeArray {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5083,7 +5037,6 @@ impl ::std::cmp::PartialEq for SDoubleArray {
 impl ::std::cmp::Eq for SDoubleArray {}
 unsafe impl ::windows::runtime::Abi for SDoubleArray {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const SERVICE_UI_ALLOWED: u32 = 16u32;
@@ -5116,7 +5069,6 @@ impl ::std::cmp::PartialEq for SExistRestriction {
 impl ::std::cmp::Eq for SExistRestriction {}
 unsafe impl ::windows::runtime::Abi for SExistRestriction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5144,7 +5096,6 @@ impl ::std::cmp::PartialEq for SGuidArray {
 impl ::std::cmp::Eq for SGuidArray {}
 unsafe impl ::windows::runtime::Abi for SGuidArray {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5179,7 +5130,6 @@ impl ::std::cmp::Eq for SLPSTRArray {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SLPSTRArray {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5207,7 +5157,6 @@ impl ::std::cmp::PartialEq for SLargeIntegerArray {
 impl ::std::cmp::Eq for SLargeIntegerArray {}
 unsafe impl ::windows::runtime::Abi for SLargeIntegerArray {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5235,7 +5184,6 @@ impl ::std::cmp::PartialEq for SLongArray {
 impl ::std::cmp::Eq for SLongArray {}
 unsafe impl ::windows::runtime::Abi for SLongArray {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5270,7 +5218,6 @@ impl ::std::cmp::Eq for SNotRestriction {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SNotRestriction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5305,7 +5252,6 @@ impl ::std::cmp::Eq for SOrRestriction {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SOrRestriction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5334,7 +5280,6 @@ impl ::std::cmp::PartialEq for SPropProblem {
 impl ::std::cmp::Eq for SPropProblem {}
 unsafe impl ::windows::runtime::Abi for SPropProblem {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5362,7 +5307,6 @@ impl ::std::cmp::PartialEq for SPropProblemArray {
 impl ::std::cmp::Eq for SPropProblemArray {}
 unsafe impl ::windows::runtime::Abi for SPropProblemArray {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5390,7 +5334,6 @@ impl ::std::cmp::PartialEq for SPropTagArray {
 impl ::std::cmp::Eq for SPropTagArray {}
 unsafe impl ::windows::runtime::Abi for SPropTagArray {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5420,7 +5363,6 @@ impl ::std::cmp::Eq for SPropValue {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SPropValue {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5456,7 +5398,6 @@ impl ::std::cmp::Eq for SPropertyRestriction {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SPropertyRestriction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5484,7 +5425,6 @@ impl ::std::cmp::PartialEq for SRealArray {
 impl ::std::cmp::Eq for SRealArray {}
 unsafe impl ::windows::runtime::Abi for SRealArray {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5513,7 +5453,6 @@ impl ::std::cmp::Eq for SRestriction {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SRestriction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5551,7 +5490,6 @@ impl ::std::cmp::Eq for SRestriction_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SRestriction_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5587,7 +5525,6 @@ impl ::std::cmp::Eq for SRow {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SRow {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5622,7 +5559,6 @@ impl ::std::cmp::Eq for SRowSet {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SRowSet {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5650,7 +5586,6 @@ impl ::std::cmp::PartialEq for SShortArray {
 impl ::std::cmp::Eq for SShortArray {}
 unsafe impl ::windows::runtime::Abi for SShortArray {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5679,7 +5614,6 @@ impl ::std::cmp::PartialEq for SSizeRestriction {
 impl ::std::cmp::Eq for SSizeRestriction {}
 unsafe impl ::windows::runtime::Abi for SSizeRestriction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5707,7 +5641,6 @@ impl ::std::cmp::PartialEq for SSortOrder {
 impl ::std::cmp::Eq for SSortOrder {}
 unsafe impl ::windows::runtime::Abi for SSortOrder {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5737,7 +5670,6 @@ impl ::std::cmp::PartialEq for SSortOrderSet {
 impl ::std::cmp::Eq for SSortOrderSet {}
 unsafe impl ::windows::runtime::Abi for SSortOrderSet {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5772,7 +5704,6 @@ impl ::std::cmp::Eq for SSubRestriction {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SSubRestriction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5809,7 +5740,6 @@ impl ::std::cmp::Eq for STATUS_OBJECT_NOTIFICATION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for STATUS_OBJECT_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5844,7 +5774,6 @@ impl ::std::cmp::Eq for SWStringArray {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SWStringArray {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const S_IMAPI_BOTHADJUSTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(11141126i32 as _);
@@ -6098,7 +6027,6 @@ impl ::std::cmp::Eq for TABLE_NOTIFICATION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for TABLE_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const TABLE_RELOAD: u32 = 9u32;
@@ -6227,7 +6155,6 @@ impl ::std::cmp::Eq for WABEXTDISPLAY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WABEXTDISPLAY {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -6265,7 +6192,6 @@ impl ::std::cmp::Eq for WABIMPORTPARAM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WABIMPORTPARAM {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const WABOBJECT_LDAPURL_RETURN_MAILUSER: u32 = 1u32;
@@ -6321,7 +6247,6 @@ impl ::std::cmp::Eq for WAB_PARAM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WAB_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub const WAB_PROFILE_CONTENTS: u32 = 2097152u32;
@@ -6414,7 +6339,6 @@ impl ::std::cmp::Eq for _PV {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for _PV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -6445,5 +6369,4 @@ impl ::std::cmp::PartialEq for _flaglist {
 impl ::std::cmp::Eq for _flaglist {}
 unsafe impl ::windows::runtime::Abi for _flaglist {
     type Abi = Self;
-    type DefaultType = Self;
 }

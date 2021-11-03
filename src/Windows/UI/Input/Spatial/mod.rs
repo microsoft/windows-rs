@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialGestureRecognizer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialGestureRecognizer {
@@ -78,7 +77,6 @@ pub struct ISpatialGestureRecognizer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SpatialGestureSettings) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialGestureRecognizerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialGestureRecognizerFactory {
@@ -97,7 +95,6 @@ pub struct ISpatialGestureRecognizerFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, settings: SpatialGestureSettings, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialHoldCanceledEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialHoldCanceledEventArgs {
@@ -116,7 +113,6 @@ pub struct ISpatialHoldCanceledEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SpatialInteractionSourceKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialHoldCompletedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialHoldCompletedEventArgs {
@@ -135,7 +131,6 @@ pub struct ISpatialHoldCompletedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SpatialInteractionSourceKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialHoldStartedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialHoldStartedEventArgs {
@@ -156,7 +151,6 @@ pub struct ISpatialHoldStartedEventArgs_abi(
     #[cfg(not(feature = "Perception_Spatial"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialInteraction(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteraction {
@@ -175,7 +169,6 @@ pub struct ISpatialInteraction_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialInteractionController(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionController {
@@ -200,7 +193,6 @@ pub struct ISpatialInteractionController_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u16) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialInteractionController2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionController2 {
@@ -220,7 +212,6 @@ pub struct ISpatialInteractionController2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialInteractionController3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionController3 {
@@ -240,7 +231,6 @@ pub struct ISpatialInteractionController3_abi(
     #[cfg(not(feature = "Devices_Power"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialInteractionControllerProperties(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionControllerProperties {
@@ -265,7 +255,6 @@ pub struct ISpatialInteractionControllerProperties_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialInteractionDetectedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionDetectedEventArgs {
@@ -287,7 +276,6 @@ pub struct ISpatialInteractionDetectedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialInteractionDetectedEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionDetectedEventArgs2 {
@@ -306,7 +294,6 @@ pub struct ISpatialInteractionDetectedEventArgs2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialInteractionManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionManager {
@@ -350,7 +337,6 @@ pub struct ISpatialInteractionManager_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Perception")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialInteractionManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionManagerStatics {
@@ -369,7 +355,6 @@ pub struct ISpatialInteractionManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialInteractionManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionManagerStatics2 {
@@ -388,7 +373,6 @@ pub struct ISpatialInteractionManagerStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, kind: SpatialInteractionSourceKind, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialInteractionSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSource {
@@ -408,7 +392,6 @@ pub struct ISpatialInteractionSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SpatialInteractionSourceKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialInteractionSource2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSource2 {
@@ -432,7 +415,6 @@ pub struct ISpatialInteractionSource2_abi(
     #[cfg(not(feature = "Perception"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialInteractionSource3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSource3 {
@@ -451,7 +433,6 @@ pub struct ISpatialInteractionSource3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SpatialInteractionSourceHandedness) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialInteractionSource4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSource4 {
@@ -473,7 +454,6 @@ pub struct ISpatialInteractionSource4_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Perception_People")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialInteractionSourceEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSourceEventArgs {
@@ -492,7 +472,6 @@ pub struct ISpatialInteractionSourceEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialInteractionSourceEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSourceEventArgs2 {
@@ -511,7 +490,6 @@ pub struct ISpatialInteractionSourceEventArgs2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SpatialInteractionPressKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialInteractionSourceLocation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSourceLocation {
@@ -533,7 +511,6 @@ pub struct ISpatialInteractionSourceLocation_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialInteractionSourceLocation2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSourceLocation2 {
@@ -553,7 +530,6 @@ pub struct ISpatialInteractionSourceLocation2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialInteractionSourceLocation3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSourceLocation3 {
@@ -575,7 +551,6 @@ pub struct ISpatialInteractionSourceLocation3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialInteractionSourceProperties(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSourceProperties {
@@ -598,7 +573,6 @@ pub struct ISpatialInteractionSourceProperties_abi(
     #[cfg(not(feature = "Perception_Spatial"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialInteractionSourceState(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSourceState {
@@ -623,7 +597,6 @@ pub struct ISpatialInteractionSourceState_abi(
     #[cfg(not(feature = "Perception_Spatial"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialInteractionSourceState2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSourceState2 {
@@ -646,7 +619,6 @@ pub struct ISpatialInteractionSourceState2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialInteractionSourceState3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialInteractionSourceState3 {
@@ -666,7 +638,6 @@ pub struct ISpatialInteractionSourceState3_abi(
     #[cfg(not(feature = "Perception_People"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialManipulationCanceledEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialManipulationCanceledEventArgs {
@@ -685,7 +656,6 @@ pub struct ISpatialManipulationCanceledEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SpatialInteractionSourceKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialManipulationCompletedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialManipulationCompletedEventArgs {
@@ -706,7 +676,6 @@ pub struct ISpatialManipulationCompletedEventArgs_abi(
     #[cfg(not(feature = "Perception_Spatial"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialManipulationDelta(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialManipulationDelta {
@@ -726,7 +695,6 @@ pub struct ISpatialManipulationDelta_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialManipulationStartedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialManipulationStartedEventArgs {
@@ -747,7 +715,6 @@ pub struct ISpatialManipulationStartedEventArgs_abi(
     #[cfg(not(feature = "Perception_Spatial"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialManipulationUpdatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialManipulationUpdatedEventArgs {
@@ -768,7 +735,6 @@ pub struct ISpatialManipulationUpdatedEventArgs_abi(
     #[cfg(not(feature = "Perception_Spatial"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialNavigationCanceledEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialNavigationCanceledEventArgs {
@@ -787,7 +753,6 @@ pub struct ISpatialNavigationCanceledEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SpatialInteractionSourceKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialNavigationCompletedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialNavigationCompletedEventArgs {
@@ -808,7 +773,6 @@ pub struct ISpatialNavigationCompletedEventArgs_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialNavigationStartedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialNavigationStartedEventArgs {
@@ -832,7 +796,6 @@ pub struct ISpatialNavigationStartedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialNavigationUpdatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialNavigationUpdatedEventArgs {
@@ -853,7 +816,6 @@ pub struct ISpatialNavigationUpdatedEventArgs_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialPointerInteractionSourcePose(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialPointerInteractionSourcePose {
@@ -877,7 +839,6 @@ pub struct ISpatialPointerInteractionSourcePose_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialPointerInteractionSourcePose2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialPointerInteractionSourcePose2 {
@@ -898,7 +859,6 @@ pub struct ISpatialPointerInteractionSourcePose2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SpatialInteractionSourcePositionAccuracy) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialPointerPose(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialPointerPose {
@@ -920,7 +880,6 @@ pub struct ISpatialPointerPose_abi(
     #[cfg(not(feature = "Perception_People"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialPointerPose2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialPointerPose2 {
@@ -939,7 +898,6 @@ pub struct ISpatialPointerPose2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, source: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialPointerPose3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialPointerPose3 {
@@ -960,7 +918,6 @@ pub struct ISpatialPointerPose3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialPointerPoseStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialPointerPoseStatics {
@@ -980,7 +937,6 @@ pub struct ISpatialPointerPoseStatics_abi(
     #[cfg(not(all(feature = "Perception", feature = "Perception_Spatial")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialRecognitionEndedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialRecognitionEndedEventArgs {
@@ -999,7 +955,6 @@ pub struct ISpatialRecognitionEndedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SpatialInteractionSourceKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialRecognitionStartedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialRecognitionStartedEventArgs {
@@ -1021,7 +976,6 @@ pub struct ISpatialRecognitionStartedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gesture: SpatialGestureSettings, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpatialTappedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpatialTappedEventArgs {
@@ -1331,10 +1285,12 @@ impl ::std::convert::From<u32> for SpatialGestureSettings {
 }
 unsafe impl ::windows::runtime::Abi for SpatialGestureSettings {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SpatialGestureSettings {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialGestureSettings;u4)");
+}
+impl ::windows::runtime::DefaultType for SpatialGestureSettings {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SpatialGestureSettings {
     type Output = Self;
@@ -1845,10 +1801,12 @@ impl ::std::convert::From<i32> for SpatialInteractionPressKind {
 }
 unsafe impl ::windows::runtime::Abi for SpatialInteractionPressKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SpatialInteractionPressKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionPressKind;i4)");
+}
+impl ::windows::runtime::DefaultType for SpatialInteractionPressKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
@@ -2001,10 +1959,12 @@ impl ::std::convert::From<i32> for SpatialInteractionSourceHandedness {
 }
 unsafe impl ::windows::runtime::Abi for SpatialInteractionSourceHandedness {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SpatialInteractionSourceHandedness {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionSourceHandedness;i4)");
+}
+impl ::windows::runtime::DefaultType for SpatialInteractionSourceHandedness {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2023,10 +1983,12 @@ impl ::std::convert::From<i32> for SpatialInteractionSourceKind {
 }
 unsafe impl ::windows::runtime::Abi for SpatialInteractionSourceKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SpatialInteractionSourceKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionSourceKind;i4)");
+}
+impl ::windows::runtime::DefaultType for SpatialInteractionSourceKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]
@@ -2113,10 +2075,12 @@ impl ::std::convert::From<i32> for SpatialInteractionSourcePositionAccuracy {
 }
 unsafe impl ::windows::runtime::Abi for SpatialInteractionSourcePositionAccuracy {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SpatialInteractionSourcePositionAccuracy {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionSourcePositionAccuracy;i4)");
+}
+impl ::windows::runtime::DefaultType for SpatialInteractionSourcePositionAccuracy {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Input_Spatial`*"]
 #[repr(transparent)]

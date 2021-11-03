@@ -25,7 +25,6 @@ impl ::std::convert::From<i32> for RM_APP_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for RM_APP_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RestartManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -45,7 +44,6 @@ impl ::std::convert::From<i32> for RM_APP_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RM_APP_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RestartManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -61,7 +59,6 @@ impl ::std::convert::From<i32> for RM_FILTER_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for RM_FILTER_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -92,7 +89,6 @@ impl ::std::cmp::Eq for RM_FILTER_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RM_FILTER_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -122,7 +118,6 @@ impl ::std::cmp::Eq for RM_FILTER_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RM_FILTER_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RestartManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -139,7 +134,6 @@ impl ::std::convert::From<i32> for RM_FILTER_TRIGGER {
 }
 unsafe impl ::windows::runtime::Abi for RM_FILTER_TRIGGER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RestartManager`*"]
 pub const RM_INVALID_PROCESS: i32 = -1i32;
@@ -191,7 +185,6 @@ impl ::std::cmp::Eq for RM_PROCESS_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RM_PROCESS_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RestartManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -210,7 +203,6 @@ impl ::std::convert::From<i32> for RM_REBOOT_REASON {
 }
 unsafe impl ::windows::runtime::Abi for RM_REBOOT_REASON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RestartManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -225,7 +217,6 @@ impl ::std::convert::From<i32> for RM_SHUTDOWN_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RM_SHUTDOWN_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -260,7 +251,6 @@ impl ::std::cmp::Eq for RM_UNIQUE_PROCESS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RM_UNIQUE_PROCESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type RM_WRITE_STATUS_CALLBACK = unsafe extern "system" fn(npercentcomplete: u32);
 #[cfg(feature = "Win32_Foundation")]

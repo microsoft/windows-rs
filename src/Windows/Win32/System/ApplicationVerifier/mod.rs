@@ -26,7 +26,6 @@ impl ::std::cmp::PartialEq for AVRF_BACKTRACE_INFORMATION {
 impl ::std::cmp::Eq for AVRF_BACKTRACE_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for AVRF_BACKTRACE_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type AVRF_HANDLEOPERATION_ENUMERATE_CALLBACK = unsafe extern "system" fn(handleoperation: *mut AVRF_HANDLE_OPERATION, enumerationcontext: *mut ::std::ffi::c_void, enumerationlevel: *mut u32) -> u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -59,7 +58,6 @@ impl ::std::cmp::PartialEq for AVRF_HANDLE_OPERATION {
 impl ::std::cmp::Eq for AVRF_HANDLE_OPERATION {}
 unsafe impl ::windows::runtime::Abi for AVRF_HANDLE_OPERATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type AVRF_HEAPALLOCATION_ENUMERATE_CALLBACK = unsafe extern "system" fn(heapallocation: *mut AVRF_HEAP_ALLOCATION, enumerationcontext: *mut ::std::ffi::c_void, enumerationlevel: *mut u32) -> u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -105,7 +103,6 @@ impl ::std::cmp::PartialEq for AVRF_HEAP_ALLOCATION {
 impl ::std::cmp::Eq for AVRF_HEAP_ALLOCATION {}
 unsafe impl ::windows::runtime::Abi for AVRF_HEAP_ALLOCATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationVerifier`*"]
 pub const AVRF_MAX_TRACES: u32 = 32u32;
@@ -123,7 +120,6 @@ impl ::std::convert::From<u32> for VERIFIER_ENUM_RESOURCE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for VERIFIER_ENUM_RESOURCE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for VERIFIER_ENUM_RESOURCE_FLAGS {
     type Output = Self;
@@ -182,7 +178,6 @@ impl ::std::convert::From<i32> for eAvrfResourceTypes {
 }
 unsafe impl ::windows::runtime::Abi for eAvrfResourceTypes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationVerifier`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -199,7 +194,6 @@ impl ::std::convert::From<i32> for eHANDLE_TRACE_OPERATIONS {
 }
 unsafe impl ::windows::runtime::Abi for eHANDLE_TRACE_OPERATIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationVerifier`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -215,7 +209,6 @@ impl ::std::convert::From<i32> for eHeapAllocationState {
 }
 unsafe impl ::windows::runtime::Abi for eHeapAllocationState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationVerifier`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -230,7 +223,6 @@ impl ::std::convert::From<i32> for eHeapEnumerationLevel {
 }
 unsafe impl ::windows::runtime::Abi for eHeapEnumerationLevel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationVerifier`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -246,5 +238,4 @@ impl ::std::convert::From<i32> for eUserAllocationState {
 }
 unsafe impl ::windows::runtime::Abi for eUserAllocationState {
     type Abi = Self;
-    type DefaultType = Self;
 }

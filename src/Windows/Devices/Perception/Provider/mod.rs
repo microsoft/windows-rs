@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKnownPerceptionFrameKindStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownPerceptionFrameKindStatics {
@@ -21,7 +20,6 @@ pub struct IKnownPerceptionFrameKindStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionControlGroup(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionControlGroup {
@@ -41,7 +39,6 @@ pub struct IPerceptionControlGroup_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionControlGroupFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionControlGroupFactory {
@@ -61,7 +58,6 @@ pub struct IPerceptionControlGroupFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionCorrelation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionCorrelation {
@@ -84,7 +80,6 @@ pub struct IPerceptionCorrelation_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionCorrelationFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionCorrelationFactory {
@@ -104,7 +99,6 @@ pub struct IPerceptionCorrelationFactory_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionCorrelationGroup(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionCorrelationGroup {
@@ -124,7 +118,6 @@ pub struct IPerceptionCorrelationGroup_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionCorrelationGroupFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionCorrelationGroupFactory {
@@ -144,7 +137,6 @@ pub struct IPerceptionCorrelationGroupFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionFaceAuthenticationGroup(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionFaceAuthenticationGroup {
@@ -164,7 +156,6 @@ pub struct IPerceptionFaceAuthenticationGroup_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionFaceAuthenticationGroupFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionFaceAuthenticationGroupFactory {
@@ -184,7 +175,6 @@ pub struct IPerceptionFaceAuthenticationGroupFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionFrame(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionFrame {
@@ -318,7 +308,6 @@ pub struct IPerceptionFrameProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionFrameProviderInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionFrameProviderInfo {
@@ -411,7 +400,6 @@ pub struct IPerceptionFrameProviderManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, frameproviderinfo: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionFrameProviderManagerServiceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionFrameProviderManagerServiceStatics {
@@ -439,7 +427,6 @@ pub struct IPerceptionFrameProviderManagerServiceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, provider: ::windows::runtime::RawPtr, frame: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionPropertyChangeRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionPropertyChangeRequest {
@@ -463,7 +450,6 @@ pub struct IPerceptionPropertyChangeRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionVideoFrameAllocator(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionVideoFrameAllocator {
@@ -484,7 +470,6 @@ pub struct IPerceptionVideoFrameAllocator_abi(
     #[cfg(not(feature = "Media"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPerceptionVideoFrameAllocatorFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerceptionVideoFrameAllocatorFactory {
@@ -1071,7 +1056,7 @@ impl<F: FnMut(&::std::option::Option<PerceptionFaceAuthenticationGroup>) -> ::wi
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        match ((*this).invoke)(&*(&sender as *const <PerceptionFaceAuthenticationGroup as ::windows::runtime::Abi>::Abi as *const <PerceptionFaceAuthenticationGroup as ::windows::runtime::Abi>::DefaultType)) {
+        match ((*this).invoke)(&*(&sender as *const <PerceptionFaceAuthenticationGroup as ::windows::runtime::Abi>::Abi as *const <PerceptionFaceAuthenticationGroup as ::windows::runtime::DefaultType>::DefaultType)) {
             ::std::result::Result::Ok(ok__) => {
                 *result__ = ::std::mem::transmute_copy(&ok__);
                 ::std::mem::forget(ok__);
@@ -1151,7 +1136,7 @@ impl<F: FnMut(&::std::option::Option<PerceptionFaceAuthenticationGroup>) -> ::wi
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <PerceptionFaceAuthenticationGroup as ::windows::runtime::Abi>::Abi as *const <PerceptionFaceAuthenticationGroup as ::windows::runtime::Abi>::DefaultType)).into()
+        ((*this).invoke)(&*(&sender as *const <PerceptionFaceAuthenticationGroup as ::windows::runtime::Abi>::Abi as *const <PerceptionFaceAuthenticationGroup as ::windows::runtime::DefaultType>::DefaultType)).into()
     }
 }
 #[doc = "*Required features: `Devices_Perception_Provider`*"]

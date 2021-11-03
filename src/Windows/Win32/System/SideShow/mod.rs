@@ -24,7 +24,6 @@ impl ::std::cmp::PartialEq for APPLICATION_EVENT_DATA {
 impl ::std::cmp::Eq for APPLICATION_EVENT_DATA {}
 unsafe impl ::windows::runtime::Abi for APPLICATION_EVENT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 pub const CONTENT_ID_GLANCE: u32 = 0u32;
@@ -53,7 +52,6 @@ impl ::std::cmp::PartialEq for CONTENT_MISSING_EVENT_DATA {
 impl ::std::cmp::Eq for CONTENT_MISSING_EVENT_DATA {}
 unsafe impl ::windows::runtime::Abi for CONTENT_MISSING_EVENT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -76,7 +74,6 @@ impl ::std::cmp::PartialEq for DEVICE_USER_CHANGE_EVENT_DATA {
 impl ::std::cmp::Eq for DEVICE_USER_CHANGE_EVENT_DATA {}
 unsafe impl ::windows::runtime::Abi for DEVICE_USER_CHANGE_EVENT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -101,7 +98,6 @@ impl ::std::cmp::PartialEq for EVENT_DATA_HEADER {
 impl ::std::cmp::Eq for EVENT_DATA_HEADER {}
 unsafe impl ::windows::runtime::Abi for EVENT_DATA_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const GUID_DEVINTERFACE_SIDESHOW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(355358737, 65209, 19200, [144, 244, 211, 41, 71, 174, 22, 129]);
 #[doc = "*Required features: `Win32_System_SideShow`*"]
@@ -585,7 +581,6 @@ impl ::std::cmp::PartialEq for NEW_EVENT_DATA_AVAILABLE {
 impl ::std::cmp::Eq for NEW_EVENT_DATA_AVAILABLE {}
 unsafe impl ::windows::runtime::Abi for NEW_EVENT_DATA_AVAILABLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -610,7 +605,6 @@ impl ::std::convert::From<i32> for SCF_BUTTON_IDS {
 }
 unsafe impl ::windows::runtime::Abi for SCF_BUTTON_IDS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -641,7 +635,6 @@ impl ::std::cmp::PartialEq for SCF_CONTEXTMENU_EVENT {
 impl ::std::cmp::Eq for SCF_CONTEXTMENU_EVENT {}
 unsafe impl ::windows::runtime::Abi for SCF_CONTEXTMENU_EVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -669,7 +662,6 @@ impl ::std::cmp::PartialEq for SCF_EVENT_HEADER {
 impl ::std::cmp::Eq for SCF_EVENT_HEADER {}
 unsafe impl ::windows::runtime::Abi for SCF_EVENT_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_SideShow`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -685,7 +677,6 @@ impl ::std::convert::From<i32> for SCF_EVENT_IDS {
 }
 unsafe impl ::windows::runtime::Abi for SCF_EVENT_IDS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -715,7 +706,6 @@ impl ::std::cmp::PartialEq for SCF_MENUACTION_EVENT {
 impl ::std::cmp::Eq for SCF_MENUACTION_EVENT {}
 unsafe impl ::windows::runtime::Abi for SCF_MENUACTION_EVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -744,7 +734,6 @@ impl ::std::cmp::PartialEq for SCF_NAVIGATION_EVENT {
 impl ::std::cmp::Eq for SCF_NAVIGATION_EVENT {}
 unsafe impl ::windows::runtime::Abi for SCF_NAVIGATION_EVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const SIDESHOW_APPLICATION_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1286959866, 7483, 18867, [161, 122, 46, 107, 255, 5, 40, 84]);
 pub const SIDESHOW_CAPABILITY_DEVICE_PROPERTIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2327611560, 34171, 19159, [163, 90, 181, 148, 47, 73, 43, 153]);
@@ -762,7 +751,6 @@ impl ::std::convert::From<i32> for SIDESHOW_COLOR_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SIDESHOW_COLOR_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const SIDESHOW_CONTENT_MISSING_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1342700456, 54035, 17311, [190, 162, 165, 2, 1, 211, 233, 168]);
 pub const SIDESHOW_ENDPOINT_ICAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1308571317, 40414, 20342, [154, 42, 150, 67, 80, 71, 6, 61]);
@@ -785,7 +773,6 @@ impl ::std::convert::From<i32> for SIDESHOW_SCREEN_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SIDESHOW_SCREEN_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const SIDESHOW_USER_CHANGE_REQUEST_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1342793532, 16253, 19582, [153, 113, 234, 162, 233, 31, 21, 117]);
 pub const SideShowKeyCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3753630712, 6366, 18872, [131, 220, 235, 199, 39, 198, 45, 148]);

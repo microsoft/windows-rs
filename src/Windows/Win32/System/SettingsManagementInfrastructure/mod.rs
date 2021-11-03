@@ -855,7 +855,6 @@ impl ::std::convert::From<i32> for WcmDataType {
 }
 unsafe impl ::windows::runtime::Abi for WcmDataType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_SettingsManagementInfrastructure`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -870,7 +869,6 @@ impl ::std::convert::From<i32> for WcmNamespaceAccess {
 }
 unsafe impl ::windows::runtime::Abi for WcmNamespaceAccess {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_SettingsManagementInfrastructure`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -886,7 +884,6 @@ impl ::std::convert::From<i32> for WcmNamespaceEnumerationFlags {
 }
 unsafe impl ::windows::runtime::Abi for WcmNamespaceEnumerationFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_SettingsManagementInfrastructure`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -903,7 +900,6 @@ impl ::std::convert::From<i32> for WcmRestrictionFacets {
 }
 unsafe impl ::windows::runtime::Abi for WcmRestrictionFacets {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_SettingsManagementInfrastructure`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -919,7 +915,6 @@ impl ::std::convert::From<i32> for WcmSettingType {
 }
 unsafe impl ::windows::runtime::Abi for WcmSettingType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_SettingsManagementInfrastructure`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -934,7 +929,6 @@ impl ::std::convert::From<i32> for WcmTargetMode {
 }
 unsafe impl ::windows::runtime::Abi for WcmTargetMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_SettingsManagementInfrastructure`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -952,5 +946,4 @@ impl ::std::convert::From<i32> for WcmUserStatus {
 }
 unsafe impl ::windows::runtime::Abi for WcmUserStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }

@@ -23,7 +23,6 @@ impl ::std::convert::From<i32> for ACCOUNTINGPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for ACCOUNTINGPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -39,7 +38,6 @@ impl ::std::convert::From<i32> for ATTRIBUTEFILTER {
 }
 unsafe impl ::windows::runtime::Abi for ATTRIBUTEFILTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -295,7 +293,6 @@ impl ::std::convert::From<u32> for ATTRIBUTEID {
 }
 unsafe impl ::windows::runtime::Abi for ATTRIBUTEID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ATTRIBUTEID {
     type Output = Self;
@@ -343,7 +340,6 @@ impl ::std::convert::From<i32> for ATTRIBUTEINFO {
 }
 unsafe impl ::windows::runtime::Abi for ATTRIBUTEINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -374,7 +370,6 @@ impl ::std::convert::From<i32> for ATTRIBUTEPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for ATTRIBUTEPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -394,7 +389,6 @@ impl ::std::convert::From<i32> for ATTRIBUTERESTRICTIONS {
 }
 unsafe impl ::windows::runtime::Abi for ATTRIBUTERESTRICTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -417,7 +411,6 @@ impl ::std::convert::From<i32> for ATTRIBUTESYNTAX {
 }
 unsafe impl ::windows::runtime::Abi for ATTRIBUTESYNTAX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -442,7 +435,6 @@ impl ::std::convert::From<i32> for AUTHENTICATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for AUTHENTICATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -463,7 +455,6 @@ impl ::std::convert::From<i32> for CLIENTPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for CLIENTPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -477,7 +468,6 @@ impl ::std::convert::From<i32> for CONDITIONPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for CONDITIONPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -492,7 +482,6 @@ impl ::std::convert::From<i32> for DICTIONARYPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for DICTIONARYPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -514,7 +503,6 @@ impl ::std::convert::From<i32> for IASCOMMONPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for IASCOMMONPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -530,7 +518,6 @@ impl ::std::convert::From<i32> for IASCOMPONENTPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for IASCOMPONENTPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -545,7 +532,6 @@ impl ::std::convert::From<i32> for IASDATASTORE {
 }
 unsafe impl ::windows::runtime::Abi for IASDATASTORE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -562,7 +548,6 @@ impl ::std::convert::From<i32> for IASDOMAINTYPE {
 }
 unsafe impl ::windows::runtime::Abi for IASDOMAINTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -589,7 +574,6 @@ impl ::std::convert::From<i32> for IASOSTYPE {
 }
 unsafe impl ::windows::runtime::Abi for IASOSTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -612,7 +596,6 @@ impl ::std::convert::From<i32> for IASPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for IASPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -626,7 +609,6 @@ impl ::std::convert::From<i32> for IDENTITY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for IDENTITY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -640,7 +622,6 @@ impl ::std::convert::From<i32> for IPFILTERPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for IPFILTERPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[repr(transparent)]
@@ -1449,7 +1430,6 @@ impl ::std::convert::From<i32> for NAMESPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for NAMESPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1464,7 +1444,6 @@ impl ::std::convert::From<i32> for NAPPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for NAPPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1482,7 +1461,6 @@ impl ::std::convert::From<i32> for NEW_LOG_FILE_FREQUENCY {
 }
 unsafe impl ::windows::runtime::Abi for NEW_LOG_FILE_FREQUENCY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1498,7 +1476,6 @@ impl ::std::convert::From<i32> for NTEVENTLOGPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for NTEVENTLOGPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1512,7 +1489,6 @@ impl ::std::convert::From<i32> for NTSAMPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for NTSAMPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1534,7 +1510,6 @@ impl ::std::convert::From<i32> for POLICYPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for POLICYPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type PRADIUS_EXTENSION_FREE_ATTRIBUTES = unsafe extern "system" fn(pattrs: *mut RADIUS_ATTRIBUTE);
 pub type PRADIUS_EXTENSION_INIT = unsafe extern "system" fn() -> u32;
@@ -1555,7 +1530,6 @@ impl ::std::convert::From<i32> for PROFILEPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for PROFILEPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1570,7 +1544,6 @@ impl ::std::convert::From<i32> for PROTOCOLPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for PROTOCOLPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1587,7 +1560,6 @@ impl ::std::convert::From<i32> for RADIUSPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for RADIUSPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1601,7 +1573,6 @@ impl ::std::convert::From<i32> for RADIUSPROXYPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for RADIUSPROXYPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1615,7 +1586,6 @@ impl ::std::convert::From<i32> for RADIUSSERVERGROUPPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for RADIUSSERVERGROUPPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1642,7 +1612,6 @@ impl ::std::convert::From<i32> for RADIUSSERVERPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for RADIUSSERVERPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1658,7 +1627,6 @@ impl ::std::convert::From<i32> for RADIUS_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for RADIUS_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1683,7 +1651,6 @@ impl ::std::cmp::PartialEq for RADIUS_ATTRIBUTE {
 impl ::std::cmp::Eq for RADIUS_ATTRIBUTE {}
 unsafe impl ::windows::runtime::Abi for RADIUS_ATTRIBUTE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1706,7 +1673,6 @@ impl ::std::cmp::PartialEq for RADIUS_ATTRIBUTE_0 {
 impl ::std::cmp::Eq for RADIUS_ATTRIBUTE_0 {}
 unsafe impl ::windows::runtime::Abi for RADIUS_ATTRIBUTE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1739,7 +1705,6 @@ impl ::std::cmp::PartialEq for RADIUS_ATTRIBUTE_ARRAY {
 impl ::std::cmp::Eq for RADIUS_ATTRIBUTE_ARRAY {}
 unsafe impl ::windows::runtime::Abi for RADIUS_ATTRIBUTE_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1831,7 +1796,6 @@ impl ::std::convert::From<i32> for RADIUS_ATTRIBUTE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RADIUS_ATTRIBUTE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1851,7 +1815,6 @@ impl ::std::convert::From<i32> for RADIUS_AUTHENTICATION_PROVIDER {
 }
 unsafe impl ::windows::runtime::Abi for RADIUS_AUTHENTICATION_PROVIDER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1872,7 +1835,6 @@ impl ::std::convert::From<i32> for RADIUS_CODE {
 }
 unsafe impl ::windows::runtime::Abi for RADIUS_CODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1891,7 +1853,6 @@ impl ::std::convert::From<i32> for RADIUS_DATA_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RADIUS_DATA_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1934,7 +1895,6 @@ impl ::std::cmp::PartialEq for RADIUS_EXTENSION_CONTROL_BLOCK {
 impl ::std::cmp::Eq for RADIUS_EXTENSION_CONTROL_BLOCK {}
 unsafe impl ::windows::runtime::Abi for RADIUS_EXTENSION_CONTROL_BLOCK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1949,7 +1909,6 @@ impl ::std::convert::From<i32> for RADIUS_EXTENSION_POINT {
 }
 unsafe impl ::windows::runtime::Abi for RADIUS_EXTENSION_POINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 pub const RADIUS_EXTENSION_VERSION: u32 = 1u32;
@@ -1969,7 +1928,6 @@ impl ::std::convert::From<i32> for RADIUS_REJECT_REASON_CODE {
 }
 unsafe impl ::windows::runtime::Abi for RADIUS_REJECT_REASON_CODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1999,7 +1957,6 @@ impl ::std::cmp::PartialEq for RADIUS_VSA_FORMAT {
 impl ::std::cmp::Eq for RADIUS_VSA_FORMAT {}
 unsafe impl ::windows::runtime::Abi for RADIUS_VSA_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2013,7 +1970,6 @@ impl ::std::convert::From<i32> for REMEDIATIONSERVERGROUPPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for REMEDIATIONSERVERGROUPPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2028,7 +1984,6 @@ impl ::std::convert::From<i32> for REMEDIATIONSERVERPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for REMEDIATIONSERVERPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2042,7 +1997,6 @@ impl ::std::convert::From<i32> for REMEDIATIONSERVERSPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for REMEDIATIONSERVERSPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2059,7 +2013,6 @@ impl ::std::convert::From<i32> for SERVICE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SERVICE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2073,7 +2026,6 @@ impl ::std::convert::From<i32> for SHAREDSECRETPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for SHAREDSECRETPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2089,7 +2041,6 @@ impl ::std::convert::From<i32> for SHVTEMPLATEPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for SHVTEMPLATEPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2110,7 +2061,6 @@ impl ::std::convert::From<i32> for SHV_COMBINATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SHV_COMBINATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const SdoMachine: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3911289575, 40593, 4561, [191, 96, 0, 128, 199, 132, 107, 192]);
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
@@ -2136,7 +2086,6 @@ impl ::std::convert::From<i32> for TEMPLATESPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for TEMPLATESPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2165,7 +2114,6 @@ impl ::std::convert::From<i32> for USERPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for USERPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2179,5 +2127,4 @@ impl ::std::convert::From<i32> for VENDORPROPERTIES {
 }
 unsafe impl ::windows::runtime::Abi for VENDORPROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }

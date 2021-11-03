@@ -104,8 +104,8 @@ impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, e: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         ((*this).invoke)(
-            &*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::DefaultType),
-            &*(&e as *const <AddPagesEventArgs as ::windows::runtime::Abi>::Abi as *const <AddPagesEventArgs as ::windows::runtime::Abi>::DefaultType),
+            &*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::DefaultType>::DefaultType),
+            &*(&e as *const <AddPagesEventArgs as ::windows::runtime::Abi>::Abi as *const <AddPagesEventArgs as ::windows::runtime::DefaultType>::DefaultType),
         )
         .into()
     }
@@ -214,14 +214,13 @@ impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, e: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         ((*this).invoke)(
-            &*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::DefaultType),
-            &*(&e as *const <GetPreviewPageEventArgs as ::windows::runtime::Abi>::Abi as *const <GetPreviewPageEventArgs as ::windows::runtime::Abi>::DefaultType),
+            &*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::DefaultType>::DefaultType),
+            &*(&e as *const <GetPreviewPageEventArgs as ::windows::runtime::Abi>::Abi as *const <GetPreviewPageEventArgs as ::windows::runtime::DefaultType>::DefaultType),
         )
         .into()
     }
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAddPagesEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAddPagesEventArgs {
@@ -241,7 +240,6 @@ pub struct IAddPagesEventArgs_abi(
     #[cfg(not(feature = "Graphics_Printing"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGetPreviewPageEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGetPreviewPageEventArgs {
@@ -260,7 +258,6 @@ pub struct IGetPreviewPageEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPaginateEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaginateEventArgs {
@@ -281,7 +278,6 @@ pub struct IPaginateEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintDocument(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintDocument {
@@ -318,7 +314,6 @@ pub struct IPrintDocument_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintDocumentFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintDocumentFactory {
@@ -337,7 +332,6 @@ pub struct IPrintDocumentFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baseinterface: ::windows::runtime::RawPtr, innerinterface: *mut ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintDocumentStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintDocumentStatics {
@@ -468,8 +462,8 @@ impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, e: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         ((*this).invoke)(
-            &*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::DefaultType),
-            &*(&e as *const <PaginateEventArgs as ::windows::runtime::Abi>::Abi as *const <PaginateEventArgs as ::windows::runtime::Abi>::DefaultType),
+            &*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::DefaultType>::DefaultType),
+            &*(&e as *const <PaginateEventArgs as ::windows::runtime::Abi>::Abi as *const <PaginateEventArgs as ::windows::runtime::DefaultType>::DefaultType),
         )
         .into()
     }
@@ -489,10 +483,12 @@ impl ::std::convert::From<i32> for PreviewPageCountType {
 }
 unsafe impl ::windows::runtime::Abi for PreviewPageCountType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PreviewPageCountType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Printing.PreviewPageCountType;i4)");
+}
+impl ::windows::runtime::DefaultType for PreviewPageCountType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Printing`*"]
 #[repr(transparent)]

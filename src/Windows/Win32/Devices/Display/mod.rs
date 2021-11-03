@@ -19,7 +19,6 @@ impl ::std::convert::From<i32> for AR_STATE {
 }
 unsafe impl ::windows::runtime::Abi for AR_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -48,7 +47,6 @@ impl ::std::cmp::PartialEq for Adapter {
 impl ::std::cmp::Eq for Adapter {}
 unsafe impl ::windows::runtime::Abi for Adapter {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -76,7 +74,6 @@ impl ::std::cmp::PartialEq for Adapters {
 impl ::std::cmp::Eq for Adapters {}
 unsafe impl ::windows::runtime::Abi for Adapters {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -94,7 +91,6 @@ impl ::std::convert::From<i32> for BACKLIGHT_OPTIMIZATION_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for BACKLIGHT_OPTIMIZATION_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -123,7 +119,6 @@ impl ::std::cmp::PartialEq for BACKLIGHT_REDUCTION_GAMMA_RAMP {
 impl ::std::cmp::Eq for BACKLIGHT_REDUCTION_GAMMA_RAMP {}
 unsafe impl ::windows::runtime::Abi for BACKLIGHT_REDUCTION_GAMMA_RAMP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -151,7 +146,6 @@ impl ::std::cmp::PartialEq for BANK_POSITION {
 impl ::std::cmp::Eq for BANK_POSITION {}
 unsafe impl ::windows::runtime::Abi for BANK_POSITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const BITMAP_ARRAY_BYTE: u32 = 3u32;
@@ -177,7 +171,6 @@ impl ::std::convert::From<i32> for BRIGHTNESS_INTERFACE_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for BRIGHTNESS_INTERFACE_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -205,7 +198,6 @@ impl ::std::cmp::PartialEq for BRIGHTNESS_LEVEL {
 impl ::std::cmp::Eq for BRIGHTNESS_LEVEL {}
 unsafe impl ::windows::runtime::Abi for BRIGHTNESS_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const BRIGHTNESS_MAX_LEVEL_COUNT: u32 = 103u32;
@@ -238,7 +230,6 @@ impl ::std::cmp::PartialEq for BRIGHTNESS_NIT_RANGE {
 impl ::std::cmp::Eq for BRIGHTNESS_NIT_RANGE {}
 unsafe impl ::windows::runtime::Abi for BRIGHTNESS_NIT_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -268,7 +259,6 @@ impl ::std::cmp::PartialEq for BRIGHTNESS_NIT_RANGES {
 impl ::std::cmp::Eq for BRIGHTNESS_NIT_RANGES {}
 unsafe impl ::windows::runtime::Abi for BRIGHTNESS_NIT_RANGES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -283,7 +273,6 @@ impl ::std::convert::From<i32> for BlackScreenDiagnosticsCalloutParam {
 }
 unsafe impl ::windows::runtime::Abi for BlackScreenDiagnosticsCalloutParam {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -312,7 +301,6 @@ impl ::std::cmp::Eq for CHAR_IMAGE_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
 unsafe impl ::windows::runtime::Abi for CHAR_IMAGE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const CHAR_TYPE_LEADING: u32 = 2u32;
@@ -346,7 +334,6 @@ impl ::std::cmp::PartialEq for CHROMATICITY_COORDINATE {
 impl ::std::cmp::Eq for CHROMATICITY_COORDINATE {}
 unsafe impl ::windows::runtime::Abi for CHROMATICITY_COORDINATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -369,7 +356,6 @@ impl ::std::cmp::PartialEq for COLORSPACE_TRANSFORM {
 impl ::std::cmp::Eq for COLORSPACE_TRANSFORM {}
 unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -394,7 +380,6 @@ impl ::std::cmp::PartialEq for COLORSPACE_TRANSFORM_0 {
 impl ::std::cmp::Eq for COLORSPACE_TRANSFORM_0 {}
 unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -417,7 +402,6 @@ impl ::std::cmp::PartialEq for COLORSPACE_TRANSFORM_1DLUT_CAP {
 impl ::std::cmp::Eq for COLORSPACE_TRANSFORM_1DLUT_CAP {}
 unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_1DLUT_CAP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -446,7 +430,6 @@ impl ::std::cmp::PartialEq for COLORSPACE_TRANSFORM_3x4 {
 impl ::std::cmp::Eq for COLORSPACE_TRANSFORM_3x4 {}
 unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_3x4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -471,7 +454,6 @@ impl ::std::cmp::PartialEq for COLORSPACE_TRANSFORM_DATA_CAP {
 impl ::std::cmp::Eq for COLORSPACE_TRANSFORM_DATA_CAP {}
 unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_DATA_CAP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -495,7 +477,6 @@ impl ::std::cmp::PartialEq for COLORSPACE_TRANSFORM_DATA_CAP_0 {
 impl ::std::cmp::Eq for COLORSPACE_TRANSFORM_DATA_CAP_0 {}
 unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_DATA_CAP_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -522,7 +503,6 @@ impl ::std::cmp::PartialEq for COLORSPACE_TRANSFORM_DATA_CAP_0_0 {
 impl ::std::cmp::Eq for COLORSPACE_TRANSFORM_DATA_CAP_0_0 {}
 unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_DATA_CAP_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -549,7 +529,6 @@ impl ::std::cmp::PartialEq for COLORSPACE_TRANSFORM_DATA_CAP_0_1 {
 impl ::std::cmp::Eq for COLORSPACE_TRANSFORM_DATA_CAP_0_1 {}
 unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_DATA_CAP_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -564,7 +543,6 @@ impl ::std::convert::From<i32> for COLORSPACE_TRANSFORM_DATA_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_DATA_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -587,7 +565,6 @@ impl ::std::cmp::PartialEq for COLORSPACE_TRANSFORM_MATRIX_CAP {
 impl ::std::cmp::Eq for COLORSPACE_TRANSFORM_MATRIX_CAP {}
 unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_MATRIX_CAP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -610,7 +587,6 @@ impl ::std::cmp::PartialEq for COLORSPACE_TRANSFORM_MATRIX_CAP_0 {
 impl ::std::cmp::Eq for COLORSPACE_TRANSFORM_MATRIX_CAP_0 {}
 unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_MATRIX_CAP_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -637,7 +613,6 @@ impl ::std::cmp::PartialEq for COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {
 impl ::std::cmp::Eq for COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {}
 unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -676,7 +651,6 @@ impl ::std::cmp::PartialEq for COLORSPACE_TRANSFORM_MATRIX_V2 {
 impl ::std::cmp::Eq for COLORSPACE_TRANSFORM_MATRIX_V2 {}
 unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_MATRIX_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -700,7 +674,6 @@ impl ::std::cmp::PartialEq for COLORSPACE_TRANSFORM_SET_INPUT {
 impl ::std::cmp::Eq for COLORSPACE_TRANSFORM_SET_INPUT {}
 unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_SET_INPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -716,7 +689,6 @@ impl ::std::convert::From<i32> for COLORSPACE_TRANSFORM_STAGE_CONTROL {
 }
 unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_STAGE_CONTROL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -741,7 +713,6 @@ impl ::std::cmp::PartialEq for COLORSPACE_TRANSFORM_TARGET_CAPS {
 impl ::std::cmp::Eq for COLORSPACE_TRANSFORM_TARGET_CAPS {}
 unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_TARGET_CAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -757,7 +728,6 @@ impl ::std::convert::From<i32> for COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -776,7 +746,6 @@ impl ::std::convert::From<i32> for COLORSPACE_TRANSFORM_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
@@ -823,7 +792,6 @@ impl ::std::cmp::Eq for DD_GETHEAPALIGNMENTDATA {}
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 unsafe impl ::windows::runtime::Abi for DD_GETHEAPALIGNMENTDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_System_PropertiesSystem`*"]
@@ -880,7 +848,6 @@ impl ::std::cmp::PartialEq for DISPLAY_BRIGHTNESS {
 impl ::std::cmp::Eq for DISPLAY_BRIGHTNESS {}
 unsafe impl ::windows::runtime::Abi for DISPLAY_BRIGHTNESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const DSI_CHECKSUM_ERROR_CORRECTED: u32 = 256u32;
@@ -902,7 +869,6 @@ impl ::std::convert::From<i32> for DSI_CONTROL_TRANSMISSION_MODE {
 }
 unsafe impl ::windows::runtime::Abi for DSI_CONTROL_TRANSMISSION_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const DSI_DSI_DATA_TYPE_NOT_RECOGNIZED: u32 = 2048u32;
@@ -964,7 +930,6 @@ impl ::std::cmp::PartialEq for DXGK_WIN32K_PARAM_DATA {
 impl ::std::cmp::Eq for DXGK_WIN32K_PARAM_DATA {}
 unsafe impl ::windows::runtime::Abi for DXGK_WIN32K_PARAM_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const DXGK_WIN32K_PARAM_FLAG_DISABLEVIEW: u32 = 4u32;
@@ -1044,7 +1009,6 @@ impl ::std::cmp::Eq for DisplayMode {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for DisplayMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1073,7 +1037,6 @@ impl ::std::cmp::Eq for DisplayModes {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for DisplayModes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1101,7 +1064,6 @@ impl ::std::cmp::PartialEq for ENG_EVENT {
 impl ::std::cmp::Eq for ENG_EVENT {}
 unsafe impl ::windows::runtime::Abi for ENG_EVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1136,7 +1098,6 @@ impl ::std::cmp::Eq for FONT_IMAGE_INFO {}
 #[cfg(feature = "Win32_System_Console")]
 unsafe impl ::windows::runtime::Abi for FONT_IMAGE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1172,7 +1133,6 @@ impl ::std::cmp::Eq for FSCNTL_SCREEN_INFO {}
 #[cfg(feature = "Win32_System_Console")]
 unsafe impl ::windows::runtime::Abi for FSCNTL_SCREEN_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1207,7 +1167,6 @@ impl ::std::cmp::Eq for FSVIDEO_COPY_FRAME_BUFFER {}
 #[cfg(feature = "Win32_System_Console")]
 unsafe impl ::windows::runtime::Abi for FSVIDEO_COPY_FRAME_BUFFER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1235,7 +1194,6 @@ impl ::std::cmp::PartialEq for FSVIDEO_CURSOR_POSITION {
 impl ::std::cmp::Eq for FSVIDEO_CURSOR_POSITION {}
 unsafe impl ::windows::runtime::Abi for FSVIDEO_CURSOR_POSITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1263,7 +1221,6 @@ impl ::std::cmp::PartialEq for FSVIDEO_MODE_INFORMATION {
 impl ::std::cmp::Eq for FSVIDEO_MODE_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for FSVIDEO_MODE_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1298,7 +1255,6 @@ impl ::std::cmp::Eq for FSVIDEO_REVERSE_MOUSE_POINTER {}
 #[cfg(feature = "Win32_System_Console")]
 unsafe impl ::windows::runtime::Abi for FSVIDEO_REVERSE_MOUSE_POINTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1333,7 +1289,6 @@ impl ::std::cmp::Eq for FSVIDEO_SCREEN_INFORMATION {}
 #[cfg(feature = "Win32_System_Console")]
 unsafe impl ::windows::runtime::Abi for FSVIDEO_SCREEN_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1368,7 +1323,6 @@ impl ::std::cmp::Eq for FSVIDEO_WRITE_TO_FRAME_BUFFER {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
 unsafe impl ::windows::runtime::Abi for FSVIDEO_WRITE_TO_FRAME_BUFFER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1397,7 +1351,6 @@ impl ::std::cmp::PartialEq for GAMMA_RAMP_DXGI_1 {
 impl ::std::cmp::Eq for GAMMA_RAMP_DXGI_1 {}
 unsafe impl ::windows::runtime::Abi for GAMMA_RAMP_DXGI_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1426,7 +1379,6 @@ impl ::std::cmp::PartialEq for GAMMA_RAMP_RGB {
 impl ::std::cmp::Eq for GAMMA_RAMP_RGB {}
 unsafe impl ::windows::runtime::Abi for GAMMA_RAMP_RGB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1455,7 +1407,6 @@ impl ::std::cmp::PartialEq for GAMMA_RAMP_RGB256x3x16 {
 impl ::std::cmp::Eq for GAMMA_RAMP_RGB256x3x16 {}
 unsafe impl ::windows::runtime::Abi for GAMMA_RAMP_RGB256x3x16 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const GETCONNECTEDIDS_SOURCE: u32 = 1u32;
@@ -1772,7 +1723,6 @@ impl ::std::cmp::Eq for HEAPALIGNMENT {}
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 unsafe impl ::windows::runtime::Abi for HEAPALIGNMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const HOST_DSI_BAD_TRANSMISSION_MODE: u32 = 4096u32;
@@ -1874,7 +1824,6 @@ impl ::std::cmp::Eq for INDIRECT_DISPLAY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INDIRECT_DISPLAY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const INDIRECT_DISPLAY_INFO_FLAGS_CREATED_IDDCX_ADAPTER: u32 = 1u32;
@@ -2126,7 +2075,6 @@ impl ::std::convert::From<i32> for MC_COLOR_TEMPERATURE {
 }
 unsafe impl ::windows::runtime::Abi for MC_COLOR_TEMPERATURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2148,7 +2096,6 @@ impl ::std::convert::From<i32> for MC_DISPLAY_TECHNOLOGY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MC_DISPLAY_TECHNOLOGY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2164,7 +2111,6 @@ impl ::std::convert::From<i32> for MC_DRIVE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MC_DRIVE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2180,7 +2126,6 @@ impl ::std::convert::From<i32> for MC_GAIN_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MC_GAIN_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2195,7 +2140,6 @@ impl ::std::convert::From<i32> for MC_POSITION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MC_POSITION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const MC_RESTORE_FACTORY_DEFAULTS_ENABLES_MONITOR_SETTINGS: u32 = 4096u32;
@@ -2212,7 +2156,6 @@ impl ::std::convert::From<i32> for MC_SIZE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MC_SIZE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const MC_SUPPORTED_COLOR_TEMPERATURE_10000K: u32 = 64u32;
@@ -2254,7 +2197,6 @@ impl ::std::cmp::PartialEq for MC_TIMING_REPORT {
 impl ::std::cmp::Eq for MC_TIMING_REPORT {}
 unsafe impl ::windows::runtime::Abi for MC_TIMING_REPORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2269,7 +2211,6 @@ impl ::std::convert::From<i32> for MC_VCP_CODE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MC_VCP_CODE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2349,7 +2290,6 @@ impl ::std::cmp::PartialEq for MIPI_DSI_CAPS {
 impl ::std::cmp::Eq for MIPI_DSI_CAPS {}
 unsafe impl ::windows::runtime::Abi for MIPI_DSI_CAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2374,7 +2314,6 @@ impl ::std::cmp::PartialEq for MIPI_DSI_PACKET {
 impl ::std::cmp::Eq for MIPI_DSI_PACKET {}
 unsafe impl ::windows::runtime::Abi for MIPI_DSI_PACKET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2397,7 +2336,6 @@ impl ::std::cmp::PartialEq for MIPI_DSI_PACKET_0 {
 impl ::std::cmp::Eq for MIPI_DSI_PACKET_0 {}
 unsafe impl ::windows::runtime::Abi for MIPI_DSI_PACKET_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2424,7 +2362,6 @@ impl ::std::cmp::PartialEq for MIPI_DSI_PACKET_0_0 {
 impl ::std::cmp::Eq for MIPI_DSI_PACKET_0_0 {}
 unsafe impl ::windows::runtime::Abi for MIPI_DSI_PACKET_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2447,7 +2384,6 @@ impl ::std::cmp::PartialEq for MIPI_DSI_PACKET_1 {
 impl ::std::cmp::Eq for MIPI_DSI_PACKET_1 {}
 unsafe impl ::windows::runtime::Abi for MIPI_DSI_PACKET_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2475,7 +2411,6 @@ impl ::std::cmp::PartialEq for MIPI_DSI_PACKET_1_0 {
 impl ::std::cmp::Eq for MIPI_DSI_PACKET_1_0 {}
 unsafe impl ::windows::runtime::Abi for MIPI_DSI_PACKET_1_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2498,7 +2433,6 @@ impl ::std::cmp::PartialEq for MIPI_DSI_RESET {
 impl ::std::cmp::Eq for MIPI_DSI_RESET {}
 unsafe impl ::windows::runtime::Abi for MIPI_DSI_RESET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2521,7 +2455,6 @@ impl ::std::cmp::PartialEq for MIPI_DSI_RESET_0 {
 impl ::std::cmp::Eq for MIPI_DSI_RESET_0 {}
 unsafe impl ::windows::runtime::Abi for MIPI_DSI_RESET_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2548,7 +2481,6 @@ impl ::std::cmp::PartialEq for MIPI_DSI_RESET_0_0 {
 impl ::std::cmp::Eq for MIPI_DSI_RESET_0_0 {}
 unsafe impl ::windows::runtime::Abi for MIPI_DSI_RESET_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2578,7 +2510,6 @@ impl ::std::cmp::PartialEq for MIPI_DSI_TRANSMISSION {
 impl ::std::cmp::Eq for MIPI_DSI_TRANSMISSION {}
 unsafe impl ::windows::runtime::Abi for MIPI_DSI_TRANSMISSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2605,7 +2536,6 @@ impl ::std::cmp::PartialEq for MIPI_DSI_TRANSMISSION_0 {
 impl ::std::cmp::Eq for MIPI_DSI_TRANSMISSION_0 {}
 unsafe impl ::windows::runtime::Abi for MIPI_DSI_TRANSMISSION_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2623,7 +2553,6 @@ impl ::std::convert::From<i32> for ORIENTATION_PREFERENCE {
 }
 unsafe impl ::windows::runtime::Abi for ORIENTATION_PREFERENCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2642,7 +2571,6 @@ impl ::std::convert::From<i32> for OUTPUT_COLOR_ENCODING {
 }
 unsafe impl ::windows::runtime::Abi for OUTPUT_COLOR_ENCODING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2662,7 +2590,6 @@ impl ::std::convert::From<i32> for OUTPUT_WIRE_COLOR_SPACE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for OUTPUT_WIRE_COLOR_SPACE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2690,7 +2617,6 @@ impl ::std::cmp::PartialEq for OUTPUT_WIRE_FORMAT {
 impl ::std::cmp::Eq for OUTPUT_WIRE_FORMAT {}
 unsafe impl ::windows::runtime::Abi for OUTPUT_WIRE_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2715,7 +2641,6 @@ impl ::std::cmp::PartialEq for PANEL_BRIGHTNESS_SENSOR_DATA {
 impl ::std::cmp::Eq for PANEL_BRIGHTNESS_SENSOR_DATA {}
 unsafe impl ::windows::runtime::Abi for PANEL_BRIGHTNESS_SENSOR_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2738,7 +2663,6 @@ impl ::std::cmp::PartialEq for PANEL_BRIGHTNESS_SENSOR_DATA_0 {
 impl ::std::cmp::Eq for PANEL_BRIGHTNESS_SENSOR_DATA_0 {}
 unsafe impl ::windows::runtime::Abi for PANEL_BRIGHTNESS_SENSOR_DATA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2765,7 +2689,6 @@ impl ::std::cmp::PartialEq for PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {
 impl ::std::cmp::Eq for PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {}
 unsafe impl ::windows::runtime::Abi for PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2794,7 +2717,6 @@ impl ::std::cmp::PartialEq for PANEL_GET_BACKLIGHT_REDUCTION {
 impl ::std::cmp::Eq for PANEL_GET_BACKLIGHT_REDUCTION {}
 unsafe impl ::windows::runtime::Abi for PANEL_GET_BACKLIGHT_REDUCTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2817,7 +2739,6 @@ impl ::std::cmp::PartialEq for PANEL_GET_BRIGHTNESS {
 impl ::std::cmp::Eq for PANEL_GET_BRIGHTNESS {}
 unsafe impl ::windows::runtime::Abi for PANEL_GET_BRIGHTNESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2840,7 +2761,6 @@ impl ::std::cmp::PartialEq for PANEL_GET_BRIGHTNESS_0 {
 impl ::std::cmp::Eq for PANEL_GET_BRIGHTNESS_0 {}
 unsafe impl ::windows::runtime::Abi for PANEL_GET_BRIGHTNESS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2868,7 +2788,6 @@ impl ::std::cmp::PartialEq for PANEL_GET_BRIGHTNESS_0_0 {
 impl ::std::cmp::Eq for PANEL_GET_BRIGHTNESS_0_0 {}
 unsafe impl ::windows::runtime::Abi for PANEL_GET_BRIGHTNESS_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2891,7 +2810,6 @@ impl ::std::cmp::PartialEq for PANEL_QUERY_BRIGHTNESS_CAPS {
 impl ::std::cmp::Eq for PANEL_QUERY_BRIGHTNESS_CAPS {}
 unsafe impl ::windows::runtime::Abi for PANEL_QUERY_BRIGHTNESS_CAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2914,7 +2832,6 @@ impl ::std::cmp::PartialEq for PANEL_QUERY_BRIGHTNESS_CAPS_0 {
 impl ::std::cmp::Eq for PANEL_QUERY_BRIGHTNESS_CAPS_0 {}
 unsafe impl ::windows::runtime::Abi for PANEL_QUERY_BRIGHTNESS_CAPS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2941,7 +2858,6 @@ impl ::std::cmp::PartialEq for PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {
 impl ::std::cmp::Eq for PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {}
 unsafe impl ::windows::runtime::Abi for PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2964,7 +2880,6 @@ impl ::std::cmp::PartialEq for PANEL_QUERY_BRIGHTNESS_RANGES {
 impl ::std::cmp::Eq for PANEL_QUERY_BRIGHTNESS_RANGES {}
 unsafe impl ::windows::runtime::Abi for PANEL_QUERY_BRIGHTNESS_RANGES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2987,7 +2902,6 @@ impl ::std::cmp::PartialEq for PANEL_QUERY_BRIGHTNESS_RANGES_0 {
 impl ::std::cmp::Eq for PANEL_QUERY_BRIGHTNESS_RANGES_0 {}
 unsafe impl ::windows::runtime::Abi for PANEL_QUERY_BRIGHTNESS_RANGES_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3014,7 +2928,6 @@ impl ::std::cmp::PartialEq for PANEL_SET_BACKLIGHT_OPTIMIZATION {
 impl ::std::cmp::Eq for PANEL_SET_BACKLIGHT_OPTIMIZATION {}
 unsafe impl ::windows::runtime::Abi for PANEL_SET_BACKLIGHT_OPTIMIZATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3037,7 +2950,6 @@ impl ::std::cmp::PartialEq for PANEL_SET_BRIGHTNESS {
 impl ::std::cmp::Eq for PANEL_SET_BRIGHTNESS {}
 unsafe impl ::windows::runtime::Abi for PANEL_SET_BRIGHTNESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3060,7 +2972,6 @@ impl ::std::cmp::PartialEq for PANEL_SET_BRIGHTNESS_0 {
 impl ::std::cmp::Eq for PANEL_SET_BRIGHTNESS_0 {}
 unsafe impl ::windows::runtime::Abi for PANEL_SET_BRIGHTNESS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3084,7 +2995,6 @@ impl ::std::cmp::PartialEq for PANEL_SET_BRIGHTNESS_0_0 {
 impl ::std::cmp::Eq for PANEL_SET_BRIGHTNESS_0_0 {}
 unsafe impl ::windows::runtime::Abi for PANEL_SET_BRIGHTNESS_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3106,7 +3016,6 @@ impl ::std::cmp::PartialEq for PANEL_SET_BRIGHTNESS_STATE {
 impl ::std::cmp::Eq for PANEL_SET_BRIGHTNESS_STATE {}
 unsafe impl ::windows::runtime::Abi for PANEL_SET_BRIGHTNESS_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3129,7 +3038,6 @@ impl ::std::cmp::PartialEq for PANEL_SET_BRIGHTNESS_STATE_0 {
 impl ::std::cmp::Eq for PANEL_SET_BRIGHTNESS_STATE_0 {}
 unsafe impl ::windows::runtime::Abi for PANEL_SET_BRIGHTNESS_STATE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3156,7 +3064,6 @@ impl ::std::cmp::PartialEq for PANEL_SET_BRIGHTNESS_STATE_0_0 {
 impl ::std::cmp::Eq for PANEL_SET_BRIGHTNESS_STATE_0_0 {}
 unsafe impl ::windows::runtime::Abi for PANEL_SET_BRIGHTNESS_STATE_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -3185,7 +3092,6 @@ impl ::std::cmp::Eq for PHYSICAL_MONITOR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PHYSICAL_MONITOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const PHYSICAL_MONITOR_DESCRIPTION_SIZE: u32 = 128u32;
@@ -3253,7 +3159,6 @@ impl ::std::cmp::PartialEq for SET_ACTIVE_COLOR_PROFILE_NAME {
 impl ::std::cmp::Eq for SET_ACTIVE_COLOR_PROFILE_NAME {}
 unsafe impl ::windows::runtime::Abi for SET_ACTIVE_COLOR_PROFILE_NAME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3275,7 +3180,6 @@ impl ::std::cmp::PartialEq for SURFACEALIGNMENT {
 impl ::std::cmp::Eq for SURFACEALIGNMENT {}
 unsafe impl ::windows::runtime::Abi for SURFACEALIGNMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3298,7 +3202,6 @@ impl ::std::cmp::PartialEq for SURFACEALIGNMENT_0 {
 impl ::std::cmp::Eq for SURFACEALIGNMENT_0 {}
 unsafe impl ::windows::runtime::Abi for SURFACEALIGNMENT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3328,7 +3231,6 @@ impl ::std::cmp::PartialEq for SURFACEALIGNMENT_0_0 {
 impl ::std::cmp::Eq for SURFACEALIGNMENT_0_0 {}
 unsafe impl ::windows::runtime::Abi for SURFACEALIGNMENT_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3358,7 +3260,6 @@ impl ::std::cmp::PartialEq for SURFACEALIGNMENT_0_1 {
 impl ::std::cmp::Eq for SURFACEALIGNMENT_0_1 {}
 unsafe impl ::windows::runtime::Abi for SURFACEALIGNMENT_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const SURFACEALIGN_DISCARDABLE: i32 = 1i32;
@@ -3556,7 +3457,6 @@ impl ::std::cmp::PartialEq for Sources {
 impl ::std::cmp::Eq for Sources {}
 unsafe impl ::windows::runtime::Abi for Sources {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3591,7 +3491,6 @@ impl ::std::cmp::Eq for VGA_CHAR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VGA_CHAR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3656,7 +3555,6 @@ impl ::std::cmp::PartialEq for VIDEO_BANK_SELECT {
 impl ::std::cmp::Eq for VIDEO_BANK_SELECT {}
 unsafe impl ::windows::runtime::Abi for VIDEO_BANK_SELECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3674,7 +3572,6 @@ impl ::std::convert::From<i32> for VIDEO_BANK_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VIDEO_BANK_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3710,7 +3607,6 @@ impl ::std::cmp::Eq for VIDEO_BRIGHTNESS_POLICY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VIDEO_BRIGHTNESS_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3738,7 +3634,6 @@ impl ::std::cmp::PartialEq for VIDEO_BRIGHTNESS_POLICY_0 {
 impl ::std::cmp::Eq for VIDEO_BRIGHTNESS_POLICY_0 {}
 unsafe impl ::windows::runtime::Abi for VIDEO_BRIGHTNESS_POLICY_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3762,7 +3657,6 @@ impl ::std::cmp::PartialEq for VIDEO_CLUT {
 impl ::std::cmp::Eq for VIDEO_CLUT {}
 unsafe impl ::windows::runtime::Abi for VIDEO_CLUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3785,7 +3679,6 @@ impl ::std::cmp::PartialEq for VIDEO_CLUT_0 {
 impl ::std::cmp::Eq for VIDEO_CLUT_0 {}
 unsafe impl ::windows::runtime::Abi for VIDEO_CLUT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3815,7 +3708,6 @@ impl ::std::cmp::PartialEq for VIDEO_CLUTDATA {
 impl ::std::cmp::Eq for VIDEO_CLUTDATA {}
 unsafe impl ::windows::runtime::Abi for VIDEO_CLUTDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3895,7 +3787,6 @@ impl ::std::cmp::PartialEq for VIDEO_COLOR_CAPABILITIES {
 impl ::std::cmp::Eq for VIDEO_COLOR_CAPABILITIES {}
 unsafe impl ::windows::runtime::Abi for VIDEO_COLOR_CAPABILITIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3924,7 +3815,6 @@ impl ::std::cmp::PartialEq for VIDEO_COLOR_LUT_DATA {
 impl ::std::cmp::Eq for VIDEO_COLOR_LUT_DATA {}
 unsafe impl ::windows::runtime::Abi for VIDEO_COLOR_LUT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_COLOR_LUT_DATA_FORMAT_PRIVATEFORMAT: u32 = 2147483648u32;
@@ -3960,7 +3850,6 @@ impl ::std::cmp::PartialEq for VIDEO_CURSOR_ATTRIBUTES {
 impl ::std::cmp::Eq for VIDEO_CURSOR_ATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for VIDEO_CURSOR_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3988,7 +3877,6 @@ impl ::std::cmp::PartialEq for VIDEO_CURSOR_POSITION {
 impl ::std::cmp::Eq for VIDEO_CURSOR_POSITION {}
 unsafe impl ::windows::runtime::Abi for VIDEO_CURSOR_POSITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_DEVICE_COLOR: u32 = 1u32;
@@ -4018,7 +3906,6 @@ impl ::std::cmp::PartialEq for VIDEO_DEVICE_SESSION_STATUS {
 impl ::std::cmp::Eq for VIDEO_DEVICE_SESSION_STATUS {}
 unsafe impl ::windows::runtime::Abi for VIDEO_DEVICE_SESSION_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_DUALVIEW_PRIMARY: u32 = 2147483648u32;
@@ -4054,7 +3941,6 @@ impl ::std::cmp::PartialEq for VIDEO_HARDWARE_STATE {
 impl ::std::cmp::Eq for VIDEO_HARDWARE_STATE {}
 unsafe impl ::windows::runtime::Abi for VIDEO_HARDWARE_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4170,7 +4056,6 @@ impl ::std::cmp::PartialEq for VIDEO_HARDWARE_STATE_HEADER {
 impl ::std::cmp::Eq for VIDEO_HARDWARE_STATE_HEADER {}
 unsafe impl ::windows::runtime::Abi for VIDEO_HARDWARE_STATE_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4200,7 +4085,6 @@ impl ::std::cmp::PartialEq for VIDEO_LOAD_FONT_INFORMATION {
 impl ::std::cmp::Eq for VIDEO_LOAD_FONT_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for VIDEO_LOAD_FONT_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4229,7 +4113,6 @@ impl ::std::cmp::PartialEq for VIDEO_LUT_RGB256WORDS {
 impl ::std::cmp::Eq for VIDEO_LUT_RGB256WORDS {}
 unsafe impl ::windows::runtime::Abi for VIDEO_LUT_RGB256WORDS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_MAX_REASON: u32 = 9u32;
@@ -4258,7 +4141,6 @@ impl ::std::cmp::PartialEq for VIDEO_MEMORY {
 impl ::std::cmp::Eq for VIDEO_MEMORY {}
 unsafe impl ::windows::runtime::Abi for VIDEO_MEMORY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4288,7 +4170,6 @@ impl ::std::cmp::PartialEq for VIDEO_MEMORY_INFORMATION {
 impl ::std::cmp::Eq for VIDEO_MEMORY_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for VIDEO_MEMORY_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4315,7 +4196,6 @@ impl ::std::cmp::PartialEq for VIDEO_MODE {
 impl ::std::cmp::Eq for VIDEO_MODE {}
 unsafe impl ::windows::runtime::Abi for VIDEO_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_MODE_ANIMATE_START: u32 = 8u32;
@@ -4415,7 +4295,6 @@ impl ::std::cmp::PartialEq for VIDEO_MODE_INFORMATION {
 impl ::std::cmp::Eq for VIDEO_MODE_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for VIDEO_MODE_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_MODE_INTERLACED: u32 = 16u32;
@@ -4461,7 +4340,6 @@ impl ::std::cmp::PartialEq for VIDEO_MONITOR_DESCRIPTOR {
 impl ::std::cmp::Eq for VIDEO_MONITOR_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for VIDEO_MONITOR_DESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4489,7 +4367,6 @@ impl ::std::cmp::PartialEq for VIDEO_NUM_MODES {
 impl ::std::cmp::Eq for VIDEO_NUM_MODES {}
 unsafe impl ::windows::runtime::Abi for VIDEO_NUM_MODES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_OPTIONAL_GAMMET_TABLE: u32 = 2u32;
@@ -4520,7 +4397,6 @@ impl ::std::cmp::PartialEq for VIDEO_PALETTE_DATA {
 impl ::std::cmp::Eq for VIDEO_PALETTE_DATA {}
 unsafe impl ::windows::runtime::Abi for VIDEO_PALETTE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4609,7 +4485,6 @@ impl ::std::cmp::PartialEq for VIDEO_PERFORMANCE_COUNTER {
 impl ::std::cmp::Eq for VIDEO_PERFORMANCE_COUNTER {}
 unsafe impl ::windows::runtime::Abi for VIDEO_PERFORMANCE_COUNTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4643,7 +4518,6 @@ impl ::std::cmp::PartialEq for VIDEO_POINTER_ATTRIBUTES {
 impl ::std::cmp::Eq for VIDEO_POINTER_ATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for VIDEO_POINTER_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4674,7 +4548,6 @@ impl ::std::cmp::PartialEq for VIDEO_POINTER_CAPABILITIES {
 impl ::std::cmp::Eq for VIDEO_POINTER_CAPABILITIES {}
 unsafe impl ::windows::runtime::Abi for VIDEO_POINTER_CAPABILITIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4702,7 +4575,6 @@ impl ::std::cmp::PartialEq for VIDEO_POINTER_POSITION {
 impl ::std::cmp::Eq for VIDEO_POINTER_POSITION {}
 unsafe impl ::windows::runtime::Abi for VIDEO_POINTER_POSITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4731,7 +4603,6 @@ impl ::std::cmp::PartialEq for VIDEO_POWER_MANAGEMENT {
 impl ::std::cmp::Eq for VIDEO_POWER_MANAGEMENT {}
 unsafe impl ::windows::runtime::Abi for VIDEO_POWER_MANAGEMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4752,7 +4623,6 @@ impl ::std::convert::From<i32> for VIDEO_POWER_STATE {
 }
 unsafe impl ::windows::runtime::Abi for VIDEO_POWER_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4781,7 +4651,6 @@ impl ::std::cmp::PartialEq for VIDEO_PUBLIC_ACCESS_RANGES {
 impl ::std::cmp::Eq for VIDEO_PUBLIC_ACCESS_RANGES {}
 unsafe impl ::windows::runtime::Abi for VIDEO_PUBLIC_ACCESS_RANGES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4809,7 +4678,6 @@ impl ::std::cmp::PartialEq for VIDEO_QUERY_PERFORMANCE_COUNTER {
 impl ::std::cmp::Eq for VIDEO_QUERY_PERFORMANCE_COUNTER {}
 unsafe impl ::windows::runtime::Abi for VIDEO_QUERY_PERFORMANCE_COUNTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_REASON_ALLOCATION: u32 = 6u32;
@@ -4856,7 +4724,6 @@ impl ::std::cmp::PartialEq for VIDEO_REGISTER_VDM {
 impl ::std::cmp::Eq for VIDEO_REGISTER_VDM {}
 unsafe impl ::windows::runtime::Abi for VIDEO_REGISTER_VDM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4893,7 +4760,6 @@ impl ::std::cmp::Eq for VIDEO_SHARE_MEMORY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VIDEO_SHARE_MEMORY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4922,7 +4788,6 @@ impl ::std::cmp::PartialEq for VIDEO_SHARE_MEMORY_INFORMATION {
 impl ::std::cmp::Eq for VIDEO_SHARE_MEMORY_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for VIDEO_SHARE_MEMORY_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VIDEO_STATE_NON_STANDARD_VGA: u32 = 1u32;
@@ -4962,7 +4827,6 @@ impl ::std::cmp::Eq for VIDEO_VDM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VIDEO_VDM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -5000,7 +4864,6 @@ impl ::std::cmp::Eq for VIDEO_WIN32K_CALLBACKS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VIDEO_WIN32K_CALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5050,7 +4913,6 @@ impl ::std::cmp::Eq for VIDEO_WIN32K_CALLBACKS_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VIDEO_WIN32K_CALLBACKS_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5075,7 +4937,6 @@ impl ::std::convert::From<i32> for VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5119,7 +4980,6 @@ impl ::std::cmp::Eq for VMEMHEAP {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for VMEMHEAP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const VMEMHEAP_ALIGNMENT: i32 = 4i32;
@@ -5162,7 +5022,6 @@ impl ::std::cmp::Eq for VMEML {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VMEML {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5226,7 +5085,6 @@ impl ::std::cmp::Eq for VMEMR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VMEMR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const _FACDXCORE: u32 = 2176u32;

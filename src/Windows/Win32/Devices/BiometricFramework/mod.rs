@@ -282,7 +282,6 @@ impl ::std::cmp::PartialEq for WINBIO_ACCOUNT_POLICY {
 impl ::std::cmp::Eq for WINBIO_ACCOUNT_POLICY {}
 unsafe impl ::windows::runtime::Abi for WINBIO_ACCOUNT_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -310,7 +309,6 @@ impl ::std::cmp::PartialEq for WINBIO_ADAPTER_INTERFACE_VERSION {
 impl ::std::cmp::Eq for WINBIO_ADAPTER_INTERFACE_VERSION {}
 unsafe impl ::windows::runtime::Abi for WINBIO_ADAPTER_INTERFACE_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -338,7 +336,6 @@ impl ::std::cmp::PartialEq for WINBIO_ANTI_SPOOF_POLICY {
 impl ::std::cmp::Eq for WINBIO_ANTI_SPOOF_POLICY {}
 unsafe impl ::windows::runtime::Abi for WINBIO_ANTI_SPOOF_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -354,7 +351,6 @@ impl ::std::convert::From<i32> for WINBIO_ANTI_SPOOF_POLICY_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for WINBIO_ANTI_SPOOF_POLICY_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -371,7 +367,6 @@ impl ::std::convert::From<i32> for WINBIO_ASYNC_NOTIFICATION_METHOD {
 }
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_NOTIFICATION_METHOD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -406,7 +401,6 @@ impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -454,7 +448,6 @@ impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -483,7 +476,6 @@ impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_0 {
 impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -526,7 +518,6 @@ impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_1 {
 impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_1 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -549,7 +540,6 @@ impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_2 {
 impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_2 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -576,7 +566,6 @@ impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_3 {
 impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_3 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -603,7 +592,6 @@ impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_4 {
 impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_4 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -632,7 +620,6 @@ impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_5 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_5 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -659,7 +646,6 @@ impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_6 {
 impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_6 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -687,7 +673,6 @@ impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_7 {
 impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_7 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_7 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -715,7 +700,6 @@ impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_8 {
 impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_8 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_8 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -739,7 +723,6 @@ impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_9 {
 impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_9 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_9 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -767,7 +750,6 @@ impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_10 {
 impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_10 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_10 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -789,7 +771,6 @@ impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_11 {
 impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_11 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_11 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -816,7 +797,6 @@ impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_12 {
 impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_12 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_12 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -839,7 +819,6 @@ impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_13 {
 impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_13 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_13 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -864,7 +843,6 @@ impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_14 {
 impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_14 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_14 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -888,7 +866,6 @@ impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_15 {
 impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_15 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_15 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -924,7 +901,6 @@ impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_16 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_16 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -951,7 +927,6 @@ impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_17 {
 impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_17 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_17 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -978,7 +953,6 @@ impl ::std::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_18 {
 impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_18 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_18 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1014,7 +988,6 @@ impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_19 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_19 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1049,7 +1022,6 @@ impl ::std::cmp::Eq for WINBIO_ASYNC_RESULT_0_20 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_ASYNC_RESULT_0_20 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1120,7 +1092,6 @@ impl ::std::cmp::PartialEq for WINBIO_BDB_ANSI_381_HEADER {
 impl ::std::cmp::Eq for WINBIO_BDB_ANSI_381_HEADER {}
 unsafe impl ::windows::runtime::Abi for WINBIO_BDB_ANSI_381_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1165,7 +1136,6 @@ impl ::std::cmp::PartialEq for WINBIO_BDB_ANSI_381_RECORD {
 impl ::std::cmp::Eq for WINBIO_BDB_ANSI_381_RECORD {}
 unsafe impl ::windows::runtime::Abi for WINBIO_BDB_ANSI_381_RECORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1195,7 +1165,6 @@ impl ::std::cmp::PartialEq for WINBIO_BIR {
 impl ::std::cmp::Eq for WINBIO_BIR {}
 unsafe impl ::windows::runtime::Abi for WINBIO_BIR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_BIR_ALGIN_SIZE: u32 = 8u32;
@@ -1227,7 +1196,6 @@ impl ::std::cmp::PartialEq for WINBIO_BIR_DATA {
 impl ::std::cmp::Eq for WINBIO_BIR_DATA {}
 unsafe impl ::windows::runtime::Abi for WINBIO_BIR_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1289,7 +1257,6 @@ impl ::std::cmp::PartialEq for WINBIO_BIR_HEADER {
 impl ::std::cmp::Eq for WINBIO_BIR_HEADER {}
 unsafe impl ::windows::runtime::Abi for WINBIO_BIR_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1317,7 +1284,6 @@ impl ::std::cmp::PartialEq for WINBIO_BIR_HEADER_0 {
 impl ::std::cmp::Eq for WINBIO_BIR_HEADER_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_BIR_HEADER_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1345,7 +1311,6 @@ impl ::std::cmp::PartialEq for WINBIO_BLANK_PAYLOAD {
 impl ::std::cmp::Eq for WINBIO_BLANK_PAYLOAD {}
 unsafe impl ::windows::runtime::Abi for WINBIO_BLANK_PAYLOAD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1376,7 +1341,6 @@ impl ::std::cmp::PartialEq for WINBIO_BSP_SCHEMA {
 impl ::std::cmp::Eq for WINBIO_BSP_SCHEMA {}
 unsafe impl ::windows::runtime::Abi for WINBIO_BSP_SCHEMA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1405,7 +1369,6 @@ impl ::std::cmp::PartialEq for WINBIO_CALIBRATION_INFO {
 impl ::std::cmp::Eq for WINBIO_CALIBRATION_INFO {}
 unsafe impl ::windows::runtime::Abi for WINBIO_CALIBRATION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1436,7 +1399,6 @@ impl ::std::cmp::PartialEq for WINBIO_CAPTURE_DATA {
 impl ::std::cmp::Eq for WINBIO_CAPTURE_DATA {}
 unsafe impl ::windows::runtime::Abi for WINBIO_CAPTURE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1467,7 +1429,6 @@ impl ::std::cmp::PartialEq for WINBIO_CAPTURE_PARAMETERS {
 impl ::std::cmp::Eq for WINBIO_CAPTURE_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for WINBIO_CAPTURE_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1483,7 +1444,6 @@ impl ::std::convert::From<u32> for WINBIO_COMPONENT {
 }
 unsafe impl ::windows::runtime::Abi for WINBIO_COMPONENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WINBIO_COMPONENT {
     type Output = Self;
@@ -1527,7 +1487,6 @@ impl ::std::convert::From<i32> for WINBIO_CREDENTIAL_FORMAT {
 }
 unsafe impl ::windows::runtime::Abi for WINBIO_CREDENTIAL_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1542,7 +1501,6 @@ impl ::std::convert::From<i32> for WINBIO_CREDENTIAL_STATE {
 }
 unsafe impl ::windows::runtime::Abi for WINBIO_CREDENTIAL_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1557,7 +1515,6 @@ impl ::std::convert::From<i32> for WINBIO_CREDENTIAL_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WINBIO_CREDENTIAL_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1585,7 +1542,6 @@ impl ::std::cmp::PartialEq for WINBIO_DATA {
 impl ::std::cmp::Eq for WINBIO_DATA {}
 unsafe impl ::windows::runtime::Abi for WINBIO_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1615,7 +1571,6 @@ impl ::std::cmp::PartialEq for WINBIO_DIAGNOSTICS {
 impl ::std::cmp::Eq for WINBIO_DIAGNOSTICS {}
 unsafe impl ::windows::runtime::Abi for WINBIO_DIAGNOSTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1647,7 +1602,6 @@ impl ::std::cmp::PartialEq for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
 impl ::std::cmp::Eq for WINBIO_ENCRYPTED_CAPTURE_PARAMS {}
 unsafe impl ::windows::runtime::Abi for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1769,7 +1723,6 @@ impl ::std::cmp::Eq for WINBIO_ENGINE_INTERFACE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::runtime::Abi for WINBIO_ENGINE_INTERFACE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1792,7 +1745,6 @@ impl ::std::cmp::PartialEq for WINBIO_EVENT {
 impl ::std::cmp::Eq for WINBIO_EVENT {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1816,7 +1768,6 @@ impl ::std::cmp::PartialEq for WINBIO_EVENT_0 {
 impl ::std::cmp::Eq for WINBIO_EVENT_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EVENT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1843,7 +1794,6 @@ impl ::std::cmp::PartialEq for WINBIO_EVENT_0_0 {
 impl ::std::cmp::Eq for WINBIO_EVENT_0_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EVENT_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1868,7 +1818,6 @@ impl ::std::cmp::PartialEq for WINBIO_EVENT_0_1 {
 impl ::std::cmp::Eq for WINBIO_EVENT_0_1 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EVENT_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1896,7 +1845,6 @@ impl ::std::cmp::PartialEq for WINBIO_EVENT_0_2 {
 impl ::std::cmp::Eq for WINBIO_EVENT_0_2 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EVENT_0_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1920,7 +1868,6 @@ impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO {
 impl ::std::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1946,7 +1893,6 @@ impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0 {
 impl ::std::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1974,7 +1920,6 @@ impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
 impl ::std::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2001,7 +1946,6 @@ impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
 impl ::std::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2029,7 +1973,6 @@ impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
 impl ::std::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_1 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2061,7 +2004,6 @@ impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
 impl ::std::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2089,7 +2031,6 @@ impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
 impl ::std::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_2 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2116,7 +2057,6 @@ impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
 impl ::std::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2144,7 +2084,6 @@ impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
 impl ::std::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_3 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2171,7 +2110,6 @@ impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
 impl ::std::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2199,7 +2137,6 @@ impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
 impl ::std::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2232,7 +2169,6 @@ impl ::std::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2264,7 +2200,6 @@ impl ::std::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2300,7 +2235,6 @@ impl ::std::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2328,7 +2262,6 @@ impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
 impl ::std::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2360,7 +2293,6 @@ impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
 impl ::std::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2412,7 +2344,6 @@ impl ::std::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2441,7 +2372,6 @@ impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
 impl ::std::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2468,7 +2398,6 @@ impl ::std::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
 impl ::std::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2498,7 +2427,6 @@ impl ::std::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_SENSOR_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2530,7 +2458,6 @@ impl ::std::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_SENSOR_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2567,7 +2494,6 @@ impl ::std::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2596,7 +2522,6 @@ impl ::std::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
 impl ::std::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2623,7 +2548,6 @@ impl ::std::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
 impl ::std::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0_1 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2659,7 +2583,6 @@ impl ::std::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2686,7 +2609,6 @@ impl ::std::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
 impl ::std::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0_3 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2710,7 +2632,6 @@ impl ::std::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO {
 impl ::std::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_STORAGE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2736,7 +2657,6 @@ impl ::std::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0 {
 impl ::std::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_STORAGE_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2763,7 +2683,6 @@ impl ::std::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
 impl ::std::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2790,7 +2709,6 @@ impl ::std::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
 impl ::std::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0_1 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2817,7 +2735,6 @@ impl ::std::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
 impl ::std::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0_2 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2844,7 +2761,6 @@ impl ::std::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
 impl ::std::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0_3 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2872,7 +2788,6 @@ impl ::std::cmp::PartialEq for WINBIO_EXTENDED_UNIT_STATUS {
 impl ::std::cmp::Eq for WINBIO_EXTENDED_UNIT_STATUS {}
 unsafe impl ::windows::runtime::Abi for WINBIO_EXTENDED_UNIT_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_E_ADAPTER_INTEGRITY_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146860995i32 as _);
@@ -3075,7 +2990,6 @@ impl ::std::cmp::Eq for WINBIO_FP_BU_STATE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_FP_BU_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3203,7 +3117,6 @@ impl ::std::cmp::Eq for WINBIO_FRAMEWORK_INTERFACE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::runtime::Abi for WINBIO_FRAMEWORK_INTERFACE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3233,7 +3146,6 @@ impl ::std::cmp::PartialEq for WINBIO_GESTURE_METADATA {
 impl ::std::cmp::Eq for WINBIO_GESTURE_METADATA {}
 unsafe impl ::windows::runtime::Abi for WINBIO_GESTURE_METADATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3262,7 +3174,6 @@ impl ::std::cmp::PartialEq for WINBIO_GET_INDICATOR {
 impl ::std::cmp::Eq for WINBIO_GET_INDICATOR {}
 unsafe impl ::windows::runtime::Abi for WINBIO_GET_INDICATOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3285,7 +3196,6 @@ impl ::std::cmp::PartialEq for WINBIO_IDENTITY {
 impl ::std::cmp::Eq for WINBIO_IDENTITY {}
 unsafe impl ::windows::runtime::Abi for WINBIO_IDENTITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3311,7 +3221,6 @@ impl ::std::cmp::PartialEq for WINBIO_IDENTITY_0 {
 impl ::std::cmp::Eq for WINBIO_IDENTITY_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_IDENTITY_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3339,7 +3248,6 @@ impl ::std::cmp::PartialEq for WINBIO_IDENTITY_0_0 {
 impl ::std::cmp::Eq for WINBIO_IDENTITY_0_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_IDENTITY_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_I_EXTENDED_STATUS_INFORMATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(589826i32 as _);
@@ -3374,7 +3282,6 @@ impl ::std::cmp::PartialEq for WINBIO_NOTIFY_WAKE {
 impl ::std::cmp::Eq for WINBIO_NOTIFY_WAKE {}
 unsafe impl ::windows::runtime::Abi for WINBIO_NOTIFY_WAKE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3428,7 +3335,6 @@ impl ::std::cmp::Eq for WINBIO_PIPELINE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::runtime::Abi for WINBIO_PIPELINE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3445,7 +3351,6 @@ impl ::std::convert::From<i32> for WINBIO_POLICY_SOURCE {
 }
 unsafe impl ::windows::runtime::Abi for WINBIO_POLICY_SOURCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3460,7 +3365,6 @@ impl ::std::convert::From<u32> for WINBIO_POOL {
 }
 unsafe impl ::windows::runtime::Abi for WINBIO_POOL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WINBIO_POOL {
     type Output = Self;
@@ -3524,7 +3428,6 @@ impl ::std::cmp::Eq for WINBIO_PRESENCE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_PRESENCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3552,7 +3455,6 @@ impl ::std::cmp::PartialEq for WINBIO_PRESENCE_0 {
 impl ::std::cmp::Eq for WINBIO_PRESENCE_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_PRESENCE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3581,7 +3483,6 @@ impl ::std::cmp::Eq for WINBIO_PRESENCE_PROPERTIES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_PRESENCE_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3617,7 +3518,6 @@ impl ::std::cmp::Eq for WINBIO_PRESENCE_PROPERTIES_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_PRESENCE_PROPERTIES_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3645,7 +3545,6 @@ impl ::std::cmp::PartialEq for WINBIO_PRESENCE_PROPERTIES_0_0 {
 impl ::std::cmp::Eq for WINBIO_PRESENCE_PROPERTIES_0_0 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_PRESENCE_PROPERTIES_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3683,7 +3582,6 @@ impl ::std::cmp::Eq for WINBIO_PRESENCE_PROPERTIES_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINBIO_PRESENCE_PROPERTIES_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3712,7 +3610,6 @@ impl ::std::cmp::PartialEq for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
 impl ::std::cmp::Eq for WINBIO_PRIVATE_SENSOR_TYPE_INFO {}
 unsafe impl ::windows::runtime::Abi for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3739,7 +3636,6 @@ impl ::std::cmp::PartialEq for WINBIO_PROTECTION_POLICY {
 impl ::std::cmp::Eq for WINBIO_PROTECTION_POLICY {}
 unsafe impl ::windows::runtime::Abi for WINBIO_PROTECTION_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3767,7 +3663,6 @@ impl ::std::cmp::PartialEq for WINBIO_REGISTERED_FORMAT {
 impl ::std::cmp::Eq for WINBIO_REGISTERED_FORMAT {}
 unsafe impl ::windows::runtime::Abi for WINBIO_REGISTERED_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_SCP_CURVE_FIELD_SIZE_V1: u32 = 32u32;
@@ -3815,7 +3710,6 @@ impl ::std::cmp::PartialEq for WINBIO_SECURE_BUFFER_HEADER_V1 {
 impl ::std::cmp::Eq for WINBIO_SECURE_BUFFER_HEADER_V1 {}
 unsafe impl ::windows::runtime::Abi for WINBIO_SECURE_BUFFER_HEADER_V1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3854,7 +3748,6 @@ impl ::std::cmp::PartialEq for WINBIO_SECURE_CONNECTION_DATA {
 impl ::std::cmp::Eq for WINBIO_SECURE_CONNECTION_DATA {}
 unsafe impl ::windows::runtime::Abi for WINBIO_SECURE_CONNECTION_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3883,7 +3776,6 @@ impl ::std::cmp::PartialEq for WINBIO_SECURE_CONNECTION_PARAMS {
 impl ::std::cmp::Eq for WINBIO_SECURE_CONNECTION_PARAMS {}
 unsafe impl ::windows::runtime::Abi for WINBIO_SECURE_CONNECTION_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3945,7 +3837,6 @@ impl ::std::cmp::PartialEq for WINBIO_SENSOR_ATTRIBUTES {
 impl ::std::cmp::Eq for WINBIO_SENSOR_ATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for WINBIO_SENSOR_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4047,7 +3938,6 @@ impl ::std::cmp::Eq for WINBIO_SENSOR_INTERFACE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::runtime::Abi for WINBIO_SENSOR_INTERFACE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4064,7 +3954,6 @@ impl ::std::convert::From<u32> for WINBIO_SETTING_SOURCE {
 }
 unsafe impl ::windows::runtime::Abi for WINBIO_SETTING_SOURCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WINBIO_SETTING_SOURCE {
     type Output = Self;
@@ -4120,7 +4009,6 @@ impl ::std::cmp::PartialEq for WINBIO_SET_INDICATOR {
 impl ::std::cmp::Eq for WINBIO_SET_INDICATOR {}
 unsafe impl ::windows::runtime::Abi for WINBIO_SET_INDICATOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4220,7 +4108,6 @@ impl ::std::cmp::Eq for WINBIO_STORAGE_INTERFACE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::runtime::Abi for WINBIO_STORAGE_INTERFACE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4263,7 +4150,6 @@ impl ::std::cmp::PartialEq for WINBIO_STORAGE_RECORD {
 impl ::std::cmp::Eq for WINBIO_STORAGE_RECORD {}
 unsafe impl ::windows::runtime::Abi for WINBIO_STORAGE_RECORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4295,7 +4181,6 @@ impl ::std::cmp::PartialEq for WINBIO_STORAGE_SCHEMA {
 impl ::std::cmp::Eq for WINBIO_STORAGE_SCHEMA {}
 unsafe impl ::windows::runtime::Abi for WINBIO_STORAGE_SCHEMA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4325,7 +4210,6 @@ impl ::std::cmp::PartialEq for WINBIO_SUPPORTED_ALGORITHMS {
 impl ::std::cmp::Eq for WINBIO_SUPPORTED_ALGORITHMS {}
 unsafe impl ::windows::runtime::Abi for WINBIO_SUPPORTED_ALGORITHMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4374,7 +4258,6 @@ impl ::std::cmp::PartialEq for WINBIO_UNIT_SCHEMA {
 impl ::std::cmp::Eq for WINBIO_UNIT_SCHEMA {}
 unsafe impl ::windows::runtime::Abi for WINBIO_UNIT_SCHEMA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4402,7 +4285,6 @@ impl ::std::cmp::PartialEq for WINBIO_UPDATE_FIRMWARE {
 impl ::std::cmp::Eq for WINBIO_UPDATE_FIRMWARE {}
 unsafe impl ::windows::runtime::Abi for WINBIO_UPDATE_FIRMWARE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4430,7 +4312,6 @@ impl ::std::cmp::PartialEq for WINBIO_VERSION {
 impl ::std::cmp::Eq for WINBIO_VERSION {}
 unsafe impl ::windows::runtime::Abi for WINBIO_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`*"]
 pub const WINBIO_WBDI_MAJOR_VERSION: u32 = 1u32;

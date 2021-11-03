@@ -13,7 +13,6 @@ impl ::std::convert::From<i32> for AEC_INPUT_STREAM {
 }
 unsafe impl ::windows::runtime::Abi for AEC_INPUT_STREAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const AEC_MAX_SYSTEM_MODES: u32 = 6u32;
@@ -35,7 +34,6 @@ impl ::std::convert::From<i32> for AEC_SYSTEM_MODE {
 }
 unsafe impl ::windows::runtime::Abi for AEC_SYSTEM_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -52,7 +50,6 @@ impl ::std::convert::From<i32> for AEC_VAD_MODE {
 }
 unsafe impl ::windows::runtime::Abi for AEC_VAD_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const ALawCodecWrapper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(919301644, 30913, 17074, [153, 67, 132, 98, 98, 243, 23, 134]);
 pub const AM_MEDIA_TYPE_REPRESENTATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3806603986, 4908, 18718, [162, 104, 60, 124, 45, 202, 24, 31]);
@@ -77,7 +74,6 @@ impl ::std::cmp::PartialEq for ASF_FLAT_PICTURE {
 impl ::std::cmp::Eq for ASF_FLAT_PICTURE {}
 unsafe impl ::windows::runtime::Abi for ASF_FLAT_PICTURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -101,7 +97,6 @@ impl ::std::cmp::PartialEq for ASF_FLAT_SYNCHRONISED_LYRICS {
 impl ::std::cmp::Eq for ASF_FLAT_SYNCHRONISED_LYRICS {}
 unsafe impl ::windows::runtime::Abi for ASF_FLAT_SYNCHRONISED_LYRICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -131,7 +126,6 @@ impl ::std::cmp::PartialEq for ASF_INDEX_DESCRIPTOR {
 impl ::std::cmp::Eq for ASF_INDEX_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for ASF_INDEX_DESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -159,7 +153,6 @@ impl ::std::cmp::PartialEq for ASF_INDEX_IDENTIFIER {
 impl ::std::cmp::Eq for ASF_INDEX_IDENTIFIER {}
 unsafe impl ::windows::runtime::Abi for ASF_INDEX_IDENTIFIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -187,7 +180,6 @@ impl ::std::cmp::PartialEq for ASF_MUX_STATISTICS {
 impl ::std::cmp::Eq for ASF_MUX_STATISTICS {}
 unsafe impl ::windows::runtime::Abi for ASF_MUX_STATISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -203,7 +195,6 @@ impl ::std::convert::From<i32> for ASF_SELECTION_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for ASF_SELECTION_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -218,7 +209,6 @@ impl ::std::convert::From<i32> for ASF_STATUSFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for ASF_STATUSFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const AVENC_H263V_LEVELCOUNT: u32 = 8u32;
@@ -307,7 +297,6 @@ impl ::std::cmp::PartialEq for AecQualityMetrics_Struct {
 impl ::std::cmp::Eq for AecQualityMetrics_Struct {}
 unsafe impl ::windows::runtime::Abi for AecQualityMetrics_Struct {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const CAC3DecMediaObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(64473090, 60666, 18393, [178, 104, 95, 179, 227, 16, 222, 228]);
 pub const CClusterDetectorDmo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(921182404, 5722, 17697, [134, 60, 97, 158, 17, 96, 212, 212]);
@@ -790,7 +779,6 @@ impl ::std::cmp::PartialEq for CodecAPIEventData {
 impl ::std::cmp::Eq for CodecAPIEventData {}
 unsafe impl ::windows::runtime::Abi for CodecAPIEventData {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_System_PropertiesSystem`*"]
@@ -836,7 +824,6 @@ impl ::std::convert::From<i32> for D3D12_BITSTREAM_ENCRYPTION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_BITSTREAM_ENCRYPTION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -870,7 +857,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -906,7 +892,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -943,7 +928,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -993,7 +977,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1030,7 +1013,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1059,7 +1041,6 @@ impl ::std::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
 impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {}
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1109,7 +1090,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1138,7 +1118,6 @@ impl ::std::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {
 impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {}
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1166,7 +1145,6 @@ impl ::std::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {
 impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {}
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1195,7 +1173,6 @@ impl ::std::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURC
 impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {}
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1249,7 +1226,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1285,7 +1261,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1317,7 +1292,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUP
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1349,7 +1323,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_S
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1382,7 +1355,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1413,7 +1385,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1445,7 +1416,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1478,7 +1448,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1538,7 +1507,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1567,7 +1535,6 @@ impl ::std::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTIO
 impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT {}
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1600,7 +1567,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1637,7 +1603,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1672,7 +1637,6 @@ impl ::std::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPO
 impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {}
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1708,7 +1672,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1751,7 +1714,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1787,7 +1749,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1815,7 +1776,6 @@ impl ::std::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT 
 impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {}
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1852,7 +1812,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1882,7 +1841,6 @@ impl ::std::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAME
 impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {}
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1921,7 +1879,6 @@ impl ::std::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
 impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {}
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1960,7 +1917,6 @@ impl ::std::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPOR
 impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {}
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1997,7 +1953,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2035,7 +1990,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2063,7 +2017,6 @@ impl ::std::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECT
 impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES {}
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2126,7 +2079,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2172,7 +2124,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2220,7 +2171,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2248,7 +2198,6 @@ impl ::std::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAM
 impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS {}
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2276,7 +2225,6 @@ impl ::std::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOUR
 impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES {}
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2328,7 +2276,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2406,7 +2353,6 @@ impl ::std::cmp::Eq for D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2446,7 +2392,6 @@ impl ::std::convert::From<i32> for D3D12_FEATURE_VIDEO {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_FEATURE_VIDEO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2483,7 +2428,6 @@ impl ::std::cmp::Eq for D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2512,7 +2456,6 @@ impl ::std::cmp::PartialEq for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
 impl ::std::cmp::Eq for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {}
 unsafe impl ::windows::runtime::Abi for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2547,7 +2490,6 @@ impl ::std::cmp::Eq for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::runtime::Abi for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2577,7 +2519,6 @@ impl ::std::cmp::PartialEq for D3D12_RESOURCE_COORDINATE {
 impl ::std::cmp::Eq for D3D12_RESOURCE_COORDINATE {}
 unsafe impl ::windows::runtime::Abi for D3D12_RESOURCE_COORDINATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2605,7 +2546,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_DECODER_DESC {
 impl ::std::cmp::Eq for D3D12_VIDEO_DECODER_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_DECODER_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2655,7 +2595,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_DECODER_HEAP_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_DECODER_HEAP_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2672,7 +2611,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_DECODE_ARGUMENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_DECODE_ARGUMENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2708,7 +2646,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2737,7 +2674,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_DECODE_CONFIGURATION {
 impl ::std::cmp::Eq for D3D12_VIDEO_DECODE_CONFIGURATION {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_DECODE_CONFIGURATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2755,7 +2691,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {
     type Output = Self;
@@ -2827,7 +2762,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2875,7 +2809,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2890,7 +2823,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {
     type Output = Self;
@@ -2947,7 +2879,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
 impl ::std::cmp::Eq for D3D12_VIDEO_DECODE_FRAME_ARGUMENT {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2967,7 +2898,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2988,7 +2918,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS 
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {
     type Output = Self;
@@ -3054,7 +2983,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3089,7 +3017,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3125,7 +3052,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3156,7 +3082,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 pub const D3D12_VIDEO_DECODE_PROFILE_AV1_12BIT_PROFILE2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(387084297, 40975, 19681, [153, 78, 191, 64, 129, 246, 243, 240]);
 pub const D3D12_VIDEO_DECODE_PROFILE_AV1_12BIT_PROFILE2_420: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(763412182, 40108, 18485, [158, 145, 50, 123, 188, 79, 158, 232]);
@@ -3213,7 +3138,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_DECODE_REFERENCE_FRAMES {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3231,7 +3155,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_DECODE_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_DECODE_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3246,7 +3169,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
     type Output = Self;
@@ -3291,7 +3213,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_DECODE_TIER {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_DECODE_TIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3306,7 +3227,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_ENCODER_CODEC {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_CODEC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3329,7 +3249,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION {
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3352,7 +3271,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0 {
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0 {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3381,7 +3299,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3397,7 +3314,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3415,7 +3331,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {
     type Output = Self;
@@ -3463,7 +3378,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3484,7 +3398,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS {
     type Output = Self;
@@ -3553,7 +3466,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3570,7 +3482,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3591,7 +3502,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {
     type Output = Self;
@@ -3636,7 +3546,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3659,7 +3568,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3682,7 +3590,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0 {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3710,7 +3617,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264 {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3731,7 +3637,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPO
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS {
     type Output = Self;
@@ -3800,7 +3705,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3823,7 +3727,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPO
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS {
     type Output = Self;
@@ -3874,7 +3777,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3897,7 +3799,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_0 {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3934,7 +3835,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3971,7 +3871,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4006,7 +3905,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4040,7 +3938,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi"))]
 impl ::std::clone::Clone for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {
@@ -4077,7 +3974,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4113,7 +4009,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4132,7 +4027,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {
     type Output = Self;
@@ -4195,7 +4089,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4209,7 +4102,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_ENCODER_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_ENCODER_FLAGS {
     type Output = Self;
@@ -4255,7 +4147,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MO
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4284,7 +4175,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4301,7 +4191,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4318,7 +4207,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4346,7 +4234,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_HEAP_DESC {
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_HEAP_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_HEAP_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4360,7 +4247,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_ENCODER_HEAP_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_HEAP_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_ENCODER_HEAP_FLAGS {
     type Output = Self;
@@ -4416,7 +4302,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_INTRA_REFRESH {
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_INTRA_REFRESH {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_INTRA_REFRESH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4431,7 +4316,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4464,7 +4348,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_ENCODER_LEVELS_H264 {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_LEVELS_H264 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4490,7 +4373,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_ENCODER_LEVELS_HEVC {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_LEVELS_HEVC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4513,7 +4395,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_LEVEL_SETTING {
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_LEVEL_SETTING {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_LEVEL_SETTING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4536,7 +4417,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_LEVEL_SETTING_0 {
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_LEVEL_SETTING_0 {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_LEVEL_SETTING_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4564,7 +4444,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC {
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4581,7 +4460,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISI
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4611,7 +4489,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_OUTPUT_METADATA {
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_OUTPUT_METADATA {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_OUTPUT_METADATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4650,7 +4527,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4679,7 +4555,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4708,7 +4583,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4807,7 +4681,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4822,7 +4695,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DAT
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS {
     type Output = Self;
@@ -4883,7 +4755,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H2
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4920,7 +4791,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H2
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5004,7 +4874,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5019,7 +4888,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DAT
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS {
     type Output = Self;
@@ -5078,7 +4946,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5093,7 +4960,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
     type Output = Self;
@@ -5144,7 +5010,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LA
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5167,7 +5032,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LA
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_0 {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5189,7 +5053,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LA
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5214,7 +5077,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LA
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES_0 {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5242,7 +5104,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5270,7 +5131,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5293,7 +5153,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_PROFILE_DESC {
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_PROFILE_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_PROFILE_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5316,7 +5175,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_PROFILE_DESC_0 {
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_PROFILE_DESC_0 {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_PROFILE_DESC_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5332,7 +5190,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_ENCODER_PROFILE_H264 {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_PROFILE_H264 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5347,7 +5204,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_ENCODER_PROFILE_HEVC {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_PROFILE_HEVC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5378,7 +5234,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_RATE_CONTROL {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_RATE_CONTROL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5419,7 +5274,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5442,7 +5296,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PA
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5467,7 +5320,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PA
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0 {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5500,7 +5352,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5520,7 +5371,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {
     type Output = Self;
@@ -5566,7 +5416,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5607,7 +5456,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5650,7 +5498,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -5685,7 +5532,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5731,7 +5577,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5775,7 +5620,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi"))]
 impl ::std::clone::Clone for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS {
@@ -5812,7 +5656,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -5846,7 +5689,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5880,7 +5722,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5899,7 +5740,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {
     type Output = Self;
@@ -5950,7 +5790,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5973,7 +5812,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0 {
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0 {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6010,7 +5848,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6039,7 +5876,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {
 impl ::std::cmp::Eq for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6066,7 +5902,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
     type Output = Self;
@@ -6109,7 +5944,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_ENCODER_TIER_HEVC {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_TIER_HEVC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6132,7 +5966,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
     type Output = Self;
@@ -6196,7 +6029,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6224,7 +6056,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_EXTENSION_COMMAND_DESC {
 impl ::std::cmp::Eq for D3D12_VIDEO_EXTENSION_COMMAND_DESC {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_EXTENSION_COMMAND_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6260,7 +6091,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_EXTENSION_COMMAND_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_EXTENSION_COMMAND_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6276,7 +6106,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS {
     type Output = Self;
@@ -6340,7 +6169,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6360,7 +6188,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6384,7 +6211,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE 
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6400,7 +6226,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_FIELD_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_FIELD_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6435,7 +6260,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_FORMAT {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6450,7 +6274,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6468,7 +6291,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_FRAME_STEREO_FORMAT {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_FRAME_STEREO_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6506,7 +6328,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_MOTION_ESTIMATOR_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -6550,7 +6371,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -6577,7 +6397,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
 impl ::std::cmp::Eq for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6592,7 +6411,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZ
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6608,7 +6426,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZ
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS {
     type Output = Self;
@@ -6650,7 +6467,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6665,7 +6481,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS {
     type Output = Self;
@@ -6731,7 +6546,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6766,7 +6580,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_PROCESS_ALPHA_BLENDING {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_PROCESS_ALPHA_BLENDING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6783,7 +6596,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6806,7 +6618,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {
     type Output = Self;
@@ -6850,7 +6661,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
     type Output = Self;
@@ -6899,7 +6709,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
     type Output = Self;
@@ -6948,7 +6757,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_PROCESS_FILTER {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_PROCESS_FILTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6970,7 +6778,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_PROCESS_FILTER_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_PROCESS_FILTER_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_PROCESS_FILTER_FLAGS {
     type Output = Self;
@@ -7028,7 +6835,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_PROCESS_FILTER_RANGE {
 impl ::std::cmp::Eq for D3D12_VIDEO_PROCESS_FILTER_RANGE {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_PROCESS_FILTER_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -7064,7 +6870,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_PROCESS_INPUT_STREAM {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_PROCESS_INPUT_STREAM {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -7097,7 +6902,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -7131,7 +6935,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7215,7 +7018,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7231,7 +7033,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {
     type Output = Self;
@@ -7287,7 +7088,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {
 impl ::std::cmp::Eq for D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7323,7 +7123,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_PROCESS_LUMA_KEY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_PROCESS_LUMA_KEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7344,7 +7143,6 @@ impl ::std::convert::From<i32> for D3D12_VIDEO_PROCESS_ORIENTATION {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_PROCESS_ORIENTATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -7379,7 +7177,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_PROCESS_OUTPUT_STREAM {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_PROCESS_OUTPUT_STREAM {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -7408,7 +7205,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7456,7 +7252,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7502,7 +7297,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_PROCESS_REFERENCE_SET {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_PROCESS_REFERENCE_SET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7517,7 +7311,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {
     type Output = Self;
@@ -7581,7 +7374,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_PROCESS_TRANSFORM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_PROCESS_TRANSFORM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7596,7 +7388,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS 
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {
     type Output = Self;
@@ -7660,7 +7451,6 @@ impl ::std::cmp::Eq for D3D12_VIDEO_SAMPLE {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_SAMPLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7688,7 +7478,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_SCALE_SUPPORT {
 impl ::std::cmp::Eq for D3D12_VIDEO_SCALE_SUPPORT {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_SCALE_SUPPORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7704,7 +7493,6 @@ impl ::std::convert::From<u32> for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
     type Output = Self;
@@ -7762,7 +7550,6 @@ impl ::std::cmp::PartialEq for D3D12_VIDEO_SIZE_RANGE {
 impl ::std::cmp::Eq for D3D12_VIDEO_SIZE_RANGE {}
 unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_SIZE_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7793,7 +7580,6 @@ impl ::std::cmp::PartialEq for D3DCONTENTPROTECTIONCAPS {
 impl ::std::cmp::Eq for D3DCONTENTPROTECTIONCAPS {}
 unsafe impl ::windows::runtime::Abi for D3DCONTENTPROTECTIONCAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7822,7 +7608,6 @@ impl ::std::cmp::PartialEq for D3DOVERLAYCAPS {
 impl ::std::cmp::Eq for D3DOVERLAYCAPS {}
 unsafe impl ::windows::runtime::Abi for D3DOVERLAYCAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -7860,7 +7645,6 @@ impl ::std::cmp::Eq for DEVICE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DEVICE_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_System_PropertiesSystem`*"]
@@ -7902,7 +7686,6 @@ impl ::std::cmp::Eq for DIRTYRECT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIRTYRECT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[inline]
@@ -7959,7 +7742,6 @@ impl ::std::cmp::PartialEq for DXVA2_AES_CTR_IV {
 impl ::std::cmp::Eq for DXVA2_AES_CTR_IV {}
 unsafe impl ::windows::runtime::Abi for DXVA2_AES_CTR_IV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7989,7 +7771,6 @@ impl ::std::cmp::PartialEq for DXVA2_AYUVSample16 {
 impl ::std::cmp::Eq for DXVA2_AYUVSample16 {}
 unsafe impl ::windows::runtime::Abi for DXVA2_AYUVSample16 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8019,7 +7800,6 @@ impl ::std::cmp::PartialEq for DXVA2_AYUVSample8 {
 impl ::std::cmp::Eq for DXVA2_AYUVSample8 {}
 unsafe impl ::windows::runtime::Abi for DXVA2_AYUVSample8 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8041,7 +7821,6 @@ impl ::std::convert::From<i32> for DXVA2_BufferfType {
 }
 unsafe impl ::windows::runtime::Abi for DXVA2_BufferfType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8118,7 +7897,6 @@ impl ::std::cmp::PartialEq for DXVA2_ConfigPictureDecode {
 impl ::std::cmp::Eq for DXVA2_ConfigPictureDecode {}
 unsafe impl ::windows::runtime::Abi for DXVA2_ConfigPictureDecode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const DXVA2_DECODE_GET_DRIVER_HANDLE: u32 = 1829u32;
@@ -8171,7 +7949,6 @@ impl ::std::cmp::PartialEq for DXVA2_DecodeBufferDesc {
 impl ::std::cmp::Eq for DXVA2_DecodeBufferDesc {}
 unsafe impl ::windows::runtime::Abi for DXVA2_DecodeBufferDesc {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8200,7 +7977,6 @@ impl ::std::cmp::PartialEq for DXVA2_DecodeExecuteParams {
 impl ::std::cmp::Eq for DXVA2_DecodeExecuteParams {}
 unsafe impl ::windows::runtime::Abi for DXVA2_DecodeExecuteParams {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8237,7 +8013,6 @@ impl ::std::cmp::PartialEq for DXVA2_DecodeExtensionData {
 impl ::std::cmp::Eq for DXVA2_DecodeExtensionData {}
 unsafe impl ::windows::runtime::Abi for DXVA2_DecodeExtensionData {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8261,7 +8036,6 @@ impl ::std::convert::From<i32> for DXVA2_DeinterlaceTech {
 }
 unsafe impl ::windows::runtime::Abi for DXVA2_DeinterlaceTech {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8278,7 +8052,6 @@ impl ::std::convert::From<i32> for DXVA2_DestData {
 }
 unsafe impl ::windows::runtime::Abi for DXVA2_DestData {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8296,7 +8069,6 @@ impl ::std::convert::From<i32> for DXVA2_DetailFilterTech {
 }
 unsafe impl ::windows::runtime::Abi for DXVA2_DetailFilterTech {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const DXVA2_E_NEW_VIDEO_DEVICE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147217407i32 as _);
@@ -8326,7 +8098,6 @@ impl ::std::cmp::PartialEq for DXVA2_ExtendedFormat {
 impl ::std::cmp::Eq for DXVA2_ExtendedFormat {}
 unsafe impl ::windows::runtime::Abi for DXVA2_ExtendedFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8349,7 +8120,6 @@ impl ::std::cmp::PartialEq for DXVA2_ExtendedFormat_0 {
 impl ::std::cmp::Eq for DXVA2_ExtendedFormat_0 {}
 unsafe impl ::windows::runtime::Abi for DXVA2_ExtendedFormat_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8376,7 +8146,6 @@ impl ::std::cmp::PartialEq for DXVA2_ExtendedFormat_0_0 {
 impl ::std::cmp::Eq for DXVA2_ExtendedFormat_0_0 {}
 unsafe impl ::windows::runtime::Abi for DXVA2_ExtendedFormat_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8401,7 +8170,6 @@ impl ::std::convert::From<i32> for DXVA2_FilterType {
 }
 unsafe impl ::windows::runtime::Abi for DXVA2_FilterType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8425,7 +8193,6 @@ impl ::std::cmp::PartialEq for DXVA2_FilterValues {
 impl ::std::cmp::Eq for DXVA2_FilterValues {}
 unsafe impl ::windows::runtime::Abi for DXVA2_FilterValues {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8447,7 +8214,6 @@ impl ::std::cmp::PartialEq for DXVA2_Fixed32 {
 impl ::std::cmp::Eq for DXVA2_Fixed32 {}
 unsafe impl ::windows::runtime::Abi for DXVA2_Fixed32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8470,7 +8236,6 @@ impl ::std::cmp::PartialEq for DXVA2_Fixed32_0 {
 impl ::std::cmp::Eq for DXVA2_Fixed32_0 {}
 unsafe impl ::windows::runtime::Abi for DXVA2_Fixed32_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8498,7 +8263,6 @@ impl ::std::cmp::PartialEq for DXVA2_Fixed32_0_0 {
 impl ::std::cmp::Eq for DXVA2_Fixed32_0_0 {}
 unsafe impl ::windows::runtime::Abi for DXVA2_Fixed32_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8526,7 +8290,6 @@ impl ::std::cmp::PartialEq for DXVA2_Frequency {
 impl ::std::cmp::Eq for DXVA2_Frequency {}
 unsafe impl ::windows::runtime::Abi for DXVA2_Frequency {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const DXVA2_ModeH264_A: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487716, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
 pub const DXVA2_ModeH264_B: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(461487717, 41159, 4563, [185, 132, 0, 192, 79, 46, 115, 197]);
@@ -8580,7 +8343,6 @@ impl ::std::convert::From<i32> for DXVA2_NoiseFilterTech {
 }
 unsafe impl ::windows::runtime::Abi for DXVA2_NoiseFilterTech {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8600,7 +8362,6 @@ impl ::std::convert::From<i32> for DXVA2_NominalRange {
 }
 unsafe impl ::windows::runtime::Abi for DXVA2_NominalRange {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8619,7 +8380,6 @@ impl ::std::convert::From<i32> for DXVA2_ProcAmp {
 }
 unsafe impl ::windows::runtime::Abi for DXVA2_ProcAmp {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8644,7 +8404,6 @@ impl ::std::cmp::PartialEq for DXVA2_ProcAmpValues {
 impl ::std::cmp::Eq for DXVA2_ProcAmpValues {}
 unsafe impl ::windows::runtime::Abi for DXVA2_ProcAmpValues {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8661,7 +8420,6 @@ impl ::std::convert::From<i32> for DXVA2_SampleData {
 }
 unsafe impl ::windows::runtime::Abi for DXVA2_SampleData {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8682,7 +8440,6 @@ impl ::std::convert::From<i32> for DXVA2_SampleFormat {
 }
 unsafe impl ::windows::runtime::Abi for DXVA2_SampleFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8698,7 +8455,6 @@ impl ::std::convert::From<i32> for DXVA2_SurfaceType {
 }
 unsafe impl ::windows::runtime::Abi for DXVA2_SurfaceType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8715,7 +8471,6 @@ impl ::std::convert::From<i32> for DXVA2_VPDev {
 }
 unsafe impl ::windows::runtime::Abi for DXVA2_VPDev {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8740,7 +8495,6 @@ impl ::std::cmp::PartialEq for DXVA2_ValueRange {
 impl ::std::cmp::Eq for DXVA2_ValueRange {}
 unsafe impl ::windows::runtime::Abi for DXVA2_ValueRange {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8763,7 +8517,6 @@ impl ::std::convert::From<i32> for DXVA2_VideoChromaSubSampling {
 }
 unsafe impl ::windows::runtime::Abi for DXVA2_VideoChromaSubSampling {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8798,7 +8551,6 @@ impl ::std::cmp::Eq for DXVA2_VideoDesc {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 unsafe impl ::windows::runtime::Abi for DXVA2_VideoDesc {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8817,7 +8569,6 @@ impl ::std::convert::From<i32> for DXVA2_VideoLighting {
 }
 unsafe impl ::windows::runtime::Abi for DXVA2_VideoLighting {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8840,7 +8591,6 @@ impl ::std::convert::From<i32> for DXVA2_VideoPrimaries {
 }
 unsafe impl ::windows::runtime::Abi for DXVA2_VideoPrimaries {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const DXVA2_VideoProcBobDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(861578094, 30852, 17316, [156, 145, 127, 135, 250, 243, 227, 126]);
 pub const DXVA2_VideoProcProgressiveDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1515495625, 51180, 19417, [142, 222, 243, 199, 93, 196, 57, 59]);
@@ -8874,7 +8624,6 @@ impl ::std::convert::From<i32> for DXVA2_VideoProcess {
 }
 unsafe impl ::windows::runtime::Abi for DXVA2_VideoProcess {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8914,7 +8663,6 @@ impl ::std::cmp::Eq for DXVA2_VideoProcessBltParams {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXVA2_VideoProcessBltParams {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8977,7 +8725,6 @@ impl ::std::cmp::Eq for DXVA2_VideoProcessorCaps {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 unsafe impl ::windows::runtime::Abi for DXVA2_VideoProcessorCaps {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8993,7 +8740,6 @@ impl ::std::convert::From<i32> for DXVA2_VideoRenderTargetType {
 }
 unsafe impl ::windows::runtime::Abi for DXVA2_VideoRenderTargetType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 impl ::std::clone::Clone for DXVA2_VideoSample {
@@ -9034,7 +8780,6 @@ impl ::std::cmp::Eq for DXVA2_VideoSample {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 unsafe impl ::windows::runtime::Abi for DXVA2_VideoSample {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9057,7 +8802,6 @@ impl ::std::convert::From<i32> for DXVA2_VideoTransferFunction {
 }
 unsafe impl ::windows::runtime::Abi for DXVA2_VideoTransferFunction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9075,7 +8819,6 @@ impl ::std::convert::From<i32> for DXVA2_VideoTransferMatrix {
 }
 unsafe impl ::windows::runtime::Abi for DXVA2_VideoTransferMatrix {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9104,7 +8847,6 @@ impl ::std::cmp::PartialEq for DXVABufferInfo {
 impl ::std::cmp::Eq for DXVABufferInfo {}
 unsafe impl ::windows::runtime::Abi for DXVABufferInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9152,7 +8894,6 @@ impl ::std::cmp::Eq for DXVACompBufferInfo {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 unsafe impl ::windows::runtime::Abi for DXVACompBufferInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const DXVAHDControlGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2688052853, 63244, 17996, [169, 206, 51, 196, 78, 9, 22, 35]);
 pub const DXVAHDETWGUID_CREATEVIDEOPROCESSOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1746812190, 22132, 20403, [165, 3, 47, 32, 85, 233, 31, 96]);
@@ -9188,7 +8929,6 @@ impl ::std::cmp::PartialEq for DXVAHDETW_CREATEVIDEOPROCESSOR {
 impl ::std::cmp::Eq for DXVAHDETW_CREATEVIDEOPROCESSOR {}
 unsafe impl ::windows::runtime::Abi for DXVAHDETW_CREATEVIDEOPROCESSOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9215,7 +8955,6 @@ impl ::std::cmp::PartialEq for DXVAHDETW_DESTROYVIDEOPROCESSOR {
 impl ::std::cmp::Eq for DXVAHDETW_DESTROYVIDEOPROCESSOR {}
 unsafe impl ::windows::runtime::Abi for DXVAHDETW_DESTROYVIDEOPROCESSOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9265,7 +9004,6 @@ impl ::std::cmp::Eq for DXVAHDETW_VIDEOPROCESSBLTHD {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 unsafe impl ::windows::runtime::Abi for DXVAHDETW_VIDEOPROCESSBLTHD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9334,7 +9072,6 @@ impl ::std::cmp::Eq for DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 unsafe impl ::windows::runtime::Abi for DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9371,7 +9108,6 @@ impl ::std::cmp::Eq for DXVAHDETW_VIDEOPROCESSBLTSTATE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXVAHDETW_VIDEOPROCESSBLTSTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9409,7 +9145,6 @@ impl ::std::cmp::Eq for DXVAHDETW_VIDEOPROCESSSTREAMSTATE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXVAHDETW_VIDEOPROCESSSTREAMSTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -9473,7 +9208,6 @@ impl ::std::cmp::Eq for DXVAHDSW_CALLBACKS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 unsafe impl ::windows::runtime::Abi for DXVAHDSW_CALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9490,7 +9224,6 @@ impl ::std::convert::From<i32> for DXVAHD_ALPHA_FILL_MODE {
 }
 unsafe impl ::windows::runtime::Abi for DXVAHD_ALPHA_FILL_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9509,7 +9242,6 @@ impl ::std::convert::From<i32> for DXVAHD_BLT_STATE {
 }
 unsafe impl ::windows::runtime::Abi for DXVAHD_BLT_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9537,7 +9269,6 @@ impl ::std::cmp::PartialEq for DXVAHD_BLT_STATE_ALPHA_FILL_DATA {
 impl ::std::cmp::Eq for DXVAHD_BLT_STATE_ALPHA_FILL_DATA {}
 unsafe impl ::windows::runtime::Abi for DXVAHD_BLT_STATE_ALPHA_FILL_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9566,7 +9297,6 @@ impl ::std::cmp::Eq for DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9601,7 +9331,6 @@ impl ::std::cmp::Eq for DXVAHD_BLT_STATE_CONSTRICTION_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXVAHD_BLT_STATE_CONSTRICTION_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9623,7 +9352,6 @@ impl ::std::cmp::PartialEq for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA {
 impl ::std::cmp::Eq for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA {}
 unsafe impl ::windows::runtime::Abi for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9646,7 +9374,6 @@ impl ::std::cmp::PartialEq for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0 {
 impl ::std::cmp::Eq for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0 {}
 unsafe impl ::windows::runtime::Abi for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9673,7 +9400,6 @@ impl ::std::cmp::PartialEq for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0 {
 impl ::std::cmp::Eq for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0 {}
 unsafe impl ::windows::runtime::Abi for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9702,7 +9428,6 @@ impl ::std::cmp::PartialEq for DXVAHD_BLT_STATE_PRIVATE_DATA {
 impl ::std::cmp::Eq for DXVAHD_BLT_STATE_PRIVATE_DATA {}
 unsafe impl ::windows::runtime::Abi for DXVAHD_BLT_STATE_PRIVATE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9737,7 +9462,6 @@ impl ::std::cmp::Eq for DXVAHD_BLT_STATE_TARGET_RECT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXVAHD_BLT_STATE_TARGET_RECT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9760,7 +9484,6 @@ impl ::std::cmp::PartialEq for DXVAHD_COLOR {
 impl ::std::cmp::Eq for DXVAHD_COLOR {}
 unsafe impl ::windows::runtime::Abi for DXVAHD_COLOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9790,7 +9513,6 @@ impl ::std::cmp::PartialEq for DXVAHD_COLOR_RGBA {
 impl ::std::cmp::Eq for DXVAHD_COLOR_RGBA {}
 unsafe impl ::windows::runtime::Abi for DXVAHD_COLOR_RGBA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9820,7 +9542,6 @@ impl ::std::cmp::PartialEq for DXVAHD_COLOR_YCbCrA {
 impl ::std::cmp::Eq for DXVAHD_COLOR_YCbCrA {}
 unsafe impl ::windows::runtime::Abi for DXVAHD_COLOR_YCbCrA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9861,7 +9582,6 @@ impl ::std::cmp::PartialEq for DXVAHD_CONTENT_DESC {
 impl ::std::cmp::Eq for DXVAHD_CONTENT_DESC {}
 unsafe impl ::windows::runtime::Abi for DXVAHD_CONTENT_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9898,7 +9618,6 @@ impl ::std::cmp::Eq for DXVAHD_CUSTOM_RATE_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXVAHD_CUSTOM_RATE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Graphics_Direct3D9`*"]
@@ -9931,7 +9650,6 @@ impl ::std::convert::From<i32> for DXVAHD_DEVICE_CAPS {
 }
 unsafe impl ::windows::runtime::Abi for DXVAHD_DEVICE_CAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9948,7 +9666,6 @@ impl ::std::convert::From<i32> for DXVAHD_DEVICE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DXVAHD_DEVICE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9964,7 +9681,6 @@ impl ::std::convert::From<i32> for DXVAHD_DEVICE_USAGE {
 }
 unsafe impl ::windows::runtime::Abi for DXVAHD_DEVICE_USAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9981,7 +9697,6 @@ impl ::std::convert::From<i32> for DXVAHD_FEATURE_CAPS {
 }
 unsafe impl ::windows::runtime::Abi for DXVAHD_FEATURE_CAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10001,7 +9716,6 @@ impl ::std::convert::From<i32> for DXVAHD_FILTER {
 }
 unsafe impl ::windows::runtime::Abi for DXVAHD_FILTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10021,7 +9735,6 @@ impl ::std::convert::From<i32> for DXVAHD_FILTER_CAPS {
 }
 unsafe impl ::windows::runtime::Abi for DXVAHD_FILTER_CAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10051,7 +9764,6 @@ impl ::std::cmp::PartialEq for DXVAHD_FILTER_RANGE_DATA {
 impl ::std::cmp::Eq for DXVAHD_FILTER_RANGE_DATA {}
 unsafe impl ::windows::runtime::Abi for DXVAHD_FILTER_RANGE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10067,7 +9779,6 @@ impl ::std::convert::From<i32> for DXVAHD_FRAME_FORMAT {
 }
 unsafe impl ::windows::runtime::Abi for DXVAHD_FRAME_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10084,7 +9795,6 @@ impl ::std::convert::From<i32> for DXVAHD_INPUT_FORMAT_CAPS {
 }
 unsafe impl ::windows::runtime::Abi for DXVAHD_INPUT_FORMAT_CAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10107,7 +9817,6 @@ impl ::std::convert::From<i32> for DXVAHD_ITELECINE_CAPS {
 }
 unsafe impl ::windows::runtime::Abi for DXVAHD_ITELECINE_CAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10123,7 +9832,6 @@ impl ::std::convert::From<i32> for DXVAHD_OUTPUT_RATE {
 }
 unsafe impl ::windows::runtime::Abi for DXVAHD_OUTPUT_RATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10142,7 +9850,6 @@ impl ::std::convert::From<i32> for DXVAHD_PROCESSOR_CAPS {
 }
 unsafe impl ::windows::runtime::Abi for DXVAHD_PROCESSOR_CAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10170,7 +9877,6 @@ impl ::std::cmp::PartialEq for DXVAHD_RATIONAL {
 impl ::std::cmp::Eq for DXVAHD_RATIONAL {}
 unsafe impl ::windows::runtime::Abi for DXVAHD_RATIONAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -10220,7 +9926,6 @@ impl ::std::cmp::Eq for DXVAHD_STREAM_DATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 unsafe impl ::windows::runtime::Abi for DXVAHD_STREAM_DATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10251,7 +9956,6 @@ impl ::std::convert::From<i32> for DXVAHD_STREAM_STATE {
 }
 unsafe impl ::windows::runtime::Abi for DXVAHD_STREAM_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10286,7 +9990,6 @@ impl ::std::cmp::Eq for DXVAHD_STREAM_STATE_ALPHA_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXVAHD_STREAM_STATE_ALPHA_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10322,7 +10025,6 @@ impl ::std::cmp::Eq for DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10356,7 +10058,6 @@ impl ::std::cmp::Eq for DXVAHD_STREAM_STATE_D3DFORMAT_DATA {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 unsafe impl ::windows::runtime::Abi for DXVAHD_STREAM_STATE_D3DFORMAT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10391,7 +10092,6 @@ impl ::std::cmp::Eq for DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10426,7 +10126,6 @@ impl ::std::cmp::Eq for DXVAHD_STREAM_STATE_FILTER_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXVAHD_STREAM_STATE_FILTER_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10453,7 +10152,6 @@ impl ::std::cmp::PartialEq for DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {
 impl ::std::cmp::Eq for DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {}
 unsafe impl ::windows::runtime::Abi for DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10475,7 +10173,6 @@ impl ::std::cmp::PartialEq for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA {
 impl ::std::cmp::Eq for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA {}
 unsafe impl ::windows::runtime::Abi for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10498,7 +10195,6 @@ impl ::std::cmp::PartialEq for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0 {
 impl ::std::cmp::Eq for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0 {}
 unsafe impl ::windows::runtime::Abi for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10525,7 +10221,6 @@ impl ::std::cmp::PartialEq for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0 {
 impl ::std::cmp::Eq for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0 {}
 unsafe impl ::windows::runtime::Abi for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10561,7 +10256,6 @@ impl ::std::cmp::Eq for DXVAHD_STREAM_STATE_LUMA_KEY_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXVAHD_STREAM_STATE_LUMA_KEY_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10597,7 +10291,6 @@ impl ::std::cmp::Eq for DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10625,7 +10318,6 @@ impl ::std::cmp::PartialEq for DXVAHD_STREAM_STATE_PALETTE_DATA {
 impl ::std::cmp::Eq for DXVAHD_STREAM_STATE_PALETTE_DATA {}
 unsafe impl ::windows::runtime::Abi for DXVAHD_STREAM_STATE_PALETTE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10654,7 +10346,6 @@ impl ::std::cmp::PartialEq for DXVAHD_STREAM_STATE_PRIVATE_DATA {
 impl ::std::cmp::Eq for DXVAHD_STREAM_STATE_PRIVATE_DATA {}
 unsafe impl ::windows::runtime::Abi for DXVAHD_STREAM_STATE_PRIVATE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const DXVAHD_STREAM_STATE_PRIVATE_IVTC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2623544892, 3891, 16716, [167, 57, 153, 84, 14, 228, 45, 165]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -10692,7 +10383,6 @@ impl ::std::cmp::Eq for DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10727,7 +10417,6 @@ impl ::std::cmp::Eq for DXVAHD_STREAM_STATE_SOURCE_RECT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXVAHD_STREAM_STATE_SOURCE_RECT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10743,7 +10432,6 @@ impl ::std::convert::From<i32> for DXVAHD_SURFACE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DXVAHD_SURFACE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10775,7 +10463,6 @@ impl ::std::cmp::PartialEq for DXVAHD_VPCAPS {
 impl ::std::cmp::Eq for DXVAHD_VPCAPS {}
 unsafe impl ::windows::runtime::Abi for DXVAHD_VPCAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10841,7 +10528,6 @@ impl ::std::cmp::Eq for DXVAHD_VPDEVCAPS {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 unsafe impl ::windows::runtime::Abi for DXVAHD_VPDEVCAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10877,7 +10563,6 @@ impl ::std::cmp::Eq for DXVAUncompDataInfo {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 unsafe impl ::windows::runtime::Abi for DXVAUncompDataInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10907,7 +10592,6 @@ impl ::std::cmp::PartialEq for DXVA_AYUVsample2 {
 impl ::std::cmp::Eq for DXVA_AYUVsample2 {}
 unsafe impl ::windows::runtime::Abi for DXVA_AYUVsample2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -10938,7 +10622,6 @@ impl ::std::cmp::PartialEq for DXVA_BufferDescription {
 impl ::std::cmp::Eq for DXVA_BufferDescription {}
 unsafe impl ::windows::runtime::Abi for DXVA_BufferDescription {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10969,7 +10652,6 @@ impl ::std::cmp::PartialEq for DXVA_COPPCommand {
 impl ::std::cmp::Eq for DXVA_COPPCommand {}
 unsafe impl ::windows::runtime::Abi for DXVA_COPPCommand {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10996,7 +10678,6 @@ impl ::std::cmp::PartialEq for DXVA_COPPSignature {
 impl ::std::cmp::Eq for DXVA_COPPSignature {}
 unsafe impl ::windows::runtime::Abi for DXVA_COPPSignature {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11027,7 +10708,6 @@ impl ::std::cmp::PartialEq for DXVA_COPPStatusInput {
 impl ::std::cmp::Eq for DXVA_COPPStatusInput {}
 unsafe impl ::windows::runtime::Abi for DXVA_COPPStatusInput {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11056,7 +10736,6 @@ impl ::std::cmp::PartialEq for DXVA_COPPStatusOutput {
 impl ::std::cmp::Eq for DXVA_COPPStatusOutput {}
 unsafe impl ::windows::runtime::Abi for DXVA_COPPStatusOutput {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -11094,7 +10773,6 @@ impl ::std::cmp::PartialEq for DXVA_ConfigPictureDecode {
 impl ::std::cmp::Eq for DXVA_ConfigPictureDecode {}
 unsafe impl ::windows::runtime::Abi for DXVA_ConfigPictureDecode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11144,7 +10822,6 @@ impl ::std::cmp::Eq for DXVA_DeinterlaceBlt {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXVA_DeinterlaceBlt {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11196,7 +10873,6 @@ impl ::std::cmp::Eq for DXVA_DeinterlaceBltEx {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXVA_DeinterlaceBltEx {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11248,7 +10924,6 @@ impl ::std::cmp::Eq for DXVA_DeinterlaceBltEx32 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXVA_DeinterlaceBltEx32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11298,7 +10973,6 @@ impl ::std::cmp::Eq for DXVA_DeinterlaceCaps {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 unsafe impl ::windows::runtime::Abi for DXVA_DeinterlaceCaps {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11327,7 +11001,6 @@ impl ::std::cmp::PartialEq for DXVA_DeinterlaceQueryAvailableModes {
 impl ::std::cmp::Eq for DXVA_DeinterlaceQueryAvailableModes {}
 unsafe impl ::windows::runtime::Abi for DXVA_DeinterlaceQueryAvailableModes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11363,7 +11036,6 @@ impl ::std::cmp::Eq for DXVA_DeinterlaceQueryModeCaps {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 unsafe impl ::windows::runtime::Abi for DXVA_DeinterlaceQueryModeCaps {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11385,7 +11057,6 @@ impl ::std::convert::From<i32> for DXVA_DeinterlaceTech {
 }
 unsafe impl ::windows::runtime::Abi for DXVA_DeinterlaceTech {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11403,7 +11074,6 @@ impl ::std::convert::From<i32> for DXVA_DestinationFlags {
 }
 unsafe impl ::windows::runtime::Abi for DXVA_DestinationFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11430,7 +11100,6 @@ impl ::std::cmp::PartialEq for DXVA_ExtendedFormat {
 impl ::std::cmp::Eq for DXVA_ExtendedFormat {}
 unsafe impl ::windows::runtime::Abi for DXVA_ExtendedFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11458,7 +11127,6 @@ impl ::std::cmp::PartialEq for DXVA_Frequency {
 impl ::std::cmp::Eq for DXVA_Frequency {}
 unsafe impl ::windows::runtime::Abi for DXVA_Frequency {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11479,7 +11147,6 @@ impl ::std::convert::From<i32> for DXVA_NominalRange {
 }
 unsafe impl ::windows::runtime::Abi for DXVA_NominalRange {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -11536,7 +11203,6 @@ impl ::std::cmp::PartialEq for DXVA_PictureParameters {
 impl ::std::cmp::Eq for DXVA_PictureParameters {}
 unsafe impl ::windows::runtime::Abi for DXVA_PictureParameters {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11586,7 +11252,6 @@ impl ::std::cmp::Eq for DXVA_ProcAmpControlBlt {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXVA_ProcAmpControlBlt {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11624,7 +11289,6 @@ impl ::std::cmp::Eq for DXVA_ProcAmpControlCaps {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 unsafe impl ::windows::runtime::Abi for DXVA_ProcAmpControlCaps {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11642,7 +11306,6 @@ impl ::std::convert::From<i32> for DXVA_ProcAmpControlProp {
 }
 unsafe impl ::windows::runtime::Abi for DXVA_ProcAmpControlProp {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11678,7 +11341,6 @@ impl ::std::cmp::Eq for DXVA_ProcAmpControlQueryRange {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 unsafe impl ::windows::runtime::Abi for DXVA_ProcAmpControlQueryRange {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11696,7 +11358,6 @@ impl ::std::convert::From<i32> for DXVA_SampleFlags {
 }
 unsafe impl ::windows::runtime::Abi for DXVA_SampleFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11718,7 +11379,6 @@ impl ::std::convert::From<i32> for DXVA_SampleFormat {
 }
 unsafe impl ::windows::runtime::Abi for DXVA_SampleFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11742,7 +11402,6 @@ impl ::std::convert::From<i32> for DXVA_VideoChromaSubsampling {
 }
 unsafe impl ::windows::runtime::Abi for DXVA_VideoChromaSubsampling {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11790,7 +11449,6 @@ impl ::std::cmp::Eq for DXVA_VideoDesc {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 unsafe impl ::windows::runtime::Abi for DXVA_VideoDesc {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11810,7 +11468,6 @@ impl ::std::convert::From<i32> for DXVA_VideoLighting {
 }
 unsafe impl ::windows::runtime::Abi for DXVA_VideoLighting {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11834,7 +11491,6 @@ impl ::std::convert::From<i32> for DXVA_VideoPrimaries {
 }
 unsafe impl ::windows::runtime::Abi for DXVA_VideoPrimaries {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11857,7 +11513,6 @@ impl ::std::convert::From<i32> for DXVA_VideoProcessCaps {
 }
 unsafe impl ::windows::runtime::Abi for DXVA_VideoProcessCaps {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11887,7 +11542,6 @@ impl ::std::cmp::PartialEq for DXVA_VideoPropertyRange {
 impl ::std::cmp::Eq for DXVA_VideoPropertyRange {}
 unsafe impl ::windows::runtime::Abi for DXVA_VideoPropertyRange {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11917,7 +11571,6 @@ impl ::std::cmp::PartialEq for DXVA_VideoSample {
 impl ::std::cmp::Eq for DXVA_VideoSample {}
 unsafe impl ::windows::runtime::Abi for DXVA_VideoSample {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11971,7 +11624,6 @@ impl ::std::cmp::Eq for DXVA_VideoSample2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXVA_VideoSample2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12021,7 +11673,6 @@ impl ::std::cmp::Eq for DXVA_VideoSample32 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXVA_VideoSample32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12045,7 +11696,6 @@ impl ::std::convert::From<i32> for DXVA_VideoTransferFunction {
 }
 unsafe impl ::windows::runtime::Abi for DXVA_VideoTransferFunction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12064,7 +11714,6 @@ impl ::std::convert::From<i32> for DXVA_VideoTransferMatrix {
 }
 unsafe impl ::windows::runtime::Abi for DXVA_VideoTransferMatrix {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const DXVAp_DeinterlaceBobDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(861578094, 30852, 17316, [156, 145, 127, 135, 250, 243, 227, 126]);
 pub const DXVAp_DeinterlaceContainerDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(243649427, 12358, 20464, [174, 204, 213, 140, 181, 240, 53, 253]);
@@ -12086,7 +11735,6 @@ impl ::std::convert::From<i32> for DeviceStreamState {
 }
 unsafe impl ::windows::runtime::Abi for DeviceStreamState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12115,7 +11763,6 @@ impl ::std::cmp::PartialEq for DigitalWindowSetting {
 impl ::std::cmp::Eq for DigitalWindowSetting {}
 unsafe impl ::windows::runtime::Abi for DigitalWindowSetting {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12132,7 +11779,6 @@ impl ::std::convert::From<i32> for EAllocationType {
 }
 unsafe impl ::windows::runtime::Abi for EAllocationType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12147,7 +11793,6 @@ impl ::std::convert::From<i32> for EVRFilterConfigPrefs {
 }
 unsafe impl ::windows::runtime::Abi for EVRFilterConfigPrefs {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const E_TOCPARSER_INVALIDASFFILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1728053247i32 as _);
@@ -12172,7 +11817,6 @@ impl ::std::convert::From<i32> for FILE_ACCESSMODE {
 }
 unsafe impl ::windows::runtime::Abi for FILE_ACCESSMODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12190,7 +11834,6 @@ impl ::std::convert::From<i32> for FILE_OPENMODE {
 }
 unsafe impl ::windows::runtime::Abi for FILE_OPENMODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const FORMAT_MFVideoFormat: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2933173037, 29478, 17355, [148, 100, 200, 121, 202, 185, 196, 61]);
 pub const GUID_NativeDeviceService: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4017218876, 21236, 17349, [184, 106, 173, 108, 178, 22, 166, 30]);
@@ -37140,7 +36783,6 @@ impl ::std::convert::From<i32> for KSMETHOD_OPMVIDEOOUTPUT {
 }
 unsafe impl ::windows::runtime::Abi for KSMETHOD_OPMVIDEOOUTPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const KSPROPSETID_OPMVideoOutput: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(116659387, 62522, 20450, [165, 102, 119, 75, 76, 129, 240, 219]);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -37173,7 +36815,6 @@ impl ::std::cmp::PartialEq for MACROBLOCK_DATA {
 impl ::std::cmp::Eq for MACROBLOCK_DATA {}
 unsafe impl ::windows::runtime::Abi for MACROBLOCK_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MACROBLOCK_FLAG_DIRTY: u32 = 2u32;
@@ -37276,7 +36917,6 @@ impl ::std::convert::From<u32> for MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS {
     type Output = Self;
@@ -37323,7 +36963,6 @@ impl ::std::convert::From<i32> for MF2DBuffer_LockFlags {
 }
 unsafe impl ::windows::runtime::Abi for MF2DBuffer_LockFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -37338,7 +36977,6 @@ impl ::std::convert::From<i32> for MF3DVideoOutputType {
 }
 unsafe impl ::windows::runtime::Abi for MF3DVideoOutputType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MFAMRNBByteStreamHandler: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4024836234, 2604, 18938, [138, 1, 55, 104, 181, 89, 182, 218]);
 pub const MFAMRNBSinkClassFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2955350360, 28882, 19547, [159, 148, 118, 245, 73, 217, 15, 223]);
@@ -37370,7 +37008,6 @@ impl ::std::cmp::PartialEq for MFARGB {
 impl ::std::cmp::Eq for MFARGB {}
 unsafe impl ::windows::runtime::Abi for MFARGB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MFASFINDEXER_APPROX_SEEK_TIME_UNKNOWN: u64 = 18446744073709551615u64;
@@ -37410,7 +37047,6 @@ impl ::std::convert::From<i32> for MFASF_INDEXER_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MFASF_INDEXER_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MFASF_INVALID_STREAM_NUMBER: u32 = 128u32;
@@ -37428,7 +37064,6 @@ impl ::std::convert::From<i32> for MFASF_MULTIPLEXERFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MFASF_MULTIPLEXERFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MFASF_PAYLOADEXTENSION_MAX_SIZE: u32 = 255u32;
@@ -37447,7 +37082,6 @@ impl ::std::convert::From<i32> for MFASF_SPLITTERFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MFASF_SPLITTERFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -37462,7 +37096,6 @@ impl ::std::convert::From<i32> for MFASF_STREAMSELECTOR_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MFASF_STREAMSELECTOR_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[repr(transparent)]
@@ -37570,7 +37203,6 @@ impl ::std::convert::From<i32> for MFASYNC_WORKQUEUE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MFASYNC_WORKQUEUE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -37600,7 +37232,6 @@ impl ::std::cmp::PartialEq for MFAYUVSample {
 impl ::std::cmp::Eq for MFAYUVSample {}
 unsafe impl ::windows::runtime::Abi for MFAYUVSample {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[inline]
@@ -37678,7 +37309,6 @@ impl ::std::convert::From<i32> for MFAudioConstriction {
 }
 unsafe impl ::windows::runtime::Abi for MFAudioConstriction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -37706,7 +37336,6 @@ impl ::std::cmp::PartialEq for MFAudioDecoderDegradationInfo {
 impl ::std::cmp::Eq for MFAudioDecoderDegradationInfo {}
 unsafe impl ::windows::runtime::Abi for MFAudioDecoderDegradationInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MFAudioFormat_AAC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(5648, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
 pub const MFAudioFormat_AAC_HDCP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1100729974, 35698, 16399, [173, 235, 132, 181, 125, 99, 72, 77]);
@@ -37805,7 +37434,6 @@ impl ::std::cmp::PartialEq for MFBYTESTREAM_BUFFERING_PARAMS {
 impl ::std::cmp::Eq for MFBYTESTREAM_BUFFERING_PARAMS {}
 unsafe impl ::windows::runtime::Abi for MFBYTESTREAM_BUFFERING_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MFBYTESTREAM_DOES_NOT_USE_NETWORK: u32 = 2048u32;
@@ -37838,7 +37466,6 @@ impl ::std::convert::From<i32> for MFBYTESTREAM_SEEK_ORIGIN {
 }
 unsafe impl ::windows::runtime::Abi for MFBYTESTREAM_SEEK_ORIGIN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MFBYTESTREAM_SHARE_WRITE: u32 = 1024u32;
@@ -37922,7 +37549,6 @@ impl ::std::convert::From<i32> for MFCLOCK_CHARACTERISTICS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MFCLOCK_CHARACTERISTICS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MFCLOCK_FREQUENCY_HNS: u32 = 10000000u32;
@@ -37969,7 +37595,6 @@ impl ::std::cmp::PartialEq for MFCLOCK_PROPERTIES {
 impl ::std::cmp::Eq for MFCLOCK_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for MFCLOCK_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -37983,7 +37608,6 @@ impl ::std::convert::From<i32> for MFCLOCK_RELATIONAL_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MFCLOCK_RELATIONAL_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -38000,7 +37624,6 @@ impl ::std::convert::From<i32> for MFCLOCK_STATE {
 }
 unsafe impl ::windows::runtime::Abi for MFCLOCK_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MFCLOCK_TOLERANCE_UNKNOWN: u32 = 50000u32;
@@ -38063,7 +37686,6 @@ impl ::std::cmp::PartialEq for MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
 impl ::std::cmp::Eq for MFCONTENTPROTECTIONDEVICE_INPUT_DATA {}
 unsafe impl ::windows::runtime::Abi for MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -38104,7 +37726,6 @@ impl ::std::cmp::PartialEq for MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {
 impl ::std::cmp::Eq for MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {}
 unsafe impl ::windows::runtime::Abi for MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -38133,7 +37754,6 @@ impl ::std::cmp::PartialEq for MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA {
 impl ::std::cmp::Eq for MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA {}
 unsafe impl ::windows::runtime::Abi for MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA_FUNCTIONID: u32 = 67108864u32;
@@ -38194,7 +37814,6 @@ impl ::std::cmp::PartialEq for MFCameraExtrinsic_CalibratedTransform {
 impl ::std::cmp::Eq for MFCameraExtrinsic_CalibratedTransform {}
 unsafe impl ::windows::runtime::Abi for MFCameraExtrinsic_CalibratedTransform {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -38222,7 +37841,6 @@ impl ::std::cmp::PartialEq for MFCameraExtrinsics {
 impl ::std::cmp::Eq for MFCameraExtrinsics {}
 unsafe impl ::windows::runtime::Abi for MFCameraExtrinsics {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -38252,7 +37870,6 @@ impl ::std::cmp::PartialEq for MFCameraIntrinsic_CameraModel {
 impl ::std::cmp::Eq for MFCameraIntrinsic_CameraModel {}
 unsafe impl ::windows::runtime::Abi for MFCameraIntrinsic_CameraModel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -38283,7 +37900,6 @@ impl ::std::cmp::PartialEq for MFCameraIntrinsic_DistortionModel {
 impl ::std::cmp::Eq for MFCameraIntrinsic_DistortionModel {}
 unsafe impl ::windows::runtime::Abi for MFCameraIntrinsic_DistortionModel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -38326,7 +37942,6 @@ impl ::std::cmp::PartialEq for MFCameraIntrinsic_DistortionModel6KT {
 impl ::std::cmp::Eq for MFCameraIntrinsic_DistortionModel6KT {}
 unsafe impl ::windows::runtime::Abi for MFCameraIntrinsic_DistortionModel6KT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -38357,7 +37972,6 @@ impl ::std::cmp::PartialEq for MFCameraIntrinsic_DistortionModelArcTan {
 impl ::std::cmp::Eq for MFCameraIntrinsic_DistortionModelArcTan {}
 unsafe impl ::windows::runtime::Abi for MFCameraIntrinsic_DistortionModelArcTan {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -38372,7 +37986,6 @@ impl ::std::convert::From<i32> for MFCameraIntrinsic_DistortionModelType {
 }
 unsafe impl ::windows::runtime::Abi for MFCameraIntrinsic_DistortionModelType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -38400,7 +38013,6 @@ impl ::std::cmp::PartialEq for MFCameraIntrinsic_PinholeCameraModel {
 impl ::std::cmp::Eq for MFCameraIntrinsic_PinholeCameraModel {}
 unsafe impl ::windows::runtime::Abi for MFCameraIntrinsic_PinholeCameraModel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -38416,7 +38028,6 @@ impl ::std::convert::From<i32> for MFCameraOcclusionState {
 }
 unsafe impl ::windows::runtime::Abi for MFCameraOcclusionState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[inline]
@@ -40438,7 +40049,6 @@ impl ::std::convert::From<i32> for MFDepthMeasurement {
 }
 unsafe impl ::windows::runtime::Abi for MFDepthMeasurement {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_System_Com`*"]
@@ -40564,7 +40174,6 @@ impl ::std::cmp::PartialEq for MFExtendedCameraIntrinsic_IntrinsicModel {
 impl ::std::cmp::Eq for MFExtendedCameraIntrinsic_IntrinsicModel {}
 unsafe impl ::windows::runtime::Abi for MFExtendedCameraIntrinsic_IntrinsicModel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MFFLACBytestreamHandler: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(239194040, 1286, 16628, [165, 22, 119, 204, 35, 100, 45, 145]);
 pub const MFFLACSinkClassFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2100938095, 24693, 18377, [155, 174, 140, 249, 229, 49, 181, 245]);
@@ -40597,7 +40206,6 @@ impl ::std::cmp::PartialEq for MFFOLDDOWN_MATRIX {
 impl ::std::cmp::Eq for MFFOLDDOWN_MATRIX {}
 unsafe impl ::windows::runtime::Abi for MFFOLDDOWN_MATRIX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[inline]
@@ -40630,7 +40238,6 @@ impl ::std::convert::From<i32> for MFFrameSourceTypes {
 }
 unsafe impl ::windows::runtime::Abi for MFFrameSourceTypes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[inline]
@@ -40973,7 +40580,6 @@ impl ::std::cmp::PartialEq for MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
 impl ::std::cmp::Eq for MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {}
 unsafe impl ::windows::runtime::Abi for MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -41016,7 +40622,6 @@ impl ::std::cmp::PartialEq for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
 impl ::std::cmp::Eq for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {}
 unsafe impl ::windows::runtime::Abi for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MFImageFormat_JPEG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(434415018, 22114, 20421, [160, 192, 23, 88, 2, 142, 16, 87]);
 pub const MFImageFormat_RGB32: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(22, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
@@ -41337,7 +40942,6 @@ impl ::std::convert::From<i32> for MFMEDIASOURCE_CHARACTERISTICS {
 }
 unsafe impl ::windows::runtime::Abi for MFMEDIASOURCE_CHARACTERISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -41412,7 +41016,6 @@ impl ::std::cmp::Eq for MFMPEG2DLNASINKSTATS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MFMPEG2DLNASINKSTATS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MFMPEG4Format_Base: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(0, 30330, 18765, [180, 120, 242, 157, 37, 220, 144, 55]);
 #[cfg(feature = "Win32_Graphics_Dxgi")]
@@ -41472,7 +41075,6 @@ impl ::std::cmp::PartialEq for MFMediaKeyStatus {
 impl ::std::cmp::Eq for MFMediaKeyStatus {}
 unsafe impl ::windows::runtime::Abi for MFMediaKeyStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MFMediaType_Audio: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1935963489, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
 pub const MFMediaType_Binary: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1914145829, 58459, 4565, [188, 42, 0, 176, 208, 243, 244, 171]);
@@ -41510,7 +41112,6 @@ impl ::std::convert::From<i32> for MFNETSOURCE_CACHE_STATE {
 }
 unsafe impl ::windows::runtime::Abi for MFNETSOURCE_CACHE_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MFNETSOURCE_CLIENTGUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1621279910, 61847, 19476, [165, 191, 136, 131, 13, 36, 88, 175]);
 pub const MFNETSOURCE_CONNECTIONBANDWIDTH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294904, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
@@ -41556,7 +41157,6 @@ impl ::std::convert::From<i32> for MFNETSOURCE_PROTOCOL_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MFNETSOURCE_PROTOCOL_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MFNETSOURCE_PROXYBYPASSFORLOCAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294918, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
 pub const MFNETSOURCE_PROXYEXCEPTIONLIST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294917, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
@@ -41611,7 +41211,6 @@ impl ::std::convert::From<i32> for MFNETSOURCE_STATISTICS_IDS {
 }
 unsafe impl ::windows::runtime::Abi for MFNETSOURCE_STATISTICS_IDS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MFNETSOURCE_STATISTICS_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294901, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
 pub const MFNETSOURCE_STREAM_LANGUAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2595504920, 63437, 20269, [141, 109, 250, 53, 180, 146, 206, 203]);
@@ -41630,7 +41229,6 @@ impl ::std::convert::From<i32> for MFNETSOURCE_TRANSPORT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MFNETSOURCE_TRANSPORT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MFNETSOURCE_UDP_PORT_RANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1018294938, 1285, 19549, [174, 113, 10, 85, 99, 68, 239, 161]);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -41648,7 +41246,6 @@ impl ::std::convert::From<i32> for MFNET_PROXYSETTINGS {
 }
 unsafe impl ::windows::runtime::Abi for MFNET_PROXYSETTINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MFNET_SAVEJOB_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3092928639, 15618, 20050, [149, 101, 85, 211, 236, 30, 127, 247]);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -41665,7 +41262,6 @@ impl ::std::convert::From<i32> for MFNetAuthenticationFlags {
 }
 unsafe impl ::windows::runtime::Abi for MFNetAuthenticationFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -41715,7 +41311,6 @@ impl ::std::cmp::Eq for MFNetCredentialManagerGetParam {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MFNetCredentialManagerGetParam {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -41731,7 +41326,6 @@ impl ::std::convert::From<i32> for MFNetCredentialOptions {
 }
 unsafe impl ::windows::runtime::Abi for MFNetCredentialOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -41746,7 +41340,6 @@ impl ::std::convert::From<i32> for MFNetCredentialRequirements {
 }
 unsafe impl ::windows::runtime::Abi for MFNetCredentialRequirements {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -41768,7 +41361,6 @@ impl ::std::convert::From<i32> for MFNominalRange {
 }
 unsafe impl ::windows::runtime::Abi for MFNominalRange {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -41796,7 +41388,6 @@ impl ::std::cmp::PartialEq for MFOffset {
 impl ::std::cmp::Eq for MFOffset {}
 unsafe impl ::windows::runtime::Abi for MFOffset {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
@@ -41828,7 +41419,6 @@ impl ::std::convert::From<i32> for MFPMPSESSION_CREATION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MFPMPSESSION_CREATION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -41850,7 +41440,6 @@ impl ::std::convert::From<i32> for MFPOLICYMANAGER_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for MFPOLICYMANAGER_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MFPROTECTIONATTRIBUTE_BEST_EFFORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3370148657, 30192, 20161, [142, 119, 23, 87, 143, 119, 59, 70]);
 pub const MFPROTECTIONATTRIBUTE_CONSTRICTVIDEO_IMAGESIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(8681212, 19288, 19840, [167, 144, 231, 41, 118, 115, 22, 29]);
@@ -41926,7 +41515,6 @@ impl ::std::cmp::Eq for MFP_ACQUIRE_USER_CREDENTIAL_EVENT {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem"))]
 unsafe impl ::windows::runtime::Abi for MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -41943,7 +41531,6 @@ impl ::std::convert::From<i32> for MFP_CREATION_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for MFP_CREATION_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -41977,7 +41564,6 @@ impl ::std::cmp::Eq for MFP_ERROR_EVENT {}
 #[cfg(feature = "Win32_System_PropertiesSystem")]
 unsafe impl ::windows::runtime::Abi for MFP_ERROR_EVENT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -42015,7 +41601,6 @@ impl ::std::cmp::Eq for MFP_EVENT_HEADER {}
 #[cfg(feature = "Win32_System_PropertiesSystem")]
 unsafe impl ::windows::runtime::Abi for MFP_EVENT_HEADER {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -42041,7 +41626,6 @@ impl ::std::convert::From<i32> for MFP_EVENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MFP_EVENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -42076,7 +41660,6 @@ impl ::std::cmp::Eq for MFP_FRAME_STEP_EVENT {}
 #[cfg(feature = "Win32_System_PropertiesSystem")]
 unsafe impl ::windows::runtime::Abi for MFP_FRAME_STEP_EVENT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -42111,7 +41694,6 @@ impl ::std::cmp::Eq for MFP_MEDIAITEM_CLEARED_EVENT {}
 #[cfg(feature = "Win32_System_PropertiesSystem")]
 unsafe impl ::windows::runtime::Abi for MFP_MEDIAITEM_CLEARED_EVENT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -42147,7 +41729,6 @@ impl ::std::cmp::Eq for MFP_MEDIAITEM_CREATED_EVENT {}
 #[cfg(feature = "Win32_System_PropertiesSystem")]
 unsafe impl ::windows::runtime::Abi for MFP_MEDIAITEM_CREATED_EVENT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -42182,7 +41763,6 @@ impl ::std::cmp::Eq for MFP_MEDIAITEM_SET_EVENT {}
 #[cfg(feature = "Win32_System_PropertiesSystem")]
 unsafe impl ::windows::runtime::Abi for MFP_MEDIAITEM_SET_EVENT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -42200,7 +41780,6 @@ impl ::std::convert::From<i32> for MFP_MEDIAPLAYER_STATE {
 }
 unsafe impl ::windows::runtime::Abi for MFP_MEDIAPLAYER_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -42237,7 +41816,6 @@ impl ::std::cmp::Eq for MFP_MF_EVENT {}
 #[cfg(feature = "Win32_System_PropertiesSystem")]
 unsafe impl ::windows::runtime::Abi for MFP_MF_EVENT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -42272,7 +41850,6 @@ impl ::std::cmp::Eq for MFP_PAUSE_EVENT {}
 #[cfg(feature = "Win32_System_PropertiesSystem")]
 unsafe impl ::windows::runtime::Abi for MFP_PAUSE_EVENT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -42307,7 +41884,6 @@ impl ::std::cmp::Eq for MFP_PLAYBACK_ENDED_EVENT {}
 #[cfg(feature = "Win32_System_PropertiesSystem")]
 unsafe impl ::windows::runtime::Abi for MFP_PLAYBACK_ENDED_EVENT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -42342,7 +41918,6 @@ impl ::std::cmp::Eq for MFP_PLAY_EVENT {}
 #[cfg(feature = "Win32_System_PropertiesSystem")]
 unsafe impl ::windows::runtime::Abi for MFP_PLAY_EVENT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 pub const MFP_POSITIONTYPE_100NS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(0, 0, 0, [0, 0, 0, 0, 0, 0, 0, 0]);
 #[derive(:: std :: clone :: Clone)]
@@ -42378,7 +41953,6 @@ impl ::std::cmp::Eq for MFP_POSITION_SET_EVENT {}
 #[cfg(feature = "Win32_System_PropertiesSystem")]
 unsafe impl ::windows::runtime::Abi for MFP_POSITION_SET_EVENT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -42414,7 +41988,6 @@ impl ::std::cmp::Eq for MFP_RATE_SET_EVENT {}
 #[cfg(feature = "Win32_System_PropertiesSystem")]
 unsafe impl ::windows::runtime::Abi for MFP_RATE_SET_EVENT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -42449,7 +42022,6 @@ impl ::std::cmp::Eq for MFP_STOP_EVENT {}
 #[cfg(feature = "Win32_System_PropertiesSystem")]
 unsafe impl ::windows::runtime::Abi for MFP_STOP_EVENT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -42472,7 +42044,6 @@ impl ::std::cmp::PartialEq for MFPaletteEntry {
 impl ::std::cmp::Eq for MFPaletteEntry {}
 unsafe impl ::windows::runtime::Abi for MFPaletteEntry {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -42502,7 +42073,6 @@ impl ::std::cmp::PartialEq for MFPinholeCameraIntrinsic_IntrinsicModel {
 impl ::std::cmp::Eq for MFPinholeCameraIntrinsic_IntrinsicModel {}
 unsafe impl ::windows::runtime::Abi for MFPinholeCameraIntrinsic_IntrinsicModel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -42530,7 +42100,6 @@ impl ::std::cmp::PartialEq for MFPinholeCameraIntrinsics {
 impl ::std::cmp::Eq for MFPinholeCameraIntrinsics {}
 unsafe impl ::windows::runtime::Abi for MFPinholeCameraIntrinsics {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
@@ -42617,7 +42186,6 @@ impl ::std::convert::From<i32> for MFRATE_DIRECTION {
 }
 unsafe impl ::windows::runtime::Abi for MFRATE_DIRECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -42646,7 +42214,6 @@ impl ::std::cmp::PartialEq for MFRR_COMPONENTS {
 impl ::std::cmp::Eq for MFRR_COMPONENTS {}
 unsafe impl ::windows::runtime::Abi for MFRR_COMPONENTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -42676,7 +42243,6 @@ impl ::std::cmp::PartialEq for MFRR_COMPONENT_HASH_INFO {
 impl ::std::cmp::Eq for MFRR_COMPONENT_HASH_INFO {}
 unsafe impl ::windows::runtime::Abi for MFRR_COMPONENT_HASH_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MFRR_INFO_VERSION: u32 = 0u32;
@@ -42706,7 +42272,6 @@ impl ::std::cmp::PartialEq for MFRatio {
 impl ::std::cmp::Eq for MFRatio {}
 unsafe impl ::windows::runtime::Abi for MFRatio {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
@@ -42807,7 +42372,6 @@ impl ::std::convert::From<i32> for MFSESSION_GETFULLTOPOLOGY_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MFSESSION_GETFULLTOPOLOGY_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -42823,7 +42387,6 @@ impl ::std::convert::From<i32> for MFSESSION_SETTOPOLOGY_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MFSESSION_SETTOPOLOGY_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -42838,7 +42401,6 @@ impl ::std::convert::From<i32> for MFSHUTDOWN_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for MFSHUTDOWN_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -42856,7 +42418,6 @@ impl ::std::convert::From<i32> for MFSINK_WMDRMACTION {
 }
 unsafe impl ::windows::runtime::Abi for MFSINK_WMDRMACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MFSTARTUP_FULL: u32 = 0u32;
@@ -42879,7 +42440,6 @@ impl ::std::convert::From<i32> for MFSTREAMSINK_MARKER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MFSTREAMSINK_MARKER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -42895,7 +42455,6 @@ impl ::std::convert::From<i32> for MFSampleAllocatorUsage {
 }
 unsafe impl ::windows::runtime::Abi for MFSampleAllocatorUsage {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -42911,7 +42470,6 @@ impl ::std::convert::From<i32> for MFSampleEncryptionProtectionScheme {
 }
 unsafe impl ::windows::runtime::Abi for MFSampleEncryptionProtectionScheme {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MFSampleExtension_3DVideo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4168062884, 56660, 20014, [154, 94, 85, 252, 45, 116, 160, 5]);
 pub const MFSampleExtension_3DVideo_SampleFormat: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(140973938, 58223, 19711, [151, 179, 215, 46, 32, 152, 122, 72]);
@@ -43031,7 +42589,6 @@ impl ::std::convert::From<i32> for MFSensorDeviceMode {
 }
 unsafe impl ::windows::runtime::Abi for MFSensorDeviceMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -43049,7 +42606,6 @@ impl ::std::convert::From<i32> for MFSensorDeviceType {
 }
 unsafe impl ::windows::runtime::Abi for MFSensorDeviceType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -43065,7 +42621,6 @@ impl ::std::convert::From<i32> for MFSensorStreamType {
 }
 unsafe impl ::windows::runtime::Abi for MFSensorStreamType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -43079,7 +42634,6 @@ impl ::std::convert::From<i32> for MFSequencerTopologyFlags {
 }
 unsafe impl ::windows::runtime::Abi for MFSequencerTopologyFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_System_Com`*"]
@@ -43173,7 +42727,6 @@ impl ::std::convert::From<i32> for MFStandardVideoFormat {
 }
 unsafe impl ::windows::runtime::Abi for MFStandardVideoFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[inline]
@@ -43272,7 +42825,6 @@ impl ::std::convert::From<i32> for MFTIMER_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MFTIMER_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -43288,7 +42840,6 @@ impl ::std::convert::From<i32> for MFTOPOLOGY_DXVA_MODE {
 }
 unsafe impl ::windows::runtime::Abi for MFTOPOLOGY_DXVA_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -43304,7 +42855,6 @@ impl ::std::convert::From<i32> for MFTOPOLOGY_HARDWARE_MODE {
 }
 unsafe impl ::windows::runtime::Abi for MFTOPOLOGY_HARDWARE_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -43329,7 +42879,6 @@ impl ::std::cmp::PartialEq for MFTOPONODE_ATTRIBUTE_UPDATE {
 impl ::std::cmp::Eq for MFTOPONODE_ATTRIBUTE_UPDATE {}
 unsafe impl ::windows::runtime::Abi for MFTOPONODE_ATTRIBUTE_UPDATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -43353,7 +42902,6 @@ impl ::std::cmp::PartialEq for MFTOPONODE_ATTRIBUTE_UPDATE_0 {
 impl ::std::cmp::Eq for MFTOPONODE_ATTRIBUTE_UPDATE_0 {}
 unsafe impl ::windows::runtime::Abi for MFTOPONODE_ATTRIBUTE_UPDATE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
@@ -43468,7 +43016,6 @@ impl ::std::convert::From<i32> for MFT_AUDIO_DECODER_DEGRADATION_REASON {
 }
 unsafe impl ::windows::runtime::Abi for MFT_AUDIO_DECODER_DEGRADATION_REASON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -43485,7 +43032,6 @@ impl ::std::convert::From<i32> for MFT_AUDIO_DECODER_DEGRADATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MFT_AUDIO_DECODER_DEGRADATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MFT_AUDIO_DECODER_SPATIAL_METADATA_CLIENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(93879796, 4720, 18841, [146, 95, 142, 147, 154, 124, 10, 247]);
 pub const MFT_CATEGORY_AUDIO_DECODER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2661760948, 61306, 17753, [141, 93, 113, 157, 143, 4, 38, 199]);
@@ -43520,7 +43066,6 @@ impl ::std::convert::From<i32> for MFT_DRAIN_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MFT_DRAIN_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MFT_ENCODER_ERROR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3369201060, 39140, 16853, [146, 151, 68, 245, 56, 82, 249, 14]);
 pub const MFT_ENCODER_SUPPORTS_CONFIG_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2258851246, 14967, 20164, [159, 49, 1, 20, 154, 78, 146, 222]);
@@ -43563,7 +43108,6 @@ impl ::std::cmp::PartialEq for MFT_INPUT_STREAM_INFO {
 impl ::std::cmp::Eq for MFT_INPUT_STREAM_INFO {}
 unsafe impl ::windows::runtime::Abi for MFT_INPUT_STREAM_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MFT_INPUT_TYPES_Attributes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1115081137, 30109, 19443, [156, 208, 13, 114, 61, 19, 143, 150]);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -43592,7 +43136,6 @@ impl ::std::convert::From<i32> for MFT_MESSAGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MFT_MESSAGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MFT_OUTPUT_BOUND_UPPER_UNBOUNDED: u64 = 9223372036854775807u64;
@@ -43624,7 +43167,6 @@ impl ::std::cmp::PartialEq for MFT_OUTPUT_DATA_BUFFER {
 impl ::std::cmp::Eq for MFT_OUTPUT_DATA_BUFFER {}
 unsafe impl ::windows::runtime::Abi for MFT_OUTPUT_DATA_BUFFER {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -43653,7 +43195,6 @@ impl ::std::cmp::PartialEq for MFT_OUTPUT_STREAM_INFO {
 impl ::std::cmp::Eq for MFT_OUTPUT_STREAM_INFO {}
 unsafe impl ::windows::runtime::Abi for MFT_OUTPUT_STREAM_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MFT_OUTPUT_TYPES_Attributes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2393804019, 42063, 17158, [186, 92, 191, 93, 218, 36, 40, 24]);
 pub const MFT_POLICY_SET_AWARE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1516452633, 52281, 20392, [140, 165, 89, 152, 27, 122, 0, 24]);
@@ -43686,7 +43227,6 @@ impl ::std::cmp::PartialEq for MFT_REGISTER_TYPE_INFO {
 impl ::std::cmp::Eq for MFT_REGISTER_TYPE_INFO {}
 unsafe impl ::windows::runtime::Abi for MFT_REGISTER_TYPE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -43736,7 +43276,6 @@ impl ::std::cmp::Eq for MFT_REGISTRATION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MFT_REGISTRATION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MFT_REMUX_MARK_I_PICTURE_AS_CLEAN_POINT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(911118213, 16174, 17260, [178, 162, 68, 64, 160, 18, 169, 232]);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -43767,7 +43306,6 @@ impl ::std::cmp::PartialEq for MFT_STREAM_STATE_PARAM {
 impl ::std::cmp::Eq for MFT_STREAM_STATE_PARAM {}
 unsafe impl ::windows::runtime::Abi for MFT_STREAM_STATE_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MFT_SUPPORT_3DVIDEO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(155156913, 20270, 17969, [129, 104, 121, 52, 3, 42, 1, 211]);
 pub const MFT_SUPPORT_DYNAMIC_FORMAT_CHANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1397189137, 16147, 18939, [172, 66, 238, 39, 51, 201, 103, 65]);
@@ -43901,7 +43439,6 @@ impl ::std::cmp::Eq for MFVIDEOFORMAT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MFVIDEOFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -43922,7 +43459,6 @@ impl ::std::convert::From<i32> for MFVP_MESSAGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MFVP_MESSAGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[inline]
@@ -43953,7 +43489,6 @@ impl ::std::convert::From<i32> for MFVideo3DFormat {
 }
 unsafe impl ::windows::runtime::Abi for MFVideo3DFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -43968,7 +43503,6 @@ impl ::std::convert::From<i32> for MFVideo3DSampleFormat {
 }
 unsafe impl ::windows::runtime::Abi for MFVideo3DSampleFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 impl ::std::clone::Clone for MFVideoAlphaBitmap {
@@ -44003,7 +43537,6 @@ impl ::std::cmp::Eq for MFVideoAlphaBitmap {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for MFVideoAlphaBitmap {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 impl ::std::clone::Clone for MFVideoAlphaBitmap_0 {
@@ -44037,7 +43570,6 @@ impl ::std::cmp::Eq for MFVideoAlphaBitmap_0 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for MFVideoAlphaBitmap_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -44057,7 +43589,6 @@ impl ::std::convert::From<i32> for MFVideoAlphaBitmapFlags {
 }
 unsafe impl ::windows::runtime::Abi for MFVideoAlphaBitmapFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -44096,7 +43627,6 @@ impl ::std::cmp::Eq for MFVideoAlphaBitmapParams {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MFVideoAlphaBitmapParams {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -44132,7 +43662,6 @@ impl ::std::cmp::Eq for MFVideoArea {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MFVideoArea {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -44150,7 +43679,6 @@ impl ::std::convert::From<i32> for MFVideoAspectRatioMode {
 }
 unsafe impl ::windows::runtime::Abi for MFVideoAspectRatioMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -44174,7 +43702,6 @@ impl ::std::convert::From<i32> for MFVideoChromaSubsampling {
 }
 unsafe impl ::windows::runtime::Abi for MFVideoChromaSubsampling {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -44203,7 +43730,6 @@ impl ::std::cmp::PartialEq for MFVideoCompressedInfo {
 impl ::std::cmp::Eq for MFVideoCompressedInfo {}
 unsafe impl ::windows::runtime::Abi for MFVideoCompressedInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -44219,7 +43745,6 @@ impl ::std::convert::From<i32> for MFVideoDRMFlags {
 }
 unsafe impl ::windows::runtime::Abi for MFVideoDRMFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -44234,7 +43759,6 @@ impl ::std::convert::From<i32> for MFVideoDSPMode {
 }
 unsafe impl ::windows::runtime::Abi for MFVideoDSPMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -44267,7 +43791,6 @@ impl ::std::convert::From<i32> for MFVideoFlags {
 }
 unsafe impl ::windows::runtime::Abi for MFVideoFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MFVideoFormat_420O: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1328558644, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
 pub const MFVideoFormat_A16B16G16R16F: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(113, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
@@ -44418,7 +43941,6 @@ impl ::std::cmp::Eq for MFVideoInfo {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MFVideoInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -44440,7 +43962,6 @@ impl ::std::convert::From<i32> for MFVideoInterlaceMode {
 }
 unsafe impl ::windows::runtime::Abi for MFVideoInterlaceMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -44460,7 +43981,6 @@ impl ::std::convert::From<i32> for MFVideoLighting {
 }
 unsafe impl ::windows::runtime::Abi for MFVideoLighting {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -44479,7 +43999,6 @@ impl ::std::convert::From<i32> for MFVideoMixPrefs {
 }
 unsafe impl ::windows::runtime::Abi for MFVideoMixPrefs {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -44509,7 +44028,6 @@ impl ::std::cmp::PartialEq for MFVideoNormalizedRect {
 impl ::std::cmp::Eq for MFVideoNormalizedRect {}
 unsafe impl ::windows::runtime::Abi for MFVideoNormalizedRect {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -44525,7 +44043,6 @@ impl ::std::convert::From<i32> for MFVideoPadFlags {
 }
 unsafe impl ::windows::runtime::Abi for MFVideoPadFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -44553,7 +44070,6 @@ impl ::std::convert::From<i32> for MFVideoPrimaries {
 }
 unsafe impl ::windows::runtime::Abi for MFVideoPrimaries {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -44576,7 +44092,6 @@ impl ::std::convert::From<i32> for MFVideoRenderPrefs {
 }
 unsafe impl ::windows::runtime::Abi for MFVideoRenderPrefs {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -44593,7 +44108,6 @@ impl ::std::convert::From<i32> for MFVideoRotationFormat {
 }
 unsafe impl ::windows::runtime::Abi for MFVideoRotationFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -44610,7 +44124,6 @@ impl ::std::convert::From<i32> for MFVideoSphericalFormat {
 }
 unsafe impl ::windows::runtime::Abi for MFVideoSphericalFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -44625,7 +44138,6 @@ impl ::std::convert::From<i32> for MFVideoSphericalProjectionMode {
 }
 unsafe impl ::windows::runtime::Abi for MFVideoSphericalProjectionMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -44641,7 +44153,6 @@ impl ::std::convert::From<i32> for MFVideoSrcContentHintFlags {
 }
 unsafe impl ::windows::runtime::Abi for MFVideoSrcContentHintFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -44665,7 +44176,6 @@ impl ::std::cmp::PartialEq for MFVideoSurfaceInfo {
 impl ::std::cmp::Eq for MFVideoSurfaceInfo {}
 unsafe impl ::windows::runtime::Abi for MFVideoSurfaceInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -44698,7 +44208,6 @@ impl ::std::convert::From<i32> for MFVideoTransferFunction {
 }
 unsafe impl ::windows::runtime::Abi for MFVideoTransferFunction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -44719,7 +44228,6 @@ impl ::std::convert::From<i32> for MFVideoTransferMatrix {
 }
 unsafe impl ::windows::runtime::Abi for MFVideoTransferMatrix {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -44734,7 +44242,6 @@ impl ::std::convert::From<i32> for MFWaveFormatExConvertFlags {
 }
 unsafe impl ::windows::runtime::Abi for MFWaveFormatExConvertFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[inline]
@@ -44792,7 +44299,6 @@ impl ::std::convert::From<i32> for MF_ACTIVATE_CUSTOM_MIXER {
 }
 unsafe impl ::windows::runtime::Abi for MF_ACTIVATE_CUSTOM_MIXER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -44806,7 +44312,6 @@ impl ::std::convert::From<i32> for MF_ACTIVATE_CUSTOM_PRESENTER {
 }
 unsafe impl ::windows::runtime::Abi for MF_ACTIVATE_CUSTOM_PRESENTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_ACTIVATE_CUSTOM_VIDEO_MIXER_ACTIVATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3125351265, 48720, 17694, [149, 171, 109, 74, 204, 199, 218, 216]);
 pub const MF_ACTIVATE_CUSTOM_VIDEO_MIXER_CLSID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3125351264, 48720, 17694, [149, 171, 109, 74, 204, 199, 218, 216]);
@@ -44838,7 +44343,6 @@ impl ::std::convert::From<i32> for MF_ATTRIBUTES_MATCH_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MF_ATTRIBUTES_MATCH_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -44852,7 +44356,6 @@ impl ::std::convert::From<i32> for MF_ATTRIBUTE_SERIALIZE_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for MF_ATTRIBUTE_SERIALIZE_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -44872,7 +44375,6 @@ impl ::std::convert::From<i32> for MF_ATTRIBUTE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MF_ATTRIBUTE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_AUDIO_RENDERER_ATTRIBUTE_ENDPOINT_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2970267331, 61297, 19651, [184, 115, 5, 169, 160, 139, 159, 142]);
 pub const MF_AUDIO_RENDERER_ATTRIBUTE_ENDPOINT_ROLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1806058751, 10181, 19714, [152, 135, 194, 134, 25, 253, 185, 27]);
@@ -44900,7 +44402,6 @@ impl ::std::convert::From<i32> for MF_AUVRHP_ROOMMODEL {
 }
 unsafe impl ::windows::runtime::Abi for MF_AUVRHP_ROOMMODEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_BD_MVC_PLANE_OFFSET_METADATA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1655067876, 46956, 18689, [152, 35, 44, 182, 21, 212, 115, 24]);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -44941,7 +44442,6 @@ impl ::std::cmp::PartialEq for MF_BYTE_STREAM_CACHE_RANGE {
 impl ::std::cmp::Eq for MF_BYTE_STREAM_CACHE_RANGE {}
 unsafe impl ::windows::runtime::Abi for MF_BYTE_STREAM_CACHE_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_CAPTURE_ENGINE_ALL_EFFECTS_REMOVED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4260197665, 36568, 17178, [169, 107, 243, 226, 86, 94, 152, 28]);
 pub const MF_CAPTURE_ENGINE_AUDIO_PROCESSING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(284278366, 32273, 16651, [151, 61, 244, 182, 16, 144, 0, 254]);
@@ -44958,7 +44458,6 @@ impl ::std::convert::From<i32> for MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE {
 }
 unsafe impl ::windows::runtime::Abi for MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_CAPTURE_ENGINE_CAMERA_STREAM_BLOCKED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2753598487, 36153, 18163, [183, 89, 89, 18, 82, 143, 66, 7]);
 pub const MF_CAPTURE_ENGINE_CAMERA_STREAM_UNBLOCKED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2615799536, 52655, 18199, [133, 100, 131, 74, 174, 102, 65, 92]);
@@ -44977,7 +44476,6 @@ impl ::std::convert::From<i32> for MF_CAPTURE_ENGINE_DEVICE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MF_CAPTURE_ENGINE_DEVICE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_CAPTURE_ENGINE_DISABLE_DXVA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4186015842, 6045, 17215, [163, 47, 116, 203, 207, 116, 70, 109]);
 pub const MF_CAPTURE_ENGINE_DISABLE_HARDWARE_TRANSFORMS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3083086443, 12807, 17557, [180, 231, 129, 249, 195, 93, 89, 145]);
@@ -45010,7 +44508,6 @@ impl ::std::convert::From<i32> for MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_CAPTURE_ENGINE_OUTPUT_MEDIA_TYPE_SET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3400194452, 33772, 17897, [163, 10, 31, 32, 170, 219, 152, 49]);
 pub const MF_CAPTURE_ENGINE_PHOTO_TAKEN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1011926085, 29444, 18667, [134, 93, 187, 161, 155, 163, 175, 92]);
@@ -45038,7 +44535,6 @@ impl ::std::convert::From<i32> for MF_CAPTURE_ENGINE_SINK_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MF_CAPTURE_ENGINE_SINK_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -45057,7 +44553,6 @@ impl ::std::convert::From<u32> for MF_CAPTURE_ENGINE_SOURCE {
 }
 unsafe impl ::windows::runtime::Abi for MF_CAPTURE_ENGINE_SOURCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MF_CAPTURE_ENGINE_SOURCE {
     type Output = Self;
@@ -45105,7 +44600,6 @@ impl ::std::convert::From<i32> for MF_CAPTURE_ENGINE_STREAM_CATEGORY {
 }
 unsafe impl ::windows::runtime::Abi for MF_CAPTURE_ENGINE_STREAM_CATEGORY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_CAPTURE_ENGINE_USE_AUDIO_DEVICE_ONLY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(478181338, 33894, 19908, [139, 142, 39, 107, 63, 133, 146, 59]);
 pub const MF_CAPTURE_ENGINE_USE_VIDEO_DEVICE_ONLY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2114081137, 53042, 20270, [143, 25, 65, 5, 119, 183, 58, 102]);
@@ -45169,7 +44663,6 @@ impl ::std::convert::From<i32> for MF_CONNECT_METHOD {
 }
 unsafe impl ::windows::runtime::Abi for MF_CONNECT_METHOD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_CONTENTDECRYPTIONMODULE_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(355601477, 65408, 18506, [157, 203, 13, 248, 148, 230, 154, 1]);
 pub const MF_CONTENT_DECRYPTOR_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1755785511, 64635, 17646, [133, 244, 124, 81, 189, 85, 166, 89]);
@@ -45188,7 +44681,6 @@ impl ::std::convert::From<i32> for MF_CROSS_ORIGIN_POLICY {
 }
 unsafe impl ::windows::runtime::Abi for MF_CROSS_ORIGIN_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -45203,7 +44695,6 @@ impl ::std::convert::From<i32> for MF_CUSTOM_DECODE_UNIT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MF_CUSTOM_DECODE_UNIT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_DECODER_FWD_CUSTOM_SEI_DECODE_ORDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4047224380, 14036, 16650, [185, 133, 122, 149, 26, 30, 98, 148]);
 pub const MF_DEVICEMFT_CONNECTED_FILTER_KSCONTROL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1781288870, 53625, 16845, [149, 35, 130, 35, 113, 234, 64, 229]);
@@ -45404,7 +44895,6 @@ impl ::std::convert::From<i32> for MF_EVENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MF_EVENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_E_ALLOCATOR_ALREADY_COMMITED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072846854i32 as _);
@@ -46096,7 +45586,6 @@ impl ::std::convert::From<i32> for MF_FILE_ACCESSMODE {
 }
 unsafe impl ::windows::runtime::Abi for MF_FILE_ACCESSMODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -46112,7 +45601,6 @@ impl ::std::convert::From<i32> for MF_FILE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MF_FILE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -46130,7 +45618,6 @@ impl ::std::convert::From<i32> for MF_FILE_OPENMODE {
 }
 unsafe impl ::windows::runtime::Abi for MF_FILE_OPENMODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -46158,7 +45645,6 @@ impl ::std::cmp::PartialEq for MF_FLOAT2 {
 impl ::std::cmp::Eq for MF_FLOAT2 {}
 unsafe impl ::windows::runtime::Abi for MF_FLOAT2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -46187,7 +45673,6 @@ impl ::std::cmp::PartialEq for MF_FLOAT3 {
 impl ::std::cmp::Eq for MF_FLOAT3 {}
 unsafe impl ::windows::runtime::Abi for MF_FLOAT3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_CUSTOM_EVENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1851345052, 18387, 17511, [131, 239, 18, 211, 78, 135, 22, 101]);
 pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_PIPELINE_SHUTDOWN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1168644913, 17400, 20061, [140, 226, 34, 220, 224, 38, 153, 109]);
@@ -46213,7 +45698,6 @@ impl ::std::convert::From<i32> for MF_HDCP_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for MF_HDCP_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_HISTOGRAM_CHANNEL_B: u32 = 8u32;
@@ -46268,7 +45752,6 @@ impl ::std::cmp::PartialEq for MF_LEAKY_BUCKET_PAIR {
 impl ::std::cmp::Eq for MF_LEAKY_BUCKET_PAIR {}
 unsafe impl ::windows::runtime::Abi for MF_LEAKY_BUCKET_PAIR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_LOCAL_MFT_REGISTRATION_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3723874204, 17670, 17834, [171, 240, 109, 93, 148, 221, 27, 74]);
 pub const MF_LOCAL_PLUGIN_CONTROL_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3642425477, 51309, 20353, [136, 34, 140, 104, 225, 215, 250, 4]);
@@ -46291,7 +45774,6 @@ impl ::std::convert::From<i32> for MF_MEDIAKEYSESSION_MESSAGETYPE {
 }
 unsafe impl ::windows::runtime::Abi for MF_MEDIAKEYSESSION_MESSAGETYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -46308,7 +45790,6 @@ impl ::std::convert::From<i32> for MF_MEDIAKEYSESSION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MF_MEDIAKEYSESSION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -46324,7 +45805,6 @@ impl ::std::convert::From<i32> for MF_MEDIAKEYS_REQUIREMENT {
 }
 unsafe impl ::windows::runtime::Abi for MF_MEDIAKEYS_REQUIREMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -46345,7 +45825,6 @@ impl ::std::convert::From<i32> for MF_MEDIAKEY_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for MF_MEDIAKEY_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_MEDIASINK_AUTOFINALIZE_SUPPORTED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1220620734, 4954, 16843, [130, 144, 3, 101, 37, 9, 201, 153]);
 pub const MF_MEDIASINK_ENABLE_AUTOFINALIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(872497765, 52094, 19678, [172, 124, 239, 253, 59, 60, 37, 48]);
@@ -46382,7 +45861,6 @@ impl ::std::convert::From<i32> for MF_MEDIA_ENGINE_CANPLAY {
 }
 unsafe impl ::windows::runtime::Abi for MF_MEDIA_ENGINE_CANPLAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_MEDIA_ENGINE_COMPATIBILITY_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1056074452, 56404, 17886, [185, 175, 118, 200, 198, 107, 250, 142]);
 pub const MF_MEDIA_ENGINE_COMPATIBILITY_MODE_WIN10: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1529208969, 27815, 16697, [162, 203, 252, 170, 179, 149, 82, 163]);
@@ -46408,7 +45886,6 @@ impl ::std::convert::From<i32> for MF_MEDIA_ENGINE_CREATEFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MF_MEDIA_ENGINE_CREATEFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_MEDIA_ENGINE_DXGI_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(106365658, 4244, 18541, [134, 23, 238, 124, 196, 238, 70, 72]);
 pub const MF_MEDIA_ENGINE_EME_CALLBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229280167, 42113, 19639, [190, 197, 56, 9, 3, 81, 55, 49]);
@@ -46429,7 +45906,6 @@ impl ::std::convert::From<i32> for MF_MEDIA_ENGINE_ERR {
 }
 unsafe impl ::windows::runtime::Abi for MF_MEDIA_ENGINE_ERR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -46481,7 +45957,6 @@ impl ::std::convert::From<i32> for MF_MEDIA_ENGINE_EVENT {
 }
 unsafe impl ::windows::runtime::Abi for MF_MEDIA_ENGINE_EVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_MEDIA_ENGINE_EXTENSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(822738246, 1549, 19298, [141, 207, 250, 255, 129, 19, 24, 210]);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -46497,7 +45972,6 @@ impl ::std::convert::From<i32> for MF_MEDIA_ENGINE_EXTENSION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MF_MEDIA_ENGINE_EXTENSION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -46513,7 +45987,6 @@ impl ::std::convert::From<i32> for MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -46532,7 +46005,6 @@ impl ::std::convert::From<i32> for MF_MEDIA_ENGINE_KEYERR {
 }
 unsafe impl ::windows::runtime::Abi for MF_MEDIA_ENGINE_KEYERR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_MEDIA_ENGINE_MEDIA_PLAYER_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1037929797, 23201, 16658, [130, 229, 54, 246, 162, 25, 126, 110]);
 pub const MF_MEDIA_ENGINE_NEEDKEY_CALLBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2124941379, 46820, 17196, [142, 164, 120, 72, 255, 228, 34, 14]);
@@ -46551,7 +46023,6 @@ impl ::std::convert::From<i32> for MF_MEDIA_ENGINE_NETWORK {
 }
 unsafe impl ::windows::runtime::Abi for MF_MEDIA_ENGINE_NETWORK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_MEDIA_ENGINE_OPM_HWND: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2696842983, 1394, 20268, [168, 1, 42, 21, 27, 211, 231, 38]);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -46571,7 +46042,6 @@ impl ::std::convert::From<i32> for MF_MEDIA_ENGINE_OPM_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for MF_MEDIA_ENGINE_OPM_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_MEDIA_ENGINE_PLAYBACK_HWND: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3649603483, 26569, 19858, [186, 167, 110, 173, 212, 70, 3, 157]);
 pub const MF_MEDIA_ENGINE_PLAYBACK_VISUAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1844171375, 27321, 19838, [176, 238, 198, 26, 115, 255, 173, 21]);
@@ -46591,7 +46061,6 @@ impl ::std::convert::From<i32> for MF_MEDIA_ENGINE_PRELOAD {
 }
 unsafe impl ::windows::runtime::Abi for MF_MEDIA_ENGINE_PRELOAD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -46607,7 +46076,6 @@ impl ::std::convert::From<i32> for MF_MEDIA_ENGINE_PROTECTION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MF_MEDIA_ENGINE_PROTECTION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -46625,7 +46093,6 @@ impl ::std::convert::From<i32> for MF_MEDIA_ENGINE_READY {
 }
 unsafe impl ::windows::runtime::Abi for MF_MEDIA_ENGINE_READY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -46641,7 +46108,6 @@ impl ::std::convert::From<i32> for MF_MEDIA_ENGINE_S3D_PACKING_MODE {
 }
 unsafe impl ::windows::runtime::Abi for MF_MEDIA_ENGINE_S3D_PACKING_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -46656,7 +46122,6 @@ impl ::std::convert::From<i32> for MF_MEDIA_ENGINE_SEEK_MODE {
 }
 unsafe impl ::windows::runtime::Abi for MF_MEDIA_ENGINE_SEEK_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_MEDIA_ENGINE_SOURCE_RESOLVER_CONFIG_STORE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(180405399, 46020, 18633, [156, 222, 187, 140, 162, 68, 44, 163]);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -46678,7 +46143,6 @@ impl ::std::convert::From<i32> for MF_MEDIA_ENGINE_STATISTIC {
 }
 unsafe impl ::windows::runtime::Abi for MF_MEDIA_ENGINE_STATISTIC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -46694,7 +46158,6 @@ impl ::std::convert::From<i32> for MF_MEDIA_ENGINE_STREAMTYPE_FAILED {
 }
 unsafe impl ::windows::runtime::Abi for MF_MEDIA_ENGINE_STREAMTYPE_FAILED {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_MEDIA_ENGINE_STREAM_CONTAINS_ALPHA_CHANNEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1556066116, 53938, 19707, [128, 167, 212, 41, 199, 76, 120, 157]);
 pub const MF_MEDIA_ENGINE_SYNCHRONOUS_CLOSE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3284328751, 32270, 20035, [185, 28, 220, 153, 44, 205, 250, 94]);
@@ -46717,7 +46180,6 @@ impl ::std::convert::From<i32> for MF_MEDIA_SHARING_ENGINE_EVENT {
 }
 unsafe impl ::windows::runtime::Abi for MF_MEDIA_SHARING_ENGINE_EVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_MEDIA_SHARING_ENGINE_INITIAL_SEEK_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1865717749, 54568, 19023, [141, 215, 219, 54, 101, 126, 196, 201]);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -46753,7 +46215,6 @@ impl ::std::convert::From<i32> for MF_MSE_APPEND_MODE {
 }
 unsafe impl ::windows::runtime::Abi for MF_MSE_APPEND_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_MSE_BUFFERLIST_CALLBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1122396592, 54798, 19195, [168, 91, 216, 229, 254, 107, 218, 181]);
 pub const MF_MSE_CALLBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2422450112, 17093, 20477, [168, 168, 111, 207, 158, 163, 208, 12]);
@@ -46772,7 +46233,6 @@ impl ::std::convert::From<i32> for MF_MSE_ERROR {
 }
 unsafe impl ::windows::runtime::Abi for MF_MSE_ERROR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_MSE_OPUS_SUPPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1294093505, 36036, 18595, [167, 167, 228, 193, 108, 230, 56, 138]);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -46788,7 +46248,6 @@ impl ::std::convert::From<i32> for MF_MSE_OPUS_SUPPORT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MF_MSE_OPUS_SUPPORT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -46804,7 +46263,6 @@ impl ::std::convert::From<i32> for MF_MSE_READY {
 }
 unsafe impl ::windows::runtime::Abi for MF_MSE_READY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_MSE_VP9_SUPPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2463597609, 55435, 20464, [131, 34, 128, 62, 250, 110, 150, 38]);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -46821,7 +46279,6 @@ impl ::std::convert::From<i32> for MF_MSE_VP9_SUPPORT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MF_MSE_VP9_SUPPORT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_MT_AAC_AUDIO_PROFILE_LEVEL_INDICATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1983049958, 38200, 19809, [172, 218, 234, 41, 200, 193, 68, 86]);
 pub const MF_MT_AAC_PAYLOAD_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3216686713, 29748, 19740, [148, 240, 114, 163, 185, 225, 113, 136]);
@@ -46966,7 +46423,6 @@ impl ::std::convert::From<i32> for MF_OBJECT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MF_OBJECT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -46984,7 +46440,6 @@ impl ::std::convert::From<i32> for MF_OPM_ACP_PROTECTION_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for MF_OPM_ACP_PROTECTION_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -47003,7 +46458,6 @@ impl ::std::convert::From<i32> for MF_OPM_CGMSA_PROTECTION_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for MF_OPM_CGMSA_PROTECTION_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_PARSE_ERR: u32 = 2154823761u32;
@@ -47065,7 +46519,6 @@ impl ::std::convert::From<i32> for MF_PLUGIN_CONTROL_POLICY {
 }
 unsafe impl ::windows::runtime::Abi for MF_PLUGIN_CONTROL_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_PMP_SERVER_CONTEXT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(788580624, 53967, 17016, [139, 106, 208, 119, 250, 195, 162, 95]);
 pub const MF_POLICY_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2975908429, 49241, 18673, [169, 1, 158, 226, 152, 169, 168, 195]);
@@ -47087,7 +46540,6 @@ impl ::std::convert::From<i32> for MF_Plugin_Type {
 }
 unsafe impl ::windows::runtime::Abi for MF_Plugin_Type {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -47101,7 +46553,6 @@ impl ::std::convert::From<i32> for MF_QUALITY_ADVISE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MF_QUALITY_ADVISE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -47121,7 +46572,6 @@ impl ::std::convert::From<i32> for MF_QUALITY_DROP_MODE {
 }
 unsafe impl ::windows::runtime::Abi for MF_QUALITY_DROP_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -47141,7 +46591,6 @@ impl ::std::convert::From<i32> for MF_QUALITY_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for MF_QUALITY_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_QUALITY_NOTIFY_PROCESSING_LATENCY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4139010808, 24653, 18174, [169, 93, 69, 71, 155, 16, 201, 188]);
 pub const MF_QUALITY_NOTIFY_SAMPLE_LAG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(819024390, 60714, 18272, [190, 23, 235, 74, 159, 18, 41, 92]);
@@ -47174,7 +46623,6 @@ impl ::std::cmp::PartialEq for MF_QUATERNION {
 impl ::std::cmp::Eq for MF_QUATERNION {}
 unsafe impl ::windows::runtime::Abi for MF_QUATERNION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MF_QUOTA_EXCEEDED_ERR: u32 = 2154823702u32;
@@ -47210,7 +46658,6 @@ impl ::std::convert::From<u32> for MF_RESOLUTION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MF_RESOLUTION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MF_RESOLUTION_FLAGS {
     type Output = Self;
@@ -47296,7 +46743,6 @@ impl ::std::convert::From<i32> for MF_SERVICE_LOOKUP_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MF_SERVICE_LOOKUP_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_SESSION_APPROX_EVENT_OCCURRENCE_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(420381999, 25144, 17105, [181, 175, 105, 234, 51, 142, 248, 80]);
 pub const MF_SESSION_CONTENT_PROTECTION_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(511956098, 7964, 17777, [132, 5, 136, 244, 178, 24, 31, 116]);
@@ -47322,7 +46768,6 @@ impl ::std::convert::From<i32> for MF_SHARING_ENGINE_EVENT {
 }
 unsafe impl ::windows::runtime::Abi for MF_SHARING_ENGINE_EVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_SHARING_ENGINE_SHAREDRENDERER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4020520608, 29671, 16462, [138, 226, 254, 246, 10, 245, 163, 43]);
 pub const MF_SHUTDOWN_RENDERER_ON_ENGINE_SHUTDOWN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3239237965, 27548, 18680, [182, 249, 121, 80, 255, 154, 183, 30]);
@@ -47346,7 +46791,6 @@ impl ::std::convert::From<u32> for MF_SINK_WRITER_CONSTANTS {
 }
 unsafe impl ::windows::runtime::Abi for MF_SINK_WRITER_CONSTANTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MF_SINK_WRITER_CONSTANTS {
     type Output = Self;
@@ -47451,7 +46895,6 @@ impl ::std::cmp::PartialEq for MF_SINK_WRITER_STATISTICS {
 impl ::std::cmp::Eq for MF_SINK_WRITER_STATISTICS {}
 unsafe impl ::windows::runtime::Abi for MF_SINK_WRITER_STATISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_SOURCE_PRESENTATION_PROVIDER_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3758271196, 62639, 20197, [152, 71, 5, 62, 223, 132, 4, 38]);
 pub const MF_SOURCE_READER_ASYNC_CALLBACK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(507362988, 47939, 19509, [181, 7, 205, 100, 68, 100, 201, 101]);
@@ -47472,7 +46915,6 @@ impl ::std::convert::From<i32> for MF_SOURCE_READER_CONSTANTS {
 }
 unsafe impl ::windows::runtime::Abi for MF_SOURCE_READER_CONSTANTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -47486,7 +46928,6 @@ impl ::std::convert::From<i32> for MF_SOURCE_READER_CONTROL_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for MF_SOURCE_READER_CONTROL_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -47500,7 +46941,6 @@ impl ::std::convert::From<i32> for MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS {
 }
 unsafe impl ::windows::runtime::Abi for MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_SOURCE_READER_D3D11_BIND_FLAGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(871569787, 63290, 19988, [141, 133, 14, 76, 67, 104, 120, 141]);
 pub const MF_SOURCE_READER_D3D_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3967954338, 57833, 19241, [160, 216, 86, 60, 113, 159, 82, 105]);
@@ -47528,7 +46968,6 @@ impl ::std::convert::From<i32> for MF_SOURCE_READER_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for MF_SOURCE_READER_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_SOURCE_READER_MEDIASOURCE_CHARACTERISTICS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1831073224, 50647, 19099, [153, 113, 93, 17, 248, 188, 168, 128]);
 pub const MF_SOURCE_READER_MEDIASOURCE_CONFIG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2424679403, 852, 18681, [171, 181, 32, 13, 248, 56, 198, 142]);
@@ -47551,7 +46990,6 @@ impl ::std::convert::From<i32> for MF_STREAM_STATE {
 }
 unsafe impl ::windows::runtime::Abi for MF_STREAM_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_ST_MEDIASOURCE_COLLECTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1634593138, 33709, 18768, [129, 112, 99, 13, 25, 203, 227, 7]);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -47598,7 +47036,6 @@ impl ::std::convert::From<i32> for MF_TIMED_TEXT_ALIGNMENT {
 }
 unsafe impl ::windows::runtime::Abi for MF_TIMED_TEXT_ALIGNMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -47614,7 +47051,6 @@ impl ::std::convert::From<i32> for MF_TIMED_TEXT_BOUTEN_POSITION {
 }
 unsafe impl ::windows::runtime::Abi for MF_TIMED_TEXT_BOUTEN_POSITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -47635,7 +47071,6 @@ impl ::std::convert::From<i32> for MF_TIMED_TEXT_BOUTEN_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MF_TIMED_TEXT_BOUTEN_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -47651,7 +47086,6 @@ impl ::std::convert::From<i32> for MF_TIMED_TEXT_CUE_EVENT {
 }
 unsafe impl ::windows::runtime::Abi for MF_TIMED_TEXT_CUE_EVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -47668,7 +47102,6 @@ impl ::std::convert::From<i32> for MF_TIMED_TEXT_DECORATION {
 }
 unsafe impl ::windows::runtime::Abi for MF_TIMED_TEXT_DECORATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -47684,7 +47117,6 @@ impl ::std::convert::From<i32> for MF_TIMED_TEXT_DISPLAY_ALIGNMENT {
 }
 unsafe impl ::windows::runtime::Abi for MF_TIMED_TEXT_DISPLAY_ALIGNMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -47702,7 +47134,6 @@ impl ::std::convert::From<i32> for MF_TIMED_TEXT_ERROR_CODE {
 }
 unsafe impl ::windows::runtime::Abi for MF_TIMED_TEXT_ERROR_CODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -47718,7 +47149,6 @@ impl ::std::convert::From<i32> for MF_TIMED_TEXT_FONT_STYLE {
 }
 unsafe impl ::windows::runtime::Abi for MF_TIMED_TEXT_FONT_STYLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -47737,7 +47167,6 @@ impl ::std::convert::From<i32> for MF_TIMED_TEXT_RUBY_ALIGN {
 }
 unsafe impl ::windows::runtime::Abi for MF_TIMED_TEXT_RUBY_ALIGN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -47753,7 +47182,6 @@ impl ::std::convert::From<i32> for MF_TIMED_TEXT_RUBY_POSITION {
 }
 unsafe impl ::windows::runtime::Abi for MF_TIMED_TEXT_RUBY_POSITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -47771,7 +47199,6 @@ impl ::std::convert::From<i32> for MF_TIMED_TEXT_RUBY_RESERVE {
 }
 unsafe impl ::windows::runtime::Abi for MF_TIMED_TEXT_RUBY_RESERVE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -47786,7 +47213,6 @@ impl ::std::convert::From<i32> for MF_TIMED_TEXT_SCROLL_MODE {
 }
 unsafe impl ::windows::runtime::Abi for MF_TIMED_TEXT_SCROLL_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -47803,7 +47229,6 @@ impl ::std::convert::From<i32> for MF_TIMED_TEXT_TRACK_KIND {
 }
 unsafe impl ::windows::runtime::Abi for MF_TIMED_TEXT_TRACK_KIND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -47820,7 +47245,6 @@ impl ::std::convert::From<i32> for MF_TIMED_TEXT_TRACK_READY_STATE {
 }
 unsafe impl ::windows::runtime::Abi for MF_TIMED_TEXT_TRACK_READY_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -47835,7 +47259,6 @@ impl ::std::convert::From<i32> for MF_TIMED_TEXT_UNIT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MF_TIMED_TEXT_UNIT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -47855,7 +47278,6 @@ impl ::std::convert::From<i32> for MF_TIMED_TEXT_WRITING_MODE {
 }
 unsafe impl ::windows::runtime::Abi for MF_TIMED_TEXT_WRITING_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_TIME_FORMAT_ENTRY_RELATIVE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1134162296, 18131, 17668, [175, 218, 32, 211, 46, 155, 163, 96]);
 pub const MF_TIME_FORMAT_SEGMENT_OFFSET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3367550583, 34460, 17181, [129, 46, 22, 150, 147, 246, 90, 57]);
@@ -47884,7 +47306,6 @@ impl ::std::convert::From<i32> for MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_TOPOLOGY_START_TIME_ON_PRESENTATION_SWITCH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3368816959, 31057, 17736, [170, 214, 158, 214, 32, 46, 98, 179]);
 pub const MF_TOPOLOGY_STATIC_PLAYBACK_OPTIMIZATIONS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3094129730, 16806, 19321, [137, 122, 26, 176, 229, 43, 74, 27]);
@@ -47904,7 +47325,6 @@ impl ::std::convert::From<i32> for MF_TOPOLOGY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MF_TOPOLOGY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_TOPONODE_ATTRIBUTE_EDITOR_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1701146138, 1919, 17522, [131, 239, 49, 111, 17, 213, 8, 122]);
 pub const MF_TOPONODE_CONNECT_METHOD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229700337, 45105, 20024, [151, 196, 213, 66, 45, 214, 24, 220]);
@@ -47928,7 +47348,6 @@ impl ::std::convert::From<i32> for MF_TOPONODE_DRAIN_MODE {
 }
 unsafe impl ::windows::runtime::Abi for MF_TOPONODE_DRAIN_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_TOPONODE_ERRORCODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229700334, 45105, 20024, [151, 196, 213, 66, 45, 214, 24, 220]);
 pub const MF_TOPONODE_ERROR_MAJORTYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229700349, 45105, 20024, [151, 196, 213, 66, 45, 214, 24, 220]);
@@ -47948,7 +47367,6 @@ impl ::std::convert::From<i32> for MF_TOPONODE_FLUSH_MODE {
 }
 unsafe impl ::windows::runtime::Abi for MF_TOPONODE_FLUSH_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_TOPONODE_LOCKED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229700343, 45105, 20024, [151, 196, 213, 66, 45, 214, 24, 220]);
 pub const MF_TOPONODE_MARKIN_HERE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1229700352, 45105, 20024, [151, 196, 213, 66, 45, 214, 24, 220]);
@@ -47986,7 +47404,6 @@ impl ::std::convert::From<i32> for MF_TOPOSTATUS {
 }
 unsafe impl ::windows::runtime::Abi for MF_TOPOSTATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_TRANSCODE_ADJUST_PROFILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2620899867, 1551, 18556, [166, 144, 128, 215, 245, 13, 28, 114]);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
@@ -48002,7 +47419,6 @@ impl ::std::convert::From<i32> for MF_TRANSCODE_ADJUST_PROFILE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MF_TRANSCODE_ADJUST_PROFILE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_TRANSCODE_CONTAINERTYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(353366591, 19132, 18315, [172, 79, 225, 145, 111, 186, 28, 202]);
 pub const MF_TRANSCODE_DONOT_INSERT_ENCODER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4099581902, 43812, 16402, [161, 27, 220, 130, 32, 32, 20, 16]);
@@ -48036,7 +47452,6 @@ impl ::std::cmp::PartialEq for MF_TRANSCODE_SINK_INFO {
 impl ::std::cmp::Eq for MF_TRANSCODE_SINK_INFO {}
 unsafe impl ::windows::runtime::Abi for MF_TRANSCODE_SINK_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 pub const MF_TRANSCODE_SKIP_METADATA_TRANSFER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1313106415, 46449, 18777, [143, 131, 61, 207, 186, 51, 163, 147]);
 pub const MF_TRANSCODE_TOPOLOGYMODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1044248080, 14666, 16562, [157, 234, 59, 171, 101, 11, 235, 242]);
@@ -48053,7 +47468,6 @@ impl ::std::convert::From<i32> for MF_TRANSCODE_TOPOLOGYMODE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MF_TRANSCODE_TOPOLOGYMODE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_TRANSFORM_ASYNC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4162480538, 25754, 18813, [140, 115, 41, 248, 254, 214, 173, 122]);
 pub const MF_TRANSFORM_ASYNC_UNLOCK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3848695147, 13346, 20150, [164, 33, 218, 125, 177, 248, 226, 7]);
@@ -48077,7 +47491,6 @@ impl ::std::convert::From<i32> for MF_URL_TRUST_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for MF_URL_TRUST_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_USER_DATA_PAYLOAD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3520370781, 56466, 17786, [179, 160, 101, 26, 51, 163, 16, 71]);
 pub const MF_USER_EXTENDED_ATTRIBUTES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3224025798, 65202, 17729, [146, 47, 146, 11, 67, 112, 39, 34]);
@@ -48099,7 +47512,6 @@ impl ::std::convert::From<i32> for MF_VIDEO_PROCESSOR_ALGORITHM_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MF_VIDEO_PROCESSOR_ALGORITHM_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -48115,7 +47527,6 @@ impl ::std::convert::From<i32> for MF_VIDEO_PROCESSOR_MIRROR {
 }
 unsafe impl ::windows::runtime::Abi for MF_VIDEO_PROCESSOR_MIRROR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -48130,7 +47541,6 @@ impl ::std::convert::From<i32> for MF_VIDEO_PROCESSOR_ROTATION {
 }
 unsafe impl ::windows::runtime::Abi for MF_VIDEO_PROCESSOR_ROTATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_VIDEO_RENDERER_EFFECT_APP_SERVICE_NAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3322227328, 28060, 16547, [157, 184, 240, 39, 162, 92, 154, 185]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -48160,7 +47570,6 @@ impl ::std::cmp::PartialEq for MF_VIDEO_SPHERICAL_VIEWDIRECTION {
 impl ::std::cmp::Eq for MF_VIDEO_SPHERICAL_VIEWDIRECTION {}
 unsafe impl ::windows::runtime::Abi for MF_VIDEO_SPHERICAL_VIEWDIRECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MF_VIRTUALCAMERA_CONFIGURATION_APP_PACKAGE_FAMILY_NAME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1703591505, 32836, 17966, [151, 234, 230, 118, 253, 114, 5, 95]);
 pub const MF_WORKQUEUE_SERVICES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2386023561, 16864, 16698, [144, 104, 40, 124, 136, 109, 141, 218]);
@@ -48201,7 +47610,6 @@ impl ::std::convert::From<i32> for MIC_ARRAY_MODE {
 }
 unsafe impl ::windows::runtime::Abi for MIC_ARRAY_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -48237,7 +47645,6 @@ impl ::std::cmp::Eq for MOVEREGION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MOVEREGION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -48272,7 +47679,6 @@ impl ::std::cmp::Eq for MOVE_RECT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MOVE_RECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MP3ACMCodecWrapper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(286274593, 13644, 19658, [167, 163, 26, 255, 154, 91, 103, 1]);
 pub const MR_AUDIO_POLICY_SERVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2434783031, 26485, 19120, [166, 20, 41, 120, 98, 253, 172, 136]);
@@ -48329,7 +47735,6 @@ impl ::std::cmp::Eq for MT_ARBITRARY_HEADER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MT_ARBITRARY_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -48363,7 +47768,6 @@ impl ::std::cmp::PartialEq for MT_CUSTOM_VIDEO_PRIMARIES {
 impl ::std::cmp::Eq for MT_CUSTOM_VIDEO_PRIMARIES {}
 unsafe impl ::windows::runtime::Abi for MT_CUSTOM_VIDEO_PRIMARIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MULawCodecWrapper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2461425792, 24109, 17566, [144, 196, 196, 31, 38, 142, 85, 20]);
 #[cfg(feature = "Win32_Foundation")]
@@ -48486,7 +47890,6 @@ impl ::std::cmp::PartialEq for OPM_ACP_AND_CGMSA_SIGNALING {
 impl ::std::cmp::Eq for OPM_ACP_AND_CGMSA_SIGNALING {}
 unsafe impl ::windows::runtime::Abi for OPM_ACP_AND_CGMSA_SIGNALING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -48504,7 +47907,6 @@ impl ::std::convert::From<i32> for OPM_ACP_PROTECTION_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for OPM_ACP_PROTECTION_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -48539,7 +47941,6 @@ impl ::std::cmp::Eq for OPM_ACTUAL_OUTPUT_FORMAT {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 unsafe impl ::windows::runtime::Abi for OPM_ACTUAL_OUTPUT_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -48564,7 +47965,6 @@ impl ::std::convert::From<i32> for OPM_BUS_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for OPM_BUS_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -48583,7 +47983,6 @@ impl ::std::convert::From<i32> for OPM_CGMSA {
 }
 unsafe impl ::windows::runtime::Abi for OPM_CGMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -48609,7 +48008,6 @@ impl ::std::cmp::PartialEq for OPM_CONFIGURE_PARAMETERS {
 impl ::std::cmp::Eq for OPM_CONFIGURE_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for OPM_CONFIGURE_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -48637,7 +48035,6 @@ impl ::std::cmp::PartialEq for OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
 impl ::std::cmp::Eq for OPM_CONNECTED_HDCP_DEVICE_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -48663,7 +48060,6 @@ impl ::std::cmp::PartialEq for OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
 impl ::std::cmp::Eq for OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -48679,7 +48075,6 @@ impl ::std::convert::From<i32> for OPM_DPCP_PROTECTION_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for OPM_DPCP_PROTECTION_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -48694,7 +48089,6 @@ impl ::std::convert::From<i32> for OPM_DVI_CHARACTERISTIC {
 }
 unsafe impl ::windows::runtime::Abi for OPM_DVI_CHARACTERISTIC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -48721,7 +48115,6 @@ impl ::std::cmp::PartialEq for OPM_ENCRYPTED_INITIALIZATION_PARAMETERS {
 impl ::std::cmp::Eq for OPM_ENCRYPTED_INITIALIZATION_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for OPM_ENCRYPTED_INITIALIZATION_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const OPM_GET_ACP_AND_CGMSA_SIGNALING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1714005393, 15225, 19699, [146, 74, 17, 232, 231, 129, 22, 113]);
 pub const OPM_GET_ACTUAL_OUTPUT_FORMAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3619625891, 44307, 20366, [175, 152, 13, 203, 60, 162, 4, 204]);
@@ -48749,7 +48142,6 @@ impl ::std::cmp::PartialEq for OPM_GET_CODEC_INFO_INFORMATION {
 impl ::std::cmp::Eq for OPM_GET_CODEC_INFO_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for OPM_GET_CODEC_INFO_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -48772,7 +48164,6 @@ impl ::std::cmp::PartialEq for OPM_GET_CODEC_INFO_PARAMETERS {
 impl ::std::cmp::Eq for OPM_GET_CODEC_INFO_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for OPM_GET_CODEC_INFO_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const OPM_GET_CONNECTED_HDCP_DEVICE_INFORMATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(230006132, 43410, 18734, [160, 189, 194, 63, 218, 86, 78, 0]);
 pub const OPM_GET_CONNECTOR_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2177941461, 27390, 18626, [153, 192, 149, 160, 143, 151, 197, 218]);
@@ -48803,7 +48194,6 @@ impl ::std::cmp::PartialEq for OPM_GET_INFO_PARAMETERS {
 impl ::std::cmp::Eq for OPM_GET_INFO_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for OPM_GET_INFO_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const OPM_GET_OUTPUT_HARDWARE_PROTECTION_SUPPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(991073673, 11000, 20208, [150, 162, 112, 74, 132, 90, 33, 142]);
 pub const OPM_GET_OUTPUT_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1925934579, 9295, 16590, [176, 158, 32, 80, 106, 246, 48, 47]);
@@ -48822,7 +48212,6 @@ impl ::std::convert::From<u32> for OPM_HDCP_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for OPM_HDCP_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for OPM_HDCP_FLAGS {
     type Output = Self;
@@ -48877,7 +48266,6 @@ impl ::std::cmp::PartialEq for OPM_HDCP_KEY_SELECTION_VECTOR {
 impl ::std::cmp::Eq for OPM_HDCP_KEY_SELECTION_VECTOR {}
 unsafe impl ::windows::runtime::Abi for OPM_HDCP_KEY_SELECTION_VECTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -48893,7 +48281,6 @@ impl ::std::convert::From<i32> for OPM_HDCP_PROTECTION_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for OPM_HDCP_PROTECTION_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -48908,7 +48295,6 @@ impl ::std::convert::From<i32> for OPM_HDCP_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for OPM_HDCP_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -48923,7 +48309,6 @@ impl ::std::convert::From<i32> for OPM_HDCP_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for OPM_HDCP_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -48945,7 +48330,6 @@ impl ::std::convert::From<i32> for OPM_IMAGE_ASPECT_RATIO_EN300294 {
 }
 unsafe impl ::windows::runtime::Abi for OPM_IMAGE_ASPECT_RATIO_EN300294 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -48972,7 +48356,6 @@ impl ::std::cmp::PartialEq for OPM_OMAC {
 impl ::std::cmp::Eq for OPM_OMAC {}
 unsafe impl ::windows::runtime::Abi for OPM_OMAC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -48987,7 +48370,6 @@ impl ::std::convert::From<i32> for OPM_OUTPUT_HARDWARE_PROTECTION {
 }
 unsafe impl ::windows::runtime::Abi for OPM_OUTPUT_HARDWARE_PROTECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -49011,7 +48393,6 @@ impl ::std::cmp::PartialEq for OPM_OUTPUT_ID_DATA {
 impl ::std::cmp::Eq for OPM_OUTPUT_ID_DATA {}
 unsafe impl ::windows::runtime::Abi for OPM_OUTPUT_ID_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -49041,7 +48422,6 @@ impl ::std::convert::From<u32> for OPM_PROTECTION_STANDARD_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for OPM_PROTECTION_STANDARD_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for OPM_PROTECTION_STANDARD_TYPE {
     type Output = Self;
@@ -49090,7 +48470,6 @@ impl ::std::convert::From<i32> for OPM_PROTECTION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for OPM_PROTECTION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -49117,7 +48496,6 @@ impl ::std::cmp::PartialEq for OPM_RANDOM_NUMBER {
 impl ::std::cmp::Eq for OPM_RANDOM_NUMBER {}
 unsafe impl ::windows::runtime::Abi for OPM_RANDOM_NUMBER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -49141,7 +48519,6 @@ impl ::std::cmp::PartialEq for OPM_REQUESTED_INFORMATION {
 impl ::std::cmp::Eq for OPM_REQUESTED_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for OPM_REQUESTED_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const OPM_SET_ACP_AND_CGMSA_SIGNALING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(161886629, 54916, 19552, [142, 77, 211, 187, 15, 11, 227, 238]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -49173,7 +48550,6 @@ impl ::std::cmp::PartialEq for OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
 impl ::std::cmp::Eq for OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const OPM_SET_HDCP_SRM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2338256337, 49933, 17663, [132, 165, 234, 113, 220, 231, 143, 19]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -49196,7 +48572,6 @@ impl ::std::cmp::PartialEq for OPM_SET_HDCP_SRM_PARAMETERS {
 impl ::std::cmp::Eq for OPM_SET_HDCP_SRM_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for OPM_SET_HDCP_SRM_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const OPM_SET_PROTECTION_LEVEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2612605564, 20149, 18215, [159, 0, 180, 43, 9, 25, 192, 218]);
 pub const OPM_SET_PROTECTION_LEVEL_ACCORDING_TO_CSS_DVD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(969814846, 19648, 17582, [191, 204, 218, 80, 181, 248, 46, 114]);
@@ -49223,7 +48598,6 @@ impl ::std::cmp::PartialEq for OPM_SET_PROTECTION_LEVEL_PARAMETERS {
 impl ::std::cmp::Eq for OPM_SET_PROTECTION_LEVEL_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for OPM_SET_PROTECTION_LEVEL_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -49249,7 +48623,6 @@ impl ::std::cmp::PartialEq for OPM_STANDARD_INFORMATION {
 impl ::std::cmp::Eq for OPM_STANDARD_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for OPM_STANDARD_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -49267,7 +48640,6 @@ impl ::std::convert::From<i32> for OPM_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for OPM_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -49290,7 +48662,6 @@ impl ::std::convert::From<i32> for OPM_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for OPM_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -49307,7 +48678,6 @@ impl ::std::convert::From<i32> for OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -49323,7 +48693,6 @@ impl ::std::convert::From<i32> for OPM_VIDEO_OUTPUT_SEMANTICS {
 }
 unsafe impl ::windows::runtime::Abi for OPM_VIDEO_OUTPUT_SEMANTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PDXVAHDSW_CreateDevice = unsafe extern "system" fn(pd3ddevice: ::windows::runtime::RawPtr, phdevice: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
@@ -49376,7 +48745,6 @@ impl ::std::convert::From<i32> for PLAYTO_SOURCE_CREATEFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PLAYTO_SOURCE_CREATEFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -49408,7 +48776,6 @@ impl ::std::convert::From<i32> for PM_CONNECTOR_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PM_CONNECTOR_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const PRESENTATION_CURRENT_POSITION: u64 = 9223372036854775807u64;
@@ -49445,7 +48812,6 @@ impl ::std::cmp::Eq for ROI_AREA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ROI_AREA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -49463,7 +48829,6 @@ impl ::std::convert::From<i32> for SAMPLE_PROTECTION_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for SAMPLE_PROTECTION_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -49478,7 +48843,6 @@ impl ::std::convert::From<i32> for SEEK_ORIGIN {
 }
 unsafe impl ::windows::runtime::Abi for SEEK_ORIGIN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -49507,7 +48871,6 @@ impl ::std::cmp::PartialEq for SENSORPROFILEID {
 impl ::std::cmp::Eq for SENSORPROFILEID {}
 unsafe impl ::windows::runtime::Abi for SENSORPROFILEID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const SHA_HASH_LEN: u32 = 20u32;
@@ -49537,7 +48900,6 @@ impl ::std::cmp::PartialEq for STREAM_MEDIUM {
 impl ::std::cmp::Eq for STREAM_MEDIUM {}
 unsafe impl ::windows::runtime::Abi for STREAM_MEDIUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const SYSFXUI_DONOTSHOW_BASSBOOST: u32 = 8u32;
@@ -49583,7 +48945,6 @@ impl ::std::cmp::PartialEq for TOC_DESCRIPTOR {
 impl ::std::cmp::Eq for TOC_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for TOC_DESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -49620,7 +48981,6 @@ impl ::std::cmp::PartialEq for TOC_ENTRY_DESCRIPTOR {
 impl ::std::cmp::Eq for TOC_ENTRY_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for TOC_ENTRY_DESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const TOC_ENTRY_MAX_TITLE_SIZE: u32 = 65535u32;
@@ -49639,7 +48999,6 @@ impl ::std::convert::From<i32> for TOC_POS_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for TOC_POS_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const VIDEO_ZOOM_RECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2057967160, 7039, 19603, [189, 137, 91, 156, 159, 182, 252, 240]);
 pub const VorbisDecoderMFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(437882610, 24805, 20136, [144, 216, 218, 31, 40, 50, 194, 136]);
@@ -49663,7 +49022,6 @@ impl ::std::convert::From<i32> for WMT_PROP_DATATYPE {
 }
 unsafe impl ::windows::runtime::Abi for WMT_PROP_DATATYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -49679,7 +49037,6 @@ impl ::std::convert::From<i32> for WMV_DYNAMIC_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for WMV_DYNAMIC_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const WM_CODEC_ONEPASS_CBR: u32 = 1u32;
@@ -49704,7 +49061,6 @@ impl ::std::convert::From<i32> for _DMO_INPLACE_PROCESS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for _DMO_INPLACE_PROCESS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -49721,7 +49077,6 @@ impl ::std::convert::From<i32> for _DMO_INPUT_DATA_BUFFER_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for _DMO_INPUT_DATA_BUFFER_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -49735,7 +49090,6 @@ impl ::std::convert::From<i32> for _DMO_INPUT_STATUS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for _DMO_INPUT_STATUS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -49752,7 +49106,6 @@ impl ::std::convert::From<i32> for _DMO_INPUT_STREAM_INFO_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for _DMO_INPUT_STREAM_INFO_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -49770,7 +49123,6 @@ impl ::std::convert::From<i32> for _DMO_OUTPUT_DATA_BUFFER_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for _DMO_OUTPUT_DATA_BUFFER_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -49788,7 +49140,6 @@ impl ::std::convert::From<i32> for _DMO_OUTPUT_STREAM_INFO_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for _DMO_OUTPUT_STREAM_INFO_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -49802,7 +49153,6 @@ impl ::std::convert::From<i32> for _DMO_PROCESS_OUTPUT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for _DMO_PROCESS_OUTPUT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -49816,7 +49166,6 @@ impl ::std::convert::From<i32> for _DMO_QUALITY_STATUS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for _DMO_QUALITY_STATUS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -49831,7 +49180,6 @@ impl ::std::convert::From<i32> for _DMO_SET_TYPE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for _DMO_SET_TYPE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -49845,7 +49193,6 @@ impl ::std::convert::From<i32> for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -49864,7 +49211,6 @@ impl ::std::convert::From<i32> for _MFP_CREDENTIAL_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for _MFP_CREDENTIAL_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -49881,7 +49227,6 @@ impl ::std::convert::From<i32> for _MFP_MEDIAITEM_CHARACTERISTICS {
 }
 unsafe impl ::windows::runtime::Abi for _MFP_MEDIAITEM_CHARACTERISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -49906,7 +49251,6 @@ impl ::std::convert::From<i32> for _MFT_ENUM_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for _MFT_ENUM_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -49920,7 +49264,6 @@ impl ::std::convert::From<i32> for _MFT_INPUT_DATA_BUFFER_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for _MFT_INPUT_DATA_BUFFER_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -49934,7 +49277,6 @@ impl ::std::convert::From<i32> for _MFT_INPUT_STATUS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for _MFT_INPUT_STATUS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -49955,7 +49297,6 @@ impl ::std::convert::From<i32> for _MFT_INPUT_STREAM_INFO_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for _MFT_INPUT_STREAM_INFO_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -49972,7 +49313,6 @@ impl ::std::convert::From<i32> for _MFT_OUTPUT_DATA_BUFFER_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for _MFT_OUTPUT_DATA_BUFFER_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -49986,7 +49326,6 @@ impl ::std::convert::From<i32> for _MFT_OUTPUT_STATUS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for _MFT_OUTPUT_STATUS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50008,7 +49347,6 @@ impl ::std::convert::From<i32> for _MFT_OUTPUT_STREAM_INFO_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for _MFT_OUTPUT_STREAM_INFO_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50023,7 +49361,6 @@ impl ::std::convert::From<i32> for _MFT_PROCESS_OUTPUT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for _MFT_PROCESS_OUTPUT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50037,7 +49374,6 @@ impl ::std::convert::From<i32> for _MFT_PROCESS_OUTPUT_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for _MFT_PROCESS_OUTPUT_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50051,7 +49387,6 @@ impl ::std::convert::From<i32> for _MFT_SET_TYPE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for _MFT_SET_TYPE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50065,7 +49400,6 @@ impl ::std::convert::From<i32> for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0
 }
 unsafe impl ::windows::runtime::Abi for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50080,7 +49414,6 @@ impl ::std::convert::From<i32> for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0
 }
 unsafe impl ::windows::runtime::Abi for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50095,7 +49428,6 @@ impl ::std::convert::From<i32> for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0
 }
 unsafe impl ::windows::runtime::Abi for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50126,7 +49458,6 @@ impl ::std::convert::From<i32> for eAVAudioChannelConfig {
 }
 unsafe impl ::windows::runtime::Abi for eAVAudioChannelConfig {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50142,7 +49473,6 @@ impl ::std::convert::From<i32> for eAVDDSurroundMode {
 }
 unsafe impl ::windows::runtime::Abi for eAVDDSurroundMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50158,7 +49488,6 @@ impl ::std::convert::From<i32> for eAVDSPLoudnessEqualization {
 }
 unsafe impl ::windows::runtime::Abi for eAVDSPLoudnessEqualization {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50174,7 +49503,6 @@ impl ::std::convert::From<i32> for eAVDSPSpeakerFill {
 }
 unsafe impl ::windows::runtime::Abi for eAVDSPSpeakerFill {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50189,7 +49517,6 @@ impl ::std::convert::From<i32> for eAVDecAACDownmixMode {
 }
 unsafe impl ::windows::runtime::Abi for eAVDecAACDownmixMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50205,7 +49532,6 @@ impl ::std::convert::From<i32> for eAVDecAudioDualMono {
 }
 unsafe impl ::windows::runtime::Abi for eAVDecAudioDualMono {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50222,7 +49548,6 @@ impl ::std::convert::From<i32> for eAVDecAudioDualMonoReproMode {
 }
 unsafe impl ::windows::runtime::Abi for eAVDecAudioDualMonoReproMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50238,7 +49563,6 @@ impl ::std::convert::From<i32> for eAVDecDDMatrixDecodingMode {
 }
 unsafe impl ::windows::runtime::Abi for eAVDecDDMatrixDecodingMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50259,7 +49583,6 @@ impl ::std::convert::From<i32> for eAVDecDDOperationalMode {
 }
 unsafe impl ::windows::runtime::Abi for eAVDecDDOperationalMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50275,7 +49598,6 @@ impl ::std::convert::From<i32> for eAVDecDDStereoDownMixMode {
 }
 unsafe impl ::windows::runtime::Abi for eAVDecDDStereoDownMixMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50290,7 +49612,6 @@ impl ::std::convert::From<i32> for eAVDecHEAACDynamicRangeControl {
 }
 unsafe impl ::windows::runtime::Abi for eAVDecHEAACDynamicRangeControl {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50306,7 +49627,6 @@ impl ::std::convert::From<i32> for eAVDecVideoCodecType {
 }
 unsafe impl ::windows::runtime::Abi for eAVDecVideoCodecType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50322,7 +49642,6 @@ impl ::std::convert::From<i32> for eAVDecVideoDXVABusEncryption {
 }
 unsafe impl ::windows::runtime::Abi for eAVDecVideoDXVABusEncryption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50340,7 +49659,6 @@ impl ::std::convert::From<i32> for eAVDecVideoDXVAMode {
 }
 unsafe impl ::windows::runtime::Abi for eAVDecVideoDXVAMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50357,7 +49675,6 @@ impl ::std::convert::From<i32> for eAVDecVideoH264ErrorConcealment {
 }
 unsafe impl ::windows::runtime::Abi for eAVDecVideoH264ErrorConcealment {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50374,7 +49691,6 @@ impl ::std::convert::From<i32> for eAVDecVideoInputScanType {
 }
 unsafe impl ::windows::runtime::Abi for eAVDecVideoInputScanType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50389,7 +49705,6 @@ impl ::std::convert::From<i32> for eAVDecVideoMPEG2ErrorConcealment {
 }
 unsafe impl ::windows::runtime::Abi for eAVDecVideoMPEG2ErrorConcealment {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50405,7 +49720,6 @@ impl ::std::convert::From<i32> for eAVDecVideoSWPowerLevel {
 }
 unsafe impl ::windows::runtime::Abi for eAVDecVideoSWPowerLevel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50422,7 +49736,6 @@ impl ::std::convert::From<i32> for eAVDecVideoSoftwareDeinterlaceMode {
 }
 unsafe impl ::windows::runtime::Abi for eAVDecVideoSoftwareDeinterlaceMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50438,7 +49751,6 @@ impl ::std::convert::From<i32> for eAVEncAdaptiveMode {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncAdaptiveMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50454,7 +49766,6 @@ impl ::std::convert::From<i32> for eAVEncAudioDualMono {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncAudioDualMono {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50470,7 +49781,6 @@ impl ::std::convert::From<i32> for eAVEncAudioInputContent {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncAudioInputContent {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50486,7 +49796,6 @@ impl ::std::convert::From<i32> for eAVEncChromaEncodeMode {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncChromaEncodeMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50506,7 +49815,6 @@ impl ::std::convert::From<i32> for eAVEncCommonRateControlMode {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncCommonRateControlMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50521,7 +49829,6 @@ impl ::std::convert::From<i32> for eAVEncCommonStreamEndHandling {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncCommonStreamEndHandling {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50536,7 +49843,6 @@ impl ::std::convert::From<i32> for eAVEncDDAtoDConverterType {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncDDAtoDConverterType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50555,7 +49861,6 @@ impl ::std::convert::From<i32> for eAVEncDDDynamicRangeCompressionControl {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncDDDynamicRangeCompressionControl {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50571,7 +49876,6 @@ impl ::std::convert::From<i32> for eAVEncDDHeadphoneMode {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncDDHeadphoneMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50586,7 +49890,6 @@ impl ::std::convert::From<i32> for eAVEncDDPreferredStereoDownMixMode {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncDDPreferredStereoDownMixMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50602,7 +49905,6 @@ impl ::std::convert::From<i32> for eAVEncDDProductionRoomType {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncDDProductionRoomType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50623,7 +49925,6 @@ impl ::std::convert::From<i32> for eAVEncDDService {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncDDService {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50639,7 +49940,6 @@ impl ::std::convert::From<i32> for eAVEncDDSurroundExMode {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncDDSurroundExMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50655,7 +49955,6 @@ impl ::std::convert::From<i32> for eAVEncH263PictureType {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncH263PictureType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50676,7 +49975,6 @@ impl ::std::convert::From<i32> for eAVEncH263VLevel {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncH263VLevel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50698,7 +49996,6 @@ impl ::std::convert::From<i32> for eAVEncH263VProfile {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncH263VProfile {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50714,7 +50011,6 @@ impl ::std::convert::From<i32> for eAVEncH264PictureType {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncH264PictureType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50744,7 +50040,6 @@ impl ::std::convert::From<i32> for eAVEncH264VLevel {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncH264VLevel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50774,7 +50069,6 @@ impl ::std::convert::From<i32> for eAVEncH264VProfile {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncH264VProfile {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50800,7 +50094,6 @@ impl ::std::convert::From<i32> for eAVEncH265VLevel {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncH265VLevel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50836,7 +50129,6 @@ impl ::std::convert::From<i32> for eAVEncH265VProfile {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncH265VProfile {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50856,7 +50148,6 @@ impl ::std::convert::From<i32> for eAVEncInputVideoSystem {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncInputVideoSystem {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50874,7 +50165,6 @@ impl ::std::convert::From<i32> for eAVEncMPACodingMode {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncMPACodingMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50891,7 +50181,6 @@ impl ::std::convert::From<i32> for eAVEncMPAEmphasisType {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncMPAEmphasisType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50907,7 +50196,6 @@ impl ::std::convert::From<i32> for eAVEncMPALayer {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncMPALayer {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50922,7 +50210,6 @@ impl ::std::convert::From<i32> for eAVEncMPVFrameFieldMode {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncMPVFrameFieldMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50938,7 +50225,6 @@ impl ::std::convert::From<i32> for eAVEncMPVIntraVLCTable {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncMPVIntraVLCTable {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50955,7 +50241,6 @@ impl ::std::convert::From<i32> for eAVEncMPVLevel {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncMPVLevel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50973,7 +50258,6 @@ impl ::std::convert::From<i32> for eAVEncMPVProfile {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncMPVProfile {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -50989,7 +50273,6 @@ impl ::std::convert::From<i32> for eAVEncMPVQScaleType {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncMPVQScaleType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -51005,7 +50288,6 @@ impl ::std::convert::From<i32> for eAVEncMPVScanPattern {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncMPVScanPattern {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -51022,7 +50304,6 @@ impl ::std::convert::From<i32> for eAVEncMPVSceneDetection {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncMPVSceneDetection {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -51038,7 +50319,6 @@ impl ::std::convert::From<i32> for eAVEncMuxOutput {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncMuxOutput {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -51055,7 +50335,6 @@ impl ::std::convert::From<i32> for eAVEncVP9VProfile {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncVP9VProfile {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -51073,7 +50352,6 @@ impl ::std::convert::From<i32> for eAVEncVideoChromaResolution {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncVideoChromaResolution {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -51091,7 +50369,6 @@ impl ::std::convert::From<i32> for eAVEncVideoChromaSubsampling {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncVideoChromaSubsampling {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -51110,7 +50387,6 @@ impl ::std::convert::From<i32> for eAVEncVideoColorLighting {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncVideoColorLighting {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -51127,7 +50403,6 @@ impl ::std::convert::From<i32> for eAVEncVideoColorNominalRange {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncVideoColorNominalRange {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -51149,7 +50424,6 @@ impl ::std::convert::From<i32> for eAVEncVideoColorPrimaries {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncVideoColorPrimaries {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -51171,7 +50445,6 @@ impl ::std::convert::From<i32> for eAVEncVideoColorTransferFunction {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncVideoColorTransferFunction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -51188,7 +50461,6 @@ impl ::std::convert::From<i32> for eAVEncVideoColorTransferMatrix {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncVideoColorTransferMatrix {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -51203,7 +50475,6 @@ impl ::std::convert::From<i32> for eAVEncVideoContentType {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncVideoContentType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -51219,7 +50490,6 @@ impl ::std::convert::From<i32> for eAVEncVideoFilmContent {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncVideoFilmContent {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -51235,7 +50505,6 @@ impl ::std::convert::From<i32> for eAVEncVideoOutputFrameRateConversion {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncVideoOutputFrameRateConversion {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -51252,7 +50521,6 @@ impl ::std::convert::From<i32> for eAVEncVideoOutputScanType {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncVideoOutputScanType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -51268,7 +50536,6 @@ impl ::std::convert::From<i32> for eAVEncVideoSourceScanType {
 }
 unsafe impl ::windows::runtime::Abi for eAVEncVideoSourceScanType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -51285,7 +50552,6 @@ impl ::std::convert::From<i32> for eAVFastDecodeMode {
 }
 unsafe impl ::windows::runtime::Abi for eAVFastDecodeMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -51305,7 +50571,6 @@ impl ::std::convert::From<i32> for eAVScenarioInfo {
 }
 unsafe impl ::windows::runtime::Abi for eAVScenarioInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -51320,7 +50585,6 @@ impl ::std::convert::From<i32> for eVideoEncoderDisplayContentType {
 }
 unsafe impl ::windows::runtime::Abi for eVideoEncoderDisplayContentType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const g_wszSpeechFormatCaps: &'static str = "SpeechFormatCap";

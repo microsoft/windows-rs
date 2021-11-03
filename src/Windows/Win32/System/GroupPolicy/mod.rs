@@ -13,7 +13,6 @@ impl ::std::convert::From<i32> for APPSTATE {
 }
 unsafe impl ::windows::runtime::Abi for APPSTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
@@ -74,7 +73,6 @@ impl ::std::default::Default for CriticalPolicySectionHandle {
 unsafe impl ::windows::runtime::Handle for CriticalPolicySectionHandle {}
 unsafe impl ::windows::runtime::Abi for CriticalPolicySectionHandle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
@@ -209,7 +207,6 @@ impl ::std::convert::From<i32> for GPMBackupType {
 }
 unsafe impl ::windows::runtime::Abi for GPMBackupType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const GPMCSECollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3482499112, 11588, 19297, [177, 10, 179, 39, 175, 212, 45, 168]);
 pub const GPMClientSideExtension: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3248678670, 26012, 19226, [148, 11, 248, 139, 10, 249, 200, 164]);
@@ -229,7 +226,6 @@ impl ::std::convert::From<i32> for GPMDestinationOption {
 }
 unsafe impl ::windows::runtime::Abi for GPMDestinationOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const GPMDomain: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1896415678, 4176, 19633, [131, 138, 197, 207, 242, 89, 225, 131]);
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
@@ -250,7 +246,6 @@ impl ::std::convert::From<i32> for GPMEntryType {
 }
 unsafe impl ::windows::runtime::Abi for GPMEntryType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const GPMGPO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3536726420, 22965, 16484, [181, 129, 77, 104, 72, 106, 22, 196]);
 pub const GPMGPOCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2047177509, 33581, 19939, [164, 31, 199, 128, 67, 106, 78, 9]);
@@ -290,7 +285,6 @@ impl ::std::convert::From<i32> for GPMPermissionType {
 }
 unsafe impl ::windows::runtime::Abi for GPMPermissionType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const GPMRSOP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1218120879, 40642, 20151, [145, 245, 182, 247, 29, 67, 218, 140]);
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
@@ -307,7 +301,6 @@ impl ::std::convert::From<i32> for GPMRSOPMode {
 }
 unsafe impl ::windows::runtime::Abi for GPMRSOPMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -326,7 +319,6 @@ impl ::std::convert::From<i32> for GPMReportType {
 }
 unsafe impl ::windows::runtime::Abi for GPMReportType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -341,7 +333,6 @@ impl ::std::convert::From<i32> for GPMReportingOptions {
 }
 unsafe impl ::windows::runtime::Abi for GPMReportingOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const GPMResult: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2450528960, 37511, 16902, [163, 178, 75, 219, 115, 210, 37, 246]);
 pub const GPMSOM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(853098412, 17678, 17615, [130, 156, 139, 34, 255, 107, 218, 225]);
@@ -360,7 +351,6 @@ impl ::std::convert::From<i32> for GPMSOMType {
 }
 unsafe impl ::windows::runtime::Abi for GPMSOMType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const GPMSearchCriteria: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(397068838, 23776, 17658, [140, 192, 82, 89, 230, 72, 53, 102]);
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
@@ -378,7 +368,6 @@ impl ::std::convert::From<i32> for GPMSearchOperation {
 }
 unsafe impl ::windows::runtime::Abi for GPMSearchOperation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -406,7 +395,6 @@ impl ::std::convert::From<i32> for GPMSearchProperty {
 }
 unsafe impl ::windows::runtime::Abi for GPMSearchProperty {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const GPMSecurityInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1417305743, 37218, 17686, [164, 223, 157, 219, 150, 134, 216, 70]);
 pub const GPMSitesContainer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(580869186, 34092, 19248, [148, 95, 197, 34, 190, 155, 211, 134]);
@@ -426,7 +414,6 @@ impl ::std::convert::From<i32> for GPMStarterGPOType {
 }
 unsafe impl ::windows::runtime::Abi for GPMStarterGPOType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const GPMStatusMessage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1266142356, 53845, 16539, [188, 98, 55, 8, 129, 113, 90, 25]);
 pub const GPMStatusMsgCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(673506494, 19404, 19628, [158, 96, 14, 62, 215, 241, 36, 150]);
@@ -500,7 +487,6 @@ impl ::std::cmp::Eq for GPOBROWSEINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GPOBROWSEINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_BROWSE_DISABLENEW: u32 = 1u32;
@@ -556,7 +542,6 @@ impl ::std::convert::From<i32> for GPO_LINK {
 }
 unsafe impl ::windows::runtime::Abi for GPO_LINK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const GPO_LIST_FLAG_MACHINE: u32 = 1u32;
@@ -596,7 +581,6 @@ impl ::std::convert::From<i32> for GROUP_POLICY_HINT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for GROUP_POLICY_HINT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -656,7 +640,6 @@ impl ::std::cmp::Eq for GROUP_POLICY_OBJECTA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GROUP_POLICY_OBJECTA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -716,7 +699,6 @@ impl ::std::cmp::Eq for GROUP_POLICY_OBJECTW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GROUP_POLICY_OBJECTW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -734,7 +716,6 @@ impl ::std::convert::From<i32> for GROUP_POLICY_OBJECT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for GROUP_POLICY_OBJECT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
@@ -6718,7 +6699,6 @@ impl ::std::cmp::Eq for INSTALLDATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INSTALLDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6749,7 +6729,6 @@ impl ::std::cmp::Eq for INSTALLSPEC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INSTALLSPEC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6784,7 +6763,6 @@ impl ::std::cmp::Eq for INSTALLSPEC_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INSTALLSPEC_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6812,7 +6790,6 @@ impl ::std::cmp::PartialEq for INSTALLSPEC_1 {
 impl ::std::cmp::Eq for INSTALLSPEC_1 {}
 unsafe impl ::windows::runtime::Abi for INSTALLSPEC_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6829,7 +6806,6 @@ impl ::std::convert::From<i32> for INSTALLSPECTYPE {
 }
 unsafe impl ::windows::runtime::Abi for INSTALLSPECTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 #[repr(transparent)]
@@ -6933,7 +6909,6 @@ impl ::std::cmp::Eq for LOCALMANAGEDAPPLICATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for LOCALMANAGEDAPPLICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const LOCALSTATE_ASSIGNED: u32 = 1u32;
@@ -7043,7 +7018,6 @@ impl ::std::cmp::Eq for MANAGEDAPPLICATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MANAGEDAPPLICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const MANAGED_APPS_FROMCATEGORY: u32 = 2u32;
@@ -7123,7 +7097,6 @@ impl ::std::cmp::Eq for POLICYSETTINGSTATUSINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for POLICYSETTINGSTATUSINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const PT_MANDATORY: u32 = 4u32;
@@ -7220,7 +7193,6 @@ impl ::std::cmp::Eq for RSOP_TARGET {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
 unsafe impl ::windows::runtime::Abi for RSOP_TARGET {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const RSOP_TEMPNAMESPACE_EXISTS: u32 = 4u32;
@@ -7384,7 +7356,6 @@ impl ::std::convert::From<i32> for SETTINGSTATUS {
 }
 unsafe impl ::windows::runtime::Abi for SETTINGSTATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]

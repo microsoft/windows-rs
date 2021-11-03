@@ -26,7 +26,6 @@ impl ::std::cmp::PartialEq for OPERATION_END_PARAMETERS {
 impl ::std::cmp::Eq for OPERATION_END_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for OPERATION_END_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_OperationRecorder`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -40,7 +39,6 @@ impl ::std::convert::From<u32> for OPERATION_END_PARAMETERS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for OPERATION_END_PARAMETERS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for OPERATION_END_PARAMETERS_FLAGS {
     type Output = Self;
@@ -82,7 +80,6 @@ impl ::std::convert::From<u32> for OPERATION_START_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for OPERATION_START_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for OPERATION_START_FLAGS {
     type Output = Self;
@@ -139,7 +136,6 @@ impl ::std::cmp::PartialEq for OPERATION_START_PARAMETERS {
 impl ::std::cmp::Eq for OPERATION_START_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for OPERATION_START_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_OperationRecorder`, `Win32_Foundation`*"]

@@ -26,7 +26,6 @@ impl ::windows::runtime::RuntimeName for ErrorReceivedEventArgs {
 unsafe impl ::std::marker::Send for ErrorReceivedEventArgs {}
 unsafe impl ::std::marker::Sync for ErrorReceivedEventArgs {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IErrorReceivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IErrorReceivedEventArgs {
@@ -45,7 +44,6 @@ pub struct IErrorReceivedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SerialError) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPinChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPinChangedEventArgs {
@@ -64,7 +62,6 @@ pub struct IPinChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SerialPinChange) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISerialDevice(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISerialDevice {
@@ -125,7 +122,6 @@ pub struct ISerialDevice_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISerialDeviceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISerialDeviceStatics {
@@ -512,10 +508,12 @@ impl ::std::convert::From<i32> for SerialError {
 }
 unsafe impl ::windows::runtime::Abi for SerialError {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SerialError {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialError;i4)");
+}
+impl ::windows::runtime::DefaultType for SerialError {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_SerialCommunication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -534,10 +532,12 @@ impl ::std::convert::From<i32> for SerialHandshake {
 }
 unsafe impl ::windows::runtime::Abi for SerialHandshake {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SerialHandshake {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialHandshake;i4)");
+}
+impl ::windows::runtime::DefaultType for SerialHandshake {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_SerialCommunication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -557,10 +557,12 @@ impl ::std::convert::From<i32> for SerialParity {
 }
 unsafe impl ::windows::runtime::Abi for SerialParity {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SerialParity {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialParity;i4)");
+}
+impl ::windows::runtime::DefaultType for SerialParity {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_SerialCommunication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -580,10 +582,12 @@ impl ::std::convert::From<i32> for SerialPinChange {
 }
 unsafe impl ::windows::runtime::Abi for SerialPinChange {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SerialPinChange {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialPinChange;i4)");
+}
+impl ::windows::runtime::DefaultType for SerialPinChange {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_SerialCommunication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -601,8 +605,10 @@ impl ::std::convert::From<i32> for SerialStopBitCount {
 }
 unsafe impl ::windows::runtime::Abi for SerialStopBitCount {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SerialStopBitCount {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialStopBitCount;i4)");
+}
+impl ::windows::runtime::DefaultType for SerialStopBitCount {
+    type DefaultType = Self;
 }

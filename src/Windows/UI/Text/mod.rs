@@ -16,10 +16,12 @@ impl ::std::convert::From<i32> for CaretType {
 }
 unsafe impl ::windows::runtime::Abi for CaretType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CaretType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.CaretType;i4)");
+}
+impl ::windows::runtime::DefaultType for CaretType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text`*"]
 #[repr(transparent)]
@@ -129,10 +131,12 @@ impl ::std::convert::From<u32> for FindOptions {
 }
 unsafe impl ::windows::runtime::Abi for FindOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for FindOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FindOptions;u4)");
+}
+impl ::windows::runtime::DefaultType for FindOptions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for FindOptions {
     type Output = Self;
@@ -185,10 +189,12 @@ impl ::std::convert::From<i32> for FontStretch {
 }
 unsafe impl ::windows::runtime::Abi for FontStretch {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for FontStretch {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FontStretch;i4)");
+}
+impl ::windows::runtime::DefaultType for FontStretch {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -206,10 +212,12 @@ impl ::std::convert::From<i32> for FontStyle {
 }
 unsafe impl ::windows::runtime::Abi for FontStyle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for FontStyle {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FontStyle;i4)");
+}
+impl ::windows::runtime::DefaultType for FontStyle {
+    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -236,10 +244,12 @@ impl ::std::cmp::PartialEq for FontWeight {
 impl ::std::cmp::Eq for FontWeight {}
 unsafe impl ::windows::runtime::Abi for FontWeight {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for FontWeight {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.Text.FontWeight;u2)");
+}
+impl ::windows::runtime::DefaultType for FontWeight {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text`*"]
 #[repr(transparent)]
@@ -357,10 +367,12 @@ impl ::std::convert::From<i32> for FormatEffect {
 }
 unsafe impl ::windows::runtime::Abi for FormatEffect {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for FormatEffect {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FormatEffect;i4)");
+}
+impl ::windows::runtime::DefaultType for FormatEffect {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -378,13 +390,14 @@ impl ::std::convert::From<i32> for HorizontalCharacterAlignment {
 }
 unsafe impl ::windows::runtime::Abi for HorizontalCharacterAlignment {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for HorizontalCharacterAlignment {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.HorizontalCharacterAlignment;i4)");
 }
+impl ::windows::runtime::DefaultType for HorizontalCharacterAlignment {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContentLinkInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentLinkInfo {
@@ -414,7 +427,6 @@ pub struct IContentLinkInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFontWeights(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFontWeights {
@@ -432,7 +444,6 @@ pub struct IFontWeights_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFontWeightsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFontWeightsStatics {
@@ -461,7 +472,6 @@ pub struct IFontWeightsStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut FontWeight) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRichEditTextRange(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRichEditTextRange {
@@ -882,7 +892,6 @@ pub struct ITextCharacterFormat_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, format: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITextConstantsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextConstantsStatics {
@@ -1141,7 +1150,6 @@ pub struct ITextDocument_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITextDocument2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextDocument2 {
@@ -1163,7 +1171,6 @@ pub struct ITextDocument2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITextDocument3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextDocument3 {
@@ -1182,7 +1189,6 @@ pub struct ITextDocument3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITextDocument4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITextDocument4 {
@@ -2492,10 +2498,12 @@ impl ::std::convert::From<i32> for LetterCase {
 }
 unsafe impl ::windows::runtime::Abi for LetterCase {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for LetterCase {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.LetterCase;i4)");
+}
+impl ::windows::runtime::DefaultType for LetterCase {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2518,10 +2526,12 @@ impl ::std::convert::From<i32> for LineSpacingRule {
 }
 unsafe impl ::windows::runtime::Abi for LineSpacingRule {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for LineSpacingRule {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.LineSpacingRule;i4)");
+}
+impl ::windows::runtime::DefaultType for LineSpacingRule {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2545,10 +2555,12 @@ impl ::std::convert::From<i32> for LinkType {
 }
 unsafe impl ::windows::runtime::Abi for LinkType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for LinkType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.LinkType;i4)");
+}
+impl ::windows::runtime::DefaultType for LinkType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2567,10 +2579,12 @@ impl ::std::convert::From<i32> for MarkerAlignment {
 }
 unsafe impl ::windows::runtime::Abi for MarkerAlignment {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MarkerAlignment {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.MarkerAlignment;i4)");
+}
+impl ::windows::runtime::DefaultType for MarkerAlignment {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2592,10 +2606,12 @@ impl ::std::convert::From<i32> for MarkerStyle {
 }
 unsafe impl ::windows::runtime::Abi for MarkerStyle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MarkerStyle {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.MarkerStyle;i4)");
+}
+impl ::windows::runtime::DefaultType for MarkerStyle {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2635,10 +2651,12 @@ impl ::std::convert::From<i32> for MarkerType {
 }
 unsafe impl ::windows::runtime::Abi for MarkerType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MarkerType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.MarkerType;i4)");
+}
+impl ::windows::runtime::DefaultType for MarkerType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2658,10 +2676,12 @@ impl ::std::convert::From<i32> for ParagraphAlignment {
 }
 unsafe impl ::windows::runtime::Abi for ParagraphAlignment {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ParagraphAlignment {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.ParagraphAlignment;i4)");
+}
+impl ::windows::runtime::DefaultType for ParagraphAlignment {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2688,10 +2708,12 @@ impl ::std::convert::From<i32> for ParagraphStyle {
 }
 unsafe impl ::windows::runtime::Abi for ParagraphStyle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ParagraphStyle {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.ParagraphStyle;i4)");
+}
+impl ::windows::runtime::DefaultType for ParagraphStyle {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2714,10 +2736,12 @@ impl ::std::convert::From<u32> for PointOptions {
 }
 unsafe impl ::windows::runtime::Abi for PointOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PointOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.PointOptions;u4)");
+}
+impl ::windows::runtime::DefaultType for PointOptions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PointOptions {
     type Output = Self;
@@ -2765,10 +2789,12 @@ impl ::std::convert::From<i32> for RangeGravity {
 }
 unsafe impl ::windows::runtime::Abi for RangeGravity {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RangeGravity {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.RangeGravity;i4)");
+}
+impl ::windows::runtime::DefaultType for RangeGravity {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2785,10 +2811,12 @@ impl ::std::convert::From<i32> for RichEditMathMode {
 }
 unsafe impl ::windows::runtime::Abi for RichEditMathMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RichEditMathMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.RichEditMathMode;i4)");
+}
+impl ::windows::runtime::DefaultType for RichEditMathMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text`*"]
 #[repr(transparent)]
@@ -3464,10 +3492,12 @@ impl ::std::convert::From<u32> for SelectionOptions {
 }
 unsafe impl ::windows::runtime::Abi for SelectionOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SelectionOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.SelectionOptions;u4)");
+}
+impl ::windows::runtime::DefaultType for SelectionOptions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SelectionOptions {
     type Output = Self;
@@ -3515,10 +3545,12 @@ impl ::std::convert::From<i32> for SelectionType {
 }
 unsafe impl ::windows::runtime::Abi for SelectionType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SelectionType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.SelectionType;i4)");
+}
+impl ::windows::runtime::DefaultType for SelectionType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3538,10 +3570,12 @@ impl ::std::convert::From<i32> for TabAlignment {
 }
 unsafe impl ::windows::runtime::Abi for TabAlignment {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TabAlignment {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TabAlignment;i4)");
+}
+impl ::windows::runtime::DefaultType for TabAlignment {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3562,10 +3596,12 @@ impl ::std::convert::From<i32> for TabLeader {
 }
 unsafe impl ::windows::runtime::Abi for TabLeader {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TabLeader {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TabLeader;i4)");
+}
+impl ::windows::runtime::DefaultType for TabLeader {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text`*"]
 pub struct TextConstants {}
@@ -3650,10 +3686,12 @@ impl ::std::convert::From<u32> for TextDecorations {
 }
 unsafe impl ::windows::runtime::Abi for TextDecorations {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TextDecorations {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextDecorations;u4)");
+}
+impl ::windows::runtime::DefaultType for TextDecorations {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for TextDecorations {
     type Output = Self;
@@ -3705,10 +3743,12 @@ impl ::std::convert::From<u32> for TextGetOptions {
 }
 unsafe impl ::windows::runtime::Abi for TextGetOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TextGetOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextGetOptions;u4)");
+}
+impl ::windows::runtime::DefaultType for TextGetOptions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for TextGetOptions {
     type Output = Self;
@@ -3784,10 +3824,12 @@ impl ::std::convert::From<i32> for TextRangeUnit {
 }
 unsafe impl ::windows::runtime::Abi for TextRangeUnit {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TextRangeUnit {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextRangeUnit;i4)");
+}
+impl ::windows::runtime::DefaultType for TextRangeUnit {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3866,10 +3908,12 @@ impl ::std::convert::From<i32> for TextScript {
 }
 unsafe impl ::windows::runtime::Abi for TextScript {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TextScript {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextScript;i4)");
+}
+impl ::windows::runtime::DefaultType for TextScript {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3891,10 +3935,12 @@ impl ::std::convert::From<u32> for TextSetOptions {
 }
 unsafe impl ::windows::runtime::Abi for TextSetOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TextSetOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextSetOptions;u4)");
+}
+impl ::windows::runtime::DefaultType for TextSetOptions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for TextSetOptions {
     type Output = Self;
@@ -3957,10 +4003,12 @@ impl ::std::convert::From<i32> for UnderlineType {
 }
 unsafe impl ::windows::runtime::Abi for UnderlineType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UnderlineType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.UnderlineType;i4)");
+}
+impl ::windows::runtime::DefaultType for UnderlineType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3978,8 +4026,10 @@ impl ::std::convert::From<i32> for VerticalCharacterAlignment {
 }
 unsafe impl ::windows::runtime::Abi for VerticalCharacterAlignment {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VerticalCharacterAlignment {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.VerticalCharacterAlignment;i4)");
+}
+impl ::windows::runtime::DefaultType for VerticalCharacterAlignment {
+    type DefaultType = Self;
 }

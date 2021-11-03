@@ -2,7 +2,6 @@
 #[cfg(feature = "Devices_Lights_Effects")]
 pub mod Effects;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILamp(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILamp {
@@ -34,7 +33,6 @@ pub struct ILamp_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILampArray(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArray {
@@ -90,7 +88,6 @@ pub struct ILampArray_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILampArrayStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampArrayStatics {
@@ -111,7 +108,6 @@ pub struct ILampArrayStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILampAvailabilityChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampAvailabilityChangedEventArgs {
@@ -130,7 +126,6 @@ pub struct ILampAvailabilityChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILampInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampInfo {
@@ -162,7 +157,6 @@ pub struct ILampInfo_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILampStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILampStatics {
@@ -485,13 +479,13 @@ impl LampArray {
     }
     #[cfg(feature = "UI")]
     #[doc = "*Required features: `Devices_Lights`, `UI`*"]
-    pub fn SetSingleColorForIndices<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::Color>>(&self, desiredcolor: Param0, lampindexes: &[<i32 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn SetSingleColorForIndices<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::Color>>(&self, desiredcolor: Param0, lampindexes: &[<i32 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), desiredcolor.into_param().abi(), lampindexes.len() as u32, ::std::mem::transmute(lampindexes.as_ptr())).ok() }
     }
     #[cfg(feature = "UI")]
     #[doc = "*Required features: `Devices_Lights`, `UI`*"]
-    pub fn SetColorsForIndices(&self, desiredcolors: &[<super::super::UI::Color as ::windows::runtime::Abi>::DefaultType], lampindexes: &[<i32 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn SetColorsForIndices(&self, desiredcolors: &[<super::super::UI::Color as ::windows::runtime::DefaultType>::DefaultType], lampindexes: &[<i32 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), desiredcolors.len() as u32, ::std::mem::transmute(desiredcolors.as_ptr()), lampindexes.len() as u32, ::std::mem::transmute(lampindexes.as_ptr())).ok() }
     }
@@ -503,7 +497,7 @@ impl LampArray {
     }
     #[cfg(all(feature = "System", feature = "UI"))]
     #[doc = "*Required features: `Devices_Lights`, `System`, `UI`*"]
-    pub fn SetColorsForKeys(&self, desiredcolors: &[<super::super::UI::Color as ::windows::runtime::Abi>::DefaultType], keys: &[<super::super::System::VirtualKey as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn SetColorsForKeys(&self, desiredcolors: &[<super::super::UI::Color as ::windows::runtime::DefaultType>::DefaultType], keys: &[<super::super::System::VirtualKey as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), desiredcolors.len() as u32, ::std::mem::transmute(desiredcolors.as_ptr()), keys.len() as u32, ::std::mem::transmute(keys.as_ptr())).ok() }
     }
@@ -587,10 +581,12 @@ impl ::std::convert::From<i32> for LampArrayKind {
 }
 unsafe impl ::windows::runtime::Abi for LampArrayKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for LampArrayKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.LampArrayKind;i4)");
+}
+impl ::windows::runtime::DefaultType for LampArrayKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Lights`*"]
 #[repr(transparent)]
@@ -740,10 +736,12 @@ impl ::std::convert::From<u32> for LampPurposes {
 }
 unsafe impl ::windows::runtime::Abi for LampPurposes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for LampPurposes {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.LampPurposes;u4)");
+}
+impl ::windows::runtime::DefaultType for LampPurposes {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for LampPurposes {
     type Output = Self;

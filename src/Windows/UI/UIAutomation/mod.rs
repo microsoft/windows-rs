@@ -129,7 +129,6 @@ impl ::windows::runtime::RuntimeName for AutomationTextRange {
 unsafe impl ::std::marker::Send for AutomationTextRange {}
 unsafe impl ::std::marker::Sync for AutomationTextRange {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationConnection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationConnection {
@@ -150,7 +149,6 @@ pub struct IAutomationConnection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationConnectionBoundObject(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationConnectionBoundObject {
@@ -169,7 +167,6 @@ pub struct IAutomationConnectionBoundObject_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationElement(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationElement {
@@ -190,7 +187,6 @@ pub struct IAutomationElement_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationTextRange(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationTextRange {

@@ -117,5 +117,4 @@ impl ::std::default::Default for HCOMDB {
 unsafe impl ::windows::runtime::Handle for HCOMDB {}
 unsafe impl ::windows::runtime::Abi for HCOMDB {
     type Abi = Self;
-    type DefaultType = Self;
 }

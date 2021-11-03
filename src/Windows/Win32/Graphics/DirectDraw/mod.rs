@@ -36,7 +36,6 @@ impl ::std::cmp::Eq for ACCESSRECTLIST {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for ACCESSRECTLIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const ACCESSRECT_BROKEN: i32 = 4i32;
@@ -79,7 +78,6 @@ impl ::std::cmp::Eq for ATTACHLIST {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for ATTACHLIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const CCHDEVICENAME: u32 = 32u32;
@@ -183,7 +181,6 @@ impl ::std::cmp::Eq for DBLNODE {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DBLNODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DCICOMMAND: u32 = 3075u32;
@@ -221,7 +218,6 @@ impl ::std::cmp::Eq for DD32BITDRIVERDATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DD32BITDRIVERDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDABLT_SRCOVERDEST: i32 = 1i32;
@@ -255,7 +251,6 @@ impl ::std::cmp::PartialEq for DDARGB {
 impl ::std::cmp::Eq for DDARGB {}
 unsafe impl ::windows::runtime::Abi for DDARGB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDBD_1: i32 = 16384i32;
@@ -307,7 +302,6 @@ impl ::std::cmp::Eq for DDBLTBATCH {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DDBLTBATCH {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDBLTFAST_DESTCOLORKEY: u32 = 2u32;
@@ -365,7 +359,6 @@ impl ::std::cmp::PartialEq for DDBLTFX {
 impl ::std::cmp::Eq for DDBLTFX {}
 unsafe impl ::windows::runtime::Abi for DDBLTFX {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 impl ::std::clone::Clone for DDBLTFX_0 {
     fn clone(&self) -> Self {
@@ -392,7 +385,6 @@ impl ::std::cmp::PartialEq for DDBLTFX_0 {
 impl ::std::cmp::Eq for DDBLTFX_0 {}
 unsafe impl ::windows::runtime::Abi for DDBLTFX_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 impl ::std::clone::Clone for DDBLTFX_1 {
     fn clone(&self) -> Self {
@@ -419,7 +411,6 @@ impl ::std::cmp::PartialEq for DDBLTFX_1 {
 impl ::std::cmp::Eq for DDBLTFX_1 {}
 unsafe impl ::windows::runtime::Abi for DDBLTFX_1 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 impl ::std::clone::Clone for DDBLTFX_2 {
     fn clone(&self) -> Self {
@@ -446,7 +437,6 @@ impl ::std::cmp::PartialEq for DDBLTFX_2 {
 impl ::std::cmp::Eq for DDBLTFX_2 {}
 unsafe impl ::windows::runtime::Abi for DDBLTFX_2 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 impl ::std::clone::Clone for DDBLTFX_3 {
     fn clone(&self) -> Self {
@@ -473,7 +463,6 @@ impl ::std::cmp::PartialEq for DDBLTFX_3 {
 impl ::std::cmp::Eq for DDBLTFX_3 {}
 unsafe impl ::windows::runtime::Abi for DDBLTFX_3 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 impl ::std::clone::Clone for DDBLTFX_4 {
     fn clone(&self) -> Self {
@@ -502,7 +491,6 @@ impl ::std::cmp::PartialEq for DDBLTFX_4 {
 impl ::std::cmp::Eq for DDBLTFX_4 {}
 unsafe impl ::windows::runtime::Abi for DDBLTFX_4 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDBLTFX_ARITHSTRETCHY: i32 = 1i32;
@@ -611,7 +599,6 @@ impl ::std::cmp::PartialEq for DDBOBNEXTFIELDINFO {
 impl ::std::cmp::Eq for DDBOBNEXTFIELDINFO {}
 unsafe impl ::windows::runtime::Abi for DDBOBNEXTFIELDINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDCAPS2_AUTOFLIPOVERLAY: i32 = 8i32;
@@ -843,7 +830,6 @@ impl ::std::cmp::PartialEq for DDCAPS_DX1 {
 impl ::std::cmp::Eq for DDCAPS_DX1 {}
 unsafe impl ::windows::runtime::Abi for DDCAPS_DX1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1022,7 +1008,6 @@ impl ::std::cmp::PartialEq for DDCAPS_DX3 {
 impl ::std::cmp::Eq for DDCAPS_DX3 {}
 unsafe impl ::windows::runtime::Abi for DDCAPS_DX3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1216,7 +1201,6 @@ impl ::std::cmp::PartialEq for DDCAPS_DX5 {
 impl ::std::cmp::Eq for DDCAPS_DX5 {}
 unsafe impl ::windows::runtime::Abi for DDCAPS_DX5 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1294,7 +1278,6 @@ impl ::std::cmp::PartialEq for DDCAPS_DX6 {
 impl ::std::cmp::Eq for DDCAPS_DX6 {}
 unsafe impl ::windows::runtime::Abi for DDCAPS_DX6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1372,7 +1355,6 @@ impl ::std::cmp::PartialEq for DDCAPS_DX7 {
 impl ::std::cmp::Eq for DDCAPS_DX7 {}
 unsafe impl ::windows::runtime::Abi for DDCAPS_DX7 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDCAPS_GDI: i32 = 1024i32;
@@ -1493,7 +1475,6 @@ impl ::std::cmp::PartialEq for DDCOLORCONTROL {
 impl ::std::cmp::Eq for DDCOLORCONTROL {}
 unsafe impl ::windows::runtime::Abi for DDCOLORCONTROL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1521,7 +1502,6 @@ impl ::std::cmp::PartialEq for DDCOLORKEY {
 impl ::std::cmp::Eq for DDCOLORKEY {}
 unsafe impl ::windows::runtime::Abi for DDCOLORKEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDCOLOR_BRIGHTNESS: i32 = 1i32;
@@ -1591,7 +1571,6 @@ impl ::std::cmp::Eq for DDDEVICEIDENTIFIER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DDDEVICEIDENTIFIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1643,7 +1622,6 @@ impl ::std::cmp::Eq for DDDEVICEIDENTIFIER2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DDDEVICEIDENTIFIER2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDEDM_REFRESHRATES: i32 = 1i32;
@@ -1681,7 +1659,6 @@ impl ::std::cmp::PartialEq for DDENABLEIRQINFO {
 impl ::std::cmp::Eq for DDENABLEIRQINFO {}
 unsafe impl ::windows::runtime::Abi for DDENABLEIRQINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDENUMOVERLAYZ_BACKTOFRONT: i32 = 0i32;
@@ -1736,7 +1713,6 @@ impl ::std::cmp::PartialEq for DDFLIPOVERLAYINFO {
 impl ::std::cmp::Eq for DDFLIPOVERLAYINFO {}
 unsafe impl ::windows::runtime::Abi for DDFLIPOVERLAYINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1766,7 +1742,6 @@ impl ::std::cmp::PartialEq for DDFLIPVIDEOPORTINFO {
 impl ::std::cmp::Eq for DDFLIPVIDEOPORTINFO {}
 unsafe impl ::windows::runtime::Abi for DDFLIPVIDEOPORTINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDFLIP_DONOTWAIT: i32 = 32i32;
@@ -1895,7 +1870,6 @@ impl ::std::cmp::PartialEq for DDGAMMARAMP {
 impl ::std::cmp::Eq for DDGAMMARAMP {}
 unsafe impl ::windows::runtime::Abi for DDGAMMARAMP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDGBS_CANBLT: i32 = 1i32;
@@ -1930,7 +1904,6 @@ impl ::std::cmp::PartialEq for DDGETCURRENTAUTOFLIPININFO {
 impl ::std::cmp::Eq for DDGETCURRENTAUTOFLIPININFO {}
 unsafe impl ::windows::runtime::Abi for DDGETCURRENTAUTOFLIPININFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1958,7 +1931,6 @@ impl ::std::cmp::PartialEq for DDGETCURRENTAUTOFLIPOUTINFO {
 impl ::std::cmp::Eq for DDGETCURRENTAUTOFLIPOUTINFO {}
 unsafe impl ::windows::runtime::Abi for DDGETCURRENTAUTOFLIPOUTINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1985,7 +1957,6 @@ impl ::std::cmp::PartialEq for DDGETIRQINFO {
 impl ::std::cmp::Eq for DDGETIRQINFO {}
 unsafe impl ::windows::runtime::Abi for DDGETIRQINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2012,7 +1983,6 @@ impl ::std::cmp::PartialEq for DDGETPOLARITYININFO {
 impl ::std::cmp::Eq for DDGETPOLARITYININFO {}
 unsafe impl ::windows::runtime::Abi for DDGETPOLARITYININFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2039,7 +2009,6 @@ impl ::std::cmp::PartialEq for DDGETPOLARITYOUTINFO {
 impl ::std::cmp::Eq for DDGETPOLARITYOUTINFO {}
 unsafe impl ::windows::runtime::Abi for DDGETPOLARITYOUTINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2066,7 +2035,6 @@ impl ::std::cmp::PartialEq for DDGETPREVIOUSAUTOFLIPININFO {
 impl ::std::cmp::Eq for DDGETPREVIOUSAUTOFLIPININFO {}
 unsafe impl ::windows::runtime::Abi for DDGETPREVIOUSAUTOFLIPININFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2094,7 +2062,6 @@ impl ::std::cmp::PartialEq for DDGETPREVIOUSAUTOFLIPOUTINFO {
 impl ::std::cmp::Eq for DDGETPREVIOUSAUTOFLIPOUTINFO {}
 unsafe impl ::windows::runtime::Abi for DDGETPREVIOUSAUTOFLIPOUTINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2121,7 +2088,6 @@ impl ::std::cmp::PartialEq for DDGETTRANSFERSTATUSOUTINFO {
 impl ::std::cmp::Eq for DDGETTRANSFERSTATUSOUTINFO {}
 unsafe impl ::windows::runtime::Abi for DDGETTRANSFERSTATUSOUTINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDGFS_CANFLIP: i32 = 1i32;
@@ -2162,7 +2128,6 @@ impl ::std::cmp::Eq for DDHALDDRAWFNS {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHALDDRAWFNS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::clone::Clone for DDHALINFO {
@@ -2212,7 +2177,6 @@ impl ::std::cmp::Eq for DDHALINFO {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHALINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDHALINFO_GETDRIVERINFO2: i32 = 8i32;
@@ -2267,7 +2231,6 @@ impl ::std::cmp::PartialEq for DDHALMODEINFO {
 impl ::std::cmp::Eq for DDHALMODEINFO {}
 unsafe impl ::windows::runtime::Abi for DDHALMODEINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2305,7 +2268,6 @@ impl ::std::cmp::Eq for DDHAL_ADDATTACHEDSURFACEDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_ADDATTACHEDSURFACEDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2356,7 +2318,6 @@ impl ::std::cmp::Eq for DDHAL_BEGINMOCOMPFRAMEDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_BEGINMOCOMPFRAMEDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::clone::Clone for DDHAL_BLTDATA {
@@ -2403,7 +2364,6 @@ impl ::std::cmp::Eq for DDHAL_BLTDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_BLTDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2502,7 +2462,6 @@ impl ::std::cmp::Eq for DDHAL_CALLBACKS {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_CALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2540,7 +2499,6 @@ impl ::std::cmp::Eq for DDHAL_CANCREATESURFACEDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_CANCREATESURFACEDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2577,7 +2535,6 @@ impl ::std::cmp::Eq for DDHAL_CANCREATEVPORTDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_CANCREATEVPORTDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDHAL_CB32_CANCREATESURFACE: i32 = 32i32;
@@ -2638,7 +2595,6 @@ impl ::std::cmp::Eq for DDHAL_COLORCONTROLDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_COLORCONTROLDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDHAL_COLOR_COLORCONTROL: i32 = 1i32;
@@ -2682,7 +2638,6 @@ impl ::std::cmp::Eq for DDHAL_CREATEMOCOMPDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_CREATEMOCOMPDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2721,7 +2676,6 @@ impl ::std::cmp::Eq for DDHAL_CREATEPALETTEDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_CREATEPALETTEDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2760,7 +2714,6 @@ impl ::std::cmp::Eq for DDHAL_CREATESURFACEDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_CREATESURFACEDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2797,7 +2750,6 @@ impl ::std::cmp::Eq for DDHAL_CREATESURFACEEXDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_CREATESURFACEEXDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDHAL_CREATESURFACEEX_SWAPHANDLES: i32 = 1i32;
@@ -2837,7 +2789,6 @@ impl ::std::cmp::Eq for DDHAL_CREATEVPORTDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_CREATEVPORTDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDHAL_D3DBUFCB32_CANCREATED3DBUF: i32 = 1i32;
@@ -2903,7 +2854,6 @@ impl ::std::cmp::Eq for DDHAL_DDCALLBACKS {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DDCALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2939,7 +2889,6 @@ impl ::std::cmp::Eq for DDHAL_DDCOLORCONTROLCALLBACKS {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DDCOLORCONTROLCALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2985,7 +2934,6 @@ impl ::std::cmp::Eq for DDHAL_DDEXEBUFCALLBACKS {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DDEXEBUFCALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3022,7 +2970,6 @@ impl ::std::cmp::Eq for DDHAL_DDKERNELCALLBACKS {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DDKERNELCALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3061,7 +3008,6 @@ impl ::std::cmp::Eq for DDHAL_DDMISCELLANEOUS2CALLBACKS {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DDMISCELLANEOUS2CALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3100,7 +3046,6 @@ impl ::std::cmp::Eq for DDHAL_DDMISCELLANEOUSCALLBACKS {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DDMISCELLANEOUSCALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3156,7 +3101,6 @@ impl ::std::cmp::Eq for DDHAL_DDMOTIONCOMPCALLBACKS {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DDMOTIONCOMPCALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3193,7 +3137,6 @@ impl ::std::cmp::Eq for DDHAL_DDPALETTECALLBACKS {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DDPALETTECALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3257,7 +3200,6 @@ impl ::std::cmp::Eq for DDHAL_DDSURFACECALLBACKS {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DDSURFACECALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3325,7 +3267,6 @@ impl ::std::cmp::Eq for DDHAL_DDVIDEOPORTCALLBACKS {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DDVIDEOPORTCALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3361,7 +3302,6 @@ impl ::std::cmp::Eq for DDHAL_DESTROYDRIVERDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DESTROYDRIVERDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3398,7 +3338,6 @@ impl ::std::cmp::Eq for DDHAL_DESTROYMOCOMPDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DESTROYMOCOMPDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3435,7 +3374,6 @@ impl ::std::cmp::Eq for DDHAL_DESTROYPALETTEDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DESTROYPALETTEDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3472,7 +3410,6 @@ impl ::std::cmp::Eq for DDHAL_DESTROYSURFACEDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DESTROYSURFACEDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3509,7 +3446,6 @@ impl ::std::cmp::Eq for DDHAL_DESTROYVPORTDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DESTROYVPORTDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDHAL_DRIVER_HANDLED: i32 = 1i32;
@@ -3553,7 +3489,6 @@ impl ::std::cmp::Eq for DDHAL_DRVSETCOLORKEYDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DRVSETCOLORKEYDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3592,7 +3527,6 @@ impl ::std::cmp::Eq for DDHAL_ENDMOCOMPFRAMEDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_ENDMOCOMPFRAMEDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDHAL_EXEBUFCB32_CANCREATEEXEBUF: i32 = 1i32;
@@ -3643,7 +3577,6 @@ impl ::std::cmp::Eq for DDHAL_FLIPDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_FLIPDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3681,7 +3614,6 @@ impl ::std::cmp::Eq for DDHAL_FLIPTOGDISURFACEDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_FLIPTOGDISURFACEDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3720,7 +3652,6 @@ impl ::std::cmp::Eq for DDHAL_FLIPVPORTDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_FLIPVPORTDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::clone::Clone for DDHAL_GETAVAILDRIVERMEMORYDATA {
@@ -3759,7 +3690,6 @@ impl ::std::cmp::Eq for DDHAL_GETAVAILDRIVERMEMORYDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETAVAILDRIVERMEMORYDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3797,7 +3727,6 @@ impl ::std::cmp::Eq for DDHAL_GETBLTSTATUSDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETBLTSTATUSDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3840,7 +3769,6 @@ impl ::std::cmp::PartialEq for DDHAL_GETDRIVERINFODATA {
 impl ::std::cmp::Eq for DDHAL_GETDRIVERINFODATA {}
 unsafe impl ::windows::runtime::Abi for DDHAL_GETDRIVERINFODATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3866,7 +3794,6 @@ impl ::std::cmp::PartialEq for DDHAL_GETDRIVERSTATEDATA {
 impl ::std::cmp::Eq for DDHAL_GETDRIVERSTATEDATA {}
 unsafe impl ::windows::runtime::Abi for DDHAL_GETDRIVERSTATEDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3888,7 +3815,6 @@ impl ::std::cmp::PartialEq for DDHAL_GETDRIVERSTATEDATA_0 {
 impl ::std::cmp::Eq for DDHAL_GETDRIVERSTATEDATA_0 {}
 unsafe impl ::windows::runtime::Abi for DDHAL_GETDRIVERSTATEDATA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3926,7 +3852,6 @@ impl ::std::cmp::Eq for DDHAL_GETFLIPSTATUSDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETFLIPSTATUSDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Devices_Display")]
 impl ::std::clone::Clone for DDHAL_GETHEAPALIGNMENTDATA {
@@ -3963,7 +3888,6 @@ impl ::std::cmp::Eq for DDHAL_GETHEAPALIGNMENTDATA {}
 #[cfg(feature = "Win32_Devices_Display")]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETHEAPALIGNMENTDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::clone::Clone for DDHAL_GETINTERNALMOCOMPDATA {
@@ -4003,7 +3927,6 @@ impl ::std::cmp::Eq for DDHAL_GETINTERNALMOCOMPDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETINTERNALMOCOMPDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::clone::Clone for DDHAL_GETMOCOMPCOMPBUFFDATA {
@@ -4044,7 +3967,6 @@ impl ::std::cmp::Eq for DDHAL_GETMOCOMPCOMPBUFFDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETMOCOMPCOMPBUFFDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4083,7 +4005,6 @@ impl ::std::cmp::Eq for DDHAL_GETMOCOMPFORMATSDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETMOCOMPFORMATSDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4121,7 +4042,6 @@ impl ::std::cmp::Eq for DDHAL_GETMOCOMPGUIDSDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETMOCOMPGUIDSDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4158,7 +4078,6 @@ impl ::std::cmp::Eq for DDHAL_GETSCANLINEDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETSCANLINEDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4209,7 +4128,6 @@ impl ::std::cmp::Eq for DDHAL_GETVPORTBANDWIDTHDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETVPORTBANDWIDTHDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4248,7 +4166,6 @@ impl ::std::cmp::Eq for DDHAL_GETVPORTCONNECTDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETVPORTCONNECTDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4286,7 +4203,6 @@ impl ::std::cmp::Eq for DDHAL_GETVPORTFIELDDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETVPORTFIELDDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4323,7 +4239,6 @@ impl ::std::cmp::Eq for DDHAL_GETVPORTFLIPSTATUSDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETVPORTFLIPSTATUSDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4363,7 +4278,6 @@ impl ::std::cmp::Eq for DDHAL_GETVPORTINPUTFORMATDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETVPORTINPUTFORMATDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4401,7 +4315,6 @@ impl ::std::cmp::Eq for DDHAL_GETVPORTLINEDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETVPORTLINEDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4450,7 +4363,6 @@ impl ::std::cmp::Eq for DDHAL_GETVPORTOUTPUTFORMATDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETVPORTOUTPUTFORMATDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4488,7 +4400,6 @@ impl ::std::cmp::Eq for DDHAL_GETVPORTSIGNALDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETVPORTSIGNALDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDHAL_KERNEL_SYNCSURFACEDATA: i32 = 1i32;
@@ -4533,7 +4444,6 @@ impl ::std::cmp::Eq for DDHAL_LOCKDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_LOCKDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDHAL_MISC2CB32_ALPHABLT: i32 = 1i32;
@@ -4630,7 +4540,6 @@ impl ::std::cmp::Eq for DDHAL_QUERYMOCOMPSTATUSDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_QUERYMOCOMPSTATUSDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4685,7 +4594,6 @@ impl ::std::cmp::Eq for DDHAL_RENDERMOCOMPDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_RENDERMOCOMPDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4722,7 +4630,6 @@ impl ::std::cmp::Eq for DDHAL_SETCLIPLISTDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_SETCLIPLISTDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4761,7 +4668,6 @@ impl ::std::cmp::Eq for DDHAL_SETCOLORKEYDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_SETCOLORKEYDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4801,7 +4707,6 @@ impl ::std::cmp::Eq for DDHAL_SETENTRIESDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_SETENTRIESDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4839,7 +4744,6 @@ impl ::std::cmp::Eq for DDHAL_SETEXCLUSIVEMODEDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_SETEXCLUSIVEMODEDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4878,7 +4782,6 @@ impl ::std::cmp::Eq for DDHAL_SETMODEDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_SETMODEDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4918,7 +4821,6 @@ impl ::std::cmp::Eq for DDHAL_SETOVERLAYPOSITIONDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_SETOVERLAYPOSITIONDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4957,7 +4859,6 @@ impl ::std::cmp::Eq for DDHAL_SETPALETTEDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_SETPALETTEDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDHAL_SURFCB32_ADDATTACHEDSURFACE: i32 = 128i32;
@@ -5063,7 +4964,6 @@ impl ::std::cmp::Eq for DDHAL_SYNCSURFACEDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_SYNCSURFACEDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5117,7 +5017,6 @@ impl ::std::cmp::Eq for DDHAL_SYNCVIDEOPORTDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_SYNCVIDEOPORTDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -5154,7 +5053,6 @@ impl ::std::cmp::Eq for DDHAL_UNLOCKDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_UNLOCKDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -5194,7 +5092,6 @@ impl ::std::cmp::Eq for DDHAL_UPDATENONLOCALHEAPDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_UPDATENONLOCALHEAPDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::clone::Clone for DDHAL_UPDATEOVERLAYDATA {
@@ -5235,7 +5132,6 @@ impl ::std::cmp::Eq for DDHAL_UPDATEOVERLAYDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_UPDATEOVERLAYDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -5288,7 +5184,6 @@ impl ::std::cmp::Eq for DDHAL_UPDATEVPORTDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_UPDATEVPORTDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDHAL_VPORT32_CANCREATEVIDEOPORT: i32 = 1i32;
@@ -5359,7 +5254,6 @@ impl ::std::cmp::Eq for DDHAL_VPORTCOLORDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_VPORTCOLORDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -5399,7 +5293,6 @@ impl ::std::cmp::Eq for DDHAL_WAITFORVPORTSYNCDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_WAITFORVPORTSYNCDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDIRQ_BUSMASTER: i32 = 2i32;
@@ -5470,7 +5363,6 @@ impl ::std::cmp::PartialEq for DDLOCKININFO {
 impl ::std::cmp::Eq for DDLOCKININFO {}
 unsafe impl ::windows::runtime::Abi for DDLOCKININFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5497,7 +5389,6 @@ impl ::std::cmp::PartialEq for DDLOCKOUTINFO {
 impl ::std::cmp::Eq for DDLOCKOUTINFO {}
 unsafe impl ::windows::runtime::Abi for DDLOCKOUTINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDLOCK_DISCARDCONTENTS: i32 = 8192i32;
@@ -5559,7 +5450,6 @@ impl ::std::cmp::Eq for DDMCBUFFERINFO {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDMCBUFFERINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5587,7 +5477,6 @@ impl ::std::cmp::PartialEq for DDMCCOMPBUFFERINFO {
 impl ::std::cmp::Eq for DDMCCOMPBUFFERINFO {}
 unsafe impl ::windows::runtime::Abi for DDMCCOMPBUFFERINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDMCQUERY_READ: u32 = 1u32;
@@ -5663,7 +5552,6 @@ impl ::std::cmp::PartialEq for DDMONITORINFO {
 impl ::std::cmp::Eq for DDMONITORINFO {}
 unsafe impl ::windows::runtime::Abi for DDMONITORINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5687,7 +5575,6 @@ impl ::std::cmp::PartialEq for DDMORESURFACECAPS {
 impl ::std::cmp::Eq for DDMORESURFACECAPS {}
 unsafe impl ::windows::runtime::Abi for DDMORESURFACECAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5710,7 +5597,6 @@ impl ::std::cmp::PartialEq for DDMORESURFACECAPS_0 {
 impl ::std::cmp::Eq for DDMORESURFACECAPS_0 {}
 unsafe impl ::windows::runtime::Abi for DDMORESURFACECAPS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDNEWCALLBACKFNS: u32 = 12u32;
@@ -5744,7 +5630,6 @@ impl ::std::cmp::PartialEq for DDNONLOCALVIDMEMCAPS {
 impl ::std::cmp::Eq for DDNONLOCALVIDMEMCAPS {}
 unsafe impl ::windows::runtime::Abi for DDNONLOCALVIDMEMCAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5923,7 +5808,6 @@ impl ::std::cmp::PartialEq for DDNTCORECAPS {
 impl ::std::cmp::Eq for DDNTCORECAPS {}
 unsafe impl ::windows::runtime::Abi for DDNTCORECAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5950,7 +5834,6 @@ impl ::std::cmp::PartialEq for DDOPTSURFACEDESC {
 impl ::std::cmp::Eq for DDOPTSURFACEDESC {}
 unsafe impl ::windows::runtime::Abi for DDOPTSURFACEDESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5977,7 +5860,6 @@ impl ::std::cmp::PartialEq for DDOSCAPS {
 impl ::std::cmp::Eq for DDOSCAPS {}
 unsafe impl ::windows::runtime::Abi for DDOSCAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDOSDCAPS_MONOLITHICMIPMAP: i32 = 4i32;
@@ -6042,7 +5924,6 @@ impl ::std::cmp::PartialEq for DDOVERLAYFX {
 impl ::std::cmp::Eq for DDOVERLAYFX {}
 unsafe impl ::windows::runtime::Abi for DDOVERLAYFX {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 impl ::std::clone::Clone for DDOVERLAYFX_0 {
     fn clone(&self) -> Self {
@@ -6069,7 +5950,6 @@ impl ::std::cmp::PartialEq for DDOVERLAYFX_0 {
 impl ::std::cmp::Eq for DDOVERLAYFX_0 {}
 unsafe impl ::windows::runtime::Abi for DDOVERLAYFX_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 impl ::std::clone::Clone for DDOVERLAYFX_1 {
     fn clone(&self) -> Self {
@@ -6096,7 +5976,6 @@ impl ::std::cmp::PartialEq for DDOVERLAYFX_1 {
 impl ::std::cmp::Eq for DDOVERLAYFX_1 {}
 unsafe impl ::windows::runtime::Abi for DDOVERLAYFX_1 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDOVERZ_INSERTINBACKOF: i32 = 5i32;
@@ -6251,7 +6130,6 @@ impl ::std::cmp::PartialEq for DDPIXELFORMAT {
 impl ::std::cmp::Eq for DDPIXELFORMAT {}
 unsafe impl ::windows::runtime::Abi for DDPIXELFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6279,7 +6157,6 @@ impl ::std::cmp::PartialEq for DDPIXELFORMAT_0 {
 impl ::std::cmp::Eq for DDPIXELFORMAT_0 {}
 unsafe impl ::windows::runtime::Abi for DDPIXELFORMAT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6306,7 +6183,6 @@ impl ::std::cmp::PartialEq for DDPIXELFORMAT_1 {
 impl ::std::cmp::Eq for DDPIXELFORMAT_1 {}
 unsafe impl ::windows::runtime::Abi for DDPIXELFORMAT_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6332,7 +6208,6 @@ impl ::std::cmp::PartialEq for DDPIXELFORMAT_2 {
 impl ::std::cmp::Eq for DDPIXELFORMAT_2 {}
 unsafe impl ::windows::runtime::Abi for DDPIXELFORMAT_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6360,7 +6235,6 @@ impl ::std::cmp::PartialEq for DDPIXELFORMAT_2_0 {
 impl ::std::cmp::Eq for DDPIXELFORMAT_2_0 {}
 unsafe impl ::windows::runtime::Abi for DDPIXELFORMAT_2_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6385,7 +6259,6 @@ impl ::std::cmp::PartialEq for DDPIXELFORMAT_3 {
 impl ::std::cmp::Eq for DDPIXELFORMAT_3 {}
 unsafe impl ::windows::runtime::Abi for DDPIXELFORMAT_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6411,7 +6284,6 @@ impl ::std::cmp::PartialEq for DDPIXELFORMAT_4 {
 impl ::std::cmp::Eq for DDPIXELFORMAT_4 {}
 unsafe impl ::windows::runtime::Abi for DDPIXELFORMAT_4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDRAWICLIP_INMASTERSPRITELIST: i32 = 4i32;
@@ -6656,7 +6528,6 @@ impl ::std::cmp::Eq for DDRAWI_DDMOTIONCOMP_INT {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDMOTIONCOMP_INT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6698,7 +6569,6 @@ impl ::std::cmp::Eq for DDRAWI_DDMOTIONCOMP_LCL {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDMOTIONCOMP_LCL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6738,7 +6608,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWCLIPPER_GBL {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWCLIPPER_GBL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6775,7 +6644,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWCLIPPER_INT {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWCLIPPER_INT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -6825,7 +6693,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWCLIPPER_LCL {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWCLIPPER_LCL {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDRAWI_DDRAWDATANOTFETCHED: i32 = 67108864i32;
@@ -6864,7 +6731,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWPALETTE_GBL {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWPALETTE_GBL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6893,7 +6759,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWPALETTE_GBL_0 {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWPALETTE_GBL_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6930,7 +6795,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWPALETTE_INT {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWPALETTE_INT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -6984,7 +6848,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWPALETTE_LCL {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWPALETTE_LCL {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7023,7 +6886,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_GBL {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_GBL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7053,7 +6915,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_GBL_0 {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_GBL_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7082,7 +6943,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_GBL_1 {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation"))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_GBL_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7111,7 +6971,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_GBL_2 {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_GBL_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7134,7 +6993,6 @@ impl ::std::cmp::PartialEq for DDRAWI_DDRAWSURFACE_GBL_3 {
 impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_GBL_3 {}
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_GBL_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7174,7 +7032,6 @@ impl ::std::cmp::PartialEq for DDRAWI_DDRAWSURFACE_GBL_MORE {
 impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_GBL_MORE {}
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_GBL_MORE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7197,7 +7054,6 @@ impl ::std::cmp::PartialEq for DDRAWI_DDRAWSURFACE_GBL_MORE_0 {
 impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_GBL_MORE_0 {}
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_GBL_MORE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7234,7 +7090,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_INT {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_INT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7288,7 +7143,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_LCL {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_LCL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7317,7 +7171,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_LCL_0 {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_LCL_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7346,7 +7199,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_LCL_1 {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_LCL_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7404,7 +7256,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_MORE {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_MORE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7442,7 +7293,6 @@ impl ::std::cmp::Eq for DDRAWI_DDVIDEOPORT_INT {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDVIDEOPORT_INT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7541,7 +7391,6 @@ impl ::std::cmp::Eq for DDRAWI_DDVIDEOPORT_LCL {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDVIDEOPORT_LCL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7638,7 +7487,6 @@ impl ::std::cmp::Eq for DDRAWI_DIRECTDRAW_GBL {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DIRECTDRAW_GBL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7675,7 +7523,6 @@ impl ::std::cmp::Eq for DDRAWI_DIRECTDRAW_INT {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DIRECTDRAW_INT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -7785,7 +7632,6 @@ impl ::std::cmp::Eq for DDRAWI_DIRECTDRAW_LCL {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DIRECTDRAW_LCL {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDRAWI_DISPLAYDRV: i32 = 32i32;
@@ -7881,7 +7727,6 @@ impl ::std::cmp::PartialEq for DDRGBA {
 impl ::std::cmp::Eq for DDRGBA {}
 unsafe impl ::windows::runtime::Abi for DDRGBA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7908,7 +7753,6 @@ impl ::std::cmp::PartialEq for DDSCAPS {
 impl ::std::cmp::Eq for DDSCAPS {}
 unsafe impl ::windows::runtime::Abi for DDSCAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7933,7 +7777,6 @@ impl ::std::cmp::PartialEq for DDSCAPS2 {
 impl ::std::cmp::Eq for DDSCAPS2 {}
 unsafe impl ::windows::runtime::Abi for DDSCAPS2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7956,7 +7799,6 @@ impl ::std::cmp::PartialEq for DDSCAPS2_0 {
 impl ::std::cmp::Eq for DDSCAPS2_0 {}
 unsafe impl ::windows::runtime::Abi for DDSCAPS2_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDSCAPS2_ADDITIONALPRIMARY: i32 = -2147483648i32;
@@ -8070,7 +7912,6 @@ impl ::std::cmp::PartialEq for DDSCAPSEX {
 impl ::std::cmp::Eq for DDSCAPSEX {}
 unsafe impl ::windows::runtime::Abi for DDSCAPSEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8093,7 +7934,6 @@ impl ::std::cmp::PartialEq for DDSCAPSEX_0 {
 impl ::std::cmp::Eq for DDSCAPSEX_0 {}
 unsafe impl ::windows::runtime::Abi for DDSCAPSEX_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDSCAPS_3DDEVICE: i32 = 8192i32;
@@ -8255,7 +8095,6 @@ impl ::std::cmp::PartialEq for DDSETSTATEININFO {
 impl ::std::cmp::Eq for DDSETSTATEININFO {}
 unsafe impl ::windows::runtime::Abi for DDSETSTATEININFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8291,7 +8130,6 @@ impl ::std::cmp::Eq for DDSETSTATEOUTINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DDSETSTATEOUTINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDSETSURFACEDESC_PRESERVEDC: i32 = 1i32;
@@ -8325,7 +8163,6 @@ impl ::std::cmp::PartialEq for DDSKIPNEXTFIELDINFO {
 impl ::std::cmp::Eq for DDSKIPNEXTFIELDINFO {}
 unsafe impl ::windows::runtime::Abi for DDSKIPNEXTFIELDINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDSKIP_ENABLENEXT: u32 = 2u32;
@@ -8374,7 +8211,6 @@ impl ::std::cmp::Eq for DDSTEREOMODE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DDSTEREOMODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8469,7 +8305,6 @@ impl ::std::cmp::PartialEq for DDSURFACEDATA {
 impl ::std::cmp::Eq for DDSURFACEDATA {}
 unsafe impl ::windows::runtime::Abi for DDSURFACEDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8506,7 +8341,6 @@ impl ::std::cmp::PartialEq for DDSURFACEDESC {
 impl ::std::cmp::Eq for DDSURFACEDESC {}
 unsafe impl ::windows::runtime::Abi for DDSURFACEDESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8529,7 +8363,6 @@ impl ::std::cmp::PartialEq for DDSURFACEDESC_0 {
 impl ::std::cmp::Eq for DDSURFACEDESC_0 {}
 unsafe impl ::windows::runtime::Abi for DDSURFACEDESC_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8553,7 +8386,6 @@ impl ::std::cmp::PartialEq for DDSURFACEDESC_1 {
 impl ::std::cmp::Eq for DDSURFACEDESC_1 {}
 unsafe impl ::windows::runtime::Abi for DDSURFACEDESC_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8591,7 +8423,6 @@ impl ::std::cmp::PartialEq for DDSURFACEDESC2 {
 impl ::std::cmp::Eq for DDSURFACEDESC2 {}
 unsafe impl ::windows::runtime::Abi for DDSURFACEDESC2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8614,7 +8445,6 @@ impl ::std::cmp::PartialEq for DDSURFACEDESC2_0 {
 impl ::std::cmp::Eq for DDSURFACEDESC2_0 {}
 unsafe impl ::windows::runtime::Abi for DDSURFACEDESC2_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8637,7 +8467,6 @@ impl ::std::cmp::PartialEq for DDSURFACEDESC2_1 {
 impl ::std::cmp::Eq for DDSURFACEDESC2_1 {}
 unsafe impl ::windows::runtime::Abi for DDSURFACEDESC2_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8661,7 +8490,6 @@ impl ::std::cmp::PartialEq for DDSURFACEDESC2_2 {
 impl ::std::cmp::Eq for DDSURFACEDESC2_2 {}
 unsafe impl ::windows::runtime::Abi for DDSURFACEDESC2_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8684,7 +8512,6 @@ impl ::std::cmp::PartialEq for DDSURFACEDESC2_3 {
 impl ::std::cmp::Eq for DDSURFACEDESC2_3 {}
 unsafe impl ::windows::runtime::Abi for DDSURFACEDESC2_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8707,7 +8534,6 @@ impl ::std::cmp::PartialEq for DDSURFACEDESC2_4 {
 impl ::std::cmp::Eq for DDSURFACEDESC2_4 {}
 unsafe impl ::windows::runtime::Abi for DDSURFACEDESC2_4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDSVCAPS_RESERVED1: i32 = 1i32;
@@ -8749,7 +8575,6 @@ impl ::std::cmp::PartialEq for DDTRANSFERININFO {
 impl ::std::cmp::Eq for DDTRANSFERININFO {}
 unsafe impl ::windows::runtime::Abi for DDTRANSFERININFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8776,7 +8601,6 @@ impl ::std::cmp::PartialEq for DDTRANSFEROUTINFO {
 impl ::std::cmp::Eq for DDTRANSFEROUTINFO {}
 unsafe impl ::windows::runtime::Abi for DDTRANSFEROUTINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDTRANSFER_CANCEL: u32 = 128u32;
@@ -8817,7 +8641,6 @@ impl ::std::cmp::PartialEq for DDVERSIONDATA {
 impl ::std::cmp::Eq for DDVERSIONDATA {}
 unsafe impl ::windows::runtime::Abi for DDVERSIONDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDVERSIONINFO: u32 = 13u32;
@@ -8850,7 +8673,6 @@ impl ::std::cmp::PartialEq for DDVIDEOPORTCONNECT {
 impl ::std::cmp::Eq for DDVIDEOPORTCONNECT {}
 unsafe impl ::windows::runtime::Abi for DDVIDEOPORTCONNECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8893,7 +8715,6 @@ impl ::std::cmp::PartialEq for DDVIDEOPORTDATA {
 impl ::std::cmp::Eq for DDVIDEOPORTDATA {}
 unsafe impl ::windows::runtime::Abi for DDVIDEOPORTDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8923,7 +8744,6 @@ impl ::std::cmp::PartialEq for DDVIDEOPORTNOTIFY {
 impl ::std::cmp::Eq for DDVIDEOPORTNOTIFY {}
 unsafe impl ::windows::runtime::Abi for DDVIDEOPORTNOTIFY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8971,7 +8791,6 @@ impl ::std::cmp::Eq for DDVIDEOPORTSTATUS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DDVIDEOPORTSTATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DDVPBCAPS_DESTINATION: i32 = 2i32;
@@ -9198,7 +9017,6 @@ impl ::std::cmp::Eq for DD_DESTROYDDLOCALDATA {}
 #[cfg(feature = "Win32_UI_DisplayDevices")]
 unsafe impl ::windows::runtime::Abi for DD_DESTROYDDLOCALDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9236,7 +9054,6 @@ impl ::std::cmp::Eq for DD_DRVSETCOLORKEYDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DD_DRVSETCOLORKEYDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_UI_DisplayDevices")]
 impl ::std::clone::Clone for DD_HALINFO_V4 {
@@ -9273,7 +9090,6 @@ impl ::std::cmp::Eq for DD_HALINFO_V4 {}
 #[cfg(feature = "Win32_UI_DisplayDevices")]
 unsafe impl ::windows::runtime::Abi for DD_HALINFO_V4 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DD_HAL_VERSION: u32 = 256u32;
@@ -9320,7 +9136,6 @@ impl ::std::cmp::PartialEq for DD_MORECAPS {
 impl ::std::cmp::Eq for DD_MORECAPS {}
 unsafe impl ::windows::runtime::Abi for DD_MORECAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DD_RUNTIME_VERSION: i32 = 2306i32;
@@ -9359,7 +9174,6 @@ impl ::std::cmp::Eq for DD_SETCLIPLISTDATA {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DD_SETCLIPLISTDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DD_VERSION: i32 = 512i32;
@@ -9439,7 +9253,6 @@ impl ::std::cmp::Eq for DXAPI_INTERFACE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXAPI_INTERFACE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DXERR_GENERIC: u32 = 2147500037u32;
@@ -9472,7 +9285,6 @@ impl ::std::cmp::PartialEq for DX_IRQDATA {
 impl ::std::cmp::Eq for DX_IRQDATA {}
 unsafe impl ::windows::runtime::Abi for DX_IRQDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const DX_OK: u32 = 0u32;
@@ -9634,7 +9446,6 @@ impl ::std::cmp::PartialEq for HEAPALIAS {
 impl ::std::cmp::Eq for HEAPALIAS {}
 unsafe impl ::windows::runtime::Abi for HEAPALIAS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9664,7 +9475,6 @@ impl ::std::cmp::PartialEq for HEAPALIASINFO {
 impl ::std::cmp::Eq for HEAPALIASINFO {}
 unsafe impl ::windows::runtime::Abi for HEAPALIASINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const HEAPALIASINFO_MAPPEDDUMMY: i32 = 2i32;
@@ -11802,7 +11612,6 @@ impl ::std::cmp::PartialEq for IUNKNOWN_LIST {
 impl ::std::cmp::Eq for IUNKNOWN_LIST {}
 unsafe impl ::windows::runtime::Abi for IUNKNOWN_LIST {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type LPCLIPPERCALLBACK = unsafe extern "system" fn(lpddclipper: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, code: u32, lpcontext: *mut ::std::ffi::c_void) -> u32;
@@ -12012,7 +11821,6 @@ impl ::std::cmp::PartialEq for MDL {
 impl ::std::cmp::Eq for MDL {}
 unsafe impl ::windows::runtime::Abi for MDL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -12106,7 +11914,6 @@ impl ::std::cmp::PartialEq for PROCESS_LIST {
 impl ::std::cmp::Eq for PROCESS_LIST {}
 unsafe impl ::windows::runtime::Abi for PROCESS_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const ROP_HAS_PATTERN: i32 = 2i32;
@@ -12143,7 +11950,6 @@ impl ::std::cmp::Eq for VIDMEM {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation"))]
 unsafe impl ::windows::runtime::Abi for VIDMEM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12166,7 +11972,6 @@ impl ::std::cmp::PartialEq for VIDMEM_0 {
 impl ::std::cmp::Eq for VIDMEM_0 {}
 unsafe impl ::windows::runtime::Abi for VIDMEM_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12195,7 +12000,6 @@ impl ::std::cmp::Eq for VIDMEM_1 {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation"))]
 unsafe impl ::windows::runtime::Abi for VIDMEM_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12235,7 +12039,6 @@ impl ::std::cmp::Eq for VIDMEMINFO {}
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation"))]
 unsafe impl ::windows::runtime::Abi for VIDMEMINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const VIDMEM_HEAPDISABLED: i32 = 32i32;

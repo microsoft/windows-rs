@@ -3,7 +3,6 @@
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct ExtensionsContract(pub u8);
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrint3DWorkflow(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DWorkflow {
@@ -29,7 +28,6 @@ pub struct IPrint3DWorkflow_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrint3DWorkflow2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DWorkflow2 {
@@ -51,7 +49,6 @@ pub struct IPrint3DWorkflow2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrint3DWorkflowPrintRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DWorkflowPrintRequestedEventArgs {
@@ -73,7 +70,6 @@ pub struct IPrint3DWorkflowPrintRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrint3DWorkflowPrinterChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DWorkflowPrinterChangedEventArgs {
@@ -92,7 +88,6 @@ pub struct IPrint3DWorkflowPrinterChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintExtensionContextStatic(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintExtensionContextStatic {
@@ -111,7 +106,6 @@ pub struct IPrintExtensionContextStatic_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintNotificationEventDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintNotificationEventDetails {
@@ -132,7 +126,6 @@ pub struct IPrintNotificationEventDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintTaskConfiguration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTaskConfiguration {
@@ -155,7 +148,6 @@ pub struct IPrintTaskConfiguration_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintTaskConfigurationSaveRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTaskConfigurationSaveRequest {
@@ -178,7 +170,6 @@ pub struct IPrintTaskConfigurationSaveRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintTaskConfigurationSaveRequestedDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTaskConfigurationSaveRequestedDeferral {
@@ -197,7 +188,6 @@ pub struct IPrintTaskConfigurationSaveRequestedDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintTaskConfigurationSaveRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintTaskConfigurationSaveRequestedEventArgs {
@@ -312,10 +302,12 @@ impl ::std::convert::From<i32> for Print3DWorkflowDetail {
 }
 unsafe impl ::windows::runtime::Abi for Print3DWorkflowDetail {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for Print3DWorkflowDetail {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.Extensions.Print3DWorkflowDetail;i4)");
+}
+impl ::windows::runtime::DefaultType for Print3DWorkflowDetail {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Printers_Extensions`*"]
 #[repr(transparent)]
@@ -402,10 +394,12 @@ impl ::std::convert::From<i32> for Print3DWorkflowStatus {
 }
 unsafe impl ::windows::runtime::Abi for Print3DWorkflowStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for Print3DWorkflowStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.Extensions.Print3DWorkflowStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for Print3DWorkflowStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Printers_Extensions`*"]
 pub struct PrintExtensionContext {}

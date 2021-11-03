@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMicrosoftAccountMultiFactorAuthenticationManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMicrosoftAccountMultiFactorAuthenticationManager {
@@ -38,7 +37,6 @@ pub struct IMicrosoftAccountMultiFactorAuthenticationManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMicrosoftAccountMultiFactorAuthenticatorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMicrosoftAccountMultiFactorAuthenticatorStatics {
@@ -57,7 +55,6 @@ pub struct IMicrosoftAccountMultiFactorAuthenticatorStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMicrosoftAccountMultiFactorGetSessionsResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMicrosoftAccountMultiFactorGetSessionsResult {
@@ -78,7 +75,6 @@ pub struct IMicrosoftAccountMultiFactorGetSessionsResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut MicrosoftAccountMultiFactorServiceResponse) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMicrosoftAccountMultiFactorOneTimeCodedInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMicrosoftAccountMultiFactorOneTimeCodedInfo {
@@ -102,7 +98,6 @@ pub struct IMicrosoftAccountMultiFactorOneTimeCodedInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut MicrosoftAccountMultiFactorServiceResponse) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMicrosoftAccountMultiFactorSessionInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMicrosoftAccountMultiFactorSessionInfo {
@@ -129,7 +124,6 @@ pub struct IMicrosoftAccountMultiFactorSessionInfo_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
@@ -291,10 +285,12 @@ impl ::std::convert::From<i32> for MicrosoftAccountMultiFactorAuthenticationType
 }
 unsafe impl ::windows::runtime::Abi for MicrosoftAccountMultiFactorAuthenticationType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MicrosoftAccountMultiFactorAuthenticationType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorAuthenticationType;i4)");
+}
+impl ::windows::runtime::DefaultType for MicrosoftAccountMultiFactorAuthenticationType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
 #[repr(transparent)]
@@ -418,10 +414,12 @@ impl ::std::convert::From<i32> for MicrosoftAccountMultiFactorServiceResponse {
 }
 unsafe impl ::windows::runtime::Abi for MicrosoftAccountMultiFactorServiceResponse {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MicrosoftAccountMultiFactorServiceResponse {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorServiceResponse;i4)");
+}
+impl ::windows::runtime::DefaultType for MicrosoftAccountMultiFactorServiceResponse {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -439,10 +437,12 @@ impl ::std::convert::From<i32> for MicrosoftAccountMultiFactorSessionApprovalSta
 }
 unsafe impl ::windows::runtime::Abi for MicrosoftAccountMultiFactorSessionApprovalStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MicrosoftAccountMultiFactorSessionApprovalStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionApprovalStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for MicrosoftAccountMultiFactorSessionApprovalStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -459,10 +459,12 @@ impl ::std::convert::From<i32> for MicrosoftAccountMultiFactorSessionAuthenticat
 }
 unsafe impl ::windows::runtime::Abi for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionAuthenticationStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Core`*"]
 #[repr(transparent)]

@@ -2,7 +2,6 @@
 #[cfg(feature = "Devices_Input_Preview")]
 pub mod Preview;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyboardCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyboardCapabilities {
@@ -21,7 +20,6 @@ pub struct IKeyboardCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMouseCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMouseCapabilities {
@@ -44,7 +42,6 @@ pub struct IMouseCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMouseDevice(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMouseDevice {
@@ -66,7 +63,6 @@ pub struct IMouseDevice_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMouseDeviceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMouseDeviceStatics {
@@ -85,7 +81,6 @@ pub struct IMouseDeviceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMouseEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMouseEventArgs {
@@ -104,7 +99,6 @@ pub struct IMouseEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut MouseDelta) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPenButtonListener(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenButtonListener {
@@ -139,7 +133,6 @@ pub struct IPenButtonListener_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPenButtonListenerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenButtonListenerStatics {
@@ -158,7 +151,6 @@ pub struct IPenButtonListenerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPenDevice(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenDevice {
@@ -177,7 +169,6 @@ pub struct IPenDevice_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPenDevice2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenDevice2 {
@@ -197,7 +188,6 @@ pub struct IPenDevice2_abi(
     #[cfg(not(feature = "Devices_Haptics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPenDeviceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenDeviceStatics {
@@ -216,7 +206,6 @@ pub struct IPenDeviceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pointerid: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPenDockListener(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenDockListener {
@@ -247,7 +236,6 @@ pub struct IPenDockListener_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPenDockListenerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenDockListenerStatics {
@@ -266,7 +254,6 @@ pub struct IPenDockListenerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPenDockedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenDockedEventArgs {
@@ -284,7 +271,6 @@ pub struct IPenDockedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPenTailButtonClickedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenTailButtonClickedEventArgs {
@@ -302,7 +288,6 @@ pub struct IPenTailButtonClickedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPenTailButtonDoubleClickedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenTailButtonDoubleClickedEventArgs {
@@ -320,7 +305,6 @@ pub struct IPenTailButtonDoubleClickedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPenTailButtonLongPressedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenTailButtonLongPressedEventArgs {
@@ -338,7 +322,6 @@ pub struct IPenTailButtonLongPressedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPenUndockedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPenUndockedEventArgs {
@@ -356,7 +339,6 @@ pub struct IPenUndockedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPointerDevice(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointerDevice {
@@ -383,7 +365,6 @@ pub struct IPointerDevice_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPointerDevice2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointerDevice2 {
@@ -402,7 +383,6 @@ pub struct IPointerDevice2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPointerDeviceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPointerDeviceStatics {
@@ -423,7 +403,6 @@ pub struct IPointerDeviceStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITouchCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITouchCapabilities {
@@ -566,10 +545,12 @@ impl ::std::cmp::PartialEq for MouseDelta {
 impl ::std::cmp::Eq for MouseDelta {}
 unsafe impl ::windows::runtime::Abi for MouseDelta {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MouseDelta {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Devices.Input.MouseDelta;i4;i4)");
+}
+impl ::windows::runtime::DefaultType for MouseDelta {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Input`*"]
 #[repr(transparent)]
@@ -1057,10 +1038,12 @@ impl ::std::convert::From<i32> for PointerDeviceType {
 }
 unsafe impl ::windows::runtime::Abi for PointerDeviceType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PointerDeviceType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Input.PointerDeviceType;i4)");
+}
+impl ::windows::runtime::DefaultType for PointerDeviceType {
+    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1103,10 +1086,12 @@ impl ::std::cmp::PartialEq for PointerDeviceUsage {
 impl ::std::cmp::Eq for PointerDeviceUsage {}
 unsafe impl ::windows::runtime::Abi for PointerDeviceUsage {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PointerDeviceUsage {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Devices.Input.PointerDeviceUsage;u4;u4;i4;i4;i4;i4;u4;f4)");
+}
+impl ::windows::runtime::DefaultType for PointerDeviceUsage {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Input`*"]
 #[repr(transparent)]

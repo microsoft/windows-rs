@@ -46,7 +46,6 @@ impl ::std::convert::From<i32> for DRAWPROGRESSFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for DRAWPROGRESSFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -74,7 +73,6 @@ impl ::std::convert::From<i32> for GETPROPERTYSTOREFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for GETPROPERTYSTOREFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[repr(transparent)]
@@ -2558,7 +2556,6 @@ impl ::std::convert::From<i32> for PDOPSTATUS {
 }
 unsafe impl ::windows::runtime::Abi for PDOPSTATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2574,7 +2571,6 @@ impl ::std::convert::From<i32> for PKA_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PKA_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 pub const PKEY_PIDSTR_MAX: u32 = 10u32;
@@ -2596,7 +2592,6 @@ impl ::std::convert::From<i32> for PLACEHOLDER_STATES {
 }
 unsafe impl ::windows::runtime::Abi for PLACEHOLDER_STATES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2617,7 +2612,6 @@ impl ::std::convert::From<i32> for PROPDESC_AGGREGATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PROPDESC_AGGREGATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2636,7 +2630,6 @@ impl ::std::convert::From<i32> for PROPDESC_COLUMNINDEX_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PROPDESC_COLUMNINDEX_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2655,7 +2648,6 @@ impl ::std::convert::From<i32> for PROPDESC_CONDITION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PROPDESC_CONDITION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2673,7 +2665,6 @@ impl ::std::convert::From<i32> for PROPDESC_DISPLAYTYPE {
 }
 unsafe impl ::windows::runtime::Abi for PROPDESC_DISPLAYTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2693,7 +2684,6 @@ impl ::std::convert::From<i32> for PROPDESC_ENUMFILTER {
 }
 unsafe impl ::windows::runtime::Abi for PROPDESC_ENUMFILTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2721,7 +2711,6 @@ impl ::std::convert::From<i32> for PROPDESC_FORMAT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PROPDESC_FORMAT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2741,7 +2730,6 @@ impl ::std::convert::From<i32> for PROPDESC_GROUPING_RANGE {
 }
 unsafe impl ::windows::runtime::Abi for PROPDESC_GROUPING_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2765,7 +2753,6 @@ impl ::std::convert::From<i32> for PROPDESC_RELATIVEDESCRIPTION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PROPDESC_RELATIVEDESCRIPTION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2784,7 +2771,6 @@ impl ::std::convert::From<i32> for PROPDESC_SEARCHINFO_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PROPDESC_SEARCHINFO_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2802,7 +2788,6 @@ impl ::std::convert::From<i32> for PROPDESC_SORTDESCRIPTION {
 }
 unsafe impl ::windows::runtime::Abi for PROPDESC_SORTDESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2831,7 +2816,6 @@ impl ::std::convert::From<i32> for PROPDESC_TYPE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PROPDESC_TYPE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2858,7 +2842,6 @@ impl ::std::convert::From<i32> for PROPDESC_VIEW_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PROPDESC_VIEW_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2875,7 +2858,6 @@ impl ::std::convert::From<i32> for PROPENUMTYPE {
 }
 unsafe impl ::windows::runtime::Abi for PROPENUMTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2903,7 +2885,6 @@ impl ::std::cmp::PartialEq for PROPERTYKEY {
 impl ::std::cmp::Eq for PROPERTYKEY {}
 unsafe impl ::windows::runtime::Abi for PROPERTYKEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -2942,7 +2923,6 @@ impl ::std::cmp::Eq for PROPPRG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PROPPRG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2961,7 +2941,6 @@ impl ::std::convert::From<i32> for PROPVAR_CHANGE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PROPVAR_CHANGE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2981,7 +2960,6 @@ impl ::std::convert::From<i32> for PROPVAR_COMPARE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PROPVAR_COMPARE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3001,7 +2979,6 @@ impl ::std::convert::From<i32> for PROPVAR_COMPARE_UNIT {
 }
 unsafe impl ::windows::runtime::Abi for PROPVAR_COMPARE_UNIT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3018,7 +2995,6 @@ impl ::std::convert::From<i32> for PSC_STATE {
 }
 unsafe impl ::windows::runtime::Abi for PSC_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_PropertiesSystem`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
@@ -4008,7 +3984,6 @@ impl ::std::convert::From<i32> for PSTIME_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PSTIME_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_PropertiesSystem`, `Win32_Foundation`*"]
@@ -5126,7 +5101,6 @@ impl ::std::convert::From<i32> for SYNC_ENGINE_STATE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for SYNC_ENGINE_STATE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5151,7 +5125,6 @@ impl ::std::convert::From<i32> for SYNC_TRANSFER_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for SYNC_TRANSFER_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_PropertiesSystem`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -6015,7 +5988,6 @@ impl ::std::convert::From<i32> for _PERSIST_SPROPSTORE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for _PERSIST_SPROPSTORE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_PropertiesSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6031,5 +6003,4 @@ impl ::std::convert::From<i32> for _PROPERTYUI_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for _PROPERTYUI_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }

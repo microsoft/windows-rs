@@ -24,7 +24,6 @@ impl ::std::cmp::PartialEq for MAGCOLOREFFECT {
 impl ::std::cmp::Eq for MAGCOLOREFFECT {}
 unsafe impl ::windows::runtime::Abi for MAGCOLOREFFECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -56,7 +55,6 @@ impl ::std::cmp::PartialEq for MAGIMAGEHEADER {
 impl ::std::cmp::Eq for MAGIMAGEHEADER {}
 unsafe impl ::windows::runtime::Abi for MAGIMAGEHEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -83,7 +81,6 @@ impl ::std::cmp::PartialEq for MAGTRANSFORM {
 impl ::std::cmp::Eq for MAGTRANSFORM {}
 unsafe impl ::windows::runtime::Abi for MAGTRANSFORM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Magnification`*"]
 pub const MS_CLIPAROUNDCURSOR: i32 = 2i32;

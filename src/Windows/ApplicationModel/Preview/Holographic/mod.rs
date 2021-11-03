@@ -82,7 +82,6 @@ impl ::windows::runtime::RuntimeName for HolographicKeyboardPlacementOverridePre
 unsafe impl ::std::marker::Send for HolographicKeyboardPlacementOverridePreview {}
 unsafe impl ::std::marker::Sync for HolographicKeyboardPlacementOverridePreview {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicApplicationPreviewStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicApplicationPreviewStatics {
@@ -103,7 +102,6 @@ pub struct IHolographicApplicationPreviewStatics_abi(
     #[cfg(not(feature = "ApplicationModel_Activation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicKeyboardPlacementOverridePreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicKeyboardPlacementOverridePreview {
@@ -126,7 +124,6 @@ pub struct IHolographicKeyboardPlacementOverridePreview_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHolographicKeyboardPlacementOverridePreviewStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHolographicKeyboardPlacementOverridePreviewStatics {

@@ -2,7 +2,6 @@
 #[cfg(feature = "Devices_Printers_Extensions")]
 pub mod Extensions;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIppAttributeError(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppAttributeError {
@@ -24,7 +23,6 @@ pub struct IIppAttributeError_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIppAttributeValue(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppAttributeValue {
@@ -79,7 +77,6 @@ pub struct IIppAttributeValue_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIppAttributeValueStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppAttributeValueStatics {
@@ -158,7 +155,6 @@ pub struct IIppAttributeValueStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIppIntegerRange(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppIntegerRange {
@@ -178,7 +174,6 @@ pub struct IIppIntegerRange_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIppIntegerRangeFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppIntegerRangeFactory {
@@ -197,7 +192,6 @@ pub struct IIppIntegerRangeFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, start: i32, end: i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIppPrintDevice(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppPrintDevice {
@@ -226,7 +220,6 @@ pub struct IIppPrintDevice_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIppResolution(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppResolution {
@@ -247,7 +240,6 @@ pub struct IIppResolution_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut IppResolutionUnit) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIppResolutionFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppResolutionFactory {
@@ -266,7 +258,6 @@ pub struct IIppResolutionFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, width: i32, height: i32, unit: IppResolutionUnit, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIppSetAttributesResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppSetAttributesResult {
@@ -287,7 +278,6 @@ pub struct IIppSetAttributesResult_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIppTextWithLanguage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppTextWithLanguage {
@@ -307,7 +297,6 @@ pub struct IIppTextWithLanguage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIppTextWithLanguageFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIppTextWithLanguageFactory {
@@ -326,7 +315,6 @@ pub struct IIppTextWithLanguageFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, language: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, text: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrint3DDevice(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DDevice {
@@ -345,7 +333,6 @@ pub struct IPrint3DDevice_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrint3DDeviceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrint3DDeviceStatics {
@@ -366,7 +353,6 @@ pub struct IPrint3DDeviceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPrintSchema(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPrintSchema {
@@ -450,10 +436,12 @@ impl ::std::convert::From<i32> for IppAttributeErrorReason {
 }
 unsafe impl ::windows::runtime::Abi for IppAttributeErrorReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for IppAttributeErrorReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeErrorReason;i4)");
+}
+impl ::windows::runtime::DefaultType for IppAttributeErrorReason {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Printers`*"]
 #[repr(transparent)]
@@ -976,10 +964,12 @@ impl ::std::convert::From<i32> for IppAttributeValueKind {
 }
 unsafe impl ::windows::runtime::Abi for IppAttributeValueKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for IppAttributeValueKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeValueKind;i4)");
+}
+impl ::windows::runtime::DefaultType for IppAttributeValueKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Printers`*"]
 #[repr(transparent)]
@@ -1165,10 +1155,12 @@ impl ::std::convert::From<i32> for IppResolutionUnit {
 }
 unsafe impl ::windows::runtime::Abi for IppResolutionUnit {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for IppResolutionUnit {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppResolutionUnit;i4)");
+}
+impl ::windows::runtime::DefaultType for IppResolutionUnit {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Printers`*"]
 #[repr(transparent)]

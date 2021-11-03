@@ -180,10 +180,12 @@ impl ::std::convert::From<i32> for CastingConnectionErrorStatus {
 }
 unsafe impl ::windows::runtime::Abi for CastingConnectionErrorStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CastingConnectionErrorStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingConnectionErrorStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for CastingConnectionErrorStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Casting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -203,10 +205,12 @@ impl ::std::convert::From<i32> for CastingConnectionState {
 }
 unsafe impl ::windows::runtime::Abi for CastingConnectionState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CastingConnectionState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingConnectionState;i4)");
+}
+impl ::windows::runtime::DefaultType for CastingConnectionState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Casting`*"]
 #[repr(transparent)]
@@ -501,10 +505,12 @@ impl ::std::convert::From<u32> for CastingPlaybackTypes {
 }
 unsafe impl ::windows::runtime::Abi for CastingPlaybackTypes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CastingPlaybackTypes {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingPlaybackTypes;u4)");
+}
+impl ::windows::runtime::DefaultType for CastingPlaybackTypes {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CastingPlaybackTypes {
     type Output = Self;
@@ -568,7 +574,6 @@ impl ::windows::runtime::RuntimeName for CastingSource {
 unsafe impl ::std::marker::Send for CastingSource {}
 unsafe impl ::std::marker::Sync for CastingSource {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICastingConnection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICastingConnection {
@@ -602,7 +607,6 @@ pub struct ICastingConnection_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICastingConnectionErrorOccurredEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICastingConnectionErrorOccurredEventArgs {
@@ -622,7 +626,6 @@ pub struct ICastingConnectionErrorOccurredEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICastingDevice(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICastingDevice {
@@ -647,7 +650,6 @@ pub struct ICastingDevice_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICastingDevicePicker(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICastingDevicePicker {
@@ -681,7 +683,6 @@ pub struct ICastingDevicePicker_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICastingDevicePickerFilter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICastingDevicePickerFilter {
@@ -707,7 +708,6 @@ pub struct ICastingDevicePickerFilter_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICastingDeviceSelectedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICastingDeviceSelectedEventArgs {
@@ -726,7 +726,6 @@ pub struct ICastingDeviceSelectedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICastingDeviceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICastingDeviceStatics {
@@ -751,7 +750,6 @@ pub struct ICastingDeviceStatics_abi(
     #[cfg(not(all(feature = "Devices_Enumeration", feature = "Foundation")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICastingSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICastingSource {

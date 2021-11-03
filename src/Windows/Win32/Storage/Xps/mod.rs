@@ -59,7 +59,6 @@ impl ::std::convert::From<u32> for DEVICE_CAPABILITIES {
 }
 unsafe impl ::windows::runtime::Abi for DEVICE_CAPABILITIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DEVICE_CAPABILITIES {
     type Output = Self;
@@ -125,7 +124,6 @@ impl ::std::cmp::Eq for DOCINFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOCINFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -163,7 +161,6 @@ impl ::std::cmp::Eq for DOCINFOW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOCINFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -200,7 +197,6 @@ impl ::std::cmp::Eq for DRAWPATRECT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DRAWPATRECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Storage_Xps`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
@@ -303,7 +299,6 @@ impl ::std::default::Default for HPTPROVIDER {
 unsafe impl ::windows::runtime::Handle for HPTPROVIDER {}
 unsafe impl ::windows::runtime::Abi for HPTPROVIDER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[repr(transparent)]
@@ -8170,7 +8165,6 @@ impl ::std::convert::From<u32> for PRINT_WINDOW_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PRINT_WINDOW_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PRINT_WINDOW_FLAGS {
     type Output = Self;
@@ -8229,7 +8223,6 @@ impl ::std::cmp::PartialEq for PSFEATURE_CUSTPAPER {
 impl ::std::cmp::Eq for PSFEATURE_CUSTPAPER {}
 unsafe impl ::windows::runtime::Abi for PSFEATURE_CUSTPAPER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8264,7 +8257,6 @@ impl ::std::cmp::Eq for PSFEATURE_OUTPUT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PSFEATURE_OUTPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8293,7 +8285,6 @@ impl ::std::cmp::PartialEq for PSINJECTDATA {
 impl ::std::cmp::Eq for PSINJECTDATA {}
 unsafe impl ::windows::runtime::Abi for PSINJECTDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8337,7 +8328,6 @@ impl ::std::convert::From<u16> for PSINJECT_POINT {
 }
 unsafe impl ::windows::runtime::Abi for PSINJECT_POINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PSINJECT_POINT {
     type Output = Self;
@@ -8463,7 +8453,6 @@ impl ::std::cmp::PartialEq for XPS_COLOR {
 impl ::std::cmp::Eq for XPS_COLOR {}
 unsafe impl ::windows::runtime::Abi for XPS_COLOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8487,7 +8476,6 @@ impl ::std::cmp::PartialEq for XPS_COLOR_0 {
 impl ::std::cmp::Eq for XPS_COLOR_0 {}
 unsafe impl ::windows::runtime::Abi for XPS_COLOR_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8515,7 +8503,6 @@ impl ::std::cmp::PartialEq for XPS_COLOR_0_0 {
 impl ::std::cmp::Eq for XPS_COLOR_0_0 {}
 unsafe impl ::windows::runtime::Abi for XPS_COLOR_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8545,7 +8532,6 @@ impl ::std::cmp::PartialEq for XPS_COLOR_0_1 {
 impl ::std::cmp::Eq for XPS_COLOR_0_1 {}
 unsafe impl ::windows::runtime::Abi for XPS_COLOR_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8575,7 +8561,6 @@ impl ::std::cmp::PartialEq for XPS_COLOR_0_2 {
 impl ::std::cmp::Eq for XPS_COLOR_0_2 {}
 unsafe impl ::windows::runtime::Abi for XPS_COLOR_0_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8590,7 +8575,6 @@ impl ::std::convert::From<i32> for XPS_COLOR_INTERPOLATION {
 }
 unsafe impl ::windows::runtime::Abi for XPS_COLOR_INTERPOLATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8606,7 +8590,6 @@ impl ::std::convert::From<i32> for XPS_COLOR_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for XPS_COLOR_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8634,7 +8617,6 @@ impl ::std::cmp::PartialEq for XPS_DASH {
 impl ::std::cmp::Eq for XPS_DASH {}
 unsafe impl ::windows::runtime::Abi for XPS_DASH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8651,7 +8633,6 @@ impl ::std::convert::From<i32> for XPS_DASH_CAP {
 }
 unsafe impl ::windows::runtime::Abi for XPS_DASH_CAP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8667,7 +8648,6 @@ impl ::std::convert::From<i32> for XPS_DOCUMENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for XPS_DOCUMENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 pub const XPS_E_ABSOLUTE_REFERENCE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2142108159i32 as _);
@@ -8852,7 +8832,6 @@ impl ::std::convert::From<i32> for XPS_FILL_RULE {
 }
 unsafe impl ::windows::runtime::Abi for XPS_FILL_RULE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8869,7 +8848,6 @@ impl ::std::convert::From<i32> for XPS_FONT_EMBEDDING {
 }
 unsafe impl ::windows::runtime::Abi for XPS_FONT_EMBEDDING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8899,7 +8877,6 @@ impl ::std::cmp::PartialEq for XPS_GLYPH_INDEX {
 impl ::std::cmp::Eq for XPS_GLYPH_INDEX {}
 unsafe impl ::windows::runtime::Abi for XPS_GLYPH_INDEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8929,7 +8906,6 @@ impl ::std::cmp::PartialEq for XPS_GLYPH_MAPPING {
 impl ::std::cmp::Eq for XPS_GLYPH_MAPPING {}
 unsafe impl ::windows::runtime::Abi for XPS_GLYPH_MAPPING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8947,7 +8923,6 @@ impl ::std::convert::From<i32> for XPS_IMAGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for XPS_IMAGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8962,7 +8937,6 @@ impl ::std::convert::From<i32> for XPS_INTERLEAVING {
 }
 unsafe impl ::windows::runtime::Abi for XPS_INTERLEAVING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8979,7 +8953,6 @@ impl ::std::convert::From<i32> for XPS_LINE_CAP {
 }
 unsafe impl ::windows::runtime::Abi for XPS_LINE_CAP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8995,7 +8968,6 @@ impl ::std::convert::From<i32> for XPS_LINE_JOIN {
 }
 unsafe impl ::windows::runtime::Abi for XPS_LINE_JOIN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9027,7 +8999,6 @@ impl ::std::cmp::PartialEq for XPS_MATRIX {
 impl ::std::cmp::Eq for XPS_MATRIX {}
 unsafe impl ::windows::runtime::Abi for XPS_MATRIX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9050,7 +9021,6 @@ impl ::std::convert::From<i32> for XPS_OBJECT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for XPS_OBJECT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9078,7 +9048,6 @@ impl ::std::cmp::PartialEq for XPS_POINT {
 impl ::std::cmp::Eq for XPS_POINT {}
 unsafe impl ::windows::runtime::Abi for XPS_POINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9108,7 +9077,6 @@ impl ::std::cmp::PartialEq for XPS_RECT {
 impl ::std::cmp::Eq for XPS_RECT {}
 unsafe impl ::windows::runtime::Abi for XPS_RECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9124,7 +9092,6 @@ impl ::std::convert::From<i32> for XPS_SEGMENT_STROKE_PATTERN {
 }
 unsafe impl ::windows::runtime::Abi for XPS_SEGMENT_STROKE_PATTERN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9144,7 +9111,6 @@ impl ::std::convert::From<i32> for XPS_SEGMENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for XPS_SEGMENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9162,7 +9128,6 @@ impl ::std::convert::From<i32> for XPS_SIGNATURE_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for XPS_SIGNATURE_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9177,7 +9142,6 @@ impl ::std::convert::From<i32> for XPS_SIGN_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for XPS_SIGN_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9196,7 +9160,6 @@ impl ::std::convert::From<i32> for XPS_SIGN_POLICY {
 }
 unsafe impl ::windows::runtime::Abi for XPS_SIGN_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9224,7 +9187,6 @@ impl ::std::cmp::PartialEq for XPS_SIZE {
 impl ::std::cmp::Eq for XPS_SIZE {}
 unsafe impl ::windows::runtime::Abi for XPS_SIZE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9240,7 +9202,6 @@ impl ::std::convert::From<i32> for XPS_SPREAD_METHOD {
 }
 unsafe impl ::windows::runtime::Abi for XPS_SPREAD_METHOD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9257,7 +9218,6 @@ impl ::std::convert::From<i32> for XPS_STYLE_SIMULATION {
 }
 unsafe impl ::windows::runtime::Abi for XPS_STYLE_SIMULATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9274,7 +9234,6 @@ impl ::std::convert::From<i32> for XPS_THUMBNAIL_SIZE {
 }
 unsafe impl ::windows::runtime::Abi for XPS_THUMBNAIL_SIZE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Xps`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9292,7 +9251,6 @@ impl ::std::convert::From<i32> for XPS_TILE_MODE {
 }
 unsafe impl ::windows::runtime::Abi for XPS_TILE_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const XpsOMObjectFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3916747373, 15771, 19783, [136, 204, 56, 114, 242, 220, 53, 133]);
 pub const XpsOMThumbnailGenerator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2118788066, 47465, 18273, [190, 53, 26, 140, 237, 88, 227, 35]);

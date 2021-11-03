@@ -4779,7 +4779,6 @@ impl ::std::cmp::PartialEq for MTP_COMMAND_DATA_IN {
 impl ::std::cmp::Eq for MTP_COMMAND_DATA_IN {}
 unsafe impl ::windows::runtime::Abi for MTP_COMMAND_DATA_IN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -4805,7 +4804,6 @@ impl ::std::cmp::PartialEq for MTP_COMMAND_DATA_OUT {
 impl ::std::cmp::Eq for MTP_COMMAND_DATA_OUT {}
 unsafe impl ::windows::runtime::Abi for MTP_COMMAND_DATA_OUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const MTP_COMMAND_MAX_PARAMS: u32 = 5u32;
@@ -4849,7 +4847,6 @@ impl ::std::cmp::PartialEq for OPAQUECOMMAND {
 impl ::std::cmp::Eq for OPAQUECOMMAND {}
 unsafe impl ::windows::runtime::Abi for OPAQUECOMMAND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const RSA_KEY_LEN: u32 = 64u32;
@@ -4899,7 +4896,6 @@ impl ::std::cmp::PartialEq for WMDMDATETIME {
 impl ::std::cmp::Eq for WMDMDATETIME {}
 unsafe impl ::windows::runtime::Abi for WMDMDATETIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5002,7 +4998,6 @@ impl ::std::cmp::PartialEq for WMDMDetermineMaxPropStringLen {
 impl ::std::cmp::Eq for WMDMDetermineMaxPropStringLen {}
 unsafe impl ::windows::runtime::Abi for WMDMDetermineMaxPropStringLen {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WMDMDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2155560159, 13690, 4563, [132, 113, 0, 192, 79, 121, 219, 192]);
 pub const WMDMDeviceEnum: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1125004719, 14705, 4563, [132, 116, 0, 192, 79, 121, 219, 192]);
@@ -5034,7 +5029,6 @@ impl ::std::cmp::PartialEq for WMDMID {
 impl ::std::cmp::Eq for WMDMID {}
 unsafe impl ::windows::runtime::Abi for WMDMID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const WMDMID_LENGTH: u32 = 128u32;
@@ -5054,7 +5048,6 @@ impl ::std::convert::From<i32> for WMDMMessage {
 }
 unsafe impl ::windows::runtime::Abi for WMDMMessage {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5090,7 +5083,6 @@ impl ::std::cmp::Eq for WMDMMetadataView {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WMDMMetadataView {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5131,7 +5123,6 @@ impl ::std::cmp::PartialEq for WMDMRIGHTS {
 impl ::std::cmp::Eq for WMDMRIGHTS {}
 unsafe impl ::windows::runtime::Abi for WMDMRIGHTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WMDMStorage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2155560160, 13690, 4563, [132, 113, 0, 192, 79, 121, 219, 192]);
 pub const WMDMStorageEnum: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3946846779, 15095, 4563, [132, 116, 0, 192, 79, 121, 219, 192]);
@@ -5201,7 +5192,6 @@ impl ::std::convert::From<i32> for WMDM_ENUM_PROP_VALID_VALUES_FORM {
 }
 unsafe impl ::windows::runtime::Abi for WMDM_ENUM_PROP_VALID_VALUES_FORM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const WMDM_E_BUFFERTOOSMALL: i32 = -2147201016i32;
@@ -5292,7 +5282,6 @@ impl ::std::convert::From<i32> for WMDM_FIND_SCOPE {
 }
 unsafe impl ::windows::runtime::Abi for WMDM_FIND_SCOPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5400,7 +5389,6 @@ impl ::std::convert::From<i32> for WMDM_FORMATCODE {
 }
 unsafe impl ::windows::runtime::Abi for WMDM_FORMATCODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5435,7 +5423,6 @@ impl ::std::cmp::Eq for WMDM_FORMAT_CAPABILITY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for WMDM_FORMAT_CAPABILITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const WMDM_GET_FORMAT_SUPPORT_AUDIO: u32 = 1u32;
@@ -5511,7 +5498,6 @@ impl ::std::cmp::Eq for WMDM_PROP_CONFIG {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for WMDM_PROP_CONFIG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for WMDM_PROP_DESC {
@@ -5546,7 +5532,6 @@ impl ::std::cmp::Eq for WMDM_PROP_DESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for WMDM_PROP_DESC {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for WMDM_PROP_DESC_0 {
@@ -5580,7 +5565,6 @@ impl ::std::cmp::Eq for WMDM_PROP_DESC_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for WMDM_PROP_DESC_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5615,7 +5599,6 @@ impl ::std::cmp::Eq for WMDM_PROP_VALUES_ENUM {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for WMDM_PROP_VALUES_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for WMDM_PROP_VALUES_RANGE {
@@ -5650,7 +5633,6 @@ impl ::std::cmp::Eq for WMDM_PROP_VALUES_RANGE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for WMDM_PROP_VALUES_RANGE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const WMDM_RIGHTS_COPY_TO_CD: u32 = 8u32;
@@ -5721,7 +5703,6 @@ impl ::std::convert::From<i32> for WMDM_SESSION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WMDM_SESSION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const WMDM_SP_REVOKED: u32 = 4u32;
@@ -5813,7 +5794,6 @@ impl ::std::convert::From<i32> for WMDM_STORAGE_ENUM_MODE {
 }
 unsafe impl ::windows::runtime::Abi for WMDM_STORAGE_ENUM_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const WMDM_STORAGE_IS_DEFAULT: u32 = 134217728u32;
@@ -5840,7 +5820,6 @@ impl ::std::convert::From<i32> for WMDM_TAG_DATATYPE {
 }
 unsafe impl ::windows::runtime::Abi for WMDM_TAG_DATATYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const WMDM_WMDM_REVOKED: u32 = 1u32;
@@ -5877,7 +5856,6 @@ impl ::std::cmp::Eq for WMFILECAPABILITIES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WMFILECAPABILITIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5926,7 +5904,6 @@ impl ::std::cmp::PartialEq for _BITMAPINFOHEADER {
 impl ::std::cmp::Eq for _BITMAPINFOHEADER {}
 unsafe impl ::windows::runtime::Abi for _BITMAPINFOHEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5965,7 +5942,6 @@ impl ::std::cmp::Eq for _VIDEOINFOHEADER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for _VIDEOINFOHEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6006,7 +5982,6 @@ impl ::std::cmp::PartialEq for _WAVEFORMATEX {
 impl ::std::cmp::Eq for _WAVEFORMATEX {}
 unsafe impl ::windows::runtime::Abi for _WAVEFORMATEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6041,7 +6016,6 @@ impl ::std::cmp::Eq for __MACINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for __MACINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_DeviceManager`*"]
 pub const g_wszAudioWAVECodec: &'static str = "WMDM/AudioWAVECodec";

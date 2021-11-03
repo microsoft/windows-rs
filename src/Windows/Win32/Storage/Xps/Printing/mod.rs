@@ -220,7 +220,6 @@ impl ::std::convert::From<i32> for PrintDocumentPackageCompletion {
 }
 unsafe impl ::windows::runtime::Abi for PrintDocumentPackageCompletion {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -259,7 +258,6 @@ impl ::std::cmp::PartialEq for PrintDocumentPackageStatus {
 impl ::std::cmp::Eq for PrintDocumentPackageStatus {}
 unsafe impl ::windows::runtime::Abi for PrintDocumentPackageStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const PrintDocumentPackageTarget: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1212311198, 39239, 18154, [139, 162, 216, 204, 228, 50, 194, 202]);
 pub const PrintDocumentPackageTargetFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(881783165, 27777, 18818, [146, 180, 238, 24, 138, 67, 134, 122]);
@@ -350,7 +348,6 @@ impl ::std::convert::From<i32> for XPS_JOB_COMPLETION {
 }
 unsafe impl ::windows::runtime::Abi for XPS_JOB_COMPLETION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -382,5 +379,4 @@ impl ::std::cmp::PartialEq for XPS_JOB_STATUS {
 impl ::std::cmp::Eq for XPS_JOB_STATUS {}
 unsafe impl ::windows::runtime::Abi for XPS_JOB_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }

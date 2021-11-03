@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnAppId(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnAppId {
@@ -22,7 +21,6 @@ pub struct IVpnAppId_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnAppIdFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnAppIdFactory {
@@ -41,7 +39,6 @@ pub struct IVpnAppIdFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: VpnAppIdType, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnChannel(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannel {
@@ -93,7 +90,6 @@ pub struct IVpnChannel_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tunneltransport: ::windows::runtime::RawPtr, usetls12: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnChannel2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannel2 {
@@ -146,7 +142,6 @@ pub struct IVpnChannel2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnChannel4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannel4 {
@@ -173,7 +168,6 @@ pub struct IVpnChannel4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnChannel5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannel5 {
@@ -195,7 +189,6 @@ pub struct IVpnChannel5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnChannel6(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannel6 {
@@ -215,7 +208,6 @@ pub struct IVpnChannel6_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnChannelActivityEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannelActivityEventArgs {
@@ -234,7 +226,6 @@ pub struct IVpnChannelActivityEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut VpnChannelActivityEventType) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnChannelActivityStateChangedArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannelActivityStateChangedArgs {
@@ -253,7 +244,6 @@ pub struct IVpnChannelActivityStateChangedArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut VpnChannelActivityEventType) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnChannelConfiguration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannelConfiguration {
@@ -275,7 +265,6 @@ pub struct IVpnChannelConfiguration_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnChannelConfiguration2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnChannelConfiguration2 {
@@ -389,7 +378,6 @@ pub struct IVpnCredential_abi(
     #[cfg(not(feature = "Security_Credentials"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnCustomCheckBox(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomCheckBox {
@@ -410,7 +398,6 @@ pub struct IVpnCustomCheckBox_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnCustomComboBox(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomComboBox {
@@ -433,7 +420,6 @@ pub struct IVpnCustomComboBox_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnCustomEditBox(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomEditBox {
@@ -456,7 +442,6 @@ pub struct IVpnCustomEditBox_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnCustomErrorBox(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomErrorBox {
@@ -542,7 +527,6 @@ pub struct IVpnCustomPrompt_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnCustomPromptBooleanInput(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomPromptBooleanInput {
@@ -631,7 +615,6 @@ pub struct IVpnCustomPromptElement_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnCustomPromptOptionSelector(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomPromptOptionSelector {
@@ -652,7 +635,6 @@ pub struct IVpnCustomPromptOptionSelector_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnCustomPromptText(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomPromptText {
@@ -672,7 +654,6 @@ pub struct IVpnCustomPromptText_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnCustomPromptTextInput(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomPromptTextInput {
@@ -695,7 +676,6 @@ pub struct IVpnCustomPromptTextInput_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnCustomTextBox(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnCustomTextBox {
@@ -715,7 +695,6 @@ pub struct IVpnCustomTextBox_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnDomainNameAssignment(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnDomainNameAssignment {
@@ -739,7 +718,6 @@ pub struct IVpnDomainNameAssignment_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnDomainNameInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnDomainNameInfo {
@@ -765,7 +743,6 @@ pub struct IVpnDomainNameInfo_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnDomainNameInfo2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnDomainNameInfo2 {
@@ -819,7 +796,6 @@ pub struct IVpnDomainNameInfoFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnForegroundActivatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnForegroundActivatedEventArgs {
@@ -841,7 +817,6 @@ pub struct IVpnForegroundActivatedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnForegroundActivationOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnForegroundActivationOperation {
@@ -861,7 +836,6 @@ pub struct IVpnForegroundActivationOperation_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnInterfaceId(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnInterfaceId {
@@ -889,7 +863,7 @@ unsafe impl ::windows::runtime::Interface for IVpnInterfaceIdFactory {
 }
 impl IVpnInterfaceIdFactory {
     #[doc = "*Required features: `Networking_Vpn`*"]
-    pub fn CreateVpnInterfaceId(&self, address: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<VpnInterfaceId> {
+    pub fn CreateVpnInterfaceId(&self, address: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<VpnInterfaceId> {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -912,7 +886,6 @@ pub struct IVpnInterfaceIdFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, address_array_size: u32, address: *const u8, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnManagementAgent(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnManagementAgent {
@@ -948,7 +921,6 @@ pub struct IVpnManagementAgent_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnNamespaceAssignment(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnNamespaceAssignment {
@@ -974,7 +946,6 @@ pub struct IVpnNamespaceAssignment_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnNamespaceInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnNamespaceInfo {
@@ -1036,7 +1007,6 @@ pub struct IVpnNamespaceInfoFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnNativeProfile(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnNativeProfile {
@@ -1066,7 +1036,6 @@ pub struct IVpnNativeProfile_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnNativeProfile2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnNativeProfile2 {
@@ -1087,7 +1056,6 @@ pub struct IVpnNativeProfile2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut VpnManagementConnectionStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnPacketBuffer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPacketBuffer {
@@ -1111,7 +1079,6 @@ pub struct IVpnPacketBuffer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnPacketBuffer2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPacketBuffer2 {
@@ -1130,7 +1097,6 @@ pub struct IVpnPacketBuffer2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnPacketBuffer3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPacketBuffer3 {
@@ -1182,7 +1148,6 @@ pub struct IVpnPacketBufferFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parentbuffer: ::windows::runtime::RawPtr, offset: u32, length: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnPacketBufferList(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPacketBufferList {
@@ -1208,7 +1173,6 @@ pub struct IVpnPacketBufferList_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnPacketBufferList2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPacketBufferList2 {
@@ -1230,7 +1194,6 @@ pub struct IVpnPacketBufferList2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnPickedCredential(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPickedCredential {
@@ -1306,7 +1269,6 @@ pub struct IVpnPlugIn_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, channel: ::windows::runtime::RawPtr, encapbuffer: ::windows::runtime::RawPtr, decapsulatedpackets: ::windows::runtime::RawPtr, controlpacketstosend: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnPlugInProfile(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPlugInProfile {
@@ -1330,7 +1292,6 @@ pub struct IVpnPlugInProfile_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnPlugInProfile2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnPlugInProfile2 {
@@ -1463,7 +1424,6 @@ pub struct IVpnProfile_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnRoute(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnRoute {
@@ -1485,7 +1445,6 @@ pub struct IVpnRoute_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnRouteAssignment(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnRouteAssignment {
@@ -1553,7 +1512,6 @@ pub struct IVpnRouteFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, address: ::windows::runtime::RawPtr, prefixsize: u8, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnSystemHealth(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnSystemHealth {
@@ -1573,7 +1531,6 @@ pub struct IVpnSystemHealth_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnTrafficFilter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnTrafficFilter {
@@ -1607,7 +1564,6 @@ pub struct IVpnTrafficFilter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: VpnRoutingPolicyType) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnTrafficFilterAssignment(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnTrafficFilterAssignment {
@@ -1631,7 +1587,6 @@ pub struct IVpnTrafficFilterAssignment_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVpnTrafficFilterFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVpnTrafficFilterFactory {
@@ -1720,10 +1675,12 @@ impl ::std::convert::From<i32> for VpnAppIdType {
 }
 unsafe impl ::windows::runtime::Abi for VpnAppIdType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VpnAppIdType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnAppIdType;i4)");
+}
+impl ::windows::runtime::DefaultType for VpnAppIdType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1742,10 +1699,12 @@ impl ::std::convert::From<i32> for VpnAuthenticationMethod {
 }
 unsafe impl ::windows::runtime::Abi for VpnAuthenticationMethod {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VpnAuthenticationMethod {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnAuthenticationMethod;i4)");
+}
+impl ::windows::runtime::DefaultType for VpnAuthenticationMethod {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
@@ -2228,10 +2187,12 @@ impl ::std::convert::From<i32> for VpnChannelActivityEventType {
 }
 unsafe impl ::windows::runtime::Abi for VpnChannelActivityEventType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VpnChannelActivityEventType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnChannelActivityEventType;i4)");
+}
+impl ::windows::runtime::DefaultType for VpnChannelActivityEventType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
@@ -2327,10 +2288,12 @@ impl ::std::convert::From<u32> for VpnChannelRequestCredentialsOptions {
 }
 unsafe impl ::windows::runtime::Abi for VpnChannelRequestCredentialsOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VpnChannelRequestCredentialsOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnChannelRequestCredentialsOptions;u4)");
+}
+impl ::windows::runtime::DefaultType for VpnChannelRequestCredentialsOptions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for VpnChannelRequestCredentialsOptions {
     type Output = Self;
@@ -2453,10 +2416,12 @@ impl ::std::convert::From<i32> for VpnCredentialType {
 }
 unsafe impl ::windows::runtime::Abi for VpnCredentialType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VpnCredentialType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnCredentialType;i4)");
+}
+impl ::windows::runtime::DefaultType for VpnCredentialType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
@@ -3423,10 +3388,12 @@ impl ::std::convert::From<i32> for VpnDataPathType {
 }
 unsafe impl ::windows::runtime::Abi for VpnDataPathType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VpnDataPathType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnDataPathType;i4)");
+}
+impl ::windows::runtime::DefaultType for VpnDataPathType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
@@ -3576,10 +3543,12 @@ impl ::std::convert::From<i32> for VpnDomainNameType {
 }
 unsafe impl ::windows::runtime::Abi for VpnDomainNameType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VpnDomainNameType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnDomainNameType;i4)");
+}
+impl ::windows::runtime::DefaultType for VpnDomainNameType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
@@ -3756,10 +3725,12 @@ impl ::std::convert::From<i32> for VpnIPProtocol {
 }
 unsafe impl ::windows::runtime::Abi for VpnIPProtocol {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VpnIPProtocol {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnIPProtocol;i4)");
+}
+impl ::windows::runtime::DefaultType for VpnIPProtocol {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
@@ -3772,7 +3743,7 @@ impl VpnInterfaceId {
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), id.set_abi_len(), id as *mut _ as _).ok() }
     }
     #[doc = "*Required features: `Networking_Vpn`*"]
-    pub fn CreateVpnInterfaceId(address: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<VpnInterfaceId> {
+    pub fn CreateVpnInterfaceId(address: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<VpnInterfaceId> {
         Self::IVpnInterfaceIdFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
             (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), address.len() as u32, ::std::mem::transmute(address.as_ptr()), &mut result__).from_abi::<VpnInterfaceId>(result__)
@@ -3918,10 +3889,12 @@ impl ::std::convert::From<i32> for VpnManagementConnectionStatus {
 }
 unsafe impl ::windows::runtime::Abi for VpnManagementConnectionStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VpnManagementConnectionStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnManagementConnectionStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for VpnManagementConnectionStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3955,10 +3928,12 @@ impl ::std::convert::From<i32> for VpnManagementErrorStatus {
 }
 unsafe impl ::windows::runtime::Abi for VpnManagementErrorStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VpnManagementErrorStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnManagementErrorStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for VpnManagementErrorStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
@@ -4321,10 +4296,12 @@ impl ::std::convert::From<i32> for VpnNativeProtocolType {
 }
 unsafe impl ::windows::runtime::Abi for VpnNativeProtocolType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VpnNativeProtocolType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnNativeProtocolType;i4)");
+}
+impl ::windows::runtime::DefaultType for VpnNativeProtocolType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
@@ -4547,10 +4524,12 @@ impl ::std::convert::From<i32> for VpnPacketBufferStatus {
 }
 unsafe impl ::windows::runtime::Abi for VpnPacketBufferStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VpnPacketBufferStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnPacketBufferStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for VpnPacketBufferStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]
@@ -4942,10 +4921,12 @@ impl ::std::convert::From<i32> for VpnRoutingPolicyType {
 }
 unsafe impl ::windows::runtime::Abi for VpnRoutingPolicyType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VpnRoutingPolicyType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnRoutingPolicyType;i4)");
+}
+impl ::windows::runtime::DefaultType for VpnRoutingPolicyType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Vpn`*"]
 #[repr(transparent)]

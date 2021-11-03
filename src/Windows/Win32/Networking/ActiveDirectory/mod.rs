@@ -38,7 +38,6 @@ impl ::std::convert::From<i32> for ADSI_DIALECT_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADSI_DIALECT_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -77,7 +76,6 @@ impl ::std::cmp::Eq for ADSPROPERROR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ADSPROPERROR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -116,7 +114,6 @@ impl ::std::cmp::Eq for ADSPROPINITPARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ADSPROPINITPARAMS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -158,7 +155,6 @@ impl ::std::convert::From<i32> for ADSTYPEENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADSTYPEENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -187,7 +183,6 @@ impl ::std::cmp::Eq for ADSVALUE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ADSVALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -241,7 +236,6 @@ impl ::std::cmp::Eq for ADSVALUE_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ADSVALUE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -261,7 +255,6 @@ impl ::std::convert::From<i32> for ADS_ACEFLAG_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_ACEFLAG_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -289,7 +282,6 @@ impl ::std::convert::From<i32> for ADS_ACETYPE_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_ACETYPE_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const ADS_ATTR_APPEND: u32 = 3u32;
@@ -331,7 +323,6 @@ impl ::std::cmp::Eq for ADS_ATTR_DEF {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ADS_ATTR_DEF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const ADS_ATTR_DELETE: u32 = 4u32;
@@ -371,7 +362,6 @@ impl ::std::cmp::Eq for ADS_ATTR_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ADS_ATTR_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const ADS_ATTR_UPDATE: u32 = 2u32;
@@ -399,7 +389,6 @@ impl ::std::convert::From<u32> for ADS_AUTHENTICATION_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_AUTHENTICATION_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ADS_AUTHENTICATION_ENUM {
     type Output = Self;
@@ -462,7 +451,6 @@ impl ::std::cmp::Eq for ADS_BACKLINK {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ADS_BACKLINK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -497,7 +485,6 @@ impl ::std::cmp::Eq for ADS_CASEIGNORE_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ADS_CASEIGNORE_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -514,7 +501,6 @@ impl ::std::convert::From<i32> for ADS_CHASE_REFERRALS_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_CHASE_REFERRALS_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -568,7 +554,6 @@ impl ::std::cmp::Eq for ADS_CLASS_DEF {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ADS_CLASS_DEF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -585,7 +570,6 @@ impl ::std::convert::From<i32> for ADS_DEREFENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_DEREFENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -600,7 +584,6 @@ impl ::std::convert::From<i32> for ADS_DISPLAY_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_DISPLAY_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -636,7 +619,6 @@ impl ::std::cmp::Eq for ADS_DN_WITH_BINARY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ADS_DN_WITH_BINARY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -671,7 +653,6 @@ impl ::std::cmp::Eq for ADS_DN_WITH_STRING {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ADS_DN_WITH_STRING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -706,7 +687,6 @@ impl ::std::cmp::Eq for ADS_EMAIL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ADS_EMAIL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -723,7 +703,6 @@ impl ::std::convert::From<i32> for ADS_ESCAPE_MODE_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_ESCAPE_MODE_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const ADS_EXT_INITCREDENTIALS: u32 = 1u32;
@@ -767,7 +746,6 @@ impl ::std::cmp::Eq for ADS_FAXNUMBER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ADS_FAXNUMBER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -782,7 +760,6 @@ impl ::std::convert::From<i32> for ADS_FLAGTYPE_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_FLAGTYPE_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -806,7 +783,6 @@ impl ::std::convert::From<i32> for ADS_FORMAT_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_FORMAT_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -824,7 +800,6 @@ impl ::std::convert::From<i32> for ADS_GROUP_TYPE_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_GROUP_TYPE_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -859,7 +834,6 @@ impl ::std::cmp::Eq for ADS_HOLD {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ADS_HOLD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -875,7 +849,6 @@ impl ::std::convert::From<i32> for ADS_NAME_INITTYPE_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_NAME_INITTYPE_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -900,7 +873,6 @@ impl ::std::convert::From<i32> for ADS_NAME_TYPE_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_NAME_TYPE_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -929,7 +901,6 @@ impl ::std::cmp::PartialEq for ADS_NETADDRESS {
 impl ::std::cmp::Eq for ADS_NETADDRESS {}
 unsafe impl ::windows::runtime::Abi for ADS_NETADDRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -957,7 +928,6 @@ impl ::std::cmp::PartialEq for ADS_NT_SECURITY_DESCRIPTOR {
 impl ::std::cmp::Eq for ADS_NT_SECURITY_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for ADS_NT_SECURITY_DESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -995,7 +965,6 @@ impl ::std::cmp::Eq for ADS_OBJECT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ADS_OBJECT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1024,7 +993,6 @@ impl ::std::cmp::PartialEq for ADS_OCTET_LIST {
 impl ::std::cmp::Eq for ADS_OCTET_LIST {}
 unsafe impl ::windows::runtime::Abi for ADS_OCTET_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1052,7 +1020,6 @@ impl ::std::cmp::PartialEq for ADS_OCTET_STRING {
 impl ::std::cmp::Eq for ADS_OCTET_STRING {}
 unsafe impl ::windows::runtime::Abi for ADS_OCTET_STRING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1075,7 +1042,6 @@ impl ::std::convert::From<i32> for ADS_OPTION_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_OPTION_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1090,7 +1056,6 @@ impl ::std::convert::From<i32> for ADS_PASSWORD_ENCODING_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_PASSWORD_ENCODING_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1126,7 +1091,6 @@ impl ::std::cmp::Eq for ADS_PATH {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ADS_PATH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1142,7 +1106,6 @@ impl ::std::convert::From<i32> for ADS_PATHTYPE_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_PATHTYPE_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1176,7 +1139,6 @@ impl ::std::cmp::Eq for ADS_POSTALADDRESS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ADS_POSTALADDRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1202,7 +1164,6 @@ impl ::std::convert::From<i32> for ADS_PREFERENCES_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_PREFERENCES_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1219,7 +1180,6 @@ impl ::std::convert::From<i32> for ADS_PROPERTY_OPERATION_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_PROPERTY_OPERATION_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1247,7 +1207,6 @@ impl ::std::cmp::PartialEq for ADS_PROV_SPECIFIC {
 impl ::std::cmp::Eq for ADS_PROV_SPECIFIC {}
 unsafe impl ::windows::runtime::Abi for ADS_PROV_SPECIFIC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1285,7 +1244,6 @@ impl ::std::cmp::Eq for ADS_REPLICAPOINTER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ADS_REPLICAPOINTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1317,7 +1275,6 @@ impl ::std::convert::From<i32> for ADS_RIGHTS_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_RIGHTS_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1333,7 +1290,6 @@ impl ::std::convert::From<i32> for ADS_SCOPEENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_SCOPEENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1359,7 +1315,6 @@ impl ::std::convert::From<i32> for ADS_SD_CONTROL_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_SD_CONTROL_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1375,7 +1330,6 @@ impl ::std::convert::From<i32> for ADS_SD_FORMAT_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_SD_FORMAT_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1389,7 +1343,6 @@ impl ::std::convert::From<i32> for ADS_SD_REVISION_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_SD_REVISION_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1421,7 +1374,6 @@ impl ::std::convert::From<i32> for ADS_SEARCHPREF_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_SEARCHPREF_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1438,7 +1390,6 @@ impl ::std::convert::From<i32> for ADS_SECURITY_INFO_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_SECURITY_INFO_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1455,7 +1406,6 @@ impl ::std::convert::From<i32> for ADS_SETTYPE_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_SETTYPE_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1491,7 +1441,6 @@ impl ::std::cmp::Eq for ADS_SORTKEY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ADS_SORTKEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1507,7 +1456,6 @@ impl ::std::convert::From<i32> for ADS_STATUSENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_STATUSENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1530,7 +1478,6 @@ impl ::std::convert::From<i32> for ADS_SYSTEMFLAG_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_SYSTEMFLAG_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1558,7 +1505,6 @@ impl ::std::cmp::PartialEq for ADS_TIMESTAMP {
 impl ::std::cmp::Eq for ADS_TIMESTAMP {}
 unsafe impl ::windows::runtime::Abi for ADS_TIMESTAMP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1594,7 +1540,6 @@ impl ::std::cmp::Eq for ADS_TYPEDNAME {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ADS_TYPEDNAME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1628,7 +1573,6 @@ impl ::std::convert::From<i32> for ADS_USER_FLAG_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for ADS_USER_FLAG_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1676,7 +1620,6 @@ impl ::std::cmp::Eq for ADS_VLV {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ADS_VLV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const ADSystemInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1354117759, 45009, 4562, [156, 185, 0, 0, 248, 122, 54, 158]);
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2094,7 +2037,6 @@ impl ::std::cmp::Eq for CQFORM {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for CQFORM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2135,7 +2077,6 @@ impl ::std::cmp::Eq for CQPAGE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for CQPAGE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const CQPM_CLEARFORM: u32 = 6u32;
@@ -2218,7 +2159,6 @@ impl ::std::cmp::Eq for DOMAINDESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOMAINDESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2270,7 +2210,6 @@ impl ::std::cmp::Eq for DOMAIN_CONTROLLER_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOMAIN_CONTROLLER_INFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2322,7 +2261,6 @@ impl ::std::cmp::Eq for DOMAIN_CONTROLLER_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOMAIN_CONTROLLER_INFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2358,7 +2296,6 @@ impl ::std::cmp::Eq for DOMAIN_TREE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOMAIN_TREE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DSA_NEWOBJ_CTX_CLEANUP: u32 = 4u32;
@@ -2403,7 +2340,6 @@ impl ::std::cmp::Eq for DSA_NEWOBJ_DISPINFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for DSA_NEWOBJ_DISPINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DSA_NOTIFY_DEL: u32 = 1u32;
@@ -2477,7 +2413,6 @@ impl ::std::cmp::Eq for DSBITEMA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DSBITEMA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2529,7 +2464,6 @@ impl ::std::cmp::Eq for DSBITEMW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DSBITEMW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DSBI_CHECKBOXES: u32 = 256u32;
@@ -2646,7 +2580,6 @@ impl ::std::cmp::Eq for DSBROWSEINFOA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 unsafe impl ::windows::runtime::Abi for DSBROWSEINFOA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2723,7 +2656,6 @@ impl ::std::cmp::Eq for DSBROWSEINFOW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 unsafe impl ::windows::runtime::Abi for DSBROWSEINFOW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DSBS_CHECKED: u32 = 1u32;
@@ -2766,7 +2698,6 @@ impl ::std::cmp::PartialEq for DSCLASSCREATIONINFO {
 impl ::std::cmp::Eq for DSCLASSCREATIONINFO {}
 unsafe impl ::windows::runtime::Abi for DSCLASSCREATIONINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2798,7 +2729,6 @@ impl ::std::cmp::PartialEq for DSCOLUMN {
 impl ::std::cmp::Eq for DSCOLUMN {}
 unsafe impl ::windows::runtime::Abi for DSCOLUMN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2839,7 +2769,6 @@ impl ::std::cmp::PartialEq for DSDISPLAYSPECOPTIONS {
 impl ::std::cmp::Eq for DSDISPLAYSPECOPTIONS {}
 unsafe impl ::windows::runtime::Abi for DSDISPLAYSPECOPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DSDSOF_DONTSIGNSEAL: u32 = 4u32;
@@ -2893,7 +2822,6 @@ impl ::std::cmp::PartialEq for DSOBJECT {
 impl ::std::cmp::Eq for DSOBJECT {}
 unsafe impl ::windows::runtime::Abi for DSOBJECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2922,7 +2850,6 @@ impl ::std::cmp::PartialEq for DSOBJECTNAMES {
 impl ::std::cmp::Eq for DSOBJECTNAMES {}
 unsafe impl ::windows::runtime::Abi for DSOBJECTNAMES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DSOBJECT_ISCONTAINER: u32 = 1u32;
@@ -3022,7 +2949,6 @@ impl ::std::cmp::PartialEq for DSOP_FILTER_FLAGS {
 impl ::std::cmp::Eq for DSOP_FILTER_FLAGS {}
 unsafe impl ::windows::runtime::Abi for DSOP_FILTER_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DSOP_FILTER_GLOBAL_GROUPS_DL: u32 = 64u32;
@@ -3092,7 +3018,6 @@ impl ::std::cmp::Eq for DSOP_INIT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DSOP_INIT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_COMPUTERS: u32 = 256u32;
@@ -3156,7 +3081,6 @@ impl ::std::cmp::Eq for DSOP_SCOPE_INIT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DSOP_SCOPE_INIT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DSOP_SCOPE_TYPE_DOWNLEVEL_JOINED_DOMAIN: u32 = 4u32;
@@ -3205,7 +3129,6 @@ impl ::std::cmp::PartialEq for DSOP_UPLEVEL_FILTER_FLAGS {
 impl ::std::cmp::Eq for DSOP_UPLEVEL_FILTER_FLAGS {}
 unsafe impl ::windows::runtime::Abi for DSOP_UPLEVEL_FILTER_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3232,7 +3155,6 @@ impl ::std::cmp::PartialEq for DSPROPERTYPAGEINFO {
 impl ::std::cmp::Eq for DSPROPERTYPAGEINFO {}
 unsafe impl ::windows::runtime::Abi for DSPROPERTYPAGEINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DSPROVIDER_ADVANCED: u32 = 16u32;
@@ -3291,7 +3213,6 @@ impl ::std::cmp::PartialEq for DSQUERYCLASSLIST {
 impl ::std::cmp::Eq for DSQUERYCLASSLIST {}
 unsafe impl ::windows::runtime::Abi for DSQUERYCLASSLIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3339,7 +3260,6 @@ impl ::std::cmp::Eq for DSQUERYINITPARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DSQUERYINITPARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3379,7 +3299,6 @@ impl ::std::cmp::Eq for DSQUERYPARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DSQUERYPARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3398,7 +3317,6 @@ impl ::std::convert::From<i32> for DSROLE_MACHINE_ROLE {
 }
 unsafe impl ::windows::runtime::Abi for DSROLE_MACHINE_ROLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3414,7 +3332,6 @@ impl ::std::convert::From<i32> for DSROLE_OPERATION_STATE {
 }
 unsafe impl ::windows::runtime::Abi for DSROLE_OPERATION_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3441,7 +3358,6 @@ impl ::std::cmp::PartialEq for DSROLE_OPERATION_STATE_INFO {
 impl ::std::cmp::Eq for DSROLE_OPERATION_STATE_INFO {}
 unsafe impl ::windows::runtime::Abi for DSROLE_OPERATION_STATE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DSROLE_PRIMARY_DOMAIN_GUID_PRESENT: u32 = 16777216u32;
@@ -3489,7 +3405,6 @@ impl ::std::cmp::Eq for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3505,7 +3420,6 @@ impl ::std::convert::From<i32> for DSROLE_PRIMARY_DOMAIN_INFO_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for DSROLE_PRIMARY_DOMAIN_INFO_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DSROLE_PRIMARY_DS_MIXED_MODE: u32 = 2u32;
@@ -3527,7 +3441,6 @@ impl ::std::convert::From<i32> for DSROLE_SERVER_STATE {
 }
 unsafe impl ::windows::runtime::Abi for DSROLE_SERVER_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DSROLE_UPGRADE_IN_PROGRESS: u32 = 4u32;
@@ -3557,7 +3470,6 @@ impl ::std::cmp::PartialEq for DSROLE_UPGRADE_STATUS_INFO {
 impl ::std::cmp::Eq for DSROLE_UPGRADE_STATUS_INFO {}
 unsafe impl ::windows::runtime::Abi for DSROLE_UPGRADE_STATUS_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DSSSF_DONTSIGNSEAL: u32 = 2u32;
@@ -3661,7 +3573,6 @@ impl ::std::cmp::Eq for DS_DOMAIN_CONTROLLER_INFO_1A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_DOMAIN_CONTROLLER_INFO_1A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3709,7 +3620,6 @@ impl ::std::cmp::Eq for DS_DOMAIN_CONTROLLER_INFO_1W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_DOMAIN_CONTROLLER_INFO_1W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3784,7 +3694,6 @@ impl ::std::cmp::Eq for DS_DOMAIN_CONTROLLER_INFO_2A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_DOMAIN_CONTROLLER_INFO_2A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3859,7 +3768,6 @@ impl ::std::cmp::Eq for DS_DOMAIN_CONTROLLER_INFO_2W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_DOMAIN_CONTROLLER_INFO_2W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3937,7 +3845,6 @@ impl ::std::cmp::Eq for DS_DOMAIN_CONTROLLER_INFO_3A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_DOMAIN_CONTROLLER_INFO_3A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4015,7 +3922,6 @@ impl ::std::cmp::Eq for DS_DOMAIN_CONTROLLER_INFO_3W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_DOMAIN_CONTROLLER_INFO_3W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_DOMAIN_DIRECT_INBOUND: u32 = 32u32;
@@ -4077,7 +3983,6 @@ impl ::std::cmp::Eq for DS_DOMAIN_TRUSTSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_DOMAIN_TRUSTSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4127,7 +4032,6 @@ impl ::std::cmp::Eq for DS_DOMAIN_TRUSTSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_DOMAIN_TRUSTSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_DS_10_FLAG: u32 = 65536u32;
@@ -4185,7 +4089,6 @@ impl ::std::convert::From<i32> for DS_KCC_TASKID {
 }
 unsafe impl ::windows::runtime::Abi for DS_KCC_TASKID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_KDC_FLAG: u32 = 32u32;
@@ -4217,7 +4120,6 @@ impl ::std::convert::From<i32> for DS_MANGLE_FOR {
 }
 unsafe impl ::windows::runtime::Abi for DS_MANGLE_FOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4238,7 +4140,6 @@ impl ::std::convert::From<i32> for DS_NAME_ERROR {
 }
 unsafe impl ::windows::runtime::Abi for DS_NAME_ERROR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4256,7 +4157,6 @@ impl ::std::convert::From<i32> for DS_NAME_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for DS_NAME_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4280,7 +4180,6 @@ impl ::std::convert::From<i32> for DS_NAME_FORMAT {
 }
 unsafe impl ::windows::runtime::Abi for DS_NAME_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4315,7 +4214,6 @@ impl ::std::cmp::Eq for DS_NAME_RESULTA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_NAME_RESULTA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4350,7 +4248,6 @@ impl ::std::cmp::Eq for DS_NAME_RESULTW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_NAME_RESULTW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4386,7 +4283,6 @@ impl ::std::cmp::Eq for DS_NAME_RESULT_ITEMA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_NAME_RESULT_ITEMA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4422,7 +4318,6 @@ impl ::std::cmp::Eq for DS_NAME_RESULT_ITEMW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_NAME_RESULT_ITEMW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_NDNC_FLAG: u32 = 1024u32;
@@ -4524,7 +4419,6 @@ impl ::std::cmp::Eq for DS_REPL_ATTR_META_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_ATTR_META_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4572,7 +4466,6 @@ impl ::std::cmp::Eq for DS_REPL_ATTR_META_DATA_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_ATTR_META_DATA_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4620,7 +4513,6 @@ impl ::std::cmp::Eq for DS_REPL_ATTR_META_DATA_BLOB {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_ATTR_META_DATA_BLOB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4656,7 +4548,6 @@ impl ::std::cmp::Eq for DS_REPL_ATTR_VALUE_META_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_ATTR_VALUE_META_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4692,7 +4583,6 @@ impl ::std::cmp::Eq for DS_REPL_ATTR_VALUE_META_DATA_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_ATTR_VALUE_META_DATA_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4728,7 +4618,6 @@ impl ::std::cmp::Eq for DS_REPL_ATTR_VALUE_META_DATA_EXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_ATTR_VALUE_META_DATA_EXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4756,7 +4645,6 @@ impl ::std::cmp::PartialEq for DS_REPL_CURSOR {
 impl ::std::cmp::Eq for DS_REPL_CURSOR {}
 unsafe impl ::windows::runtime::Abi for DS_REPL_CURSOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4785,7 +4673,6 @@ impl ::std::cmp::PartialEq for DS_REPL_CURSORS {
 impl ::std::cmp::Eq for DS_REPL_CURSORS {}
 unsafe impl ::windows::runtime::Abi for DS_REPL_CURSORS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4821,7 +4708,6 @@ impl ::std::cmp::Eq for DS_REPL_CURSORS_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_CURSORS_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4857,7 +4743,6 @@ impl ::std::cmp::Eq for DS_REPL_CURSORS_3W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_CURSORS_3W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4893,7 +4778,6 @@ impl ::std::cmp::Eq for DS_REPL_CURSOR_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_CURSOR_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4930,7 +4814,6 @@ impl ::std::cmp::Eq for DS_REPL_CURSOR_3W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_CURSOR_3W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4967,7 +4850,6 @@ impl ::std::cmp::Eq for DS_REPL_CURSOR_BLOB {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_CURSOR_BLOB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_REPL_INFO_FLAG_IMPROVE_LINKED_ATTRS: u32 = 1u32;
@@ -4995,7 +4877,6 @@ impl ::std::convert::From<i32> for DS_REPL_INFO_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DS_REPL_INFO_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5031,7 +4912,6 @@ impl ::std::cmp::Eq for DS_REPL_KCC_DSA_FAILURESW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_KCC_DSA_FAILURESW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5069,7 +4949,6 @@ impl ::std::cmp::Eq for DS_REPL_KCC_DSA_FAILUREW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_KCC_DSA_FAILUREW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5107,7 +4986,6 @@ impl ::std::cmp::Eq for DS_REPL_KCC_DSA_FAILUREW_BLOB {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_KCC_DSA_FAILUREW_BLOB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_REPL_NBR_COMPRESS_CHANGES: u32 = 268435456u32;
@@ -5179,7 +5057,6 @@ impl ::std::cmp::Eq for DS_REPL_NEIGHBORSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_NEIGHBORSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5260,7 +5137,6 @@ impl ::std::cmp::Eq for DS_REPL_NEIGHBORW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_NEIGHBORW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5341,7 +5217,6 @@ impl ::std::cmp::Eq for DS_REPL_NEIGHBORW_BLOB {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_NEIGHBORW_BLOB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5377,7 +5252,6 @@ impl ::std::cmp::Eq for DS_REPL_OBJ_META_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_OBJ_META_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5413,7 +5287,6 @@ impl ::std::cmp::Eq for DS_REPL_OBJ_META_DATA_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_OBJ_META_DATA_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5467,7 +5340,6 @@ impl ::std::cmp::Eq for DS_REPL_OPW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_OPW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5521,7 +5393,6 @@ impl ::std::cmp::Eq for DS_REPL_OPW_BLOB {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_OPW_BLOB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5539,7 +5410,6 @@ impl ::std::convert::From<i32> for DS_REPL_OP_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DS_REPL_OP_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5575,7 +5445,6 @@ impl ::std::cmp::Eq for DS_REPL_PENDING_OPSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_PENDING_OPSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5623,7 +5492,6 @@ impl ::std::cmp::Eq for DS_REPL_QUEUE_STATISTICSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_QUEUE_STATISTICSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5689,7 +5557,6 @@ impl ::std::cmp::Eq for DS_REPL_VALUE_META_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_VALUE_META_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5758,7 +5625,6 @@ impl ::std::cmp::Eq for DS_REPL_VALUE_META_DATA_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_VALUE_META_DATA_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5827,7 +5693,6 @@ impl ::std::cmp::Eq for DS_REPL_VALUE_META_DATA_BLOB {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_VALUE_META_DATA_BLOB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5905,7 +5770,6 @@ impl ::std::cmp::Eq for DS_REPL_VALUE_META_DATA_BLOB_EXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_VALUE_META_DATA_BLOB_EXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5983,7 +5847,6 @@ impl ::std::cmp::Eq for DS_REPL_VALUE_META_DATA_EXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPL_VALUE_META_DATA_EXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_REPMOD_ASYNCHRONOUS_OPERATION: u32 = 1u32;
@@ -6042,7 +5905,6 @@ impl ::std::cmp::Eq for DS_REPSYNCALL_ERRINFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPSYNCALL_ERRINFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6079,7 +5941,6 @@ impl ::std::cmp::Eq for DS_REPSYNCALL_ERRINFOW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPSYNCALL_ERRINFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6095,7 +5956,6 @@ impl ::std::convert::From<i32> for DS_REPSYNCALL_ERROR {
 }
 unsafe impl ::windows::runtime::Abi for DS_REPSYNCALL_ERROR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6112,7 +5972,6 @@ impl ::std::convert::From<i32> for DS_REPSYNCALL_EVENT {
 }
 unsafe impl ::windows::runtime::Abi for DS_REPSYNCALL_EVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_REPSYNCALL_ID_SERVERS_BY_DN: u32 = 4u32;
@@ -6158,7 +6017,6 @@ impl ::std::cmp::Eq for DS_REPSYNCALL_SYNCA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPSYNCALL_SYNCA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6196,7 +6054,6 @@ impl ::std::cmp::Eq for DS_REPSYNCALL_SYNCW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPSYNCALL_SYNCW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_REPSYNCALL_SYNC_ADJACENT_SERVERS_ONLY: u32 = 2u32;
@@ -6234,7 +6091,6 @@ impl ::std::cmp::Eq for DS_REPSYNCALL_UPDATEA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPSYNCALL_UPDATEA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6270,7 +6126,6 @@ impl ::std::cmp::Eq for DS_REPSYNCALL_UPDATEW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_REPSYNCALL_UPDATEW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_REPSYNC_ABANDONED: u32 = 32768u32;
@@ -6388,7 +6243,6 @@ impl ::std::cmp::Eq for DS_SCHEMA_GUID_MAPA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_SCHEMA_GUID_MAPA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6424,7 +6278,6 @@ impl ::std::cmp::Eq for DS_SCHEMA_GUID_MAPW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DS_SCHEMA_GUID_MAPW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_SCHEMA_GUID_NOT_FOUND: u32 = 0u32;
@@ -6465,7 +6318,6 @@ impl ::std::cmp::Eq for DS_SELECTION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DS_SELECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6501,7 +6353,6 @@ impl ::std::cmp::Eq for DS_SELECTION_LIST {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DS_SELECTION_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_SELECT_SECRET_DOMAIN_6_FLAG: u32 = 2048u32;
@@ -6531,7 +6382,6 @@ impl ::std::cmp::PartialEq for DS_SITE_COST_INFO {
 impl ::std::cmp::Eq for DS_SITE_COST_INFO {}
 unsafe impl ::windows::runtime::Abi for DS_SITE_COST_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6550,7 +6400,6 @@ impl ::std::convert::From<i32> for DS_SPN_NAME_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DS_SPN_NAME_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6566,7 +6415,6 @@ impl ::std::convert::From<i32> for DS_SPN_WRITE_OP {
 }
 unsafe impl ::windows::runtime::Abi for DS_SPN_WRITE_OP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const DS_TIMESERV_FLAG: u32 = 64u32;
@@ -8782,7 +8630,6 @@ impl ::std::default::Default for GetDcContextHandle {
 unsafe impl ::windows::runtime::Handle for GetDcContextHandle {}
 unsafe impl ::windows::runtime::Abi for GetDcContextHandle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const Hold: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3014475283, 16512, 4561, [163, 172, 0, 192, 79, 185, 80, 220]);
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
@@ -20021,7 +19868,6 @@ impl ::std::cmp::Eq for OPENQUERYWINDOW {}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 unsafe impl ::windows::runtime::Abi for OPENQUERYWINDOW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::clone::Clone for OPENQUERYWINDOW_0 {
@@ -20055,7 +19901,6 @@ impl ::std::cmp::Eq for OPENQUERYWINDOW_0 {}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 unsafe impl ::windows::runtime::Abi for OPENQUERYWINDOW_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const OQWF_DEFAULTFORM: u32 = 2u32;
@@ -20164,7 +20009,6 @@ impl ::std::cmp::PartialEq for SCHEDULE {
 impl ::std::cmp::Eq for SCHEDULE {}
 unsafe impl ::windows::runtime::Abi for SCHEDULE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const SCHEDULE_BANDWIDTH: u32 = 1u32;
@@ -20194,7 +20038,6 @@ impl ::std::cmp::PartialEq for SCHEDULE_HEADER {
 impl ::std::cmp::Eq for SCHEDULE_HEADER {}
 unsafe impl ::windows::runtime::Abi for SCHEDULE_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_ActiveDirectory`*"]
 pub const SCHEDULE_INTERVAL: u32 = 0u32;
@@ -20287,7 +20130,6 @@ impl ::std::cmp::Eq for ads_search_column {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ads_search_column {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -20317,5 +20159,4 @@ impl ::std::cmp::Eq for ads_searchpref_info {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ads_searchpref_info {
     type Abi = Self;
-    type DefaultType = Self;
 }

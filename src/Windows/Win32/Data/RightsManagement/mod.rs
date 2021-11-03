@@ -14,7 +14,6 @@ impl ::std::convert::From<i32> for DRMATTESTTYPE {
 }
 unsafe impl ::windows::runtime::Abi for DRMATTESTTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
@@ -191,7 +190,6 @@ impl ::std::cmp::Eq for DRMBOUNDLICENSEPARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DRMBOUNDLICENSEPARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
 pub const DRMBOUNDLICENSEPARAMSVERSION: u32 = 1u32;
@@ -589,7 +587,6 @@ impl ::std::convert::From<i32> for DRMENCODINGTYPE {
 }
 unsafe impl ::windows::runtime::Abi for DRMENCODINGTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
 pub const DRMENVHANDLE_INVALID: u32 = 0u32;
@@ -650,7 +647,6 @@ impl ::std::convert::From<i32> for DRMGLOBALOPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for DRMGLOBALOPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
@@ -1323,7 +1319,6 @@ impl ::std::cmp::Eq for DRMID {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DRMID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
 pub const DRMIDVERSION: u32 = 0u32;
@@ -1487,7 +1482,6 @@ impl ::std::convert::From<i32> for DRMSECURITYPROVIDERTYPE {
 }
 unsafe impl ::windows::runtime::Abi for DRMSECURITYPROVIDERTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1502,7 +1496,6 @@ impl ::std::convert::From<i32> for DRMSPECTYPE {
 }
 unsafe impl ::windows::runtime::Abi for DRMSPECTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
@@ -1671,7 +1664,6 @@ impl ::std::convert::From<i32> for DRMTIMETYPE {
 }
 unsafe impl ::windows::runtime::Abi for DRMTIMETYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Data_RightsManagement`, `Win32_Foundation`*"]
@@ -1736,7 +1728,6 @@ impl ::std::cmp::Eq for DRM_ACTSERV_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DRM_ACTSERV_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
 pub const DRM_ADD_LICENSE_NOPERSIST: u32 = 0u32;
@@ -1789,7 +1780,6 @@ impl ::std::cmp::PartialEq for DRM_CLIENT_VERSION_INFO {
 impl ::std::cmp::Eq for DRM_CLIENT_VERSION_INFO {}
 unsafe impl ::windows::runtime::Abi for DRM_CLIENT_VERSION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1805,7 +1795,6 @@ impl ::std::convert::From<i32> for DRM_DISTRIBUTION_POINT_INFO {
 }
 unsafe impl ::windows::runtime::Abi for DRM_DISTRIBUTION_POINT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
 pub const DRM_EL_CLIENTLICENSOR: u32 = 128u32;
@@ -1876,7 +1865,6 @@ impl ::std::cmp::Eq for DRM_LICENSE_ACQ_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DRM_LICENSE_ACQ_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
 pub const DRM_LOCKBOXTYPE_BLACKBOX: u32 = 2u32;
@@ -1930,7 +1918,6 @@ impl ::std::convert::From<i32> for DRM_STATUS_MSG {
 }
 unsafe impl ::windows::runtime::Abi for DRM_STATUS_MSG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1947,7 +1934,6 @@ impl ::std::convert::From<i32> for DRM_USAGEPOLICY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DRM_USAGEPOLICY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
 pub const MSDRM_CLIENT_ZONE: u32 = 52992u32;

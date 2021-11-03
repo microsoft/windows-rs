@@ -2,7 +2,6 @@
 #[cfg(feature = "System_RemoteDesktop_Input")]
 pub mod Input;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInteractiveSessionStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInteractiveSessionStatics {

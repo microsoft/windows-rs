@@ -1490,7 +1490,6 @@ impl ::std::cmp::PartialEq for VDS_ASYNC_OUTPUT {
 impl ::std::cmp::Eq for VDS_ASYNC_OUTPUT {}
 unsafe impl ::windows::runtime::Abi for VDS_ASYNC_OUTPUT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 impl ::std::clone::Clone for VDS_ASYNC_OUTPUT_0 {
     fn clone(&self) -> Self {
@@ -1523,7 +1522,6 @@ impl ::std::cmp::PartialEq for VDS_ASYNC_OUTPUT_0 {
 impl ::std::cmp::Eq for VDS_ASYNC_OUTPUT_0 {}
 unsafe impl ::windows::runtime::Abi for VDS_ASYNC_OUTPUT_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1550,7 +1548,6 @@ impl ::std::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_0 {
 impl ::std::cmp::Eq for VDS_ASYNC_OUTPUT_0_0 {}
 unsafe impl ::windows::runtime::Abi for VDS_ASYNC_OUTPUT_0_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1577,7 +1574,6 @@ impl ::std::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_1 {
 impl ::std::cmp::Eq for VDS_ASYNC_OUTPUT_0_1 {}
 unsafe impl ::windows::runtime::Abi for VDS_ASYNC_OUTPUT_0_1 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1605,7 +1601,6 @@ impl ::std::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_2 {
 impl ::std::cmp::Eq for VDS_ASYNC_OUTPUT_0_2 {}
 unsafe impl ::windows::runtime::Abi for VDS_ASYNC_OUTPUT_0_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1632,7 +1627,6 @@ impl ::std::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_3 {
 impl ::std::cmp::Eq for VDS_ASYNC_OUTPUT_0_3 {}
 unsafe impl ::windows::runtime::Abi for VDS_ASYNC_OUTPUT_0_3 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1659,7 +1653,6 @@ impl ::std::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_4 {
 impl ::std::cmp::Eq for VDS_ASYNC_OUTPUT_0_4 {}
 unsafe impl ::windows::runtime::Abi for VDS_ASYNC_OUTPUT_0_4 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1686,7 +1679,6 @@ impl ::std::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_5 {
 impl ::std::cmp::Eq for VDS_ASYNC_OUTPUT_0_5 {}
 unsafe impl ::windows::runtime::Abi for VDS_ASYNC_OUTPUT_0_5 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1713,7 +1705,6 @@ impl ::std::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_6 {
 impl ::std::cmp::Eq for VDS_ASYNC_OUTPUT_0_6 {}
 unsafe impl ::windows::runtime::Abi for VDS_ASYNC_OUTPUT_0_6 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1740,7 +1731,6 @@ impl ::std::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_7 {
 impl ::std::cmp::Eq for VDS_ASYNC_OUTPUT_0_7 {}
 unsafe impl ::windows::runtime::Abi for VDS_ASYNC_OUTPUT_0_7 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1785,7 +1775,6 @@ impl ::std::convert::From<i32> for VDS_ASYNC_OUTPUT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VDS_ASYNC_OUTPUT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 pub const VDS_ATTACH_VIRTUAL_DISK_FLAG_USE_FILE_ACL: u32 = 1u32;
@@ -1815,7 +1804,6 @@ impl ::std::cmp::PartialEq for VDS_CONTROLLER_NOTIFICATION {
 impl ::std::cmp::Eq for VDS_CONTROLLER_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for VDS_CONTROLLER_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1854,7 +1842,6 @@ impl ::std::cmp::Eq for VDS_CONTROLLER_PROP {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VDS_CONTROLLER_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1873,7 +1860,6 @@ impl ::std::convert::From<i32> for VDS_CONTROLLER_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for VDS_CONTROLLER_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1901,7 +1887,6 @@ impl ::std::cmp::PartialEq for VDS_DISK_NOTIFICATION {
 impl ::std::cmp::Eq for VDS_DISK_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for VDS_DISK_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1938,7 +1923,6 @@ impl ::std::cmp::Eq for VDS_DRIVE_EXTENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VDS_DRIVE_EXTENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1956,7 +1940,6 @@ impl ::std::convert::From<i32> for VDS_DRIVE_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for VDS_DRIVE_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1985,7 +1968,6 @@ impl ::std::cmp::PartialEq for VDS_DRIVE_LETTER_NOTIFICATION {
 impl ::std::cmp::Eq for VDS_DRIVE_LETTER_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for VDS_DRIVE_LETTER_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2013,7 +1995,6 @@ impl ::std::cmp::PartialEq for VDS_DRIVE_NOTIFICATION {
 impl ::std::cmp::Eq for VDS_DRIVE_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for VDS_DRIVE_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2065,7 +2046,6 @@ impl ::std::cmp::Eq for VDS_DRIVE_PROP {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VDS_DRIVE_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2123,7 +2103,6 @@ impl ::std::cmp::Eq for VDS_DRIVE_PROP2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VDS_DRIVE_PROP2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2142,7 +2121,6 @@ impl ::std::convert::From<i32> for VDS_DRIVE_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for VDS_DRIVE_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 pub const VDS_E_ACCESS_DENIED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147212249i32 as _);
@@ -2869,7 +2847,6 @@ impl ::std::cmp::PartialEq for VDS_FILE_SYSTEM_NOTIFICATION {
 impl ::std::cmp::Eq for VDS_FILE_SYSTEM_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for VDS_FILE_SYSTEM_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2892,7 +2869,6 @@ impl ::std::convert::From<i32> for VDS_FILE_SYSTEM_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VDS_FILE_SYSTEM_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2925,7 +2901,6 @@ impl ::std::cmp::PartialEq for VDS_HBAPORT_PROP {
 impl ::std::cmp::Eq for VDS_HBAPORT_PROP {}
 unsafe impl ::windows::runtime::Abi for VDS_HBAPORT_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2944,7 +2919,6 @@ impl ::std::convert::From<i32> for VDS_HBAPORT_SPEED_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for VDS_HBAPORT_SPEED_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2965,7 +2939,6 @@ impl ::std::convert::From<i32> for VDS_HBAPORT_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for VDS_HBAPORT_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2989,7 +2962,6 @@ impl ::std::convert::From<i32> for VDS_HBAPORT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VDS_HBAPORT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3014,7 +2986,6 @@ impl ::std::convert::From<i32> for VDS_HEALTH {
 }
 unsafe impl ::windows::runtime::Abi for VDS_HEALTH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3101,7 +3072,6 @@ impl ::std::cmp::Eq for VDS_HINTS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VDS_HINTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3227,7 +3197,6 @@ impl ::std::cmp::Eq for VDS_HINTS2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VDS_HINTS2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 pub const VDS_HINT_ALLOCATEHOTSPARE: i32 = 512i32;
@@ -3278,7 +3247,6 @@ impl ::std::convert::From<i32> for VDS_HWPROVIDER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VDS_HWPROVIDER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3309,7 +3277,6 @@ impl ::std::cmp::PartialEq for VDS_INTERCONNECT {
 impl ::std::cmp::Eq for VDS_INTERCONNECT {}
 unsafe impl ::windows::runtime::Abi for VDS_INTERCONNECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3328,7 +3295,6 @@ impl ::std::convert::From<i32> for VDS_INTERCONNECT_ADDRESS_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VDS_INTERCONNECT_ADDRESS_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3345,7 +3311,6 @@ impl ::std::convert::From<i32> for VDS_INTERCONNECT_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for VDS_INTERCONNECT_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3386,7 +3351,6 @@ impl ::std::cmp::PartialEq for VDS_IPADDRESS {
 impl ::std::cmp::Eq for VDS_IPADDRESS {}
 unsafe impl ::windows::runtime::Abi for VDS_IPADDRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3403,7 +3367,6 @@ impl ::std::convert::From<i32> for VDS_IPADDRESS_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VDS_IPADDRESS_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3419,7 +3382,6 @@ impl ::std::convert::From<i32> for VDS_ISCSI_AUTH_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VDS_ISCSI_AUTH_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3454,7 +3416,6 @@ impl ::std::cmp::Eq for VDS_ISCSI_INITIATOR_ADAPTER_PROP {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VDS_ISCSI_INITIATOR_ADAPTER_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3483,7 +3444,6 @@ impl ::std::cmp::PartialEq for VDS_ISCSI_INITIATOR_PORTAL_PROP {
 impl ::std::cmp::Eq for VDS_ISCSI_INITIATOR_PORTAL_PROP {}
 unsafe impl ::windows::runtime::Abi for VDS_ISCSI_INITIATOR_PORTAL_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3503,7 +3463,6 @@ impl ::std::convert::From<i32> for VDS_ISCSI_IPSEC_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for VDS_ISCSI_IPSEC_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3531,7 +3490,6 @@ impl ::std::cmp::PartialEq for VDS_ISCSI_IPSEC_KEY {
 impl ::std::cmp::Eq for VDS_ISCSI_IPSEC_KEY {}
 unsafe impl ::windows::runtime::Abi for VDS_ISCSI_IPSEC_KEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3546,7 +3504,6 @@ impl ::std::convert::From<i32> for VDS_ISCSI_LOGIN_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for VDS_ISCSI_LOGIN_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3562,7 +3519,6 @@ impl ::std::convert::From<i32> for VDS_ISCSI_LOGIN_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VDS_ISCSI_LOGIN_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3590,7 +3546,6 @@ impl ::std::cmp::PartialEq for VDS_ISCSI_PORTALGROUP_PROP {
 impl ::std::cmp::Eq for VDS_ISCSI_PORTALGROUP_PROP {}
 unsafe impl ::windows::runtime::Abi for VDS_ISCSI_PORTALGROUP_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3619,7 +3574,6 @@ impl ::std::cmp::PartialEq for VDS_ISCSI_PORTAL_PROP {
 impl ::std::cmp::Eq for VDS_ISCSI_PORTAL_PROP {}
 unsafe impl ::windows::runtime::Abi for VDS_ISCSI_PORTAL_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3637,7 +3591,6 @@ impl ::std::convert::From<i32> for VDS_ISCSI_PORTAL_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for VDS_ISCSI_PORTAL_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3665,7 +3618,6 @@ impl ::std::cmp::PartialEq for VDS_ISCSI_SHARED_SECRET {
 impl ::std::cmp::Eq for VDS_ISCSI_SHARED_SECRET {}
 unsafe impl ::windows::runtime::Abi for VDS_ISCSI_SHARED_SECRET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3702,7 +3654,6 @@ impl ::std::cmp::Eq for VDS_ISCSI_TARGET_PROP {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VDS_ISCSI_TARGET_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3723,7 +3674,6 @@ impl ::std::convert::From<i32> for VDS_LOADBALANCE_POLICY_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for VDS_LOADBALANCE_POLICY_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3745,7 +3695,6 @@ impl ::std::convert::From<i32> for VDS_LUN_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for VDS_LUN_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3817,7 +3766,6 @@ impl ::std::cmp::Eq for VDS_LUN_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VDS_LUN_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3845,7 +3793,6 @@ impl ::std::cmp::PartialEq for VDS_LUN_NOTIFICATION {
 impl ::std::cmp::Eq for VDS_LUN_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for VDS_LUN_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3859,7 +3806,6 @@ impl ::std::convert::From<i32> for VDS_LUN_PLEX_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for VDS_LUN_PLEX_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3904,7 +3850,6 @@ impl ::std::cmp::PartialEq for VDS_LUN_PLEX_PROP {
 impl ::std::cmp::Eq for VDS_LUN_PLEX_PROP {}
 unsafe impl ::windows::runtime::Abi for VDS_LUN_PLEX_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3922,7 +3867,6 @@ impl ::std::convert::From<i32> for VDS_LUN_PLEX_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for VDS_LUN_PLEX_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3953,7 +3897,6 @@ impl ::std::convert::From<i32> for VDS_LUN_PLEX_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VDS_LUN_PLEX_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4009,7 +3952,6 @@ impl ::std::cmp::Eq for VDS_LUN_PROP {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VDS_LUN_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4027,7 +3969,6 @@ impl ::std::convert::From<i32> for VDS_LUN_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for VDS_LUN_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4065,7 +4006,6 @@ impl ::std::convert::From<i32> for VDS_LUN_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VDS_LUN_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4083,7 +4023,6 @@ impl ::std::convert::From<i32> for VDS_MAINTENANCE_OPERATION {
 }
 unsafe impl ::windows::runtime::Abi for VDS_MAINTENANCE_OPERATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4111,7 +4050,6 @@ impl ::std::cmp::PartialEq for VDS_MOUNT_POINT_NOTIFICATION {
 impl ::std::cmp::Eq for VDS_MOUNT_POINT_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for VDS_MOUNT_POINT_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4128,7 +4066,6 @@ impl ::std::convert::From<u32> for VDS_NF_CONTROLLER {
 }
 unsafe impl ::windows::runtime::Abi for VDS_NF_CONTROLLER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for VDS_NF_CONTROLLER {
     type Output = Self;
@@ -4172,7 +4109,6 @@ impl ::std::convert::From<u32> for VDS_NF_DISK {
 }
 unsafe impl ::windows::runtime::Abi for VDS_NF_DISK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for VDS_NF_DISK {
     type Output = Self;
@@ -4217,7 +4153,6 @@ impl ::std::convert::From<u32> for VDS_NF_DRIVE {
 }
 unsafe impl ::windows::runtime::Abi for VDS_NF_DRIVE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for VDS_NF_DRIVE {
     type Output = Self;
@@ -4264,7 +4199,6 @@ impl ::std::convert::From<u32> for VDS_NF_FILE_SYSTEM {
 }
 unsafe impl ::windows::runtime::Abi for VDS_NF_FILE_SYSTEM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for VDS_NF_FILE_SYSTEM {
     type Output = Self;
@@ -4310,7 +4244,6 @@ impl ::std::convert::From<u32> for VDS_NF_LUN {
 }
 unsafe impl ::windows::runtime::Abi for VDS_NF_LUN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for VDS_NF_LUN {
     type Output = Self;
@@ -4356,7 +4289,6 @@ impl ::std::convert::From<u32> for VDS_NF_PACK {
 }
 unsafe impl ::windows::runtime::Abi for VDS_NF_PACK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for VDS_NF_PACK {
     type Output = Self;
@@ -4407,7 +4339,6 @@ impl ::std::convert::From<u32> for VDS_NF_PORT {
 }
 unsafe impl ::windows::runtime::Abi for VDS_NF_PORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for VDS_NF_PORT {
     type Output = Self;
@@ -4492,7 +4423,6 @@ impl ::std::cmp::PartialEq for VDS_NOTIFICATION {
 impl ::std::cmp::Eq for VDS_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for VDS_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4529,7 +4459,6 @@ impl ::std::cmp::PartialEq for VDS_NOTIFICATION_0 {
 impl ::std::cmp::Eq for VDS_NOTIFICATION_0 {}
 unsafe impl ::windows::runtime::Abi for VDS_NOTIFICATION_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4559,7 +4488,6 @@ impl ::std::convert::From<i32> for VDS_NOTIFICATION_TARGET_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VDS_NOTIFICATION_TARGET_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4595,7 +4523,6 @@ impl ::std::convert::From<i32> for VDS_OBJECT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VDS_OBJECT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4623,7 +4550,6 @@ impl ::std::cmp::PartialEq for VDS_PACK_NOTIFICATION {
 impl ::std::cmp::Eq for VDS_PACK_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for VDS_PACK_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4652,7 +4578,6 @@ impl ::std::cmp::PartialEq for VDS_PARTITION_NOTIFICATION {
 impl ::std::cmp::Eq for VDS_PARTITION_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for VDS_PARTITION_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4680,7 +4605,6 @@ impl ::std::cmp::PartialEq for VDS_PATH_ID {
 impl ::std::cmp::Eq for VDS_PATH_ID {}
 unsafe impl ::windows::runtime::Abi for VDS_PATH_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4707,7 +4631,6 @@ impl ::std::cmp::PartialEq for VDS_PATH_INFO {
 impl ::std::cmp::Eq for VDS_PATH_INFO {}
 unsafe impl ::windows::runtime::Abi for VDS_PATH_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4730,7 +4653,6 @@ impl ::std::cmp::PartialEq for VDS_PATH_INFO_0 {
 impl ::std::cmp::Eq for VDS_PATH_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for VDS_PATH_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4753,7 +4675,6 @@ impl ::std::cmp::PartialEq for VDS_PATH_INFO_1 {
 impl ::std::cmp::Eq for VDS_PATH_INFO_1 {}
 unsafe impl ::windows::runtime::Abi for VDS_PATH_INFO_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4776,7 +4697,6 @@ impl ::std::cmp::PartialEq for VDS_PATH_INFO_2 {
 impl ::std::cmp::Eq for VDS_PATH_INFO_2 {}
 unsafe impl ::windows::runtime::Abi for VDS_PATH_INFO_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4812,7 +4732,6 @@ impl ::std::cmp::Eq for VDS_PATH_POLICY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VDS_PATH_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4829,7 +4748,6 @@ impl ::std::convert::From<i32> for VDS_PATH_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for VDS_PATH_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4976,7 +4894,6 @@ impl ::std::cmp::Eq for VDS_POOL_ATTRIBUTES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VDS_POOL_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 pub const VDS_POOL_ATTRIB_ACCS_BDW_WT_HINT: i32 = 16777216i32;
@@ -5067,7 +4984,6 @@ impl ::std::cmp::Eq for VDS_POOL_CUSTOM_ATTRIBUTES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VDS_POOL_CUSTOM_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5095,7 +5011,6 @@ impl ::std::cmp::PartialEq for VDS_PORTAL_GROUP_NOTIFICATION {
 impl ::std::cmp::Eq for VDS_PORTAL_GROUP_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for VDS_PORTAL_GROUP_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5123,7 +5038,6 @@ impl ::std::cmp::PartialEq for VDS_PORTAL_NOTIFICATION {
 impl ::std::cmp::Eq for VDS_PORTAL_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for VDS_PORTAL_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5151,7 +5065,6 @@ impl ::std::cmp::PartialEq for VDS_PORT_NOTIFICATION {
 impl ::std::cmp::Eq for VDS_PORT_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for VDS_PORT_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5188,7 +5101,6 @@ impl ::std::cmp::Eq for VDS_PORT_PROP {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VDS_PORT_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5207,7 +5119,6 @@ impl ::std::convert::From<i32> for VDS_PORT_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for VDS_PORT_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5230,7 +5141,6 @@ impl ::std::convert::From<i32> for VDS_PROVIDER_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for VDS_PROVIDER_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5250,7 +5160,6 @@ impl ::std::convert::From<i32> for VDS_PROVIDER_LBSUPPORT_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for VDS_PROVIDER_LBSUPPORT_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5300,7 +5209,6 @@ impl ::std::cmp::Eq for VDS_PROVIDER_PROP {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VDS_PROVIDER_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5318,7 +5226,6 @@ impl ::std::convert::From<i32> for VDS_PROVIDER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VDS_PROVIDER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5350,7 +5257,6 @@ impl ::std::convert::From<i32> for VDS_RAID_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VDS_RAID_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 pub const VDS_REBUILD_PRIORITY_MAX: u32 = 16u32;
@@ -5370,7 +5276,6 @@ impl ::std::convert::From<i32> for VDS_RECOVER_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for VDS_RECOVER_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5398,7 +5303,6 @@ impl ::std::cmp::PartialEq for VDS_SERVICE_NOTIFICATION {
 impl ::std::cmp::Eq for VDS_SERVICE_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for VDS_SERVICE_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5433,7 +5337,6 @@ impl ::std::convert::From<i32> for VDS_STORAGE_BUS_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VDS_STORAGE_BUS_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5462,7 +5365,6 @@ impl ::std::cmp::PartialEq for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
 impl ::std::cmp::Eq for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5492,7 +5394,6 @@ impl ::std::cmp::PartialEq for VDS_STORAGE_IDENTIFIER {
 impl ::std::cmp::Eq for VDS_STORAGE_IDENTIFIER {}
 unsafe impl ::windows::runtime::Abi for VDS_STORAGE_IDENTIFIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5509,7 +5410,6 @@ impl ::std::convert::From<i32> for VDS_STORAGE_IDENTIFIER_CODE_SET {
 }
 unsafe impl ::windows::runtime::Abi for VDS_STORAGE_IDENTIFIER_CODE_SET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5531,7 +5431,6 @@ impl ::std::convert::From<i32> for VDS_STORAGE_IDENTIFIER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VDS_STORAGE_IDENTIFIER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5567,7 +5466,6 @@ impl ::std::cmp::Eq for VDS_STORAGE_POOL_DRIVE_EXTENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VDS_STORAGE_POOL_DRIVE_EXTENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5619,7 +5517,6 @@ impl ::std::cmp::Eq for VDS_STORAGE_POOL_PROP {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VDS_STORAGE_POOL_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5636,7 +5533,6 @@ impl ::std::convert::From<i32> for VDS_STORAGE_POOL_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for VDS_STORAGE_POOL_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5652,7 +5548,6 @@ impl ::std::convert::From<i32> for VDS_STORAGE_POOL_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VDS_STORAGE_POOL_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5689,7 +5584,6 @@ impl ::std::convert::From<i32> for VDS_SUB_SYSTEM_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for VDS_SUB_SYSTEM_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5717,7 +5611,6 @@ impl ::std::cmp::PartialEq for VDS_SUB_SYSTEM_NOTIFICATION {
 impl ::std::cmp::Eq for VDS_SUB_SYSTEM_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for VDS_SUB_SYSTEM_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5783,7 +5676,6 @@ impl ::std::cmp::Eq for VDS_SUB_SYSTEM_PROP {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VDS_SUB_SYSTEM_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5855,7 +5747,6 @@ impl ::std::cmp::Eq for VDS_SUB_SYSTEM_PROP2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VDS_SUB_SYSTEM_PROP2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5874,7 +5765,6 @@ impl ::std::convert::From<i32> for VDS_SUB_SYSTEM_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for VDS_SUB_SYSTEM_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5903,7 +5793,6 @@ impl ::std::convert::From<i32> for VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 pub const VDS_S_ACCESS_PATH_NOT_DELETED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(279108i32 as _);
@@ -5999,7 +5888,6 @@ impl ::std::cmp::PartialEq for VDS_TARGET_NOTIFICATION {
 impl ::std::cmp::Eq for VDS_TARGET_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for VDS_TARGET_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6018,7 +5906,6 @@ impl ::std::convert::From<i32> for VDS_TRANSITION_STATE {
 }
 unsafe impl ::windows::runtime::Abi for VDS_TRANSITION_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6036,7 +5923,6 @@ impl ::std::convert::From<i32> for VDS_VERSION_SUPPORT_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for VDS_VERSION_SUPPORT_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6066,7 +5952,6 @@ impl ::std::cmp::PartialEq for VDS_VOLUME_NOTIFICATION {
 impl ::std::cmp::Eq for VDS_VOLUME_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for VDS_VOLUME_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6093,7 +5978,6 @@ impl ::std::cmp::PartialEq for VDS_WWN {
 impl ::std::cmp::Eq for VDS_WWN {}
 unsafe impl ::windows::runtime::Abi for VDS_WWN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_VirtualDiskService`*"]
 pub const VER_VDS_LUN_INFORMATION: u32 = 1u32;

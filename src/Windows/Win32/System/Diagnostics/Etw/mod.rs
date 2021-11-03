@@ -26,7 +26,6 @@ impl ::std::cmp::PartialEq for CLASSIC_EVENT_ID {
 impl ::std::cmp::Eq for CLASSIC_EVENT_ID {}
 unsafe impl ::windows::runtime::Abi for CLASSIC_EVENT_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const CLSID_TraceRelogger: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2067822893, 1535, 17604, [144, 88, 244, 64, 199, 31, 23, 212]);
 pub const CTraceRelogger: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2067822893, 1535, 17604, [144, 88, 244, 64, 199, 31, 23, 212]);
@@ -120,7 +119,6 @@ impl ::std::convert::From<i32> for DECODING_SOURCE {
 }
 unsafe impl ::windows::runtime::Abi for DECODING_SOURCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const DefaultTraceSecurityGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(135381423, 31239, 18950, [130, 237, 134, 148, 85, 205, 247, 19]);
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -137,7 +135,6 @@ impl ::std::convert::From<u32> for ENABLECALLBACK_ENABLED_STATE {
 }
 unsafe impl ::windows::runtime::Abi for ENABLECALLBACK_ENABLED_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ENABLECALLBACK_ENABLED_STATE {
     type Output = Self;
@@ -204,7 +201,6 @@ impl ::std::cmp::PartialEq for ENABLE_TRACE_PARAMETERS {
 impl ::std::cmp::Eq for ENABLE_TRACE_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for ENABLE_TRACE_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -235,7 +231,6 @@ impl ::std::cmp::PartialEq for ENABLE_TRACE_PARAMETERS_V1 {
 impl ::std::cmp::Eq for ENABLE_TRACE_PARAMETERS_V1 {}
 unsafe impl ::windows::runtime::Abi for ENABLE_TRACE_PARAMETERS_V1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ENABLE_TRACE_PARAMETERS_VERSION: u32 = 1u32;
@@ -270,7 +265,6 @@ impl ::std::cmp::PartialEq for ETW_BUFFER_CONTEXT {
 impl ::std::cmp::Eq for ETW_BUFFER_CONTEXT {}
 unsafe impl ::windows::runtime::Abi for ETW_BUFFER_CONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -293,7 +287,6 @@ impl ::std::cmp::PartialEq for ETW_BUFFER_CONTEXT_0 {
 impl ::std::cmp::Eq for ETW_BUFFER_CONTEXT_0 {}
 unsafe impl ::windows::runtime::Abi for ETW_BUFFER_CONTEXT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -321,7 +314,6 @@ impl ::std::cmp::PartialEq for ETW_BUFFER_CONTEXT_0_0 {
 impl ::std::cmp::Eq for ETW_BUFFER_CONTEXT_0_0 {}
 unsafe impl ::windows::runtime::Abi for ETW_BUFFER_CONTEXT_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_BYTE_TYPE_VALUE: u32 = 4u32;
@@ -341,7 +333,6 @@ impl ::std::convert::From<i32> for ETW_COMPRESSION_RESUMPTION_MODE {
 }
 unsafe impl ::windows::runtime::Abi for ETW_COMPRESSION_RESUMPTION_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_COUNTED_ANSISTRING_TYPE_VALUE: u32 = 109u32;
@@ -396,7 +387,6 @@ impl ::std::cmp::PartialEq for ETW_PMC_COUNTER_OWNER {
 impl ::std::cmp::Eq for ETW_PMC_COUNTER_OWNER {}
 unsafe impl ::windows::runtime::Abi for ETW_PMC_COUNTER_OWNER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -425,7 +415,6 @@ impl ::std::cmp::PartialEq for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
 impl ::std::cmp::Eq for ETW_PMC_COUNTER_OWNERSHIP_STATUS {}
 unsafe impl ::windows::runtime::Abi for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -442,7 +431,6 @@ impl ::std::convert::From<i32> for ETW_PMC_COUNTER_OWNER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for ETW_PMC_COUNTER_OWNER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_POINTER_TYPE_VALUE: u32 = 105u32;
@@ -461,7 +449,6 @@ impl ::std::convert::From<i32> for ETW_PROCESS_HANDLE_INFO_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for ETW_PROCESS_HANDLE_INFO_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -477,7 +464,6 @@ impl ::std::convert::From<i32> for ETW_PROVIDER_TRAIT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for ETW_PROVIDER_TRAIT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_PTVECTOR_TYPE_VALUE: u32 = 117u32;
@@ -529,7 +515,6 @@ impl ::std::cmp::PartialEq for ETW_TRACE_PARTITION_INFORMATION {
 impl ::std::cmp::Eq for ETW_TRACE_PARTITION_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for ETW_TRACE_PARTITION_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -566,7 +551,6 @@ impl ::std::cmp::Eq for ETW_TRACE_PARTITION_INFORMATION_V2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ETW_TRACE_PARTITION_INFORMATION_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const ETW_UINT16_TYPE_VALUE: u32 = 6u32;
@@ -594,7 +578,6 @@ impl ::std::convert::From<i32> for EVENTSECURITYOPERATION {
 }
 unsafe impl ::windows::runtime::Abi for EVENTSECURITYOPERATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_ACTIVITY_CTRL_CREATE_ID: u32 = 3u32;
@@ -628,7 +611,6 @@ impl ::std::cmp::PartialEq for EVENT_DATA_DESCRIPTOR {
 impl ::std::cmp::Eq for EVENT_DATA_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for EVENT_DATA_DESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -651,7 +633,6 @@ impl ::std::cmp::PartialEq for EVENT_DATA_DESCRIPTOR_0 {
 impl ::std::cmp::Eq for EVENT_DATA_DESCRIPTOR_0 {}
 unsafe impl ::windows::runtime::Abi for EVENT_DATA_DESCRIPTOR_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -680,7 +661,6 @@ impl ::std::cmp::PartialEq for EVENT_DATA_DESCRIPTOR_0_0 {
 impl ::std::cmp::Eq for EVENT_DATA_DESCRIPTOR_0_0 {}
 unsafe impl ::windows::runtime::Abi for EVENT_DATA_DESCRIPTOR_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_DATA_DESCRIPTOR_TYPE_EVENT_METADATA: u32 = 1u32;
@@ -721,7 +701,6 @@ impl ::std::cmp::PartialEq for EVENT_DESCRIPTOR {
 impl ::std::cmp::Eq for EVENT_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for EVENT_DESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_ENABLE_PROPERTY_ENABLE_KEYWORD_0: u32 = 64u32;
@@ -772,7 +751,6 @@ impl ::std::cmp::PartialEq for EVENT_EXTENDED_ITEM_EVENT_KEY {
 impl ::std::cmp::Eq for EVENT_EXTENDED_ITEM_EVENT_KEY {}
 unsafe impl ::windows::runtime::Abi for EVENT_EXTENDED_ITEM_EVENT_KEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -801,7 +779,6 @@ impl ::std::cmp::PartialEq for EVENT_EXTENDED_ITEM_INSTANCE {
 impl ::std::cmp::Eq for EVENT_EXTENDED_ITEM_INSTANCE {}
 unsafe impl ::windows::runtime::Abi for EVENT_EXTENDED_ITEM_INSTANCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -828,7 +805,6 @@ impl ::std::cmp::PartialEq for EVENT_EXTENDED_ITEM_PEBS_INDEX {
 impl ::std::cmp::Eq for EVENT_EXTENDED_ITEM_PEBS_INDEX {}
 unsafe impl ::windows::runtime::Abi for EVENT_EXTENDED_ITEM_PEBS_INDEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -855,7 +831,6 @@ impl ::std::cmp::PartialEq for EVENT_EXTENDED_ITEM_PMC_COUNTERS {
 impl ::std::cmp::Eq for EVENT_EXTENDED_ITEM_PMC_COUNTERS {}
 unsafe impl ::windows::runtime::Abi for EVENT_EXTENDED_ITEM_PMC_COUNTERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -882,7 +857,6 @@ impl ::std::cmp::PartialEq for EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
 impl ::std::cmp::Eq for EVENT_EXTENDED_ITEM_PROCESS_START_KEY {}
 unsafe impl ::windows::runtime::Abi for EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -909,7 +883,6 @@ impl ::std::cmp::PartialEq for EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
 impl ::std::cmp::Eq for EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {}
 unsafe impl ::windows::runtime::Abi for EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -938,7 +911,6 @@ impl ::std::cmp::PartialEq for EVENT_EXTENDED_ITEM_STACK_KEY32 {
 impl ::std::cmp::Eq for EVENT_EXTENDED_ITEM_STACK_KEY32 {}
 unsafe impl ::windows::runtime::Abi for EVENT_EXTENDED_ITEM_STACK_KEY32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -966,7 +938,6 @@ impl ::std::cmp::PartialEq for EVENT_EXTENDED_ITEM_STACK_KEY64 {
 impl ::std::cmp::Eq for EVENT_EXTENDED_ITEM_STACK_KEY64 {}
 unsafe impl ::windows::runtime::Abi for EVENT_EXTENDED_ITEM_STACK_KEY64 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -994,7 +965,6 @@ impl ::std::cmp::PartialEq for EVENT_EXTENDED_ITEM_STACK_TRACE32 {
 impl ::std::cmp::Eq for EVENT_EXTENDED_ITEM_STACK_TRACE32 {}
 unsafe impl ::windows::runtime::Abi for EVENT_EXTENDED_ITEM_STACK_TRACE32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1022,7 +992,6 @@ impl ::std::cmp::PartialEq for EVENT_EXTENDED_ITEM_STACK_TRACE64 {
 impl ::std::cmp::Eq for EVENT_EXTENDED_ITEM_STACK_TRACE64 {}
 unsafe impl ::windows::runtime::Abi for EVENT_EXTENDED_ITEM_STACK_TRACE64 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1049,7 +1018,6 @@ impl ::std::cmp::PartialEq for EVENT_EXTENDED_ITEM_TS_ID {
 impl ::std::cmp::Eq for EVENT_EXTENDED_ITEM_TS_ID {}
 unsafe impl ::windows::runtime::Abi for EVENT_EXTENDED_ITEM_TS_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1068,7 +1036,6 @@ impl ::std::convert::From<i32> for EVENT_FIELD_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for EVENT_FIELD_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1097,7 +1064,6 @@ impl ::std::cmp::PartialEq for EVENT_FILTER_DESCRIPTOR {
 impl ::std::cmp::Eq for EVENT_FILTER_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for EVENT_FILTER_DESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1134,7 +1100,6 @@ impl ::std::cmp::Eq for EVENT_FILTER_EVENT_ID {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EVENT_FILTER_EVENT_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1173,7 +1138,6 @@ impl ::std::cmp::Eq for EVENT_FILTER_EVENT_NAME {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EVENT_FILTER_EVENT_NAME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1205,7 +1169,6 @@ impl ::std::cmp::PartialEq for EVENT_FILTER_HEADER {
 impl ::std::cmp::Eq for EVENT_FILTER_HEADER {}
 unsafe impl ::windows::runtime::Abi for EVENT_FILTER_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1242,7 +1205,6 @@ impl ::std::cmp::Eq for EVENT_FILTER_LEVEL_KW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EVENT_FILTER_LEVEL_KW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_FILTER_TYPE_CONTAINER: u32 = 2147516416u32;
@@ -1304,7 +1266,6 @@ impl ::std::cmp::PartialEq for EVENT_HEADER {
 impl ::std::cmp::Eq for EVENT_HEADER {}
 unsafe impl ::windows::runtime::Abi for EVENT_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1327,7 +1288,6 @@ impl ::std::cmp::PartialEq for EVENT_HEADER_0 {
 impl ::std::cmp::Eq for EVENT_HEADER_0 {}
 unsafe impl ::windows::runtime::Abi for EVENT_HEADER_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1355,7 +1315,6 @@ impl ::std::cmp::PartialEq for EVENT_HEADER_0_0 {
 impl ::std::cmp::Eq for EVENT_HEADER_0_0 {}
 unsafe impl ::windows::runtime::Abi for EVENT_HEADER_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1386,7 +1345,6 @@ impl ::std::cmp::PartialEq for EVENT_HEADER_EXTENDED_DATA_ITEM {
 impl ::std::cmp::Eq for EVENT_HEADER_EXTENDED_DATA_ITEM {}
 unsafe impl ::windows::runtime::Abi for EVENT_HEADER_EXTENDED_DATA_ITEM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1413,7 +1371,6 @@ impl ::std::cmp::PartialEq for EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
 impl ::std::cmp::Eq for EVENT_HEADER_EXTENDED_DATA_ITEM_0 {}
 unsafe impl ::windows::runtime::Abi for EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_HEADER_EXT_TYPE_CONTAINER_ID: u32 = 16u32;
@@ -1497,7 +1454,6 @@ impl ::std::convert::From<i32> for EVENT_INFO_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for EVENT_INFO_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1529,7 +1485,6 @@ impl ::std::cmp::PartialEq for EVENT_INSTANCE_HEADER {
 impl ::std::cmp::Eq for EVENT_INSTANCE_HEADER {}
 unsafe impl ::windows::runtime::Abi for EVENT_INSTANCE_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1552,7 +1507,6 @@ impl ::std::cmp::PartialEq for EVENT_INSTANCE_HEADER_0 {
 impl ::std::cmp::Eq for EVENT_INSTANCE_HEADER_0 {}
 unsafe impl ::windows::runtime::Abi for EVENT_INSTANCE_HEADER_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1580,7 +1534,6 @@ impl ::std::cmp::PartialEq for EVENT_INSTANCE_HEADER_0_0 {
 impl ::std::cmp::Eq for EVENT_INSTANCE_HEADER_0_0 {}
 unsafe impl ::windows::runtime::Abi for EVENT_INSTANCE_HEADER_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1603,7 +1556,6 @@ impl ::std::cmp::PartialEq for EVENT_INSTANCE_HEADER_1 {
 impl ::std::cmp::Eq for EVENT_INSTANCE_HEADER_1 {}
 unsafe impl ::windows::runtime::Abi for EVENT_INSTANCE_HEADER_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1632,7 +1584,6 @@ impl ::std::cmp::PartialEq for EVENT_INSTANCE_HEADER_1_0 {
 impl ::std::cmp::Eq for EVENT_INSTANCE_HEADER_1_0 {}
 unsafe impl ::windows::runtime::Abi for EVENT_INSTANCE_HEADER_1_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1656,7 +1607,6 @@ impl ::std::cmp::PartialEq for EVENT_INSTANCE_HEADER_2 {
 impl ::std::cmp::Eq for EVENT_INSTANCE_HEADER_2 {}
 unsafe impl ::windows::runtime::Abi for EVENT_INSTANCE_HEADER_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1684,7 +1634,6 @@ impl ::std::cmp::PartialEq for EVENT_INSTANCE_HEADER_2_0 {
 impl ::std::cmp::Eq for EVENT_INSTANCE_HEADER_2_0 {}
 unsafe impl ::windows::runtime::Abi for EVENT_INSTANCE_HEADER_2_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1712,7 +1661,6 @@ impl ::std::cmp::PartialEq for EVENT_INSTANCE_HEADER_2_1 {
 impl ::std::cmp::Eq for EVENT_INSTANCE_HEADER_2_1 {}
 unsafe impl ::windows::runtime::Abi for EVENT_INSTANCE_HEADER_2_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1747,7 +1695,6 @@ impl ::std::cmp::Eq for EVENT_INSTANCE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EVENT_INSTANCE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1770,7 +1717,6 @@ impl ::std::cmp::PartialEq for EVENT_MAP_ENTRY {
 impl ::std::cmp::Eq for EVENT_MAP_ENTRY {}
 unsafe impl ::windows::runtime::Abi for EVENT_MAP_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1793,7 +1739,6 @@ impl ::std::cmp::PartialEq for EVENT_MAP_ENTRY_0 {
 impl ::std::cmp::Eq for EVENT_MAP_ENTRY_0 {}
 unsafe impl ::windows::runtime::Abi for EVENT_MAP_ENTRY_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1819,7 +1764,6 @@ impl ::std::cmp::PartialEq for EVENT_MAP_INFO {
 impl ::std::cmp::Eq for EVENT_MAP_INFO {}
 unsafe impl ::windows::runtime::Abi for EVENT_MAP_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1842,7 +1786,6 @@ impl ::std::cmp::PartialEq for EVENT_MAP_INFO_0 {
 impl ::std::cmp::Eq for EVENT_MAP_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for EVENT_MAP_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_MAX_LEVEL: u32 = 255u32;
@@ -1873,7 +1816,6 @@ impl ::std::cmp::PartialEq for EVENT_PROPERTY_INFO {
 impl ::std::cmp::Eq for EVENT_PROPERTY_INFO {}
 unsafe impl ::windows::runtime::Abi for EVENT_PROPERTY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1897,7 +1839,6 @@ impl ::std::cmp::PartialEq for EVENT_PROPERTY_INFO_0 {
 impl ::std::cmp::Eq for EVENT_PROPERTY_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for EVENT_PROPERTY_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1926,7 +1867,6 @@ impl ::std::cmp::PartialEq for EVENT_PROPERTY_INFO_0_0 {
 impl ::std::cmp::Eq for EVENT_PROPERTY_INFO_0_0 {}
 unsafe impl ::windows::runtime::Abi for EVENT_PROPERTY_INFO_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1955,7 +1895,6 @@ impl ::std::cmp::PartialEq for EVENT_PROPERTY_INFO_0_1 {
 impl ::std::cmp::Eq for EVENT_PROPERTY_INFO_0_1 {}
 unsafe impl ::windows::runtime::Abi for EVENT_PROPERTY_INFO_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1984,7 +1923,6 @@ impl ::std::cmp::PartialEq for EVENT_PROPERTY_INFO_0_2 {
 impl ::std::cmp::Eq for EVENT_PROPERTY_INFO_0_2 {}
 unsafe impl ::windows::runtime::Abi for EVENT_PROPERTY_INFO_0_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2007,7 +1945,6 @@ impl ::std::cmp::PartialEq for EVENT_PROPERTY_INFO_1 {
 impl ::std::cmp::Eq for EVENT_PROPERTY_INFO_1 {}
 unsafe impl ::windows::runtime::Abi for EVENT_PROPERTY_INFO_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2030,7 +1967,6 @@ impl ::std::cmp::PartialEq for EVENT_PROPERTY_INFO_2 {
 impl ::std::cmp::Eq for EVENT_PROPERTY_INFO_2 {}
 unsafe impl ::windows::runtime::Abi for EVENT_PROPERTY_INFO_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2053,7 +1989,6 @@ impl ::std::cmp::PartialEq for EVENT_PROPERTY_INFO_3 {
 impl ::std::cmp::Eq for EVENT_PROPERTY_INFO_3 {}
 unsafe impl ::windows::runtime::Abi for EVENT_PROPERTY_INFO_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2080,7 +2015,6 @@ impl ::std::cmp::PartialEq for EVENT_PROPERTY_INFO_3_0 {
 impl ::std::cmp::Eq for EVENT_PROPERTY_INFO_3_0 {}
 unsafe impl ::windows::runtime::Abi for EVENT_PROPERTY_INFO_3_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2108,7 +2042,6 @@ impl ::std::cmp::PartialEq for EVENT_RECORD {
 impl ::std::cmp::Eq for EVENT_RECORD {}
 unsafe impl ::windows::runtime::Abi for EVENT_RECORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2136,7 +2069,6 @@ impl ::std::cmp::PartialEq for EVENT_TRACE {
 impl ::std::cmp::Eq for EVENT_TRACE {}
 unsafe impl ::windows::runtime::Abi for EVENT_TRACE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2159,7 +2091,6 @@ impl ::std::cmp::PartialEq for EVENT_TRACE_0 {
 impl ::std::cmp::Eq for EVENT_TRACE_0 {}
 unsafe impl ::windows::runtime::Abi for EVENT_TRACE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_ADDTO_TRIAGE_DUMP: u32 = 2147483648u32;
@@ -2184,7 +2115,6 @@ impl ::std::convert::From<u32> for EVENT_TRACE_CONTROL {
 }
 unsafe impl ::windows::runtime::Abi for EVENT_TRACE_CONTROL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for EVENT_TRACE_CONTROL {
     type Output = Self;
@@ -2270,7 +2200,6 @@ impl ::std::convert::From<u32> for EVENT_TRACE_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for EVENT_TRACE_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for EVENT_TRACE_FLAG {
     type Output = Self;
@@ -2335,7 +2264,6 @@ impl ::std::cmp::PartialEq for EVENT_TRACE_HEADER {
 impl ::std::cmp::Eq for EVENT_TRACE_HEADER {}
 unsafe impl ::windows::runtime::Abi for EVENT_TRACE_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2358,7 +2286,6 @@ impl ::std::cmp::PartialEq for EVENT_TRACE_HEADER_0 {
 impl ::std::cmp::Eq for EVENT_TRACE_HEADER_0 {}
 unsafe impl ::windows::runtime::Abi for EVENT_TRACE_HEADER_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2386,7 +2313,6 @@ impl ::std::cmp::PartialEq for EVENT_TRACE_HEADER_0_0 {
 impl ::std::cmp::Eq for EVENT_TRACE_HEADER_0_0 {}
 unsafe impl ::windows::runtime::Abi for EVENT_TRACE_HEADER_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2409,7 +2335,6 @@ impl ::std::cmp::PartialEq for EVENT_TRACE_HEADER_1 {
 impl ::std::cmp::Eq for EVENT_TRACE_HEADER_1 {}
 unsafe impl ::windows::runtime::Abi for EVENT_TRACE_HEADER_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2438,7 +2363,6 @@ impl ::std::cmp::PartialEq for EVENT_TRACE_HEADER_1_0 {
 impl ::std::cmp::Eq for EVENT_TRACE_HEADER_1_0 {}
 unsafe impl ::windows::runtime::Abi for EVENT_TRACE_HEADER_1_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2461,7 +2385,6 @@ impl ::std::cmp::PartialEq for EVENT_TRACE_HEADER_2 {
 impl ::std::cmp::Eq for EVENT_TRACE_HEADER_2 {}
 unsafe impl ::windows::runtime::Abi for EVENT_TRACE_HEADER_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2485,7 +2408,6 @@ impl ::std::cmp::PartialEq for EVENT_TRACE_HEADER_3 {
 impl ::std::cmp::Eq for EVENT_TRACE_HEADER_3 {}
 unsafe impl ::windows::runtime::Abi for EVENT_TRACE_HEADER_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2513,7 +2435,6 @@ impl ::std::cmp::PartialEq for EVENT_TRACE_HEADER_3_0 {
 impl ::std::cmp::Eq for EVENT_TRACE_HEADER_3_0 {}
 unsafe impl ::windows::runtime::Abi for EVENT_TRACE_HEADER_3_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2541,7 +2462,6 @@ impl ::std::cmp::PartialEq for EVENT_TRACE_HEADER_3_1 {
 impl ::std::cmp::Eq for EVENT_TRACE_HEADER_3_1 {}
 unsafe impl ::windows::runtime::Abi for EVENT_TRACE_HEADER_3_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_INDEPENDENT_SESSION_MODE: u32 = 134217728u32;
@@ -2589,7 +2509,6 @@ impl ::std::cmp::Eq for EVENT_TRACE_LOGFILEA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 unsafe impl ::windows::runtime::Abi for EVENT_TRACE_LOGFILEA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2612,7 +2531,6 @@ impl ::std::cmp::PartialEq for EVENT_TRACE_LOGFILEA_0 {
 impl ::std::cmp::Eq for EVENT_TRACE_LOGFILEA_0 {}
 unsafe impl ::windows::runtime::Abi for EVENT_TRACE_LOGFILEA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::clone::Clone for EVENT_TRACE_LOGFILEA_1 {
     fn clone(&self) -> Self {
@@ -2639,7 +2557,6 @@ impl ::std::cmp::PartialEq for EVENT_TRACE_LOGFILEA_1 {
 impl ::std::cmp::Eq for EVENT_TRACE_LOGFILEA_1 {}
 unsafe impl ::windows::runtime::Abi for EVENT_TRACE_LOGFILEA_1 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 impl ::std::clone::Clone for EVENT_TRACE_LOGFILEW {
@@ -2685,7 +2602,6 @@ impl ::std::cmp::Eq for EVENT_TRACE_LOGFILEW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 unsafe impl ::windows::runtime::Abi for EVENT_TRACE_LOGFILEW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2708,7 +2624,6 @@ impl ::std::cmp::PartialEq for EVENT_TRACE_LOGFILEW_0 {
 impl ::std::cmp::Eq for EVENT_TRACE_LOGFILEW_0 {}
 unsafe impl ::windows::runtime::Abi for EVENT_TRACE_LOGFILEW_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::clone::Clone for EVENT_TRACE_LOGFILEW_1 {
     fn clone(&self) -> Self {
@@ -2735,7 +2650,6 @@ impl ::std::cmp::PartialEq for EVENT_TRACE_LOGFILEW_1 {
 impl ::std::cmp::Eq for EVENT_TRACE_LOGFILEW_1 {}
 unsafe impl ::windows::runtime::Abi for EVENT_TRACE_LOGFILEW_1 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_MODE_RESERVED: u32 = 1048576u32;
@@ -2792,7 +2706,6 @@ impl ::std::cmp::Eq for EVENT_TRACE_PROPERTIES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EVENT_TRACE_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2815,7 +2728,6 @@ impl ::std::cmp::PartialEq for EVENT_TRACE_PROPERTIES_0 {
 impl ::std::cmp::Eq for EVENT_TRACE_PROPERTIES_0 {}
 unsafe impl ::windows::runtime::Abi for EVENT_TRACE_PROPERTIES_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2864,7 +2776,6 @@ impl ::std::cmp::Eq for EVENT_TRACE_PROPERTIES_V2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EVENT_TRACE_PROPERTIES_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2887,7 +2798,6 @@ impl ::std::cmp::PartialEq for EVENT_TRACE_PROPERTIES_V2_0 {
 impl ::std::cmp::Eq for EVENT_TRACE_PROPERTIES_V2_0 {}
 unsafe impl ::windows::runtime::Abi for EVENT_TRACE_PROPERTIES_V2_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2910,7 +2820,6 @@ impl ::std::cmp::PartialEq for EVENT_TRACE_PROPERTIES_V2_1 {
 impl ::std::cmp::Eq for EVENT_TRACE_PROPERTIES_V2_1 {}
 unsafe impl ::windows::runtime::Abi for EVENT_TRACE_PROPERTIES_V2_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2937,7 +2846,6 @@ impl ::std::cmp::PartialEq for EVENT_TRACE_PROPERTIES_V2_1_0 {
 impl ::std::cmp::Eq for EVENT_TRACE_PROPERTIES_V2_1_0 {}
 unsafe impl ::windows::runtime::Abi for EVENT_TRACE_PROPERTIES_V2_1_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2960,7 +2868,6 @@ impl ::std::cmp::PartialEq for EVENT_TRACE_PROPERTIES_V2_2 {
 impl ::std::cmp::Eq for EVENT_TRACE_PROPERTIES_V2_2 {}
 unsafe impl ::windows::runtime::Abi for EVENT_TRACE_PROPERTIES_V2_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2987,7 +2894,6 @@ impl ::std::cmp::PartialEq for EVENT_TRACE_PROPERTIES_V2_2_0 {
 impl ::std::cmp::Eq for EVENT_TRACE_PROPERTIES_V2_2_0 {}
 unsafe impl ::windows::runtime::Abi for EVENT_TRACE_PROPERTIES_V2_2_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const EVENT_TRACE_REAL_TIME_MODE: u32 = 256u32;
@@ -3786,7 +3692,6 @@ impl ::std::convert::From<i32> for MAP_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MAP_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3801,7 +3706,6 @@ impl ::std::convert::From<i32> for MAP_VALUETYPE {
 }
 unsafe impl ::windows::runtime::Abi for MAP_VALUETYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const MAX_EVENT_DATA_DESCRIPTORS: u32 = 128u32;
@@ -3848,7 +3752,6 @@ impl ::std::cmp::PartialEq for MOF_FIELD {
 impl ::std::cmp::Eq for MOF_FIELD {}
 unsafe impl ::windows::runtime::Abi for MOF_FIELD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3876,7 +3779,6 @@ impl ::std::cmp::PartialEq for OFFSETINSTANCEDATAANDLENGTH {
 impl ::std::cmp::Eq for OFFSETINSTANCEDATAANDLENGTH {}
 unsafe impl ::windows::runtime::Abi for OFFSETINSTANCEDATAANDLENGTH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`, `Win32_System_Time`*"]
@@ -3942,7 +3844,6 @@ impl ::std::cmp::Eq for PAYLOAD_FILTER_PREDICATE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PAYLOAD_FILTER_PREDICATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3969,7 +3870,6 @@ impl ::std::convert::From<i32> for PAYLOAD_OPERATOR {
 }
 unsafe impl ::windows::runtime::Abi for PAYLOAD_OPERATOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type PENABLECALLBACK = unsafe extern "system" fn(sourceid: *const ::windows::runtime::GUID, isenabled: ENABLECALLBACK_ENABLED_STATE, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut ::std::ffi::c_void);
 pub type PEVENT_CALLBACK = unsafe extern "system" fn(pevent: *mut EVENT_TRACE);
@@ -4014,7 +3914,6 @@ impl ::std::cmp::PartialEq for PROFILE_SOURCE_INFO {
 impl ::std::cmp::Eq for PROFILE_SOURCE_INFO {}
 unsafe impl ::windows::runtime::Abi for PROFILE_SOURCE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4043,7 +3942,6 @@ impl ::std::cmp::PartialEq for PROPERTY_DATA_DESCRIPTOR {
 impl ::std::cmp::Eq for PROPERTY_DATA_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for PROPERTY_DATA_DESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4064,7 +3962,6 @@ impl ::std::convert::From<i32> for PROPERTY_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PROPERTY_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4093,7 +3990,6 @@ impl ::std::cmp::PartialEq for PROVIDER_ENUMERATION_INFO {
 impl ::std::cmp::Eq for PROVIDER_ENUMERATION_INFO {}
 unsafe impl ::windows::runtime::Abi for PROVIDER_ENUMERATION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4122,7 +4018,6 @@ impl ::std::cmp::PartialEq for PROVIDER_EVENT_INFO {
 impl ::std::cmp::Eq for PROVIDER_EVENT_INFO {}
 unsafe impl ::windows::runtime::Abi for PROVIDER_EVENT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4151,7 +4046,6 @@ impl ::std::cmp::PartialEq for PROVIDER_FIELD_INFO {
 impl ::std::cmp::Eq for PROVIDER_FIELD_INFO {}
 unsafe impl ::windows::runtime::Abi for PROVIDER_FIELD_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4180,7 +4074,6 @@ impl ::std::cmp::PartialEq for PROVIDER_FIELD_INFOARRAY {
 impl ::std::cmp::Eq for PROVIDER_FIELD_INFOARRAY {}
 unsafe impl ::windows::runtime::Abi for PROVIDER_FIELD_INFOARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4207,7 +4100,6 @@ impl ::std::cmp::PartialEq for PROVIDER_FILTER_INFO {
 impl ::std::cmp::Eq for PROVIDER_FILTER_INFO {}
 unsafe impl ::windows::runtime::Abi for PROVIDER_FILTER_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const PrivateLoggerNotificationGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(899001180, 1066, 19598, [185, 66, 45, 5, 155, 254, 177, 177]);
 #[cfg(feature = "Win32_Foundation")]
@@ -4670,7 +4562,6 @@ impl ::std::cmp::PartialEq for TDH_CONTEXT {
 impl ::std::cmp::Eq for TDH_CONTEXT {}
 unsafe impl ::windows::runtime::Abi for TDH_CONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4689,7 +4580,6 @@ impl ::std::convert::From<i32> for TDH_CONTEXT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for TDH_CONTEXT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -4702,7 +4592,6 @@ impl ::std::default::Default for TDH_HANDLE {
 unsafe impl ::windows::runtime::Handle for TDH_HANDLE {}
 unsafe impl ::windows::runtime::Abi for TDH_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4718,7 +4607,6 @@ impl ::std::convert::From<i32> for TEMPLATE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for TEMPLATE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACELOG_ACCESS_KERNEL_LOGGER: u32 = 256u32;
@@ -4779,7 +4667,6 @@ impl ::std::cmp::PartialEq for TRACE_ENABLE_INFO {
 impl ::std::cmp::Eq for TRACE_ENABLE_INFO {}
 unsafe impl ::windows::runtime::Abi for TRACE_ENABLE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4820,7 +4707,6 @@ impl ::std::cmp::PartialEq for TRACE_EVENT_INFO {
 impl ::std::cmp::Eq for TRACE_EVENT_INFO {}
 unsafe impl ::windows::runtime::Abi for TRACE_EVENT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4843,7 +4729,6 @@ impl ::std::cmp::PartialEq for TRACE_EVENT_INFO_0 {
 impl ::std::cmp::Eq for TRACE_EVENT_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for TRACE_EVENT_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4866,7 +4751,6 @@ impl ::std::cmp::PartialEq for TRACE_EVENT_INFO_1 {
 impl ::std::cmp::Eq for TRACE_EVENT_INFO_1 {}
 unsafe impl ::windows::runtime::Abi for TRACE_EVENT_INFO_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4889,7 +4773,6 @@ impl ::std::cmp::PartialEq for TRACE_EVENT_INFO_2 {
 impl ::std::cmp::Eq for TRACE_EVENT_INFO_2 {}
 unsafe impl ::windows::runtime::Abi for TRACE_EVENT_INFO_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4916,7 +4799,6 @@ impl ::std::cmp::PartialEq for TRACE_EVENT_INFO_2_0 {
 impl ::std::cmp::Eq for TRACE_EVENT_INFO_2_0 {}
 unsafe impl ::windows::runtime::Abi for TRACE_EVENT_INFO_2_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4944,7 +4826,6 @@ impl ::std::cmp::PartialEq for TRACE_GUID_INFO {
 impl ::std::cmp::Eq for TRACE_GUID_INFO {}
 unsafe impl ::windows::runtime::Abi for TRACE_GUID_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4983,7 +4864,6 @@ impl ::std::cmp::Eq for TRACE_GUID_PROPERTIES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TRACE_GUID_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5018,7 +4898,6 @@ impl ::std::cmp::Eq for TRACE_GUID_REGISTRATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TRACE_GUID_REGISTRATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_HEADER_FLAG_LOG_WNODE: u32 = 262144u32;
@@ -5095,7 +4974,6 @@ impl ::std::cmp::Eq for TRACE_LOGFILE_HEADER {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5118,7 +4996,6 @@ impl ::std::cmp::PartialEq for TRACE_LOGFILE_HEADER_0 {
 impl ::std::cmp::Eq for TRACE_LOGFILE_HEADER_0 {}
 unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5148,7 +5025,6 @@ impl ::std::cmp::PartialEq for TRACE_LOGFILE_HEADER_0_0 {
 impl ::std::cmp::Eq for TRACE_LOGFILE_HEADER_0_0 {}
 unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5171,7 +5047,6 @@ impl ::std::cmp::PartialEq for TRACE_LOGFILE_HEADER_1 {
 impl ::std::cmp::Eq for TRACE_LOGFILE_HEADER_1 {}
 unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5201,7 +5076,6 @@ impl ::std::cmp::PartialEq for TRACE_LOGFILE_HEADER_1_0 {
 impl ::std::cmp::Eq for TRACE_LOGFILE_HEADER_1_0 {}
 unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER_1_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5246,7 +5120,6 @@ impl ::std::cmp::Eq for TRACE_LOGFILE_HEADER32 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5269,7 +5142,6 @@ impl ::std::cmp::PartialEq for TRACE_LOGFILE_HEADER32_0 {
 impl ::std::cmp::Eq for TRACE_LOGFILE_HEADER32_0 {}
 unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER32_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5299,7 +5171,6 @@ impl ::std::cmp::PartialEq for TRACE_LOGFILE_HEADER32_0_0 {
 impl ::std::cmp::Eq for TRACE_LOGFILE_HEADER32_0_0 {}
 unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER32_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5322,7 +5193,6 @@ impl ::std::cmp::PartialEq for TRACE_LOGFILE_HEADER32_1 {
 impl ::std::cmp::Eq for TRACE_LOGFILE_HEADER32_1 {}
 unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER32_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5352,7 +5222,6 @@ impl ::std::cmp::PartialEq for TRACE_LOGFILE_HEADER32_1_0 {
 impl ::std::cmp::Eq for TRACE_LOGFILE_HEADER32_1_0 {}
 unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER32_1_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5397,7 +5266,6 @@ impl ::std::cmp::Eq for TRACE_LOGFILE_HEADER64 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER64 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5420,7 +5288,6 @@ impl ::std::cmp::PartialEq for TRACE_LOGFILE_HEADER64_0 {
 impl ::std::cmp::Eq for TRACE_LOGFILE_HEADER64_0 {}
 unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER64_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5450,7 +5317,6 @@ impl ::std::cmp::PartialEq for TRACE_LOGFILE_HEADER64_0_0 {
 impl ::std::cmp::Eq for TRACE_LOGFILE_HEADER64_0_0 {}
 unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER64_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5473,7 +5339,6 @@ impl ::std::cmp::PartialEq for TRACE_LOGFILE_HEADER64_1 {
 impl ::std::cmp::Eq for TRACE_LOGFILE_HEADER64_1 {}
 unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER64_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5503,7 +5368,6 @@ impl ::std::cmp::PartialEq for TRACE_LOGFILE_HEADER64_1_0 {
 impl ::std::cmp::Eq for TRACE_LOGFILE_HEADER64_1_0 {}
 unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER64_1_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5521,7 +5385,6 @@ impl ::std::convert::From<u32> for TRACE_MESSAGE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for TRACE_MESSAGE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for TRACE_MESSAGE_FLAGS {
     type Output = Self;
@@ -5586,7 +5449,6 @@ impl ::std::cmp::PartialEq for TRACE_PERIODIC_CAPTURE_STATE_INFO {
 impl ::std::cmp::Eq for TRACE_PERIODIC_CAPTURE_STATE_INFO {}
 unsafe impl ::windows::runtime::Abi for TRACE_PERIODIC_CAPTURE_STATE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5614,7 +5476,6 @@ impl ::std::cmp::PartialEq for TRACE_PROFILE_INTERVAL {
 impl ::std::cmp::Eq for TRACE_PROFILE_INTERVAL {}
 unsafe impl ::windows::runtime::Abi for TRACE_PROFILE_INTERVAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const TRACE_PROVIDER_FLAG_LEGACY: u32 = 1u32;
@@ -5647,7 +5508,6 @@ impl ::std::cmp::PartialEq for TRACE_PROVIDER_INFO {
 impl ::std::cmp::Eq for TRACE_PROVIDER_INFO {}
 unsafe impl ::windows::runtime::Abi for TRACE_PROVIDER_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5677,7 +5537,6 @@ impl ::std::cmp::PartialEq for TRACE_PROVIDER_INSTANCE_INFO {
 impl ::std::cmp::Eq for TRACE_PROVIDER_INSTANCE_INFO {}
 unsafe impl ::windows::runtime::Abi for TRACE_PROVIDER_INSTANCE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5718,7 +5577,6 @@ impl ::std::convert::From<i32> for TRACE_QUERY_INFO_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for TRACE_QUERY_INFO_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5754,7 +5612,6 @@ impl ::std::cmp::Eq for TRACE_STACK_CACHING_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TRACE_STACK_CACHING_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5782,7 +5639,6 @@ impl ::std::cmp::PartialEq for TRACE_VERSION_INFO {
 impl ::std::cmp::Eq for TRACE_VERSION_INFO {}
 unsafe impl ::windows::runtime::Abi for TRACE_VERSION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`*"]
@@ -6334,7 +6190,6 @@ impl ::std::convert::From<i32> for WMIDPREQUESTCODE {
 }
 unsafe impl ::windows::runtime::Abi for WMIDPREQUESTCODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WMIGUID_EXECUTE: u32 = 16u32;
@@ -6369,7 +6224,6 @@ impl ::std::cmp::PartialEq for WMIREGGUIDW {
 impl ::std::cmp::Eq for WMIREGGUIDW {}
 unsafe impl ::windows::runtime::Abi for WMIREGGUIDW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6394,7 +6248,6 @@ impl ::std::cmp::PartialEq for WMIREGGUIDW_0 {
 impl ::std::cmp::Eq for WMIREGGUIDW_0 {}
 unsafe impl ::windows::runtime::Abi for WMIREGGUIDW_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6421,7 +6274,6 @@ impl ::std::cmp::PartialEq for WMIREGINFOW {
 impl ::std::cmp::Eq for WMIREGINFOW {}
 unsafe impl ::windows::runtime::Abi for WMIREGINFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WMIREG_FLAG_EVENT_ONLY_GUID: u32 = 64u32;
@@ -6483,7 +6335,6 @@ impl ::std::cmp::Eq for WNODE_ALL_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WNODE_ALL_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6506,7 +6357,6 @@ impl ::std::cmp::PartialEq for WNODE_ALL_DATA_0 {
 impl ::std::cmp::Eq for WNODE_ALL_DATA_0 {}
 unsafe impl ::windows::runtime::Abi for WNODE_ALL_DATA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6534,7 +6384,6 @@ impl ::std::cmp::Eq for WNODE_EVENT_ITEM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WNODE_EVENT_ITEM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6565,7 +6414,6 @@ impl ::std::cmp::Eq for WNODE_EVENT_REFERENCE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WNODE_EVENT_REFERENCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6588,7 +6436,6 @@ impl ::std::cmp::PartialEq for WNODE_EVENT_REFERENCE_0 {
 impl ::std::cmp::Eq for WNODE_EVENT_REFERENCE_0 {}
 unsafe impl ::windows::runtime::Abi for WNODE_EVENT_REFERENCE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub const WNODE_FLAG_ALL_DATA: u32 = 1u32;
@@ -6668,7 +6515,6 @@ impl ::std::cmp::Eq for WNODE_HEADER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WNODE_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6691,7 +6537,6 @@ impl ::std::cmp::PartialEq for WNODE_HEADER_0 {
 impl ::std::cmp::Eq for WNODE_HEADER_0 {}
 unsafe impl ::windows::runtime::Abi for WNODE_HEADER_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6719,7 +6564,6 @@ impl ::std::cmp::PartialEq for WNODE_HEADER_0_0 {
 impl ::std::cmp::Eq for WNODE_HEADER_0_0 {}
 unsafe impl ::windows::runtime::Abi for WNODE_HEADER_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6749,7 +6593,6 @@ impl ::std::cmp::Eq for WNODE_HEADER_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WNODE_HEADER_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6783,7 +6626,6 @@ impl ::std::cmp::Eq for WNODE_METHOD_ITEM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WNODE_METHOD_ITEM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6816,7 +6658,6 @@ impl ::std::cmp::Eq for WNODE_SINGLE_INSTANCE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WNODE_SINGLE_INSTANCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6850,7 +6691,6 @@ impl ::std::cmp::Eq for WNODE_SINGLE_ITEM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WNODE_SINGLE_ITEM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6879,7 +6719,6 @@ impl ::std::cmp::Eq for WNODE_TOO_SMALL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WNODE_TOO_SMALL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6929,7 +6768,6 @@ impl ::std::convert::From<i32> for _TDH_IN_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for _TDH_IN_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6983,5 +6821,4 @@ impl ::std::convert::From<i32> for _TDH_OUT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for _TDH_OUT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }

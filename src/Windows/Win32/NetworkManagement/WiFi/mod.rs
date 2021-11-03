@@ -13,7 +13,6 @@ impl ::std::convert::From<i32> for CH_DESCRIPTION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CH_DESCRIPTION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_PropertiesSystem")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_System_PropertiesSystem`*"]
@@ -284,7 +283,6 @@ impl ::std::cmp::PartialEq for DOT11_ACCESSNETWORKOPTIONS {
 impl ::std::cmp::Eq for DOT11_ACCESSNETWORKOPTIONS {}
 unsafe impl ::windows::runtime::Abi for DOT11_ACCESSNETWORKOPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -302,7 +300,6 @@ impl ::std::convert::From<i32> for DOT11_AC_PARAM {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_AC_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -340,7 +337,6 @@ impl ::std::cmp::Eq for DOT11_ADDITIONAL_IE {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_ADDITIONAL_IE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_ADDITIONAL_IE_REVISION_1: u32 = 1u32;
@@ -358,7 +354,6 @@ impl ::std::convert::From<i32> for DOT11_ADHOC_AUTH_ALGORITHM {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_ADHOC_AUTH_ALGORITHM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -375,7 +370,6 @@ impl ::std::convert::From<i32> for DOT11_ADHOC_CIPHER_ALGORITHM {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_ADHOC_CIPHER_ALGORITHM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -391,7 +385,6 @@ impl ::std::convert::From<i32> for DOT11_ADHOC_CONNECT_FAIL_REASON {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_ADHOC_CONNECT_FAIL_REASON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -409,7 +402,6 @@ impl ::std::convert::From<i32> for DOT11_ADHOC_NETWORK_CONNECTION_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_ADHOC_NETWORK_CONNECTION_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -446,7 +438,6 @@ impl ::std::cmp::Eq for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_ANQP_QUERY_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -469,7 +460,6 @@ impl ::std::convert::From<i32> for DOT11_ANQP_QUERY_RESULT {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_ANQP_QUERY_RESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -499,7 +489,6 @@ impl ::std::cmp::PartialEq for DOT11_AP_JOIN_REQUEST {
 impl ::std::cmp::Eq for DOT11_AP_JOIN_REQUEST {}
 unsafe impl ::windows::runtime::Abi for DOT11_AP_JOIN_REQUEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -610,7 +599,6 @@ impl ::std::cmp::Eq for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_ASSOCIATION_COMPLETION_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -679,7 +667,6 @@ impl ::std::cmp::PartialEq for DOT11_ASSOCIATION_INFO_EX {
 impl ::std::cmp::Eq for DOT11_ASSOCIATION_INFO_EX {}
 unsafe impl ::windows::runtime::Abi for DOT11_ASSOCIATION_INFO_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -716,7 +703,6 @@ impl ::std::cmp::Eq for DOT11_ASSOCIATION_INFO_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_ASSOCIATION_INFO_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_ASSOCIATION_INFO_LIST_REVISION_1: u32 = 1u32;
@@ -755,7 +741,6 @@ impl ::std::cmp::Eq for DOT11_ASSOCIATION_PARAMS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_ASSOCIATION_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_ASSOCIATION_PARAMS_REVISION_1: u32 = 1u32;
@@ -795,7 +780,6 @@ impl ::std::cmp::Eq for DOT11_ASSOCIATION_START_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_ASSOCIATION_START_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_ASSOCIATION_START_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -814,7 +798,6 @@ impl ::std::convert::From<i32> for DOT11_ASSOCIATION_STATE {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_ASSOCIATION_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_ASSOC_ERROR_SOURCE_OS: u32 = 0u32;
@@ -849,7 +832,6 @@ impl ::std::convert::From<i32> for DOT11_AUTH_ALGORITHM {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_AUTH_ALGORITHM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -886,7 +868,6 @@ impl ::std::cmp::Eq for DOT11_AUTH_ALGORITHM_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_AUTH_ALGORITHM_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_AUTH_ALGORITHM_LIST_REVISION_1: u32 = 1u32;
@@ -918,7 +899,6 @@ impl ::std::cmp::PartialEq for DOT11_AUTH_CIPHER_PAIR {
 impl ::std::cmp::Eq for DOT11_AUTH_CIPHER_PAIR {}
 unsafe impl ::windows::runtime::Abi for DOT11_AUTH_CIPHER_PAIR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -955,7 +935,6 @@ impl ::std::cmp::Eq for DOT11_AUTH_CIPHER_PAIR_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_AUTH_CIPHER_PAIR_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_AUTH_CIPHER_PAIR_LIST_REVISION_1: u32 = 1u32;
@@ -994,7 +973,6 @@ impl ::std::cmp::Eq for DOT11_AVAILABLE_CHANNEL_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_AVAILABLE_CHANNEL_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_AVAILABLE_CHANNEL_LIST_REVISION_1: u32 = 1u32;
@@ -1033,7 +1011,6 @@ impl ::std::cmp::Eq for DOT11_AVAILABLE_FREQUENCY_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_AVAILABLE_FREQUENCY_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_AVAILABLE_FREQUENCY_LIST_REVISION_1: u32 = 1u32;
@@ -1051,7 +1028,6 @@ impl ::std::convert::From<i32> for DOT11_BAND {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_BAND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1079,7 +1055,6 @@ impl ::std::cmp::PartialEq for DOT11_BSSID_CANDIDATE {
 impl ::std::cmp::Eq for DOT11_BSSID_CANDIDATE {}
 unsafe impl ::windows::runtime::Abi for DOT11_BSSID_CANDIDATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1116,7 +1091,6 @@ impl ::std::cmp::Eq for DOT11_BSSID_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_BSSID_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_BSSID_LIST_REVISION_1: u32 = 1u32;
@@ -1161,7 +1135,6 @@ impl ::std::cmp::PartialEq for DOT11_BSS_DESCRIPTION {
 impl ::std::cmp::Eq for DOT11_BSS_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for DOT11_BSS_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1201,7 +1174,6 @@ impl ::std::cmp::Eq for DOT11_BSS_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_BSS_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_BSS_ENTRY_BYTE_ARRAY_REVISION_1: u32 = 1u32;
@@ -1226,7 +1198,6 @@ impl ::std::cmp::PartialEq for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {
 impl ::std::cmp::Eq for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {}
 unsafe impl ::windows::runtime::Abi for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1255,7 +1226,6 @@ impl ::std::cmp::PartialEq for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
 impl ::std::cmp::Eq for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1271,7 +1241,6 @@ impl ::std::convert::From<i32> for DOT11_BSS_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_BSS_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1308,7 +1277,6 @@ impl ::std::cmp::Eq for DOT11_BYTE_ARRAY {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_BYTE_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1343,7 +1311,6 @@ impl ::std::cmp::Eq for DOT11_CAN_SUSTAIN_AP_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_CAN_SUSTAIN_AP_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_CAN_SUSTAIN_AP_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -1407,7 +1374,6 @@ impl ::std::cmp::PartialEq for DOT11_CHANNEL_HINT {
 impl ::std::cmp::Eq for DOT11_CHANNEL_HINT {}
 unsafe impl ::windows::runtime::Abi for DOT11_CHANNEL_HINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1437,7 +1403,6 @@ impl ::std::convert::From<i32> for DOT11_CIPHER_ALGORITHM {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_CIPHER_ALGORITHM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1474,7 +1439,6 @@ impl ::std::cmp::Eq for DOT11_CIPHER_ALGORITHM_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_CIPHER_ALGORITHM_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_CIPHER_ALGORITHM_LIST_REVISION_1: u32 = 1u32;
@@ -1526,7 +1490,6 @@ impl ::std::cmp::Eq for DOT11_CIPHER_DEFAULT_KEY_VALUE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_CIPHER_DEFAULT_KEY_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_CIPHER_DEFAULT_KEY_VALUE_REVISION_1: u32 = 1u32;
@@ -1576,7 +1539,6 @@ impl ::std::cmp::Eq for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_CIPHER_KEY_MAPPING_KEY_VALUE_BYTE_ARRAY_REVISION_1: u32 = 1u32;
@@ -1617,7 +1579,6 @@ impl ::std::cmp::Eq for DOT11_CONNECTION_COMPLETION_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_CONNECTION_COMPLETION_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_CONNECTION_COMPLETION_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -1656,7 +1617,6 @@ impl ::std::cmp::Eq for DOT11_CONNECTION_START_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_CONNECTION_START_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_CONNECTION_START_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -1725,7 +1685,6 @@ impl ::std::cmp::PartialEq for DOT11_COUNTERS_ENTRY {
 impl ::std::cmp::Eq for DOT11_COUNTERS_ENTRY {}
 unsafe impl ::windows::runtime::Abi for DOT11_COUNTERS_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1762,7 +1721,6 @@ impl ::std::cmp::Eq for DOT11_COUNTRY_OR_REGION_STRING_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_COUNTRY_OR_REGION_STRING_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_COUNTRY_OR_REGION_STRING_LIST_REVISION_1: u32 = 1u32;
@@ -1792,7 +1750,6 @@ impl ::std::cmp::PartialEq for DOT11_CURRENT_OFFLOAD_CAPABILITY {
 impl ::std::cmp::Eq for DOT11_CURRENT_OFFLOAD_CAPABILITY {}
 unsafe impl ::windows::runtime::Abi for DOT11_CURRENT_OFFLOAD_CAPABILITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1820,7 +1777,6 @@ impl ::std::cmp::PartialEq for DOT11_CURRENT_OPERATION_MODE {
 impl ::std::cmp::Eq for DOT11_CURRENT_OPERATION_MODE {}
 unsafe impl ::windows::runtime::Abi for DOT11_CURRENT_OPERATION_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1864,7 +1820,6 @@ impl ::std::cmp::Eq for DOT11_CURRENT_OPTIONAL_CAPABILITY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_CURRENT_OPTIONAL_CAPABILITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1893,7 +1848,6 @@ impl ::std::cmp::PartialEq for DOT11_DATA_RATE_MAPPING_ENTRY {
 impl ::std::cmp::Eq for DOT11_DATA_RATE_MAPPING_ENTRY {}
 unsafe impl ::windows::runtime::Abi for DOT11_DATA_RATE_MAPPING_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1929,7 +1883,6 @@ impl ::std::cmp::Eq for DOT11_DATA_RATE_MAPPING_TABLE {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_DATA_RATE_MAPPING_TABLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_DATA_RATE_MAPPING_TABLE_REVISION_1: u32 = 1u32;
@@ -2006,7 +1959,6 @@ impl ::std::cmp::Eq for DOT11_DEFAULT_WEP_OFFLOAD {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_DEFAULT_WEP_OFFLOAD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2052,7 +2004,6 @@ impl ::std::cmp::Eq for DOT11_DEFAULT_WEP_UPLOAD {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_DEFAULT_WEP_UPLOAD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_DEVICE_ENTRY_BYTE_ARRAY_REVISION_1: u32 = 1u32;
@@ -2070,7 +2021,6 @@ impl ::std::convert::From<i32> for DOT11_DIRECTION {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_DIRECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2106,7 +2056,6 @@ impl ::std::cmp::Eq for DOT11_DISASSOCIATE_PEER_REQUEST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_DISASSOCIATE_PEER_REQUEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_DISASSOCIATE_PEER_REQUEST_REVISION_1: u32 = 1u32;
@@ -2146,7 +2095,6 @@ impl ::std::cmp::Eq for DOT11_DISASSOCIATION_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_DISASSOCIATION_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_DISASSOCIATION_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -2183,7 +2131,6 @@ impl ::std::cmp::Eq for DOT11_DIVERSITY_SELECTION_RX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_DIVERSITY_SELECTION_RX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2219,7 +2166,6 @@ impl ::std::cmp::Eq for DOT11_DIVERSITY_SELECTION_RX_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_DIVERSITY_SELECTION_RX_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2236,7 +2182,6 @@ impl ::std::convert::From<i32> for DOT11_DIVERSITY_SUPPORT {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_DIVERSITY_SUPPORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2252,7 +2197,6 @@ impl ::std::convert::From<i32> for DOT11_DS_INFO {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_DS_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_ENCAP_802_1H: u32 = 2u32;
@@ -2282,7 +2226,6 @@ impl ::std::cmp::PartialEq for DOT11_ENCAP_ENTRY {
 impl ::std::cmp::Eq for DOT11_ENCAP_ENTRY {}
 unsafe impl ::windows::runtime::Abi for DOT11_ENCAP_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_ENCAP_RFC_1042: u32 = 1u32;
@@ -2326,7 +2269,6 @@ impl ::std::cmp::Eq for DOT11_ERP_PHY_ATTRIBUTES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_ERP_PHY_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_EXEMPT_ALWAYS: u32 = 1u32;
@@ -2413,7 +2355,6 @@ impl ::std::cmp::Eq for DOT11_EXTAP_ATTRIBUTES {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_EXTAP_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_EXTAP_ATTRIBUTES_REVISION_1: u32 = 1u32;
@@ -2554,7 +2495,6 @@ impl ::std::cmp::Eq for DOT11_EXTSTA_ATTRIBUTES {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_EXTSTA_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_EXTSTA_ATTRIBUTES_REVISION_1: u32 = 1u32;
@@ -2634,7 +2574,6 @@ impl ::std::cmp::Eq for DOT11_EXTSTA_CAPABILITY {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_EXTSTA_CAPABILITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_EXTSTA_CAPABILITY_REVISION_1: u32 = 1u32;
@@ -2690,7 +2629,6 @@ impl ::std::cmp::Eq for DOT11_EXTSTA_RECV_CONTEXT {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_EXTSTA_RECV_CONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_EXTSTA_RECV_CONTEXT_REVISION_1: u32 = 1u32;
@@ -2738,7 +2676,6 @@ impl ::std::cmp::Eq for DOT11_EXTSTA_SEND_CONTEXT {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_EXTSTA_SEND_CONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_EXTSTA_SEND_CONTEXT_REVISION_1: u32 = 1u32;
@@ -2784,7 +2721,6 @@ impl ::std::cmp::PartialEq for DOT11_FRAGMENT_DESCRIPTOR {
 impl ::std::cmp::Eq for DOT11_FRAGMENT_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for DOT11_FRAGMENT_DESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_FREQUENCY_BANDS_LOWER: u32 = 1u32;
@@ -2836,7 +2772,6 @@ impl ::std::cmp::Eq for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETE
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -2884,7 +2819,6 @@ impl ::std::cmp::Eq for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -2932,7 +2866,6 @@ impl ::std::cmp::Eq for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -2964,7 +2897,6 @@ impl ::std::cmp::PartialEq for DOT11_HOPPING_PATTERN_ENTRY {
 impl ::std::cmp::Eq for DOT11_HOPPING_PATTERN_ENTRY {}
 unsafe impl ::windows::runtime::Abi for DOT11_HOPPING_PATTERN_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2993,7 +2925,6 @@ impl ::std::cmp::PartialEq for DOT11_HOPPING_PATTERN_ENTRY_LIST {
 impl ::std::cmp::Eq for DOT11_HOPPING_PATTERN_ENTRY_LIST {}
 unsafe impl ::windows::runtime::Abi for DOT11_HOPPING_PATTERN_ENTRY_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3009,7 +2940,6 @@ impl ::std::convert::From<i32> for DOT11_HOP_ALGO_ADOPTED {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_HOP_ALGO_ADOPTED {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3051,7 +2981,6 @@ impl ::std::cmp::Eq for DOT11_HRDSSS_PHY_ATTRIBUTES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_HRDSSS_PHY_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_HR_CCA_MODE_CS_AND_ED: u32 = 4u32;
@@ -3110,7 +3039,6 @@ impl ::std::cmp::Eq for DOT11_IBSS_PARAMS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_IBSS_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_IBSS_PARAMS_REVISION_1: u32 = 1u32;
@@ -3196,7 +3124,6 @@ impl ::std::cmp::Eq for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -3244,7 +3171,6 @@ impl ::std::cmp::Eq for DOT11_INCOMING_ASSOC_DECISION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_INCOMING_ASSOC_DECISION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_INCOMING_ASSOC_DECISION_REVISION_1: u32 = 1u32;
@@ -3296,7 +3222,6 @@ impl ::std::cmp::Eq for DOT11_INCOMING_ASSOC_DECISION_V2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_INCOMING_ASSOC_DECISION_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3334,7 +3259,6 @@ impl ::std::cmp::Eq for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -3371,7 +3295,6 @@ impl ::std::cmp::Eq for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_INCOMING_ASSOC_STARTED_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -3423,7 +3346,6 @@ impl ::std::cmp::Eq for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -3471,7 +3393,6 @@ impl ::std::cmp::Eq for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -3501,7 +3422,6 @@ impl ::std::cmp::PartialEq for DOT11_IV48_COUNTER {
 impl ::std::cmp::Eq for DOT11_IV48_COUNTER {}
 unsafe impl ::windows::runtime::Abi for DOT11_IV48_COUNTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3531,7 +3451,6 @@ impl ::std::cmp::PartialEq for DOT11_JOIN_REQUEST {
 impl ::std::cmp::Eq for DOT11_JOIN_REQUEST {}
 unsafe impl ::windows::runtime::Abi for DOT11_JOIN_REQUEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3560,7 +3479,6 @@ impl ::std::cmp::PartialEq for DOT11_KEY_ALGO_BIP {
 impl ::std::cmp::Eq for DOT11_KEY_ALGO_BIP {}
 unsafe impl ::windows::runtime::Abi for DOT11_KEY_ALGO_BIP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3589,7 +3507,6 @@ impl ::std::cmp::PartialEq for DOT11_KEY_ALGO_BIP_GMAC_256 {
 impl ::std::cmp::Eq for DOT11_KEY_ALGO_BIP_GMAC_256 {}
 unsafe impl ::windows::runtime::Abi for DOT11_KEY_ALGO_BIP_GMAC_256 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3618,7 +3535,6 @@ impl ::std::cmp::PartialEq for DOT11_KEY_ALGO_CCMP {
 impl ::std::cmp::Eq for DOT11_KEY_ALGO_CCMP {}
 unsafe impl ::windows::runtime::Abi for DOT11_KEY_ALGO_CCMP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3647,7 +3563,6 @@ impl ::std::cmp::PartialEq for DOT11_KEY_ALGO_GCMP {
 impl ::std::cmp::Eq for DOT11_KEY_ALGO_GCMP {}
 unsafe impl ::windows::runtime::Abi for DOT11_KEY_ALGO_GCMP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3676,7 +3591,6 @@ impl ::std::cmp::PartialEq for DOT11_KEY_ALGO_GCMP_256 {
 impl ::std::cmp::Eq for DOT11_KEY_ALGO_GCMP_256 {}
 unsafe impl ::windows::runtime::Abi for DOT11_KEY_ALGO_GCMP_256 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3706,7 +3620,6 @@ impl ::std::cmp::PartialEq for DOT11_KEY_ALGO_TKIP_MIC {
 impl ::std::cmp::Eq for DOT11_KEY_ALGO_TKIP_MIC {}
 unsafe impl ::windows::runtime::Abi for DOT11_KEY_ALGO_TKIP_MIC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3722,7 +3635,6 @@ impl ::std::convert::From<i32> for DOT11_KEY_DIRECTION {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_KEY_DIRECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3750,7 +3662,6 @@ impl ::std::cmp::PartialEq for DOT11_LINK_QUALITY_ENTRY {
 impl ::std::cmp::Eq for DOT11_LINK_QUALITY_ENTRY {}
 unsafe impl ::windows::runtime::Abi for DOT11_LINK_QUALITY_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3786,7 +3697,6 @@ impl ::std::cmp::Eq for DOT11_LINK_QUALITY_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_LINK_QUALITY_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_LINK_QUALITY_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -3825,7 +3735,6 @@ impl ::std::cmp::Eq for DOT11_MAC_ADDRESS_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_MAC_ADDRESS_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_MAC_ADDRESS_LIST_REVISION_1: u32 = 1u32;
@@ -3895,7 +3804,6 @@ impl ::std::cmp::PartialEq for DOT11_MAC_FRAME_STATISTICS {
 impl ::std::cmp::Eq for DOT11_MAC_FRAME_STATISTICS {}
 unsafe impl ::windows::runtime::Abi for DOT11_MAC_FRAME_STATISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3924,7 +3832,6 @@ impl ::std::cmp::PartialEq for DOT11_MAC_INFO {
 impl ::std::cmp::Eq for DOT11_MAC_INFO {}
 unsafe impl ::windows::runtime::Abi for DOT11_MAC_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3959,7 +3866,6 @@ impl ::std::cmp::Eq for DOT11_MAC_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_MAC_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_MAC_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -3998,7 +3904,6 @@ impl ::std::cmp::Eq for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_MANUFACTURING_CALLBACK_REVISION_1: u32 = 1u32;
@@ -4018,7 +3923,6 @@ impl ::std::convert::From<i32> for DOT11_MANUFACTURING_CALLBACK_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_MANUFACTURING_CALLBACK_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4047,7 +3951,6 @@ impl ::std::cmp::PartialEq for DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
 impl ::std::cmp::Eq for DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {}
 unsafe impl ::windows::runtime::Abi for DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4084,7 +3987,6 @@ impl ::std::cmp::Eq for DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4123,7 +4025,6 @@ impl ::std::cmp::Eq for DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4171,7 +4072,6 @@ impl ::std::cmp::Eq for DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4210,7 +4110,6 @@ impl ::std::cmp::PartialEq for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
 impl ::std::cmp::Eq for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {}
 unsafe impl ::windows::runtime::Abi for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4226,7 +4125,6 @@ impl ::std::convert::From<i32> for DOT11_MANUFACTURING_SELF_TEST_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_MANUFACTURING_SELF_TEST_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4255,7 +4153,6 @@ impl ::std::cmp::PartialEq for DOT11_MANUFACTURING_TEST {
 impl ::std::cmp::Eq for DOT11_MANUFACTURING_TEST {}
 unsafe impl ::windows::runtime::Abi for DOT11_MANUFACTURING_TEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4286,7 +4183,6 @@ impl ::std::cmp::PartialEq for DOT11_MANUFACTURING_TEST_QUERY_DATA {
 impl ::std::cmp::Eq for DOT11_MANUFACTURING_TEST_QUERY_DATA {}
 unsafe impl ::windows::runtime::Abi for DOT11_MANUFACTURING_TEST_QUERY_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_MANUFACTURING_TEST_REVISION_1: u32 = 1u32;
@@ -4318,7 +4214,6 @@ impl ::std::cmp::PartialEq for DOT11_MANUFACTURING_TEST_SET_DATA {
 impl ::std::cmp::Eq for DOT11_MANUFACTURING_TEST_SET_DATA {}
 unsafe impl ::windows::runtime::Abi for DOT11_MANUFACTURING_TEST_SET_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4346,7 +4241,6 @@ impl ::std::cmp::PartialEq for DOT11_MANUFACTURING_TEST_SLEEP {
 impl ::std::cmp::Eq for DOT11_MANUFACTURING_TEST_SLEEP {}
 unsafe impl ::windows::runtime::Abi for DOT11_MANUFACTURING_TEST_SLEEP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4371,7 +4265,6 @@ impl ::std::convert::From<i32> for DOT11_MANUFACTURING_TEST_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_MANUFACTURING_TEST_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_MAX_CHANNEL_HINTS: u32 = 4u32;
@@ -4412,7 +4305,6 @@ impl ::std::cmp::PartialEq for DOT11_MD_CAPABILITY_ENTRY_LIST {
 impl ::std::cmp::Eq for DOT11_MD_CAPABILITY_ENTRY_LIST {}
 unsafe impl ::windows::runtime::Abi for DOT11_MD_CAPABILITY_ENTRY_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_MIN_PDU_SIZE: u32 = 256u32;
@@ -4450,7 +4342,6 @@ impl ::std::cmp::Eq for DOT11_MPDU_MAX_LENGTH_INDICATION {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_MPDU_MAX_LENGTH_INDICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_MPDU_MAX_LENGTH_INDICATION_REVISION_1: u32 = 1u32;
@@ -4487,7 +4378,6 @@ impl ::std::cmp::PartialEq for DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
 impl ::std::cmp::Eq for DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {}
 unsafe impl ::windows::runtime::Abi for DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4515,7 +4405,6 @@ impl ::std::cmp::PartialEq for DOT11_NETWORK {
 impl ::std::cmp::Eq for DOT11_NETWORK {}
 unsafe impl ::windows::runtime::Abi for DOT11_NETWORK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4544,7 +4433,6 @@ impl ::std::cmp::PartialEq for DOT11_NETWORK_LIST {
 impl ::std::cmp::Eq for DOT11_NETWORK_LIST {}
 unsafe impl ::windows::runtime::Abi for DOT11_NETWORK_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4573,7 +4461,6 @@ impl ::std::cmp::PartialEq for DOT11_NIC_SPECIFIC_EXTENSION {
 impl ::std::cmp::Eq for DOT11_NIC_SPECIFIC_EXTENSION {}
 unsafe impl ::windows::runtime::Abi for DOT11_NIC_SPECIFIC_EXTENSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_NLO_FLAG_SCAN_AT_SYSTEM_RESUME: u32 = 4u32;
@@ -4606,7 +4493,6 @@ impl ::std::cmp::PartialEq for DOT11_OFDM_PHY_ATTRIBUTES {
 impl ::std::cmp::Eq for DOT11_OFDM_PHY_ATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for DOT11_OFDM_PHY_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4647,7 +4533,6 @@ impl ::std::cmp::PartialEq for DOT11_OFFLOAD_CAPABILITY {
 impl ::std::cmp::Eq for DOT11_OFFLOAD_CAPABILITY {}
 unsafe impl ::windows::runtime::Abi for DOT11_OFFLOAD_CAPABILITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4677,7 +4562,6 @@ impl ::std::cmp::PartialEq for DOT11_OFFLOAD_NETWORK {
 impl ::std::cmp::Eq for DOT11_OFFLOAD_NETWORK {}
 unsafe impl ::windows::runtime::Abi for DOT11_OFFLOAD_NETWORK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4725,7 +4609,6 @@ impl ::std::cmp::Eq for DOT11_OFFLOAD_NETWORK_LIST_INFO {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_OFFLOAD_NETWORK_LIST_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_OFFLOAD_NETWORK_LIST_REVISION_1: u32 = 1u32;
@@ -4762,7 +4645,6 @@ impl ::std::cmp::Eq for DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -4779,7 +4661,6 @@ impl ::std::convert::From<i32> for DOT11_OFFLOAD_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_OFFLOAD_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4807,7 +4688,6 @@ impl ::std::cmp::PartialEq for DOT11_OI {
 impl ::std::cmp::Eq for DOT11_OI {}
 unsafe impl ::windows::runtime::Abi for DOT11_OI {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_OI_MAX_LENGTH: u32 = 5u32;
@@ -4852,7 +4732,6 @@ impl ::std::cmp::PartialEq for DOT11_OPERATION_MODE_CAPABILITY {
 impl ::std::cmp::Eq for DOT11_OPERATION_MODE_CAPABILITY {}
 unsafe impl ::windows::runtime::Abi for DOT11_OPERATION_MODE_CAPABILITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_OPERATION_MODE_EXTENSIBLE_AP: u32 = 8u32;
@@ -4907,7 +4786,6 @@ impl ::std::cmp::Eq for DOT11_OPTIONAL_CAPABILITY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_OPTIONAL_CAPABILITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_PACKET_TYPE_ALL_MULTICAST_CTRL: u32 = 4096u32;
@@ -5009,7 +4887,6 @@ impl ::std::cmp::Eq for DOT11_PEER_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_PEER_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5046,7 +4923,6 @@ impl ::std::cmp::Eq for DOT11_PEER_INFO_LIST {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_PEER_INFO_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_PEER_INFO_LIST_REVISION_1: u32 = 1u32;
@@ -5087,7 +4963,6 @@ impl ::std::cmp::PartialEq for DOT11_PEER_STATISTICS {
 impl ::std::cmp::Eq for DOT11_PEER_STATISTICS {}
 unsafe impl ::windows::runtime::Abi for DOT11_PEER_STATISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5124,7 +4999,6 @@ impl ::std::cmp::PartialEq for DOT11_PER_MSDU_COUNTERS {
 impl ::std::cmp::Eq for DOT11_PER_MSDU_COUNTERS {}
 unsafe impl ::windows::runtime::Abi for DOT11_PER_MSDU_COUNTERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5165,7 +5039,6 @@ impl ::std::cmp::Eq for DOT11_PHY_ATTRIBUTES {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_PHY_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5195,7 +5068,6 @@ impl ::std::cmp::Eq for DOT11_PHY_ATTRIBUTES_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_PHY_ATTRIBUTES_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_PHY_ATTRIBUTES_REVISION_1: u32 = 1u32;
@@ -5277,7 +5149,6 @@ impl ::std::cmp::PartialEq for DOT11_PHY_FRAME_STATISTICS {
 impl ::std::cmp::Eq for DOT11_PHY_FRAME_STATISTICS {}
 unsafe impl ::windows::runtime::Abi for DOT11_PHY_FRAME_STATISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5307,7 +5178,6 @@ impl ::std::cmp::Eq for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5330,7 +5200,6 @@ impl ::std::cmp::PartialEq for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
 impl ::std::cmp::Eq for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {}
 unsafe impl ::windows::runtime::Abi for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -5369,7 +5238,6 @@ impl ::std::cmp::Eq for DOT11_PHY_ID_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_PHY_ID_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_PHY_ID_LIST_REVISION_1: u32 = 1u32;
@@ -5408,7 +5276,6 @@ impl ::std::cmp::Eq for DOT11_PHY_STATE_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_PHY_STATE_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_PHY_STATE_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -5437,7 +5304,6 @@ impl ::std::convert::From<i32> for DOT11_PHY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_PHY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5487,7 +5353,6 @@ impl ::std::cmp::Eq for DOT11_PHY_TYPE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_PHY_TYPE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5524,7 +5389,6 @@ impl ::std::cmp::Eq for DOT11_PHY_TYPE_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_PHY_TYPE_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_PHY_TYPE_LIST_REVISION_1: u32 = 1u32;
@@ -5562,7 +5426,6 @@ impl ::std::cmp::Eq for DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_PMKID_CANDIDATE_LIST_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -5593,7 +5456,6 @@ impl ::std::cmp::PartialEq for DOT11_PMKID_ENTRY {
 impl ::std::cmp::Eq for DOT11_PMKID_ENTRY {}
 unsafe impl ::windows::runtime::Abi for DOT11_PMKID_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5630,7 +5492,6 @@ impl ::std::cmp::Eq for DOT11_PMKID_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_PMKID_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_PMKID_LIST_REVISION_1: u32 = 1u32;
@@ -5668,7 +5529,6 @@ impl ::std::cmp::Eq for DOT11_PORT_STATE_NOTIFICATION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_PORT_STATE_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_PORT_STATE_NOTIFICATION_REVISION_1: u32 = 1u32;
@@ -5705,7 +5565,6 @@ impl ::std::cmp::Eq for DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_POWER_MGMT_AUTO_MODE_ENABLED_REVISION_1: u32 = 1u32;
@@ -5745,7 +5604,6 @@ impl ::std::cmp::Eq for DOT11_POWER_MGMT_MODE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_POWER_MGMT_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5782,7 +5640,6 @@ impl ::std::cmp::Eq for DOT11_POWER_MGMT_MODE_STATUS_INFO {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_POWER_MGMT_MODE_STATUS_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_POWER_MGMT_MODE_STATUS_INFO_REVISION_1: u32 = 1u32;
@@ -5800,7 +5657,6 @@ impl ::std::convert::From<i32> for DOT11_POWER_MODE {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_POWER_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5819,7 +5675,6 @@ impl ::std::convert::From<i32> for DOT11_POWER_MODE_REASON {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_POWER_MODE_REASON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_POWER_SAVE_LEVEL_FAST_PSP: u32 = 2u32;
@@ -5864,7 +5719,6 @@ impl ::std::cmp::PartialEq for DOT11_PRIVACY_EXEMPTION {
 impl ::std::cmp::Eq for DOT11_PRIVACY_EXEMPTION {}
 unsafe impl ::windows::runtime::Abi for DOT11_PRIVACY_EXEMPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5901,7 +5755,6 @@ impl ::std::cmp::Eq for DOT11_PRIVACY_EXEMPTION_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_PRIVACY_EXEMPTION_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_PRIVACY_EXEMPTION_LIST_REVISION_1: u32 = 1u32;
@@ -5951,7 +5804,6 @@ impl ::std::cmp::Eq for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETE
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -5999,7 +5851,6 @@ impl ::std::cmp::Eq for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMET
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -6040,7 +5891,6 @@ impl ::std::cmp::Eq for DOT11_QOS_PARAMS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_QOS_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_QOS_PARAMS_REVISION_1: u32 = 1u32;
@@ -6071,7 +5921,6 @@ impl ::std::cmp::PartialEq for DOT11_QOS_TX_DURATION {
 impl ::std::cmp::Eq for DOT11_QOS_TX_DURATION {}
 unsafe impl ::windows::runtime::Abi for DOT11_QOS_TX_DURATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6100,7 +5949,6 @@ impl ::std::cmp::PartialEq for DOT11_QOS_TX_MEDIUM_TIME {
 impl ::std::cmp::Eq for DOT11_QOS_TX_MEDIUM_TIME {}
 unsafe impl ::windows::runtime::Abi for DOT11_QOS_TX_MEDIUM_TIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6116,7 +5964,6 @@ impl ::std::convert::From<i32> for DOT11_RADIO_STATE {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_RADIO_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6144,7 +5991,6 @@ impl ::std::cmp::PartialEq for DOT11_RATE_SET {
 impl ::std::cmp::Eq for DOT11_RATE_SET {}
 unsafe impl ::windows::runtime::Abi for DOT11_RATE_SET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_RATE_SET_MAX_LENGTH: u32 = 126u32;
@@ -6184,7 +6030,6 @@ impl ::std::cmp::Eq for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -6232,7 +6077,6 @@ impl ::std::cmp::Eq for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -6280,7 +6124,6 @@ impl ::std::cmp::Eq for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -6330,7 +6173,6 @@ impl ::std::cmp::Eq for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -6378,7 +6220,6 @@ impl ::std::cmp::Eq for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -6428,7 +6269,6 @@ impl ::std::cmp::Eq for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -6476,7 +6316,6 @@ impl ::std::cmp::Eq for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -6582,7 +6421,6 @@ impl ::std::cmp::Eq for DOT11_RECV_EXTENSION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_RECV_EXTENSION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6678,7 +6516,6 @@ impl ::std::cmp::Eq for DOT11_RECV_EXTENSION_INFO_V2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_RECV_EXTENSION_INFO_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6707,7 +6544,6 @@ impl ::std::cmp::PartialEq for DOT11_RECV_SENSITIVITY {
 impl ::std::cmp::Eq for DOT11_RECV_SENSITIVITY {}
 unsafe impl ::windows::runtime::Abi for DOT11_RECV_SENSITIVITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6732,7 +6568,6 @@ impl ::std::cmp::PartialEq for DOT11_RECV_SENSITIVITY_LIST {
 impl ::std::cmp::Eq for DOT11_RECV_SENSITIVITY_LIST {}
 unsafe impl ::windows::runtime::Abi for DOT11_RECV_SENSITIVITY_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6755,7 +6590,6 @@ impl ::std::cmp::PartialEq for DOT11_RECV_SENSITIVITY_LIST_0 {
 impl ::std::cmp::Eq for DOT11_RECV_SENSITIVITY_LIST_0 {}
 unsafe impl ::windows::runtime::Abi for DOT11_RECV_SENSITIVITY_LIST_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6784,7 +6618,6 @@ impl ::std::cmp::PartialEq for DOT11_REG_DOMAINS_SUPPORT_VALUE {
 impl ::std::cmp::Eq for DOT11_REG_DOMAINS_SUPPORT_VALUE {}
 unsafe impl ::windows::runtime::Abi for DOT11_REG_DOMAINS_SUPPORT_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_REG_DOMAIN_DOC: u32 = 32u32;
@@ -6826,7 +6659,6 @@ impl ::std::cmp::PartialEq for DOT11_REG_DOMAIN_VALUE {
 impl ::std::cmp::Eq for DOT11_REG_DOMAIN_VALUE {}
 unsafe impl ::windows::runtime::Abi for DOT11_REG_DOMAIN_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6862,7 +6694,6 @@ impl ::std::cmp::Eq for DOT11_RESET_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_RESET_REQUEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6878,7 +6709,6 @@ impl ::std::convert::From<i32> for DOT11_RESET_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_RESET_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6913,7 +6743,6 @@ impl ::std::cmp::Eq for DOT11_ROAMING_COMPLETION_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_ROAMING_COMPLETION_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_ROAMING_COMPLETION_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -6952,7 +6781,6 @@ impl ::std::cmp::Eq for DOT11_ROAMING_START_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_ROAMING_START_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_ROAMING_START_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -6983,7 +6811,6 @@ impl ::std::cmp::PartialEq for DOT11_RSSI_RANGE {
 impl ::std::cmp::Eq for DOT11_RSSI_RANGE {}
 unsafe impl ::windows::runtime::Abi for DOT11_RSSI_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7055,7 +6882,6 @@ impl ::std::cmp::Eq for DOT11_SCAN_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_SCAN_REQUEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7130,7 +6956,6 @@ impl ::std::cmp::Eq for DOT11_SCAN_REQUEST_V2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_SCAN_REQUEST_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7147,7 +6972,6 @@ impl ::std::convert::From<i32> for DOT11_SCAN_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_SCAN_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_SEND_CONTEXT_REVISION_1: u32 = 1u32;
@@ -7205,7 +7029,6 @@ impl ::std::cmp::Eq for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -7261,7 +7084,6 @@ impl ::std::cmp::Eq for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -7338,7 +7160,6 @@ impl ::std::cmp::Eq for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -7415,7 +7236,6 @@ impl ::std::cmp::Eq for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_SEND_INVITATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -7489,7 +7309,6 @@ impl ::std::cmp::Eq for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_SEND_INVITATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -7543,7 +7362,6 @@ impl ::std::cmp::Eq for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -7593,7 +7411,6 @@ impl ::std::cmp::Eq for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -7627,7 +7444,6 @@ impl ::std::cmp::PartialEq for DOT11_SSID {
 impl ::std::cmp::Eq for DOT11_SSID {}
 unsafe impl ::windows::runtime::Abi for DOT11_SSID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7664,7 +7480,6 @@ impl ::std::cmp::Eq for DOT11_SSID_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_SSID_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_SSID_LIST_REVISION_1: u32 = 1u32;
@@ -7698,7 +7513,6 @@ impl ::std::cmp::PartialEq for DOT11_START_REQUEST {
 impl ::std::cmp::Eq for DOT11_START_REQUEST {}
 unsafe impl ::windows::runtime::Abi for DOT11_START_REQUEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7746,7 +7560,6 @@ impl ::std::cmp::Eq for DOT11_STATISTICS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_STATISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_STATISTICS_REVISION_1: u32 = 1u32;
@@ -7792,7 +7605,6 @@ impl ::std::cmp::PartialEq for DOT11_STATUS_INDICATION {
 impl ::std::cmp::Eq for DOT11_STATUS_INDICATION {}
 unsafe impl ::windows::runtime::Abi for DOT11_STATUS_INDICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_STATUS_JOIN_CONFIRM: u32 = 2u32;
@@ -7861,7 +7673,6 @@ impl ::std::cmp::Eq for DOT11_STOP_AP_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_STOP_AP_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_STOP_AP_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -7908,7 +7719,6 @@ impl ::std::cmp::Eq for DOT11_SUPPORTED_ANTENNA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_SUPPORTED_ANTENNA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7944,7 +7754,6 @@ impl ::std::cmp::Eq for DOT11_SUPPORTED_ANTENNA_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_SUPPORTED_ANTENNA_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7972,7 +7781,6 @@ impl ::std::cmp::PartialEq for DOT11_SUPPORTED_DATA_RATES_VALUE {
 impl ::std::cmp::Eq for DOT11_SUPPORTED_DATA_RATES_VALUE {}
 unsafe impl ::windows::runtime::Abi for DOT11_SUPPORTED_DATA_RATES_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8000,7 +7808,6 @@ impl ::std::cmp::PartialEq for DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
 impl ::std::cmp::Eq for DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {}
 unsafe impl ::windows::runtime::Abi for DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8027,7 +7834,6 @@ impl ::std::cmp::PartialEq for DOT11_SUPPORTED_DSSS_CHANNEL {
 impl ::std::cmp::Eq for DOT11_SUPPORTED_DSSS_CHANNEL {}
 unsafe impl ::windows::runtime::Abi for DOT11_SUPPORTED_DSSS_CHANNEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8056,7 +7862,6 @@ impl ::std::cmp::PartialEq for DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
 impl ::std::cmp::Eq for DOT11_SUPPORTED_DSSS_CHANNEL_LIST {}
 unsafe impl ::windows::runtime::Abi for DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8083,7 +7888,6 @@ impl ::std::cmp::PartialEq for DOT11_SUPPORTED_OFDM_FREQUENCY {
 impl ::std::cmp::Eq for DOT11_SUPPORTED_OFDM_FREQUENCY {}
 unsafe impl ::windows::runtime::Abi for DOT11_SUPPORTED_OFDM_FREQUENCY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8112,7 +7916,6 @@ impl ::std::cmp::PartialEq for DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {
 impl ::std::cmp::Eq for DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {}
 unsafe impl ::windows::runtime::Abi for DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8141,7 +7944,6 @@ impl ::std::cmp::PartialEq for DOT11_SUPPORTED_PHY_TYPES {
 impl ::std::cmp::Eq for DOT11_SUPPORTED_PHY_TYPES {}
 unsafe impl ::windows::runtime::Abi for DOT11_SUPPORTED_PHY_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8169,7 +7971,6 @@ impl ::std::cmp::PartialEq for DOT11_SUPPORTED_POWER_LEVELS {
 impl ::std::cmp::Eq for DOT11_SUPPORTED_POWER_LEVELS {}
 unsafe impl ::windows::runtime::Abi for DOT11_SUPPORTED_POWER_LEVELS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8185,7 +7986,6 @@ impl ::std::convert::From<i32> for DOT11_TEMP_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_TEMP_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8222,7 +8022,6 @@ impl ::std::cmp::Eq for DOT11_TKIPMIC_FAILURE_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_TKIPMIC_FAILURE_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_TKIPMIC_FAILURE_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -8253,7 +8052,6 @@ impl ::std::cmp::PartialEq for DOT11_UPDATE_IE {
 impl ::std::cmp::Eq for DOT11_UPDATE_IE {}
 unsafe impl ::windows::runtime::Abi for DOT11_UPDATE_IE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8268,7 +8066,6 @@ impl ::std::convert::From<i32> for DOT11_UPDATE_IE_OP {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_UPDATE_IE_OP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8296,7 +8093,6 @@ impl ::std::cmp::PartialEq for DOT11_VENUEINFO {
 impl ::std::cmp::Eq for DOT11_VENUEINFO {}
 unsafe impl ::windows::runtime::Abi for DOT11_VENUEINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8332,7 +8128,6 @@ impl ::std::cmp::Eq for DOT11_VWIFI_ATTRIBUTES {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_VWIFI_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_VWIFI_ATTRIBUTES_REVISION_1: u32 = 1u32;
@@ -8371,7 +8166,6 @@ impl ::std::cmp::Eq for DOT11_VWIFI_COMBINATION {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_VWIFI_COMBINATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_VWIFI_COMBINATION_REVISION_1: u32 = 1u32;
@@ -8415,7 +8209,6 @@ impl ::std::cmp::Eq for DOT11_VWIFI_COMBINATION_V2 {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_VWIFI_COMBINATION_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8461,7 +8254,6 @@ impl ::std::cmp::Eq for DOT11_VWIFI_COMBINATION_V3 {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_VWIFI_COMBINATION_V3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8539,7 +8331,6 @@ impl ::std::cmp::Eq for DOT11_WEP_OFFLOAD {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_WEP_OFFLOAD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8585,7 +8376,6 @@ impl ::std::cmp::Eq for DOT11_WEP_UPLOAD {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_WEP_UPLOAD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8633,7 +8423,6 @@ impl ::std::cmp::Eq for DOT11_WFD_ADDITIONAL_IE {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_ADDITIONAL_IE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_WFD_ADDITIONAL_IE_REVISION_1: u32 = 1u32;
@@ -8665,7 +8454,6 @@ impl ::std::cmp::PartialEq for DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
 impl ::std::cmp::Eq for DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8693,7 +8481,6 @@ impl ::std::cmp::PartialEq for DOT11_WFD_ADVERTISED_SERVICE_LIST {
 impl ::std::cmp::Eq for DOT11_WFD_ADVERTISED_SERVICE_LIST {}
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_ADVERTISED_SERVICE_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8721,7 +8508,6 @@ impl ::std::cmp::PartialEq for DOT11_WFD_ADVERTISEMENT_ID {
 impl ::std::cmp::Eq for DOT11_WFD_ADVERTISEMENT_ID {}
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_ADVERTISEMENT_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_WFD_APS2_SERVICE_TYPE_MAX_LENGTH: u32 = 21u32;
@@ -8803,7 +8589,6 @@ impl ::std::cmp::Eq for DOT11_WFD_ATTRIBUTES {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_WFD_ATTRIBUTES_REVISION_1: u32 = 1u32;
@@ -8834,7 +8619,6 @@ impl ::std::cmp::PartialEq for DOT11_WFD_CHANNEL {
 impl ::std::cmp::Eq for DOT11_WFD_CHANNEL {}
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_CHANNEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8862,7 +8646,6 @@ impl ::std::cmp::PartialEq for DOT11_WFD_CONFIGURATION_TIMEOUT {
 impl ::std::cmp::Eq for DOT11_WFD_CONFIGURATION_TIMEOUT {}
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_CONFIGURATION_TIMEOUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_WFD_DEVICE_AUTO_AVAILABILITY: u32 = 16u32;
@@ -8923,7 +8706,6 @@ impl ::std::cmp::Eq for DOT11_WFD_DEVICE_CAPABILITY_CONFIG {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_WFD_DEVICE_CAPABILITY_CONFIG_REVISION_1: u32 = 1u32;
@@ -8976,7 +8758,6 @@ impl ::std::cmp::PartialEq for DOT11_WFD_DEVICE_ENTRY {
 impl ::std::cmp::Eq for DOT11_WFD_DEVICE_ENTRY {}
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_DEVICE_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_WFD_DEVICE_HIGH_AVAILABILITY: u32 = 24u32;
@@ -9016,7 +8797,6 @@ impl ::std::cmp::Eq for DOT11_WFD_DEVICE_INFO {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_DEVICE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_WFD_DEVICE_INFO_REVISION_1: u32 = 1u32;
@@ -9053,7 +8833,6 @@ impl ::std::cmp::Eq for DOT11_WFD_DEVICE_LISTEN_CHANNEL {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_DEVICE_LISTEN_CHANNEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_WFD_DEVICE_LISTEN_CHANNEL_REVISION_1: u32 = 1u32;
@@ -9086,7 +8865,6 @@ impl ::std::cmp::PartialEq for DOT11_WFD_DEVICE_TYPE {
 impl ::std::cmp::Eq for DOT11_WFD_DEVICE_TYPE {}
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_DEVICE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_WFD_DISCOVER_COMPLETE_MAX_LIST_SIZE: u32 = 128u32;
@@ -9134,7 +8912,6 @@ impl ::std::cmp::Eq for DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -9165,7 +8942,6 @@ impl ::std::cmp::PartialEq for DOT11_WFD_DISCOVER_DEVICE_FILTER {
 impl ::std::cmp::Eq for DOT11_WFD_DISCOVER_DEVICE_FILTER {}
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_DISCOVER_DEVICE_FILTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9217,7 +8993,6 @@ impl ::std::cmp::Eq for DOT11_WFD_DISCOVER_REQUEST {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_DISCOVER_REQUEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_WFD_DISCOVER_REQUEST_REVISION_1: u32 = 1u32;
@@ -9237,7 +9012,6 @@ impl ::std::convert::From<i32> for DOT11_WFD_DISCOVER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_DISCOVER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9264,7 +9038,6 @@ impl ::std::cmp::PartialEq for DOT11_WFD_GO_INTENT {
 impl ::std::cmp::Eq for DOT11_WFD_GO_INTENT {}
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_GO_INTENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_WFD_GROUP_CAPABILITY_CROSS_CONNECTION_SUPPORTED: u32 = 16u32;
@@ -9312,7 +9085,6 @@ impl ::std::cmp::PartialEq for DOT11_WFD_GROUP_ID {
 impl ::std::cmp::Eq for DOT11_WFD_GROUP_ID {}
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_GROUP_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9350,7 +9122,6 @@ impl ::std::cmp::Eq for DOT11_WFD_GROUP_JOIN_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_GROUP_JOIN_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_WFD_GROUP_JOIN_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -9400,7 +9171,6 @@ impl ::std::cmp::Eq for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_1: u32 = 1u32;
@@ -9461,7 +9231,6 @@ impl ::std::cmp::Eq for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9496,7 +9265,6 @@ impl ::std::cmp::Eq for DOT11_WFD_GROUP_START_PARAMETERS {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_GROUP_START_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_WFD_GROUP_START_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -9525,7 +9293,6 @@ impl ::std::cmp::PartialEq for DOT11_WFD_INVITATION_FLAGS {
 impl ::std::cmp::Eq for DOT11_WFD_INVITATION_FLAGS {}
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_INVITATION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_WFD_MINOR_REASON_DISASSOCIATED_FROM_WLAN_CROSS_CONNECTION_POLICY: u32 = 1u32;
@@ -9551,7 +9318,6 @@ impl ::std::convert::From<i32> for DOT11_WFD_SCAN_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_SCAN_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9588,7 +9354,6 @@ impl ::std::cmp::Eq for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {}
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST_REVISION_1: u32 = 1u32;
@@ -9618,7 +9383,6 @@ impl ::std::cmp::PartialEq for DOT11_WFD_SERVICE_HASH_LIST {
 impl ::std::cmp::Eq for DOT11_WFD_SERVICE_HASH_LIST {}
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_SERVICE_HASH_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_WFD_SERVICE_INFORMATION_MAX_LENGTH: u32 = 65535u32;
@@ -9650,7 +9414,6 @@ impl ::std::cmp::PartialEq for DOT11_WFD_SESSION_ID {
 impl ::std::cmp::Eq for DOT11_WFD_SESSION_ID {}
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_SESSION_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9678,7 +9441,6 @@ impl ::std::cmp::PartialEq for DOT11_WFD_SESSION_INFO {
 impl ::std::cmp::Eq for DOT11_WFD_SESSION_INFO {}
 unsafe impl ::windows::runtime::Abi for DOT11_WFD_SESSION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_WFD_SESSION_INFO_MAX_LENGTH: u32 = 144u32;
@@ -9737,7 +9499,6 @@ impl ::std::cmp::PartialEq for DOT11_WME_AC_PARAMETERS {
 impl ::std::cmp::Eq for DOT11_WME_AC_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for DOT11_WME_AC_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_WME_PACKET: u32 = 256u32;
@@ -9778,7 +9539,6 @@ impl ::std::cmp::PartialEq for DOT11_WME_UPDATE_IE {
 impl ::std::cmp::Eq for DOT11_WME_UPDATE_IE {}
 unsafe impl ::windows::runtime::Abi for DOT11_WME_UPDATE_IE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9815,7 +9575,6 @@ impl ::std::cmp::Eq for DOT11_WPA_TSC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DOT11_WPA_TSC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9835,7 +9594,6 @@ impl ::std::convert::From<i32> for DOT11_WPS_CONFIG_METHOD {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_WPS_CONFIG_METHOD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9863,7 +9621,6 @@ impl ::std::cmp::PartialEq for DOT11_WPS_DEVICE_NAME {
 impl ::std::cmp::Eq for DOT11_WPS_DEVICE_NAME {}
 unsafe impl ::windows::runtime::Abi for DOT11_WPS_DEVICE_NAME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_WPS_DEVICE_NAME_MAX_LENGTH: u32 = 32u32;
@@ -9888,7 +9645,6 @@ impl ::std::convert::From<i32> for DOT11_WPS_DEVICE_PASSWORD_ID {
 }
 unsafe impl ::windows::runtime::Abi for DOT11_WPS_DEVICE_PASSWORD_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const DOT11_WPS_MAX_MODEL_NAME_LENGTH: u32 = 32u32;
@@ -10555,7 +10311,6 @@ impl ::std::cmp::PartialEq for L2_NOTIFICATION_DATA {
 impl ::std::cmp::Eq for L2_NOTIFICATION_DATA {}
 unsafe impl ::windows::runtime::Abi for L2_NOTIFICATION_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const L2_NOTIFICATION_SOURCE_ALL: u32 = 65535u32;
@@ -10882,7 +10637,6 @@ impl ::std::convert::From<i32> for ONEX_AUTH_IDENTITY {
 }
 unsafe impl ::windows::runtime::Abi for ONEX_AUTH_IDENTITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10938,7 +10692,6 @@ impl ::std::cmp::Eq for ONEX_AUTH_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ONEX_AUTH_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10960,7 +10713,6 @@ impl ::std::convert::From<i32> for ONEX_AUTH_RESTART_REASON {
 }
 unsafe impl ::windows::runtime::Abi for ONEX_AUTH_RESTART_REASON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10979,7 +10731,6 @@ impl ::std::convert::From<i32> for ONEX_AUTH_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for ONEX_AUTH_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11031,7 +10782,6 @@ impl ::std::cmp::Eq for ONEX_EAP_ERROR {}
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 unsafe impl ::windows::runtime::Abi for ONEX_EAP_ERROR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11047,7 +10797,6 @@ impl ::std::convert::From<i32> for ONEX_EAP_METHOD_BACKEND_SUPPORT {
 }
 unsafe impl ::windows::runtime::Abi for ONEX_EAP_METHOD_BACKEND_SUPPORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11065,7 +10814,6 @@ impl ::std::convert::From<i32> for ONEX_NOTIFICATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for ONEX_NOTIFICATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11100,7 +10848,6 @@ impl ::std::convert::From<i32> for ONEX_REASON_CODE {
 }
 unsafe impl ::windows::runtime::Abi for ONEX_REASON_CODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11139,7 +10886,6 @@ impl ::std::cmp::Eq for ONEX_RESULT_UPDATE_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ONEX_RESULT_UPDATE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11168,7 +10914,6 @@ impl ::std::cmp::PartialEq for ONEX_STATUS {
 impl ::std::cmp::Eq for ONEX_STATUS {}
 unsafe impl ::windows::runtime::Abi for ONEX_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11198,7 +10943,6 @@ impl ::std::cmp::PartialEq for ONEX_USER_INFO {
 impl ::std::cmp::Eq for ONEX_USER_INFO {}
 unsafe impl ::windows::runtime::Abi for ONEX_USER_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11226,7 +10970,6 @@ impl ::std::cmp::PartialEq for ONEX_VARIABLE_BLOB {
 impl ::std::cmp::Eq for ONEX_VARIABLE_BLOB {}
 unsafe impl ::windows::runtime::Abi for ONEX_VARIABLE_BLOB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
@@ -11337,7 +11080,6 @@ impl ::std::cmp::Eq for WFDSVC_CONNECTION_CAPABILITY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WFDSVC_CONNECTION_CAPABILITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const WFDSVC_CONNECTION_CAPABILITY_CLIENT: u32 = 2u32;
@@ -11404,7 +11146,6 @@ impl ::std::cmp::PartialEq for WFD_GROUP_ID {
 impl ::std::cmp::Eq for WFD_GROUP_ID {}
 unsafe impl ::windows::runtime::Abi for WFD_GROUP_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type WFD_OPEN_SESSION_COMPLETE_CALLBACK = unsafe extern "system" fn(hsessionhandle: super::super::Foundation::HANDLE, pvcontext: *const ::std::ffi::c_void, guidsessioninterface: ::windows::runtime::GUID, dwerror: u32, dwreasoncode: u32);
@@ -11424,7 +11165,6 @@ impl ::std::convert::From<i32> for WFD_ROLE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WFD_ROLE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11439,7 +11179,6 @@ impl ::std::convert::From<i32> for WLAN_ADHOC_NETWORK_STATE {
 }
 unsafe impl ::windows::runtime::Abi for WLAN_ADHOC_NETWORK_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const WLAN_API_VERSION: u32 = 2u32;
@@ -11488,7 +11227,6 @@ impl ::std::cmp::PartialEq for WLAN_ASSOCIATION_ATTRIBUTES {
 impl ::std::cmp::Eq for WLAN_ASSOCIATION_ATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for WLAN_ASSOCIATION_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11516,7 +11254,6 @@ impl ::std::cmp::PartialEq for WLAN_AUTH_CIPHER_PAIR_LIST {
 impl ::std::cmp::Eq for WLAN_AUTH_CIPHER_PAIR_LIST {}
 unsafe impl ::windows::runtime::Abi for WLAN_AUTH_CIPHER_PAIR_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11537,7 +11274,6 @@ impl ::std::convert::From<i32> for WLAN_AUTOCONF_OPCODE {
 }
 unsafe impl ::windows::runtime::Abi for WLAN_AUTOCONF_OPCODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11615,7 +11351,6 @@ impl ::std::cmp::Eq for WLAN_AVAILABLE_NETWORK {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WLAN_AVAILABLE_NETWORK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const WLAN_AVAILABLE_NETWORK_ANQP_SUPPORTED: u32 = 32u32;
@@ -11673,7 +11408,6 @@ impl ::std::cmp::Eq for WLAN_AVAILABLE_NETWORK_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WLAN_AVAILABLE_NETWORK_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11709,7 +11443,6 @@ impl ::std::cmp::Eq for WLAN_AVAILABLE_NETWORK_LIST_V2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WLAN_AVAILABLE_NETWORK_LIST_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11796,7 +11529,6 @@ impl ::std::cmp::Eq for WLAN_AVAILABLE_NETWORK_V2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WLAN_AVAILABLE_NETWORK_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11877,7 +11609,6 @@ impl ::std::cmp::Eq for WLAN_BSS_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WLAN_BSS_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11913,7 +11644,6 @@ impl ::std::cmp::Eq for WLAN_BSS_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WLAN_BSS_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const WLAN_CONNECTION_ADHOC_JOIN_ONLY: u32 = 2u32;
@@ -11959,7 +11689,6 @@ impl ::std::cmp::Eq for WLAN_CONNECTION_ATTRIBUTES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WLAN_CONNECTION_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const WLAN_CONNECTION_EAPOL_PASSTHROUGH: u32 = 8u32;
@@ -11984,7 +11713,6 @@ impl ::std::convert::From<i32> for WLAN_CONNECTION_MODE {
 }
 unsafe impl ::windows::runtime::Abi for WLAN_CONNECTION_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12034,7 +11762,6 @@ impl ::std::cmp::Eq for WLAN_CONNECTION_NOTIFICATION_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WLAN_CONNECTION_NOTIFICATION_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12049,7 +11776,6 @@ impl ::std::convert::From<u32> for WLAN_CONNECTION_NOTIFICATION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for WLAN_CONNECTION_NOTIFICATION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WLAN_CONNECTION_NOTIFICATION_FLAGS {
     type Output = Self;
@@ -12123,7 +11849,6 @@ impl ::std::cmp::Eq for WLAN_CONNECTION_PARAMETERS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for WLAN_CONNECTION_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12173,7 +11898,6 @@ impl ::std::cmp::Eq for WLAN_CONNECTION_PARAMETERS_V2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for WLAN_CONNECTION_PARAMETERS_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const WLAN_CONNECTION_PERSIST_DISCOVERY_PROFILE: u32 = 16u32;
@@ -12207,7 +11931,6 @@ impl ::std::cmp::PartialEq for WLAN_COUNTRY_OR_REGION_STRING_LIST {
 impl ::std::cmp::Eq for WLAN_COUNTRY_OR_REGION_STRING_LIST {}
 unsafe impl ::windows::runtime::Abi for WLAN_COUNTRY_OR_REGION_STRING_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12236,7 +11959,6 @@ impl ::std::cmp::PartialEq for WLAN_DEVICE_SERVICE_GUID_LIST {
 impl ::std::cmp::Eq for WLAN_DEVICE_SERVICE_GUID_LIST {}
 unsafe impl ::windows::runtime::Abi for WLAN_DEVICE_SERVICE_GUID_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12266,7 +11988,6 @@ impl ::std::cmp::PartialEq for WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
 impl ::std::cmp::Eq for WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {}
 unsafe impl ::windows::runtime::Abi for WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12283,7 +12004,6 @@ impl ::std::convert::From<i32> for WLAN_FILTER_LIST_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WLAN_FILTER_LIST_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12311,7 +12031,6 @@ impl ::std::cmp::PartialEq for WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
 impl ::std::cmp::Eq for WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {}
 unsafe impl ::windows::runtime::Abi for WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12340,7 +12059,6 @@ impl ::std::cmp::PartialEq for WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
 impl ::std::cmp::Eq for WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {}
 unsafe impl ::windows::runtime::Abi for WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12356,7 +12074,6 @@ impl ::std::convert::From<i32> for WLAN_HOSTED_NETWORK_NOTIFICATION_CODE {
 }
 unsafe impl ::windows::runtime::Abi for WLAN_HOSTED_NETWORK_NOTIFICATION_CODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12373,7 +12090,6 @@ impl ::std::convert::From<i32> for WLAN_HOSTED_NETWORK_OPCODE {
 }
 unsafe impl ::windows::runtime::Abi for WLAN_HOSTED_NETWORK_OPCODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12388,7 +12104,6 @@ impl ::std::convert::From<i32> for WLAN_HOSTED_NETWORK_PEER_AUTH_STATE {
 }
 unsafe impl ::windows::runtime::Abi for WLAN_HOSTED_NETWORK_PEER_AUTH_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12416,7 +12131,6 @@ impl ::std::cmp::PartialEq for WLAN_HOSTED_NETWORK_PEER_STATE {
 impl ::std::cmp::Eq for WLAN_HOSTED_NETWORK_PEER_STATE {}
 unsafe impl ::windows::runtime::Abi for WLAN_HOSTED_NETWORK_PEER_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12444,7 +12158,6 @@ impl ::std::cmp::PartialEq for WLAN_HOSTED_NETWORK_RADIO_STATE {
 impl ::std::cmp::Eq for WLAN_HOSTED_NETWORK_RADIO_STATE {}
 unsafe impl ::windows::runtime::Abi for WLAN_HOSTED_NETWORK_RADIO_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12486,7 +12199,6 @@ impl ::std::convert::From<i32> for WLAN_HOSTED_NETWORK_REASON {
 }
 unsafe impl ::windows::runtime::Abi for WLAN_HOSTED_NETWORK_REASON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12514,7 +12226,6 @@ impl ::std::cmp::PartialEq for WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
 impl ::std::cmp::Eq for WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {}
 unsafe impl ::windows::runtime::Abi for WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12530,7 +12241,6 @@ impl ::std::convert::From<i32> for WLAN_HOSTED_NETWORK_STATE {
 }
 unsafe impl ::windows::runtime::Abi for WLAN_HOSTED_NETWORK_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12559,7 +12269,6 @@ impl ::std::cmp::PartialEq for WLAN_HOSTED_NETWORK_STATE_CHANGE {
 impl ::std::cmp::Eq for WLAN_HOSTED_NETWORK_STATE_CHANGE {}
 unsafe impl ::windows::runtime::Abi for WLAN_HOSTED_NETWORK_STATE_CHANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12600,7 +12309,6 @@ impl ::std::cmp::PartialEq for WLAN_HOSTED_NETWORK_STATUS {
 impl ::std::cmp::Eq for WLAN_HOSTED_NETWORK_STATUS {}
 unsafe impl ::windows::runtime::Abi for WLAN_HOSTED_NETWORK_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12615,7 +12323,6 @@ impl ::std::convert::From<i32> for WLAN_IHV_CONTROL_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WLAN_IHV_CONTROL_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12661,7 +12368,6 @@ impl ::std::cmp::Eq for WLAN_INTERFACE_CAPABILITY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WLAN_INTERFACE_CAPABILITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12690,7 +12396,6 @@ impl ::std::cmp::PartialEq for WLAN_INTERFACE_INFO {
 impl ::std::cmp::Eq for WLAN_INTERFACE_INFO {}
 unsafe impl ::windows::runtime::Abi for WLAN_INTERFACE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12719,7 +12424,6 @@ impl ::std::cmp::PartialEq for WLAN_INTERFACE_INFO_LIST {
 impl ::std::cmp::Eq for WLAN_INTERFACE_INFO_LIST {}
 unsafe impl ::windows::runtime::Abi for WLAN_INTERFACE_INFO_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12740,7 +12444,6 @@ impl ::std::convert::From<i32> for WLAN_INTERFACE_STATE {
 }
 unsafe impl ::windows::runtime::Abi for WLAN_INTERFACE_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12756,7 +12459,6 @@ impl ::std::convert::From<i32> for WLAN_INTERFACE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WLAN_INTERFACE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12797,7 +12499,6 @@ impl ::std::convert::From<i32> for WLAN_INTF_OPCODE {
 }
 unsafe impl ::windows::runtime::Abi for WLAN_INTF_OPCODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12859,7 +12560,6 @@ impl ::std::cmp::PartialEq for WLAN_MAC_FRAME_STATISTICS {
 impl ::std::cmp::Eq for WLAN_MAC_FRAME_STATISTICS {}
 unsafe impl ::windows::runtime::Abi for WLAN_MAC_FRAME_STATISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const WLAN_MAX_NAME_LENGTH: u32 = 256u32;
@@ -12917,7 +12617,6 @@ impl ::std::cmp::Eq for WLAN_MSM_NOTIFICATION_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WLAN_MSM_NOTIFICATION_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12959,7 +12658,6 @@ impl ::std::convert::From<i32> for WLAN_NOTIFICATION_ACM {
 }
 unsafe impl ::windows::runtime::Abi for WLAN_NOTIFICATION_ACM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type WLAN_NOTIFICATION_CALLBACK = unsafe extern "system" fn(param0: *mut L2_NOTIFICATION_DATA, param1: *mut ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -12991,7 +12689,6 @@ impl ::std::convert::From<i32> for WLAN_NOTIFICATION_MSM {
 }
 unsafe impl ::windows::runtime::Abi for WLAN_NOTIFICATION_MSM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13006,7 +12703,6 @@ impl ::std::convert::From<i32> for WLAN_NOTIFICATION_SECURITY {
 }
 unsafe impl ::windows::runtime::Abi for WLAN_NOTIFICATION_SECURITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const WLAN_NOTIFICATION_SOURCE_ACM: u32 = 8u32;
@@ -13041,7 +12737,6 @@ impl ::std::convert::From<i32> for WLAN_OPCODE_VALUE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WLAN_OPCODE_VALUE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13059,7 +12754,6 @@ impl ::std::convert::From<i32> for WLAN_OPERATIONAL_STATE {
 }
 unsafe impl ::windows::runtime::Abi for WLAN_OPERATIONAL_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13139,7 +12833,6 @@ impl ::std::cmp::PartialEq for WLAN_PHY_FRAME_STATISTICS {
 impl ::std::cmp::Eq for WLAN_PHY_FRAME_STATISTICS {}
 unsafe impl ::windows::runtime::Abi for WLAN_PHY_FRAME_STATISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13168,7 +12861,6 @@ impl ::std::cmp::PartialEq for WLAN_PHY_RADIO_STATE {
 impl ::std::cmp::Eq for WLAN_PHY_RADIO_STATE {}
 unsafe impl ::windows::runtime::Abi for WLAN_PHY_RADIO_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13186,7 +12878,6 @@ impl ::std::convert::From<i32> for WLAN_POWER_SETTING {
 }
 unsafe impl ::windows::runtime::Abi for WLAN_POWER_SETTING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const WLAN_PROFILE_CONNECTION_MODE_AUTO: u32 = 131072u32;
@@ -13222,7 +12913,6 @@ impl ::std::cmp::PartialEq for WLAN_PROFILE_INFO {
 impl ::std::cmp::Eq for WLAN_PROFILE_INFO {}
 unsafe impl ::windows::runtime::Abi for WLAN_PROFILE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13251,7 +12941,6 @@ impl ::std::cmp::PartialEq for WLAN_PROFILE_INFO_LIST {
 impl ::std::cmp::Eq for WLAN_PROFILE_INFO_LIST {}
 unsafe impl ::windows::runtime::Abi for WLAN_PROFILE_INFO_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const WLAN_PROFILE_USER: u32 = 2u32;
@@ -13281,7 +12970,6 @@ impl ::std::cmp::PartialEq for WLAN_RADIO_STATE {
 impl ::std::cmp::Eq for WLAN_RADIO_STATE {}
 unsafe impl ::windows::runtime::Abi for WLAN_RADIO_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13309,7 +12997,6 @@ impl ::std::cmp::PartialEq for WLAN_RATE_SET {
 impl ::std::cmp::Eq for WLAN_RATE_SET {}
 unsafe impl ::windows::runtime::Abi for WLAN_RATE_SET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13337,7 +13024,6 @@ impl ::std::cmp::PartialEq for WLAN_RAW_DATA {
 impl ::std::cmp::Eq for WLAN_RAW_DATA {}
 unsafe impl ::windows::runtime::Abi for WLAN_RAW_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13366,7 +13052,6 @@ impl ::std::cmp::PartialEq for WLAN_RAW_DATA_LIST {
 impl ::std::cmp::Eq for WLAN_RAW_DATA_LIST {}
 unsafe impl ::windows::runtime::Abi for WLAN_RAW_DATA_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13394,7 +13079,6 @@ impl ::std::cmp::PartialEq for WLAN_RAW_DATA_LIST_0 {
 impl ::std::cmp::Eq for WLAN_RAW_DATA_LIST_0 {}
 unsafe impl ::windows::runtime::Abi for WLAN_RAW_DATA_LIST_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const WLAN_REASON_CODE_AC_BASE: u32 = 131072u32;
@@ -13735,7 +13419,6 @@ impl ::std::convert::From<i32> for WLAN_SECURABLE_OBJECT {
 }
 unsafe impl ::windows::runtime::Abi for WLAN_SECURABLE_OBJECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13772,7 +13455,6 @@ impl ::std::cmp::Eq for WLAN_SECURITY_ATTRIBUTES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WLAN_SECURITY_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13786,7 +13468,6 @@ impl ::std::convert::From<u32> for WLAN_SET_EAPHOST_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for WLAN_SET_EAPHOST_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WLAN_SET_EAPHOST_FLAGS {
     type Output = Self;
@@ -13855,7 +13536,6 @@ impl ::std::cmp::PartialEq for WLAN_STATISTICS {
 impl ::std::cmp::Eq for WLAN_STATISTICS {}
 unsafe impl ::windows::runtime::Abi for WLAN_STATISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub const WLAN_UI_API_INITIAL_VERSION: u32 = 1u32;
@@ -13875,7 +13555,6 @@ impl ::std::convert::From<i32> for WL_DISPLAY_PAGES {
 }
 unsafe impl ::windows::runtime::Abi for WL_DISPLAY_PAGES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[inline]
@@ -14775,5 +14454,4 @@ impl ::std::cmp::PartialEq for _DOT11_WME_AC_PARAMTERS_LIST {
 impl ::std::cmp::Eq for _DOT11_WME_AC_PARAMTERS_LIST {}
 unsafe impl ::windows::runtime::Abi for _DOT11_WME_AC_PARAMTERS_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }

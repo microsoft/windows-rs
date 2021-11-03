@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataAvailabilityStateChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAvailabilityStateChangedEventArgs {
@@ -20,7 +19,6 @@ pub struct IUserDataAvailabilityStateChangedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataBufferUnprotectResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataBufferUnprotectResult {
@@ -41,7 +39,6 @@ pub struct IUserDataBufferUnprotectResult_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataProtectionManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataProtectionManager {
@@ -72,7 +69,6 @@ pub struct IUserDataProtectionManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataProtectionManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataProtectionManagerStatics {
@@ -93,7 +89,6 @@ pub struct IUserDataProtectionManagerStatics_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataStorageItemProtectionInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataStorageItemProtectionInfo {
@@ -127,10 +122,12 @@ impl ::std::convert::From<i32> for UserDataAvailability {
 }
 unsafe impl ::windows::runtime::Abi for UserDataAvailability {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserDataAvailability {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataAvailability;i4)");
+}
+impl ::windows::runtime::DefaultType for UserDataAvailability {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_DataProtection`*"]
 #[repr(transparent)]
@@ -209,10 +206,12 @@ impl ::std::convert::From<i32> for UserDataBufferUnprotectStatus {
 }
 unsafe impl ::windows::runtime::Abi for UserDataBufferUnprotectStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserDataBufferUnprotectStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataBufferUnprotectStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for UserDataBufferUnprotectStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_DataProtection`*"]
 #[repr(transparent)]
@@ -352,8 +351,10 @@ impl ::std::convert::From<i32> for UserDataStorageItemProtectionStatus {
 }
 unsafe impl ::windows::runtime::Abi for UserDataStorageItemProtectionStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserDataStorageItemProtectionStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataStorageItemProtectionStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for UserDataStorageItemProtectionStatus {
+    type DefaultType = Self;
 }

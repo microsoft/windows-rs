@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IOcrEngine(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOcrEngine {
@@ -22,7 +21,6 @@ pub struct IOcrEngine_abi(
     #[cfg(not(feature = "Globalization"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IOcrEngineStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOcrEngineStatics {
@@ -48,7 +46,6 @@ pub struct IOcrEngineStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IOcrLine(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOcrLine {
@@ -69,7 +66,6 @@ pub struct IOcrLine_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IOcrResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOcrResult {
@@ -92,7 +88,6 @@ pub struct IOcrResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IOcrWord(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOcrWord {

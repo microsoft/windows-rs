@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkAnalysisInkBullet(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisInkBullet {
@@ -19,7 +18,6 @@ pub struct IInkAnalysisInkBullet_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkAnalysisInkDrawing(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisInkDrawing {
@@ -42,7 +40,6 @@ pub struct IInkAnalysisInkDrawing_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkAnalysisInkWord(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisInkWord {
@@ -63,7 +60,6 @@ pub struct IInkAnalysisInkWord_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkAnalysisLine(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisLine {
@@ -83,7 +79,6 @@ pub struct IInkAnalysisLine_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkAnalysisListItem(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisListItem {
@@ -196,7 +191,6 @@ pub struct IInkAnalysisNode_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkAnalysisParagraph(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisParagraph {
@@ -215,7 +209,6 @@ pub struct IInkAnalysisParagraph_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkAnalysisResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisResult {
@@ -234,7 +227,6 @@ pub struct IInkAnalysisResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut InkAnalysisStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkAnalysisRoot(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisRoot {
@@ -255,7 +247,6 @@ pub struct IInkAnalysisRoot_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkAnalysisWritingRegion(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalysisWritingRegion {
@@ -274,7 +265,6 @@ pub struct IInkAnalysisWritingRegion_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInkAnalyzer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInkAnalyzer {
@@ -364,10 +354,12 @@ impl ::std::convert::From<i32> for InkAnalysisDrawingKind {
 }
 unsafe impl ::windows::runtime::Abi for InkAnalysisDrawingKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for InkAnalysisDrawingKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Analysis.InkAnalysisDrawingKind;i4)");
+}
+impl ::windows::runtime::DefaultType for InkAnalysisDrawingKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 #[repr(transparent)]
@@ -1064,10 +1056,12 @@ impl ::std::convert::From<i32> for InkAnalysisNodeKind {
 }
 unsafe impl ::windows::runtime::Abi for InkAnalysisNodeKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for InkAnalysisNodeKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Analysis.InkAnalysisNodeKind;i4)");
+}
+impl ::windows::runtime::DefaultType for InkAnalysisNodeKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 #[repr(transparent)]
@@ -1335,10 +1329,12 @@ impl ::std::convert::From<i32> for InkAnalysisStatus {
 }
 unsafe impl ::windows::runtime::Abi for InkAnalysisStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for InkAnalysisStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Analysis.InkAnalysisStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for InkAnalysisStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1356,10 +1352,12 @@ impl ::std::convert::From<i32> for InkAnalysisStrokeKind {
 }
 unsafe impl ::windows::runtime::Abi for InkAnalysisStrokeKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for InkAnalysisStrokeKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Analysis.InkAnalysisStrokeKind;i4)");
+}
+impl ::windows::runtime::DefaultType for InkAnalysisStrokeKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Input_Inking_Analysis`*"]
 #[repr(transparent)]

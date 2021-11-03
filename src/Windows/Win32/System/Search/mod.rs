@@ -27,7 +27,6 @@ impl ::std::convert::From<i32> for ACCESS_MASKENUM {
 }
 unsafe impl ::windows::runtime::Abi for ACCESS_MASKENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -64,7 +63,6 @@ impl ::std::cmp::Eq for AUTHENTICATION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUTHENTICATION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -80,7 +78,6 @@ impl ::std::convert::From<i32> for AUTH_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for AUTH_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const BCP6xFILEFMT: u32 = 9u32;
@@ -168,7 +165,6 @@ impl ::std::cmp::PartialEq for BUCKETCATEGORIZE {
 impl ::std::cmp::Eq for BUCKETCATEGORIZE {}
 unsafe impl ::windows::runtime::Abi for BUCKETCATEGORIZE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const BUCKET_EXPONENTIAL: u32 = 1u32;
@@ -187,7 +183,6 @@ impl ::std::convert::From<i32> for CASE_REQUIREMENT {
 }
 unsafe impl ::windows::runtime::Abi for CASE_REQUIREMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -217,7 +212,6 @@ impl ::std::cmp::Eq for CATEGORIZATION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for CATEGORIZATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -247,7 +241,6 @@ impl ::std::cmp::Eq for CATEGORIZATION_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for CATEGORIZATION_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -282,7 +275,6 @@ impl ::std::cmp::Eq for CATEGORIZATIONSET {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for CATEGORIZATIONSET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const CATEGORIZE_BUCKETS: u32 = 2u32;
@@ -323,7 +315,6 @@ impl ::std::convert::From<i32> for CHANNEL_AGENT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CHANNEL_AGENT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const CI_E_CORRUPT_FWIDX: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1073473491i32 as _);
@@ -377,7 +368,6 @@ impl ::std::convert::From<i32> for CLUSION_REASON {
 }
 unsafe impl ::windows::runtime::Abi for CLUSION_REASON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const CMDLINE_E_ALREADY_INIT: i32 = -2147216123i32;
@@ -466,7 +456,6 @@ impl ::std::cmp::Eq for COLUMNSET {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for COLUMNSET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -486,7 +475,6 @@ impl ::std::convert::From<u32> for CONDITION_CREATION_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for CONDITION_CREATION_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CONDITION_CREATION_OPTIONS {
     type Output = Self;
@@ -542,7 +530,6 @@ impl ::std::convert::From<i32> for CONDITION_OPERATION {
 }
 unsafe impl ::windows::runtime::Abi for CONDITION_OPERATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -559,7 +546,6 @@ impl ::std::convert::From<i32> for CONDITION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CONDITION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -590,7 +576,6 @@ impl ::std::cmp::Eq for CONTENTRESTRICTION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for CONTENTRESTRICTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const CONTENT_SOURCE_E_CONTENT_CLASS_READ: i32 = -2147208188i32;
@@ -632,7 +617,6 @@ impl ::std::convert::From<i32> for CREATESUBSCRIPTIONFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CREATESUBSCRIPTIONFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const CRESTRICTIONS_DBSCHEMA_ASSERTIONS: u32 = 3u32;
@@ -758,7 +742,6 @@ impl ::std::convert::From<i32> for CatalogPausedReason {
 }
 unsafe impl ::windows::runtime::Abi for CatalogPausedReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -778,7 +761,6 @@ impl ::std::convert::From<i32> for CatalogStatus {
 }
 unsafe impl ::windows::runtime::Abi for CatalogStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const CompoundCondition: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(292523283, 4126, 20389, [132, 212, 255, 130, 121, 56, 25, 53]);
 pub const ConditionFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3762193840, 31715, 16384, [186, 152, 108, 19, 222, 159, 164, 134]);
@@ -809,7 +791,6 @@ impl ::std::cmp::PartialEq for DATE_STRUCT {
 impl ::std::cmp::Eq for DATE_STRUCT {}
 unsafe impl ::windows::runtime::Abi for DATE_STRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -828,7 +809,6 @@ impl ::std::convert::From<i32> for DBACCESSORFLAGSENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBACCESSORFLAGSENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -842,7 +822,6 @@ impl ::std::convert::From<i32> for DBASYNCHOPENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBASYNCHOPENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -859,7 +838,6 @@ impl ::std::convert::From<i32> for DBASYNCHPHASEENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBASYNCHPHASEENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -887,7 +865,6 @@ impl ::std::cmp::PartialEq for DBBINDEXT {
 impl ::std::cmp::Eq for DBBINDEXT {}
 unsafe impl ::windows::runtime::Abi for DBBINDEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -901,7 +878,6 @@ impl ::std::convert::From<i32> for DBBINDFLAGENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBBINDFLAGENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -979,7 +955,6 @@ impl ::std::cmp::Eq for DBBINDING {}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 unsafe impl ::windows::runtime::Abi for DBBINDING {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -999,7 +974,6 @@ impl ::std::convert::From<i32> for DBBINDSTATUSENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBBINDSTATUSENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1029,7 +1003,6 @@ impl ::std::convert::From<i32> for DBBINDURLFLAGENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBBINDURLFLAGENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1046,7 +1019,6 @@ impl ::std::convert::From<i32> for DBBINDURLSTATUSENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBBINDURLSTATUSENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1062,7 +1034,6 @@ impl ::std::convert::From<i32> for DBBOOKMARK {
 }
 unsafe impl ::windows::runtime::Abi for DBBOOKMARK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1098,7 +1069,6 @@ impl ::std::cmp::Eq for DBCOLUMNACCESS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 unsafe impl ::windows::runtime::Abi for DBCOLUMNACCESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for DBCOLUMNDESC {
@@ -1140,7 +1110,6 @@ impl ::std::cmp::Eq for DBCOLUMNDESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DBCOLUMNDESC {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1162,7 +1131,6 @@ impl ::std::convert::From<i32> for DBCOLUMNDESCFLAGSENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBCOLUMNDESCFLAGSENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1176,7 +1144,6 @@ impl ::std::convert::From<i32> for DBCOLUMNFLAGS15ENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBCOLUMNFLAGS15ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1200,7 +1167,6 @@ impl ::std::convert::From<i32> for DBCOLUMNFLAGSENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBCOLUMNFLAGSENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1215,7 +1181,6 @@ impl ::std::convert::From<i32> for DBCOLUMNFLAGSENUM20 {
 }
 unsafe impl ::windows::runtime::Abi for DBCOLUMNFLAGSENUM20 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1231,7 +1196,6 @@ impl ::std::convert::From<i32> for DBCOLUMNFLAGSENUM21 {
 }
 unsafe impl ::windows::runtime::Abi for DBCOLUMNFLAGSENUM21 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1248,7 +1212,6 @@ impl ::std::convert::From<i32> for DBCOLUMNFLAGSENUM26 {
 }
 unsafe impl ::windows::runtime::Abi for DBCOLUMNFLAGSENUM26 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for DBCOLUMNINFO {
@@ -1289,7 +1252,6 @@ impl ::std::cmp::Eq for DBCOLUMNINFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DBCOLUMNINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1303,7 +1265,6 @@ impl ::std::convert::From<i32> for DBCOMMANDPERSISTFLAGENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBCOMMANDPERSISTFLAGENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1319,7 +1280,6 @@ impl ::std::convert::From<i32> for DBCOMMANDPERSISTFLAGENUM21 {
 }
 unsafe impl ::windows::runtime::Abi for DBCOMMANDPERSISTFLAGENUM21 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1337,7 +1297,6 @@ impl ::std::convert::From<i32> for DBCOMPAREENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBCOMPAREENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1361,7 +1320,6 @@ impl ::std::convert::From<i32> for DBCOMPAREOPSENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBCOMPAREOPSENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1376,7 +1334,6 @@ impl ::std::convert::From<i32> for DBCOMPAREOPSENUM20 {
 }
 unsafe impl ::windows::runtime::Abi for DBCOMPAREOPSENUM20 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const DBCOMPUTEMODE_COMPUTED: u32 = 1u32;
@@ -1457,7 +1414,6 @@ impl ::std::cmp::Eq for DBCONSTRAINTDESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DBCONSTRAINTDESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1474,7 +1430,6 @@ impl ::std::convert::From<i32> for DBCONSTRAINTTYPEENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBCONSTRAINTTYPEENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1489,7 +1444,6 @@ impl ::std::convert::From<i32> for DBCONVERTFLAGSENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBCONVERTFLAGSENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1505,7 +1459,6 @@ impl ::std::convert::From<i32> for DBCONVERTFLAGSENUM20 {
 }
 unsafe impl ::windows::runtime::Abi for DBCONVERTFLAGSENUM20 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1523,7 +1476,6 @@ impl ::std::convert::From<i32> for DBCOPYFLAGSENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBCOPYFLAGSENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1552,7 +1504,6 @@ impl ::std::cmp::PartialEq for DBCOST {
 impl ::std::cmp::Eq for DBCOST {}
 unsafe impl ::windows::runtime::Abi for DBCOST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1583,7 +1534,6 @@ impl ::std::convert::From<i32> for DBCOSTUNITENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBCOSTUNITENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1601,7 +1551,6 @@ impl ::std::convert::From<i32> for DBDATACONVERTENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBDATACONVERTENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1630,7 +1579,6 @@ impl ::std::cmp::PartialEq for DBDATE {
 impl ::std::cmp::Eq for DBDATE {}
 unsafe impl ::windows::runtime::Abi for DBDATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1645,7 +1593,6 @@ impl ::std::convert::From<i32> for DBDEFERRABILITYENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBDEFERRABILITYENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1660,7 +1607,6 @@ impl ::std::convert::From<i32> for DBDELETEFLAGSENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBDELETEFLAGSENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1678,7 +1624,6 @@ impl ::std::convert::From<i32> for DBEVENTPHASEENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBEVENTPHASEENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1694,7 +1639,6 @@ impl ::std::convert::From<i32> for DBEXECLIMITSENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBEXECLIMITSENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1723,7 +1667,6 @@ impl ::std::cmp::PartialEq for DBFAILUREINFO {
 impl ::std::cmp::Eq for DBFAILUREINFO {}
 unsafe impl ::windows::runtime::Abi for DBFAILUREINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const DBGUID_MSSQLXML: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1565727922, 59117, 4562, [178, 82, 0, 192, 79, 104, 27, 113]);
 pub const DBGUID_XPATH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3962192531, 59544, 4562, [177, 183, 0, 192, 79, 104, 12, 86]);
@@ -1754,7 +1697,6 @@ impl ::std::cmp::PartialEq for DBIMPLICITSESSION {
 impl ::std::cmp::Eq for DBIMPLICITSESSION {}
 unsafe impl ::windows::runtime::Abi for DBIMPLICITSESSION {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1789,7 +1731,6 @@ impl ::std::cmp::Eq for DBINDEXCOLUMNDESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 unsafe impl ::windows::runtime::Abi for DBINDEXCOLUMNDESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1804,7 +1745,6 @@ impl ::std::convert::From<i32> for DBINDEX_COL_ORDERENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBINDEX_COL_ORDERENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1838,7 +1778,6 @@ impl ::std::convert::From<i32> for DBLITERALENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBLITERALENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1859,7 +1798,6 @@ impl ::std::convert::From<i32> for DBLITERALENUM20 {
 }
 unsafe impl ::windows::runtime::Abi for DBLITERALENUM20 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1874,7 +1812,6 @@ impl ::std::convert::From<i32> for DBLITERALENUM21 {
 }
 unsafe impl ::windows::runtime::Abi for DBLITERALENUM21 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1920,7 +1857,6 @@ impl ::std::cmp::Eq for DBLITERALINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DBLITERALINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1936,7 +1872,6 @@ impl ::std::convert::From<i32> for DBMATCHTYPEENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBMATCHTYPEENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const DBMAXCHAR: u32 = 8001u32;
@@ -1953,7 +1888,6 @@ impl ::std::convert::From<i32> for DBMEMOWNERENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBMEMOWNERENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1971,7 +1905,6 @@ impl ::std::convert::From<i32> for DBMOVEFLAGSENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBMOVEFLAGSENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1999,7 +1932,6 @@ impl ::std::cmp::PartialEq for DBOBJECT {
 impl ::std::cmp::Eq for DBOBJECT {}
 unsafe impl ::windows::runtime::Abi for DBOBJECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2038,7 +1970,6 @@ impl ::std::cmp::Eq for DBPARAMBINDINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DBPARAMBINDINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2056,7 +1987,6 @@ impl ::std::convert::From<i32> for DBPARAMFLAGSENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBPARAMFLAGSENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2070,7 +2000,6 @@ impl ::std::convert::From<i32> for DBPARAMFLAGSENUM20 {
 }
 unsafe impl ::windows::runtime::Abi for DBPARAMFLAGSENUM20 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2120,7 +2049,6 @@ impl ::std::cmp::Eq for DBPARAMINFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DBPARAMINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2136,7 +2064,6 @@ impl ::std::convert::From<i32> for DBPARAMIOENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBPARAMIOENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2165,7 +2092,6 @@ impl ::std::cmp::PartialEq for DBPARAMS {
 impl ::std::cmp::Eq for DBPARAMS {}
 unsafe impl ::windows::runtime::Abi for DBPARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const DBPARAMTYPE_INPUT: u32 = 1u32;
@@ -2190,7 +2116,6 @@ impl ::std::convert::From<i32> for DBPARTENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBPARTENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2208,7 +2133,6 @@ impl ::std::convert::From<i32> for DBPENDINGSTATUSENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBPENDINGSTATUSENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2225,7 +2149,6 @@ impl ::std::convert::From<i32> for DBPOSITIONFLAGSENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBPOSITIONFLAGSENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2244,7 +2167,6 @@ impl ::std::convert::From<i32> for DBPROMPTOPTIONSENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBPROMPTOPTIONSENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const DBPROMPT_COMPLETE: u32 = 2u32;
@@ -2289,7 +2211,6 @@ impl ::std::cmp::Eq for DBPROP {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DBPROP {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2462,7 +2383,6 @@ impl ::std::convert::From<i32> for DBPROPENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBPROPENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2491,7 +2411,6 @@ impl ::std::convert::From<i32> for DBPROPENUM15 {
 }
 unsafe impl ::windows::runtime::Abi for DBPROPENUM15 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2547,7 +2466,6 @@ impl ::std::convert::From<i32> for DBPROPENUM20 {
 }
 unsafe impl ::windows::runtime::Abi for DBPROPENUM20 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2581,7 +2499,6 @@ impl ::std::convert::From<i32> for DBPROPENUM21 {
 }
 unsafe impl ::windows::runtime::Abi for DBPROPENUM21 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2598,7 +2515,6 @@ impl ::std::convert::From<i32> for DBPROPENUM25 {
 }
 unsafe impl ::windows::runtime::Abi for DBPROPENUM25 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2627,7 +2543,6 @@ impl ::std::convert::From<i32> for DBPROPENUM25_DEPRECATED {
 }
 unsafe impl ::windows::runtime::Abi for DBPROPENUM25_DEPRECATED {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2646,7 +2561,6 @@ impl ::std::convert::From<i32> for DBPROPENUM26 {
 }
 unsafe impl ::windows::runtime::Abi for DBPROPENUM26 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2673,7 +2587,6 @@ impl ::std::convert::From<i32> for DBPROPFLAGSENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBPROPFLAGSENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2687,7 +2600,6 @@ impl ::std::convert::From<i32> for DBPROPFLAGSENUM21 {
 }
 unsafe impl ::windows::runtime::Abi for DBPROPFLAGSENUM21 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2701,7 +2613,6 @@ impl ::std::convert::From<i32> for DBPROPFLAGSENUM25 {
 }
 unsafe impl ::windows::runtime::Abi for DBPROPFLAGSENUM25 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2715,7 +2626,6 @@ impl ::std::convert::From<i32> for DBPROPFLAGSENUM26 {
 }
 unsafe impl ::windows::runtime::Abi for DBPROPFLAGSENUM26 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const DBPROPFLAGS_PERSIST: u32 = 8192u32;
@@ -2746,7 +2656,6 @@ impl ::std::cmp::PartialEq for DBPROPIDSET {
 impl ::std::cmp::Eq for DBPROPIDSET {}
 unsafe impl ::windows::runtime::Abi for DBPROPIDSET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for DBPROPINFO {
@@ -2783,7 +2692,6 @@ impl ::std::cmp::Eq for DBPROPINFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DBPROPINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2819,7 +2727,6 @@ impl ::std::cmp::Eq for DBPROPINFOSET {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DBPROPINFOSET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2835,7 +2742,6 @@ impl ::std::convert::From<i32> for DBPROPOPTIONSENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBPROPOPTIONSENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2871,7 +2777,6 @@ impl ::std::cmp::Eq for DBPROPSET {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DBPROPSET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const DBPROPSET_MSDAORA8_ROWSET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2131141493, 56682, 17371, [180, 224, 31, 193, 33, 229, 230, 43]);
 pub const DBPROPSET_MSDAORA_ROWSET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3905703101, 65023, 4560, [184, 101, 0, 160, 201, 8, 28, 29]);
@@ -2910,7 +2815,6 @@ impl ::std::convert::From<i32> for DBPROPSTATUSENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBPROPSTATUSENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2924,7 +2828,6 @@ impl ::std::convert::From<i32> for DBPROPSTATUSENUM21 {
 }
 unsafe impl ::windows::runtime::Abi for DBPROPSTATUSENUM21 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const DBPROPVAL_AO_RANDOM: i32 = 2i32;
@@ -3334,7 +3237,6 @@ impl ::std::convert::From<i32> for DBRANGEENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBRANGEENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3349,7 +3251,6 @@ impl ::std::convert::From<i32> for DBRANGEENUM20 {
 }
 unsafe impl ::windows::runtime::Abi for DBRANGEENUM20 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3377,7 +3278,6 @@ impl ::std::convert::From<i32> for DBREASONENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBREASONENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3394,7 +3294,6 @@ impl ::std::convert::From<i32> for DBREASONENUM15 {
 }
 unsafe impl ::windows::runtime::Abi for DBREASONENUM15 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3410,7 +3309,6 @@ impl ::std::convert::From<i32> for DBREASONENUM25 {
 }
 unsafe impl ::windows::runtime::Abi for DBREASONENUM25 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3432,7 +3330,6 @@ impl ::std::convert::From<i32> for DBRESOURCEKINDENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBRESOURCEKINDENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3448,7 +3345,6 @@ impl ::std::convert::From<i32> for DBRESULTFLAGENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBRESULTFLAGENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3465,7 +3361,6 @@ impl ::std::convert::From<i32> for DBROWCHANGEKINDENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBROWCHANGEKINDENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3496,7 +3391,6 @@ impl ::std::convert::From<i32> for DBROWSTATUSENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBROWSTATUSENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3510,7 +3404,6 @@ impl ::std::convert::From<i32> for DBROWSTATUSENUM20 {
 }
 unsafe impl ::windows::runtime::Abi for DBROWSTATUSENUM20 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const DBSCHEMA_LINKEDSERVERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2425604852, 11948, 4561, [152, 9, 0, 192, 79, 194, 173, 152]);
 #[doc = "*Required features: `Win32_System_Search`*"]
@@ -3531,7 +3424,6 @@ impl ::std::convert::From<i32> for DBSEEKENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBSEEKENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3546,7 +3438,6 @@ impl ::std::convert::From<i32> for DBSORTENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBSORTENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3561,7 +3452,6 @@ impl ::std::convert::From<i32> for DBSOURCETYPEENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBSOURCETYPEENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3576,7 +3466,6 @@ impl ::std::convert::From<i32> for DBSOURCETYPEENUM20 {
 }
 unsafe impl ::windows::runtime::Abi for DBSOURCETYPEENUM20 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3590,7 +3479,6 @@ impl ::std::convert::From<i32> for DBSOURCETYPEENUM25 {
 }
 unsafe impl ::windows::runtime::Abi for DBSOURCETYPEENUM25 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3617,7 +3505,6 @@ impl ::std::convert::From<i32> for DBSTATUSENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBSTATUSENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3632,7 +3519,6 @@ impl ::std::convert::From<i32> for DBSTATUSENUM20 {
 }
 unsafe impl ::windows::runtime::Abi for DBSTATUSENUM20 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3656,7 +3542,6 @@ impl ::std::convert::From<i32> for DBSTATUSENUM21 {
 }
 unsafe impl ::windows::runtime::Abi for DBSTATUSENUM21 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3671,7 +3556,6 @@ impl ::std::convert::From<i32> for DBSTATUSENUM25 {
 }
 unsafe impl ::windows::runtime::Abi for DBSTATUSENUM25 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3685,7 +3569,6 @@ impl ::std::convert::From<i32> for DBSTATUSENUM26 {
 }
 unsafe impl ::windows::runtime::Abi for DBSTATUSENUM26 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3701,7 +3584,6 @@ impl ::std::convert::From<i32> for DBTABLESTATISTICSTYPE26 {
 }
 unsafe impl ::windows::runtime::Abi for DBTABLESTATISTICSTYPE26 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3730,7 +3612,6 @@ impl ::std::cmp::PartialEq for DBTIME {
 impl ::std::cmp::Eq for DBTIME {}
 unsafe impl ::windows::runtime::Abi for DBTIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3763,7 +3644,6 @@ impl ::std::cmp::PartialEq for DBTIMESTAMP {
 impl ::std::cmp::Eq for DBTIMESTAMP {}
 unsafe impl ::windows::runtime::Abi for DBTIMESTAMP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3810,7 +3690,6 @@ impl ::std::convert::From<i32> for DBTYPEENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBTYPEENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3824,7 +3703,6 @@ impl ::std::convert::From<i32> for DBTYPEENUM15 {
 }
 unsafe impl ::windows::runtime::Abi for DBTYPEENUM15 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3840,7 +3718,6 @@ impl ::std::convert::From<i32> for DBTYPEENUM20 {
 }
 unsafe impl ::windows::runtime::Abi for DBTYPEENUM20 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const DBTYPE_SQLVARIANT: u32 = 144u32;
@@ -3859,7 +3736,6 @@ impl ::std::convert::From<i32> for DBUPDELRULEENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBUPDELRULEENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3887,7 +3763,6 @@ impl ::std::cmp::PartialEq for DBVECTOR {
 impl ::std::cmp::Eq for DBVECTOR {}
 unsafe impl ::windows::runtime::Abi for DBVECTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3904,7 +3779,6 @@ impl ::std::convert::From<i32> for DBWATCHMODEENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBWATCHMODEENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3920,7 +3794,6 @@ impl ::std::convert::From<i32> for DBWATCHNOTIFYENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBWATCHNOTIFYENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const DB_ALL_EXCEPT_LIKE: u32 = 3u32;
@@ -4276,7 +4149,6 @@ impl ::std::cmp::PartialEq for DB_NUMERIC {
 impl ::std::cmp::Eq for DB_NUMERIC {}
 unsafe impl ::windows::runtime::Abi for DB_NUMERIC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const DB_OUT: u32 = 2u32;
@@ -4396,7 +4268,6 @@ impl ::std::cmp::PartialEq for DB_VARNUMERIC {
 impl ::std::cmp::Eq for DB_VARNUMERIC {}
 unsafe impl ::windows::runtime::Abi for DB_VARNUMERIC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for DCINFO {
@@ -4430,7 +4301,6 @@ impl ::std::cmp::Eq for DCINFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DCINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4444,7 +4314,6 @@ impl ::std::convert::From<i32> for DCINFOTYPEENUM {
 }
 unsafe impl ::windows::runtime::Abi for DCINFOTYPEENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4460,7 +4329,6 @@ impl ::std::convert::From<i32> for DELIVERY_AGENT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for DELIVERY_AGENT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const DISPID_QUERY_ALL: u32 = 6u32;
@@ -4704,7 +4572,6 @@ impl ::std::convert::From<i32> for EBindInfoOptions {
 }
 unsafe impl ::windows::runtime::Abi for EBindInfoOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4735,7 +4602,6 @@ impl ::std::cmp::PartialEq for ERRORINFO {
 impl ::std::cmp::Eq for ERRORINFO {}
 unsafe impl ::windows::runtime::Abi for ERRORINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const ERROR_FTE: u32 = 13824u32;
@@ -5214,7 +5080,6 @@ impl ::std::cmp::Eq for FILTERED_DATA_SOURCES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FILTERED_DATA_SOURCES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const FLTRDMN_E_CANNOT_DECRYPT_PASSWORD: i32 = -2147212282i32;
@@ -5239,7 +5104,6 @@ impl ::std::convert::From<i32> for FOLLOW_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for FOLLOW_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const FTE_E_ADMIN_BLOB_CORRUPT: i32 = -2147207676i32;
@@ -5744,7 +5608,6 @@ impl ::std::cmp::PartialEq for HITRANGE {
 impl ::std::cmp::Eq for HITRANGE {}
 unsafe impl ::windows::runtime::Abi for HITRANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
@@ -8910,7 +8773,6 @@ impl ::std::cmp::Eq for INCREMENTAL_ACCESS_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INCREMENTAL_ACCESS_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const INET_E_AGENT_CACHE_SIZE_EXCEEDED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146693246i32 as _);
@@ -8947,7 +8809,6 @@ impl ::std::convert::From<i32> for INTERVAL_LIMIT_KIND {
 }
 unsafe impl ::windows::runtime::Abi for INTERVAL_LIMIT_KIND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
@@ -13446,7 +13307,6 @@ impl ::std::cmp::Eq for ITEMPROP {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for ITEMPROP {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13484,7 +13344,6 @@ impl ::std::cmp::Eq for ITEM_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ITEM_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[repr(transparent)]
@@ -15152,7 +15011,6 @@ impl ::std::cmp::Eq for KAGGETDIAG {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for KAGGETDIAG {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const KAGPROPVAL_CONCUR_LOCK: u32 = 4u32;
@@ -15263,7 +15121,6 @@ impl ::std::cmp::PartialEq for KAGREQDIAG {
 impl ::std::cmp::Eq for KAGREQDIAG {}
 unsafe impl ::windows::runtime::Abi for KAGREQDIAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -15278,7 +15135,6 @@ impl ::std::convert::From<i32> for KAGREQDIAGFLAGSENUM {
 }
 unsafe impl ::windows::runtime::Abi for KAGREQDIAGFLAGSENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -15294,7 +15150,6 @@ impl ::std::convert::From<i32> for LOCKMODEENUM {
 }
 unsafe impl ::windows::runtime::Abi for LOCKMODEENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const LeafCondition: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1391549577, 23063, 18657, [187, 205, 70, 163, 248, 156, 124, 194]);
 #[doc = "*Required features: `Win32_System_Search`*"]
@@ -15342,7 +15197,6 @@ impl ::std::cmp::Eq for MDAXISINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MDAXISINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const MDAXIS_CHAPTERS: u32 = 4u32;
@@ -15667,7 +15521,6 @@ impl ::std::convert::From<i32> for MSDSDBINITPROPENUM {
 }
 unsafe impl ::windows::runtime::Abi for MSDSDBINITPROPENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -15681,7 +15534,6 @@ impl ::std::convert::From<i32> for MSDSSESSIONPROPENUM {
 }
 unsafe impl ::windows::runtime::Abi for MSDSSESSIONPROPENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const MSG_CI_CORRUPT_INDEX_COMPONENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1073745962i32 as _);
@@ -15739,7 +15591,6 @@ impl ::std::convert::From<i32> for NAMED_ENTITY_CERTAINTY {
 }
 unsafe impl ::windows::runtime::Abi for NAMED_ENTITY_CERTAINTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -15769,7 +15620,6 @@ impl ::std::cmp::Eq for NATLANGUAGERESTRICTION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for NATLANGUAGERESTRICTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const NET_E_DISCONNECTED: i32 = -2147220733i32;
@@ -15821,7 +15671,6 @@ impl ::std::cmp::Eq for NODERESTRICTION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for NODERESTRICTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const NOTESPH_E_ATTACHMENTS: i32 = -2147211770i32;
@@ -15877,7 +15726,6 @@ impl ::std::cmp::Eq for NOTRESTRICTION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for NOTRESTRICTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const NOT_N_PARSE_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(526638i32 as _);
@@ -16025,7 +15873,6 @@ impl ::std::cmp::Eq for ODBC_VS_ARGS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ODBC_VS_ARGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16054,7 +15901,6 @@ impl ::std::cmp::Eq for ODBC_VS_ARGS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ODBC_VS_ARGS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16083,7 +15929,6 @@ impl ::std::cmp::Eq for ODBC_VS_ARGS_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ODBC_VS_ARGS_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const ODBC_VS_FLAG_RETCODE: i32 = 4i32;
@@ -16279,7 +16124,6 @@ impl ::std::convert::From<i32> for OSPCOMP {
 }
 unsafe impl ::windows::runtime::Abi for OSPCOMP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16296,7 +16140,6 @@ impl ::std::convert::From<i32> for OSPFIND {
 }
 unsafe impl ::windows::runtime::Abi for OSPFIND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16313,7 +16156,6 @@ impl ::std::convert::From<i32> for OSPFORMAT {
 }
 unsafe impl ::windows::runtime::Abi for OSPFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16330,7 +16172,6 @@ impl ::std::convert::From<i32> for OSPRW {
 }
 unsafe impl ::windows::runtime::Abi for OSPRW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16346,7 +16187,6 @@ impl ::std::convert::From<i32> for OSPXFER {
 }
 unsafe impl ::windows::runtime::Abi for OSPXFER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const OSP_IndexLabel: u32 = 0u32;
@@ -16408,7 +16248,6 @@ impl ::std::convert::From<i32> for PRIORITIZE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PRIORITIZE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16425,7 +16264,6 @@ impl ::std::convert::From<i32> for PRIORITY_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for PRIORITY_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const PROGID_MSPersist_Version_W: &'static str = "MSPersist.1";
@@ -16464,7 +16302,6 @@ impl ::std::cmp::Eq for PROPERTYRESTRICTION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for PROPERTYRESTRICTION {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const PROPID_DBBMK_BOOKMARK: u32 = 2u32;
@@ -16486,7 +16323,6 @@ impl ::std::convert::From<i32> for PROXY_ACCESS {
 }
 unsafe impl ::windows::runtime::Abi for PROXY_ACCESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16534,7 +16370,6 @@ impl ::std::cmp::Eq for PROXY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PROXY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const PRRE: u32 = 6u32;
@@ -16689,7 +16524,6 @@ impl ::std::convert::From<i32> for QUERY_PARSER_MANAGER_OPTION {
 }
 unsafe impl ::windows::runtime::Abi for QUERY_PARSER_MANAGER_OPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const QUERY_SORTDEFAULT: u32 = 4u32;
@@ -16734,7 +16568,6 @@ impl ::std::cmp::Eq for RANGECATEGORIZE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for RANGECATEGORIZE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for RESTRICTION {
@@ -16769,7 +16602,6 @@ impl ::std::cmp::Eq for RESTRICTION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for RESTRICTION {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for RESTRICTION_0 {
@@ -16809,7 +16641,6 @@ impl ::std::cmp::Eq for RESTRICTION_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for RESTRICTION_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const REXSPH_E_DUPLICATE_PROPERTY: i32 = -2147207927i32;
@@ -16904,7 +16735,6 @@ impl ::std::cmp::Eq for RMTPACK {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for RMTPACK {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16920,7 +16750,6 @@ impl ::std::convert::From<i32> for ROWSETEVENT_ITEMSTATE {
 }
 unsafe impl ::windows::runtime::Abi for ROWSETEVENT_ITEMSTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16936,7 +16765,6 @@ impl ::std::convert::From<i32> for ROWSETEVENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for ROWSETEVENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const RS_COMPLETED: u32 = 2147483648u32;
@@ -17059,7 +16887,6 @@ impl ::std::cmp::Eq for SEARCH_COLUMN_PROPERTIES {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for SEARCH_COLUMN_PROPERTIES {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -17075,7 +16902,6 @@ impl ::std::convert::From<i32> for SEARCH_INDEXING_PHASE {
 }
 unsafe impl ::windows::runtime::Abi for SEARCH_INDEXING_PHASE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17113,7 +16939,6 @@ impl ::std::cmp::Eq for SEARCH_ITEM_CHANGE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SEARCH_ITEM_CHANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17141,7 +16966,6 @@ impl ::std::cmp::PartialEq for SEARCH_ITEM_INDEXING_STATUS {
 impl ::std::cmp::Eq for SEARCH_ITEM_INDEXING_STATUS {}
 unsafe impl ::windows::runtime::Abi for SEARCH_ITEM_INDEXING_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17178,7 +17002,6 @@ impl ::std::cmp::Eq for SEARCH_ITEM_PERSISTENT_CHANGE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SEARCH_ITEM_PERSISTENT_CHANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -17198,7 +17021,6 @@ impl ::std::convert::From<i32> for SEARCH_KIND_OF_CHANGE {
 }
 unsafe impl ::windows::runtime::Abi for SEARCH_KIND_OF_CHANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -17213,7 +17035,6 @@ impl ::std::convert::From<i32> for SEARCH_NOTIFICATION_PRIORITY {
 }
 unsafe impl ::windows::runtime::Abi for SEARCH_NOTIFICATION_PRIORITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -17229,7 +17050,6 @@ impl ::std::convert::From<i32> for SEARCH_QUERY_SYNTAX {
 }
 unsafe impl ::windows::runtime::Abi for SEARCH_QUERY_SYNTAX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -17245,7 +17065,6 @@ impl ::std::convert::From<i32> for SEARCH_TERM_EXPANSION {
 }
 unsafe impl ::windows::runtime::Abi for SEARCH_TERM_EXPANSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const SEC_E_ACCESSDENIED: i32 = -2147216129i32;
@@ -17306,7 +17125,6 @@ impl ::std::cmp::Eq for SEC_OBJECT {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 unsafe impl ::windows::runtime::Abi for SEC_OBJECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17335,7 +17153,6 @@ impl ::std::cmp::Eq for SEC_OBJECT_ELEMENT {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 unsafe impl ::windows::runtime::Abi for SEC_OBJECT_ELEMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const SI_TEMPORARY: u32 = 2147483648u32;
@@ -17367,7 +17184,6 @@ impl ::std::cmp::Eq for SORTKEY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for SORTKEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17402,7 +17218,6 @@ impl ::std::cmp::Eq for SORTSET {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for SORTSET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const SPS_WS_ERROR: i32 = -2147211753i32;
@@ -19156,7 +18971,6 @@ impl ::std::convert::From<i32> for SQLINTERVAL {
 }
 unsafe impl ::windows::runtime::Abi for SQLINTERVAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const SQLINTN: u32 = 38u32;
@@ -20176,7 +19990,6 @@ impl ::std::convert::From<i32> for SQLVARENUM {
 }
 unsafe impl ::windows::runtime::Abi for SQLVARENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const SQLVARIANT: u32 = 98u32;
@@ -22154,7 +21967,6 @@ impl ::std::cmp::PartialEq for SQL_INTERVAL_STRUCT {
 impl ::std::cmp::Eq for SQL_INTERVAL_STRUCT {}
 unsafe impl ::windows::runtime::Abi for SQL_INTERVAL_STRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -22177,7 +21989,6 @@ impl ::std::cmp::PartialEq for SQL_INTERVAL_STRUCT_0 {
 impl ::std::cmp::Eq for SQL_INTERVAL_STRUCT_0 {}
 unsafe impl ::windows::runtime::Abi for SQL_INTERVAL_STRUCT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const SQL_INTERVAL_YEAR: i32 = -80i32;
@@ -22523,7 +22334,6 @@ impl ::std::cmp::PartialEq for SQL_NUMERIC_STRUCT {
 impl ::std::cmp::Eq for SQL_NUMERIC_STRUCT {}
 unsafe impl ::windows::runtime::Abi for SQL_NUMERIC_STRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const SQL_NUM_FUNCTIONS: u32 = 23u32;
@@ -23545,7 +23355,6 @@ impl ::std::cmp::Eq for SSVARIANT {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SSVARIANT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::clone::Clone for SSVARIANT_0 {
@@ -23593,7 +23402,6 @@ impl ::std::cmp::Eq for SSVARIANT_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SSVARIANT_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -23621,7 +23429,6 @@ impl ::std::cmp::PartialEq for SSVARIANT_0_0 {
 impl ::std::cmp::Eq for SSVARIANT_0_0 {}
 unsafe impl ::windows::runtime::Abi for SSVARIANT_0_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -23651,7 +23458,6 @@ impl ::std::cmp::PartialEq for SSVARIANT_0_1 {
 impl ::std::cmp::Eq for SSVARIANT_0_1 {}
 unsafe impl ::windows::runtime::Abi for SSVARIANT_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -23690,7 +23496,6 @@ impl ::std::cmp::Eq for SSVARIANT_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SSVARIANT_0_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -23729,7 +23534,6 @@ impl ::std::cmp::Eq for SSVARIANT_0_3 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SSVARIANT_0_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -23758,7 +23562,6 @@ impl ::std::cmp::PartialEq for SSVARIANT_0_4 {
 impl ::std::cmp::Eq for SSVARIANT_0_4 {}
 unsafe impl ::windows::runtime::Abi for SSVARIANT_0_4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const STD_BOOKMARKLENGTH: u32 = 1u32;
@@ -23803,7 +23606,6 @@ impl ::std::convert::From<i32> for STRUCTURED_QUERY_MULTIOPTION {
 }
 unsafe impl ::windows::runtime::Abi for STRUCTURED_QUERY_MULTIOPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -23823,7 +23625,6 @@ impl ::std::convert::From<i32> for STRUCTURED_QUERY_PARSE_ERROR {
 }
 unsafe impl ::windows::runtime::Abi for STRUCTURED_QUERY_PARSE_ERROR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -23847,7 +23648,6 @@ impl ::std::convert::From<u32> for STRUCTURED_QUERY_RESOLVE_OPTION {
 }
 unsafe impl ::windows::runtime::Abi for STRUCTURED_QUERY_RESOLVE_OPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for STRUCTURED_QUERY_RESOLVE_OPTION {
     type Output = Self;
@@ -23899,7 +23699,6 @@ impl ::std::convert::From<i32> for STRUCTURED_QUERY_SINGLE_OPTION {
 }
 unsafe impl ::windows::runtime::Abi for STRUCTURED_QUERY_SINGLE_OPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -23915,7 +23714,6 @@ impl ::std::convert::From<i32> for STRUCTURED_QUERY_SYNTAX {
 }
 unsafe impl ::windows::runtime::Abi for STRUCTURED_QUERY_SYNTAX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const STS_ABORTXMLPARSE: i32 = -2147211756i32;
@@ -24009,7 +23807,6 @@ impl ::std::cmp::Eq for SUBSCRIPTIONINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SUBSCRIPTIONINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -24036,7 +23833,6 @@ impl ::std::convert::From<i32> for SUBSCRIPTIONINFOFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for SUBSCRIPTIONINFOFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24067,7 +23863,6 @@ impl ::std::cmp::PartialEq for SUBSCRIPTIONITEMINFO {
 impl ::std::cmp::Eq for SUBSCRIPTIONITEMINFO {}
 unsafe impl ::windows::runtime::Abi for SUBSCRIPTIONITEMINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -24085,7 +23880,6 @@ impl ::std::convert::From<i32> for SUBSCRIPTIONSCHEDULE {
 }
 unsafe impl ::windows::runtime::Abi for SUBSCRIPTIONSCHEDULE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -24103,7 +23897,6 @@ impl ::std::convert::From<i32> for SUBSCRIPTIONTYPE {
 }
 unsafe impl ::windows::runtime::Abi for SUBSCRIPTIONTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const SUBSINFO_ALLFLAGS: u32 = 61311u32;
@@ -24157,7 +23950,6 @@ impl ::std::cmp::Eq for TEXT_SOURCE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TEXT_SOURCE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24186,7 +23978,6 @@ impl ::std::cmp::PartialEq for TIMEOUT_INFO {
 impl ::std::cmp::Eq for TIMEOUT_INFO {}
 unsafe impl ::windows::runtime::Abi for TIMEOUT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24219,7 +24010,6 @@ impl ::std::cmp::PartialEq for TIMESTAMP_STRUCT {
 impl ::std::cmp::Eq for TIMESTAMP_STRUCT {}
 unsafe impl ::windows::runtime::Abi for TIMESTAMP_STRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24248,7 +24038,6 @@ impl ::std::cmp::PartialEq for TIME_STRUCT {
 impl ::std::cmp::Eq for TIME_STRUCT {}
 unsafe impl ::windows::runtime::Abi for TIME_STRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const TRACE_ON: i32 = 1i32;
@@ -24289,7 +24078,6 @@ impl ::std::cmp::Eq for VECTORRESTRICTION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for VECTORRESTRICTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -24310,7 +24098,6 @@ impl ::std::convert::From<i32> for WEBCRAWL_RECURSEFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for WEBCRAWL_RECURSEFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const XML_E_BADSXQL: i32 = -2147212799i32;
@@ -24688,7 +24475,6 @@ impl ::std::cmp::PartialEq for dbdatetime {
 impl ::std::cmp::Eq for dbdatetime {}
 unsafe impl ::windows::runtime::Abi for dbdatetime {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24716,7 +24502,6 @@ impl ::std::cmp::PartialEq for dbdatetime4 {
 impl ::std::cmp::Eq for dbdatetime4 {}
 unsafe impl ::windows::runtime::Abi for dbdatetime4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24744,7 +24529,6 @@ impl ::std::cmp::PartialEq for dbmoney {
 impl ::std::cmp::Eq for dbmoney {}
 unsafe impl ::windows::runtime::Abi for dbmoney {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -24802,7 +24586,6 @@ impl ::std::cmp::PartialEq for dbvarybin {
 impl ::std::cmp::Eq for dbvarybin {}
 unsafe impl ::windows::runtime::Abi for dbvarybin {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24830,7 +24613,6 @@ impl ::std::cmp::PartialEq for dbvarychar {
 impl ::std::cmp::Eq for dbvarychar {}
 unsafe impl ::windows::runtime::Abi for dbvarychar {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24955,7 +24737,6 @@ impl ::std::cmp::PartialEq for sqlperf {
 impl ::std::cmp::Eq for sqlperf {}
 unsafe impl ::windows::runtime::Abi for sqlperf {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -24985,7 +24766,6 @@ impl ::std::cmp::PartialEq for tagDBROWWATCHRANGE {
 impl ::std::cmp::Eq for tagDBROWWATCHRANGE {}
 unsafe impl ::windows::runtime::Abi for tagDBROWWATCHRANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -25016,7 +24796,6 @@ impl ::std::cmp::PartialEq for tagSQL_DAY_SECOND {
 impl ::std::cmp::Eq for tagSQL_DAY_SECOND {}
 unsafe impl ::windows::runtime::Abi for tagSQL_DAY_SECOND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -25044,7 +24823,6 @@ impl ::std::cmp::PartialEq for tagSQL_YEAR_MONTH {
 impl ::std::cmp::Eq for tagSQL_YEAR_MONTH {}
 unsafe impl ::windows::runtime::Abi for tagSQL_YEAR_MONTH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -25084,5 +24862,4 @@ impl ::std::cmp::Eq for tagSSErrorInfo {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for tagSSErrorInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }

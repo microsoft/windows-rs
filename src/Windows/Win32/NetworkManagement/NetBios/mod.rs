@@ -26,7 +26,6 @@ impl ::std::cmp::PartialEq for ACTION_HEADER {
 impl ::std::cmp::Eq for ACTION_HEADER {}
 unsafe impl ::windows::runtime::Abi for ACTION_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -133,7 +132,6 @@ impl ::std::cmp::PartialEq for ADAPTER_STATUS {
 impl ::std::cmp::Eq for ADAPTER_STATUS {}
 unsafe impl ::windows::runtime::Abi for ADAPTER_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
 pub const ASYNCH: u32 = 128u32;
@@ -175,7 +173,6 @@ impl ::std::cmp::PartialEq for FIND_NAME_BUFFER {
 impl ::std::cmp::Eq for FIND_NAME_BUFFER {}
 unsafe impl ::windows::runtime::Abi for FIND_NAME_BUFFER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -204,7 +201,6 @@ impl ::std::cmp::PartialEq for FIND_NAME_HEADER {
 impl ::std::cmp::Eq for FIND_NAME_HEADER {}
 unsafe impl ::windows::runtime::Abi for FIND_NAME_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
 pub const GROUP_NAME: u32 = 128u32;
@@ -238,7 +234,6 @@ impl ::std::cmp::PartialEq for LANA_ENUM {
 impl ::std::cmp::Eq for LANA_ENUM {}
 unsafe impl ::windows::runtime::Abi for LANA_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
 pub const LISTEN_OUTSTANDING: u32 = 1u32;
@@ -271,7 +266,6 @@ impl ::std::cmp::PartialEq for NAME_BUFFER {
 impl ::std::cmp::Eq for NAME_BUFFER {}
 unsafe impl ::windows::runtime::Abi for NAME_BUFFER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
 pub const NAME_FLAGS_MASK: u32 = 135u32;
@@ -351,7 +345,6 @@ impl ::std::cmp::Eq for NCB {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NCB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
 pub const NCBACTION: u32 = 119u32;
@@ -536,7 +529,6 @@ impl ::std::cmp::PartialEq for SESSION_BUFFER {
 impl ::std::cmp::Eq for SESSION_BUFFER {}
 unsafe impl ::windows::runtime::Abi for SESSION_BUFFER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
 pub const SESSION_ESTABLISHED: u32 = 3u32;
@@ -568,7 +560,6 @@ impl ::std::cmp::PartialEq for SESSION_HEADER {
 impl ::std::cmp::Eq for SESSION_HEADER {}
 unsafe impl ::windows::runtime::Abi for SESSION_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
 pub const UNIQUE_NAME: u32 = 0u32;

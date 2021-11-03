@@ -91,7 +91,7 @@ impl CharacterGroupings {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Globalization_Collation`, `Foundation_Collections`*"]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<CharacterGrouping as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [<CharacterGrouping as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::Collections::IVectorView<CharacterGrouping>>(self)?;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -191,7 +191,6 @@ impl ::std::iter::IntoIterator for &CharacterGroupings {
     }
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICharacterGrouping(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICharacterGrouping {
@@ -211,7 +210,6 @@ pub struct ICharacterGrouping_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICharacterGroupings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICharacterGroupings {
@@ -230,7 +228,6 @@ pub struct ICharacterGroupings_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, text: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICharacterGroupingsFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICharacterGroupingsFactory {

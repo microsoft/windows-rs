@@ -25,7 +25,6 @@ impl ::std::convert::From<i32> for BaseValueSource {
 }
 unsafe impl ::windows::runtime::Abi for BaseValueSource {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -62,7 +61,6 @@ impl ::std::cmp::Eq for BitmapDescription {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for BitmapDescription {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -99,7 +97,6 @@ impl ::std::cmp::Eq for CollectionElementValue {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CollectionElementValue {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 pub const E_UNKNOWNTYPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2144665560i32 as _);
@@ -137,7 +134,6 @@ impl ::std::cmp::Eq for EnumType {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for EnumType {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 #[repr(transparent)]
@@ -780,7 +776,6 @@ impl ::std::convert::From<i32> for MetadataBit {
 }
 unsafe impl ::windows::runtime::Abi for MetadataBit {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -809,7 +804,6 @@ impl ::std::cmp::PartialEq for ParentChildRelation {
 impl ::std::cmp::Eq for ParentChildRelation {}
 unsafe impl ::windows::runtime::Abi for ParentChildRelation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -847,7 +841,6 @@ impl ::std::cmp::Eq for PropertyChainSource {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PropertyChainSource {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -901,7 +894,6 @@ impl ::std::cmp::Eq for PropertyChainValue {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PropertyChainValue {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -916,7 +908,6 @@ impl ::std::convert::From<i32> for RenderTargetBitmapOptions {
 }
 unsafe impl ::windows::runtime::Abi for RenderTargetBitmapOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -931,7 +922,6 @@ impl ::std::convert::From<i32> for ResourceType {
 }
 unsafe impl ::windows::runtime::Abi for ResourceType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -969,7 +959,6 @@ impl ::std::cmp::Eq for SourceInfo {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SourceInfo {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1007,7 +996,6 @@ impl ::std::cmp::Eq for VisualElement {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VisualElement {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1023,7 +1011,6 @@ impl ::std::convert::From<i32> for VisualElementState {
 }
 unsafe impl ::windows::runtime::Abi for VisualElementState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Xaml_Diagnostics`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1038,5 +1025,4 @@ impl ::std::convert::From<i32> for VisualMutationType {
 }
 unsafe impl ::windows::runtime::Abi for VisualMutationType {
     type Abi = Self;
-    type DefaultType = Self;
 }

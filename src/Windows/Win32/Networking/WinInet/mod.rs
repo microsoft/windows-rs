@@ -34,7 +34,6 @@ impl ::std::cmp::Eq for APP_CACHE_DOWNLOAD_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for APP_CACHE_DOWNLOAD_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -69,7 +68,6 @@ impl ::std::cmp::Eq for APP_CACHE_DOWNLOAD_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for APP_CACHE_DOWNLOAD_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const APP_CACHE_ENTRY_TYPE_EXPLICIT: u32 = 2u32;
@@ -95,7 +93,6 @@ impl ::std::convert::From<i32> for APP_CACHE_FINALIZE_STATE {
 }
 unsafe impl ::windows::runtime::Abi for APP_CACHE_FINALIZE_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -131,7 +128,6 @@ impl ::std::cmp::Eq for APP_CACHE_GROUP_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for APP_CACHE_GROUP_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -166,7 +162,6 @@ impl ::std::cmp::Eq for APP_CACHE_GROUP_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for APP_CACHE_GROUP_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const APP_CACHE_LOOKUP_NO_MASTER_ONLY: u32 = 1u32;
@@ -185,7 +180,6 @@ impl ::std::convert::From<i32> for APP_CACHE_STATE {
 }
 unsafe impl ::windows::runtime::Abi for APP_CACHE_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const AUTH_FLAG_DISABLE_BASIC_CLEARCHANNEL: u32 = 4u32;
@@ -251,7 +245,6 @@ impl ::std::cmp::Eq for AUTO_PROXY_SCRIPT_BUFFER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUTO_PROXY_SCRIPT_BUFFER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinInet`, `Win32_Foundation`*"]
@@ -554,7 +547,6 @@ impl ::std::cmp::PartialEq for AutoProxyHelperFunctions {
 impl ::std::cmp::Eq for AutoProxyHelperFunctions {}
 unsafe impl ::windows::runtime::Abi for AutoProxyHelperFunctions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -599,7 +591,6 @@ impl ::std::cmp::PartialEq for AutoProxyHelperVtbl {
 impl ::std::cmp::Eq for AutoProxyHelperVtbl {}
 unsafe impl ::windows::runtime::Abi for AutoProxyHelperVtbl {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const CACHEGROUP_ATTRIBUTE_BASIC: u32 = 1u32;
@@ -652,7 +643,6 @@ impl ::std::convert::From<u32> for CACHE_CONFIG {
 }
 unsafe impl ::windows::runtime::Abi for CACHE_CONFIG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CACHE_CONFIG {
     type Output = Self;
@@ -846,7 +836,6 @@ impl ::std::cmp::Eq for COOKIE_DLG_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for COOKIE_DLG_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const COOKIE_DONT_ALLOW: u32 = 1u32;
@@ -1001,7 +990,6 @@ impl ::std::cmp::Eq for CookieDecision {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CookieDecision {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinInet`, `Win32_Foundation`*"]
@@ -1582,7 +1570,6 @@ impl ::std::convert::From<i32> for FORTCMD {
 }
 unsafe impl ::windows::runtime::Abi for FORTCMD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1597,7 +1584,6 @@ impl ::std::convert::From<i32> for FORTSTAT {
 }
 unsafe impl ::windows::runtime::Abi for FORTSTAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1615,7 +1601,6 @@ impl ::std::convert::From<u32> for FTP_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for FTP_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for FTP_FLAGS {
     type Output = Self;
@@ -2335,7 +2320,6 @@ impl ::std::cmp::PartialEq for GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
 impl ::std::cmp::Eq for GOPHER_ABSTRACT_ATTRIBUTE_TYPE {}
 unsafe impl ::windows::runtime::Abi for GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2363,7 +2347,6 @@ impl ::std::cmp::PartialEq for GOPHER_ADMIN_ATTRIBUTE_TYPE {
 impl ::std::cmp::Eq for GOPHER_ADMIN_ATTRIBUTE_TYPE {}
 unsafe impl ::windows::runtime::Abi for GOPHER_ADMIN_ATTRIBUTE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2391,7 +2374,6 @@ impl ::std::cmp::PartialEq for GOPHER_ASK_ATTRIBUTE_TYPE {
 impl ::std::cmp::Eq for GOPHER_ASK_ATTRIBUTE_TYPE {}
 unsafe impl ::windows::runtime::Abi for GOPHER_ASK_ATTRIBUTE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type GOPHER_ATTRIBUTE_ENUMERATOR = unsafe extern "system" fn(lpattributeinfo: *const GOPHER_ATTRIBUTE_TYPE, dwerror: u32) -> super::super::Foundation::BOOL;
@@ -2459,7 +2441,6 @@ impl ::std::cmp::Eq for GOPHER_ATTRIBUTE_TYPE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GOPHER_ATTRIBUTE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2503,7 +2484,6 @@ impl ::std::cmp::Eq for GOPHER_ATTRIBUTE_TYPE_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GOPHER_ATTRIBUTE_TYPE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const GOPHER_CATEGORY_ID_ABSTRACT: u32 = 2882325509u32;
@@ -2558,7 +2538,6 @@ impl ::std::cmp::Eq for GOPHER_FIND_DATAA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GOPHER_FIND_DATAA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2597,7 +2576,6 @@ impl ::std::cmp::Eq for GOPHER_FIND_DATAW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GOPHER_FIND_DATAW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2636,7 +2614,6 @@ impl ::std::cmp::PartialEq for GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
 impl ::std::cmp::Eq for GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {}
 unsafe impl ::windows::runtime::Abi for GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2663,7 +2640,6 @@ impl ::std::cmp::PartialEq for GOPHER_LOCATION_ATTRIBUTE_TYPE {
 impl ::std::cmp::Eq for GOPHER_LOCATION_ATTRIBUTE_TYPE {}
 unsafe impl ::windows::runtime::Abi for GOPHER_LOCATION_ATTRIBUTE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2697,7 +2673,6 @@ impl ::std::cmp::Eq for GOPHER_MOD_DATE_ATTRIBUTE_TYPE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2724,7 +2699,6 @@ impl ::std::cmp::PartialEq for GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
 impl ::std::cmp::Eq for GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {}
 unsafe impl ::windows::runtime::Abi for GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2751,7 +2725,6 @@ impl ::std::cmp::PartialEq for GOPHER_PROVIDER_ATTRIBUTE_TYPE {
 impl ::std::cmp::Eq for GOPHER_PROVIDER_ATTRIBUTE_TYPE {}
 unsafe impl ::windows::runtime::Abi for GOPHER_PROVIDER_ATTRIBUTE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2778,7 +2751,6 @@ impl ::std::cmp::PartialEq for GOPHER_SCORE_ATTRIBUTE_TYPE {
 impl ::std::cmp::Eq for GOPHER_SCORE_ATTRIBUTE_TYPE {}
 unsafe impl ::windows::runtime::Abi for GOPHER_SCORE_ATTRIBUTE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2806,7 +2778,6 @@ impl ::std::cmp::PartialEq for GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
 impl ::std::cmp::Eq for GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {}
 unsafe impl ::windows::runtime::Abi for GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2833,7 +2804,6 @@ impl ::std::cmp::PartialEq for GOPHER_SITE_ATTRIBUTE_TYPE {
 impl ::std::cmp::Eq for GOPHER_SITE_ATTRIBUTE_TYPE {}
 unsafe impl ::windows::runtime::Abi for GOPHER_SITE_ATTRIBUTE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2860,7 +2830,6 @@ impl ::std::cmp::PartialEq for GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
 impl ::std::cmp::Eq for GOPHER_TIMEZONE_ATTRIBUTE_TYPE {}
 unsafe impl ::windows::runtime::Abi for GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2887,7 +2856,6 @@ impl ::std::cmp::PartialEq for GOPHER_TTL_ATTRIBUTE_TYPE {
 impl ::std::cmp::Eq for GOPHER_TTL_ATTRIBUTE_TYPE {}
 unsafe impl ::windows::runtime::Abi for GOPHER_TTL_ATTRIBUTE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2924,7 +2892,6 @@ impl ::std::convert::From<u32> for GOPHER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for GOPHER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for GOPHER_TYPE {
     type Output = Self;
@@ -2979,7 +2946,6 @@ impl ::std::cmp::PartialEq for GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
 impl ::std::cmp::Eq for GOPHER_UNKNOWN_ATTRIBUTE_TYPE {}
 unsafe impl ::windows::runtime::Abi for GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3013,7 +2979,6 @@ impl ::std::cmp::Eq for GOPHER_VERONICA_ATTRIBUTE_TYPE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GOPHER_VERONICA_ATTRIBUTE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3040,7 +3005,6 @@ impl ::std::cmp::PartialEq for GOPHER_VERSION_ATTRIBUTE_TYPE {
 impl ::std::cmp::Eq for GOPHER_VERSION_ATTRIBUTE_TYPE {}
 unsafe impl ::windows::runtime::Abi for GOPHER_VERSION_ATTRIBUTE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3069,7 +3033,6 @@ impl ::std::cmp::PartialEq for GOPHER_VIEW_ATTRIBUTE_TYPE {
 impl ::std::cmp::Eq for GOPHER_VIEW_ATTRIBUTE_TYPE {}
 unsafe impl ::windows::runtime::Abi for GOPHER_VIEW_ATTRIBUTE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const GROUPNAME_MAX_LENGTH: u32 = 120u32;
@@ -3439,7 +3402,6 @@ impl ::std::convert::From<u32> for HTTP_ADDREQ_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_ADDREQ_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for HTTP_ADDREQ_FLAG {
     type Output = Self;
@@ -3507,7 +3469,6 @@ impl ::std::convert::From<i32> for HTTP_POLICY_EXTENSION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_POLICY_EXTENSION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3521,7 +3482,6 @@ impl ::std::convert::From<i32> for HTTP_POLICY_EXTENSION_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_POLICY_EXTENSION_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const HTTP_PROTOCOL_FLAG_HTTP2: u32 = 2u32;
@@ -3560,7 +3520,6 @@ impl ::std::cmp::Eq for HTTP_PUSH_NOTIFICATION_STATUS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_PUSH_NOTIFICATION_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3588,7 +3547,6 @@ impl ::std::cmp::PartialEq for HTTP_PUSH_TRANSPORT_SETTING {
 impl ::std::cmp::Eq for HTTP_PUSH_TRANSPORT_SETTING {}
 unsafe impl ::windows::runtime::Abi for HTTP_PUSH_TRANSPORT_SETTING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -3601,7 +3559,6 @@ impl ::std::default::Default for HTTP_PUSH_WAIT_HANDLE {
 unsafe impl ::windows::runtime::Handle for HTTP_PUSH_WAIT_HANDLE {}
 unsafe impl ::windows::runtime::Abi for HTTP_PUSH_WAIT_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3617,7 +3574,6 @@ impl ::std::convert::From<i32> for HTTP_PUSH_WAIT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_PUSH_WAIT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const HTTP_QUERY_ACCEPT: u32 = 24u32;
@@ -3855,7 +3811,6 @@ impl ::std::cmp::PartialEq for HTTP_REQUEST_TIMES {
 impl ::std::cmp::Eq for HTTP_REQUEST_TIMES {}
 unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_TIMES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const HTTP_STATUS_MISDIRECTED_REQUEST: u32 = 421u32;
@@ -3887,7 +3842,6 @@ impl ::std::cmp::PartialEq for HTTP_WEB_SOCKET_ASYNC_RESULT {
 impl ::std::cmp::Eq for HTTP_WEB_SOCKET_ASYNC_RESULT {}
 unsafe impl ::windows::runtime::Abi for HTTP_WEB_SOCKET_ASYNC_RESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3906,7 +3860,6 @@ impl ::std::convert::From<i32> for HTTP_WEB_SOCKET_BUFFER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_WEB_SOCKET_BUFFER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3931,7 +3884,6 @@ impl ::std::convert::From<i32> for HTTP_WEB_SOCKET_CLOSE_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_WEB_SOCKET_CLOSE_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const HTTP_WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: u32 = 123u32;
@@ -3952,7 +3904,6 @@ impl ::std::convert::From<i32> for HTTP_WEB_SOCKET_OPERATION {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_WEB_SOCKET_OPERATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinInet`, `Win32_Foundation`*"]
@@ -4551,7 +4502,6 @@ impl ::std::convert::From<u32> for INTERNET_ACCESS_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for INTERNET_ACCESS_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for INTERNET_ACCESS_TYPE {
     type Output = Self;
@@ -4607,7 +4557,6 @@ impl ::std::cmp::PartialEq for INTERNET_ASYNC_RESULT {
 impl ::std::cmp::Eq for INTERNET_ASYNC_RESULT {}
 unsafe impl ::windows::runtime::Abi for INTERNET_ASYNC_RESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4637,7 +4586,6 @@ impl ::std::cmp::PartialEq for INTERNET_AUTH_NOTIFY_DATA {
 impl ::std::cmp::Eq for INTERNET_AUTH_NOTIFY_DATA {}
 unsafe impl ::windows::runtime::Abi for INTERNET_AUTH_NOTIFY_DATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_AUTH_SCHEME_BASIC: u32 = 0u32;
@@ -4668,7 +4616,6 @@ impl ::std::convert::From<u32> for INTERNET_AUTODIAL {
 }
 unsafe impl ::windows::runtime::Abi for INTERNET_AUTODIAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for INTERNET_AUTODIAL {
     type Output = Self;
@@ -4758,7 +4705,6 @@ impl ::std::cmp::Eq for INTERNET_BUFFERSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_BUFFERSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4812,7 +4758,6 @@ impl ::std::cmp::Eq for INTERNET_BUFFERSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_BUFFERSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4849,7 +4794,6 @@ impl ::std::cmp::Eq for INTERNET_CACHE_CONFIG_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_CONFIG_INFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4878,7 +4822,6 @@ impl ::std::cmp::Eq for INTERNET_CACHE_CONFIG_INFOA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_CONFIG_INFOA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4913,7 +4856,6 @@ impl ::std::cmp::Eq for INTERNET_CACHE_CONFIG_INFOA_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_CONFIG_INFOA_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4950,7 +4892,6 @@ impl ::std::cmp::Eq for INTERNET_CACHE_CONFIG_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_CONFIG_INFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4973,7 +4914,6 @@ impl ::std::cmp::PartialEq for INTERNET_CACHE_CONFIG_INFOW_0 {
 impl ::std::cmp::Eq for INTERNET_CACHE_CONFIG_INFOW_0 {}
 unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_CONFIG_INFOW_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5001,7 +4941,6 @@ impl ::std::cmp::PartialEq for INTERNET_CACHE_CONFIG_INFOW_0_0 {
 impl ::std::cmp::Eq for INTERNET_CACHE_CONFIG_INFOW_0_0 {}
 unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_CONFIG_INFOW_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5036,7 +4975,6 @@ impl ::std::cmp::Eq for INTERNET_CACHE_CONFIG_PATH_ENTRYA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5064,7 +5002,6 @@ impl ::std::cmp::PartialEq for INTERNET_CACHE_CONFIG_PATH_ENTRYW {
 impl ::std::cmp::Eq for INTERNET_CACHE_CONFIG_PATH_ENTRYW {}
 unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_CONFIG_PATH_ENTRYW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_CACHE_CONTAINER_AUTODELETE: u32 = 2u32;
@@ -5106,7 +5043,6 @@ impl ::std::cmp::Eq for INTERNET_CACHE_CONTAINER_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_CONTAINER_INFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5144,7 +5080,6 @@ impl ::std::cmp::Eq for INTERNET_CACHE_CONTAINER_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_CONTAINER_INFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_CACHE_CONTAINER_MAP_ENABLED: u32 = 16u32;
@@ -5199,7 +5134,6 @@ impl ::std::cmp::Eq for INTERNET_CACHE_ENTRY_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_ENTRY_INFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5222,7 +5156,6 @@ impl ::std::cmp::PartialEq for INTERNET_CACHE_ENTRY_INFOA_0 {
 impl ::std::cmp::Eq for INTERNET_CACHE_ENTRY_INFOA_0 {}
 unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_ENTRY_INFOA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5265,7 +5198,6 @@ impl ::std::cmp::Eq for INTERNET_CACHE_ENTRY_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_ENTRY_INFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5288,7 +5220,6 @@ impl ::std::cmp::PartialEq for INTERNET_CACHE_ENTRY_INFOW_0 {
 impl ::std::cmp::Eq for INTERNET_CACHE_ENTRY_INFOW_0 {}
 unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_ENTRY_INFOW_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_CACHE_FLAG_ADD_FILENAME_ONLY: u32 = 2048u32;
@@ -5348,7 +5279,6 @@ impl ::std::cmp::Eq for INTERNET_CACHE_GROUP_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_GROUP_INFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5389,7 +5319,6 @@ impl ::std::cmp::PartialEq for INTERNET_CACHE_GROUP_INFOW {
 impl ::std::cmp::Eq for INTERNET_CACHE_GROUP_INFOW {}
 unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_GROUP_INFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_CACHE_GROUP_REMOVE: u32 = 1u32;
@@ -5426,7 +5355,6 @@ impl ::std::cmp::Eq for INTERNET_CACHE_TIMESTAMPS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_TIMESTAMPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5465,7 +5393,6 @@ impl ::std::cmp::Eq for INTERNET_CALLBACK_COOKIE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_CALLBACK_COOKIE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5515,7 +5442,6 @@ impl ::std::cmp::Eq for INTERNET_CERTIFICATE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_CERTIFICATE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5543,7 +5469,6 @@ impl ::std::cmp::PartialEq for INTERNET_CONNECTED_INFO {
 impl ::std::cmp::Eq for INTERNET_CONNECTED_INFO {}
 unsafe impl ::windows::runtime::Abi for INTERNET_CONNECTED_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5563,7 +5488,6 @@ impl ::std::convert::From<u32> for INTERNET_CONNECTION {
 }
 unsafe impl ::windows::runtime::Abi for INTERNET_CONNECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for INTERNET_CONNECTION {
     type Output = Self;
@@ -5647,7 +5571,6 @@ impl ::std::cmp::Eq for INTERNET_COOKIE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_COOKIE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5687,7 +5610,6 @@ impl ::std::cmp::Eq for INTERNET_COOKIE2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_COOKIE2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_COOKIE_ALL_COOKIES: u32 = 536870912u32;
@@ -5715,7 +5637,6 @@ impl ::std::convert::From<u32> for INTERNET_COOKIE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for INTERNET_COOKIE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for INTERNET_COOKIE_FLAGS {
     type Output = Self;
@@ -5809,7 +5730,6 @@ impl ::std::cmp::Eq for INTERNET_CREDENTIALS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_CREDENTIALS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5838,7 +5758,6 @@ impl ::std::cmp::Eq for INTERNET_CREDENTIALS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_CREDENTIALS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5873,7 +5792,6 @@ impl ::std::cmp::Eq for INTERNET_CREDENTIALS_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_CREDENTIALS_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_CUSTOMDIAL_CAN_HANGUP: u32 = 4u32;
@@ -5923,7 +5841,6 @@ impl ::std::cmp::PartialEq for INTERNET_DIAGNOSTIC_SOCKET_INFO {
 impl ::std::cmp::Eq for INTERNET_DIAGNOSTIC_SOCKET_INFO {}
 unsafe impl ::windows::runtime::Abi for INTERNET_DIAGNOSTIC_SOCKET_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_DIALSTATE_DISCONNECTED: u32 = 1u32;
@@ -5966,7 +5883,6 @@ impl ::std::cmp::Eq for INTERNET_DOWNLOAD_MODE_HANDLE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_DOWNLOAD_MODE_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5994,7 +5910,6 @@ impl ::std::cmp::PartialEq for INTERNET_END_BROWSER_SESSION_DATA {
 impl ::std::cmp::Eq for INTERNET_END_BROWSER_SESSION_DATA {}
 unsafe impl ::windows::runtime::Abi for INTERNET_END_BROWSER_SESSION_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_ERROR_BASE: u32 = 12000u32;
@@ -6546,7 +6461,6 @@ impl ::std::convert::From<u32> for INTERNET_PER_CONN {
 }
 unsafe impl ::windows::runtime::Abi for INTERNET_PER_CONN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for INTERNET_PER_CONN {
     type Output = Self;
@@ -6605,7 +6519,6 @@ impl ::std::cmp::Eq for INTERNET_PER_CONN_OPTIONA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_PER_CONN_OPTIONA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6635,7 +6548,6 @@ impl ::std::cmp::Eq for INTERNET_PER_CONN_OPTIONA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_PER_CONN_OPTIONA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6664,7 +6576,6 @@ impl ::std::cmp::Eq for INTERNET_PER_CONN_OPTIONW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_PER_CONN_OPTIONW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6694,7 +6605,6 @@ impl ::std::cmp::Eq for INTERNET_PER_CONN_OPTIONW_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_PER_CONN_OPTIONW_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6732,7 +6642,6 @@ impl ::std::cmp::Eq for INTERNET_PER_CONN_OPTION_LISTA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_PER_CONN_OPTION_LISTA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6770,7 +6679,6 @@ impl ::std::cmp::Eq for INTERNET_PER_CONN_OPTION_LISTW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_PER_CONN_OPTION_LISTW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_PREFETCH_ABORTED: u32 = 2u32;
@@ -6804,7 +6712,6 @@ impl ::std::cmp::PartialEq for INTERNET_PREFETCH_STATUS {
 impl ::std::cmp::Eq for INTERNET_PREFETCH_STATUS {}
 unsafe impl ::windows::runtime::Abi for INTERNET_PREFETCH_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_PRIORITY_FOREGROUND: u32 = 1000u32;
@@ -6835,7 +6742,6 @@ impl ::std::cmp::PartialEq for INTERNET_PROXY_INFO {
 impl ::std::cmp::Eq for INTERNET_PROXY_INFO {}
 unsafe impl ::windows::runtime::Abi for INTERNET_PROXY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_REQFLAG_ASYNC: u32 = 2u32;
@@ -6884,7 +6790,6 @@ impl ::std::convert::From<i32> for INTERNET_SCHEME {
 }
 unsafe impl ::windows::runtime::Abi for INTERNET_SCHEME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6921,7 +6826,6 @@ impl ::std::cmp::Eq for INTERNET_SECURITY_CONNECTION_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 unsafe impl ::windows::runtime::Abi for INTERNET_SECURITY_CONNECTION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6969,7 +6873,6 @@ impl ::std::cmp::Eq for INTERNET_SECURITY_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for INTERNET_SECURITY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7019,7 +6922,6 @@ impl ::std::cmp::Eq for INTERNET_SERVER_CONNECTION_STATE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_SERVER_CONNECTION_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const INTERNET_SERVICE_FTP: u32 = 1u32;
@@ -7045,7 +6947,6 @@ impl ::std::convert::From<u32> for INTERNET_STATE {
 }
 unsafe impl ::windows::runtime::Abi for INTERNET_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for INTERNET_STATE {
     type Output = Self;
@@ -7209,7 +7110,6 @@ impl ::std::cmp::PartialEq for INTERNET_VERSION_INFO {
 impl ::std::cmp::Eq for INTERNET_VERSION_INFO {}
 unsafe impl ::windows::runtime::Abi for INTERNET_VERSION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 #[repr(transparent)]
@@ -7351,7 +7251,6 @@ impl ::std::cmp::Eq for IncomingCookieState {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IncomingCookieState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinInet`, `Win32_Foundation`*"]
@@ -7711,7 +7610,6 @@ impl ::std::cmp::Eq for InternetCookieHistory {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for InternetCookieHistory {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7731,7 +7629,6 @@ impl ::std::convert::From<i32> for InternetCookieState {
 }
 unsafe impl ::windows::runtime::Abi for InternetCookieState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinHttp"))]
 #[doc = "*Required features: `Win32_Networking_WinInet`, `Win32_Foundation`, `Win32_Networking_WinHttp`*"]
@@ -9120,7 +9017,6 @@ impl ::std::cmp::Eq for OutgoingCookieState {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OutgoingCookieState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const PENDING_DELETE_CACHE_ENTRY: u32 = 4194304u32;
@@ -9170,7 +9066,6 @@ impl ::std::convert::From<u32> for PROXY_AUTO_DETECT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PROXY_AUTO_DETECT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PROXY_AUTO_DETECT_TYPE {
     type Output = Self;
@@ -9313,7 +9208,6 @@ impl ::std::cmp::Eq for ProofOfPossessionCookieInfo {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ProofOfPossessionCookieInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const ProofOfPossessionCookieInfoManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2844950405, 41732, 17296, [139, 35, 167, 95, 28, 102, 134, 0]);
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
@@ -9336,7 +9230,6 @@ impl ::std::convert::From<i32> for REQUEST_TIMES {
 }
 unsafe impl ::windows::runtime::Abi for REQUEST_TIMES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinInet`, `Win32_Foundation`*"]
@@ -9805,7 +9698,6 @@ impl ::std::cmp::Eq for URLCACHE_ENTRY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for URLCACHE_ENTRY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const URLHISTORY_CACHE_ENTRY: u32 = 2097152u32;
@@ -9825,7 +9717,6 @@ impl ::std::convert::From<i32> for URL_CACHE_LIMIT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for URL_CACHE_LIMIT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9903,7 +9794,6 @@ impl ::std::cmp::Eq for URL_COMPONENTSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for URL_COMPONENTSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9981,7 +9871,6 @@ impl ::std::cmp::Eq for URL_COMPONENTSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for URL_COMPONENTSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinInet`, `Win32_Foundation`*"]
@@ -10377,7 +10266,6 @@ impl ::std::cmp::Eq for WININET_PROXY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WININET_PROXY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10412,7 +10300,6 @@ impl ::std::cmp::Eq for WININET_PROXY_INFO_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WININET_PROXY_INFO_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10431,7 +10318,6 @@ impl ::std::convert::From<i32> for WININET_SYNC_MODE {
 }
 unsafe impl ::windows::runtime::Abi for WININET_SYNC_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10446,7 +10332,6 @@ impl ::std::convert::From<i32> for WPAD_CACHE_DELETE {
 }
 unsafe impl ::windows::runtime::Abi for WPAD_CACHE_DELETE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const XDR_CACHE_ENTRY: u32 = 262144u32;

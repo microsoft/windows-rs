@@ -114,7 +114,6 @@ impl ::std::cmp::PartialEq for EVENTLOG_FULL_INFORMATION {
 impl ::std::cmp::Eq for EVENTLOG_FULL_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for EVENTLOG_FULL_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventLog`*"]
 pub const EVT_ALL_ACCESS: u32 = 7u32;
@@ -131,7 +130,6 @@ impl ::std::convert::From<i32> for EVT_CHANNEL_CLOCK_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for EVT_CHANNEL_CLOCK_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -166,7 +164,6 @@ impl ::std::convert::From<i32> for EVT_CHANNEL_CONFIG_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for EVT_CHANNEL_CONFIG_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -182,7 +179,6 @@ impl ::std::convert::From<i32> for EVT_CHANNEL_ISOLATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for EVT_CHANNEL_ISOLATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -196,7 +192,6 @@ impl ::std::convert::From<i32> for EVT_CHANNEL_REFERENCE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for EVT_CHANNEL_REFERENCE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -211,7 +206,6 @@ impl ::std::convert::From<i32> for EVT_CHANNEL_SID_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for EVT_CHANNEL_SID_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -228,7 +222,6 @@ impl ::std::convert::From<i32> for EVT_CHANNEL_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for EVT_CHANNEL_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventLog`*"]
 pub const EVT_CLEAR_ACCESS: u32 = 4u32;
@@ -253,7 +246,6 @@ impl ::std::convert::From<i32> for EVT_EVENT_METADATA_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for EVT_EVENT_METADATA_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -269,7 +261,6 @@ impl ::std::convert::From<i32> for EVT_EVENT_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for EVT_EVENT_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -286,7 +277,6 @@ impl ::std::convert::From<i32> for EVT_EXPORTLOG_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for EVT_EXPORTLOG_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -308,7 +298,6 @@ impl ::std::convert::From<i32> for EVT_FORMAT_MESSAGE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for EVT_FORMAT_MESSAGE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -322,7 +311,6 @@ impl ::std::convert::From<i32> for EVT_LOGIN_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for EVT_LOGIN_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -343,7 +331,6 @@ impl ::std::convert::From<i32> for EVT_LOG_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for EVT_LOG_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -358,7 +345,6 @@ impl ::std::convert::From<i32> for EVT_OPEN_LOG_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for EVT_OPEN_LOG_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -401,7 +387,6 @@ impl ::std::convert::From<i32> for EVT_PUBLISHER_METADATA_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for EVT_PUBLISHER_METADATA_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -419,7 +404,6 @@ impl ::std::convert::From<i32> for EVT_QUERY_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for EVT_QUERY_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -435,7 +419,6 @@ impl ::std::convert::From<i32> for EVT_QUERY_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for EVT_QUERY_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventLog`*"]
 pub const EVT_READ_ACCESS: u32 = 1u32;
@@ -453,7 +436,6 @@ impl ::std::convert::From<i32> for EVT_RENDER_CONTEXT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for EVT_RENDER_CONTEXT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -469,7 +451,6 @@ impl ::std::convert::From<i32> for EVT_RENDER_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for EVT_RENDER_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -507,7 +488,6 @@ impl ::std::cmp::Eq for EVT_RPC_LOGIN {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EVT_RPC_LOGIN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -524,7 +504,6 @@ impl ::std::convert::From<i32> for EVT_RPC_LOGIN_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for EVT_RPC_LOGIN_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -543,7 +522,6 @@ impl ::std::convert::From<i32> for EVT_SEEK_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for EVT_SEEK_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type EVT_SUBSCRIBE_CALLBACK = unsafe extern "system" fn(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: *const ::std::ffi::c_void, event: isize) -> u32;
 #[doc = "*Required features: `Win32_System_EventLog`*"]
@@ -563,7 +541,6 @@ impl ::std::convert::From<i32> for EVT_SUBSCRIBE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for EVT_SUBSCRIBE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -578,7 +555,6 @@ impl ::std::convert::From<i32> for EVT_SUBSCRIBE_NOTIFY_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for EVT_SUBSCRIBE_NOTIFY_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -610,7 +586,6 @@ impl ::std::convert::From<i32> for EVT_SYSTEM_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for EVT_SYSTEM_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -640,7 +615,6 @@ impl ::std::cmp::Eq for EVT_VARIANT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EVT_VARIANT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -707,7 +681,6 @@ impl ::std::cmp::Eq for EVT_VARIANT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EVT_VARIANT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -744,7 +717,6 @@ impl ::std::convert::From<i32> for EVT_VARIANT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for EVT_VARIANT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_EventLog`*"]
 pub const EVT_VARIANT_TYPE_ARRAY: u32 = 128u32;
@@ -763,7 +735,6 @@ impl ::std::default::Default for EventLogHandle {
 unsafe impl ::windows::runtime::Handle for EventLogHandle {}
 unsafe impl ::windows::runtime::Abi for EventLogHandle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -776,7 +747,6 @@ impl ::std::default::Default for EventSourceHandle {
 unsafe impl ::windows::runtime::Handle for EventSourceHandle {}
 unsafe impl ::windows::runtime::Abi for EventSourceHandle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]
@@ -1456,7 +1426,6 @@ impl ::std::convert::From<u32> for READ_EVENT_LOG_READ_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for READ_EVENT_LOG_READ_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for READ_EVENT_LOG_READ_FLAGS {
     type Output = Self;
@@ -1503,7 +1472,6 @@ impl ::std::convert::From<u16> for REPORT_EVENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for REPORT_EVENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_EventLog`, `Win32_Foundation`*"]

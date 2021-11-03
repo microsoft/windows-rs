@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneNumberFormatter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneNumberFormatter {
@@ -23,7 +22,6 @@ pub struct IPhoneNumberFormatter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, number: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneNumberFormatterStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneNumberFormatterStatics {
@@ -45,7 +43,6 @@ pub struct IPhoneNumberFormatterStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, number: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneNumberInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneNumberInfo {
@@ -71,7 +68,6 @@ pub struct IPhoneNumberInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, othernumber: ::windows::runtime::RawPtr, result__: *mut PhoneNumberMatchResult) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneNumberInfoFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneNumberInfoFactory {
@@ -90,7 +86,6 @@ pub struct IPhoneNumberInfoFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, number: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPhoneNumberInfoStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPhoneNumberInfoStatics {
@@ -126,10 +121,12 @@ impl ::std::convert::From<i32> for PhoneNumberFormat {
 }
 unsafe impl ::windows::runtime::Abi for PhoneNumberFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneNumberFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormat;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneNumberFormat {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
 #[repr(transparent)]
@@ -388,10 +385,12 @@ impl ::std::convert::From<i32> for PhoneNumberMatchResult {
 }
 unsafe impl ::windows::runtime::Abi for PhoneNumberMatchResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneNumberMatchResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberMatchResult;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneNumberMatchResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -411,10 +410,12 @@ impl ::std::convert::From<i32> for PhoneNumberParseResult {
 }
 unsafe impl ::windows::runtime::Abi for PhoneNumberParseResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PhoneNumberParseResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberParseResult;i4)");
+}
+impl ::windows::runtime::DefaultType for PhoneNumberParseResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Globalization_PhoneNumberFormatting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -441,8 +442,10 @@ impl ::std::convert::From<i32> for PredictedPhoneNumberKind {
 }
 unsafe impl ::windows::runtime::Abi for PredictedPhoneNumberKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PredictedPhoneNumberKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PredictedPhoneNumberKind;i4)");
+}
+impl ::windows::runtime::DefaultType for PredictedPhoneNumberKind {
+    type DefaultType = Self;
 }

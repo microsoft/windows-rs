@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserNotificationListener(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserNotificationListener {
@@ -30,7 +29,6 @@ pub struct IUserNotificationListener_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, notificationid: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserNotificationListenerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserNotificationListenerStatics {
@@ -152,8 +150,10 @@ impl ::std::convert::From<i32> for UserNotificationListenerAccessStatus {
 }
 unsafe impl ::windows::runtime::Abi for UserNotificationListenerAccessStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserNotificationListenerAccessStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.Management.UserNotificationListenerAccessStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for UserNotificationListenerAccessStatus {
+    type DefaultType = Self;
 }

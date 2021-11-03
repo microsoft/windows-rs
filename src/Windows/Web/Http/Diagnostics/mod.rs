@@ -404,10 +404,12 @@ impl ::std::convert::From<i32> for HttpDiagnosticRequestInitiator {
 }
 unsafe impl ::windows::runtime::Abi for HttpDiagnosticRequestInitiator {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for HttpDiagnosticRequestInitiator {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Diagnostics.HttpDiagnosticRequestInitiator;i4)");
+}
+impl ::windows::runtime::DefaultType for HttpDiagnosticRequestInitiator {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Web_Http_Diagnostics`*"]
 #[repr(transparent)]
@@ -456,7 +458,6 @@ unsafe impl ::std::marker::Sync for HttpDiagnosticSourceLocation {}
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct HttpDiagnosticsContract(pub u8);
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpDiagnosticProvider {
@@ -488,7 +489,6 @@ pub struct IHttpDiagnosticProvider_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpDiagnosticProviderRequestResponseCompletedEventArgs {
@@ -515,7 +515,6 @@ pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgs_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticProviderRequestResponseTimestamps(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpDiagnosticProviderRequestResponseTimestamps {
@@ -551,7 +550,6 @@ pub struct IHttpDiagnosticProviderRequestResponseTimestamps_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticProviderRequestSentEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpDiagnosticProviderRequestSentEventArgs {
@@ -578,7 +576,6 @@ pub struct IHttpDiagnosticProviderRequestSentEventArgs_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticProviderResponseReceivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpDiagnosticProviderResponseReceivedEventArgs {
@@ -600,7 +597,6 @@ pub struct IHttpDiagnosticProviderResponseReceivedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticProviderStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpDiagnosticProviderStatics {
@@ -620,7 +616,6 @@ pub struct IHttpDiagnosticProviderStatics_abi(
     #[cfg(not(feature = "System_Diagnostics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticSourceLocation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHttpDiagnosticSourceLocation {

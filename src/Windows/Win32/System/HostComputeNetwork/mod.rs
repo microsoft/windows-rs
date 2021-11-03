@@ -25,7 +25,6 @@ impl ::std::convert::From<i32> for HCN_NOTIFICATIONS {
 }
 unsafe impl ::windows::runtime::Abi for HCN_NOTIFICATIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type HCN_NOTIFICATION_CALLBACK = unsafe extern "system" fn(notificationtype: u32, context: *const ::std::ffi::c_void, notificationstatus: ::windows::runtime::HRESULT, notificationdata: super::super::Foundation::PWSTR);
@@ -42,7 +41,6 @@ impl ::std::convert::From<i32> for HCN_PORT_ACCESS {
 }
 unsafe impl ::windows::runtime::Abi for HCN_PORT_ACCESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -58,7 +56,6 @@ impl ::std::convert::From<i32> for HCN_PORT_PROTOCOL {
 }
 unsafe impl ::windows::runtime::Abi for HCN_PORT_PROTOCOL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -103,7 +100,6 @@ impl ::std::cmp::PartialEq for HCN_PORT_RANGE_ENTRY {
 impl ::std::cmp::Eq for HCN_PORT_RANGE_ENTRY {}
 unsafe impl ::windows::runtime::Abi for HCN_PORT_RANGE_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -131,7 +127,6 @@ impl ::std::cmp::PartialEq for HCN_PORT_RANGE_RESERVATION {
 impl ::std::cmp::Eq for HCN_PORT_RANGE_RESERVATION {}
 unsafe impl ::windows::runtime::Abi for HCN_PORT_RANGE_RESERVATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`*"]
 #[inline]

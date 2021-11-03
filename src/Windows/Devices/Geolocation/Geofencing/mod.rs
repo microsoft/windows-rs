@@ -230,10 +230,12 @@ impl ::std::convert::From<i32> for GeofenceMonitorStatus {
 }
 unsafe impl ::windows::runtime::Abi for GeofenceMonitorStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GeofenceMonitorStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.GeofenceMonitorStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for GeofenceMonitorStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Geolocation_Geofencing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -250,10 +252,12 @@ impl ::std::convert::From<i32> for GeofenceRemovalReason {
 }
 unsafe impl ::windows::runtime::Abi for GeofenceRemovalReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GeofenceRemovalReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.GeofenceRemovalReason;i4)");
+}
+impl ::windows::runtime::DefaultType for GeofenceRemovalReason {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Geolocation_Geofencing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -272,10 +276,12 @@ impl ::std::convert::From<u32> for GeofenceState {
 }
 unsafe impl ::windows::runtime::Abi for GeofenceState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GeofenceState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.GeofenceState;u4)");
+}
+impl ::windows::runtime::DefaultType for GeofenceState {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for GeofenceState {
     type Output = Self;
@@ -356,7 +362,6 @@ impl ::windows::runtime::RuntimeName for GeofenceStateChangeReport {
 unsafe impl ::std::marker::Send for GeofenceStateChangeReport {}
 unsafe impl ::std::marker::Sync for GeofenceStateChangeReport {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeofence(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeofence {
@@ -384,7 +389,6 @@ pub struct IGeofence_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeofenceFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeofenceFactory {
@@ -408,7 +412,6 @@ pub struct IGeofenceFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeofenceMonitor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeofenceMonitor {
@@ -440,7 +443,6 @@ pub struct IGeofenceMonitor_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeofenceMonitorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeofenceMonitorStatics {
@@ -459,7 +461,6 @@ pub struct IGeofenceMonitorStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGeofenceStateChangeReport(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeofenceStateChangeReport {
@@ -497,10 +498,12 @@ impl ::std::convert::From<u32> for MonitoredGeofenceStates {
 }
 unsafe impl ::windows::runtime::Abi for MonitoredGeofenceStates {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MonitoredGeofenceStates {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.MonitoredGeofenceStates;u4)");
+}
+impl ::windows::runtime::DefaultType for MonitoredGeofenceStates {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MonitoredGeofenceStates {
     type Output = Self;

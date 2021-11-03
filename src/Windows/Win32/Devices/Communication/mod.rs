@@ -75,7 +75,6 @@ impl ::std::convert::From<u32> for CLEAR_COMM_ERROR_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CLEAR_COMM_ERROR_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CLEAR_COMM_ERROR_FLAGS {
     type Output = Self;
@@ -153,7 +152,6 @@ impl ::std::cmp::Eq for COMMCONFIG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for COMMCONFIG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -233,7 +231,6 @@ impl ::std::cmp::PartialEq for COMMPROP {
 impl ::std::cmp::Eq for COMMPROP {}
 unsafe impl ::windows::runtime::Abi for COMMPROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Communication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -254,7 +251,6 @@ impl ::std::convert::From<u16> for COMMPROP_STOP_PARITY {
 }
 unsafe impl ::windows::runtime::Abi for COMMPROP_STOP_PARITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for COMMPROP_STOP_PARITY {
     type Output = Self;
@@ -319,7 +315,6 @@ impl ::std::cmp::PartialEq for COMMTIMEOUTS {
 impl ::std::cmp::Eq for COMMTIMEOUTS {}
 unsafe impl ::windows::runtime::Abi for COMMTIMEOUTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Communication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -345,7 +340,6 @@ impl ::std::convert::From<u32> for COMM_EVENT_MASK {
 }
 unsafe impl ::windows::runtime::Abi for COMM_EVENT_MASK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for COMM_EVENT_MASK {
     type Output = Self;
@@ -402,7 +396,6 @@ impl ::std::cmp::PartialEq for COMSTAT {
 impl ::std::cmp::Eq for COMSTAT {}
 unsafe impl ::windows::runtime::Abi for COMSTAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Communication`, `Win32_Foundation`*"]
@@ -540,7 +533,6 @@ impl ::std::cmp::Eq for DCB {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DCB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Communication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -561,7 +553,6 @@ impl ::std::convert::From<u32> for ESCAPE_COMM_FUNCTION {
 }
 unsafe impl ::windows::runtime::Abi for ESCAPE_COMM_FUNCTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ESCAPE_COMM_FUNCTION {
     type Output = Self;
@@ -1006,7 +997,6 @@ impl ::std::cmp::PartialEq for MODEMDEVCAPS {
 impl ::std::cmp::Eq for MODEMDEVCAPS {}
 unsafe impl ::windows::runtime::Abi for MODEMDEVCAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Communication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1022,7 +1012,6 @@ impl ::std::convert::From<u32> for MODEMDEVCAPS_DIAL_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for MODEMDEVCAPS_DIAL_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MODEMDEVCAPS_DIAL_OPTIONS {
     type Output = Self;
@@ -1067,7 +1056,6 @@ impl ::std::convert::From<u32> for MODEMDEVCAPS_SPEAKER_MODE {
 }
 unsafe impl ::windows::runtime::Abi for MODEMDEVCAPS_SPEAKER_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MODEMDEVCAPS_SPEAKER_MODE {
     type Output = Self;
@@ -1111,7 +1099,6 @@ impl ::std::convert::From<u32> for MODEMDEVCAPS_SPEAKER_VOLUME {
 }
 unsafe impl ::windows::runtime::Abi for MODEMDEVCAPS_SPEAKER_VOLUME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MODEMDEVCAPS_SPEAKER_VOLUME {
     type Output = Self;
@@ -1201,7 +1188,6 @@ impl ::std::cmp::PartialEq for MODEMSETTINGS {
 impl ::std::cmp::Eq for MODEMSETTINGS {}
 unsafe impl ::windows::runtime::Abi for MODEMSETTINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Communication`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1218,7 +1204,6 @@ impl ::std::convert::From<u32> for MODEMSETTINGS_SPEAKER_MODE {
 }
 unsafe impl ::windows::runtime::Abi for MODEMSETTINGS_SPEAKER_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MODEMSETTINGS_SPEAKER_MODE {
     type Output = Self;
@@ -1262,7 +1247,6 @@ impl ::std::convert::From<u32> for MODEM_SPEAKER_VOLUME {
 }
 unsafe impl ::windows::runtime::Abi for MODEM_SPEAKER_VOLUME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MODEM_SPEAKER_VOLUME {
     type Output = Self;
@@ -1307,7 +1291,6 @@ impl ::std::convert::From<u32> for MODEM_STATUS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MODEM_STATUS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MODEM_STATUS_FLAGS {
     type Output = Self;
@@ -1367,7 +1350,6 @@ impl ::std::convert::From<u32> for PURGE_COMM_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PURGE_COMM_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PURGE_COMM_FLAGS {
     type Output = Self;

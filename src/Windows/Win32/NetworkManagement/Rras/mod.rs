@@ -40,7 +40,6 @@ impl ::std::cmp::Eq for AUTH_VALIDATION_EX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUTH_VALIDATION_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const DO_NOT_ALLOW_NO_AUTH: u32 = 0u32;
@@ -630,7 +629,6 @@ impl ::std::cmp::PartialEq for GRE_CONFIG_PARAMS0 {
 impl ::std::cmp::Eq for GRE_CONFIG_PARAMS0 {}
 unsafe impl ::windows::runtime::Abi for GRE_CONFIG_PARAMS0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -643,7 +641,6 @@ impl ::std::default::Default for HRASCONN {
 unsafe impl ::windows::runtime::Handle for HRASCONN {}
 unsafe impl ::windows::runtime::Abi for HRASCONN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -680,7 +677,6 @@ impl ::std::cmp::Eq for IKEV2_CONFIG_PARAMS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for IKEV2_CONFIG_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -706,7 +702,6 @@ impl ::std::convert::From<i32> for IKEV2_ID_PAYLOAD_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for IKEV2_ID_PAYLOAD_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -777,7 +772,6 @@ impl ::std::cmp::PartialEq for IKEV2_PROJECTION_INFO {
 impl ::std::cmp::Eq for IKEV2_PROJECTION_INFO {}
 unsafe impl ::windows::runtime::Abi for IKEV2_PROJECTION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -851,7 +845,6 @@ impl ::std::cmp::PartialEq for IKEV2_PROJECTION_INFO2 {
 impl ::std::cmp::Eq for IKEV2_PROJECTION_INFO2 {}
 unsafe impl ::windows::runtime::Abi for IKEV2_PROJECTION_INFO2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -914,7 +907,6 @@ impl ::std::cmp::Eq for IKEV2_TUNNEL_CONFIG_PARAMS2 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 unsafe impl ::windows::runtime::Abi for IKEV2_TUNNEL_CONFIG_PARAMS2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -986,7 +978,6 @@ impl ::std::cmp::Eq for IKEV2_TUNNEL_CONFIG_PARAMS3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for IKEV2_TUNNEL_CONFIG_PARAMS3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1061,7 +1052,6 @@ impl ::std::cmp::Eq for IKEV2_TUNNEL_CONFIG_PARAMS4 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for IKEV2_TUNNEL_CONFIG_PARAMS4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const IPADDRESSLEN: u32 = 15u32;
@@ -1095,7 +1085,6 @@ impl ::std::cmp::PartialEq for L2TP_CONFIG_PARAMS0 {
 impl ::std::cmp::Eq for L2TP_CONFIG_PARAMS0 {}
 unsafe impl ::windows::runtime::Abi for L2TP_CONFIG_PARAMS0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1125,7 +1114,6 @@ impl ::std::cmp::PartialEq for L2TP_CONFIG_PARAMS1 {
 impl ::std::cmp::Eq for L2TP_CONFIG_PARAMS1 {}
 unsafe impl ::windows::runtime::Abi for L2TP_CONFIG_PARAMS1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1162,7 +1150,6 @@ impl ::std::cmp::PartialEq for L2TP_TUNNEL_CONFIG_PARAMS1 {
 impl ::std::cmp::Eq for L2TP_TUNNEL_CONFIG_PARAMS1 {}
 unsafe impl ::windows::runtime::Abi for L2TP_TUNNEL_CONFIG_PARAMS1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1201,7 +1188,6 @@ impl ::std::cmp::PartialEq for L2TP_TUNNEL_CONFIG_PARAMS2 {
 impl ::std::cmp::Eq for L2TP_TUNNEL_CONFIG_PARAMS2 {}
 unsafe impl ::windows::runtime::Abi for L2TP_TUNNEL_CONFIG_PARAMS2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MAXIPADRESSLEN: u32 = 64u32;
@@ -1238,7 +1224,6 @@ impl ::std::convert::From<i32> for MGM_ENUM_TYPES {
 }
 unsafe impl ::windows::runtime::Abi for MGM_ENUM_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MGM_FORWARD_STATE_FLAG: u32 = 2u32;
@@ -1277,7 +1262,6 @@ impl ::std::cmp::Eq for MGM_IF_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MGM_IF_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MGM_JOIN_STATE_FLAG: u32 = 1u32;
@@ -1341,7 +1325,6 @@ impl ::std::cmp::Eq for MPRAPI_ADMIN_DLL_CALLBACKS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for MPRAPI_ADMIN_DLL_CALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_ADMIN_DLL_VERSION_1: u32 = 1u32;
@@ -1412,7 +1395,6 @@ impl ::std::cmp::PartialEq for MPRAPI_OBJECT_HEADER {
 impl ::std::cmp::Eq for MPRAPI_OBJECT_HEADER {}
 unsafe impl ::windows::runtime::Abi for MPRAPI_OBJECT_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1431,7 +1413,6 @@ impl ::std::convert::From<i32> for MPRAPI_OBJECT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MPRAPI_OBJECT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRAPI_PPP_PROJECTION_INFO_TYPE: u32 = 1u32;
@@ -1484,7 +1465,6 @@ impl ::std::cmp::Eq for MPRAPI_TUNNEL_CONFIG_PARAMS0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1528,7 +1508,6 @@ impl ::std::cmp::Eq for MPRAPI_TUNNEL_CONFIG_PARAMS1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPRET_Direct: u32 = 3u32;
@@ -1626,7 +1605,6 @@ impl ::std::cmp::Eq for MPR_CERT_EKU {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MPR_CERT_EKU {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1654,7 +1632,6 @@ impl ::std::cmp::PartialEq for MPR_CREDENTIALSEX_0 {
 impl ::std::cmp::Eq for MPR_CREDENTIALSEX_0 {}
 unsafe impl ::windows::runtime::Abi for MPR_CREDENTIALSEX_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1682,7 +1659,6 @@ impl ::std::cmp::PartialEq for MPR_CREDENTIALSEX_1 {
 impl ::std::cmp::Eq for MPR_CREDENTIALSEX_1 {}
 unsafe impl ::windows::runtime::Abi for MPR_CREDENTIALSEX_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1710,7 +1686,6 @@ impl ::std::cmp::PartialEq for MPR_DEVICE_0 {
 impl ::std::cmp::Eq for MPR_DEVICE_0 {}
 unsafe impl ::windows::runtime::Abi for MPR_DEVICE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1747,7 +1722,6 @@ impl ::std::cmp::Eq for MPR_DEVICE_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MPR_DEVICE_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPR_ENABLE_RAS_ON_DEVICE: u32 = 1u32;
@@ -1768,7 +1742,6 @@ impl ::std::convert::From<u32> for MPR_ET {
 }
 unsafe impl ::windows::runtime::Abi for MPR_ET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MPR_ET {
     type Output = Self;
@@ -1830,7 +1803,6 @@ impl ::std::cmp::Eq for MPR_FILTER_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MPR_FILTER_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1866,7 +1838,6 @@ impl ::std::cmp::Eq for MPR_IFTRANSPORT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MPR_IFTRANSPORT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1902,7 +1873,6 @@ impl ::std::cmp::Eq for MPR_IF_CUSTOMINFOEX0 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 unsafe impl ::windows::runtime::Abi for MPR_IF_CUSTOMINFOEX0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1938,7 +1908,6 @@ impl ::std::cmp::Eq for MPR_IF_CUSTOMINFOEX1 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 unsafe impl ::windows::runtime::Abi for MPR_IF_CUSTOMINFOEX1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1974,7 +1943,6 @@ impl ::std::cmp::Eq for MPR_IF_CUSTOMINFOEX2 {}
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for MPR_IF_CUSTOMINFOEX2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2022,7 +1990,6 @@ impl ::std::cmp::Eq for MPR_INTERFACE_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MPR_INTERFACE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2072,7 +2039,6 @@ impl ::std::cmp::Eq for MPR_INTERFACE_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MPR_INTERFACE_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2216,7 +2182,6 @@ impl ::std::cmp::Eq for MPR_INTERFACE_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MPR_INTERFACE_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2284,7 +2249,6 @@ impl ::std::cmp::Eq for MPR_INTERFACE_3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for MPR_INTERFACE_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPR_INTERFACE_ADMIN_DISABLED: u32 = 2u32;
@@ -2306,7 +2270,6 @@ impl ::std::convert::From<u32> for MPR_INTERFACE_DIAL_MODE {
 }
 unsafe impl ::windows::runtime::Abi for MPR_INTERFACE_DIAL_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MPR_INTERFACE_DIAL_MODE {
     type Output = Self;
@@ -2370,7 +2333,6 @@ impl ::std::cmp::PartialEq for MPR_IPINIP_INTERFACE_0 {
 impl ::std::cmp::Eq for MPR_IPINIP_INTERFACE_0 {}
 unsafe impl ::windows::runtime::Abi for MPR_IPINIP_INTERFACE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const MPR_MaxAreaCode: u32 = 10u32;
@@ -2431,7 +2393,6 @@ impl ::std::cmp::Eq for MPR_SERVER_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MPR_SERVER_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2461,7 +2422,6 @@ impl ::std::cmp::PartialEq for MPR_SERVER_1 {
 impl ::std::cmp::Eq for MPR_SERVER_1 {}
 unsafe impl ::windows::runtime::Abi for MPR_SERVER_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2500,7 +2460,6 @@ impl ::std::cmp::PartialEq for MPR_SERVER_2 {
 impl ::std::cmp::Eq for MPR_SERVER_2 {}
 unsafe impl ::windows::runtime::Abi for MPR_SERVER_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2548,7 +2507,6 @@ impl ::std::cmp::Eq for MPR_SERVER_EX0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for MPR_SERVER_EX0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2596,7 +2554,6 @@ impl ::std::cmp::Eq for MPR_SERVER_EX1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for MPR_SERVER_EX1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2632,7 +2589,6 @@ impl ::std::cmp::Eq for MPR_SERVER_SET_CONFIG_EX0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for MPR_SERVER_SET_CONFIG_EX0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2668,7 +2624,6 @@ impl ::std::cmp::Eq for MPR_SERVER_SET_CONFIG_EX1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for MPR_SERVER_SET_CONFIG_EX1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2704,7 +2659,6 @@ impl ::std::cmp::Eq for MPR_TRANSPORT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MPR_TRANSPORT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2741,7 +2695,6 @@ impl ::std::cmp::Eq for MPR_VPN_TRAFFIC_SELECTORS {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for MPR_VPN_TRAFFIC_SELECTORS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2756,7 +2709,6 @@ impl ::std::convert::From<i32> for MPR_VPN_TS_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MPR_VPN_TS_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2774,7 +2726,6 @@ impl ::std::convert::From<u32> for MPR_VS {
 }
 unsafe impl ::windows::runtime::Abi for MPR_VS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MPR_VS {
     type Output = Self;
@@ -4880,7 +4831,6 @@ impl ::std::cmp::PartialEq for PPP_ATCP_INFO {
 impl ::std::cmp::Eq for PPP_ATCP_INFO {}
 unsafe impl ::windows::runtime::Abi for PPP_ATCP_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PPP_CCP_COMPRESSION: u32 = 1u32;
@@ -4923,7 +4873,6 @@ impl ::std::cmp::PartialEq for PPP_CCP_INFO {
 impl ::std::cmp::Eq for PPP_CCP_INFO {}
 unsafe impl ::windows::runtime::Abi for PPP_CCP_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4953,7 +4902,6 @@ impl ::std::cmp::PartialEq for PPP_INFO {
 impl ::std::cmp::Eq for PPP_INFO {}
 unsafe impl ::windows::runtime::Abi for PPP_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4985,7 +4933,6 @@ impl ::std::cmp::PartialEq for PPP_INFO_2 {
 impl ::std::cmp::Eq for PPP_INFO_2 {}
 unsafe impl ::windows::runtime::Abi for PPP_INFO_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5016,7 +4963,6 @@ impl ::std::cmp::PartialEq for PPP_INFO_3 {
 impl ::std::cmp::Eq for PPP_INFO_3 {}
 unsafe impl ::windows::runtime::Abi for PPP_INFO_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5045,7 +4991,6 @@ impl ::std::cmp::PartialEq for PPP_IPCP_INFO {
 impl ::std::cmp::Eq for PPP_IPCP_INFO {}
 unsafe impl ::windows::runtime::Abi for PPP_IPCP_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5076,7 +5021,6 @@ impl ::std::cmp::PartialEq for PPP_IPCP_INFO2 {
 impl ::std::cmp::Eq for PPP_IPCP_INFO2 {}
 unsafe impl ::windows::runtime::Abi for PPP_IPCP_INFO2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PPP_IPCP_VJ: u32 = 1u32;
@@ -5123,7 +5067,6 @@ impl ::std::cmp::PartialEq for PPP_IPV6_CP_INFO {
 impl ::std::cmp::Eq for PPP_IPV6_CP_INFO {}
 unsafe impl ::windows::runtime::Abi for PPP_IPV6_CP_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5151,7 +5094,6 @@ impl ::std::cmp::PartialEq for PPP_IPXCP_INFO {
 impl ::std::cmp::Eq for PPP_IPXCP_INFO {}
 unsafe impl ::windows::runtime::Abi for PPP_IPXCP_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5168,7 +5110,6 @@ impl ::std::convert::From<u32> for PPP_LCP {
 }
 unsafe impl ::windows::runtime::Abi for PPP_LCP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PPP_LCP {
     type Output = Self;
@@ -5273,7 +5214,6 @@ impl ::std::cmp::PartialEq for PPP_LCP_INFO {
 impl ::std::cmp::Eq for PPP_LCP_INFO {}
 unsafe impl ::windows::runtime::Abi for PPP_LCP_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5289,7 +5229,6 @@ impl ::std::convert::From<u32> for PPP_LCP_INFO_AUTH_DATA {
 }
 unsafe impl ::windows::runtime::Abi for PPP_LCP_INFO_AUTH_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PPP_LCP_INFO_AUTH_DATA {
     type Output = Self;
@@ -5351,7 +5290,6 @@ impl ::std::cmp::PartialEq for PPP_NBFCP_INFO {
 impl ::std::cmp::Eq for PPP_NBFCP_INFO {}
 unsafe impl ::windows::runtime::Abi for PPP_NBFCP_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5461,7 +5399,6 @@ impl ::std::cmp::PartialEq for PPP_PROJECTION_INFO {
 impl ::std::cmp::Eq for PPP_PROJECTION_INFO {}
 unsafe impl ::windows::runtime::Abi for PPP_PROJECTION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5574,7 +5511,6 @@ impl ::std::cmp::PartialEq for PPP_PROJECTION_INFO2 {
 impl ::std::cmp::Eq for PPP_PROJECTION_INFO2 {}
 unsafe impl ::windows::runtime::Abi for PPP_PROJECTION_INFO2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5602,7 +5538,6 @@ impl ::std::cmp::PartialEq for PPTP_CONFIG_PARAMS {
 impl ::std::cmp::Eq for PPTP_CONFIG_PARAMS {}
 unsafe impl ::windows::runtime::Abi for PPTP_CONFIG_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5625,7 +5560,6 @@ impl ::std::cmp::PartialEq for PROJECTION_INFO {
 impl ::std::cmp::Eq for PROJECTION_INFO {}
 unsafe impl ::windows::runtime::Abi for PROJECTION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5648,7 +5582,6 @@ impl ::std::cmp::PartialEq for PROJECTION_INFO_0 {
 impl ::std::cmp::Eq for PROJECTION_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for PROJECTION_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5671,7 +5604,6 @@ impl ::std::cmp::PartialEq for PROJECTION_INFO2 {
 impl ::std::cmp::Eq for PROJECTION_INFO2 {}
 unsafe impl ::windows::runtime::Abi for PROJECTION_INFO2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5694,7 +5626,6 @@ impl ::std::cmp::PartialEq for PROJECTION_INFO2_0 {
 impl ::std::cmp::Eq for PROJECTION_INFO2_0 {}
 unsafe impl ::windows::runtime::Abi for PROJECTION_INFO2_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASADFLG_PositionDlg: u32 = 1u32;
@@ -5732,7 +5663,6 @@ impl ::std::cmp::Eq for RASADPARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASADPARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASADP_ConnectionQueryTimeout: u32 = 4u32;
@@ -5779,7 +5709,6 @@ impl ::std::cmp::Eq for RASAMBA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASAMBA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5809,7 +5738,6 @@ impl ::std::cmp::PartialEq for RASAMBW {
 impl ::std::cmp::Eq for RASAMBW {}
 unsafe impl ::windows::runtime::Abi for RASAMBW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5826,7 +5754,6 @@ impl ::std::convert::From<i32> for RASAPIVERSION {
 }
 unsafe impl ::windows::runtime::Abi for RASAPIVERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5863,7 +5790,6 @@ impl ::std::cmp::Eq for RASAUTODIALENTRYA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASAUTODIALENTRYA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5893,7 +5819,6 @@ impl ::std::cmp::PartialEq for RASAUTODIALENTRYW {
 impl ::std::cmp::Eq for RASAUTODIALENTRYW {}
 unsafe impl ::windows::runtime::Abi for RASAUTODIALENTRYW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASBASE: u32 = 600u32;
@@ -5978,7 +5903,6 @@ impl ::std::cmp::PartialEq for RASCOMMSETTINGS {
 impl ::std::cmp::Eq for RASCOMMSETTINGS {}
 unsafe impl ::windows::runtime::Abi for RASCOMMSETTINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
@@ -6016,7 +5940,6 @@ impl ::std::cmp::Eq for RASCONNA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASCONNA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6061,7 +5984,6 @@ impl ::std::convert::From<i32> for RASCONNSTATE {
 }
 unsafe impl ::windows::runtime::Abi for RASCONNSTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6097,7 +6019,6 @@ impl ::std::cmp::Eq for RASCONNSTATUSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for RASCONNSTATUSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6133,7 +6054,6 @@ impl ::std::cmp::Eq for RASCONNSTATUSW {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for RASCONNSTATUSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6150,7 +6070,6 @@ impl ::std::convert::From<i32> for RASCONNSUBSTATE {
 }
 unsafe impl ::windows::runtime::Abi for RASCONNSUBSTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
@@ -6188,7 +6107,6 @@ impl ::std::cmp::Eq for RASCONNW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASCONNW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6226,7 +6144,6 @@ impl ::std::cmp::Eq for RASCREDENTIALSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASCREDENTIALSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6257,7 +6174,6 @@ impl ::std::cmp::PartialEq for RASCREDENTIALSW {
 impl ::std::cmp::Eq for RASCREDENTIALSW {}
 unsafe impl ::windows::runtime::Abi for RASCREDENTIALSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASCSS_DONE: u32 = 8192u32;
@@ -6294,7 +6210,6 @@ impl ::std::cmp::PartialEq for RASCTRYINFO {
 impl ::std::cmp::Eq for RASCTRYINFO {}
 unsafe impl ::windows::runtime::Abi for RASCTRYINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for RASCUSTOMSCRIPTEXTENSIONS {
@@ -6328,7 +6243,6 @@ impl ::std::cmp::Eq for RASCUSTOMSCRIPTEXTENSIONS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASCUSTOMSCRIPTEXTENSIONS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASDDFLAG_AoacRedial: u32 = 4u32;
@@ -6372,7 +6286,6 @@ impl ::std::cmp::Eq for RASDEVINFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASDEVINFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6401,7 +6314,6 @@ impl ::std::cmp::PartialEq for RASDEVINFOW {
 impl ::std::cmp::Eq for RASDEVINFOW {}
 unsafe impl ::windows::runtime::Abi for RASDEVINFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
@@ -6424,7 +6336,6 @@ impl ::std::cmp::PartialEq for RASDEVSPECIFICINFO {
 impl ::std::cmp::Eq for RASDEVSPECIFICINFO {}
 unsafe impl ::windows::runtime::Abi for RASDEVSPECIFICINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
@@ -6460,7 +6371,6 @@ impl ::std::cmp::Eq for RASDIALDLG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASDIALDLG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
@@ -6495,7 +6405,6 @@ impl ::std::cmp::Eq for RASDIALEXTENSIONS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASDIALEXTENSIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type RASDIALFUNC = unsafe extern "system" fn(param0: u32, param1: RASCONNSTATE, param2: u32);
 pub type RASDIALFUNC1 = unsafe extern "system" fn(param0: HRASCONN, param1: u32, param2: RASCONNSTATE, param3: u32, param4: u32);
@@ -6536,7 +6445,6 @@ impl ::std::cmp::Eq for RASDIALPARAMSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASDIALPARAMSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
@@ -6574,7 +6482,6 @@ impl ::std::cmp::Eq for RASDIALPARAMSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASDIALPARAMSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEAPF_Logon: u32 = 4u32;
@@ -6603,7 +6510,6 @@ impl ::std::cmp::PartialEq for RASEAPINFO {
 impl ::std::cmp::Eq for RASEAPINFO {}
 unsafe impl ::windows::runtime::Abi for RASEAPINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6639,7 +6545,6 @@ impl ::std::cmp::Eq for RASEAPUSERIDENTITYA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASEAPUSERIDENTITYA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6668,7 +6573,6 @@ impl ::std::cmp::PartialEq for RASEAPUSERIDENTITYW {
 impl ::std::cmp::Eq for RASEAPUSERIDENTITYW {}
 unsafe impl ::windows::runtime::Abi for RASEAPUSERIDENTITYW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASEDFLAG_CloneEntry: u32 = 4u32;
@@ -6780,7 +6684,6 @@ impl ::std::cmp::Eq for RASENTRYA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for RASENTRYA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
@@ -6816,7 +6719,6 @@ impl ::std::cmp::Eq for RASENTRYDLGA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASENTRYDLGA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
@@ -6852,7 +6754,6 @@ impl ::std::cmp::Eq for RASENTRYDLGW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASENTRYDLGW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6889,7 +6790,6 @@ impl ::std::cmp::Eq for RASENTRYNAMEA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASENTRYNAMEA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6919,7 +6819,6 @@ impl ::std::cmp::PartialEq for RASENTRYNAMEW {
 impl ::std::cmp::Eq for RASENTRYNAMEW {}
 unsafe impl ::windows::runtime::Abi for RASENTRYNAMEW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7007,7 +6906,6 @@ impl ::std::cmp::Eq for RASENTRYW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for RASENTRYW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7022,7 +6920,6 @@ impl ::std::convert::From<u32> for RASENTRY_DIAL_MODE {
 }
 unsafe impl ::windows::runtime::Abi for RASENTRY_DIAL_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for RASENTRY_DIAL_MODE {
     type Output = Self;
@@ -7238,7 +7135,6 @@ impl ::std::cmp::Eq for RASIKEV2_PROJECTION_INFO {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for RASIKEV2_PROJECTION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7254,7 +7150,6 @@ impl ::std::convert::From<u32> for RASIKEV_PROJECTION_INFO_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for RASIKEV_PROJECTION_INFO_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for RASIKEV_PROJECTION_INFO_FLAGS {
     type Output = Self;
@@ -7318,7 +7213,6 @@ impl ::std::cmp::PartialEq for RASIPADDR {
 impl ::std::cmp::Eq for RASIPADDR {}
 unsafe impl ::windows::runtime::Abi for RASIPADDR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASIPO_VJ: u32 = 1u32;
@@ -7349,7 +7243,6 @@ impl ::std::cmp::PartialEq for RASIPXW {
 impl ::std::cmp::Eq for RASIPXW {}
 unsafe impl ::windows::runtime::Abi for RASIPXW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASLCPO_3_DES: u32 = 16u32;
@@ -7412,7 +7305,6 @@ impl ::std::cmp::Eq for RASNOUSERA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASNOUSERA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7444,7 +7336,6 @@ impl ::std::cmp::PartialEq for RASNOUSERW {
 impl ::std::cmp::Eq for RASNOUSERW {}
 unsafe impl ::windows::runtime::Abi for RASNOUSERW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASNOUSER_SmartCard: u32 = 1u32;
@@ -7518,7 +7409,6 @@ impl ::std::cmp::Eq for RASPBDLGA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASPBDLGA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type RASPBDLGFUNCA = unsafe extern "system" fn(param0: usize, param1: u32, param2: super::super::Foundation::PSTR, param3: *mut ::std::ffi::c_void);
@@ -7564,7 +7454,6 @@ impl ::std::cmp::Eq for RASPBDLGW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASPBDLGW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7603,7 +7492,6 @@ impl ::std::cmp::PartialEq for RASPPPCCP {
 impl ::std::cmp::Eq for RASPPPCCP {}
 unsafe impl ::windows::runtime::Abi for RASPPPCCP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7642,7 +7530,6 @@ impl ::std::cmp::Eq for RASPPPIPA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASPPPIPA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7681,7 +7568,6 @@ impl ::std::cmp::PartialEq for RASPPPIPV6 {
 impl ::std::cmp::Eq for RASPPPIPV6 {}
 unsafe impl ::windows::runtime::Abi for RASPPPIPV6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7713,7 +7599,6 @@ impl ::std::cmp::PartialEq for RASPPPIPW {
 impl ::std::cmp::Eq for RASPPPIPW {}
 unsafe impl ::windows::runtime::Abi for RASPPPIPW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7749,7 +7634,6 @@ impl ::std::cmp::Eq for RASPPPIPXA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASPPPIPXA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7827,7 +7711,6 @@ impl ::std::cmp::Eq for RASPPPLCPA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASPPPLCPA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7905,7 +7788,6 @@ impl ::std::cmp::Eq for RASPPPLCPW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASPPPLCPW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7944,7 +7826,6 @@ impl ::std::cmp::Eq for RASPPPNBFA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASPPPNBFA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7976,7 +7857,6 @@ impl ::std::cmp::PartialEq for RASPPPNBFW {
 impl ::std::cmp::Eq for RASPPPNBFW {}
 unsafe impl ::windows::runtime::Abi for RASPPPNBFW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8026,7 +7906,6 @@ impl ::std::cmp::Eq for RASPPP_PROJECTION_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for RASPPP_PROJECTION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8042,7 +7921,6 @@ impl ::std::convert::From<u32> for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
 }
 unsafe impl ::windows::runtime::Abi for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
     type Output = Self;
@@ -8087,7 +7965,6 @@ impl ::std::convert::From<u32> for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
 }
 unsafe impl ::windows::runtime::Abi for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
     type Output = Self;
@@ -8145,7 +8022,6 @@ impl ::std::convert::From<i32> for RASPROJECTION {
 }
 unsafe impl ::windows::runtime::Abi for RASPROJECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8160,7 +8036,6 @@ impl ::std::convert::From<i32> for RASPROJECTION_INFO_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RASPROJECTION_INFO_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type RASSECURITYPROC = unsafe extern "system" fn() -> u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -8200,7 +8075,6 @@ impl ::std::cmp::Eq for RASSUBENTRYA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASSUBENTRYA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8232,7 +8106,6 @@ impl ::std::cmp::PartialEq for RASSUBENTRYW {
 impl ::std::cmp::Eq for RASSUBENTRYW {}
 unsafe impl ::windows::runtime::Abi for RASSUBENTRYW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8261,7 +8134,6 @@ impl ::std::cmp::Eq for RASTUNNELENDPOINT {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for RASTUNNELENDPOINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8290,7 +8162,6 @@ impl ::std::cmp::Eq for RASTUNNELENDPOINT_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for RASTUNNELENDPOINT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASTUNNELENDPOINT_IPv4: u32 = 1u32;
@@ -8329,7 +8200,6 @@ impl ::std::cmp::Eq for RASUPDATECONN {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for RASUPDATECONN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8381,7 +8251,6 @@ impl ::std::cmp::Eq for RAS_CONNECTION_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RAS_CONNECTION_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8459,7 +8328,6 @@ impl ::std::cmp::Eq for RAS_CONNECTION_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RAS_CONNECTION_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8497,7 +8365,6 @@ impl ::std::cmp::Eq for RAS_CONNECTION_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RAS_CONNECTION_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8549,7 +8416,6 @@ impl ::std::cmp::Eq for RAS_CONNECTION_3 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RAS_CONNECTION_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8606,7 +8472,6 @@ impl ::std::cmp::Eq for RAS_CONNECTION_4 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RAS_CONNECTION_4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8662,7 +8527,6 @@ impl ::std::cmp::Eq for RAS_CONNECTION_EX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RAS_CONNECTION_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8681,7 +8545,6 @@ impl ::std::convert::From<u32> for RAS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for RAS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for RAS_FLAGS {
     type Output = Self;
@@ -8726,7 +8589,6 @@ impl ::std::convert::From<i32> for RAS_HARDWARE_CONDITION {
 }
 unsafe impl ::windows::runtime::Abi for RAS_HARDWARE_CONDITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RAS_MaxAreaCode: u32 = 10u32;
@@ -8808,7 +8670,6 @@ impl ::std::cmp::Eq for RAS_PORT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RAS_PORT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8889,7 +8750,6 @@ impl ::std::cmp::Eq for RAS_PORT_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RAS_PORT_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9003,7 +8863,6 @@ impl ::std::cmp::Eq for RAS_PORT_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RAS_PORT_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9023,7 +8882,6 @@ impl ::std::convert::From<i32> for RAS_PORT_CONDITION {
 }
 unsafe impl ::windows::runtime::Abi for RAS_PORT_CONDITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9053,7 +8911,6 @@ impl ::std::cmp::Eq for RAS_PROJECTION_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for RAS_PROJECTION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9082,7 +8939,6 @@ impl ::std::cmp::Eq for RAS_PROJECTION_INFO_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for RAS_PROJECTION_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9099,7 +8955,6 @@ impl ::std::convert::From<i32> for RAS_QUARANTINE_STATE {
 }
 unsafe impl ::windows::runtime::Abi for RAS_QUARANTINE_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9135,7 +8990,6 @@ impl ::std::cmp::Eq for RAS_SECURITY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RAS_SECURITY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9206,7 +9060,6 @@ impl ::std::cmp::PartialEq for RAS_STATS {
 impl ::std::cmp::Eq for RAS_STATS {}
 unsafe impl ::windows::runtime::Abi for RAS_STATS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9236,7 +9089,6 @@ impl ::std::cmp::PartialEq for RAS_UPDATE_CONNECTION {
 impl ::std::cmp::Eq for RAS_UPDATE_CONNECTION {}
 unsafe impl ::windows::runtime::Abi for RAS_UPDATE_CONNECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9264,7 +9116,6 @@ impl ::std::cmp::PartialEq for RAS_USER_0 {
 impl ::std::cmp::Eq for RAS_USER_0 {}
 unsafe impl ::windows::runtime::Abi for RAS_USER_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9293,7 +9144,6 @@ impl ::std::cmp::PartialEq for RAS_USER_1 {
 impl ::std::cmp::Eq for RAS_USER_1 {}
 unsafe impl ::windows::runtime::Abi for RAS_USER_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RCD_AllUsers: u32 = 1u32;
@@ -9354,7 +9204,6 @@ impl ::std::convert::From<i32> for ROUTER_CONNECTION_STATE {
 }
 unsafe impl ::windows::runtime::Abi for ROUTER_CONNECTION_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9393,7 +9242,6 @@ impl ::std::cmp::PartialEq for ROUTER_CUSTOM_IKEv2_POLICY0 {
 impl ::std::cmp::Eq for ROUTER_CUSTOM_IKEv2_POLICY0 {}
 unsafe impl ::windows::runtime::Abi for ROUTER_CUSTOM_IKEv2_POLICY0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9430,7 +9278,6 @@ impl ::std::cmp::Eq for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 unsafe impl ::windows::runtime::Abi for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9468,7 +9315,6 @@ impl ::std::cmp::Eq for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {}
 #[cfg(feature = "Win32_Security_Cryptography")]
 unsafe impl ::windows::runtime::Abi for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9516,7 +9362,6 @@ impl ::std::cmp::Eq for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {}
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9538,7 +9383,6 @@ impl ::std::convert::From<i32> for ROUTER_INTERFACE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for ROUTER_INTERFACE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -9590,7 +9434,6 @@ impl ::std::cmp::Eq for ROUTING_PROTOCOL_CONFIG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ROUTING_PROTOCOL_CONFIG {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_BLOCK_METHODS: u32 = 1u32;
@@ -9643,7 +9486,6 @@ impl ::std::cmp::Eq for RTM_DEST_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RTM_DEST_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9675,7 +9517,6 @@ impl ::std::cmp::PartialEq for RTM_DEST_INFO_0 {
 impl ::std::cmp::Eq for RTM_DEST_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for RTM_DEST_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type RTM_ENTITY_EXPORT_METHOD = unsafe extern "system" fn(callerhandle: isize, calleehandle: isize, input: *mut RTM_ENTITY_METHOD_INPUT, output: *mut RTM_ENTITY_METHOD_OUTPUT);
 #[derive(:: std :: clone :: Clone)]
@@ -9699,7 +9540,6 @@ impl ::std::cmp::PartialEq for RTM_ENTITY_EXPORT_METHODS {
 impl ::std::cmp::Eq for RTM_ENTITY_EXPORT_METHODS {}
 unsafe impl ::windows::runtime::Abi for RTM_ENTITY_EXPORT_METHODS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9721,7 +9561,6 @@ impl ::std::cmp::PartialEq for RTM_ENTITY_ID {
 impl ::std::cmp::Eq for RTM_ENTITY_ID {}
 unsafe impl ::windows::runtime::Abi for RTM_ENTITY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9744,7 +9583,6 @@ impl ::std::cmp::PartialEq for RTM_ENTITY_ID_0 {
 impl ::std::cmp::Eq for RTM_ENTITY_ID_0 {}
 unsafe impl ::windows::runtime::Abi for RTM_ENTITY_ID_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9772,7 +9610,6 @@ impl ::std::cmp::PartialEq for RTM_ENTITY_ID_0_0 {
 impl ::std::cmp::Eq for RTM_ENTITY_ID_0_0 {}
 unsafe impl ::windows::runtime::Abi for RTM_ENTITY_ID_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9796,7 +9633,6 @@ impl ::std::cmp::PartialEq for RTM_ENTITY_INFO {
 impl ::std::cmp::Eq for RTM_ENTITY_INFO {}
 unsafe impl ::windows::runtime::Abi for RTM_ENTITY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9825,7 +9661,6 @@ impl ::std::cmp::PartialEq for RTM_ENTITY_METHOD_INPUT {
 impl ::std::cmp::Eq for RTM_ENTITY_METHOD_INPUT {}
 unsafe impl ::windows::runtime::Abi for RTM_ENTITY_METHOD_INPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9855,7 +9690,6 @@ impl ::std::cmp::PartialEq for RTM_ENTITY_METHOD_OUTPUT {
 impl ::std::cmp::Eq for RTM_ENTITY_METHOD_OUTPUT {}
 unsafe impl ::windows::runtime::Abi for RTM_ENTITY_METHOD_OUTPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ENUM_ALL_DESTS: u32 = 0u32;
@@ -9887,7 +9721,6 @@ impl ::std::convert::From<i32> for RTM_EVENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RTM_EVENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_MATCH_FULL: u32 = 65535u32;
@@ -9934,7 +9767,6 @@ impl ::std::cmp::PartialEq for RTM_NET_ADDRESS {
 impl ::std::cmp::Eq for RTM_NET_ADDRESS {}
 unsafe impl ::windows::runtime::Abi for RTM_NET_ADDRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_NEXTHOP_CHANGE_NEW: u32 = 1u32;
@@ -9981,7 +9813,6 @@ impl ::std::cmp::PartialEq for RTM_NEXTHOP_INFO {
 impl ::std::cmp::Eq for RTM_NEXTHOP_INFO {}
 unsafe impl ::windows::runtime::Abi for RTM_NEXTHOP_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10009,7 +9840,6 @@ impl ::std::cmp::PartialEq for RTM_NEXTHOP_LIST {
 impl ::std::cmp::Eq for RTM_NEXTHOP_LIST {}
 unsafe impl ::windows::runtime::Abi for RTM_NEXTHOP_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_NEXTHOP_STATE_CREATED: u32 = 0u32;
@@ -10045,7 +9875,6 @@ impl ::std::cmp::PartialEq for RTM_PREF_INFO {
 impl ::std::cmp::Eq for RTM_PREF_INFO {}
 unsafe impl ::windows::runtime::Abi for RTM_PREF_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10075,7 +9904,6 @@ impl ::std::cmp::PartialEq for RTM_REGN_PROFILE {
 impl ::std::cmp::Eq for RTM_REGN_PROFILE {}
 unsafe impl ::windows::runtime::Abi for RTM_REGN_PROFILE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_RESUME_METHODS: u32 = 0u32;
@@ -10160,7 +9988,6 @@ impl ::std::cmp::PartialEq for RTM_ROUTE_INFO {
 impl ::std::cmp::Eq for RTM_ROUTE_INFO {}
 unsafe impl ::windows::runtime::Abi for RTM_ROUTE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ROUTE_STATE_CREATED: u32 = 0u32;
@@ -12439,7 +12266,6 @@ impl ::std::cmp::Eq for SECURITY_MESSAGE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SECURITY_MESSAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12455,7 +12281,6 @@ impl ::std::convert::From<u32> for SECURITY_MESSAGE_MSG_ID {
 }
 unsafe impl ::windows::runtime::Abi for SECURITY_MESSAGE_MSG_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SECURITY_MESSAGE_MSG_ID {
     type Output = Self;
@@ -12513,7 +12338,6 @@ impl ::std::cmp::PartialEq for SOURCE_GROUP_ENTRY {
 impl ::std::cmp::Eq for SOURCE_GROUP_ENTRY {}
 unsafe impl ::windows::runtime::Abi for SOURCE_GROUP_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12548,7 +12372,6 @@ impl ::std::cmp::Eq for SSTP_CERT_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for SSTP_CERT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12586,7 +12409,6 @@ impl ::std::cmp::Eq for SSTP_CONFIG_PARAMS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for SSTP_CONFIG_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12615,7 +12437,6 @@ impl ::std::cmp::Eq for VPN_TS_IP_ADDRESS {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for VPN_TS_IP_ADDRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12644,7 +12465,6 @@ impl ::std::cmp::Eq for VPN_TS_IP_ADDRESS_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for VPN_TS_IP_ADDRESS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const VS_Default: u32 = 0u32;
@@ -12710,5 +12530,4 @@ impl ::std::cmp::Eq for _MPR_VPN_SELECTOR {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for _MPR_VPN_SELECTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }

@@ -34,7 +34,6 @@ impl ::std::cmp::Eq for DIAGNOSTIC_DATA_EVENT_BINARY_STATS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIAGNOSTIC_DATA_EVENT_BINARY_STATS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -69,7 +68,6 @@ impl ::std::cmp::Eq for DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -103,7 +101,6 @@ impl ::std::cmp::Eq for DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -139,7 +136,6 @@ impl ::std::cmp::Eq for DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -167,7 +163,6 @@ impl ::std::cmp::PartialEq for DIAGNOSTIC_DATA_EVENT_TAG_STATS {
 impl ::std::cmp::Eq for DIAGNOSTIC_DATA_EVENT_TAG_STATS {}
 unsafe impl ::windows::runtime::Abi for DIAGNOSTIC_DATA_EVENT_TAG_STATS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -196,7 +191,6 @@ impl ::std::cmp::PartialEq for DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {
 impl ::std::cmp::Eq for DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {}
 unsafe impl ::windows::runtime::Abi for DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -233,7 +227,6 @@ impl ::std::cmp::PartialEq for DIAGNOSTIC_DATA_GENERAL_STATS {
 impl ::std::cmp::Eq for DIAGNOSTIC_DATA_GENERAL_STATS {}
 unsafe impl ::windows::runtime::Abi for DIAGNOSTIC_DATA_GENERAL_STATS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -308,7 +301,6 @@ impl ::std::cmp::Eq for DIAGNOSTIC_DATA_RECORD {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIAGNOSTIC_DATA_RECORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -358,7 +350,6 @@ impl ::std::cmp::Eq for DIAGNOSTIC_DATA_SEARCH_CRITERIA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIAGNOSTIC_DATA_SEARCH_CRITERIA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -442,7 +433,6 @@ impl ::std::cmp::Eq for DIAGNOSTIC_REPORT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIAGNOSTIC_REPORT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -470,7 +460,6 @@ impl ::std::cmp::PartialEq for DIAGNOSTIC_REPORT_PARAMETER {
 impl ::std::cmp::Eq for DIAGNOSTIC_REPORT_PARAMETER {}
 unsafe impl ::windows::runtime::Abi for DIAGNOSTIC_REPORT_PARAMETER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -498,7 +487,6 @@ impl ::std::cmp::PartialEq for DIAGNOSTIC_REPORT_SIGNATURE {
 impl ::std::cmp::Eq for DIAGNOSTIC_REPORT_SIGNATURE {}
 unsafe impl ::windows::runtime::Abi for DIAGNOSTIC_REPORT_SIGNATURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_DiagnosticDataQuery`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -514,7 +502,6 @@ impl ::std::convert::From<i32> for DdqAccessLevel {
 }
 unsafe impl ::windows::runtime::Abi for DdqAccessLevel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_DiagnosticDataQuery`*"]
 #[inline]

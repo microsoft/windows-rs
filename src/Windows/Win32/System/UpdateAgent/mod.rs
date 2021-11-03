@@ -13,7 +13,6 @@ impl ::std::convert::From<i32> for AddServiceFlag {
 }
 unsafe impl ::windows::runtime::Abi for AddServiceFlag {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -29,7 +28,6 @@ impl ::std::convert::From<i32> for AutoDownloadMode {
 }
 unsafe impl ::windows::runtime::Abi for AutoDownloadMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -46,7 +44,6 @@ impl ::std::convert::From<i32> for AutoSelectionMode {
 }
 unsafe impl ::windows::runtime::Abi for AutoSelectionMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const AutomaticUpdates: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3219230364, 28039, 17488, [179, 124, 224, 47, 11, 55, 56, 3]);
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
@@ -65,7 +62,6 @@ impl ::std::convert::From<i32> for AutomaticUpdatesNotificationLevel {
 }
 unsafe impl ::windows::runtime::Abi for AutomaticUpdatesNotificationLevel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -83,7 +79,6 @@ impl ::std::convert::From<i32> for AutomaticUpdatesPermissionType {
 }
 unsafe impl ::windows::runtime::Abi for AutomaticUpdatesPermissionType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -104,7 +99,6 @@ impl ::std::convert::From<i32> for AutomaticUpdatesScheduledInstallationDay {
 }
 unsafe impl ::windows::runtime::Abi for AutomaticUpdatesScheduledInstallationDay {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -119,7 +113,6 @@ impl ::std::convert::From<i32> for AutomaticUpdatesUserType {
 }
 unsafe impl ::windows::runtime::Abi for AutomaticUpdatesUserType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -137,7 +130,6 @@ impl ::std::convert::From<i32> for DeploymentAction {
 }
 unsafe impl ::windows::runtime::Abi for DeploymentAction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -153,7 +145,6 @@ impl ::std::convert::From<i32> for DownloadPhase {
 }
 unsafe impl ::windows::runtime::Abi for DownloadPhase {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -170,7 +161,6 @@ impl ::std::convert::From<i32> for DownloadPriority {
 }
 unsafe impl ::windows::runtime::Abi for DownloadPriority {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
 #[repr(transparent)]
@@ -11628,7 +11618,6 @@ impl ::std::convert::From<i32> for InstallationImpact {
 }
 unsafe impl ::windows::runtime::Abi for InstallationImpact {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11644,7 +11633,6 @@ impl ::std::convert::From<i32> for InstallationRebootBehavior {
 }
 unsafe impl ::windows::runtime::Abi for InstallationRebootBehavior {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const LIBID_WUApiLib: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3046558879, 22245, 16798, [166, 34, 224, 27, 180, 87, 67, 30]);
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
@@ -11664,7 +11652,6 @@ impl ::std::convert::From<i32> for OperationResultCode {
 }
 unsafe impl ::windows::runtime::Abi for OperationResultCode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11683,7 +11670,6 @@ impl ::std::convert::From<i32> for SearchScope {
 }
 unsafe impl ::windows::runtime::Abi for SearchScope {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11700,7 +11686,6 @@ impl ::std::convert::From<i32> for ServerSelection {
 }
 unsafe impl ::windows::runtime::Abi for ServerSelection {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const StringCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1925807476, 31803, 16558, [183, 125, 171, 219, 34, 235, 166, 251]);
 pub const SystemInformation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3223034784, 48807, 16826, [182, 4, 208, 163, 111, 70, 145, 51]);
@@ -11723,7 +11708,6 @@ impl ::std::convert::From<i32> for UpdateExceptionContext {
 }
 unsafe impl ::windows::runtime::Abi for UpdateExceptionContext {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const UpdateInstaller: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3537960575, 53822, 18657, [147, 192, 111, 168, 204, 52, 100, 116]);
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
@@ -11738,7 +11722,6 @@ impl ::std::convert::From<i32> for UpdateLockdownOption {
 }
 unsafe impl ::windows::runtime::Abi for UpdateLockdownOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11753,7 +11736,6 @@ impl ::std::convert::From<i32> for UpdateOperation {
 }
 unsafe impl ::windows::runtime::Abi for UpdateOperation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const UpdateSearcher: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3063539176, 26623, 16759, [136, 176, 54, 132, 163, 56, 139, 251]);
 pub const UpdateServiceManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4174533593, 35236, 19882, [135, 182, 17, 104, 54, 159, 11, 33]);
@@ -11769,7 +11751,6 @@ impl ::std::convert::From<i32> for UpdateServiceOption {
 }
 unsafe impl ::windows::runtime::Abi for UpdateServiceOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11785,7 +11766,6 @@ impl ::std::convert::From<i32> for UpdateServiceRegistrationState {
 }
 unsafe impl ::windows::runtime::Abi for UpdateServiceRegistrationState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const UpdateSession: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1286880639, 32494, 18694, [134, 152, 96, 218, 28, 56, 242, 254]);
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
@@ -11801,7 +11781,6 @@ impl ::std::convert::From<i32> for UpdateType {
 }
 unsafe impl ::windows::runtime::Abi for UpdateType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_UpdateAgent`*"]
 pub const WU_E_ALL_UPDATES_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2145124318i32 as _);

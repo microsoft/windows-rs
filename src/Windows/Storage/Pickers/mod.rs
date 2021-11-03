@@ -82,7 +82,7 @@ impl FileExtensionVector {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<::windows::runtime::HSTRING as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [<::windows::runtime::HSTRING as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -91,7 +91,7 @@ impl FileExtensionVector {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
-    pub fn ReplaceAll(&self, items: &[<::windows::runtime::HSTRING as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn ReplaceAll(&self, items: &[<::windows::runtime::HSTRING as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), items.len() as u32, ::std::mem::transmute(items.as_ptr())).ok() }
     }
@@ -552,7 +552,7 @@ impl FilePickerSelectedFilesArray {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Storage_Pickers`, `Foundation_Collections`*"]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<super::StorageFile as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [<super::StorageFile as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -954,7 +954,6 @@ impl ::windows::runtime::RuntimeName for FolderPicker {
 unsafe impl ::std::marker::Send for FolderPicker {}
 unsafe impl ::std::marker::Sync for FolderPicker {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFileOpenPicker(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileOpenPicker {
@@ -986,7 +985,6 @@ pub struct IFileOpenPicker_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFileOpenPicker2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileOpenPicker2 {
@@ -1008,7 +1006,6 @@ pub struct IFileOpenPicker2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFileOpenPicker3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileOpenPicker3 {
@@ -1028,7 +1025,6 @@ pub struct IFileOpenPicker3_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFileOpenPickerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileOpenPickerStatics {
@@ -1048,7 +1044,6 @@ pub struct IFileOpenPickerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFileOpenPickerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileOpenPickerStatics2 {
@@ -1068,7 +1063,6 @@ pub struct IFileOpenPickerStatics2_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFileOpenPickerWithOperationId(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileOpenPickerWithOperationId {
@@ -1088,7 +1082,6 @@ pub struct IFileOpenPickerWithOperationId_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFileSavePicker(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileSavePicker {
@@ -1122,7 +1115,6 @@ pub struct IFileSavePicker_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFileSavePicker2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileSavePicker2 {
@@ -1143,7 +1135,6 @@ pub struct IFileSavePicker2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFileSavePicker3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileSavePicker3 {
@@ -1163,7 +1154,6 @@ pub struct IFileSavePicker3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFileSavePicker4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileSavePicker4 {
@@ -1183,7 +1173,6 @@ pub struct IFileSavePicker4_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFileSavePickerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileSavePickerStatics {
@@ -1203,7 +1192,6 @@ pub struct IFileSavePickerStatics_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFolderPicker(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFolderPicker {
@@ -1233,7 +1221,6 @@ pub struct IFolderPicker_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFolderPicker2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFolderPicker2 {
@@ -1254,7 +1241,6 @@ pub struct IFolderPicker2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFolderPicker3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFolderPicker3 {
@@ -1274,7 +1260,6 @@ pub struct IFolderPicker3_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFolderPickerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFolderPickerStatics {
@@ -1316,10 +1301,12 @@ impl ::std::convert::From<i32> for PickerLocationId {
 }
 unsafe impl ::windows::runtime::Abi for PickerLocationId {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PickerLocationId {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.PickerLocationId;i4)");
+}
+impl ::windows::runtime::DefaultType for PickerLocationId {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Storage_Pickers`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1336,8 +1323,10 @@ impl ::std::convert::From<i32> for PickerViewMode {
 }
 unsafe impl ::windows::runtime::Abi for PickerViewMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PickerViewMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.PickerViewMode;i4)");
+}
+impl ::windows::runtime::DefaultType for PickerViewMode {
+    type DefaultType = Self;
 }

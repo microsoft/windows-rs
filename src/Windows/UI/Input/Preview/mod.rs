@@ -2,7 +2,6 @@
 #[cfg(feature = "UI_Input_Preview_Injection")]
 pub mod Injection;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInputActivationListenerPreviewStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputActivationListenerPreviewStatics {

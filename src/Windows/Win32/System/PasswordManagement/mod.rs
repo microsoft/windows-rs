@@ -31,7 +31,6 @@ impl ::std::cmp::Eq for CYPHER_BLOCK {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CYPHER_BLOCK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -65,7 +64,6 @@ impl ::std::cmp::Eq for ENCRYPTED_LM_OWF_PASSWORD {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ENCRYPTED_LM_OWF_PASSWORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -99,7 +97,6 @@ impl ::std::cmp::Eq for LM_OWF_PASSWORD {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for LM_OWF_PASSWORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_PasswordManagement`, `Win32_Foundation`*"]
@@ -180,5 +177,4 @@ impl ::std::cmp::PartialEq for SAMPR_ENCRYPTED_USER_PASSWORD {
 impl ::std::cmp::Eq for SAMPR_ENCRYPTED_USER_PASSWORD {}
 unsafe impl ::windows::runtime::Abi for SAMPR_ENCRYPTED_USER_PASSWORD {
     type Abi = Self;
-    type DefaultType = Self;
 }

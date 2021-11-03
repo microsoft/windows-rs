@@ -21,7 +21,6 @@ impl ::std::convert::From<u32> for BROADCAST_SYSTEM_MESSAGE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for BROADCAST_SYSTEM_MESSAGE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for BROADCAST_SYSTEM_MESSAGE_FLAGS {
     type Output = Self;
@@ -65,7 +64,6 @@ impl ::std::convert::From<u32> for BROADCAST_SYSTEM_MESSAGE_INFO {
 }
 unsafe impl ::windows::runtime::Abi for BROADCAST_SYSTEM_MESSAGE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for BROADCAST_SYSTEM_MESSAGE_INFO {
     type Output = Self;
@@ -130,7 +128,6 @@ impl ::std::cmp::Eq for BSMINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BSMINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
@@ -460,7 +457,6 @@ impl ::std::default::Default for HDESK {
 unsafe impl ::windows::runtime::Handle for HDESK {}
 unsafe impl ::windows::runtime::Abi for HDESK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -473,7 +469,6 @@ impl ::std::default::Default for HWINSTA {
 unsafe impl ::windows::runtime::Handle for HWINSTA {}
 unsafe impl ::windows::runtime::Abi for HWINSTA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
@@ -659,7 +654,6 @@ impl ::std::cmp::Eq for USEROBJECTFLAGS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USEROBJECTFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -678,7 +672,6 @@ impl ::std::convert::From<u32> for USER_OBJECT_INFORMATION_INDEX {
 }
 unsafe impl ::windows::runtime::Abi for USER_OBJECT_INFORMATION_INDEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for USER_OBJECT_INFORMATION_INDEX {
     type Output = Self;

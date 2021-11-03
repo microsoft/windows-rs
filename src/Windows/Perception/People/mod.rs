@@ -100,10 +100,12 @@ impl ::std::convert::From<i32> for HandJointKind {
 }
 unsafe impl ::windows::runtime::Abi for HandJointKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for HandJointKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Perception.People.HandJointKind;i4)");
+}
+impl ::windows::runtime::DefaultType for HandJointKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Perception_People`*"]
 #[repr(transparent)]
@@ -136,7 +138,7 @@ impl HandMeshObserver {
         }
     }
     #[doc = "*Required features: `Perception_People`*"]
-    pub fn GetTriangleIndices(&self, indices: &mut [<u16 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn GetTriangleIndices(&self, indices: &mut [<u16 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), indices.len() as u32, ::std::mem::transmute_copy(&indices)).ok() }
     }
@@ -218,11 +220,13 @@ impl ::std::cmp::Eq for HandMeshVertex {}
 #[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::runtime::Abi for HandMeshVertex {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::runtime::RuntimeType for HandMeshVertex {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Perception.People.HandMeshVertex;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4))");
+}
+impl ::windows::runtime::DefaultType for HandMeshVertex {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Perception_People`*"]
 #[repr(transparent)]
@@ -240,7 +244,7 @@ impl HandMeshVertexState {
     }
     #[cfg(feature = "Foundation_Numerics")]
     #[doc = "*Required features: `Perception_People`, `Foundation_Numerics`*"]
-    pub fn GetVertices(&self, vertices: &mut [<HandMeshVertex as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn GetVertices(&self, vertices: &mut [<HandMeshVertex as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), vertices.len() as u32, ::std::mem::transmute_copy(&vertices)).ok() }
     }
@@ -281,7 +285,7 @@ impl HandPose {
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     #[doc = "*Required features: `Perception_People`, `Foundation_Numerics`, `Perception_Spatial`*"]
-    pub fn TryGetJoints<'a, Param0: ::windows::runtime::IntoParam<'a, super::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0, joints: &[<HandJointKind as ::windows::runtime::Abi>::DefaultType], jointposes: &mut [<JointPose as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<bool> {
+    pub fn TryGetJoints<'a, Param0: ::windows::runtime::IntoParam<'a, super::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0, joints: &[<HandJointKind as ::windows::runtime::DefaultType>::DefaultType], jointposes: &mut [<JointPose as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -299,7 +303,7 @@ impl HandPose {
     }
     #[cfg(feature = "Foundation_Numerics")]
     #[doc = "*Required features: `Perception_People`, `Foundation_Numerics`*"]
-    pub fn GetRelativeJoints(&self, joints: &[<HandJointKind as ::windows::runtime::Abi>::DefaultType], referencejoints: &[<HandJointKind as ::windows::runtime::Abi>::DefaultType], jointposes: &mut [<JointPose as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn GetRelativeJoints(&self, joints: &[<HandJointKind as ::windows::runtime::DefaultType>::DefaultType], referencejoints: &[<HandJointKind as ::windows::runtime::DefaultType>::DefaultType], jointposes: &mut [<JointPose as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), joints.len() as u32, ::std::mem::transmute(joints.as_ptr()), referencejoints.len() as u32, ::std::mem::transmute(referencejoints.as_ptr()), jointposes.len() as u32, ::std::mem::transmute_copy(&jointposes)).ok() }
     }
@@ -362,7 +366,6 @@ impl ::windows::runtime::RuntimeName for HeadPose {
 unsafe impl ::std::marker::Send for HeadPose {}
 unsafe impl ::std::marker::Sync for HeadPose {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEyesPose(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEyesPose {
@@ -384,7 +387,6 @@ pub struct IEyesPose_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEyesPoseStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEyesPoseStatics {
@@ -405,7 +407,6 @@ pub struct IEyesPoseStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "UI_Input")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHandMeshObserver(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHandMeshObserver {
@@ -432,7 +433,6 @@ pub struct IHandMeshObserver_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHandMeshVertexState(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHandMeshVertexState {
@@ -455,7 +455,6 @@ pub struct IHandMeshVertexState_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHandPose(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHandPose {
@@ -481,7 +480,6 @@ pub struct IHandPose_abi(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHeadPose(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHeadPose {
@@ -539,11 +537,13 @@ impl ::std::cmp::Eq for JointPose {}
 #[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::runtime::Abi for JointPose {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::runtime::RuntimeType for JointPose {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Perception.People.JointPose;struct(Windows.Foundation.Numerics.Quaternion;f4;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4;enum(Windows.Perception.People.JointPoseAccuracy;i4))");
+}
+impl ::windows::runtime::DefaultType for JointPose {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Perception_People`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -560,8 +560,10 @@ impl ::std::convert::From<i32> for JointPoseAccuracy {
 }
 unsafe impl ::windows::runtime::Abi for JointPoseAccuracy {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for JointPoseAccuracy {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Perception.People.JointPoseAccuracy;i4)");
+}
+impl ::windows::runtime::DefaultType for JointPoseAccuracy {
+    type DefaultType = Self;
 }

@@ -18,10 +18,12 @@ impl ::std::convert::From<i32> for CommonFileQuery {
 }
 unsafe impl ::windows::runtime::Abi for CommonFileQuery {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CommonFileQuery {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.CommonFileQuery;i4)");
+}
+impl ::windows::runtime::DefaultType for CommonFileQuery {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Storage_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -49,10 +51,12 @@ impl ::std::convert::From<i32> for CommonFolderQuery {
 }
 unsafe impl ::windows::runtime::Abi for CommonFolderQuery {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CommonFolderQuery {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.CommonFolderQuery;i4)");
+}
+impl ::windows::runtime::DefaultType for CommonFolderQuery {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Storage_Search`*"]
 #[repr(transparent)]
@@ -272,10 +276,12 @@ impl ::std::convert::From<i32> for DateStackOption {
 }
 unsafe impl ::windows::runtime::Abi for DateStackOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DateStackOption {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.DateStackOption;i4)");
+}
+impl ::windows::runtime::DefaultType for DateStackOption {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Storage_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -292,13 +298,14 @@ impl ::std::convert::From<i32> for FolderDepth {
 }
 unsafe impl ::windows::runtime::Abi for FolderDepth {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for FolderDepth {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.FolderDepth;i4)");
 }
+impl ::windows::runtime::DefaultType for FolderDepth {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContentIndexer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentIndexer {
@@ -329,7 +336,6 @@ pub struct IContentIndexer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContentIndexerQuery(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentIndexerQuery {
@@ -358,7 +364,6 @@ pub struct IContentIndexerQuery_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContentIndexerQueryOperations(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentIndexerQueryOperations {
@@ -382,7 +387,6 @@ pub struct IContentIndexerQueryOperations_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContentIndexerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContentIndexerStatics {
@@ -485,7 +489,6 @@ pub struct IIndexableContent_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IQueryOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IQueryOptions {
@@ -525,7 +528,6 @@ pub struct IQueryOptions_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_FileProperties")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IQueryOptionsFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IQueryOptionsFactory {
@@ -546,7 +548,6 @@ pub struct IQueryOptionsFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, query: CommonFolderQuery, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IQueryOptionsWithProviderFilter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IQueryOptionsWithProviderFilter {
@@ -566,7 +567,6 @@ pub struct IQueryOptionsWithProviderFilter_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageFileQueryResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageFileQueryResult {
@@ -588,7 +588,6 @@ pub struct IStorageFileQueryResult_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageFileQueryResult2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageFileQueryResult2 {
@@ -796,7 +795,6 @@ pub struct IStorageFolderQueryOperations_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, query: CommonFileQuery, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageFolderQueryResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageFolderQueryResult {
@@ -818,7 +816,6 @@ pub struct IStorageFolderQueryResult_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageItemQueryResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageItemQueryResult {
@@ -840,7 +837,6 @@ pub struct IStorageItemQueryResult_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageLibraryChangeTrackerTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageLibraryChangeTrackerTriggerDetails {
@@ -860,7 +856,6 @@ pub struct IStorageLibraryChangeTrackerTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageLibraryContentChangedTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageLibraryContentChangedTriggerDetails {
@@ -988,7 +983,6 @@ pub struct IStorageQueryResultBase_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, newqueryoptions: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IValueAndLanguage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IValueAndLanguage {
@@ -1121,10 +1115,12 @@ impl ::std::convert::From<i32> for IndexedState {
 }
 unsafe impl ::windows::runtime::Abi for IndexedState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for IndexedState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.IndexedState;i4)");
+}
+impl ::windows::runtime::DefaultType for IndexedState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Storage_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1143,10 +1139,12 @@ impl ::std::convert::From<i32> for IndexerOption {
 }
 unsafe impl ::windows::runtime::Abi for IndexerOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for IndexerOption {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.IndexerOption;i4)");
+}
+impl ::windows::runtime::DefaultType for IndexerOption {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Storage_Search`*"]
 #[repr(transparent)]
@@ -1351,10 +1349,12 @@ impl ::std::cmp::PartialEq for SortEntry {
 impl ::std::cmp::Eq for SortEntry {}
 unsafe impl ::windows::runtime::Abi for SortEntry {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SortEntry {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Storage.Search.SortEntry;string;b1)");
+}
+impl ::windows::runtime::DefaultType for SortEntry {
+    type DefaultType = Self;
 }
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `Storage_Search`, `Foundation_Collections`*"]
@@ -1437,7 +1437,7 @@ impl SortEntryVector {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Storage_Search`, `Foundation_Collections`*"]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<SortEntry as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [<SortEntry as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -1446,7 +1446,7 @@ impl SortEntryVector {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Storage_Search`, `Foundation_Collections`*"]
-    pub fn ReplaceAll(&self, items: &[<SortEntry as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn ReplaceAll(&self, items: &[<SortEntry as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), items.len() as u32, ::std::mem::transmute(items.as_ptr())).ok() }
     }

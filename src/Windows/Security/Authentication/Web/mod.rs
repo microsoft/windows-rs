@@ -4,7 +4,6 @@ pub mod Core;
 #[cfg(feature = "Security_Authentication_Web_Provider")]
 pub mod Provider;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebAuthenticationBrokerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAuthenticationBrokerStatics {
@@ -28,7 +27,6 @@ pub struct IWebAuthenticationBrokerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebAuthenticationBrokerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAuthenticationBrokerStatics2 {
@@ -56,7 +54,6 @@ pub struct IWebAuthenticationBrokerStatics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebAuthenticationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAuthenticationResult {
@@ -92,10 +89,12 @@ impl ::std::convert::From<i32> for TokenBindingKeyType {
 }
 unsafe impl ::windows::runtime::Abi for TokenBindingKeyType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TokenBindingKeyType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.TokenBindingKeyType;i4)");
+}
+impl ::windows::runtime::DefaultType for TokenBindingKeyType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Authentication_Web`*"]
 pub struct WebAuthenticationBroker {}
@@ -185,10 +184,12 @@ impl ::std::convert::From<u32> for WebAuthenticationOptions {
 }
 unsafe impl ::windows::runtime::Abi for WebAuthenticationOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WebAuthenticationOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.WebAuthenticationOptions;u4)");
+}
+impl ::windows::runtime::DefaultType for WebAuthenticationOptions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WebAuthenticationOptions {
     type Output = Self;
@@ -274,8 +275,10 @@ impl ::std::convert::From<i32> for WebAuthenticationStatus {
 }
 unsafe impl ::windows::runtime::Abi for WebAuthenticationStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WebAuthenticationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.WebAuthenticationStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for WebAuthenticationStatus {
+    type DefaultType = Self;
 }

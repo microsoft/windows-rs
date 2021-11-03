@@ -15,10 +15,12 @@ impl ::std::convert::From<i32> for BluetoothEventTriggeringMode {
 }
 unsafe impl ::windows::runtime::Abi for BluetoothEventTriggeringMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BluetoothEventTriggeringMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Background.BluetoothEventTriggeringMode;i4)");
+}
+impl ::windows::runtime::DefaultType for BluetoothEventTriggeringMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Bluetooth_Background`*"]
 #[repr(transparent)]
@@ -247,7 +249,6 @@ impl ::windows::runtime::RuntimeName for GattServiceProviderTriggerDetails {
 unsafe impl ::std::marker::Send for GattServiceProviderTriggerDetails {}
 unsafe impl ::std::marker::Sync for GattServiceProviderTriggerDetails {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementPublisherTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementPublisherTriggerDetails {
@@ -268,7 +269,6 @@ pub struct IBluetoothLEAdvertisementPublisherTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::BluetoothError) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementPublisherTriggerDetails2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementPublisherTriggerDetails2 {
@@ -288,7 +288,6 @@ pub struct IBluetoothLEAdvertisementPublisherTriggerDetails2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementWatcherTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementWatcherTriggerDetails {
@@ -310,7 +309,6 @@ pub struct IBluetoothLEAdvertisementWatcherTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGattCharacteristicNotificationTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattCharacteristicNotificationTriggerDetails {
@@ -332,7 +330,6 @@ pub struct IGattCharacteristicNotificationTriggerDetails_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGattCharacteristicNotificationTriggerDetails2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattCharacteristicNotificationTriggerDetails2 {
@@ -354,7 +351,6 @@ pub struct IGattCharacteristicNotificationTriggerDetails2_abi(
     #[cfg(not(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGattServiceProviderConnection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattServiceProviderConnection {
@@ -376,7 +372,6 @@ pub struct IGattServiceProviderConnection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGattServiceProviderConnectionStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattServiceProviderConnectionStatics {
@@ -396,7 +391,6 @@ pub struct IGattServiceProviderConnectionStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGattServiceProviderTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGattServiceProviderTriggerDetails {
@@ -415,7 +409,6 @@ pub struct IGattServiceProviderTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRfcommConnectionTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommConnectionTriggerDetails {
@@ -437,7 +430,6 @@ pub struct IRfcommConnectionTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRfcommInboundConnectionInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommInboundConnectionInformation {
@@ -465,7 +457,6 @@ pub struct IRfcommInboundConnectionInformation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: super::BluetoothServiceCapabilities) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRfcommOutboundConnectionInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRfcommOutboundConnectionInformation {

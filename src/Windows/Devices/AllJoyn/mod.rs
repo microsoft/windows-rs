@@ -521,10 +521,12 @@ impl ::std::convert::From<i32> for AllJoynAuthenticationMechanism {
 }
 unsafe impl ::windows::runtime::Abi for AllJoynAuthenticationMechanism {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AllJoynAuthenticationMechanism {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.AllJoyn.AllJoynAuthenticationMechanism;i4)");
+}
+impl ::windows::runtime::DefaultType for AllJoynAuthenticationMechanism {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
@@ -791,10 +793,12 @@ impl ::std::convert::From<i32> for AllJoynBusAttachmentState {
 }
 unsafe impl ::windows::runtime::Abi for AllJoynBusAttachmentState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AllJoynBusAttachmentState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.AllJoyn.AllJoynBusAttachmentState;i4)");
+}
+impl ::windows::runtime::DefaultType for AllJoynBusAttachmentState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
@@ -1606,10 +1610,12 @@ impl ::std::convert::From<i32> for AllJoynSessionLostReason {
 }
 unsafe impl ::windows::runtime::Abi for AllJoynSessionLostReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AllJoynSessionLostReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.AllJoyn.AllJoynSessionLostReason;i4)");
+}
+impl ::windows::runtime::DefaultType for AllJoynSessionLostReason {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
@@ -1861,10 +1867,12 @@ impl ::std::convert::From<i32> for AllJoynTrafficType {
 }
 unsafe impl ::windows::runtime::Abi for AllJoynTrafficType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AllJoynTrafficType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.AllJoyn.AllJoynTrafficType;i4)");
+}
+impl ::windows::runtime::DefaultType for AllJoynTrafficType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_AllJoyn`*"]
 #[repr(transparent)]
@@ -1906,7 +1914,6 @@ impl ::windows::runtime::RuntimeName for AllJoynWatcherStoppedEventArgs {
 unsafe impl ::std::marker::Send for AllJoynWatcherStoppedEventArgs {}
 unsafe impl ::std::marker::Sync for AllJoynWatcherStoppedEventArgs {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynAboutData(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynAboutData {
@@ -1952,7 +1959,6 @@ pub struct IAllJoynAboutData_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynAboutDataView(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynAboutDataView {
@@ -1991,7 +1997,6 @@ pub struct IAllJoynAboutDataView_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynAboutDataViewStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynAboutDataViewStatics {
@@ -2043,7 +2048,6 @@ pub struct IAllJoynAcceptSessionJoiner_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynAcceptSessionJoinerEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynAcceptSessionJoinerEventArgs {
@@ -2067,7 +2071,6 @@ pub struct IAllJoynAcceptSessionJoinerEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynAcceptSessionJoinerEventArgsFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynAcceptSessionJoinerEventArgsFactory {
@@ -2086,7 +2089,6 @@ pub struct IAllJoynAcceptSessionJoinerEventArgsFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uniquename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, sessionport: u16, traffictype: AllJoynTrafficType, proximity: u8, acceptsessionjoiner: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynAuthenticationCompleteEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynAuthenticationCompleteEventArgs {
@@ -2107,7 +2109,6 @@ pub struct IAllJoynAuthenticationCompleteEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynBusAttachment(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynBusAttachment {
@@ -2151,7 +2152,6 @@ pub struct IAllJoynBusAttachment_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynBusAttachment2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynBusAttachment2 {
@@ -2181,7 +2181,6 @@ pub struct IAllJoynBusAttachment2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynBusAttachmentFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynBusAttachmentFactory {
@@ -2200,7 +2199,6 @@ pub struct IAllJoynBusAttachmentFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, connectionspecification: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynBusAttachmentStateChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynBusAttachmentStateChangedEventArgs {
@@ -2220,7 +2218,6 @@ pub struct IAllJoynBusAttachmentStateChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynBusAttachmentStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynBusAttachmentStatics {
@@ -2241,7 +2238,6 @@ pub struct IAllJoynBusAttachmentStatics_abi(
     #[cfg(not(all(feature = "Devices_Enumeration", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynBusObject(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynBusObject {
@@ -2268,7 +2264,6 @@ pub struct IAllJoynBusObject_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynBusObjectFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynBusObjectFactory {
@@ -2288,7 +2283,6 @@ pub struct IAllJoynBusObjectFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, objectpath: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, busattachment: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynBusObjectStoppedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynBusObjectStoppedEventArgs {
@@ -2307,7 +2301,6 @@ pub struct IAllJoynBusObjectStoppedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynBusObjectStoppedEventArgsFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynBusObjectStoppedEventArgsFactory {
@@ -2326,7 +2319,6 @@ pub struct IAllJoynBusObjectStoppedEventArgsFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, status: i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynCredentials(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynCredentials {
@@ -2357,7 +2349,6 @@ pub struct IAllJoynCredentials_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynCredentialsRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynCredentialsRequestedEventArgs {
@@ -2381,7 +2372,6 @@ pub struct IAllJoynCredentialsRequestedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynCredentialsVerificationRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynCredentialsVerificationRequestedEventArgs {
@@ -2412,7 +2402,6 @@ pub struct IAllJoynCredentialsVerificationRequestedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynMessageInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynMessageInfo {
@@ -2431,7 +2420,6 @@ pub struct IAllJoynMessageInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynMessageInfoFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynMessageInfoFactory {
@@ -2480,7 +2468,6 @@ pub struct IAllJoynProducer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, busobject: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynProducerStoppedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynProducerStoppedEventArgs {
@@ -2499,7 +2486,6 @@ pub struct IAllJoynProducerStoppedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynProducerStoppedEventArgsFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynProducerStoppedEventArgsFactory {
@@ -2518,7 +2504,6 @@ pub struct IAllJoynProducerStoppedEventArgsFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, status: i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynServiceInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynServiceInfo {
@@ -2539,7 +2524,6 @@ pub struct IAllJoynServiceInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u16) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynServiceInfoFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynServiceInfoFactory {
@@ -2558,7 +2542,6 @@ pub struct IAllJoynServiceInfoFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uniquename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, objectpath: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, sessionport: u16, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynServiceInfoRemovedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynServiceInfoRemovedEventArgs {
@@ -2577,7 +2560,6 @@ pub struct IAllJoynServiceInfoRemovedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynServiceInfoRemovedEventArgsFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynServiceInfoRemovedEventArgsFactory {
@@ -2596,7 +2578,6 @@ pub struct IAllJoynServiceInfoRemovedEventArgsFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uniquename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynServiceInfoStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynServiceInfoStatics {
@@ -2616,7 +2597,6 @@ pub struct IAllJoynServiceInfoStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynSession(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSession {
@@ -2650,7 +2630,6 @@ pub struct IAllJoynSession_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynSessionJoinedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSessionJoinedEventArgs {
@@ -2669,7 +2648,6 @@ pub struct IAllJoynSessionJoinedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynSessionJoinedEventArgsFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSessionJoinedEventArgsFactory {
@@ -2688,7 +2666,6 @@ pub struct IAllJoynSessionJoinedEventArgsFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, session: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynSessionLostEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSessionLostEventArgs {
@@ -2707,7 +2684,6 @@ pub struct IAllJoynSessionLostEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut AllJoynSessionLostReason) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynSessionLostEventArgsFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSessionLostEventArgsFactory {
@@ -2726,7 +2702,6 @@ pub struct IAllJoynSessionLostEventArgsFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reason: AllJoynSessionLostReason, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynSessionMemberAddedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSessionMemberAddedEventArgs {
@@ -2745,7 +2720,6 @@ pub struct IAllJoynSessionMemberAddedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynSessionMemberAddedEventArgsFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSessionMemberAddedEventArgsFactory {
@@ -2764,7 +2738,6 @@ pub struct IAllJoynSessionMemberAddedEventArgsFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uniquename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynSessionMemberRemovedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSessionMemberRemovedEventArgs {
@@ -2783,7 +2756,6 @@ pub struct IAllJoynSessionMemberRemovedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynSessionMemberRemovedEventArgsFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSessionMemberRemovedEventArgsFactory {
@@ -2802,7 +2774,6 @@ pub struct IAllJoynSessionMemberRemovedEventArgsFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uniquename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynSessionStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynSessionStatics {
@@ -2824,7 +2795,6 @@ pub struct IAllJoynSessionStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynStatusStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynStatusStatics {
@@ -2860,7 +2830,6 @@ pub struct IAllJoynStatusStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynWatcherStoppedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynWatcherStoppedEventArgs {
@@ -2879,7 +2848,6 @@ pub struct IAllJoynWatcherStoppedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAllJoynWatcherStoppedEventArgsFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAllJoynWatcherStoppedEventArgsFactory {

@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISyndicationAttribute(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationAttribute {
@@ -24,7 +23,6 @@ pub struct ISyndicationAttribute_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISyndicationAttributeFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationAttributeFactory {
@@ -43,7 +41,6 @@ pub struct ISyndicationAttributeFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, attributename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, attributenamespace: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, attributevalue: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISyndicationCategory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationCategory {
@@ -67,7 +64,6 @@ pub struct ISyndicationCategory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISyndicationCategoryFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationCategoryFactory {
@@ -210,7 +206,6 @@ pub struct ISyndicationClient_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISyndicationClientFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationClientFactory {
@@ -230,7 +225,6 @@ pub struct ISyndicationClientFactory_abi(
     #[cfg(not(feature = "Security_Credentials"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISyndicationContent(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationContent {
@@ -252,7 +246,6 @@ pub struct ISyndicationContent_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISyndicationContentFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationContentFactory {
@@ -273,7 +266,6 @@ pub struct ISyndicationContentFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISyndicationErrorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationErrorStatics {
@@ -292,7 +284,6 @@ pub struct ISyndicationErrorStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hresult: i32, result__: *mut SyndicationErrorStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISyndicationFeed(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationFeed {
@@ -354,7 +345,6 @@ pub struct ISyndicationFeed_abi(
     #[cfg(not(feature = "Data_Xml_Dom"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISyndicationFeedFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationFeedFactory {
@@ -374,7 +364,6 @@ pub struct ISyndicationFeedFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISyndicationGenerator(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationGenerator {
@@ -400,7 +389,6 @@ pub struct ISyndicationGenerator_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISyndicationGeneratorFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationGeneratorFactory {
@@ -419,7 +407,6 @@ pub struct ISyndicationGeneratorFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, text: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISyndicationItem(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationItem {
@@ -479,7 +466,6 @@ pub struct ISyndicationItem_abi(
     #[cfg(not(feature = "Data_Xml_Dom"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISyndicationItemFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationItemFactory {
@@ -499,7 +485,6 @@ pub struct ISyndicationItemFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISyndicationLink(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationLink {
@@ -531,7 +516,6 @@ pub struct ISyndicationLink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISyndicationLinkFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationLinkFactory {
@@ -688,7 +672,6 @@ pub struct ISyndicationNode_abi(
     #[cfg(not(feature = "Data_Xml_Dom"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISyndicationNodeFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationNodeFactory {
@@ -707,7 +690,6 @@ pub struct ISyndicationNodeFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nodename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, nodenamespace: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, nodevalue: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISyndicationPerson(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationPerson {
@@ -733,7 +715,6 @@ pub struct ISyndicationPerson_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISyndicationPersonFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationPersonFactory {
@@ -942,7 +923,6 @@ pub struct ISyndicationText_abi(
     #[cfg(not(feature = "Data_Xml_Dom"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISyndicationTextFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISyndicationTextFactory {
@@ -987,10 +967,12 @@ impl ::std::cmp::PartialEq for RetrievalProgress {
 impl ::std::cmp::Eq for RetrievalProgress {}
 unsafe impl ::windows::runtime::Abi for RetrievalProgress {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RetrievalProgress {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Web.Syndication.RetrievalProgress;u4;u4)");
+}
+impl ::windows::runtime::DefaultType for RetrievalProgress {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Web_Syndication`*"]
 #[repr(transparent)]
@@ -1680,10 +1662,12 @@ impl ::std::convert::From<i32> for SyndicationErrorStatus {
 }
 unsafe impl ::windows::runtime::Abi for SyndicationErrorStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SyndicationErrorStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Web.Syndication.SyndicationErrorStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for SyndicationErrorStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Web_Syndication`*"]
 #[repr(transparent)]
@@ -2067,10 +2051,12 @@ impl ::std::convert::From<i32> for SyndicationFormat {
 }
 unsafe impl ::windows::runtime::Abi for SyndicationFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SyndicationFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Web.Syndication.SyndicationFormat;i4)");
+}
+impl ::windows::runtime::DefaultType for SyndicationFormat {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Web_Syndication`*"]
 #[repr(transparent)]
@@ -3451,10 +3437,12 @@ impl ::std::convert::From<i32> for SyndicationTextType {
 }
 unsafe impl ::windows::runtime::Abi for SyndicationTextType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SyndicationTextType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Web.Syndication.SyndicationTextType;i4)");
+}
+impl ::windows::runtime::DefaultType for SyndicationTextType {
+    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3484,8 +3472,10 @@ impl ::std::cmp::PartialEq for TransferProgress {
 impl ::std::cmp::Eq for TransferProgress {}
 unsafe impl ::windows::runtime::Abi for TransferProgress {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TransferProgress {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Web.Syndication.TransferProgress;u4;u4;u4;u4)");
+}
+impl ::windows::runtime::DefaultType for TransferProgress {
+    type DefaultType = Self;
 }

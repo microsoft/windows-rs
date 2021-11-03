@@ -174,7 +174,6 @@ impl ::std::cmp::Eq for OVERLAPPED {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OVERLAPPED {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -197,7 +196,6 @@ impl ::std::cmp::PartialEq for OVERLAPPED_0 {
 impl ::std::cmp::Eq for OVERLAPPED_0 {}
 unsafe impl ::windows::runtime::Abi for OVERLAPPED_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -225,7 +223,6 @@ impl ::std::cmp::PartialEq for OVERLAPPED_0_0 {
 impl ::std::cmp::Eq for OVERLAPPED_0_0 {}
 unsafe impl ::windows::runtime::Abi for OVERLAPPED_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -262,7 +259,6 @@ impl ::std::cmp::Eq for OVERLAPPED_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OVERLAPPED_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_IO`, `Win32_Foundation`*"]

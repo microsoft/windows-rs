@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPushNotificationChannel(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationChannel {
@@ -26,7 +25,6 @@ pub struct IPushNotificationChannel_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPushNotificationChannelManagerForUser(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationChannelManagerForUser {
@@ -52,7 +50,6 @@ pub struct IPushNotificationChannelManagerForUser_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPushNotificationChannelManagerForUser2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationChannelManagerForUser2 {
@@ -74,7 +71,6 @@ pub struct IPushNotificationChannelManagerForUser2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPushNotificationChannelManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationChannelManagerStatics {
@@ -98,7 +94,6 @@ pub struct IPushNotificationChannelManagerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPushNotificationChannelManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationChannelManagerStatics2 {
@@ -118,7 +113,6 @@ pub struct IPushNotificationChannelManagerStatics2_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPushNotificationChannelManagerStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationChannelManagerStatics3 {
@@ -137,7 +131,6 @@ pub struct IPushNotificationChannelManagerStatics3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPushNotificationChannelManagerStatics4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationChannelManagerStatics4 {
@@ -159,7 +152,6 @@ pub struct IPushNotificationChannelManagerStatics4_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPushNotificationChannelsRevokedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationChannelsRevokedEventArgs {
@@ -177,7 +169,6 @@ pub struct IPushNotificationChannelsRevokedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPushNotificationReceivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPushNotificationReceivedEventArgs {
@@ -205,7 +196,6 @@ pub struct IPushNotificationReceivedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRawNotification(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRawNotification {
@@ -224,7 +214,6 @@ pub struct IRawNotification_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRawNotification2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRawNotification2 {
@@ -245,7 +234,6 @@ pub struct IRawNotification2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRawNotification3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRawNotification3 {
@@ -575,10 +563,12 @@ impl ::std::convert::From<i32> for PushNotificationType {
 }
 unsafe impl ::windows::runtime::Abi for PushNotificationType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PushNotificationType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.PushNotifications.PushNotificationType;i4)");
+}
+impl ::windows::runtime::DefaultType for PushNotificationType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_PushNotifications`*"]
 #[repr(transparent)]

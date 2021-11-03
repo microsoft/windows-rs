@@ -16,10 +16,12 @@ impl ::std::convert::From<i32> for AddFileResult {
 }
 unsafe impl ::windows::runtime::Abi for AddFileResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AddFileResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.Provider.AddFileResult;i4)");
+}
+impl ::windows::runtime::DefaultType for AddFileResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Storage_Pickers_Provider`*"]
 #[repr(transparent)]
@@ -268,13 +270,14 @@ impl ::std::convert::From<i32> for FileSelectionMode {
 }
 unsafe impl ::windows::runtime::Abi for FileSelectionMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for FileSelectionMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.Provider.FileSelectionMode;i4)");
 }
+impl ::windows::runtime::DefaultType for FileSelectionMode {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFileOpenPickerUI(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileOpenPickerUI {
@@ -310,7 +313,6 @@ pub struct IFileOpenPickerUI_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFileRemovedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileRemovedEventArgs {
@@ -329,7 +331,6 @@ pub struct IFileRemovedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFileSavePickerUI(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileSavePickerUI {
@@ -362,7 +363,6 @@ pub struct IFileSavePickerUI_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPickerClosingDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPickerClosingDeferral {
@@ -381,7 +381,6 @@ pub struct IPickerClosingDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPickerClosingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPickerClosingEventArgs {
@@ -401,7 +400,6 @@ pub struct IPickerClosingEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPickerClosingOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPickerClosingOperation {
@@ -422,7 +420,6 @@ pub struct IPickerClosingOperation_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITargetFileRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetFileRequest {
@@ -443,7 +440,6 @@ pub struct ITargetFileRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITargetFileRequestDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetFileRequestDeferral {
@@ -462,7 +458,6 @@ pub struct ITargetFileRequestDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITargetFileRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetFileRequestedEventArgs {
@@ -582,10 +577,12 @@ impl ::std::convert::From<i32> for SetFileNameResult {
 }
 unsafe impl ::windows::runtime::Abi for SetFileNameResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SetFileNameResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.Provider.SetFileNameResult;i4)");
+}
+impl ::windows::runtime::DefaultType for SetFileNameResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Storage_Pickers_Provider`*"]
 #[repr(transparent)]

@@ -673,7 +673,6 @@ impl ::std::convert::From<i32> for WINSAT_ASSESSMENT_STATE {
 }
 unsafe impl ::windows::runtime::Abi for WINSAT_ASSESSMENT_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_AssessmentTool`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -691,7 +690,6 @@ impl ::std::convert::From<i32> for WINSAT_ASSESSMENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WINSAT_ASSESSMENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_AssessmentTool`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -706,7 +704,6 @@ impl ::std::convert::From<i32> for WINSAT_BITMAP_SIZE {
 }
 unsafe impl ::windows::runtime::Abi for WINSAT_BITMAP_SIZE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_AssessmentTool`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -723,5 +720,4 @@ impl ::std::convert::From<i32> for WINSAT_OEM_DATA_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WINSAT_OEM_DATA_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }

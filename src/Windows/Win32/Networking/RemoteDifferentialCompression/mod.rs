@@ -25,7 +25,6 @@ impl ::std::cmp::PartialEq for FindSimilarFileIndexResults {
 impl ::std::cmp::Eq for FindSimilarFileIndexResults {}
 unsafe impl ::windows::runtime::Abi for FindSimilarFileIndexResults {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const FindSimilarResults: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903443, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
@@ -41,7 +40,6 @@ impl ::std::convert::From<i32> for GeneratorParametersType {
 }
 unsafe impl ::windows::runtime::Abi for GeneratorParametersType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 #[repr(transparent)]
@@ -822,7 +820,6 @@ impl ::std::convert::From<i32> for RDC_ErrorCode {
 }
 unsafe impl ::windows::runtime::Abi for RDC_ErrorCode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -851,7 +848,6 @@ impl ::std::cmp::PartialEq for RdcBufferPointer {
 impl ::std::cmp::Eq for RdcBufferPointer {}
 unsafe impl ::windows::runtime::Abi for RdcBufferPointer {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const RdcComparator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903435, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
@@ -868,7 +864,6 @@ impl ::std::convert::From<i32> for RdcCreatedTables {
 }
 unsafe impl ::windows::runtime::Abi for RdcCreatedTables {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const RdcFileReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903433, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
 pub const RdcGenerator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903432, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
@@ -889,7 +884,6 @@ impl ::std::convert::From<i32> for RdcMappingAccessMode {
 }
 unsafe impl ::windows::runtime::Abi for RdcMappingAccessMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -918,7 +912,6 @@ impl ::std::cmp::PartialEq for RdcNeed {
 impl ::std::cmp::Eq for RdcNeed {}
 unsafe impl ::windows::runtime::Abi for RdcNeed {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -947,7 +940,6 @@ impl ::std::cmp::PartialEq for RdcNeedPointer {
 impl ::std::cmp::Eq for RdcNeedPointer {}
 unsafe impl ::windows::runtime::Abi for RdcNeedPointer {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -964,7 +956,6 @@ impl ::std::convert::From<i32> for RdcNeedType {
 }
 unsafe impl ::windows::runtime::Abi for RdcNeedType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -992,7 +983,6 @@ impl ::std::cmp::PartialEq for RdcSignature {
 impl ::std::cmp::Eq for RdcSignature {}
 unsafe impl ::windows::runtime::Abi for RdcSignature {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1021,7 +1011,6 @@ impl ::std::cmp::PartialEq for RdcSignaturePointer {
 impl ::std::cmp::Eq for RdcSignaturePointer {}
 unsafe impl ::windows::runtime::Abi for RdcSignaturePointer {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const RdcSignatureReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903434, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
 pub const RdcSimilarityGenerator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903442, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
@@ -1051,7 +1040,6 @@ impl ::std::cmp::PartialEq for SimilarityData {
 impl ::std::cmp::Eq for SimilarityData {}
 unsafe impl ::windows::runtime::Abi for SimilarityData {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1079,7 +1067,6 @@ impl ::std::cmp::PartialEq for SimilarityDumpData {
 impl ::std::cmp::Eq for SimilarityDumpData {}
 unsafe impl ::windows::runtime::Abi for SimilarityDumpData {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1106,7 +1093,6 @@ impl ::std::cmp::PartialEq for SimilarityFileId {
 impl ::std::cmp::Eq for SimilarityFileId {}
 unsafe impl ::windows::runtime::Abi for SimilarityFileId {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_RemoteDifferentialCompression`*"]
 pub const SimilarityFileIdMaxSize: u32 = 32u32;
@@ -1139,7 +1125,6 @@ impl ::std::cmp::PartialEq for SimilarityMappedViewInfo {
 impl ::std::cmp::Eq for SimilarityMappedViewInfo {}
 unsafe impl ::windows::runtime::Abi for SimilarityMappedViewInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const SimilarityReportProgress: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903437, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);
 pub const SimilarityTableDumpState: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2518903438, 40380, 4570, [158, 63, 0, 17, 17, 74, 227, 17]);

@@ -13,7 +13,6 @@ impl ::std::convert::From<i32> for FOREIGN_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for FOREIGN_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]
@@ -7158,7 +7157,6 @@ impl ::std::convert::From<i32> for MQACCESS {
 }
 unsafe impl ::windows::runtime::Abi for MQACCESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7173,7 +7171,6 @@ impl ::std::convert::From<i32> for MQAUTHENTICATE {
 }
 unsafe impl ::windows::runtime::Abi for MQAUTHENTICATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7199,7 +7196,6 @@ impl ::std::convert::From<i32> for MQCALG {
 }
 unsafe impl ::windows::runtime::Abi for MQCALG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7214,7 +7210,6 @@ impl ::std::convert::From<i32> for MQCERT_REGISTER {
 }
 unsafe impl ::windows::runtime::Abi for MQCERT_REGISTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7243,7 +7238,6 @@ impl ::std::convert::From<i32> for MQDEFAULT {
 }
 unsafe impl ::windows::runtime::Abi for MQDEFAULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7389,7 +7383,6 @@ impl ::std::convert::From<i32> for MQERROR {
 }
 unsafe impl ::windows::runtime::Abi for MQERROR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7404,7 +7397,6 @@ impl ::std::convert::From<i32> for MQJOURNAL {
 }
 unsafe impl ::windows::runtime::Abi for MQJOURNAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7419,7 +7411,6 @@ impl ::std::convert::From<i32> for MQMAX {
 }
 unsafe impl ::windows::runtime::Abi for MQMAX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7441,7 +7432,6 @@ impl ::std::convert::From<i32> for MQMSGACKNOWLEDGEMENT {
 }
 unsafe impl ::windows::runtime::Abi for MQMSGACKNOWLEDGEMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7461,7 +7451,6 @@ impl ::std::convert::From<i32> for MQMSGAUTHENTICATION {
 }
 unsafe impl ::windows::runtime::Abi for MQMSGAUTHENTICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7481,7 +7470,6 @@ impl ::std::convert::From<i32> for MQMSGAUTHLEVEL {
 }
 unsafe impl ::windows::runtime::Abi for MQMSGAUTHLEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7515,7 +7503,6 @@ impl ::std::convert::From<i32> for MQMSGCLASS {
 }
 unsafe impl ::windows::runtime::Abi for MQMSGCLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7531,7 +7518,6 @@ impl ::std::convert::From<i32> for MQMSGCURSOR {
 }
 unsafe impl ::windows::runtime::Abi for MQMSGCURSOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7546,7 +7532,6 @@ impl ::std::convert::From<i32> for MQMSGDELIVERY {
 }
 unsafe impl ::windows::runtime::Abi for MQMSGDELIVERY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7562,7 +7547,6 @@ impl ::std::convert::From<i32> for MQMSGIDSIZE {
 }
 unsafe impl ::windows::runtime::Abi for MQMSGIDSIZE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7578,7 +7562,6 @@ impl ::std::convert::From<i32> for MQMSGJOURNAL {
 }
 unsafe impl ::windows::runtime::Abi for MQMSGJOURNAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7592,7 +7575,6 @@ impl ::std::convert::From<i32> for MQMSGMAX {
 }
 unsafe impl ::windows::runtime::Abi for MQMSGMAX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7608,7 +7590,6 @@ impl ::std::convert::From<i32> for MQMSGPRIVLEVEL {
 }
 unsafe impl ::windows::runtime::Abi for MQMSGPRIVLEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7623,7 +7604,6 @@ impl ::std::convert::From<i32> for MQMSGSENDERIDTYPE {
 }
 unsafe impl ::windows::runtime::Abi for MQMSGSENDERIDTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7638,7 +7618,6 @@ impl ::std::convert::From<i32> for MQMSGTRACE {
 }
 unsafe impl ::windows::runtime::Abi for MQMSGTRACE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQMSG_AUTHENTICATED_QM_MESSAGE: u32 = 11u32;
@@ -7665,7 +7644,6 @@ impl ::std::convert::From<i32> for MQPRIORITY {
 }
 unsafe impl ::windows::runtime::Abi for MQPRIORITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7681,7 +7659,6 @@ impl ::std::convert::From<i32> for MQPRIVLEVEL {
 }
 unsafe impl ::windows::runtime::Abi for MQPRIVLEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQSEC_CHANGE_QUEUE_PERMISSIONS: u32 = 262144u32;
@@ -7716,7 +7693,6 @@ impl ::std::convert::From<i32> for MQSHARE {
 }
 unsafe impl ::windows::runtime::Abi for MQSHARE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7733,7 +7709,6 @@ impl ::std::convert::From<i32> for MQTRANSACTION {
 }
 unsafe impl ::windows::runtime::Abi for MQTRANSACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7748,7 +7723,6 @@ impl ::std::convert::From<i32> for MQTRANSACTIONAL {
 }
 unsafe impl ::windows::runtime::Abi for MQTRANSACTIONAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7770,7 +7744,6 @@ impl ::std::convert::From<i32> for MQWARNING {
 }
 unsafe impl ::windows::runtime::Abi for MQWARNING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 pub const MQ_ACTION_PEEK_CURRENT: u32 = 2147483648u32;
@@ -8143,7 +8116,6 @@ impl ::std::convert::From<i32> for QUEUE_STATE {
 }
 unsafe impl ::windows::runtime::Abi for QUEUE_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8161,7 +8133,6 @@ impl ::std::convert::From<i32> for QUEUE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for QUEUE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8181,7 +8152,6 @@ impl ::std::convert::From<i32> for RELOPS {
 }
 unsafe impl ::windows::runtime::Abi for RELOPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8197,7 +8167,6 @@ impl ::std::convert::From<i32> for XACT_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for XACT_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_MessageQueuing`*"]
 #[repr(transparent)]

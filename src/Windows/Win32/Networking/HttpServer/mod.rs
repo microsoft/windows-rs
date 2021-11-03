@@ -25,7 +25,6 @@ impl ::std::cmp::PartialEq for HTTP2_SETTINGS_LIMITS_PARAM {
 impl ::std::cmp::Eq for HTTP2_SETTINGS_LIMITS_PARAM {}
 unsafe impl ::windows::runtime::Abi for HTTP2_SETTINGS_LIMITS_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -52,7 +51,6 @@ impl ::std::cmp::PartialEq for HTTP2_WINDOW_SIZE_PARAM {
 impl ::std::cmp::Eq for HTTP2_WINDOW_SIZE_PARAM {}
 unsafe impl ::windows::runtime::Abi for HTTP2_WINDOW_SIZE_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -80,7 +78,6 @@ impl ::std::cmp::PartialEq for HTTPAPI_VERSION {
 impl ::std::cmp::Eq for HTTPAPI_VERSION {}
 unsafe impl ::windows::runtime::Abi for HTTPAPI_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -96,7 +93,6 @@ impl ::std::convert::From<i32> for HTTP_503_RESPONSE_VERBOSITY {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_503_RESPONSE_VERBOSITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -112,7 +108,6 @@ impl ::std::convert::From<i32> for HTTP_AUTHENTICATION_HARDENING_LEVELS {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_AUTHENTICATION_HARDENING_LEVELS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_AUTH_ENABLE_BASIC: u32 = 1u32;
@@ -142,7 +137,6 @@ impl ::std::convert::From<i32> for HTTP_AUTH_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_AUTH_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -170,7 +164,6 @@ impl ::std::cmp::PartialEq for HTTP_BANDWIDTH_LIMIT_INFO {
 impl ::std::cmp::Eq for HTTP_BANDWIDTH_LIMIT_INFO {}
 unsafe impl ::windows::runtime::Abi for HTTP_BANDWIDTH_LIMIT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -205,7 +198,6 @@ impl ::std::cmp::Eq for HTTP_BINDING_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_BINDING_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -233,7 +225,6 @@ impl ::std::cmp::PartialEq for HTTP_BYTE_RANGE {
 impl ::std::cmp::Eq for HTTP_BYTE_RANGE {}
 unsafe impl ::windows::runtime::Abi for HTTP_BYTE_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -261,7 +252,6 @@ impl ::std::cmp::PartialEq for HTTP_CACHE_POLICY {
 impl ::std::cmp::Eq for HTTP_CACHE_POLICY {}
 unsafe impl ::windows::runtime::Abi for HTTP_CACHE_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -278,7 +268,6 @@ impl ::std::convert::From<i32> for HTTP_CACHE_POLICY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_CACHE_POLICY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_CHANNEL_BIND_CLIENT_SERVICE: u32 = 16u32;
@@ -312,7 +301,6 @@ impl ::std::cmp::PartialEq for HTTP_CHANNEL_BIND_INFO {
 impl ::std::cmp::Eq for HTTP_CHANNEL_BIND_INFO {}
 unsafe impl ::windows::runtime::Abi for HTTP_CHANNEL_BIND_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_CHANNEL_BIND_NO_SERVICE_NAME_CHECK: u32 = 2u32;
@@ -348,7 +336,6 @@ impl ::std::cmp::PartialEq for HTTP_CONNECTION_LIMIT_INFO {
 impl ::std::cmp::Eq for HTTP_CONNECTION_LIMIT_INFO {}
 unsafe impl ::windows::runtime::Abi for HTTP_CONNECTION_LIMIT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -398,7 +385,6 @@ impl ::std::cmp::Eq for HTTP_COOKED_URL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_COOKED_URL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_CONTROLLER: u32 = 2u32;
@@ -419,7 +405,6 @@ impl ::std::convert::From<i32> for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -448,7 +433,6 @@ impl ::std::cmp::PartialEq for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
 impl ::std::cmp::Eq for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {}
 unsafe impl ::windows::runtime::Abi for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -477,7 +461,6 @@ impl ::std::cmp::Eq for HTTP_DATA_CHUNK {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_DATA_CHUNK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -509,7 +492,6 @@ impl ::std::cmp::Eq for HTTP_DATA_CHUNK_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_DATA_CHUNK_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -544,7 +526,6 @@ impl ::std::cmp::Eq for HTTP_DATA_CHUNK_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_DATA_CHUNK_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -579,7 +560,6 @@ impl ::std::cmp::Eq for HTTP_DATA_CHUNK_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_DATA_CHUNK_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -614,7 +594,6 @@ impl ::std::cmp::Eq for HTTP_DATA_CHUNK_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_DATA_CHUNK_0_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -642,7 +621,6 @@ impl ::std::cmp::PartialEq for HTTP_DATA_CHUNK_0_3 {
 impl ::std::cmp::Eq for HTTP_DATA_CHUNK_0_3 {}
 unsafe impl ::windows::runtime::Abi for HTTP_DATA_CHUNK_0_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -677,7 +655,6 @@ impl ::std::cmp::Eq for HTTP_DATA_CHUNK_0_4 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_DATA_CHUNK_0_4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -696,7 +673,6 @@ impl ::std::convert::From<i32> for HTTP_DATA_CHUNK_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_DATA_CHUNK_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -711,7 +687,6 @@ impl ::std::convert::From<i32> for HTTP_DELEGATE_REQUEST_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_DELEGATE_REQUEST_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -740,7 +715,6 @@ impl ::std::cmp::PartialEq for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
 impl ::std::cmp::Eq for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {}
 unsafe impl ::windows::runtime::Abi for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_DEMAND_CBT: u32 = 4u32;
@@ -757,7 +731,6 @@ impl ::std::convert::From<i32> for HTTP_ENABLED_STATE {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_ENABLED_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -793,7 +766,6 @@ impl ::std::cmp::Eq for HTTP_ERROR_HEADERS_PARAM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_ERROR_HEADERS_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -812,7 +784,6 @@ impl ::std::convert::From<i32> for HTTP_FEATURE_ID {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_FEATURE_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -842,7 +813,6 @@ impl ::std::cmp::PartialEq for HTTP_FLOWRATE_INFO {
 impl ::std::cmp::Eq for HTTP_FLOWRATE_INFO {}
 unsafe impl ::windows::runtime::Abi for HTTP_FLOWRATE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_FLUSH_RESPONSE_FLAG_RECURSIVE: u32 = 1u32;
@@ -911,7 +881,6 @@ impl ::std::convert::From<i32> for HTTP_HEADER_ID {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_HEADER_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -926,7 +895,6 @@ impl ::std::convert::From<u32> for HTTP_INITIALIZE {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_INITIALIZE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for HTTP_INITIALIZE {
     type Output = Self;
@@ -989,7 +957,6 @@ impl ::std::cmp::Eq for HTTP_KNOWN_HEADER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_KNOWN_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1024,7 +991,6 @@ impl ::std::cmp::Eq for HTTP_LISTEN_ENDPOINT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_LISTEN_ENDPOINT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_LOGGING_FLAG_LOCAL_TIME_ROLLOVER: u32 = 1u32;
@@ -1107,7 +1073,6 @@ impl ::std::cmp::Eq for HTTP_LOGGING_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for HTTP_LOGGING_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1125,7 +1090,6 @@ impl ::std::convert::From<i32> for HTTP_LOGGING_ROLLOVER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_LOGGING_ROLLOVER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1142,7 +1106,6 @@ impl ::std::convert::From<i32> for HTTP_LOGGING_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_LOGGING_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1169,7 +1132,6 @@ impl ::std::cmp::PartialEq for HTTP_LOG_DATA {
 impl ::std::cmp::Eq for HTTP_LOG_DATA {}
 unsafe impl ::windows::runtime::Abi for HTTP_LOG_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1183,7 +1145,6 @@ impl ::std::convert::From<i32> for HTTP_LOG_DATA_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_LOG_DATA_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1306,7 +1267,6 @@ impl ::std::cmp::Eq for HTTP_LOG_FIELDS_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_LOG_FIELDS_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_LOG_FIELD_BYTES_RECV: u32 = 8192u32;
@@ -1409,7 +1369,6 @@ impl ::std::cmp::Eq for HTTP_MULTIPLE_KNOWN_HEADERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_MULTIPLE_KNOWN_HEADERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1438,7 +1397,6 @@ impl ::std::cmp::PartialEq for HTTP_PERFORMANCE_PARAM {
 impl ::std::cmp::Eq for HTTP_PERFORMANCE_PARAM {}
 unsafe impl ::windows::runtime::Abi for HTTP_PERFORMANCE_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1458,7 +1416,6 @@ impl ::std::convert::From<i32> for HTTP_PERFORMANCE_PARAM_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_PERFORMANCE_PARAM_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1485,7 +1442,6 @@ impl ::std::cmp::PartialEq for HTTP_PROPERTY_FLAGS {
 impl ::std::cmp::Eq for HTTP_PROPERTY_FLAGS {}
 unsafe impl ::windows::runtime::Abi for HTTP_PROPERTY_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1513,7 +1469,6 @@ impl ::std::cmp::PartialEq for HTTP_PROTECTION_LEVEL_INFO {
 impl ::std::cmp::Eq for HTTP_PROTECTION_LEVEL_INFO {}
 unsafe impl ::windows::runtime::Abi for HTTP_PROTECTION_LEVEL_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1529,7 +1484,6 @@ impl ::std::convert::From<i32> for HTTP_PROTECTION_LEVEL_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_PROTECTION_LEVEL_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1557,7 +1511,6 @@ impl ::std::cmp::PartialEq for HTTP_QOS_SETTING_INFO {
 impl ::std::cmp::Eq for HTTP_QOS_SETTING_INFO {}
 unsafe impl ::windows::runtime::Abi for HTTP_QOS_SETTING_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1573,7 +1526,6 @@ impl ::std::convert::From<i32> for HTTP_QOS_SETTING_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_QOS_SETTING_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1600,7 +1552,6 @@ impl ::std::cmp::PartialEq for HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
 impl ::std::cmp::Eq for HTTP_QUERY_REQUEST_QUALIFIER_QUIC {}
 unsafe impl ::windows::runtime::Abi for HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1627,7 +1578,6 @@ impl ::std::cmp::PartialEq for HTTP_QUERY_REQUEST_QUALIFIER_TCP {
 impl ::std::cmp::Eq for HTTP_QUERY_REQUEST_QUALIFIER_TCP {}
 unsafe impl ::windows::runtime::Abi for HTTP_QUERY_REQUEST_QUALIFIER_TCP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1655,7 +1605,6 @@ impl ::std::cmp::PartialEq for HTTP_QUIC_API_TIMINGS {
 impl ::std::cmp::Eq for HTTP_QUIC_API_TIMINGS {}
 unsafe impl ::windows::runtime::Abi for HTTP_QUIC_API_TIMINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1720,7 +1669,6 @@ impl ::std::cmp::PartialEq for HTTP_QUIC_CONNECTION_API_TIMINGS {
 impl ::std::cmp::Eq for HTTP_QUIC_CONNECTION_API_TIMINGS {}
 unsafe impl ::windows::runtime::Abi for HTTP_QUIC_CONNECTION_API_TIMINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1800,7 +1748,6 @@ impl ::std::cmp::PartialEq for HTTP_QUIC_STREAM_API_TIMINGS {
 impl ::std::cmp::Eq for HTTP_QUIC_STREAM_API_TIMINGS {}
 unsafe impl ::windows::runtime::Abi for HTTP_QUIC_STREAM_API_TIMINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_RECEIVE_FULL_CHAIN: u32 = 2u32;
@@ -1817,7 +1764,6 @@ impl ::std::convert::From<u32> for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
     type Output = Self;
@@ -1923,7 +1869,6 @@ impl ::std::cmp::Eq for HTTP_REQUEST_AUTH_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_AUTH_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1942,7 +1887,6 @@ impl ::std::convert::From<i32> for HTTP_REQUEST_AUTH_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_AUTH_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1972,7 +1916,6 @@ impl ::std::cmp::PartialEq for HTTP_REQUEST_CHANNEL_BIND_STATUS {
 impl ::std::cmp::Eq for HTTP_REQUEST_CHANNEL_BIND_STATUS {}
 unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_CHANNEL_BIND_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_REQUEST_FLAG_HTTP2: u32 = 4u32;
@@ -2018,7 +1961,6 @@ impl ::std::cmp::Eq for HTTP_REQUEST_HEADERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_HEADERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2047,7 +1989,6 @@ impl ::std::cmp::PartialEq for HTTP_REQUEST_INFO {
 impl ::std::cmp::Eq for HTTP_REQUEST_INFO {}
 unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2070,7 +2011,6 @@ impl ::std::convert::From<i32> for HTTP_REQUEST_INFO_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_INFO_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2091,7 +2031,6 @@ impl ::std::convert::From<i32> for HTTP_REQUEST_PROPERTY {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2119,7 +2058,6 @@ impl ::std::cmp::PartialEq for HTTP_REQUEST_PROPERTY_SNI {
 impl ::std::cmp::Eq for HTTP_REQUEST_PROPERTY_SNI {}
 unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_PROPERTY_SNI {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_REQUEST_PROPERTY_SNI_FLAG_NO_SNI: u32 = 2u32;
@@ -2152,7 +2090,6 @@ impl ::std::cmp::PartialEq for HTTP_REQUEST_PROPERTY_STREAM_ERROR {
 impl ::std::cmp::Eq for HTTP_REQUEST_PROPERTY_STREAM_ERROR {}
 unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_PROPERTY_STREAM_ERROR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2182,7 +2119,6 @@ impl ::std::cmp::PartialEq for HTTP_REQUEST_SIZING_INFO {
 impl ::std::cmp::Eq for HTTP_REQUEST_SIZING_INFO {}
 unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_SIZING_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_REQUEST_SIZING_INFO_FLAG_FIRST_REQUEST: u32 = 8u32;
@@ -2209,7 +2145,6 @@ impl ::std::convert::From<i32> for HTTP_REQUEST_SIZING_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_SIZING_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2237,7 +2172,6 @@ impl ::std::cmp::PartialEq for HTTP_REQUEST_TIMING_INFO {
 impl ::std::cmp::Eq for HTTP_REQUEST_TIMING_INFO {}
 unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_TIMING_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2281,7 +2215,6 @@ impl ::std::convert::From<i32> for HTTP_REQUEST_TIMING_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_TIMING_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2312,7 +2245,6 @@ impl ::std::cmp::PartialEq for HTTP_REQUEST_TOKEN_BINDING_INFO {
 impl ::std::cmp::Eq for HTTP_REQUEST_TOKEN_BINDING_INFO {}
 unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_TOKEN_BINDING_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2399,7 +2331,6 @@ impl ::std::cmp::Eq for HTTP_REQUEST_V1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_V1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2435,7 +2366,6 @@ impl ::std::cmp::Eq for HTTP_REQUEST_V2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_RESPONSE_FLAG_MORE_ENTITY_BODY_EXISTS: u32 = 2u32;
@@ -2477,7 +2407,6 @@ impl ::std::cmp::Eq for HTTP_RESPONSE_HEADERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_RESPONSE_HEADERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2506,7 +2435,6 @@ impl ::std::cmp::PartialEq for HTTP_RESPONSE_INFO {
 impl ::std::cmp::Eq for HTTP_RESPONSE_INFO {}
 unsafe impl ::windows::runtime::Abi for HTTP_RESPONSE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_RESPONSE_INFO_FLAGS_PRESERVE_ORDER: u32 = 1u32;
@@ -2525,7 +2453,6 @@ impl ::std::convert::From<i32> for HTTP_RESPONSE_INFO_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_RESPONSE_INFO_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2575,7 +2502,6 @@ impl ::std::cmp::Eq for HTTP_RESPONSE_V1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_RESPONSE_V1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2611,7 +2537,6 @@ impl ::std::cmp::Eq for HTTP_RESPONSE_V2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_RESPONSE_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2627,7 +2552,6 @@ impl ::std::convert::From<i32> for HTTP_SCHEME {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_SCHEME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_SEND_RESPONSE_FLAG_BUFFER_DATA: u32 = 4u32;
@@ -2676,7 +2600,6 @@ impl ::std::cmp::Eq for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2713,7 +2636,6 @@ impl ::std::cmp::Eq for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2763,7 +2685,6 @@ impl ::std::cmp::Eq for HTTP_SERVER_AUTHENTICATION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVER_AUTHENTICATION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2789,7 +2710,6 @@ impl ::std::convert::From<i32> for HTTP_SERVER_PROPERTY {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_SERVER_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2825,7 +2745,6 @@ impl ::std::cmp::Eq for HTTP_SERVICE_BINDING_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_BINDING_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2852,7 +2771,6 @@ impl ::std::cmp::PartialEq for HTTP_SERVICE_BINDING_BASE {
 impl ::std::cmp::Eq for HTTP_SERVICE_BINDING_BASE {}
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_BINDING_BASE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2868,7 +2786,6 @@ impl ::std::convert::From<i32> for HTTP_SERVICE_BINDING_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_BINDING_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2904,7 +2821,6 @@ impl ::std::cmp::Eq for HTTP_SERVICE_BINDING_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_BINDING_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2919,7 +2835,6 @@ impl ::std::convert::From<i32> for HTTP_SERVICE_CONFIG_CACHE_KEY {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_CACHE_KEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2947,7 +2862,6 @@ impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_CACHE_SET {
 impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_CACHE_SET {}
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_CACHE_SET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2974,7 +2888,6 @@ impl ::std::convert::From<i32> for HTTP_SERVICE_CONFIG_ID {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3009,7 +2922,6 @@ impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3044,7 +2956,6 @@ impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3060,7 +2971,6 @@ impl ::std::convert::From<i32> for HTTP_SERVICE_CONFIG_QUERY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_QUERY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3075,7 +2985,6 @@ impl ::std::convert::From<i32> for HTTP_SERVICE_CONFIG_SETTING_KEY {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SETTING_KEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3103,7 +3012,6 @@ impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SETTING_SET {
 impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SETTING_SET {}
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SETTING_SET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3137,7 +3045,6 @@ impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3173,7 +3080,6 @@ impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3210,7 +3116,6 @@ impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3245,7 +3150,6 @@ impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_CCS_SET {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_SET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3274,7 +3178,6 @@ impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_HTTP2: u32 = 16u32;
@@ -3336,7 +3239,6 @@ impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_KEY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_KEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3370,7 +3272,6 @@ impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_KEY_EX {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_KEY_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3433,7 +3334,6 @@ impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_PARAM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3463,7 +3363,6 @@ impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3496,7 +3395,6 @@ impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3532,7 +3430,6 @@ impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_QUERY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_QUERY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3569,7 +3466,6 @@ impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3604,7 +3500,6 @@ impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_SET {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_SET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3633,7 +3528,6 @@ impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_SET_EX {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_SET_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3668,7 +3562,6 @@ impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3704,7 +3597,6 @@ impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3741,7 +3633,6 @@ impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3776,7 +3667,6 @@ impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_SNI_SET {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_SET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3805,7 +3695,6 @@ impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3820,7 +3709,6 @@ impl ::std::convert::From<i32> for HTTP_SERVICE_CONFIG_TIMEOUT_KEY {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_TIMEOUT_KEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3848,7 +3736,6 @@ impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_TIMEOUT_SET {
 impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_TIMEOUT_SET {}
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_TIMEOUT_SET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3882,7 +3769,6 @@ impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_URLACL_KEY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_URLACL_KEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3916,7 +3802,6 @@ impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_URLACL_PARAM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_URLACL_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3952,7 +3837,6 @@ impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_URLACL_QUERY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_URLACL_QUERY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3987,7 +3871,6 @@ impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_URLACL_SET {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_URLACL_SET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4025,7 +3908,6 @@ impl ::std::cmp::Eq for HTTP_SSL_CLIENT_CERT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_SSL_CLIENT_CERT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4075,7 +3957,6 @@ impl ::std::cmp::Eq for HTTP_SSL_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_SSL_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4116,7 +3997,6 @@ impl ::std::cmp::PartialEq for HTTP_SSL_PROTOCOL_INFO {
 impl ::std::cmp::Eq for HTTP_SSL_PROTOCOL_INFO {}
 unsafe impl ::windows::runtime::Abi for HTTP_SSL_PROTOCOL_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4136,7 +4016,6 @@ impl ::std::convert::From<i32> for HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4164,7 +4043,6 @@ impl ::std::cmp::PartialEq for HTTP_STATE_INFO {
 impl ::std::cmp::Eq for HTTP_STATE_INFO {}
 unsafe impl ::windows::runtime::Abi for HTTP_STATE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4205,7 +4083,6 @@ impl ::std::cmp::PartialEq for HTTP_TIMEOUT_LIMIT_INFO {
 impl ::std::cmp::Eq for HTTP_TIMEOUT_LIMIT_INFO {}
 unsafe impl ::windows::runtime::Abi for HTTP_TIMEOUT_LIMIT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4233,7 +4110,6 @@ impl ::std::cmp::PartialEq for HTTP_TLS_RESTRICTIONS_PARAM {
 impl ::std::cmp::Eq for HTTP_TLS_RESTRICTIONS_PARAM {}
 unsafe impl ::windows::runtime::Abi for HTTP_TLS_RESTRICTIONS_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4261,7 +4137,6 @@ impl ::std::cmp::PartialEq for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
 impl ::std::cmp::Eq for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {}
 unsafe impl ::windows::runtime::Abi for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4296,7 +4171,6 @@ impl ::std::cmp::Eq for HTTP_TRANSPORT_ADDRESS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_TRANSPORT_ADDRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4333,7 +4207,6 @@ impl ::std::cmp::Eq for HTTP_UNKNOWN_HEADER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_UNKNOWN_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_HttpServer`*"]
 pub const HTTP_URL_FLAG_REMOVE_ALL: u32 = 1u32;
@@ -4369,7 +4242,6 @@ impl ::std::convert::From<i32> for HTTP_VERB {
 }
 unsafe impl ::windows::runtime::Abi for HTTP_VERB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4397,7 +4269,6 @@ impl ::std::cmp::PartialEq for HTTP_VERSION {
 impl ::std::cmp::Eq for HTTP_VERSION {}
 unsafe impl ::windows::runtime::Abi for HTTP_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4459,7 +4330,6 @@ impl ::std::cmp::PartialEq for HTTP_WSK_API_TIMINGS {
 impl ::std::cmp::Eq for HTTP_WSK_API_TIMINGS {}
 unsafe impl ::windows::runtime::Abi for HTTP_WSK_API_TIMINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]

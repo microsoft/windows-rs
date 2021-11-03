@@ -25,7 +25,6 @@ impl ::std::cmp::PartialEq for APPLETIDLIST {
 impl ::std::cmp::Eq for APPLETIDLIST {}
 unsafe impl ::windows::runtime::Abi for APPLETIDLIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -62,7 +61,6 @@ impl ::std::cmp::Eq for APPLYCANDEXPARAM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for APPLYCANDEXPARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const ATTR_CONVERTED: u32 = 2u32;
@@ -111,7 +109,6 @@ impl ::std::cmp::Eq for CANDIDATEFORM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CANDIDATEFORM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -142,7 +139,6 @@ impl ::std::cmp::PartialEq for CANDIDATEINFO {
 impl ::std::cmp::Eq for CANDIDATEINFO {}
 unsafe impl ::windows::runtime::Abi for CANDIDATEINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -175,7 +171,6 @@ impl ::std::cmp::PartialEq for CANDIDATELIST {
 impl ::std::cmp::Eq for CANDIDATELIST {}
 unsafe impl ::windows::runtime::Abi for CANDIDATELIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const CATID_MSIME_IImePadApplet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1969670865, 20169, 17528, [159, 233, 142, 215, 102, 97, 158, 223]);
 pub const CATID_MSIME_IImePadApplet1000: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3766608342, 9097, 17355, [182, 111, 96, 159, 130, 61, 159, 156]);
@@ -240,7 +235,6 @@ impl ::std::cmp::Eq for COMPOSITIONFORM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for COMPOSITIONFORM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -341,7 +335,6 @@ impl ::std::cmp::PartialEq for COMPOSITIONSTRING {
 impl ::std::cmp::Eq for COMPOSITIONSTRING {}
 unsafe impl ::windows::runtime::Abi for COMPOSITIONSTRING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const CS_INSERTCHAR: u32 = 8192u32;
@@ -505,7 +498,6 @@ impl ::std::convert::From<u32> for GET_CONVERSION_LIST_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for GET_CONVERSION_LIST_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for GET_CONVERSION_LIST_FLAG {
     type Output = Self;
@@ -550,7 +542,6 @@ impl ::std::convert::From<u32> for GET_GUIDE_LINE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for GET_GUIDE_LINE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for GET_GUIDE_LINE_TYPE {
     type Output = Self;
@@ -653,7 +644,6 @@ impl ::std::cmp::PartialEq for GUIDELINE {
 impl ::std::cmp::Eq for GUIDELINE {}
 unsafe impl ::windows::runtime::Abi for GUIDELINE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IACE_CHILDREN: u32 = 1u32;
@@ -2965,7 +2955,6 @@ impl ::std::cmp::Eq for IMEAPPLETCFG {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for IMEAPPLETCFG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3019,7 +3008,6 @@ impl ::std::cmp::Eq for IMEAPPLETUI {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IMEAPPLETUI {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3047,7 +3035,6 @@ impl ::std::cmp::PartialEq for IMECHARINFO {
 impl ::std::cmp::Eq for IMECHARINFO {}
 unsafe impl ::windows::runtime::Abi for IMECHARINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3085,7 +3072,6 @@ impl ::std::cmp::Eq for IMECHARPOSITION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IMECHARPOSITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3117,7 +3103,6 @@ impl ::std::cmp::PartialEq for IMECOMPOSITIONSTRINGINFO {
 impl ::std::cmp::Eq for IMECOMPOSITIONSTRINGINFO {}
 unsafe impl ::windows::runtime::Abi for IMECOMPOSITIONSTRINGINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -3148,7 +3133,6 @@ impl ::std::cmp::Eq for IMEDLG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IMEDLG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -3178,7 +3162,6 @@ impl ::std::cmp::Eq for IMEDP {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IMEDP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IMEFAREASTINFO_TYPE_COMMENT: u32 = 2u32;
@@ -3226,7 +3209,6 @@ impl ::std::convert::From<i32> for IMEFMT {
 }
 unsafe impl ::windows::runtime::Abi for IMEFMT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3267,7 +3249,6 @@ impl ::std::cmp::PartialEq for IMEINFO {
 impl ::std::cmp::Eq for IMEINFO {}
 unsafe impl ::windows::runtime::Abi for IMEINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3296,7 +3277,6 @@ impl ::std::cmp::PartialEq for IMEITEM {
 impl ::std::cmp::Eq for IMEITEM {}
 unsafe impl ::windows::runtime::Abi for IMEITEM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3324,7 +3304,6 @@ impl ::std::cmp::PartialEq for IMEITEMCANDIDATE {
 impl ::std::cmp::Eq for IMEITEMCANDIDATE {}
 unsafe impl ::windows::runtime::Abi for IMEITEMCANDIDATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IMEKEYCTRLMASK_ALT: u32 = 1u32;
@@ -3365,7 +3344,6 @@ impl ::std::cmp::Eq for IMEKMS {}
 #[cfg(feature = "Win32_Globalization")]
 unsafe impl ::windows::runtime::Abi for IMEKMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -3390,7 +3368,6 @@ impl ::std::cmp::PartialEq for IMEKMSFUNCDESC {
 impl ::std::cmp::Eq for IMEKMSFUNCDESC {}
 unsafe impl ::windows::runtime::Abi for IMEKMSFUNCDESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -3419,7 +3396,6 @@ impl ::std::cmp::Eq for IMEKMSINIT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IMEKMSINIT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -3449,7 +3425,6 @@ impl ::std::cmp::Eq for IMEKMSINVK {}
 #[cfg(feature = "Win32_Globalization")]
 unsafe impl ::windows::runtime::Abi for IMEKMSINVK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -3475,7 +3450,6 @@ impl ::std::cmp::PartialEq for IMEKMSKEY {
 impl ::std::cmp::Eq for IMEKMSKEY {}
 unsafe impl ::windows::runtime::Abi for IMEKMSKEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -3498,7 +3472,6 @@ impl ::std::cmp::PartialEq for IMEKMSKEY_0 {
 impl ::std::cmp::Eq for IMEKMSKEY_0 {}
 unsafe impl ::windows::runtime::Abi for IMEKMSKEY_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -3521,7 +3494,6 @@ impl ::std::cmp::PartialEq for IMEKMSKEY_1 {
 impl ::std::cmp::Eq for IMEKMSKEY_1 {}
 unsafe impl ::windows::runtime::Abi for IMEKMSKEY_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -3555,7 +3527,6 @@ impl ::std::cmp::Eq for IMEKMSKMP {}
 #[cfg(feature = "Win32_Globalization")]
 unsafe impl ::windows::runtime::Abi for IMEKMSKMP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -3585,7 +3556,6 @@ impl ::std::cmp::Eq for IMEKMSNTFY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 unsafe impl ::windows::runtime::Abi for IMEKMSNTFY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IMEKMS_2NDLEVEL: u32 = 4u32;
@@ -3653,7 +3623,6 @@ impl ::std::cmp::Eq for IMEMENUITEMINFOA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for IMEMENUITEMINFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3705,7 +3674,6 @@ impl ::std::cmp::Eq for IMEMENUITEMINFOW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for IMEMENUITEMINFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IMEMENUITEM_STRING_SIZE: u32 = 80u32;
@@ -3835,7 +3803,6 @@ impl ::std::convert::From<i32> for IMEREG {
 }
 unsafe impl ::windows::runtime::Abi for IMEREG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3873,7 +3840,6 @@ impl ::std::convert::From<i32> for IMEREL {
 }
 unsafe impl ::windows::runtime::Abi for IMEREL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -3905,7 +3871,6 @@ impl ::std::cmp::Eq for IMESHF {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IMESHF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3940,7 +3905,6 @@ impl ::std::cmp::Eq for IMESTRINGCANDIDATE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IMESTRINGCANDIDATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3979,7 +3943,6 @@ impl ::std::cmp::Eq for IMESTRINGCANDIDATEINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IMESTRINGCANDIDATEINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3997,7 +3960,6 @@ impl ::std::convert::From<i32> for IMEUCT {
 }
 unsafe impl ::windows::runtime::Abi for IMEUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IMEVER_0310: u32 = 196618u32;
@@ -4035,7 +3997,6 @@ impl ::std::cmp::Eq for IMEWRD {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IMEWRD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -4058,7 +4019,6 @@ impl ::std::cmp::PartialEq for IMEWRD_0 {
 impl ::std::cmp::Eq for IMEWRD_0 {}
 unsafe impl ::windows::runtime::Abi for IMEWRD_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -4081,7 +4041,6 @@ impl ::std::cmp::PartialEq for IMEWRD_0_0 {
 impl ::std::cmp::Eq for IMEWRD_0_0 {}
 unsafe impl ::windows::runtime::Abi for IMEWRD_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IME_CAND_CODE: u32 = 2u32;
@@ -4205,7 +4164,6 @@ impl ::std::convert::From<u32> for IME_PAD_REQUEST_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for IME_PAD_REQUEST_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for IME_PAD_REQUEST_FLAGS {
     type Output = Self;
@@ -4415,7 +4373,6 @@ impl ::std::cmp::Eq for INPUTCONTEXT {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for INPUTCONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4444,7 +4401,6 @@ impl ::std::cmp::Eq for INPUTCONTEXT_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for INPUTCONTEXT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const IPACFG_CATEGORY: i32 = 262144i32;
@@ -6128,7 +6084,6 @@ impl ::std::cmp::Eq for MORRSLT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MORRSLT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -6157,7 +6112,6 @@ impl ::std::cmp::Eq for MORRSLT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MORRSLT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -6180,7 +6134,6 @@ impl ::std::cmp::PartialEq for MORRSLT_1 {
 impl ::std::cmp::Eq for MORRSLT_1 {}
 unsafe impl ::windows::runtime::Abi for MORRSLT_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -6203,7 +6156,6 @@ impl ::std::cmp::PartialEq for MORRSLT_2 {
 impl ::std::cmp::Eq for MORRSLT_2 {}
 unsafe impl ::windows::runtime::Abi for MORRSLT_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const NI_CONTEXTUPDATED: u32 = 3u32;
@@ -6228,7 +6180,6 @@ impl ::std::convert::From<u32> for NOTIFY_IME_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for NOTIFY_IME_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for NOTIFY_IME_ACTION {
     type Output = Self;
@@ -6273,7 +6224,6 @@ impl ::std::convert::From<u32> for NOTIFY_IME_INDEX {
 }
 unsafe impl ::windows::runtime::Abi for NOTIFY_IME_INDEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for NOTIFY_IME_INDEX {
     type Output = Self;
@@ -6326,7 +6276,6 @@ impl ::std::cmp::PartialEq for POSTBL {
 impl ::std::cmp::Eq for POSTBL {}
 unsafe impl ::windows::runtime::Abi for POSTBL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const POS_UNDEFINED: u32 = 0u32;
@@ -6371,7 +6320,6 @@ impl ::std::cmp::PartialEq for RECONVERTSTRING {
 impl ::std::cmp::Eq for RECONVERTSTRING {}
 unsafe impl ::windows::runtime::Abi for RECONVERTSTRING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const RECONVOPT_NONE: u32 = 0u32;
@@ -6410,7 +6358,6 @@ impl ::std::cmp::Eq for REGISTERWORDA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for REGISTERWORDA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type REGISTERWORDENUMPROCA = unsafe extern "system" fn(lpszreading: super::super::super::Foundation::PSTR, param1: u32, lpszstring: super::super::super::Foundation::PSTR, param3: *mut ::std::ffi::c_void) -> i32;
@@ -6449,7 +6396,6 @@ impl ::std::cmp::Eq for REGISTERWORDW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for REGISTERWORDW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const SCS_CAP_COMPSTR: u32 = 1u32;
@@ -6477,7 +6423,6 @@ impl ::std::convert::From<u32> for SET_COMPOSITION_STRING_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SET_COMPOSITION_STRING_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SET_COMPOSITION_STRING_TYPE {
     type Output = Self;
@@ -6539,7 +6484,6 @@ impl ::std::cmp::PartialEq for SOFTKBDDATA {
 impl ::std::cmp::Eq for SOFTKBDDATA {}
 unsafe impl ::windows::runtime::Abi for SOFTKBDDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const SOFTKEYBOARD_TYPE_C1: u32 = 2u32;
@@ -6578,7 +6522,6 @@ impl ::std::cmp::Eq for STYLEBUFA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for STYLEBUFA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6606,7 +6549,6 @@ impl ::std::cmp::PartialEq for STYLEBUFW {
 impl ::std::cmp::Eq for STYLEBUFW {}
 unsafe impl ::windows::runtime::Abi for STYLEBUFW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const STYLE_DESCRIPTION_SIZE: u32 = 32u32;
@@ -6644,7 +6586,6 @@ impl ::std::cmp::Eq for TRANSMSG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TRANSMSG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6679,7 +6620,6 @@ impl ::std::cmp::Eq for TRANSMSGLIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TRANSMSGLIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const UI_CAP_2700: u32 = 1u32;
@@ -6734,7 +6674,6 @@ impl ::std::cmp::PartialEq for WDD {
 impl ::std::cmp::Eq for WDD {}
 unsafe impl ::windows::runtime::Abi for WDD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -6757,7 +6696,6 @@ impl ::std::cmp::PartialEq for WDD_0 {
 impl ::std::cmp::Eq for WDD_0 {}
 unsafe impl ::windows::runtime::Abi for WDD_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -6780,7 +6718,6 @@ impl ::std::cmp::PartialEq for WDD_1 {
 impl ::std::cmp::Eq for WDD_1 {}
 unsafe impl ::windows::runtime::Abi for WDD_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type fpCreateIFECommonInstanceType = unsafe extern "system" fn(ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
 pub type fpCreateIFEDictionaryInstanceType = unsafe extern "system" fn(ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
@@ -6812,7 +6749,6 @@ impl ::std::cmp::PartialEq for tabIMEFAREASTINFO {
 impl ::std::cmp::Eq for tabIMEFAREASTINFO {}
 unsafe impl ::windows::runtime::Abi for tabIMEFAREASTINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6847,5 +6783,4 @@ impl ::std::cmp::Eq for tabIMESTRINGINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for tabIMESTRINGINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }

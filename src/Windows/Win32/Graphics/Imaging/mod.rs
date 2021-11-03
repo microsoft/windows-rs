@@ -5010,7 +5010,6 @@ impl ::std::convert::From<u32> for WIC8BIMIptcDigestProperties {
 }
 unsafe impl ::windows::runtime::Abi for WIC8BIMIptcDigestProperties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WIC8BIMIptcDigestProperties {
     type Output = Self;
@@ -5054,7 +5053,6 @@ impl ::std::convert::From<u32> for WIC8BIMIptcProperties {
 }
 unsafe impl ::windows::runtime::Abi for WIC8BIMIptcProperties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WIC8BIMIptcProperties {
     type Output = Self;
@@ -5103,7 +5101,6 @@ impl ::std::convert::From<u32> for WIC8BIMResolutionInfoProperties {
 }
 unsafe impl ::windows::runtime::Abi for WIC8BIMResolutionInfoProperties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WIC8BIMResolutionInfoProperties {
     type Output = Self;
@@ -5148,7 +5145,6 @@ impl ::std::convert::From<i32> for WICBitmapAlphaChannelOption {
 }
 unsafe impl ::windows::runtime::Abi for WICBitmapAlphaChannelOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5165,7 +5161,6 @@ impl ::std::convert::From<i32> for WICBitmapCreateCacheOption {
 }
 unsafe impl ::windows::runtime::Abi for WICBitmapCreateCacheOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5184,7 +5179,6 @@ impl ::std::convert::From<i32> for WICBitmapDecoderCapabilities {
 }
 unsafe impl ::windows::runtime::Abi for WICBitmapDecoderCapabilities {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5208,7 +5202,6 @@ impl ::std::convert::From<i32> for WICBitmapDitherType {
 }
 unsafe impl ::windows::runtime::Abi for WICBitmapDitherType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5225,7 +5218,6 @@ impl ::std::convert::From<i32> for WICBitmapEncoderCacheOption {
 }
 unsafe impl ::windows::runtime::Abi for WICBitmapEncoderCacheOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5244,7 +5236,6 @@ impl ::std::convert::From<i32> for WICBitmapInterpolationMode {
 }
 unsafe impl ::windows::runtime::Abi for WICBitmapInterpolationMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5260,7 +5251,6 @@ impl ::std::convert::From<i32> for WICBitmapLockFlags {
 }
 unsafe impl ::windows::runtime::Abi for WICBitmapLockFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5288,7 +5278,6 @@ impl ::std::convert::From<i32> for WICBitmapPaletteType {
 }
 unsafe impl ::windows::runtime::Abi for WICBitmapPaletteType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5326,7 +5315,6 @@ impl ::std::cmp::Eq for WICBitmapPattern {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WICBitmapPattern {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5356,7 +5344,6 @@ impl ::std::cmp::PartialEq for WICBitmapPlane {
 impl ::std::cmp::Eq for WICBitmapPlane {}
 unsafe impl ::windows::runtime::Abi for WICBitmapPlane {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5385,7 +5372,6 @@ impl ::std::cmp::PartialEq for WICBitmapPlaneDescription {
 impl ::std::cmp::Eq for WICBitmapPlaneDescription {}
 unsafe impl ::windows::runtime::Abi for WICBitmapPlaneDescription {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5405,7 +5391,6 @@ impl ::std::convert::From<i32> for WICBitmapTransformOptions {
 }
 unsafe impl ::windows::runtime::Abi for WICBitmapTransformOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5421,7 +5406,6 @@ impl ::std::convert::From<i32> for WICColorContextType {
 }
 unsafe impl ::windows::runtime::Abi for WICColorContextType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5440,7 +5424,6 @@ impl ::std::convert::From<i32> for WICComponentEnumerateOptions {
 }
 unsafe impl ::windows::runtime::Abi for WICComponentEnumerateOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5458,7 +5441,6 @@ impl ::std::convert::From<i32> for WICComponentSigning {
 }
 unsafe impl ::windows::runtime::Abi for WICComponentSigning {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5479,7 +5461,6 @@ impl ::std::convert::From<i32> for WICComponentType {
 }
 unsafe impl ::windows::runtime::Abi for WICComponentType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[inline]
@@ -5545,7 +5526,6 @@ impl ::std::convert::From<i32> for WICDdsAlphaMode {
 }
 unsafe impl ::windows::runtime::Abi for WICDdsAlphaMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5563,7 +5543,6 @@ impl ::std::convert::From<i32> for WICDdsDimension {
 }
 unsafe impl ::windows::runtime::Abi for WICDdsDimension {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5600,7 +5579,6 @@ impl ::std::cmp::Eq for WICDdsFormatInfo {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for WICDdsFormatInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5650,7 +5628,6 @@ impl ::std::cmp::Eq for WICDdsParameters {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for WICDdsParameters {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5666,7 +5643,6 @@ impl ::std::convert::From<i32> for WICDecodeOptions {
 }
 unsafe impl ::windows::runtime::Abi for WICDecodeOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[inline]
@@ -5697,7 +5673,6 @@ impl ::std::convert::From<u32> for WICGifApplicationExtensionProperties {
 }
 unsafe impl ::windows::runtime::Abi for WICGifApplicationExtensionProperties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WICGifApplicationExtensionProperties {
     type Output = Self;
@@ -5740,7 +5715,6 @@ impl ::std::convert::From<u32> for WICGifCommentExtensionProperties {
 }
 unsafe impl ::windows::runtime::Abi for WICGifCommentExtensionProperties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WICGifCommentExtensionProperties {
     type Output = Self;
@@ -5787,7 +5761,6 @@ impl ::std::convert::From<u32> for WICGifGraphicControlExtensionProperties {
 }
 unsafe impl ::windows::runtime::Abi for WICGifGraphicControlExtensionProperties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WICGifGraphicControlExtensionProperties {
     type Output = Self;
@@ -5837,7 +5810,6 @@ impl ::std::convert::From<u32> for WICGifImageDescriptorProperties {
 }
 unsafe impl ::windows::runtime::Abi for WICGifImageDescriptorProperties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WICGifImageDescriptorProperties {
     type Output = Self;
@@ -5888,7 +5860,6 @@ impl ::std::convert::From<u32> for WICGifLogicalScreenDescriptorProperties {
 }
 unsafe impl ::windows::runtime::Abi for WICGifLogicalScreenDescriptorProperties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WICGifLogicalScreenDescriptorProperties {
     type Output = Self;
@@ -5935,7 +5906,6 @@ impl ::std::convert::From<u32> for WICHeifHdrProperties {
 }
 unsafe impl ::windows::runtime::Abi for WICHeifHdrProperties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WICHeifHdrProperties {
     type Output = Self;
@@ -5978,7 +5948,6 @@ impl ::std::convert::From<u32> for WICHeifProperties {
 }
 unsafe impl ::windows::runtime::Abi for WICHeifProperties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WICHeifProperties {
     type Output = Self;
@@ -6046,7 +6015,6 @@ impl ::std::cmp::Eq for WICImageParameters {}
 #[cfg(all(feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for WICImageParameters {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6061,7 +6029,6 @@ impl ::std::convert::From<u32> for WICJpegChrominanceProperties {
 }
 unsafe impl ::windows::runtime::Abi for WICJpegChrominanceProperties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WICJpegChrominanceProperties {
     type Output = Self;
@@ -6104,7 +6071,6 @@ impl ::std::convert::From<u32> for WICJpegCommentProperties {
 }
 unsafe impl ::windows::runtime::Abi for WICJpegCommentProperties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WICJpegCommentProperties {
     type Output = Self;
@@ -6175,7 +6141,6 @@ impl ::std::cmp::PartialEq for WICJpegFrameHeader {
 impl ::std::cmp::Eq for WICJpegFrameHeader {}
 unsafe impl ::windows::runtime::Abi for WICJpegFrameHeader {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6191,7 +6156,6 @@ impl ::std::convert::From<u32> for WICJpegIndexingOptions {
 }
 unsafe impl ::windows::runtime::Abi for WICJpegIndexingOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WICJpegIndexingOptions {
     type Output = Self;
@@ -6234,7 +6198,6 @@ impl ::std::convert::From<u32> for WICJpegLuminanceProperties {
 }
 unsafe impl ::windows::runtime::Abi for WICJpegLuminanceProperties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WICJpegLuminanceProperties {
     type Output = Self;
@@ -6305,7 +6268,6 @@ impl ::std::cmp::PartialEq for WICJpegScanHeader {
 impl ::std::cmp::Eq for WICJpegScanHeader {}
 unsafe impl ::windows::runtime::Abi for WICJpegScanHeader {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6322,7 +6284,6 @@ impl ::std::convert::From<u32> for WICJpegScanType {
 }
 unsafe impl ::windows::runtime::Abi for WICJpegScanType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WICJpegScanType {
     type Output = Self;
@@ -6366,7 +6327,6 @@ impl ::std::convert::From<u32> for WICJpegTransferMatrix {
 }
 unsafe impl ::windows::runtime::Abi for WICJpegTransferMatrix {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WICJpegTransferMatrix {
     type Output = Self;
@@ -6413,7 +6373,6 @@ impl ::std::convert::From<i32> for WICJpegYCrCbSubsamplingOption {
 }
 unsafe impl ::windows::runtime::Abi for WICJpegYCrCbSubsamplingOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
@@ -6492,7 +6451,6 @@ impl ::std::convert::From<i32> for WICMetadataCreationOptions {
 }
 unsafe impl ::windows::runtime::Abi for WICMetadataCreationOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6522,7 +6480,6 @@ impl ::std::cmp::PartialEq for WICMetadataHeader {
 impl ::std::cmp::Eq for WICMetadataHeader {}
 unsafe impl ::windows::runtime::Abi for WICMetadataHeader {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6553,7 +6510,6 @@ impl ::std::cmp::PartialEq for WICMetadataPattern {
 impl ::std::cmp::Eq for WICMetadataPattern {}
 unsafe impl ::windows::runtime::Abi for WICMetadataPattern {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6578,7 +6534,6 @@ impl ::std::convert::From<i32> for WICNamedWhitePoint {
 }
 unsafe impl ::windows::runtime::Abi for WICNamedWhitePoint {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6598,7 +6553,6 @@ impl ::std::convert::From<i32> for WICPersistOptions {
 }
 unsafe impl ::windows::runtime::Abi for WICPersistOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6618,7 +6572,6 @@ impl ::std::convert::From<u32> for WICPixelFormatNumericRepresentation {
 }
 unsafe impl ::windows::runtime::Abi for WICPixelFormatNumericRepresentation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WICPixelFormatNumericRepresentation {
     type Output = Self;
@@ -6662,7 +6615,6 @@ impl ::std::convert::From<i32> for WICPlanarOptions {
 }
 unsafe impl ::windows::runtime::Abi for WICPlanarOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6677,7 +6629,6 @@ impl ::std::convert::From<u32> for WICPngBkgdProperties {
 }
 unsafe impl ::windows::runtime::Abi for WICPngBkgdProperties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WICPngBkgdProperties {
     type Output = Self;
@@ -6727,7 +6678,6 @@ impl ::std::convert::From<u32> for WICPngChrmProperties {
 }
 unsafe impl ::windows::runtime::Abi for WICPngChrmProperties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WICPngChrmProperties {
     type Output = Self;
@@ -6776,7 +6726,6 @@ impl ::std::convert::From<i32> for WICPngFilterOption {
 }
 unsafe impl ::windows::runtime::Abi for WICPngFilterOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6791,7 +6740,6 @@ impl ::std::convert::From<u32> for WICPngGamaProperties {
 }
 unsafe impl ::windows::runtime::Abi for WICPngGamaProperties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WICPngGamaProperties {
     type Output = Self;
@@ -6834,7 +6782,6 @@ impl ::std::convert::From<u32> for WICPngHistProperties {
 }
 unsafe impl ::windows::runtime::Abi for WICPngHistProperties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WICPngHistProperties {
     type Output = Self;
@@ -6878,7 +6825,6 @@ impl ::std::convert::From<u32> for WICPngIccpProperties {
 }
 unsafe impl ::windows::runtime::Abi for WICPngIccpProperties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WICPngIccpProperties {
     type Output = Self;
@@ -6925,7 +6871,6 @@ impl ::std::convert::From<u32> for WICPngItxtProperties {
 }
 unsafe impl ::windows::runtime::Abi for WICPngItxtProperties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WICPngItxtProperties {
     type Output = Self;
@@ -6968,7 +6913,6 @@ impl ::std::convert::From<u32> for WICPngSrgbProperties {
 }
 unsafe impl ::windows::runtime::Abi for WICPngSrgbProperties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WICPngSrgbProperties {
     type Output = Self;
@@ -7016,7 +6960,6 @@ impl ::std::convert::From<u32> for WICPngTimeProperties {
 }
 unsafe impl ::windows::runtime::Abi for WICPngTimeProperties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WICPngTimeProperties {
     type Output = Self;
@@ -7062,7 +7005,6 @@ impl ::std::convert::From<i32> for WICProgressNotification {
 }
 unsafe impl ::windows::runtime::Abi for WICProgressNotification {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7079,7 +7021,6 @@ impl ::std::convert::From<i32> for WICProgressOperation {
 }
 unsafe impl ::windows::runtime::Abi for WICProgressOperation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7096,7 +7037,6 @@ impl ::std::convert::From<i32> for WICRawCapabilities {
 }
 unsafe impl ::windows::runtime::Abi for WICRawCapabilities {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7176,7 +7116,6 @@ impl ::std::cmp::PartialEq for WICRawCapabilitiesInfo {
 impl ::std::cmp::Eq for WICRawCapabilitiesInfo {}
 unsafe impl ::windows::runtime::Abi for WICRawCapabilitiesInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub const WICRawChangeNotification_Contrast: u32 = 16u32;
@@ -7221,7 +7160,6 @@ impl ::std::convert::From<i32> for WICRawParameterSet {
 }
 unsafe impl ::windows::runtime::Abi for WICRawParameterSet {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7238,7 +7176,6 @@ impl ::std::convert::From<i32> for WICRawRenderMode {
 }
 unsafe impl ::windows::runtime::Abi for WICRawRenderMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7256,7 +7193,6 @@ impl ::std::convert::From<i32> for WICRawRotationCapabilities {
 }
 unsafe impl ::windows::runtime::Abi for WICRawRotationCapabilities {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7284,7 +7220,6 @@ impl ::std::cmp::PartialEq for WICRawToneCurve {
 impl ::std::cmp::Eq for WICRawToneCurve {}
 unsafe impl ::windows::runtime::Abi for WICRawToneCurve {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7312,7 +7247,6 @@ impl ::std::cmp::PartialEq for WICRawToneCurvePoint {
 impl ::std::cmp::Eq for WICRawToneCurvePoint {}
 unsafe impl ::windows::runtime::Abi for WICRawToneCurvePoint {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7342,7 +7276,6 @@ impl ::std::cmp::PartialEq for WICRect {
 impl ::std::cmp::Eq for WICRect {}
 unsafe impl ::windows::runtime::Abi for WICRect {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7358,7 +7291,6 @@ impl ::std::convert::From<u32> for WICSectionAccessLevel {
 }
 unsafe impl ::windows::runtime::Abi for WICSectionAccessLevel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WICSectionAccessLevel {
     type Output = Self;
@@ -7423,7 +7355,6 @@ impl ::std::convert::From<i32> for WICTiffCompressionOption {
 }
 unsafe impl ::windows::runtime::Abi for WICTiffCompressionOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7438,7 +7369,6 @@ impl ::std::convert::From<u32> for WICWebpAnimProperties {
 }
 unsafe impl ::windows::runtime::Abi for WICWebpAnimProperties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WICWebpAnimProperties {
     type Output = Self;
@@ -7481,7 +7411,6 @@ impl ::std::convert::From<u32> for WICWebpAnmfProperties {
 }
 unsafe impl ::windows::runtime::Abi for WICWebpAnmfProperties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WICWebpAnmfProperties {
     type Output = Self;

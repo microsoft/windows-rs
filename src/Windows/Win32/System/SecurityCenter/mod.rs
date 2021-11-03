@@ -618,7 +618,6 @@ impl ::std::convert::From<i32> for SECURITY_PRODUCT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SECURITY_PRODUCT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WSCDefaultProduct: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(696361838, 61997, 4581, [156, 233, 94, 85, 23, 80, 124, 102]);
 pub const WSCProductList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(386346875, 39614, 19060, [162, 97, 30, 183, 107, 85, 16, 122]);
@@ -637,7 +636,6 @@ impl ::std::convert::From<i32> for WSC_SECURITY_PRODUCT_STATE {
 }
 unsafe impl ::windows::runtime::Abi for WSC_SECURITY_PRODUCT_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_SecurityCenter`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -654,7 +652,6 @@ impl ::std::convert::From<i32> for WSC_SECURITY_PRODUCT_SUBSTATUS {
 }
 unsafe impl ::windows::runtime::Abi for WSC_SECURITY_PRODUCT_SUBSTATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_SecurityCenter`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -676,7 +673,6 @@ impl ::std::convert::From<i32> for WSC_SECURITY_PROVIDER {
 }
 unsafe impl ::windows::runtime::Abi for WSC_SECURITY_PROVIDER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_SecurityCenter`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -693,7 +689,6 @@ impl ::std::convert::From<i32> for WSC_SECURITY_PROVIDER_HEALTH {
 }
 unsafe impl ::windows::runtime::Abi for WSC_SECURITY_PROVIDER_HEALTH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_SecurityCenter`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -708,7 +703,6 @@ impl ::std::convert::From<i32> for WSC_SECURITY_SIGNATURE_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for WSC_SECURITY_SIGNATURE_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SecurityCenter`, `Win32_Foundation`*"]

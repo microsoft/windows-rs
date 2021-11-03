@@ -175,7 +175,6 @@ impl ::windows::runtime::RuntimeName for EmbeddedAudioTrack {
 unsafe impl ::std::marker::Send for EmbeddedAudioTrack {}
 unsafe impl ::std::marker::Sync for EmbeddedAudioTrack {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundAudioTrack(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundAudioTrack {
@@ -218,7 +217,6 @@ pub struct IBackgroundAudioTrack_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_Effects")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundAudioTrackStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundAudioTrackStatics {
@@ -239,7 +237,6 @@ pub struct IBackgroundAudioTrackStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEmbeddedAudioTrack(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmbeddedAudioTrack {
@@ -259,7 +256,6 @@ pub struct IEmbeddedAudioTrack_abi(
     #[cfg(not(feature = "Media_MediaProperties"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaClip(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaClip {
@@ -308,7 +304,6 @@ pub struct IMediaClip_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_Effects")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaClipStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaClipStatics {
@@ -332,7 +327,6 @@ pub struct IMediaClipStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaClipStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaClipStatics2 {
@@ -352,7 +346,6 @@ pub struct IMediaClipStatics2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaComposition(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaComposition {
@@ -399,7 +392,6 @@ pub struct IMediaComposition_abi(
     #[cfg(not(feature = "Media_Core"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaComposition2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaComposition2 {
@@ -419,7 +411,6 @@ pub struct IMediaComposition2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaCompositionStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaCompositionStatics {
@@ -439,7 +430,6 @@ pub struct IMediaCompositionStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaOverlay(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaOverlay {
@@ -471,7 +461,6 @@ pub struct IMediaOverlay_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaOverlayFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaOverlayFactory {
@@ -492,7 +481,6 @@ pub struct IMediaOverlayFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaOverlayLayer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaOverlayLayer {
@@ -515,7 +503,6 @@ pub struct IMediaOverlayLayer_abi(
     #[cfg(not(feature = "Media_Effects"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaOverlayLayerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaOverlayLayerFactory {
@@ -1104,10 +1091,12 @@ impl ::std::convert::From<i32> for MediaTrimmingPreference {
 }
 unsafe impl ::windows::runtime::Abi for MediaTrimmingPreference {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MediaTrimmingPreference {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Editing.MediaTrimmingPreference;i4)");
+}
+impl ::windows::runtime::DefaultType for MediaTrimmingPreference {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Editing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1124,8 +1113,10 @@ impl ::std::convert::From<i32> for VideoFramePrecision {
 }
 unsafe impl ::windows::runtime::Abi for VideoFramePrecision {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VideoFramePrecision {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Editing.VideoFramePrecision;i4)");
+}
+impl ::windows::runtime::DefaultType for VideoFramePrecision {
+    type DefaultType = Self;
 }

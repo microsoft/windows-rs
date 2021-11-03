@@ -65,10 +65,12 @@ impl ::std::convert::From<i32> for GameChatMessageOrigin {
 }
 unsafe impl ::windows::runtime::Abi for GameChatMessageOrigin {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GameChatMessageOrigin {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.UI.GameChatMessageOrigin;i4)");
+}
+impl ::windows::runtime::DefaultType for GameChatMessageOrigin {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Gaming_UI`*"]
 #[repr(transparent)]
@@ -245,10 +247,12 @@ impl ::std::convert::From<i32> for GameChatOverlayPosition {
 }
 unsafe impl ::windows::runtime::Abi for GameChatOverlayPosition {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GameChatOverlayPosition {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.UI.GameChatOverlayPosition;i4)");
+}
+impl ::windows::runtime::DefaultType for GameChatOverlayPosition {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Gaming_UI`*"]
 #[repr(transparent)]
@@ -340,7 +344,6 @@ unsafe impl ::std::marker::Sync for GameUIProviderActivatedEventArgs {}
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct GamingUIProviderContract(pub u8);
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGameBarStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameBarStatics {
@@ -368,7 +371,6 @@ pub struct IGameBarStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGameChatMessageReceivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameChatMessageReceivedEventArgs {
@@ -391,7 +393,6 @@ pub struct IGameChatMessageReceivedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut GameChatMessageOrigin) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGameChatOverlay(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameChatOverlay {
@@ -412,7 +413,6 @@ pub struct IGameChatOverlay_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sender: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, message: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, origin: GameChatMessageOrigin) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGameChatOverlayMessageSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameChatOverlayMessageSource {
@@ -436,7 +436,6 @@ pub struct IGameChatOverlayMessageSource_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGameChatOverlayStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameChatOverlayStatics {
@@ -455,7 +454,6 @@ pub struct IGameChatOverlayStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGameUIProviderActivatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameUIProviderActivatedEventArgs {

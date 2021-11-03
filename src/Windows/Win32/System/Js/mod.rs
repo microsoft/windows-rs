@@ -479,7 +479,6 @@ impl ::std::convert::From<u32> for JsErrorCode {
 }
 unsafe impl ::windows::runtime::Abi for JsErrorCode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for JsErrorCode {
     type Output = Self;
@@ -932,7 +931,6 @@ impl ::std::convert::From<i32> for JsMemoryEventType {
 }
 unsafe impl ::windows::runtime::Abi for JsMemoryEventType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type JsNativeFunction = unsafe extern "system" fn(callee: *const ::std::ffi::c_void, isconstructcall: bool, arguments: *const *const ::std::ffi::c_void, argumentcount: u16, callbackstate: *const ::std::ffi::c_void) -> *mut ::std::ffi::c_void;
 #[doc = "*Required features: `Win32_System_Js`*"]
@@ -1069,7 +1067,6 @@ impl ::std::convert::From<i32> for JsRuntimeAttributes {
 }
 unsafe impl ::windows::runtime::Abi for JsRuntimeAttributes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Js`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1085,7 +1082,6 @@ impl ::std::convert::From<i32> for JsRuntimeVersion {
 }
 unsafe impl ::windows::runtime::Abi for JsRuntimeVersion {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Js`, `Win32_Foundation`*"]
@@ -1336,7 +1332,6 @@ impl ::std::convert::From<i32> for JsValueType {
 }
 unsafe impl ::windows::runtime::Abi for JsValueType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Js`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]

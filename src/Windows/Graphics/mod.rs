@@ -41,10 +41,12 @@ impl ::std::cmp::PartialEq for DisplayAdapterId {
 impl ::std::cmp::Eq for DisplayAdapterId {}
 unsafe impl ::windows::runtime::Abi for DisplayAdapterId {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplayAdapterId {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Graphics.DisplayAdapterId;u4;i4)");
+}
+impl ::windows::runtime::DefaultType for DisplayAdapterId {
+    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -71,10 +73,12 @@ impl ::std::cmp::PartialEq for DisplayId {
 impl ::std::cmp::Eq for DisplayId {}
 unsafe impl ::windows::runtime::Abi for DisplayId {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplayId {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Graphics.DisplayId;u8)");
+}
+impl ::windows::runtime::DefaultType for DisplayId {
+    type DefaultType = Self;
 }
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
@@ -124,10 +128,12 @@ impl ::std::cmp::PartialEq for PointInt32 {
 impl ::std::cmp::Eq for PointInt32 {}
 unsafe impl ::windows::runtime::Abi for PointInt32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PointInt32 {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Graphics.PointInt32;i4;i4)");
+}
+impl ::windows::runtime::DefaultType for PointInt32 {
+    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -157,10 +163,12 @@ impl ::std::cmp::PartialEq for RectInt32 {
 impl ::std::cmp::Eq for RectInt32 {}
 unsafe impl ::windows::runtime::Abi for RectInt32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RectInt32 {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Graphics.RectInt32;i4;i4;i4;i4)");
+}
+impl ::windows::runtime::DefaultType for RectInt32 {
+    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -188,8 +196,10 @@ impl ::std::cmp::PartialEq for SizeInt32 {
 impl ::std::cmp::Eq for SizeInt32 {}
 unsafe impl ::windows::runtime::Abi for SizeInt32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SizeInt32 {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Graphics.SizeInt32;i4;i4)");
+}
+impl ::windows::runtime::DefaultType for SizeInt32 {
+    type DefaultType = Self;
 }

@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadio(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadio {
@@ -27,7 +26,6 @@ pub struct IRadio_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut RadioKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRadioStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadioStatics {
@@ -169,10 +167,12 @@ impl ::std::convert::From<i32> for RadioAccessStatus {
 }
 unsafe impl ::windows::runtime::Abi for RadioAccessStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RadioAccessStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Radios.RadioAccessStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for RadioAccessStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Radios`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -192,10 +192,12 @@ impl ::std::convert::From<i32> for RadioKind {
 }
 unsafe impl ::windows::runtime::Abi for RadioKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RadioKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Radios.RadioKind;i4)");
+}
+impl ::windows::runtime::DefaultType for RadioKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Radios`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -214,8 +216,10 @@ impl ::std::convert::From<i32> for RadioState {
 }
 unsafe impl ::windows::runtime::Abi for RadioState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RadioState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Radios.RadioState;i4)");
+}
+impl ::windows::runtime::DefaultType for RadioState {
+    type DefaultType = Self;
 }

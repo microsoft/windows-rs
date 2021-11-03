@@ -2,7 +2,6 @@
 #[cfg(feature = "ApplicationModel_UserDataTasks_DataProvider")]
 pub mod DataProvider;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataTask(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTask {
@@ -55,7 +54,6 @@ pub struct IUserDataTask_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataTaskBatch(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskBatch {
@@ -75,7 +73,6 @@ pub struct IUserDataTaskBatch_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataTaskList(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskList {
@@ -118,7 +115,6 @@ pub struct IUserDataTaskList_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataTaskListLimitedWriteOperations(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListLimitedWriteOperations {
@@ -144,7 +140,6 @@ pub struct IUserDataTaskListLimitedWriteOperations_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataTaskListSyncManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListSyncManager {
@@ -178,7 +173,6 @@ pub struct IUserDataTaskListSyncManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataTaskManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskManager {
@@ -200,7 +194,6 @@ pub struct IUserDataTaskManager_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataTaskManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskManagerStatics {
@@ -221,7 +214,6 @@ pub struct IUserDataTaskManagerStatics_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataTaskQueryOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskQueryOptions {
@@ -243,7 +235,6 @@ pub struct IUserDataTaskQueryOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: UserDataTaskQueryKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataTaskReader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskReader {
@@ -263,7 +254,6 @@ pub struct IUserDataTaskReader_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataTaskRecurrenceProperties(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskRecurrenceProperties {
@@ -309,7 +299,6 @@ pub struct IUserDataTaskRecurrenceProperties_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataTaskRegenerationProperties(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskRegenerationProperties {
@@ -339,7 +328,6 @@ pub struct IUserDataTaskRegenerationProperties_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataTaskStore(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskStore {
@@ -625,10 +613,12 @@ impl ::std::convert::From<u32> for UserDataTaskDaysOfWeek {
 }
 unsafe impl ::windows::runtime::Abi for UserDataTaskDaysOfWeek {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserDataTaskDaysOfWeek {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskDaysOfWeek;u4)");
+}
+impl ::windows::runtime::DefaultType for UserDataTaskDaysOfWeek {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for UserDataTaskDaysOfWeek {
     type Output = Self;
@@ -673,10 +663,12 @@ impl ::std::convert::From<i32> for UserDataTaskDetailsKind {
 }
 unsafe impl ::windows::runtime::Abi for UserDataTaskDetailsKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserDataTaskDetailsKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskDetailsKind;i4)");
+}
+impl ::windows::runtime::DefaultType for UserDataTaskDetailsKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_UserDataTasks`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -694,10 +686,12 @@ impl ::std::convert::From<i32> for UserDataTaskKind {
 }
 unsafe impl ::windows::runtime::Abi for UserDataTaskKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserDataTaskKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskKind;i4)");
+}
+impl ::windows::runtime::DefaultType for UserDataTaskKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_UserDataTasks`*"]
 #[repr(transparent)]
@@ -936,10 +930,12 @@ impl ::std::convert::From<i32> for UserDataTaskListOtherAppReadAccess {
 }
 unsafe impl ::windows::runtime::Abi for UserDataTaskListOtherAppReadAccess {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserDataTaskListOtherAppReadAccess {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskListOtherAppReadAccess;i4)");
+}
+impl ::windows::runtime::DefaultType for UserDataTaskListOtherAppReadAccess {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_UserDataTasks`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -956,10 +952,12 @@ impl ::std::convert::From<i32> for UserDataTaskListOtherAppWriteAccess {
 }
 unsafe impl ::windows::runtime::Abi for UserDataTaskListOtherAppWriteAccess {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserDataTaskListOtherAppWriteAccess {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskListOtherAppWriteAccess;i4)");
+}
+impl ::windows::runtime::DefaultType for UserDataTaskListOtherAppWriteAccess {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_UserDataTasks`*"]
 #[repr(transparent)]
@@ -1065,10 +1063,12 @@ impl ::std::convert::From<i32> for UserDataTaskListSyncStatus {
 }
 unsafe impl ::windows::runtime::Abi for UserDataTaskListSyncStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserDataTaskListSyncStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for UserDataTaskListSyncStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_UserDataTasks`*"]
 #[repr(transparent)]
@@ -1141,10 +1141,12 @@ impl ::std::convert::From<i32> for UserDataTaskPriority {
 }
 unsafe impl ::windows::runtime::Abi for UserDataTaskPriority {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserDataTaskPriority {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskPriority;i4)");
+}
+impl ::windows::runtime::DefaultType for UserDataTaskPriority {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_UserDataTasks`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1162,10 +1164,12 @@ impl ::std::convert::From<i32> for UserDataTaskQueryKind {
 }
 unsafe impl ::windows::runtime::Abi for UserDataTaskQueryKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserDataTaskQueryKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryKind;i4)");
+}
+impl ::windows::runtime::DefaultType for UserDataTaskQueryKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_UserDataTasks`*"]
 #[repr(transparent)]
@@ -1232,10 +1236,12 @@ impl ::std::convert::From<i32> for UserDataTaskQuerySortProperty {
 }
 unsafe impl ::windows::runtime::Abi for UserDataTaskQuerySortProperty {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserDataTaskQuerySortProperty {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskQuerySortProperty;i4)");
+}
+impl ::windows::runtime::DefaultType for UserDataTaskQuerySortProperty {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_UserDataTasks`*"]
 #[repr(transparent)]
@@ -1424,10 +1430,12 @@ impl ::std::convert::From<i32> for UserDataTaskRecurrenceUnit {
 }
 unsafe impl ::windows::runtime::Abi for UserDataTaskRecurrenceUnit {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserDataTaskRecurrenceUnit {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceUnit;i4)");
+}
+impl ::windows::runtime::DefaultType for UserDataTaskRecurrenceUnit {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_UserDataTasks`*"]
 #[repr(transparent)]
@@ -1527,10 +1535,12 @@ impl ::std::convert::From<i32> for UserDataTaskRegenerationUnit {
 }
 unsafe impl ::windows::runtime::Abi for UserDataTaskRegenerationUnit {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserDataTaskRegenerationUnit {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationUnit;i4)");
+}
+impl ::windows::runtime::DefaultType for UserDataTaskRegenerationUnit {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_UserDataTasks`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1547,10 +1557,12 @@ impl ::std::convert::From<i32> for UserDataTaskSensitivity {
 }
 unsafe impl ::windows::runtime::Abi for UserDataTaskSensitivity {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserDataTaskSensitivity {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskSensitivity;i4)");
+}
+impl ::windows::runtime::DefaultType for UserDataTaskSensitivity {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_UserDataTasks`*"]
 #[repr(transparent)]
@@ -1621,10 +1633,12 @@ impl ::std::convert::From<i32> for UserDataTaskStoreAccessType {
 }
 unsafe impl ::windows::runtime::Abi for UserDataTaskStoreAccessType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserDataTaskStoreAccessType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskStoreAccessType;i4)");
+}
+impl ::windows::runtime::DefaultType for UserDataTaskStoreAccessType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_UserDataTasks`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1644,8 +1658,10 @@ impl ::std::convert::From<i32> for UserDataTaskWeekOfMonth {
 }
 unsafe impl ::windows::runtime::Abi for UserDataTaskWeekOfMonth {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserDataTaskWeekOfMonth {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskWeekOfMonth;i4)");
+}
+impl ::windows::runtime::DefaultType for UserDataTaskWeekOfMonth {
+    type DefaultType = Self;
 }

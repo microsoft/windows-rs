@@ -165,10 +165,12 @@ impl ::std::convert::From<i32> for BluetoothAddressType {
 }
 unsafe impl ::windows::runtime::Abi for BluetoothAddressType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BluetoothAddressType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothAddressType;i4)");
+}
+impl ::windows::runtime::DefaultType for BluetoothAddressType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Bluetooth`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -185,10 +187,12 @@ impl ::std::convert::From<i32> for BluetoothCacheMode {
 }
 unsafe impl ::windows::runtime::Abi for BluetoothCacheMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BluetoothCacheMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothCacheMode;i4)");
+}
+impl ::windows::runtime::DefaultType for BluetoothCacheMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Bluetooth`*"]
 #[repr(transparent)]
@@ -273,10 +277,12 @@ impl ::std::convert::From<i32> for BluetoothConnectionStatus {
 }
 unsafe impl ::windows::runtime::Abi for BluetoothConnectionStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BluetoothConnectionStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothConnectionStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for BluetoothConnectionStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Bluetooth`*"]
 #[repr(transparent)]
@@ -670,10 +676,12 @@ impl ::std::convert::From<i32> for BluetoothError {
 }
 unsafe impl ::windows::runtime::Abi for BluetoothError {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BluetoothError {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothError;i4)");
+}
+impl ::windows::runtime::DefaultType for BluetoothError {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Bluetooth`*"]
 #[repr(transparent)]
@@ -1752,10 +1760,12 @@ impl ::std::convert::From<i32> for BluetoothLEPreferredConnectionParametersReque
 }
 unsafe impl ::windows::runtime::Abi for BluetoothLEPreferredConnectionParametersRequestStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BluetoothLEPreferredConnectionParametersRequestStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParametersRequestStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for BluetoothLEPreferredConnectionParametersRequestStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Bluetooth`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1780,10 +1790,12 @@ impl ::std::convert::From<i32> for BluetoothMajorClass {
 }
 unsafe impl ::windows::runtime::Abi for BluetoothMajorClass {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BluetoothMajorClass {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothMajorClass;i4)");
+}
+impl ::windows::runtime::DefaultType for BluetoothMajorClass {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Bluetooth`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1869,10 +1881,12 @@ impl ::std::convert::From<i32> for BluetoothMinorClass {
 }
 unsafe impl ::windows::runtime::Abi for BluetoothMinorClass {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BluetoothMinorClass {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothMinorClass;i4)");
+}
+impl ::windows::runtime::DefaultType for BluetoothMinorClass {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Bluetooth`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1897,10 +1911,12 @@ impl ::std::convert::From<u32> for BluetoothServiceCapabilities {
 }
 unsafe impl ::windows::runtime::Abi for BluetoothServiceCapabilities {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BluetoothServiceCapabilities {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothServiceCapabilities;u4)");
+}
+impl ::windows::runtime::DefaultType for BluetoothServiceCapabilities {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for BluetoothServiceCapabilities {
     type Output = Self;
@@ -2042,7 +2058,6 @@ impl ::windows::runtime::RuntimeName for BluetoothUuidHelper {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothUuidHelper";
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothAdapter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothAdapter {
@@ -2069,7 +2084,6 @@ pub struct IBluetoothAdapter_abi(
     #[cfg(not(all(feature = "Devices_Radios", feature = "Foundation")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothAdapter2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothAdapter2 {
@@ -2089,7 +2103,6 @@ pub struct IBluetoothAdapter2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothAdapter3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothAdapter3 {
@@ -2109,7 +2122,6 @@ pub struct IBluetoothAdapter3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothAdapterStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothAdapterStatics {
@@ -2132,7 +2144,6 @@ pub struct IBluetoothAdapterStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothClassOfDevice(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothClassOfDevice {
@@ -2154,7 +2165,6 @@ pub struct IBluetoothClassOfDevice_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut BluetoothServiceCapabilities) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothClassOfDeviceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothClassOfDeviceStatics {
@@ -2174,7 +2184,6 @@ pub struct IBluetoothClassOfDeviceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, majorclass: BluetoothMajorClass, minorclass: BluetoothMinorClass, servicecapabilities: BluetoothServiceCapabilities, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothDevice(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothDevice {
@@ -2215,7 +2224,6 @@ pub struct IBluetoothDevice_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothDevice2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothDevice2 {
@@ -2235,7 +2243,6 @@ pub struct IBluetoothDevice2_abi(
     #[cfg(not(feature = "Devices_Enumeration"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothDevice3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothDevice3 {
@@ -2265,7 +2272,6 @@ pub struct IBluetoothDevice3_abi(
     #[cfg(not(all(feature = "Devices_Bluetooth_Rfcomm", feature = "Foundation")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothDevice4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothDevice4 {
@@ -2284,7 +2290,6 @@ pub struct IBluetoothDevice4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothDevice5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothDevice5 {
@@ -2303,7 +2308,6 @@ pub struct IBluetoothDevice5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothDeviceId(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothDeviceId {
@@ -2324,7 +2328,6 @@ pub struct IBluetoothDeviceId_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothDeviceIdStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothDeviceIdStatics {
@@ -2343,7 +2346,6 @@ pub struct IBluetoothDeviceIdStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, deviceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothDeviceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothDeviceStatics {
@@ -2368,7 +2370,6 @@ pub struct IBluetoothDeviceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothDeviceStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothDeviceStatics2 {
@@ -2391,7 +2392,6 @@ pub struct IBluetoothDeviceStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, classofdevice: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothLEAppearance(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAppearance {
@@ -2412,7 +2412,6 @@ pub struct IBluetoothLEAppearance_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u16) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothLEAppearanceCategoriesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAppearanceCategoriesStatics {
@@ -2452,7 +2451,6 @@ pub struct IBluetoothLEAppearanceCategoriesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u16) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothLEAppearanceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAppearanceStatics {
@@ -2472,7 +2470,6 @@ pub struct IBluetoothLEAppearanceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appearancecategory: u16, appearancesubcategory: u16, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothLEAppearanceSubcategoriesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAppearanceSubcategoriesStatics {
@@ -2518,7 +2515,6 @@ pub struct IBluetoothLEAppearanceSubcategoriesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u16) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothLEConnectionParameters(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEConnectionParameters {
@@ -2539,7 +2535,6 @@ pub struct IBluetoothLEConnectionParameters_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u16) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothLEConnectionPhy(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEConnectionPhy {
@@ -2559,7 +2554,6 @@ pub struct IBluetoothLEConnectionPhy_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothLEConnectionPhyInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEConnectionPhyInfo {
@@ -2580,7 +2574,6 @@ pub struct IBluetoothLEConnectionPhyInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothLEDevice(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEDevice {
@@ -2618,7 +2611,6 @@ pub struct IBluetoothLEDevice_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothLEDevice2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEDevice2 {
@@ -2640,7 +2632,6 @@ pub struct IBluetoothLEDevice2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut BluetoothAddressType) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothLEDevice3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEDevice3 {
@@ -2670,7 +2661,6 @@ pub struct IBluetoothLEDevice3_abi(
     #[cfg(not(all(feature = "Devices_Bluetooth_GenericAttributeProfile", feature = "Foundation")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothLEDevice4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEDevice4 {
@@ -2689,7 +2679,6 @@ pub struct IBluetoothLEDevice4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothLEDevice5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEDevice5 {
@@ -2708,7 +2697,6 @@ pub struct IBluetoothLEDevice5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothLEDevice6(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEDevice6 {
@@ -2737,7 +2725,6 @@ pub struct IBluetoothLEDevice6_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothLEDeviceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEDeviceStatics {
@@ -2760,7 +2747,6 @@ pub struct IBluetoothLEDeviceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothLEDeviceStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEDeviceStatics2 {
@@ -2786,7 +2772,6 @@ pub struct IBluetoothLEDeviceStatics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothLEPreferredConnectionParameters(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEPreferredConnectionParameters {
@@ -2808,7 +2793,6 @@ pub struct IBluetoothLEPreferredConnectionParameters_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u16) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothLEPreferredConnectionParametersRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEPreferredConnectionParametersRequest {
@@ -2827,7 +2811,6 @@ pub struct IBluetoothLEPreferredConnectionParametersRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut BluetoothLEPreferredConnectionParametersRequestStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothLEPreferredConnectionParametersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEPreferredConnectionParametersStatics {
@@ -2848,7 +2831,6 @@ pub struct IBluetoothLEPreferredConnectionParametersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothSignalStrengthFilter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothSignalStrengthFilter {
@@ -2882,7 +2864,6 @@ pub struct IBluetoothSignalStrengthFilter_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBluetoothUuidHelperStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothUuidHelperStatics {

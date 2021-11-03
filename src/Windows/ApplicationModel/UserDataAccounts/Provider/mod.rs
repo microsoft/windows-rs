@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataAccountPartnerAccountInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountPartnerAccountInfo {
@@ -21,7 +20,6 @@ pub struct IUserDataAccountPartnerAccountInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut UserDataAccountProviderPartnerAccountKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataAccountProviderAddAccountOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountProviderAddAccountOperation {
@@ -75,7 +73,6 @@ pub struct IUserDataAccountProviderOperation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut UserDataAccountProviderOperationKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataAccountProviderResolveErrorsOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountProviderResolveErrorsOperation {
@@ -95,7 +92,6 @@ pub struct IUserDataAccountProviderResolveErrorsOperation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataAccountProviderSettingsOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountProviderSettingsOperation {
@@ -242,10 +238,12 @@ impl ::std::convert::From<i32> for UserDataAccountProviderOperationKind {
 }
 unsafe impl ::windows::runtime::Abi for UserDataAccountProviderOperationKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserDataAccountProviderOperationKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderOperationKind;i4)");
+}
+impl ::windows::runtime::DefaultType for UserDataAccountProviderOperationKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_UserDataAccounts_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -262,10 +260,12 @@ impl ::std::convert::From<i32> for UserDataAccountProviderPartnerAccountKind {
 }
 unsafe impl ::windows::runtime::Abi for UserDataAccountProviderPartnerAccountKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserDataAccountProviderPartnerAccountKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderPartnerAccountKind;i4)");
+}
+impl ::windows::runtime::DefaultType for UserDataAccountProviderPartnerAccountKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_UserDataAccounts_Provider`*"]
 #[repr(transparent)]

@@ -214,7 +214,6 @@ impl ::std::cmp::PartialEq for MS_ADDINFO_BLOB {
 impl ::std::cmp::Eq for MS_ADDINFO_BLOB {}
 unsafe impl ::windows::runtime::Abi for MS_ADDINFO_BLOB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -250,7 +249,6 @@ impl ::std::cmp::Eq for MS_ADDINFO_CATALOGMEMBER {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 unsafe impl ::windows::runtime::Abi for MS_ADDINFO_CATALOGMEMBER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -285,7 +283,6 @@ impl ::std::cmp::Eq for MS_ADDINFO_FLAT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MS_ADDINFO_FLAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -354,7 +351,6 @@ impl ::std::cmp::Eq for SIP_ADD_NEWPROVIDER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SIP_ADD_NEWPROVIDER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
 pub const SIP_CAP_FLAG_SEALING: u32 = 1u32;
@@ -395,7 +391,6 @@ impl ::std::cmp::Eq for SIP_CAP_SET_V2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SIP_CAP_SET_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -426,7 +421,6 @@ impl ::std::cmp::Eq for SIP_CAP_SET_V3 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SIP_CAP_SET_V3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -449,7 +443,6 @@ impl ::std::cmp::PartialEq for SIP_CAP_SET_V3_0 {
 impl ::std::cmp::Eq for SIP_CAP_SET_V3_0 {}
 unsafe impl ::windows::runtime::Abi for SIP_CAP_SET_V3_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
 pub const SIP_CAP_SET_VERSION_2: u32 = 2u32;
@@ -493,7 +486,6 @@ impl ::std::cmp::Eq for SIP_DISPATCH_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 unsafe impl ::windows::runtime::Abi for SIP_DISPATCH_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -529,7 +521,6 @@ impl ::std::cmp::Eq for SIP_INDIRECT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SIP_INDIRECT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
 pub const SIP_MAX_MAGIC_NUMBER: u32 = 4u32;
@@ -576,7 +567,6 @@ impl ::std::cmp::Eq for SIP_SUBJECTINFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 unsafe impl ::windows::runtime::Abi for SIP_SUBJECTINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -606,7 +596,6 @@ impl ::std::cmp::Eq for SIP_SUBJECTINFO_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 unsafe impl ::windows::runtime::Abi for SIP_SUBJECTINFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
 pub const SPC_DIGEST_GENERATE_FLAG: u32 = 512u32;

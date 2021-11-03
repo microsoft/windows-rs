@@ -2,7 +2,6 @@
 #[cfg(feature = "Devices_WiFiDirect_Services")]
 pub mod Services;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiDirectAdvertisement(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectAdvertisement {
@@ -29,7 +28,6 @@ pub struct IWiFiDirectAdvertisement_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiDirectAdvertisement2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectAdvertisement2 {
@@ -49,7 +47,6 @@ pub struct IWiFiDirectAdvertisement2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiDirectAdvertisementPublisher(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectAdvertisementPublisher {
@@ -75,7 +72,6 @@ pub struct IWiFiDirectAdvertisementPublisher_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiDirectAdvertisementPublisherStatusChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectAdvertisementPublisherStatusChangedEventArgs {
@@ -95,7 +91,6 @@ pub struct IWiFiDirectAdvertisementPublisherStatusChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut WiFiDirectError) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiDirectConnectionListener(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectConnectionListener {
@@ -117,7 +112,6 @@ pub struct IWiFiDirectConnectionListener_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiDirectConnectionParameters(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectConnectionParameters {
@@ -137,7 +131,6 @@ pub struct IWiFiDirectConnectionParameters_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: i16) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiDirectConnectionParameters2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectConnectionParameters2 {
@@ -159,7 +152,6 @@ pub struct IWiFiDirectConnectionParameters2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: WiFiDirectPairingProcedure) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiDirectConnectionParametersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectConnectionParametersStatics {
@@ -179,7 +171,6 @@ pub struct IWiFiDirectConnectionParametersStatics_abi(
     #[cfg(not(feature = "Devices_Enumeration"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiDirectConnectionRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectConnectionRequest {
@@ -199,7 +190,6 @@ pub struct IWiFiDirectConnectionRequest_abi(
     #[cfg(not(feature = "Devices_Enumeration"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiDirectConnectionRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectConnectionRequestedEventArgs {
@@ -218,7 +208,6 @@ pub struct IWiFiDirectConnectionRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiDirectDevice(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectDevice {
@@ -244,7 +233,6 @@ pub struct IWiFiDirectDevice_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Networking")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiDirectDeviceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectDeviceStatics {
@@ -265,7 +253,6 @@ pub struct IWiFiDirectDeviceStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiDirectDeviceStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectDeviceStatics2 {
@@ -286,7 +273,6 @@ pub struct IWiFiDirectDeviceStatics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiDirectInformationElement(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectInformationElement {
@@ -314,7 +300,6 @@ pub struct IWiFiDirectInformationElement_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiDirectInformationElementStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectInformationElementStatics {
@@ -336,7 +321,6 @@ pub struct IWiFiDirectInformationElementStatics_abi(
     #[cfg(not(all(feature = "Devices_Enumeration", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWiFiDirectLegacySettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWiFiDirectLegacySettings {
@@ -453,10 +437,12 @@ impl ::std::convert::From<i32> for WiFiDirectAdvertisementListenStateDiscoverabi
 }
 unsafe impl ::windows::runtime::Abi for WiFiDirectAdvertisementListenStateDiscoverability {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WiFiDirectAdvertisementListenStateDiscoverability {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectAdvertisementListenStateDiscoverability;i4)");
+}
+impl ::windows::runtime::DefaultType for WiFiDirectAdvertisementListenStateDiscoverability {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_WiFiDirect`*"]
 #[repr(transparent)]
@@ -541,10 +527,12 @@ impl ::std::convert::From<i32> for WiFiDirectAdvertisementPublisherStatus {
 }
 unsafe impl ::windows::runtime::Abi for WiFiDirectAdvertisementPublisherStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WiFiDirectAdvertisementPublisherStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectAdvertisementPublisherStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for WiFiDirectAdvertisementPublisherStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_WiFiDirect`*"]
 #[repr(transparent)]
@@ -596,10 +584,12 @@ impl ::std::convert::From<i32> for WiFiDirectConfigurationMethod {
 }
 unsafe impl ::windows::runtime::Abi for WiFiDirectConfigurationMethod {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WiFiDirectConfigurationMethod {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectConfigurationMethod;i4)");
+}
+impl ::windows::runtime::DefaultType for WiFiDirectConfigurationMethod {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_WiFiDirect`*"]
 #[repr(transparent)]
@@ -839,10 +829,12 @@ impl ::std::convert::From<i32> for WiFiDirectConnectionStatus {
 }
 unsafe impl ::windows::runtime::Abi for WiFiDirectConnectionStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WiFiDirectConnectionStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectConnectionStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for WiFiDirectConnectionStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_WiFiDirect`*"]
 #[repr(transparent)]
@@ -987,10 +979,12 @@ impl ::std::convert::From<i32> for WiFiDirectDeviceSelectorType {
 }
 unsafe impl ::windows::runtime::Abi for WiFiDirectDeviceSelectorType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WiFiDirectDeviceSelectorType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectDeviceSelectorType;i4)");
+}
+impl ::windows::runtime::DefaultType for WiFiDirectDeviceSelectorType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_WiFiDirect`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1008,10 +1002,12 @@ impl ::std::convert::From<i32> for WiFiDirectError {
 }
 unsafe impl ::windows::runtime::Abi for WiFiDirectError {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WiFiDirectError {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectError;i4)");
+}
+impl ::windows::runtime::DefaultType for WiFiDirectError {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_WiFiDirect`*"]
 #[repr(transparent)]
@@ -1175,8 +1171,10 @@ impl ::std::convert::From<i32> for WiFiDirectPairingProcedure {
 }
 unsafe impl ::windows::runtime::Abi for WiFiDirectPairingProcedure {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WiFiDirectPairingProcedure {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectPairingProcedure;i4)");
+}
+impl ::windows::runtime::DefaultType for WiFiDirectPairingProcedure {
+    type DefaultType = Self;
 }

@@ -284,10 +284,12 @@ impl ::std::convert::From<i32> for CertificateChainPolicy {
 }
 unsafe impl ::windows::runtime::Abi for CertificateChainPolicy {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CertificateChainPolicy {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.CertificateChainPolicy;i4)");
+}
+impl ::windows::runtime::DefaultType for CertificateChainPolicy {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 pub struct CertificateEnrollmentManager {}
@@ -415,7 +417,7 @@ impl CertificateExtension {
         }
     }
     #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
-    pub fn SetValue(&self, value: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn SetValue(&self, value: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr())).ok() }
     }
@@ -617,7 +619,7 @@ impl CertificateQuery {
         }
     }
     #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
-    pub fn SetThumbprint(&self, value: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn SetThumbprint(&self, value: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr())).ok() }
     }
@@ -876,7 +878,7 @@ impl CertificateRequestProperties {
         }
     }
     #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
-    pub fn SetCurveParameters(&self, value: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn SetCurveParameters(&self, value: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<ICertificateRequestProperties3>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr())).ok() }
     }
@@ -1243,10 +1245,12 @@ impl ::std::convert::From<i32> for ChainValidationResult {
 }
 unsafe impl ::windows::runtime::Abi for ChainValidationResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ChainValidationResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.ChainValidationResult;i4)");
+}
+impl ::windows::runtime::DefaultType for ChainValidationResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[repr(transparent)]
@@ -1522,10 +1526,12 @@ impl ::std::convert::From<u32> for EnrollKeyUsages {
 }
 unsafe impl ::windows::runtime::Abi for EnrollKeyUsages {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EnrollKeyUsages {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.EnrollKeyUsages;u4)");
+}
+impl ::windows::runtime::DefaultType for EnrollKeyUsages {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for EnrollKeyUsages {
     type Output = Self;
@@ -1570,13 +1576,14 @@ impl ::std::convert::From<i32> for ExportOption {
 }
 unsafe impl ::windows::runtime::Abi for ExportOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ExportOption {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.ExportOption;i4)");
 }
+impl ::windows::runtime::DefaultType for ExportOption {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICertificate(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificate {
@@ -1615,7 +1622,6 @@ pub struct ICertificate_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICertificate2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificate2 {
@@ -1639,7 +1645,6 @@ pub struct ICertificate2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICertificate3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificate3 {
@@ -1660,7 +1665,6 @@ pub struct ICertificate3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICertificateChain(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateChain {
@@ -1682,7 +1686,6 @@ pub struct ICertificateChain_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICertificateEnrollmentManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateEnrollmentManagerStatics {
@@ -1706,7 +1709,6 @@ pub struct ICertificateEnrollmentManagerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICertificateEnrollmentManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateEnrollmentManagerStatics2 {
@@ -1738,7 +1740,6 @@ pub struct ICertificateEnrollmentManagerStatics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICertificateEnrollmentManagerStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateEnrollmentManagerStatics3 {
@@ -1758,7 +1759,6 @@ pub struct ICertificateEnrollmentManagerStatics3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICertificateExtension(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateExtension {
@@ -1783,7 +1783,6 @@ pub struct ICertificateExtension_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value_array_size: u32, value: *const u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICertificateFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateFactory {
@@ -1803,7 +1802,6 @@ pub struct ICertificateFactory_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICertificateKeyUsages(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateKeyUsages {
@@ -1837,7 +1835,6 @@ pub struct ICertificateKeyUsages_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICertificateQuery(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateQuery {
@@ -1865,7 +1862,6 @@ pub struct ICertificateQuery_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICertificateQuery2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateQuery2 {
@@ -1889,7 +1885,6 @@ pub struct ICertificateQuery2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICertificateRequestProperties(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateRequestProperties {
@@ -1925,7 +1920,6 @@ pub struct ICertificateRequestProperties_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICertificateRequestProperties2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateRequestProperties2 {
@@ -1949,7 +1943,6 @@ pub struct ICertificateRequestProperties2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICertificateRequestProperties3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateRequestProperties3 {
@@ -1977,7 +1970,6 @@ pub struct ICertificateRequestProperties3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICertificateRequestProperties4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateRequestProperties4 {
@@ -2000,7 +1992,6 @@ pub struct ICertificateRequestProperties4_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICertificateStore(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateStore {
@@ -2020,7 +2011,6 @@ pub struct ICertificateStore_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, certificate: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICertificateStore2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateStore2 {
@@ -2039,7 +2029,6 @@ pub struct ICertificateStore2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICertificateStoresStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateStoresStatics {
@@ -2064,7 +2053,6 @@ pub struct ICertificateStoresStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, storename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICertificateStoresStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICertificateStoresStatics2 {
@@ -2083,7 +2071,6 @@ pub struct ICertificateStoresStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, storename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IChainBuildingParameters(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChainBuildingParameters {
@@ -2117,7 +2104,6 @@ pub struct IChainBuildingParameters_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IChainValidationParameters(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IChainValidationParameters {
@@ -2141,7 +2127,6 @@ pub struct IChainValidationParameters_abi(
     #[cfg(not(feature = "Networking"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICmsAttachedSignature(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICmsAttachedSignature {
@@ -2165,7 +2150,6 @@ pub struct ICmsAttachedSignature_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SignatureValidationResult) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICmsAttachedSignatureFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICmsAttachedSignatureFactory {
@@ -2185,7 +2169,6 @@ pub struct ICmsAttachedSignatureFactory_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICmsAttachedSignatureStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICmsAttachedSignatureStatics {
@@ -2205,7 +2188,6 @@ pub struct ICmsAttachedSignatureStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICmsDetachedSignature(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICmsDetachedSignature {
@@ -2229,7 +2211,6 @@ pub struct ICmsDetachedSignature_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICmsDetachedSignatureFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICmsDetachedSignatureFactory {
@@ -2249,7 +2230,6 @@ pub struct ICmsDetachedSignatureFactory_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICmsDetachedSignatureStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICmsDetachedSignatureStatics {
@@ -2269,7 +2249,6 @@ pub struct ICmsDetachedSignatureStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICmsSignerInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICmsSignerInfo {
@@ -2292,7 +2271,6 @@ pub struct ICmsSignerInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICmsTimestampInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICmsTimestampInfo {
@@ -2315,7 +2293,6 @@ pub struct ICmsTimestampInfo_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyAlgorithmNamesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyAlgorithmNamesStatics {
@@ -2341,7 +2318,6 @@ pub struct IKeyAlgorithmNamesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyAlgorithmNamesStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyAlgorithmNamesStatics2 {
@@ -2361,7 +2337,6 @@ pub struct IKeyAlgorithmNamesStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyAttestationHelperStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyAttestationHelperStatics {
@@ -2382,7 +2357,6 @@ pub struct IKeyAttestationHelperStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, credential: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyAttestationHelperStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyAttestationHelperStatics2 {
@@ -2402,7 +2376,6 @@ pub struct IKeyAttestationHelperStatics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyStorageProviderNamesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyStorageProviderNamesStatics {
@@ -2423,7 +2396,6 @@ pub struct IKeyStorageProviderNamesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyStorageProviderNamesStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyStorageProviderNamesStatics2 {
@@ -2442,7 +2414,6 @@ pub struct IKeyStorageProviderNamesStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPfxImportParameters(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPfxImportParameters {
@@ -2474,7 +2445,6 @@ pub struct IPfxImportParameters_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStandardCertificateStoreNamesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStandardCertificateStoreNamesStatics {
@@ -2495,7 +2465,6 @@ pub struct IStandardCertificateStoreNamesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISubjectAlternativeNameInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISubjectAlternativeNameInfo {
@@ -2525,7 +2494,6 @@ pub struct ISubjectAlternativeNameInfo_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISubjectAlternativeNameInfo2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISubjectAlternativeNameInfo2 {
@@ -2556,7 +2524,6 @@ pub struct ISubjectAlternativeNameInfo2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserCertificateEnrollmentManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserCertificateEnrollmentManager {
@@ -2593,7 +2560,6 @@ pub struct IUserCertificateEnrollmentManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserCertificateEnrollmentManager2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserCertificateEnrollmentManager2 {
@@ -2613,7 +2579,6 @@ pub struct IUserCertificateEnrollmentManager2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserCertificateStore(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserCertificateStore {
@@ -2650,10 +2615,12 @@ impl ::std::convert::From<u32> for InstallOptions {
 }
 unsafe impl ::windows::runtime::Abi for InstallOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for InstallOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.InstallOptions;u4)");
+}
+impl ::windows::runtime::DefaultType for InstallOptions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for InstallOptions {
     type Output = Self;
@@ -2823,10 +2790,12 @@ impl ::std::convert::From<i32> for KeyProtectionLevel {
 }
 unsafe impl ::windows::runtime::Abi for KeyProtectionLevel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for KeyProtectionLevel {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.KeyProtectionLevel;i4)");
+}
+impl ::windows::runtime::DefaultType for KeyProtectionLevel {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2844,10 +2813,12 @@ impl ::std::convert::From<i32> for KeySize {
 }
 unsafe impl ::windows::runtime::Abi for KeySize {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for KeySize {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.KeySize;i4)");
+}
+impl ::windows::runtime::DefaultType for KeySize {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 pub struct KeyStorageProviderNames {}
@@ -3026,10 +2997,12 @@ impl ::std::convert::From<i32> for SignatureValidationResult {
 }
 unsafe impl ::windows::runtime::Abi for SignatureValidationResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SignatureValidationResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.SignatureValidationResult;i4)");
+}
+impl ::windows::runtime::DefaultType for SignatureValidationResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Cryptography_Certificates`*"]
 pub struct StandardCertificateStoreNames {}

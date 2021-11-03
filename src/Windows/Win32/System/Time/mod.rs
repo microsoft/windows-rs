@@ -49,7 +49,6 @@ impl ::std::cmp::Eq for DYNAMIC_TIME_ZONE_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DYNAMIC_TIME_ZONE_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Time`, `Win32_Foundation`*"]
@@ -292,7 +291,6 @@ impl ::std::cmp::Eq for TIME_ZONE_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TIME_ZONE_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Time`*"]
 pub const TSF_Authenticated: u32 = 2u32;

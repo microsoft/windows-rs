@@ -31,7 +31,6 @@ impl ::std::convert::From<i32> for DISPIDSPRG {
 }
 unsafe impl ::windows::runtime::Abi for DISPIDSPRG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -48,7 +47,6 @@ impl ::std::convert::From<i32> for DISPIDSPTSI {
 }
 unsafe impl ::windows::runtime::Abi for DISPIDSPTSI {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -68,7 +66,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechAudio {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechAudio {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -84,7 +81,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechAudioBufferInfo {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechAudioBufferInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -101,7 +97,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechAudioFormat {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechAudioFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -119,7 +114,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechAudioStatus {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechAudioStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -136,7 +130,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechBaseStream {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechBaseStream {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -150,7 +143,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechCustomStream {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechCustomStream {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -175,7 +167,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechDataKey {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechDataKey {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -190,7 +181,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechFileStream {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechFileStream {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -210,7 +200,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechGrammarRule {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechGrammarRule {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -228,7 +217,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechGrammarRuleState {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechGrammarRuleState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -249,7 +237,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechGrammarRuleStateTransition {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechGrammarRuleStateTransition {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -265,7 +252,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechGrammarRuleStateTransitions {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechGrammarRuleStateTransitions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -286,7 +272,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechGrammarRules {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechGrammarRules {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -307,7 +292,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechLexicon {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechLexicon {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -323,7 +307,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechLexiconProns {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechLexiconProns {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -341,7 +324,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechLexiconPronunciation {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechLexiconPronunciation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -358,7 +340,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechLexiconWord {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechLexiconWord {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -374,7 +355,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechLexiconWords {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechLexiconWords {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -390,7 +370,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechMMSysAudio {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechMMSysAudio {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -405,7 +384,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechMemoryStream {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechMemoryStream {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -431,7 +409,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechObjectToken {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechObjectToken {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -449,7 +426,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechObjectTokenCategory {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechObjectTokenCategory {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -465,7 +441,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechObjectTokens {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechObjectTokens {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -481,7 +456,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechPhoneConverter {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechPhoneConverter {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -499,7 +473,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechPhraseAlternate {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechPhraseAlternate {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -515,7 +488,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechPhraseAlternates {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechPhraseAlternates {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -529,7 +501,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechPhraseBuilder {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechPhraseBuilder {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -555,7 +526,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechPhraseElement {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechPhraseElement {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -571,7 +541,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechPhraseElements {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechPhraseElements {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -600,7 +569,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechPhraseInfo {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechPhraseInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -616,7 +584,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechPhraseProperties {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechPhraseProperties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -638,7 +605,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechPhraseProperty {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechPhraseProperty {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -655,7 +621,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechPhraseReplacement {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechPhraseReplacement {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -671,7 +636,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechPhraseReplacements {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechPhraseReplacements {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -692,7 +656,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechPhraseRule {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechPhraseRule {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -708,7 +671,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechPhraseRules {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechPhraseRules {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -738,7 +700,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechRecoContext {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechRecoContext {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -769,7 +730,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechRecoContextEvents {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechRecoContextEvents {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -791,7 +751,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechRecoResult {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechRecoResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -805,7 +764,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechRecoResult2 {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechRecoResult2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -822,7 +780,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechRecoResultTimes {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechRecoResultTimes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -855,7 +812,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechRecognizer {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechRecognizer {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -874,7 +830,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechRecognizerStatus {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechRecognizerStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -909,7 +864,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechVoice {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechVoice {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -932,7 +886,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechVoiceEvent {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechVoiceEvent {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -957,7 +910,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechVoiceStatus {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechVoiceStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -977,7 +929,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechWaveFormatEx {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechWaveFormatEx {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -992,7 +943,6 @@ impl ::std::convert::From<i32> for DISPID_SpeechXMLRecoResult {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_SpeechXMLRecoResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
@@ -11121,7 +11071,6 @@ impl ::std::convert::From<i32> for PHONETICALPHABET {
 }
 unsafe impl ::windows::runtime::Abi for PHONETICALPHABET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 pub const SAPI_ERROR_BASE: u32 = 20480u32;
@@ -11140,7 +11089,6 @@ impl ::std::convert::From<i32> for SPADAPTATIONRELEVANCE {
 }
 unsafe impl ::windows::runtime::Abi for SPADAPTATIONRELEVANCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11159,7 +11107,6 @@ impl ::std::convert::From<i32> for SPADAPTATIONSETTINGS {
 }
 unsafe impl ::windows::runtime::Abi for SPADAPTATIONSETTINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11188,7 +11135,6 @@ impl ::std::cmp::PartialEq for SPAUDIOBUFFERINFO {
 impl ::std::cmp::Eq for SPAUDIOBUFFERINFO {}
 unsafe impl ::windows::runtime::Abi for SPAUDIOBUFFERINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11203,7 +11149,6 @@ impl ::std::convert::From<i32> for SPAUDIOOPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for SPAUDIOOPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11220,7 +11165,6 @@ impl ::std::convert::From<i32> for SPAUDIOSTATE {
 }
 unsafe impl ::windows::runtime::Abi for SPAUDIOSTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11261,7 +11205,6 @@ impl ::std::cmp::PartialEq for SPAUDIOSTATUS {
 impl ::std::cmp::Eq for SPAUDIOSTATUS {}
 unsafe impl ::windows::runtime::Abi for SPAUDIOSTATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11288,7 +11231,6 @@ impl ::std::cmp::PartialEq for SPBINARYGRAMMAR {
 impl ::std::cmp::Eq for SPBINARYGRAMMAR {}
 unsafe impl ::windows::runtime::Abi for SPBINARYGRAMMAR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11305,7 +11247,6 @@ impl ::std::convert::From<i32> for SPBOOKMARKOPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for SPBOOKMARKOPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11327,7 +11268,6 @@ impl ::std::convert::From<i32> for SPCFGRULEATTRIBUTES {
 }
 unsafe impl ::windows::runtime::Abi for SPCFGRULEATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11343,7 +11283,6 @@ impl ::std::convert::From<i32> for SPCOMMITFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for SPCOMMITFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11358,7 +11297,6 @@ impl ::std::convert::From<i32> for SPCONTEXTSTATE {
 }
 unsafe impl ::windows::runtime::Abi for SPCONTEXTSTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11375,7 +11313,6 @@ impl ::std::convert::From<i32> for SPDATAKEYLOCATION {
 }
 unsafe impl ::windows::runtime::Abi for SPDATAKEYLOCATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11410,7 +11347,6 @@ impl ::std::cmp::Eq for SPDISPLAYPHRASE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SPDISPLAYPHRASE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11446,7 +11382,6 @@ impl ::std::cmp::Eq for SPDISPLAYTOKEN {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SPDISPLAYTOKEN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11465,7 +11400,6 @@ impl ::std::convert::From<i32> for SPDISPLYATTRIBUTES {
 }
 unsafe impl ::windows::runtime::Abi for SPDISPLYATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11493,7 +11427,6 @@ impl ::std::convert::From<i32> for SPEAKFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for SPEAKFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11509,7 +11442,6 @@ impl ::std::convert::From<i32> for SPENDSRSTREAMFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for SPENDSRSTREAMFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11547,7 +11479,6 @@ impl ::std::cmp::Eq for SPEVENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SPEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11600,7 +11531,6 @@ impl ::std::convert::From<i32> for SPEVENTENUM {
 }
 unsafe impl ::windows::runtime::Abi for SPEVENTENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11639,7 +11569,6 @@ impl ::std::cmp::Eq for SPEVENTEX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SPEVENTEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11657,7 +11586,6 @@ impl ::std::convert::From<i32> for SPEVENTLPARAMTYPE {
 }
 unsafe impl ::windows::runtime::Abi for SPEVENTLPARAMTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11686,7 +11614,6 @@ impl ::std::cmp::PartialEq for SPEVENTSOURCEINFO {
 impl ::std::cmp::Eq for SPEVENTSOURCEINFO {}
 unsafe impl ::windows::runtime::Abi for SPEVENTSOURCEINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11704,7 +11631,6 @@ impl ::std::convert::From<i32> for SPFILEMODE {
 }
 unsafe impl ::windows::runtime::Abi for SPFILEMODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11730,7 +11656,6 @@ impl ::std::convert::From<i32> for SPGRAMMAROPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for SPGRAMMAROPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11746,7 +11671,6 @@ impl ::std::convert::From<i32> for SPGRAMMARSTATE {
 }
 unsafe impl ::windows::runtime::Abi for SPGRAMMARSTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11763,7 +11687,6 @@ impl ::std::convert::From<i32> for SPGRAMMARWORDTYPE {
 }
 unsafe impl ::windows::runtime::Abi for SPGRAMMARWORDTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11786,7 +11709,6 @@ impl ::std::convert::From<i32> for SPINTERFERENCE {
 }
 unsafe impl ::windows::runtime::Abi for SPINTERFERENCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11831,7 +11753,6 @@ impl ::std::convert::From<i32> for SPLEXICONTYPE {
 }
 unsafe impl ::windows::runtime::Abi for SPLEXICONTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11846,7 +11767,6 @@ impl ::std::convert::From<i32> for SPLOADOPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for SPLOADOPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11864,7 +11784,6 @@ impl ::std::convert::From<i32> for SPMATCHINGMODE {
 }
 unsafe impl ::windows::runtime::Abi for SPMATCHINGMODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11892,7 +11811,6 @@ impl ::std::cmp::PartialEq for SPNORMALIZATIONLIST {
 impl ::std::cmp::Eq for SPNORMALIZATIONLIST {}
 unsafe impl ::windows::runtime::Abi for SPNORMALIZATIONLIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type SPNOTIFYCALLBACK = unsafe extern "system" fn(wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM);
@@ -11917,7 +11835,6 @@ impl ::std::convert::From<i32> for SPPARTOFSPEECH {
 }
 unsafe impl ::windows::runtime::Abi for SPPARTOFSPEECH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11953,7 +11870,6 @@ impl ::std::cmp::Eq for SPPHRASE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for SPPHRASE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12028,7 +11944,6 @@ impl ::std::cmp::Eq for SPPHRASEELEMENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SPPHRASEELEMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for SPPHRASEPROPERTY {
@@ -12070,7 +11985,6 @@ impl ::std::cmp::Eq for SPPHRASEPROPERTY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for SPPHRASEPROPERTY {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12093,7 +12007,6 @@ impl ::std::cmp::PartialEq for SPPHRASEPROPERTY_0 {
 impl ::std::cmp::Eq for SPPHRASEPROPERTY_0 {}
 unsafe impl ::windows::runtime::Abi for SPPHRASEPROPERTY_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12122,7 +12035,6 @@ impl ::std::cmp::PartialEq for SPPHRASEPROPERTY_0_0 {
 impl ::std::cmp::Eq for SPPHRASEPROPERTY_0_0 {}
 unsafe impl ::windows::runtime::Abi for SPPHRASEPROPERTY_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12137,7 +12049,6 @@ impl ::std::convert::From<i32> for SPPHRASEPROPERTYUNIONTYPE {
 }
 unsafe impl ::windows::runtime::Abi for SPPHRASEPROPERTYUNIONTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12174,7 +12085,6 @@ impl ::std::cmp::Eq for SPPHRASEREPLACEMENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SPPHRASEREPLACEMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12188,7 +12098,6 @@ impl ::std::convert::From<i32> for SPPHRASERNG {
 }
 unsafe impl ::windows::runtime::Abi for SPPHRASERNG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12238,7 +12147,6 @@ impl ::std::cmp::Eq for SPPHRASERULE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SPPHRASERULE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12322,7 +12230,6 @@ impl ::std::cmp::Eq for SPPHRASE_50 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for SPPHRASE_50 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12336,7 +12243,6 @@ impl ::std::convert::From<i32> for SPPRONUNCIATIONFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for SPPRONUNCIATIONFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for SPPROPERTYINFO {
@@ -12372,7 +12278,6 @@ impl ::std::cmp::Eq for SPPROPERTYINFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for SPPROPERTYINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12402,7 +12307,6 @@ impl ::std::cmp::PartialEq for SPRECOCONTEXTSTATUS {
 impl ::std::cmp::Eq for SPRECOCONTEXTSTATUS {}
 unsafe impl ::windows::runtime::Abi for SPRECOCONTEXTSTATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12422,7 +12326,6 @@ impl ::std::convert::From<i32> for SPRECOEVENTFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for SPRECOEVENTFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12465,7 +12368,6 @@ impl ::std::cmp::PartialEq for SPRECOGNIZERSTATUS {
 impl ::std::cmp::Eq for SPRECOGNIZERSTATUS {}
 unsafe impl ::windows::runtime::Abi for SPRECOGNIZERSTATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12502,7 +12404,6 @@ impl ::std::cmp::Eq for SPRECORESULTTIMES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SPRECORESULTTIMES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12520,7 +12421,6 @@ impl ::std::convert::From<i32> for SPRECOSTATE {
 }
 unsafe impl ::windows::runtime::Abi for SPRECOSTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 pub const SPRP_NORMAL: u32 = 0u32;
@@ -12558,7 +12458,6 @@ impl ::std::cmp::Eq for SPRULE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SPRULE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12575,7 +12474,6 @@ impl ::std::convert::From<i32> for SPRULESTATE {
 }
 unsafe impl ::windows::runtime::Abi for SPRULESTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12590,7 +12488,6 @@ impl ::std::convert::From<i32> for SPRUNSTATE {
 }
 unsafe impl ::windows::runtime::Abi for SPRUNSTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12628,7 +12525,6 @@ impl ::std::cmp::Eq for SPSEMANTICERRORINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SPSEMANTICERRORINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12646,7 +12542,6 @@ impl ::std::convert::From<i32> for SPSEMANTICFORMAT {
 }
 unsafe impl ::windows::runtime::Abi for SPSEMANTICFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12677,7 +12572,6 @@ impl ::std::cmp::PartialEq for SPSERIALIZEDEVENT {
 impl ::std::cmp::Eq for SPSERIALIZEDEVENT {}
 unsafe impl ::windows::runtime::Abi for SPSERIALIZEDEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12708,7 +12602,6 @@ impl ::std::cmp::PartialEq for SPSERIALIZEDEVENT64 {
 impl ::std::cmp::Eq for SPSERIALIZEDEVENT64 {}
 unsafe impl ::windows::runtime::Abi for SPSERIALIZEDEVENT64 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12735,7 +12628,6 @@ impl ::std::cmp::PartialEq for SPSERIALIZEDPHRASE {
 impl ::std::cmp::Eq for SPSERIALIZEDPHRASE {}
 unsafe impl ::windows::runtime::Abi for SPSERIALIZEDPHRASE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12762,7 +12654,6 @@ impl ::std::cmp::PartialEq for SPSERIALIZEDRESULT {
 impl ::std::cmp::Eq for SPSERIALIZEDRESULT {}
 unsafe impl ::windows::runtime::Abi for SPSERIALIZEDRESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12800,7 +12691,6 @@ impl ::std::cmp::Eq for SPSHORTCUTPAIR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SPSHORTCUTPAIR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12836,7 +12726,6 @@ impl ::std::cmp::Eq for SPSHORTCUTPAIRLIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SPSHORTCUTPAIRLIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12857,7 +12746,6 @@ impl ::std::convert::From<i32> for SPSHORTCUTTYPE {
 }
 unsafe impl ::windows::runtime::Abi for SPSHORTCUTTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12884,7 +12772,6 @@ impl ::std::cmp::PartialEq for SPSTATEHANDLE__ {
 impl ::std::cmp::Eq for SPSTATEHANDLE__ {}
 unsafe impl ::windows::runtime::Abi for SPSTATEHANDLE__ {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12968,7 +12855,6 @@ impl ::std::convert::From<i32> for SPSTREAMFORMAT {
 }
 unsafe impl ::windows::runtime::Abi for SPSTREAMFORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12998,7 +12884,6 @@ impl ::std::cmp::PartialEq for SPTEXTSELECTIONINFO {
 impl ::std::cmp::Eq for SPTEXTSELECTIONINFO {}
 unsafe impl ::windows::runtime::Abi for SPTEXTSELECTIONINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13018,7 +12903,6 @@ impl ::std::convert::From<i32> for SPVACTIONS {
 }
 unsafe impl ::windows::runtime::Abi for SPVACTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13040,7 +12924,6 @@ impl ::std::convert::From<i32> for SPVALUETYPE {
 }
 unsafe impl ::windows::runtime::Abi for SPVALUETYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13076,7 +12959,6 @@ impl ::std::cmp::Eq for SPVCONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SPVCONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13091,7 +12973,6 @@ impl ::std::convert::From<i32> for SPVFEATURE {
 }
 unsafe impl ::windows::runtime::Abi for SPVFEATURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13126,7 +13007,6 @@ impl ::std::convert::From<i32> for SPVISEMES {
 }
 unsafe impl ::windows::runtime::Abi for SPVISEMES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13143,7 +13023,6 @@ impl ::std::convert::From<i32> for SPVLIMITS {
 }
 unsafe impl ::windows::runtime::Abi for SPVLIMITS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13208,7 +13087,6 @@ impl ::std::cmp::PartialEq for SPVOICESTATUS {
 impl ::std::cmp::Eq for SPVOICESTATUS {}
 unsafe impl ::windows::runtime::Abi for SPVOICESTATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13236,7 +13114,6 @@ impl ::std::cmp::PartialEq for SPVPITCH {
 impl ::std::cmp::Eq for SPVPITCH {}
 unsafe impl ::windows::runtime::Abi for SPVPITCH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13252,7 +13129,6 @@ impl ::std::convert::From<i32> for SPVPRIORITY {
 }
 unsafe impl ::windows::runtime::Abi for SPVPRIORITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13308,7 +13184,6 @@ impl ::std::cmp::Eq for SPVSTATE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SPVSTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13323,7 +13198,6 @@ impl ::std::convert::From<i32> for SPWAVEFORMATTYPE {
 }
 unsafe impl ::windows::runtime::Abi for SPWAVEFORMATTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13362,7 +13236,6 @@ impl ::std::cmp::Eq for SPWORD {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SPWORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13398,7 +13271,6 @@ impl ::std::cmp::Eq for SPWORDLIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SPWORDLIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13414,7 +13286,6 @@ impl ::std::convert::From<i32> for SPWORDPRONOUNCEABLE {
 }
 unsafe impl ::windows::runtime::Abi for SPWORDPRONOUNCEABLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13453,7 +13324,6 @@ impl ::std::cmp::PartialEq for SPWORDPRONUNCIATION {
 impl ::std::cmp::Eq for SPWORDPRONUNCIATION {}
 unsafe impl ::windows::runtime::Abi for SPWORDPRONUNCIATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13482,7 +13352,6 @@ impl ::std::cmp::PartialEq for SPWORDPRONUNCIATIONLIST {
 impl ::std::cmp::Eq for SPWORDPRONUNCIATIONLIST {}
 unsafe impl ::windows::runtime::Abi for SPWORDPRONUNCIATIONLIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13497,7 +13366,6 @@ impl ::std::convert::From<i32> for SPWORDTYPE {
 }
 unsafe impl ::windows::runtime::Abi for SPWORDTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13512,7 +13380,6 @@ impl ::std::convert::From<i32> for SPXMLRESULTOPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for SPXMLRESULTOPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 pub const SP_EMULATE_RESULT: u32 = 1073741824u32;
@@ -13641,7 +13508,6 @@ impl ::std::convert::From<i32> for SpeechAudioFormatType {
 }
 unsafe impl ::windows::runtime::Abi for SpeechAudioFormatType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13658,7 +13524,6 @@ impl ::std::convert::From<i32> for SpeechAudioState {
 }
 unsafe impl ::windows::runtime::Abi for SpeechAudioState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13673,7 +13538,6 @@ impl ::std::convert::From<i32> for SpeechBookmarkOptions {
 }
 unsafe impl ::windows::runtime::Abi for SpeechBookmarkOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13690,7 +13554,6 @@ impl ::std::convert::From<i32> for SpeechDataKeyLocation {
 }
 unsafe impl ::windows::runtime::Abi for SpeechDataKeyLocation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13712,7 +13575,6 @@ impl ::std::convert::From<i32> for SpeechDiscardType {
 }
 unsafe impl ::windows::runtime::Abi for SpeechDiscardType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13729,7 +13591,6 @@ impl ::std::convert::From<i32> for SpeechDisplayAttributes {
 }
 unsafe impl ::windows::runtime::Abi for SpeechDisplayAttributes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13748,7 +13609,6 @@ impl ::std::convert::From<i32> for SpeechEmulationCompareFlags {
 }
 unsafe impl ::windows::runtime::Abi for SpeechEmulationCompareFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13764,7 +13624,6 @@ impl ::std::convert::From<i32> for SpeechEngineConfidence {
 }
 unsafe impl ::windows::runtime::Abi for SpeechEngineConfidence {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13779,7 +13638,6 @@ impl ::std::convert::From<i32> for SpeechFormatType {
 }
 unsafe impl ::windows::runtime::Abi for SpeechFormatType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13798,7 +13656,6 @@ impl ::std::convert::From<i32> for SpeechGrammarRuleStateTransitionType {
 }
 unsafe impl ::windows::runtime::Abi for SpeechGrammarRuleStateTransitionType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13814,7 +13671,6 @@ impl ::std::convert::From<i32> for SpeechGrammarState {
 }
 unsafe impl ::windows::runtime::Abi for SpeechGrammarState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13831,7 +13687,6 @@ impl ::std::convert::From<i32> for SpeechGrammarWordType {
 }
 unsafe impl ::windows::runtime::Abi for SpeechGrammarWordType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13851,7 +13706,6 @@ impl ::std::convert::From<i32> for SpeechInterference {
 }
 unsafe impl ::windows::runtime::Abi for SpeechInterference {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13866,7 +13720,6 @@ impl ::std::convert::From<i32> for SpeechLexiconType {
 }
 unsafe impl ::windows::runtime::Abi for SpeechLexiconType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13881,7 +13734,6 @@ impl ::std::convert::From<i32> for SpeechLoadOption {
 }
 unsafe impl ::windows::runtime::Abi for SpeechLoadOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13903,7 +13755,6 @@ impl ::std::convert::From<i32> for SpeechPartOfSpeech {
 }
 unsafe impl ::windows::runtime::Abi for SpeechPartOfSpeech {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13918,7 +13769,6 @@ impl ::std::convert::From<i32> for SpeechRecoContextState {
 }
 unsafe impl ::windows::runtime::Abi for SpeechRecoContextState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13950,7 +13800,6 @@ impl ::std::convert::From<i32> for SpeechRecoEvents {
 }
 unsafe impl ::windows::runtime::Abi for SpeechRecoEvents {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13969,7 +13818,6 @@ impl ::std::convert::From<i32> for SpeechRecognitionType {
 }
 unsafe impl ::windows::runtime::Abi for SpeechRecognitionType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13986,7 +13834,6 @@ impl ::std::convert::From<i32> for SpeechRecognizerState {
 }
 unsafe impl ::windows::runtime::Abi for SpeechRecognizerState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14001,7 +13848,6 @@ impl ::std::convert::From<i32> for SpeechRetainedAudioOptions {
 }
 unsafe impl ::windows::runtime::Abi for SpeechRetainedAudioOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14021,7 +13867,6 @@ impl ::std::convert::From<i32> for SpeechRuleAttributes {
 }
 unsafe impl ::windows::runtime::Abi for SpeechRuleAttributes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14038,7 +13883,6 @@ impl ::std::convert::From<i32> for SpeechRuleState {
 }
 unsafe impl ::windows::runtime::Abi for SpeechRuleState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14053,7 +13897,6 @@ impl ::std::convert::From<i32> for SpeechRunState {
 }
 unsafe impl ::windows::runtime::Abi for SpeechRunState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14069,7 +13912,6 @@ impl ::std::convert::From<i32> for SpeechSpecialTransitionType {
 }
 unsafe impl ::windows::runtime::Abi for SpeechSpecialTransitionType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14086,7 +13928,6 @@ impl ::std::convert::From<i32> for SpeechStreamFileMode {
 }
 unsafe impl ::windows::runtime::Abi for SpeechStreamFileMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14102,7 +13943,6 @@ impl ::std::convert::From<u32> for SpeechStreamSeekPositionType {
 }
 unsafe impl ::windows::runtime::Abi for SpeechStreamSeekPositionType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SpeechStreamSeekPositionType {
     type Output = Self;
@@ -14148,7 +13988,6 @@ impl ::std::convert::From<u32> for SpeechTokenContext {
 }
 unsafe impl ::windows::runtime::Abi for SpeechTokenContext {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SpeechTokenContext {
     type Output = Self;
@@ -14193,7 +14032,6 @@ impl ::std::convert::From<i32> for SpeechTokenShellFolder {
 }
 unsafe impl ::windows::runtime::Abi for SpeechTokenShellFolder {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14209,7 +14047,6 @@ impl ::std::convert::From<i32> for SpeechVisemeFeature {
 }
 unsafe impl ::windows::runtime::Abi for SpeechVisemeFeature {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14244,7 +14081,6 @@ impl ::std::convert::From<i32> for SpeechVisemeType {
 }
 unsafe impl ::windows::runtime::Abi for SpeechVisemeType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14268,7 +14104,6 @@ impl ::std::convert::From<i32> for SpeechVoiceEvents {
 }
 unsafe impl ::windows::runtime::Abi for SpeechVoiceEvents {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14284,7 +14119,6 @@ impl ::std::convert::From<i32> for SpeechVoicePriority {
 }
 unsafe impl ::windows::runtime::Abi for SpeechVoicePriority {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14312,7 +14146,6 @@ impl ::std::convert::From<i32> for SpeechVoiceSpeakFlags {
 }
 unsafe impl ::windows::runtime::Abi for SpeechVoiceSpeakFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14328,7 +14161,6 @@ impl ::std::convert::From<i32> for SpeechWordPronounceable {
 }
 unsafe impl ::windows::runtime::Abi for SpeechWordPronounceable {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14343,7 +14175,6 @@ impl ::std::convert::From<i32> for SpeechWordType {
 }
 unsafe impl ::windows::runtime::Abi for SpeechWordType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 pub const Speech_Default_Weight: f32 = 1f32;

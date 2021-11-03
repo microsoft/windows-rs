@@ -20,10 +20,12 @@ impl ::std::convert::From<i32> for AudioRoutingEndpoint {
 }
 unsafe impl ::windows::runtime::Abi for AudioRoutingEndpoint {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AudioRoutingEndpoint {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Phone.Media.Devices.AudioRoutingEndpoint;i4)");
+}
+impl ::windows::runtime::DefaultType for AudioRoutingEndpoint {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Phone_Media_Devices`*"]
 #[repr(transparent)]
@@ -107,10 +109,12 @@ impl ::std::convert::From<u32> for AvailableAudioRoutingEndpoints {
 }
 unsafe impl ::windows::runtime::Abi for AvailableAudioRoutingEndpoints {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AvailableAudioRoutingEndpoints {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Phone.Media.Devices.AvailableAudioRoutingEndpoints;u4)");
+}
+impl ::windows::runtime::DefaultType for AvailableAudioRoutingEndpoints {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for AvailableAudioRoutingEndpoints {
     type Output = Self;
@@ -141,7 +145,6 @@ impl ::std::ops::Not for AvailableAudioRoutingEndpoints {
     }
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAudioRoutingManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioRoutingManager {
@@ -166,7 +169,6 @@ pub struct IAudioRoutingManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut AvailableAudioRoutingEndpoints) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAudioRoutingManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioRoutingManagerStatics {

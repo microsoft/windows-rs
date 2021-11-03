@@ -52,7 +52,6 @@ impl ::windows::runtime::RuntimeName for CardRemovedEventArgs {
 unsafe impl ::std::marker::Send for CardRemovedEventArgs {}
 unsafe impl ::std::marker::Sync for CardRemovedEventArgs {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICardAddedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICardAddedEventArgs {
@@ -71,7 +70,6 @@ pub struct ICardAddedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICardRemovedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICardRemovedEventArgs {
@@ -90,7 +88,6 @@ pub struct ICardRemovedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKnownSmartCardAppletIds(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownSmartCardAppletIds {
@@ -112,7 +109,6 @@ pub struct IKnownSmartCardAppletIds_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCard(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCard {
@@ -135,7 +131,6 @@ pub struct ISmartCard_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardAppletIdGroup(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAppletIdGroup {
@@ -163,7 +158,6 @@ pub struct ISmartCardAppletIdGroup_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardAppletIdGroup2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAppletIdGroup2 {
@@ -191,7 +185,6 @@ pub struct ISmartCardAppletIdGroup2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardAppletIdGroupFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAppletIdGroupFactory {
@@ -211,7 +204,6 @@ pub struct ISmartCardAppletIdGroupFactory_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardAppletIdGroupRegistration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAppletIdGroupRegistration {
@@ -236,7 +228,6 @@ pub struct ISmartCardAppletIdGroupRegistration_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardAppletIdGroupRegistration2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAppletIdGroupRegistration2 {
@@ -257,7 +248,6 @@ pub struct ISmartCardAppletIdGroupRegistration2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardAppletIdGroupStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAppletIdGroupStatics {
@@ -276,7 +266,6 @@ pub struct ISmartCardAppletIdGroupStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u16) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardAutomaticResponseApdu(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAutomaticResponseApdu {
@@ -312,7 +301,6 @@ pub struct ISmartCardAutomaticResponseApdu_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardAutomaticResponseApdu2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAutomaticResponseApdu2 {
@@ -338,7 +326,6 @@ pub struct ISmartCardAutomaticResponseApdu2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardAutomaticResponseApdu3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAutomaticResponseApdu3 {
@@ -358,7 +345,6 @@ pub struct ISmartCardAutomaticResponseApdu3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardAutomaticResponseApduFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardAutomaticResponseApduFactory {
@@ -378,7 +364,6 @@ pub struct ISmartCardAutomaticResponseApduFactory_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardChallengeContext(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardChallengeContext {
@@ -406,7 +391,6 @@ pub struct ISmartCardChallengeContext_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardConnect(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardConnect {
@@ -426,7 +410,6 @@ pub struct ISmartCardConnect_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardConnection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardConnection {
@@ -446,7 +429,6 @@ pub struct ISmartCardConnection_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramGenerator(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramGenerator {
@@ -489,7 +471,6 @@ pub struct ISmartCardCryptogramGenerator_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramGenerator2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramGenerator2 {
@@ -517,7 +498,6 @@ pub struct ISmartCardCryptogramGenerator2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramGeneratorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramGeneratorStatics {
@@ -537,7 +517,6 @@ pub struct ISmartCardCryptogramGeneratorStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramGeneratorStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramGeneratorStatics2 {
@@ -556,7 +535,6 @@ pub struct ISmartCardCryptogramGeneratorStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
@@ -577,7 +555,6 @@ pub struct ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_abi
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
@@ -598,7 +575,6 @@ pub struct ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsRes
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
@@ -619,7 +595,6 @@ pub struct ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_a
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramMaterialCharacteristics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramMaterialCharacteristics {
@@ -648,7 +623,6 @@ pub struct ISmartCardCryptogramMaterialCharacteristics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramMaterialPackageCharacteristics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramMaterialPackageCharacteristics {
@@ -671,7 +645,6 @@ pub struct ISmartCardCryptogramMaterialPackageCharacteristics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SmartCardCryptogramMaterialPackageFormat) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramMaterialPossessionProof(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramMaterialPossessionProof {
@@ -692,7 +665,6 @@ pub struct ISmartCardCryptogramMaterialPossessionProof_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramPlacementStep(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramPlacementStep {
@@ -730,7 +702,6 @@ pub struct ISmartCardCryptogramPlacementStep_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramStorageKeyCharacteristics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramStorageKeyCharacteristics {
@@ -753,7 +724,6 @@ pub struct ISmartCardCryptogramStorageKeyCharacteristics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SmartCardCryptogramStorageKeyCapabilities) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramStorageKeyInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramStorageKeyInfo {
@@ -782,7 +752,6 @@ pub struct ISmartCardCryptogramStorageKeyInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SmartCardCryptogramStorageKeyCapabilities) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramStorageKeyInfo2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardCryptogramStorageKeyInfo2 {
@@ -801,7 +770,6 @@ pub struct ISmartCardCryptogramStorageKeyInfo2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardEmulator(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulator {
@@ -820,7 +788,6 @@ pub struct ISmartCardEmulator_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SmartCardEmulatorEnablementPolicy) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardEmulator2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulator2 {
@@ -848,7 +815,6 @@ pub struct ISmartCardEmulator2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorApduReceivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulatorApduReceivedEventArgs {
@@ -872,7 +838,6 @@ pub struct ISmartCardEmulatorApduReceivedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SmartCardAutomaticResponseStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorApduReceivedEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulatorApduReceivedEventArgs2 {
@@ -893,7 +858,6 @@ pub struct ISmartCardEmulatorApduReceivedEventArgs2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorApduReceivedEventArgsWithCryptograms(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulatorApduReceivedEventArgsWithCryptograms {
@@ -915,7 +879,6 @@ pub struct ISmartCardEmulatorApduReceivedEventArgsWithCryptograms_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorConnectionDeactivatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulatorConnectionDeactivatedEventArgs {
@@ -935,7 +898,6 @@ pub struct ISmartCardEmulatorConnectionDeactivatedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SmartCardEmulatorConnectionDeactivatedReason) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorConnectionProperties(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulatorConnectionProperties {
@@ -955,7 +917,6 @@ pub struct ISmartCardEmulatorConnectionProperties_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SmartCardEmulatorConnectionSource) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulatorStatics {
@@ -975,7 +936,6 @@ pub struct ISmartCardEmulatorStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulatorStatics2 {
@@ -1000,7 +960,6 @@ pub struct ISmartCardEmulatorStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u16) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardEmulatorStatics3 {
@@ -1019,7 +978,6 @@ pub struct ISmartCardEmulatorStatics3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardPinPolicy(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardPinPolicy {
@@ -1049,7 +1007,6 @@ pub struct ISmartCardPinPolicy_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: SmartCardPinCharacterPolicyOption) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardPinResetDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardPinResetDeferral {
@@ -1068,7 +1025,6 @@ pub struct ISmartCardPinResetDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardPinResetRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardPinResetRequest {
@@ -1093,7 +1049,6 @@ pub struct ISmartCardPinResetRequest_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardProvisioning(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardProvisioning {
@@ -1122,7 +1077,6 @@ pub struct ISmartCardProvisioning_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardProvisioning2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardProvisioning2 {
@@ -1142,7 +1096,6 @@ pub struct ISmartCardProvisioning2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardProvisioningStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardProvisioningStatics {
@@ -1168,7 +1121,6 @@ pub struct ISmartCardProvisioningStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardProvisioningStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardProvisioningStatics2 {
@@ -1190,7 +1142,6 @@ pub struct ISmartCardProvisioningStatics2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardReader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardReader {
@@ -1223,7 +1174,6 @@ pub struct ISmartCardReader_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardReaderStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardReaderStatics {
@@ -1245,7 +1195,6 @@ pub struct ISmartCardReaderStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardTriggerDetails {
@@ -1268,7 +1217,6 @@ pub struct ISmartCardTriggerDetails_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardTriggerDetails2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardTriggerDetails2 {
@@ -1291,7 +1239,6 @@ pub struct ISmartCardTriggerDetails2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISmartCardTriggerDetails3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISmartCardTriggerDetails3 {
@@ -1404,10 +1351,12 @@ impl ::std::convert::From<i32> for SmartCardActivationPolicyChangeResult {
 }
 unsafe impl ::windows::runtime::Abi for SmartCardActivationPolicyChangeResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmartCardActivationPolicyChangeResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardActivationPolicyChangeResult;i4)");
+}
+impl ::windows::runtime::DefaultType for SmartCardActivationPolicyChangeResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
@@ -1584,10 +1533,12 @@ impl ::std::convert::From<i32> for SmartCardAppletIdGroupActivationPolicy {
 }
 unsafe impl ::windows::runtime::Abi for SmartCardAppletIdGroupActivationPolicy {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmartCardAppletIdGroupActivationPolicy {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardAppletIdGroupActivationPolicy;i4)");
+}
+impl ::windows::runtime::DefaultType for SmartCardAppletIdGroupActivationPolicy {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
@@ -1828,10 +1779,12 @@ impl ::std::convert::From<i32> for SmartCardAutomaticResponseStatus {
 }
 unsafe impl ::windows::runtime::Abi for SmartCardAutomaticResponseStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmartCardAutomaticResponseStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardAutomaticResponseStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for SmartCardAutomaticResponseStatus {
+    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -2012,10 +1965,12 @@ impl ::std::convert::From<i32> for SmartCardCryptogramAlgorithm {
 }
 unsafe impl ::windows::runtime::Abi for SmartCardCryptogramAlgorithm {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmartCardCryptogramAlgorithm {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramAlgorithm;i4)");
+}
+impl ::windows::runtime::DefaultType for SmartCardCryptogramAlgorithm {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
@@ -2251,10 +2206,12 @@ impl ::std::convert::From<i32> for SmartCardCryptogramGeneratorOperationStatus {
 }
 unsafe impl ::windows::runtime::Abi for SmartCardCryptogramGeneratorOperationStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmartCardCryptogramGeneratorOperationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramGeneratorOperationStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for SmartCardCryptogramGeneratorOperationStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
@@ -2547,10 +2504,12 @@ impl ::std::convert::From<i32> for SmartCardCryptogramMaterialPackageConfirmatio
 }
 unsafe impl ::windows::runtime::Abi for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageConfirmationResponseFormat;i4)");
+}
+impl ::windows::runtime::DefaultType for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2567,10 +2526,12 @@ impl ::std::convert::From<i32> for SmartCardCryptogramMaterialPackageFormat {
 }
 unsafe impl ::windows::runtime::Abi for SmartCardCryptogramMaterialPackageFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmartCardCryptogramMaterialPackageFormat {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageFormat;i4)");
+}
+impl ::windows::runtime::DefaultType for SmartCardCryptogramMaterialPackageFormat {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
@@ -2622,10 +2583,12 @@ impl ::std::convert::From<i32> for SmartCardCryptogramMaterialProtectionMethod {
 }
 unsafe impl ::windows::runtime::Abi for SmartCardCryptogramMaterialProtectionMethod {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmartCardCryptogramMaterialProtectionMethod {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialProtectionMethod;i4)");
+}
+impl ::windows::runtime::DefaultType for SmartCardCryptogramMaterialProtectionMethod {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2645,10 +2608,12 @@ impl ::std::convert::From<i32> for SmartCardCryptogramMaterialType {
 }
 unsafe impl ::windows::runtime::Abi for SmartCardCryptogramMaterialType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmartCardCryptogramMaterialType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialType;i4)");
+}
+impl ::windows::runtime::DefaultType for SmartCardCryptogramMaterialType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2666,10 +2631,12 @@ impl ::std::convert::From<u32> for SmartCardCryptogramPlacementOptions {
 }
 unsafe impl ::windows::runtime::Abi for SmartCardCryptogramPlacementOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmartCardCryptogramPlacementOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramPlacementOptions;u4)");
+}
+impl ::windows::runtime::DefaultType for SmartCardCryptogramPlacementOptions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SmartCardCryptogramPlacementOptions {
     type Output = Self;
@@ -2858,10 +2825,12 @@ impl ::std::convert::From<i32> for SmartCardCryptogramStorageKeyAlgorithm {
 }
 unsafe impl ::windows::runtime::Abi for SmartCardCryptogramStorageKeyAlgorithm {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmartCardCryptogramStorageKeyAlgorithm {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyAlgorithm;i4)");
+}
+impl ::windows::runtime::DefaultType for SmartCardCryptogramStorageKeyAlgorithm {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2879,10 +2848,12 @@ impl ::std::convert::From<u32> for SmartCardCryptogramStorageKeyCapabilities {
 }
 unsafe impl ::windows::runtime::Abi for SmartCardCryptogramStorageKeyCapabilities {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmartCardCryptogramStorageKeyCapabilities {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyCapabilities;u4)");
+}
+impl ::windows::runtime::DefaultType for SmartCardCryptogramStorageKeyCapabilities {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SmartCardCryptogramStorageKeyCapabilities {
     type Output = Self;
@@ -3077,10 +3048,12 @@ impl ::std::convert::From<i32> for SmartCardCryptographicKeyAttestationStatus {
 }
 unsafe impl ::windows::runtime::Abi for SmartCardCryptographicKeyAttestationStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmartCardCryptographicKeyAttestationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptographicKeyAttestationStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for SmartCardCryptographicKeyAttestationStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3097,10 +3070,12 @@ impl ::std::convert::From<i32> for SmartCardEmulationCategory {
 }
 unsafe impl ::windows::runtime::Abi for SmartCardEmulationCategory {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmartCardEmulationCategory {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulationCategory;i4)");
+}
+impl ::windows::runtime::DefaultType for SmartCardEmulationCategory {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3118,10 +3093,12 @@ impl ::std::convert::From<i32> for SmartCardEmulationType {
 }
 unsafe impl ::windows::runtime::Abi for SmartCardEmulationType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmartCardEmulationType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulationType;i4)");
+}
+impl ::windows::runtime::DefaultType for SmartCardEmulationType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
@@ -3391,10 +3368,12 @@ impl ::std::convert::From<i32> for SmartCardEmulatorConnectionDeactivatedReason 
 }
 unsafe impl ::windows::runtime::Abi for SmartCardEmulatorConnectionDeactivatedReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmartCardEmulatorConnectionDeactivatedReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulatorConnectionDeactivatedReason;i4)");
+}
+impl ::windows::runtime::DefaultType for SmartCardEmulatorConnectionDeactivatedReason {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
@@ -3445,10 +3424,12 @@ impl ::std::convert::From<i32> for SmartCardEmulatorConnectionSource {
 }
 unsafe impl ::windows::runtime::Abi for SmartCardEmulatorConnectionSource {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmartCardEmulatorConnectionSource {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulatorConnectionSource;i4)");
+}
+impl ::windows::runtime::DefaultType for SmartCardEmulatorConnectionSource {
+    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -3470,10 +3451,12 @@ impl ::std::convert::From<i32> for SmartCardEmulatorEnablementPolicy {
 }
 unsafe impl ::windows::runtime::Abi for SmartCardEmulatorEnablementPolicy {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmartCardEmulatorEnablementPolicy {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulatorEnablementPolicy;i4)");
+}
+impl ::windows::runtime::DefaultType for SmartCardEmulatorEnablementPolicy {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3490,10 +3473,12 @@ impl ::std::convert::From<i32> for SmartCardLaunchBehavior {
 }
 unsafe impl ::windows::runtime::Abi for SmartCardLaunchBehavior {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmartCardLaunchBehavior {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardLaunchBehavior;i4)");
+}
+impl ::windows::runtime::DefaultType for SmartCardLaunchBehavior {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3511,10 +3496,12 @@ impl ::std::convert::From<i32> for SmartCardPinCharacterPolicyOption {
 }
 unsafe impl ::windows::runtime::Abi for SmartCardPinCharacterPolicyOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmartCardPinCharacterPolicyOption {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardPinCharacterPolicyOption;i4)");
+}
+impl ::windows::runtime::DefaultType for SmartCardPinCharacterPolicyOption {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
@@ -3713,8 +3700,8 @@ impl<F: FnMut(&::std::option::Option<SmartCardProvisioning>, &::std::option::Opt
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, request: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         ((*this).invoke)(
-            &*(&sender as *const <SmartCardProvisioning as ::windows::runtime::Abi>::Abi as *const <SmartCardProvisioning as ::windows::runtime::Abi>::DefaultType),
-            &*(&request as *const <SmartCardPinResetRequest as ::windows::runtime::Abi>::Abi as *const <SmartCardPinResetRequest as ::windows::runtime::Abi>::DefaultType),
+            &*(&sender as *const <SmartCardProvisioning as ::windows::runtime::Abi>::Abi as *const <SmartCardProvisioning as ::windows::runtime::DefaultType>::DefaultType),
+            &*(&request as *const <SmartCardPinResetRequest as ::windows::runtime::Abi>::Abi as *const <SmartCardPinResetRequest as ::windows::runtime::DefaultType>::DefaultType),
         )
         .into()
     }
@@ -4050,10 +4037,12 @@ impl ::std::convert::From<i32> for SmartCardReaderKind {
 }
 unsafe impl ::windows::runtime::Abi for SmartCardReaderKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmartCardReaderKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardReaderKind;i4)");
+}
+impl ::windows::runtime::DefaultType for SmartCardReaderKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4071,10 +4060,12 @@ impl ::std::convert::From<i32> for SmartCardReaderStatus {
 }
 unsafe impl ::windows::runtime::Abi for SmartCardReaderStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmartCardReaderStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardReaderStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for SmartCardReaderStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4094,10 +4085,12 @@ impl ::std::convert::From<i32> for SmartCardStatus {
 }
 unsafe impl ::windows::runtime::Abi for SmartCardStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmartCardStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for SmartCardStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[repr(transparent)]
@@ -4196,10 +4189,12 @@ impl ::std::convert::From<i32> for SmartCardTriggerType {
 }
 unsafe impl ::windows::runtime::Abi for SmartCardTriggerType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmartCardTriggerType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardTriggerType;i4)");
+}
+impl ::windows::runtime::DefaultType for SmartCardTriggerType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_SmartCards`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4217,8 +4212,10 @@ impl ::std::convert::From<i32> for SmartCardUnlockPromptingBehavior {
 }
 unsafe impl ::windows::runtime::Abi for SmartCardUnlockPromptingBehavior {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SmartCardUnlockPromptingBehavior {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardUnlockPromptingBehavior;i4)");
+}
+impl ::windows::runtime::DefaultType for SmartCardUnlockPromptingBehavior {
+    type DefaultType = Self;
 }

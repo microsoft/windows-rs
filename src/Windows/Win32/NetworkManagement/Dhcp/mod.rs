@@ -41,7 +41,6 @@ impl ::std::cmp::PartialEq for DATE_TIME {
 impl ::std::cmp::Eq for DATE_TIME {}
 unsafe impl ::windows::runtime::Abi for DATE_TIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -79,7 +78,6 @@ impl ::std::cmp::Eq for DHCPAPI_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCPAPI_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -108,7 +106,6 @@ impl ::std::cmp::PartialEq for DHCPCAPI_CLASSID {
 impl ::std::cmp::Eq for DHCPCAPI_CLASSID {}
 unsafe impl ::windows::runtime::Abi for DHCPCAPI_CLASSID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 pub const DHCPCAPI_DEREGISTER_HANDLE_EVENT: u32 = 1u32;
@@ -145,7 +142,6 @@ impl ::std::cmp::Eq for DHCPCAPI_PARAMS_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCPCAPI_PARAMS_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 pub const DHCPCAPI_REGISTER_HANDLE_EVENT: u32 = 1u32;
@@ -197,7 +193,6 @@ impl ::std::cmp::Eq for DHCPDS_SERVER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCPDS_SERVER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -233,7 +228,6 @@ impl ::std::cmp::Eq for DHCPDS_SERVERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCPDS_SERVERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -329,7 +323,6 @@ impl ::std::cmp::Eq for DHCPV4_FAILOVER_CLIENT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCPV4_FAILOVER_CLIENT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -364,7 +357,6 @@ impl ::std::cmp::Eq for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -463,7 +455,6 @@ impl ::std::cmp::Eq for DHCPV4_FAILOVER_CLIENT_INFO_EX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCPV4_FAILOVER_CLIENT_INFO_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -492,7 +483,6 @@ impl ::std::cmp::PartialEq for DHCPV6CAPI_CLASSID {
 impl ::std::cmp::Eq for DHCPV6CAPI_CLASSID {}
 unsafe impl ::windows::runtime::Abi for DHCPV6CAPI_CLASSID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -530,7 +520,6 @@ impl ::std::cmp::Eq for DHCPV6CAPI_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCPV6CAPI_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -565,7 +554,6 @@ impl ::std::cmp::Eq for DHCPV6CAPI_PARAMS_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCPV6CAPI_PARAMS_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -596,7 +584,6 @@ impl ::std::cmp::PartialEq for DHCPV6Prefix {
 impl ::std::cmp::Eq for DHCPV6Prefix {}
 unsafe impl ::windows::runtime::Abi for DHCPV6Prefix {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -643,7 +630,6 @@ impl ::std::cmp::PartialEq for DHCPV6PrefixLeaseInformation {
 impl ::std::cmp::Eq for DHCPV6PrefixLeaseInformation {}
 unsafe impl ::windows::runtime::Abi for DHCPV6PrefixLeaseInformation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -693,7 +679,6 @@ impl ::std::cmp::Eq for DHCPV6_BIND_ELEMENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCPV6_BIND_ELEMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -728,7 +713,6 @@ impl ::std::cmp::Eq for DHCPV6_BIND_ELEMENT_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCPV6_BIND_ELEMENT_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -756,7 +740,6 @@ impl ::std::cmp::PartialEq for DHCPV6_IP_ARRAY {
 impl ::std::cmp::Eq for DHCPV6_IP_ARRAY {}
 unsafe impl ::windows::runtime::Abi for DHCPV6_IP_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 pub const DHCPV6_OPTION_CLIENTID: u32 = 1u32;
@@ -833,7 +816,6 @@ impl ::std::cmp::Eq for DHCPV6_STATELESS_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCPV6_STATELESS_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -848,7 +830,6 @@ impl ::std::convert::From<i32> for DHCPV6_STATELESS_PARAM_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DHCPV6_STATELESS_PARAM_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -877,7 +858,6 @@ impl ::std::cmp::PartialEq for DHCPV6_STATELESS_SCOPE_STATS {
 impl ::std::cmp::Eq for DHCPV6_STATELESS_SCOPE_STATS {}
 unsafe impl ::windows::runtime::Abi for DHCPV6_STATELESS_SCOPE_STATS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -905,7 +885,6 @@ impl ::std::cmp::PartialEq for DHCPV6_STATELESS_STATS {
 impl ::std::cmp::Eq for DHCPV6_STATELESS_STATS {}
 unsafe impl ::windows::runtime::Abi for DHCPV6_STATELESS_STATS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -943,7 +922,6 @@ impl ::std::cmp::Eq for DHCP_ADDR_PATTERN {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_ADDR_PATTERN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -980,7 +958,6 @@ impl ::std::cmp::Eq for DHCP_ALL_OPTIONS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_ALL_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1016,7 +993,6 @@ impl ::std::cmp::Eq for DHCP_ALL_OPTIONS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_ALL_OPTIONS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1052,7 +1028,6 @@ impl ::std::cmp::Eq for DHCP_ALL_OPTION_VALUES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_ALL_OPTION_VALUES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1089,7 +1064,6 @@ impl ::std::cmp::Eq for DHCP_ALL_OPTION_VALUES_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_ALL_OPTION_VALUES_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1125,7 +1099,6 @@ impl ::std::cmp::Eq for DHCP_ALL_OPTION_VALUES_PB {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_ALL_OPTION_VALUES_PB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1162,7 +1135,6 @@ impl ::std::cmp::Eq for DHCP_ALL_OPTION_VALUES_PB_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_ALL_OPTION_VALUES_PB_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1192,7 +1164,6 @@ impl ::std::cmp::Eq for DHCP_ATTRIB {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_ATTRIB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1221,7 +1192,6 @@ impl ::std::cmp::Eq for DHCP_ATTRIB_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_ATTRIB_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1256,7 +1226,6 @@ impl ::std::cmp::Eq for DHCP_ATTRIB_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_ATTRIB_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 pub const DHCP_ATTRIB_BOOL_IS_ADMIN: u32 = 5u32;
@@ -1300,7 +1269,6 @@ impl ::std::cmp::PartialEq for DHCP_BINARY_DATA {
 impl ::std::cmp::Eq for DHCP_BINARY_DATA {}
 unsafe impl ::windows::runtime::Abi for DHCP_BINARY_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1348,7 +1316,6 @@ impl ::std::cmp::Eq for DHCP_BIND_ELEMENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_BIND_ELEMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1383,7 +1350,6 @@ impl ::std::cmp::Eq for DHCP_BIND_ELEMENT_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_BIND_ELEMENT_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1413,7 +1379,6 @@ impl ::std::cmp::PartialEq for DHCP_BOOTP_IP_RANGE {
 impl ::std::cmp::Eq for DHCP_BOOTP_IP_RANGE {}
 unsafe impl ::windows::runtime::Abi for DHCP_BOOTP_IP_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1465,7 +1430,6 @@ impl ::std::cmp::Eq for DHCP_CALLOUT_TABLE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_CALLOUT_TABLE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1504,7 +1468,6 @@ impl ::std::cmp::Eq for DHCP_CLASS_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_CLASS_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1539,7 +1502,6 @@ impl ::std::cmp::Eq for DHCP_CLASS_INFO_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_CLASS_INFO_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1574,7 +1536,6 @@ impl ::std::cmp::Eq for DHCP_CLASS_INFO_ARRAY_V6 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_CLASS_INFO_ARRAY_V6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1622,7 +1583,6 @@ impl ::std::cmp::Eq for DHCP_CLASS_INFO_V6 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_CLASS_INFO_V6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 pub const DHCP_CLIENT_BOOTP: u32 = 805306371u32;
@@ -1698,7 +1658,6 @@ impl ::std::cmp::Eq for DHCP_CLIENT_FILTER_STATUS_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_CLIENT_FILTER_STATUS_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1733,7 +1692,6 @@ impl ::std::cmp::Eq for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1781,7 +1739,6 @@ impl ::std::cmp::Eq for DHCP_CLIENT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_CLIENT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1816,7 +1773,6 @@ impl ::std::cmp::Eq for DHCP_CLIENT_INFO_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_CLIENT_INFO_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1851,7 +1807,6 @@ impl ::std::cmp::Eq for DHCP_CLIENT_INFO_ARRAY_V4 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_CLIENT_INFO_ARRAY_V4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1886,7 +1841,6 @@ impl ::std::cmp::Eq for DHCP_CLIENT_INFO_ARRAY_V5 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_CLIENT_INFO_ARRAY_V5 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1921,7 +1875,6 @@ impl ::std::cmp::Eq for DHCP_CLIENT_INFO_ARRAY_V6 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_CLIENT_INFO_ARRAY_V6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1956,7 +1909,6 @@ impl ::std::cmp::Eq for DHCP_CLIENT_INFO_ARRAY_VQ {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_CLIENT_INFO_ARRAY_VQ {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2034,7 +1986,6 @@ impl ::std::cmp::Eq for DHCP_CLIENT_INFO_EX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_CLIENT_INFO_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2069,7 +2020,6 @@ impl ::std::cmp::Eq for DHCP_CLIENT_INFO_EX_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_CLIENT_INFO_EX_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2144,7 +2094,6 @@ impl ::std::cmp::Eq for DHCP_CLIENT_INFO_PB {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_CLIENT_INFO_PB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2179,7 +2128,6 @@ impl ::std::cmp::Eq for DHCP_CLIENT_INFO_PB_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_CLIENT_INFO_PB_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2229,7 +2177,6 @@ impl ::std::cmp::Eq for DHCP_CLIENT_INFO_V4 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_CLIENT_INFO_V4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2281,7 +2228,6 @@ impl ::std::cmp::Eq for DHCP_CLIENT_INFO_V5 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_CLIENT_INFO_V5 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2333,7 +2279,6 @@ impl ::std::cmp::Eq for DHCP_CLIENT_INFO_V6 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_CLIENT_INFO_V6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2402,7 +2347,6 @@ impl ::std::cmp::Eq for DHCP_CLIENT_INFO_VQ {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_CLIENT_INFO_VQ {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -2460,7 +2404,6 @@ impl ::std::convert::From<i32> for DHCP_FAILOVER_MODE {
 }
 unsafe impl ::windows::runtime::Abi for DHCP_FAILOVER_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2535,7 +2478,6 @@ impl ::std::cmp::Eq for DHCP_FAILOVER_RELATIONSHIP {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_FAILOVER_RELATIONSHIP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2570,7 +2512,6 @@ impl ::std::cmp::Eq for DHCP_FAILOVER_RELATIONSHIP_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2585,7 +2526,6 @@ impl ::std::convert::From<i32> for DHCP_FAILOVER_SERVER {
 }
 unsafe impl ::windows::runtime::Abi for DHCP_FAILOVER_SERVER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2626,7 +2566,6 @@ impl ::std::cmp::PartialEq for DHCP_FAILOVER_STATISTICS {
 impl ::std::cmp::Eq for DHCP_FAILOVER_STATISTICS {}
 unsafe impl ::windows::runtime::Abi for DHCP_FAILOVER_STATISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2662,7 +2601,6 @@ impl ::std::cmp::Eq for DHCP_FILTER_ADD_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_FILTER_ADD_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2697,7 +2635,6 @@ impl ::std::cmp::Eq for DHCP_FILTER_ENUM_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_FILTER_ENUM_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2732,7 +2669,6 @@ impl ::std::cmp::Eq for DHCP_FILTER_GLOBAL_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_FILTER_GLOBAL_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2747,7 +2683,6 @@ impl ::std::convert::From<i32> for DHCP_FILTER_LIST_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DHCP_FILTER_LIST_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2782,7 +2717,6 @@ impl ::std::cmp::Eq for DHCP_FILTER_RECORD {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_FILTER_RECORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 pub const DHCP_FLAGS_DONT_ACCESS_DS: u32 = 1u32;
@@ -2804,7 +2738,6 @@ impl ::std::convert::From<i32> for DHCP_FORCE_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for DHCP_FORCE_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 pub const DHCP_GIVE_ADDRESS_NEW: u32 = 805306369u32;
@@ -2844,7 +2777,6 @@ impl ::std::cmp::Eq for DHCP_HOST_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_HOST_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2880,7 +2812,6 @@ impl ::std::cmp::Eq for DHCP_HOST_INFO_V6 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_HOST_INFO_V6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2908,7 +2839,6 @@ impl ::std::cmp::PartialEq for DHCP_IPV6_ADDRESS {
 impl ::std::cmp::Eq for DHCP_IPV6_ADDRESS {}
 unsafe impl ::windows::runtime::Abi for DHCP_IPV6_ADDRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2936,7 +2866,6 @@ impl ::std::cmp::PartialEq for DHCP_IP_ARRAY {
 impl ::std::cmp::Eq for DHCP_IP_ARRAY {}
 unsafe impl ::windows::runtime::Abi for DHCP_IP_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2964,7 +2893,6 @@ impl ::std::cmp::PartialEq for DHCP_IP_CLUSTER {
 impl ::std::cmp::Eq for DHCP_IP_CLUSTER {}
 unsafe impl ::windows::runtime::Abi for DHCP_IP_CLUSTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2992,7 +2920,6 @@ impl ::std::cmp::PartialEq for DHCP_IP_RANGE {
 impl ::std::cmp::Eq for DHCP_IP_RANGE {}
 unsafe impl ::windows::runtime::Abi for DHCP_IP_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3020,7 +2947,6 @@ impl ::std::cmp::PartialEq for DHCP_IP_RANGE_ARRAY {
 impl ::std::cmp::Eq for DHCP_IP_RANGE_ARRAY {}
 unsafe impl ::windows::runtime::Abi for DHCP_IP_RANGE_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3048,7 +2974,6 @@ impl ::std::cmp::PartialEq for DHCP_IP_RANGE_V6 {
 impl ::std::cmp::Eq for DHCP_IP_RANGE_V6 {}
 unsafe impl ::windows::runtime::Abi for DHCP_IP_RANGE_V6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3076,7 +3001,6 @@ impl ::std::cmp::PartialEq for DHCP_IP_RESERVATION {
 impl ::std::cmp::Eq for DHCP_IP_RESERVATION {}
 unsafe impl ::windows::runtime::Abi for DHCP_IP_RESERVATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3122,7 +3046,6 @@ impl ::std::cmp::Eq for DHCP_IP_RESERVATION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_IP_RESERVATION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3151,7 +3074,6 @@ impl ::std::cmp::PartialEq for DHCP_IP_RESERVATION_V4 {
 impl ::std::cmp::Eq for DHCP_IP_RESERVATION_V4 {}
 unsafe impl ::windows::runtime::Abi for DHCP_IP_RESERVATION_V4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3180,7 +3102,6 @@ impl ::std::cmp::PartialEq for DHCP_IP_RESERVATION_V6 {
 impl ::std::cmp::Eq for DHCP_IP_RESERVATION_V6 {}
 unsafe impl ::windows::runtime::Abi for DHCP_IP_RESERVATION_V6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 pub const DHCP_MAX_DELAY: u32 = 1000u32;
@@ -3229,7 +3150,6 @@ impl ::std::cmp::PartialEq for DHCP_MIB_INFO {
 impl ::std::cmp::Eq for DHCP_MIB_INFO {}
 unsafe impl ::windows::runtime::Abi for DHCP_MIB_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3312,7 +3232,6 @@ impl ::std::cmp::PartialEq for DHCP_MIB_INFO_V5 {
 impl ::std::cmp::Eq for DHCP_MIB_INFO_V5 {}
 unsafe impl ::windows::runtime::Abi for DHCP_MIB_INFO_V5 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3365,7 +3284,6 @@ impl ::std::cmp::PartialEq for DHCP_MIB_INFO_V6 {
 impl ::std::cmp::Eq for DHCP_MIB_INFO_V6 {}
 unsafe impl ::windows::runtime::Abi for DHCP_MIB_INFO_V6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3442,7 +3360,6 @@ impl ::std::cmp::PartialEq for DHCP_MIB_INFO_VQ {
 impl ::std::cmp::Eq for DHCP_MIB_INFO_VQ {}
 unsafe impl ::windows::runtime::Abi for DHCP_MIB_INFO_VQ {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 pub const DHCP_MIN_DELAY: u32 = 0u32;
@@ -3482,7 +3399,6 @@ impl ::std::cmp::Eq for DHCP_OPTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_OPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3517,7 +3433,6 @@ impl ::std::cmp::Eq for DHCP_OPTION_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_OPTION_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3552,7 +3467,6 @@ impl ::std::cmp::Eq for DHCP_OPTION_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_OPTION_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3581,7 +3495,6 @@ impl ::std::cmp::Eq for DHCP_OPTION_DATA_ELEMENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_OPTION_DATA_ELEMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3617,7 +3530,6 @@ impl ::std::cmp::Eq for DHCP_OPTION_DATA_ELEMENT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_OPTION_DATA_ELEMENT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3639,7 +3551,6 @@ impl ::std::convert::From<i32> for DHCP_OPTION_DATA_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DHCP_OPTION_DATA_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -3677,7 +3588,6 @@ impl ::std::cmp::Eq for DHCP_OPTION_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_OPTION_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3706,7 +3616,6 @@ impl ::std::cmp::Eq for DHCP_OPTION_SCOPE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_OPTION_SCOPE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3738,7 +3647,6 @@ impl ::std::cmp::Eq for DHCP_OPTION_SCOPE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_OPTION_SCOPE_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3761,7 +3669,6 @@ impl ::std::cmp::PartialEq for DHCP_OPTION_SCOPE_INFO6 {
 impl ::std::cmp::Eq for DHCP_OPTION_SCOPE_INFO6 {}
 unsafe impl ::windows::runtime::Abi for DHCP_OPTION_SCOPE_INFO6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3785,7 +3692,6 @@ impl ::std::cmp::PartialEq for DHCP_OPTION_SCOPE_INFO6_0 {
 impl ::std::cmp::Eq for DHCP_OPTION_SCOPE_INFO6_0 {}
 unsafe impl ::windows::runtime::Abi for DHCP_OPTION_SCOPE_INFO6_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3803,7 +3709,6 @@ impl ::std::convert::From<i32> for DHCP_OPTION_SCOPE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DHCP_OPTION_SCOPE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3820,7 +3725,6 @@ impl ::std::convert::From<i32> for DHCP_OPTION_SCOPE_TYPE6 {
 }
 unsafe impl ::windows::runtime::Abi for DHCP_OPTION_SCOPE_TYPE6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -3838,7 +3742,6 @@ impl ::std::convert::From<i32> for DHCP_OPTION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DHCP_OPTION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3873,7 +3776,6 @@ impl ::std::cmp::Eq for DHCP_OPTION_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_OPTION_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3908,7 +3810,6 @@ impl ::std::cmp::Eq for DHCP_OPTION_VALUE_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_OPTION_VALUE_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 pub const DHCP_OPT_ENUM_IGNORE_VENDOR: u32 = 1u32;
@@ -3995,7 +3896,6 @@ impl ::std::cmp::PartialEq for DHCP_PERF_STATS {
 impl ::std::cmp::Eq for DHCP_PERF_STATS {}
 unsafe impl ::windows::runtime::Abi for DHCP_PERF_STATS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4047,7 +3947,6 @@ impl ::std::cmp::Eq for DHCP_POLICY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4082,7 +3981,6 @@ impl ::std::cmp::Eq for DHCP_POLICY_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_POLICY_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4136,7 +4034,6 @@ impl ::std::cmp::Eq for DHCP_POLICY_EX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_POLICY_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4171,7 +4068,6 @@ impl ::std::cmp::Eq for DHCP_POLICY_EX_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_POLICY_EX_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4191,7 +4087,6 @@ impl ::std::convert::From<i32> for DHCP_POLICY_FIELDS_TO_UPDATE {
 }
 unsafe impl ::windows::runtime::Abi for DHCP_POLICY_FIELDS_TO_UPDATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4209,7 +4104,6 @@ impl ::std::convert::From<i32> for DHCP_POL_ATTR_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DHCP_POL_ATTR_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4228,7 +4122,6 @@ impl ::std::convert::From<i32> for DHCP_POL_COMPARATOR {
 }
 unsafe impl ::windows::runtime::Abi for DHCP_POL_COMPARATOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4278,7 +4171,6 @@ impl ::std::cmp::Eq for DHCP_POL_COND {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_POL_COND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4313,7 +4205,6 @@ impl ::std::cmp::Eq for DHCP_POL_COND_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_POL_COND_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4341,7 +4232,6 @@ impl ::std::cmp::PartialEq for DHCP_POL_EXPR {
 impl ::std::cmp::Eq for DHCP_POL_EXPR {}
 unsafe impl ::windows::runtime::Abi for DHCP_POL_EXPR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4369,7 +4259,6 @@ impl ::std::cmp::PartialEq for DHCP_POL_EXPR_ARRAY {
 impl ::std::cmp::Eq for DHCP_POL_EXPR_ARRAY {}
 unsafe impl ::windows::runtime::Abi for DHCP_POL_EXPR_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4384,7 +4273,6 @@ impl ::std::convert::From<i32> for DHCP_POL_LOGIC_OPER {
 }
 unsafe impl ::windows::runtime::Abi for DHCP_POL_LOGIC_OPER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 pub const DHCP_PROB_CONFLICT: u32 = 536870913u32;
@@ -4422,7 +4310,6 @@ impl ::std::cmp::Eq for DHCP_PROPERTY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4454,7 +4341,6 @@ impl ::std::cmp::Eq for DHCP_PROPERTY_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_PROPERTY_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4489,7 +4375,6 @@ impl ::std::cmp::Eq for DHCP_PROPERTY_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_PROPERTY_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4504,7 +4389,6 @@ impl ::std::convert::From<i32> for DHCP_PROPERTY_ID {
 }
 unsafe impl ::windows::runtime::Abi for DHCP_PROPERTY_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4522,7 +4406,6 @@ impl ::std::convert::From<i32> for DHCP_PROPERTY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DHCP_PROPERTY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4557,7 +4440,6 @@ impl ::std::cmp::Eq for DHCP_RESERVATION_INFO_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_RESERVATION_INFO_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4585,7 +4467,6 @@ impl ::std::cmp::PartialEq for DHCP_RESERVED_SCOPE {
 impl ::std::cmp::Eq for DHCP_RESERVED_SCOPE {}
 unsafe impl ::windows::runtime::Abi for DHCP_RESERVED_SCOPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4613,7 +4494,6 @@ impl ::std::cmp::PartialEq for DHCP_RESERVED_SCOPE6 {
 impl ::std::cmp::Eq for DHCP_RESERVED_SCOPE6 {}
 unsafe impl ::windows::runtime::Abi for DHCP_RESERVED_SCOPE6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4628,7 +4508,6 @@ impl ::std::convert::From<i32> for DHCP_SCAN_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for DHCP_SCAN_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4656,7 +4535,6 @@ impl ::std::cmp::PartialEq for DHCP_SCAN_ITEM {
 impl ::std::cmp::Eq for DHCP_SCAN_ITEM {}
 unsafe impl ::windows::runtime::Abi for DHCP_SCAN_ITEM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4684,7 +4562,6 @@ impl ::std::cmp::PartialEq for DHCP_SCAN_LIST {
 impl ::std::cmp::Eq for DHCP_SCAN_LIST {}
 unsafe impl ::windows::runtime::Abi for DHCP_SCAN_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4713,7 +4590,6 @@ impl ::std::cmp::Eq for DHCP_SEARCH_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_SEARCH_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4743,7 +4619,6 @@ impl ::std::cmp::Eq for DHCP_SEARCH_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_SEARCH_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4759,7 +4634,6 @@ impl ::std::convert::From<i32> for DHCP_SEARCH_INFO_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DHCP_SEARCH_INFO_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4775,7 +4649,6 @@ impl ::std::convert::From<i32> for DHCP_SEARCH_INFO_TYPE_V6 {
 }
 unsafe impl ::windows::runtime::Abi for DHCP_SEARCH_INFO_TYPE_V6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4804,7 +4677,6 @@ impl ::std::cmp::Eq for DHCP_SEARCH_INFO_V6 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_SEARCH_INFO_V6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4834,7 +4706,6 @@ impl ::std::cmp::Eq for DHCP_SEARCH_INFO_V6_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_SEARCH_INFO_V6_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 pub const DHCP_SEND_PACKET: u32 = 268435456u32;
@@ -4888,7 +4759,6 @@ impl ::std::cmp::Eq for DHCP_SERVER_CONFIG_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_SERVER_CONFIG_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4960,7 +4830,6 @@ impl ::std::cmp::Eq for DHCP_SERVER_CONFIG_INFO_V4 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_SERVER_CONFIG_INFO_V4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5012,7 +4881,6 @@ impl ::std::cmp::Eq for DHCP_SERVER_CONFIG_INFO_V6 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_SERVER_CONFIG_INFO_V6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5093,7 +4961,6 @@ impl ::std::cmp::Eq for DHCP_SERVER_CONFIG_INFO_VQ {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_SERVER_CONFIG_INFO_VQ {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5201,7 +5068,6 @@ impl ::std::cmp::Eq for DHCP_SERVER_OPTIONS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_SERVER_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5236,7 +5102,6 @@ impl ::std::cmp::Eq for DHCP_SERVER_SPECIFIC_STRINGS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_SERVER_SPECIFIC_STRINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5265,7 +5130,6 @@ impl ::std::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_SUBNET_ELEMENT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5297,7 +5161,6 @@ impl ::std::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_SUBNET_ELEMENT_DATA_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5326,7 +5189,6 @@ impl ::std::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_V4 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_SUBNET_ELEMENT_DATA_V4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5358,7 +5220,6 @@ impl ::std::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_V4_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_SUBNET_ELEMENT_DATA_V4_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5387,7 +5248,6 @@ impl ::std::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_V5 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_SUBNET_ELEMENT_DATA_V5 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5419,7 +5279,6 @@ impl ::std::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_V5_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_SUBNET_ELEMENT_DATA_V5_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5442,7 +5301,6 @@ impl ::std::cmp::PartialEq for DHCP_SUBNET_ELEMENT_DATA_V6 {
 impl ::std::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_V6 {}
 unsafe impl ::windows::runtime::Abi for DHCP_SUBNET_ELEMENT_DATA_V6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5466,7 +5324,6 @@ impl ::std::cmp::PartialEq for DHCP_SUBNET_ELEMENT_DATA_V6_0 {
 impl ::std::cmp::Eq for DHCP_SUBNET_ELEMENT_DATA_V6_0 {}
 unsafe impl ::windows::runtime::Abi for DHCP_SUBNET_ELEMENT_DATA_V6_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5501,7 +5358,6 @@ impl ::std::cmp::Eq for DHCP_SUBNET_ELEMENT_INFO_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_SUBNET_ELEMENT_INFO_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5536,7 +5392,6 @@ impl ::std::cmp::Eq for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5571,7 +5426,6 @@ impl ::std::cmp::Eq for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5599,7 +5453,6 @@ impl ::std::cmp::PartialEq for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
 impl ::std::cmp::Eq for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {}
 unsafe impl ::windows::runtime::Abi for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5620,7 +5473,6 @@ impl ::std::convert::From<i32> for DHCP_SUBNET_ELEMENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DHCP_SUBNET_ELEMENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5636,7 +5488,6 @@ impl ::std::convert::From<i32> for DHCP_SUBNET_ELEMENT_TYPE_V6 {
 }
 unsafe impl ::windows::runtime::Abi for DHCP_SUBNET_ELEMENT_TYPE_V6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -5684,7 +5535,6 @@ impl ::std::cmp::Eq for DHCP_SUBNET_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_SUBNET_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5732,7 +5582,6 @@ impl ::std::cmp::Eq for DHCP_SUBNET_INFO_V6 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_SUBNET_INFO_V6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5788,7 +5637,6 @@ impl ::std::cmp::Eq for DHCP_SUBNET_INFO_VQ {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_SUBNET_INFO_VQ {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 pub const DHCP_SUBNET_INFO_VQ_FLAG_QUARANTINE: u32 = 1u32;
@@ -5808,7 +5656,6 @@ impl ::std::convert::From<i32> for DHCP_SUBNET_STATE {
 }
 unsafe impl ::windows::runtime::Abi for DHCP_SUBNET_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5843,7 +5690,6 @@ impl ::std::cmp::Eq for DHCP_SUPER_SCOPE_TABLE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_SUPER_SCOPE_TABLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5880,7 +5726,6 @@ impl ::std::cmp::Eq for DHCP_SUPER_SCOPE_TABLE_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_SUPER_SCOPE_TABLE_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 pub const DNS_FLAG_CLEANUP_EXPIRED: u32 = 4u32;
@@ -5922,7 +5767,6 @@ impl ::std::cmp::PartialEq for DWORD_DWORD {
 impl ::std::cmp::Eq for DWORD_DWORD {}
 unsafe impl ::windows::runtime::Abi for DWORD_DWORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
@@ -9491,7 +9335,6 @@ impl ::std::convert::From<i32> for FSM_STATE {
 }
 unsafe impl ::windows::runtime::Abi for FSM_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 pub const HWTYPE_ETHERNET_10MB: u32 = 1u32;
@@ -9673,7 +9516,6 @@ impl ::std::convert::From<i32> for QuarantineStatus {
 }
 unsafe impl ::windows::runtime::Abi for QuarantineStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 pub const SAFEPERIOD: u32 = 2u32;
@@ -9705,7 +9547,6 @@ impl ::std::cmp::PartialEq for SCOPE_MIB_INFO {
 impl ::std::cmp::Eq for SCOPE_MIB_INFO {}
 unsafe impl ::windows::runtime::Abi for SCOPE_MIB_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9735,7 +9576,6 @@ impl ::std::cmp::PartialEq for SCOPE_MIB_INFO_V5 {
 impl ::std::cmp::Eq for SCOPE_MIB_INFO_V5 {}
 unsafe impl ::windows::runtime::Abi for SCOPE_MIB_INFO_V5 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9765,7 +9605,6 @@ impl ::std::cmp::PartialEq for SCOPE_MIB_INFO_V6 {
 impl ::std::cmp::Eq for SCOPE_MIB_INFO_V6 {}
 unsafe impl ::windows::runtime::Abi for SCOPE_MIB_INFO_V6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9812,7 +9651,6 @@ impl ::std::cmp::PartialEq for SCOPE_MIB_INFO_VQ {
 impl ::std::cmp::Eq for SCOPE_MIB_INFO_VQ {}
 unsafe impl ::windows::runtime::Abi for SCOPE_MIB_INFO_VQ {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 pub const SHAREDSECRET: u32 = 64u32;
@@ -9875,7 +9713,6 @@ impl ::std::convert::From<i32> for StatusCode {
 }
 unsafe impl ::windows::runtime::Abi for StatusCode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 pub const V5_ADDRESS_BIT_BOTH_REC: u32 = 32u32;

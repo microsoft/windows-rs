@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreAcquireLicenseResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreAcquireLicenseResult {
@@ -20,7 +19,6 @@ pub struct IStoreAcquireLicenseResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreAppLicense(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreAppLicense {
@@ -50,7 +48,6 @@ pub struct IStoreAppLicense_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreAppLicense2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreAppLicense2 {
@@ -69,7 +66,6 @@ pub struct IStoreAppLicense2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreAvailability(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreAvailability {
@@ -96,7 +92,6 @@ pub struct IStoreAvailability_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreCanAcquireLicenseResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreCanAcquireLicenseResult {
@@ -117,7 +112,6 @@ pub struct IStoreCanAcquireLicenseResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut StoreCanLicenseStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreCollectionData(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreCollectionData {
@@ -147,7 +141,6 @@ pub struct IStoreCollectionData_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreConsumableResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreConsumableResult {
@@ -169,7 +162,6 @@ pub struct IStoreConsumableResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreContext(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreContext {
@@ -229,7 +221,6 @@ pub struct IStoreContext_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreContext2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreContext2 {
@@ -249,7 +240,6 @@ pub struct IStoreContext2_abi(
     #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreContext3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreContext3 {
@@ -294,7 +284,6 @@ pub struct IStoreContext3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreContext4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreContext4 {
@@ -316,7 +305,6 @@ pub struct IStoreContext4_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreContextStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreContextStatics {
@@ -337,7 +325,6 @@ pub struct IStoreContextStatics_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreImage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreImage {
@@ -361,7 +348,6 @@ pub struct IStoreImage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreLicense(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreLicense {
@@ -385,7 +371,6 @@ pub struct IStoreLicense_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorePackageInstallOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorePackageInstallOptions {
@@ -405,7 +390,6 @@ pub struct IStorePackageInstallOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorePackageLicense(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorePackageLicense {
@@ -431,7 +415,6 @@ pub struct IStorePackageLicense_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorePackageUpdate(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorePackageUpdate {
@@ -452,7 +435,6 @@ pub struct IStorePackageUpdate_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorePackageUpdateResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorePackageUpdateResult {
@@ -473,7 +455,6 @@ pub struct IStorePackageUpdateResult_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorePackageUpdateResult2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorePackageUpdateResult2 {
@@ -493,7 +474,6 @@ pub struct IStorePackageUpdateResult2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorePrice(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorePrice {
@@ -518,7 +498,6 @@ pub struct IStorePrice_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreProduct(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreProduct {
@@ -562,7 +541,6 @@ pub struct IStoreProduct_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreProductOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreProductOptions {
@@ -582,7 +560,6 @@ pub struct IStoreProductOptions_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreProductPagedQueryResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreProductPagedQueryResult {
@@ -606,7 +583,6 @@ pub struct IStoreProductPagedQueryResult_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreProductQueryResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreProductQueryResult {
@@ -627,7 +603,6 @@ pub struct IStoreProductQueryResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreProductResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreProductResult {
@@ -647,7 +622,6 @@ pub struct IStoreProductResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorePurchaseProperties(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorePurchaseProperties {
@@ -669,7 +643,6 @@ pub struct IStorePurchaseProperties_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorePurchasePropertiesFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorePurchasePropertiesFactory {
@@ -688,7 +661,6 @@ pub struct IStorePurchasePropertiesFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorePurchaseResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorePurchaseResult {
@@ -708,7 +680,6 @@ pub struct IStorePurchaseResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreQueueItem(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreQueueItem {
@@ -738,7 +709,6 @@ pub struct IStoreQueueItem_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreQueueItem2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreQueueItem2 {
@@ -762,7 +732,6 @@ pub struct IStoreQueueItem2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreQueueItemCompletedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreQueueItemCompletedEventArgs {
@@ -781,7 +750,6 @@ pub struct IStoreQueueItemCompletedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreQueueItemStatus(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreQueueItemStatus {
@@ -803,7 +771,6 @@ pub struct IStoreQueueItemStatus_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreRateAndReviewResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreRateAndReviewResult {
@@ -825,7 +792,6 @@ pub struct IStoreRateAndReviewResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut StoreRateAndReviewStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreRequestHelperStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreRequestHelperStatics {
@@ -845,7 +811,6 @@ pub struct IStoreRequestHelperStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreSendRequestResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreSendRequestResult {
@@ -865,7 +830,6 @@ pub struct IStoreSendRequestResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreSendRequestResult2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreSendRequestResult2 {
@@ -885,7 +849,6 @@ pub struct IStoreSendRequestResult2_abi(
     #[cfg(not(feature = "Web_Http"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreSku(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreSku {
@@ -929,7 +892,6 @@ pub struct IStoreSku_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreSubscriptionInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreSubscriptionInfo {
@@ -952,7 +914,6 @@ pub struct IStoreSubscriptionInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut StoreDurationUnit) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreUninstallStorePackageResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreUninstallStorePackageResult {
@@ -972,7 +933,6 @@ pub struct IStoreUninstallStorePackageResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut StoreUninstallStorePackageStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStoreVideo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStoreVideo {
@@ -1260,10 +1220,12 @@ impl ::std::convert::From<i32> for StoreCanLicenseStatus {
 }
 unsafe impl ::windows::runtime::Abi for StoreCanLicenseStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for StoreCanLicenseStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreCanLicenseStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for StoreCanLicenseStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
@@ -1418,10 +1380,12 @@ impl ::std::convert::From<i32> for StoreConsumableStatus {
 }
 unsafe impl ::windows::runtime::Abi for StoreConsumableStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for StoreConsumableStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreConsumableStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for StoreConsumableStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
@@ -1825,10 +1789,12 @@ impl ::std::convert::From<i32> for StoreDurationUnit {
 }
 unsafe impl ::windows::runtime::Abi for StoreDurationUnit {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for StoreDurationUnit {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreDurationUnit;i4)");
+}
+impl ::windows::runtime::DefaultType for StoreDurationUnit {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
@@ -2174,10 +2140,12 @@ impl ::std::convert::From<i32> for StorePackageUpdateState {
 }
 unsafe impl ::windows::runtime::Abi for StorePackageUpdateState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for StorePackageUpdateState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StorePackageUpdateState;i4)");
+}
+impl ::windows::runtime::DefaultType for StorePackageUpdateState {
+    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2216,10 +2184,12 @@ impl ::std::cmp::PartialEq for StorePackageUpdateStatus {
 impl ::std::cmp::Eq for StorePackageUpdateStatus {}
 unsafe impl ::windows::runtime::Abi for StorePackageUpdateStatus {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for StorePackageUpdateStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Services.Store.StorePackageUpdateStatus;string;u8;u8;f8;f8;enum(Windows.Services.Store.StorePackageUpdateState;i4))");
+}
+impl ::windows::runtime::DefaultType for StorePackageUpdateStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
@@ -2727,10 +2697,12 @@ impl ::std::convert::From<i32> for StorePurchaseStatus {
 }
 unsafe impl ::windows::runtime::Abi for StorePurchaseStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for StorePurchaseStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StorePurchaseStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for StorePurchaseStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
@@ -2893,10 +2865,12 @@ impl ::std::convert::From<i32> for StoreQueueItemExtendedState {
 }
 unsafe impl ::windows::runtime::Abi for StoreQueueItemExtendedState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for StoreQueueItemExtendedState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemExtendedState;i4)");
+}
+impl ::windows::runtime::DefaultType for StoreQueueItemExtendedState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_Store`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2914,10 +2888,12 @@ impl ::std::convert::From<i32> for StoreQueueItemKind {
 }
 unsafe impl ::windows::runtime::Abi for StoreQueueItemKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for StoreQueueItemKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemKind;i4)");
+}
+impl ::windows::runtime::DefaultType for StoreQueueItemKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_Store`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2937,10 +2913,12 @@ impl ::std::convert::From<i32> for StoreQueueItemState {
 }
 unsafe impl ::windows::runtime::Abi for StoreQueueItemState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for StoreQueueItemState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemState;i4)");
+}
+impl ::windows::runtime::DefaultType for StoreQueueItemState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]
@@ -3059,10 +3037,12 @@ impl ::std::convert::From<i32> for StoreRateAndReviewStatus {
 }
 unsafe impl ::windows::runtime::Abi for StoreRateAndReviewStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for StoreRateAndReviewStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreRateAndReviewStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for StoreRateAndReviewStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_Store`*"]
 pub struct StoreRequestHelper {}
@@ -3413,10 +3393,12 @@ impl ::std::convert::From<i32> for StoreUninstallStorePackageStatus {
 }
 unsafe impl ::windows::runtime::Abi for StoreUninstallStorePackageStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for StoreUninstallStorePackageStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreUninstallStorePackageStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for StoreUninstallStorePackageStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_Store`*"]
 #[repr(transparent)]

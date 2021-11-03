@@ -215,5 +215,4 @@ impl ::std::cmp::Eq for IsolatedAppLauncherTelemetryParameters {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IsolatedAppLauncherTelemetryParameters {
     type Abi = Self;
-    type DefaultType = Self;
 }

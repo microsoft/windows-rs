@@ -225,7 +225,6 @@ impl ::std::convert::From<u32> for FILE_MAP {
 }
 unsafe impl ::windows::runtime::Abi for FILE_MAP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for FILE_MAP {
     type Output = Self;
@@ -301,7 +300,6 @@ impl ::std::convert::From<u32> for GLOBAL_ALLOC_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for GLOBAL_ALLOC_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for GLOBAL_ALLOC_FLAGS {
     type Output = Self;
@@ -573,7 +571,6 @@ impl ::std::convert::From<u32> for HEAP_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for HEAP_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for HEAP_FLAGS {
     type Output = Self;
@@ -632,7 +629,6 @@ impl ::std::cmp::PartialEq for HEAP_SUMMARY {
 impl ::std::cmp::Eq for HEAP_SUMMARY {}
 unsafe impl ::windows::runtime::Abi for HEAP_SUMMARY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
@@ -717,7 +713,6 @@ impl ::std::default::Default for HeapHandle {
 unsafe impl ::windows::runtime::Handle for HeapHandle {}
 unsafe impl ::windows::runtime::Abi for HeapHandle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
@@ -945,7 +940,6 @@ impl ::std::convert::From<u32> for LOCAL_ALLOC_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for LOCAL_ALLOC_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for LOCAL_ALLOC_FLAGS {
     type Output = Self;
@@ -1131,7 +1125,6 @@ impl ::std::cmp::PartialEq for MEMORY_BASIC_INFORMATION {
 impl ::std::cmp::Eq for MEMORY_BASIC_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for MEMORY_BASIC_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1172,7 +1165,6 @@ impl ::std::cmp::PartialEq for MEMORY_BASIC_INFORMATION32 {
 impl ::std::cmp::Eq for MEMORY_BASIC_INFORMATION32 {}
 unsafe impl ::windows::runtime::Abi for MEMORY_BASIC_INFORMATION32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1217,7 +1209,6 @@ impl ::std::cmp::PartialEq for MEMORY_BASIC_INFORMATION64 {
 impl ::std::cmp::Eq for MEMORY_BASIC_INFORMATION64 {}
 unsafe impl ::windows::runtime::Abi for MEMORY_BASIC_INFORMATION64 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Memory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1232,7 +1223,6 @@ impl ::std::convert::From<i32> for MEMORY_RESOURCE_NOTIFICATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MEMORY_RESOURCE_NOTIFICATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
@@ -1413,7 +1403,6 @@ impl ::std::convert::From<i32> for OFFER_PRIORITY {
 }
 unsafe impl ::windows::runtime::Abi for OFFER_PRIORITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Memory`*"]
 #[inline]
@@ -1539,7 +1528,6 @@ impl ::std::convert::From<u32> for PAGE_PROTECTION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PAGE_PROTECTION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PAGE_PROTECTION_FLAGS {
     type Output = Self;
@@ -1583,7 +1571,6 @@ impl ::std::convert::From<u32> for PAGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PAGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PAGE_TYPE {
     type Output = Self;
@@ -1807,7 +1794,6 @@ impl ::std::convert::From<u32> for UNMAP_VIEW_OF_FILE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for UNMAP_VIEW_OF_FILE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for UNMAP_VIEW_OF_FILE_FLAGS {
     type Output = Self;
@@ -1916,7 +1902,6 @@ impl ::std::convert::From<u32> for VIRTUAL_ALLOCATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VIRTUAL_ALLOCATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for VIRTUAL_ALLOCATION_TYPE {
     type Output = Self;
@@ -1959,7 +1944,6 @@ impl ::std::convert::From<u32> for VIRTUAL_FREE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for VIRTUAL_FREE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for VIRTUAL_FREE_TYPE {
     type Output = Self;
@@ -2238,7 +2222,6 @@ impl ::std::convert::From<i32> for WIN32_MEMORY_INFORMATION_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for WIN32_MEMORY_INFORMATION_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2315,7 +2298,6 @@ impl ::std::cmp::PartialEq for WIN32_MEMORY_PARTITION_INFORMATION {
 impl ::std::cmp::Eq for WIN32_MEMORY_PARTITION_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for WIN32_MEMORY_PARTITION_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Memory`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2330,7 +2312,6 @@ impl ::std::convert::From<i32> for WIN32_MEMORY_PARTITION_INFORMATION_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for WIN32_MEMORY_PARTITION_INFORMATION_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2358,7 +2339,6 @@ impl ::std::cmp::PartialEq for WIN32_MEMORY_RANGE_ENTRY {
 impl ::std::cmp::Eq for WIN32_MEMORY_RANGE_ENTRY {}
 unsafe impl ::windows::runtime::Abi for WIN32_MEMORY_RANGE_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2384,7 +2364,6 @@ impl ::std::cmp::PartialEq for WIN32_MEMORY_REGION_INFORMATION {
 impl ::std::cmp::Eq for WIN32_MEMORY_REGION_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for WIN32_MEMORY_REGION_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2407,7 +2386,6 @@ impl ::std::cmp::PartialEq for WIN32_MEMORY_REGION_INFORMATION_0 {
 impl ::std::cmp::Eq for WIN32_MEMORY_REGION_INFORMATION_0 {}
 unsafe impl ::windows::runtime::Abi for WIN32_MEMORY_REGION_INFORMATION_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2434,5 +2412,4 @@ impl ::std::cmp::PartialEq for WIN32_MEMORY_REGION_INFORMATION_0_0 {
 impl ::std::cmp::Eq for WIN32_MEMORY_REGION_INFORMATION_0_0 {}
 unsafe impl ::windows::runtime::Abi for WIN32_MEMORY_REGION_INFORMATION_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }

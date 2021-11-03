@@ -10,7 +10,6 @@ impl ::std::default::Default for HPSS {
 unsafe impl ::windows::runtime::Handle for HPSS {}
 unsafe impl ::windows::runtime::Abi for HPSS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -23,7 +22,6 @@ impl ::std::default::Default for HPSSWALK {
 unsafe impl ::windows::runtime::Handle for HPSSWALK {}
 unsafe impl ::windows::runtime::Abi for HPSSWALK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -52,7 +50,6 @@ impl ::std::cmp::PartialEq for PSS_ALLOCATOR {
 impl ::std::cmp::Eq for PSS_ALLOCATOR {}
 unsafe impl ::windows::runtime::Abi for PSS_ALLOCATOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -79,7 +76,6 @@ impl ::std::cmp::PartialEq for PSS_AUXILIARY_PAGES_INFORMATION {
 impl ::std::cmp::Eq for PSS_AUXILIARY_PAGES_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for PSS_AUXILIARY_PAGES_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -117,7 +113,6 @@ impl ::std::cmp::Eq for PSS_AUXILIARY_PAGE_ENTRY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 unsafe impl ::windows::runtime::Abi for PSS_AUXILIARY_PAGE_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -152,7 +147,6 @@ impl ::std::convert::From<u32> for PSS_CAPTURE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PSS_CAPTURE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PSS_CAPTURE_FLAGS {
     type Output = Self;
@@ -195,7 +189,6 @@ impl ::std::convert::From<u32> for PSS_DUPLICATE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PSS_DUPLICATE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PSS_DUPLICATE_FLAGS {
     type Output = Self;
@@ -266,7 +259,6 @@ impl ::std::cmp::Eq for PSS_HANDLE_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -299,7 +291,6 @@ impl ::std::cmp::Eq for PSS_HANDLE_ENTRY_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -334,7 +325,6 @@ impl ::std::cmp::Eq for PSS_HANDLE_ENTRY_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -371,7 +361,6 @@ impl ::std::cmp::Eq for PSS_HANDLE_ENTRY_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -412,7 +401,6 @@ impl ::std::cmp::PartialEq for PSS_HANDLE_ENTRY_0_2 {
 impl ::std::cmp::Eq for PSS_HANDLE_ENTRY_0_2 {}
 unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -441,7 +429,6 @@ impl ::std::cmp::PartialEq for PSS_HANDLE_ENTRY_0_3 {
 impl ::std::cmp::Eq for PSS_HANDLE_ENTRY_0_3 {}
 unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -469,7 +456,6 @@ impl ::std::cmp::PartialEq for PSS_HANDLE_ENTRY_0_4 {
 impl ::std::cmp::Eq for PSS_HANDLE_ENTRY_0_4 {}
 unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0_4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -512,7 +498,6 @@ impl ::std::cmp::PartialEq for PSS_HANDLE_ENTRY_0_5 {
 impl ::std::cmp::Eq for PSS_HANDLE_ENTRY_0_5 {}
 unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0_5 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -530,7 +515,6 @@ impl ::std::convert::From<u32> for PSS_HANDLE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PSS_HANDLE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PSS_HANDLE_FLAGS {
     type Output = Self;
@@ -585,7 +569,6 @@ impl ::std::cmp::PartialEq for PSS_HANDLE_INFORMATION {
 impl ::std::cmp::Eq for PSS_HANDLE_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for PSS_HANDLE_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -620,7 +603,6 @@ impl ::std::cmp::Eq for PSS_HANDLE_TRACE_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PSS_HANDLE_TRACE_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -640,7 +622,6 @@ impl ::std::convert::From<i32> for PSS_OBJECT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PSS_OBJECT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -702,7 +683,6 @@ impl ::std::cmp::PartialEq for PSS_PERFORMANCE_COUNTERS {
 impl ::std::cmp::Eq for PSS_PERFORMANCE_COUNTERS {}
 unsafe impl ::windows::runtime::Abi for PSS_PERFORMANCE_COUNTERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 pub const PSS_PERF_RESOLUTION: u32 = 1000000u32;
@@ -723,7 +703,6 @@ impl ::std::convert::From<u32> for PSS_PROCESS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PSS_PROCESS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PSS_PROCESS_FLAGS {
     type Output = Self;
@@ -862,7 +841,6 @@ impl ::std::cmp::Eq for PSS_PROCESS_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PSS_PROCESS_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -883,7 +861,6 @@ impl ::std::convert::From<i32> for PSS_QUERY_INFORMATION_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for PSS_QUERY_INFORMATION_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -973,7 +950,6 @@ impl ::std::cmp::Eq for PSS_THREAD_ENTRY {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
 unsafe impl ::windows::runtime::Abi for PSS_THREAD_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -988,7 +964,6 @@ impl ::std::convert::From<u32> for PSS_THREAD_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PSS_THREAD_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PSS_THREAD_FLAGS {
     type Output = Self;
@@ -1044,7 +1019,6 @@ impl ::std::cmp::PartialEq for PSS_THREAD_INFORMATION {
 impl ::std::cmp::Eq for PSS_THREAD_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for PSS_THREAD_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1078,7 +1052,6 @@ impl ::std::cmp::Eq for PSS_VA_CLONE_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PSS_VA_CLONE_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1150,7 +1123,6 @@ impl ::std::cmp::Eq for PSS_VA_SPACE_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PSS_VA_SPACE_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1177,7 +1149,6 @@ impl ::std::cmp::PartialEq for PSS_VA_SPACE_INFORMATION {
 impl ::std::cmp::Eq for PSS_VA_SPACE_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for PSS_VA_SPACE_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1194,7 +1165,6 @@ impl ::std::convert::From<i32> for PSS_WALK_INFORMATION_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for PSS_WALK_INFORMATION_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`, `Win32_Foundation`*"]

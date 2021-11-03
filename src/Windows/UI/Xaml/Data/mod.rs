@@ -464,10 +464,12 @@ impl ::std::convert::From<i32> for BindingMode {
 }
 unsafe impl ::windows::runtime::Abi for BindingMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BindingMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Data.BindingMode;i4)");
+}
+impl ::windows::runtime::DefaultType for BindingMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Data`*"]
 #[repr(transparent)]
@@ -803,14 +805,13 @@ impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, e: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         ((*this).invoke)(
-            &*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::DefaultType),
-            &*(&e as *const <CurrentChangingEventArgs as ::windows::runtime::Abi>::Abi as *const <CurrentChangingEventArgs as ::windows::runtime::Abi>::DefaultType),
+            &*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::DefaultType>::DefaultType),
+            &*(&e as *const <CurrentChangingEventArgs as ::windows::runtime::Abi>::Abi as *const <CurrentChangingEventArgs as ::windows::runtime::DefaultType>::DefaultType),
         )
         .into()
     }
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBinding(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBinding {
@@ -844,7 +845,6 @@ pub struct IBinding_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBinding2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBinding2 {
@@ -868,7 +868,6 @@ pub struct IBinding2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: UpdateSourceTrigger) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBindingBase(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindingBase {
@@ -886,7 +885,6 @@ pub struct IBindingBase_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBindingBaseFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindingBaseFactory {
@@ -905,7 +903,6 @@ pub struct IBindingBaseFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baseinterface: ::windows::runtime::RawPtr, innerinterface: *mut ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBindingExpression(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindingExpression {
@@ -926,7 +923,6 @@ pub struct IBindingExpression_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBindingExpressionBase(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindingExpressionBase {
@@ -944,7 +940,6 @@ pub struct IBindingExpressionBase_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBindingExpressionBaseFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindingExpressionBaseFactory {
@@ -962,7 +957,6 @@ pub struct IBindingExpressionBaseFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBindingExpressionFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindingExpressionFactory {
@@ -980,7 +974,6 @@ pub struct IBindingExpressionFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBindingFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindingFactory {
@@ -999,7 +992,6 @@ pub struct IBindingFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baseinterface: ::windows::runtime::RawPtr, innerinterface: *mut ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBindingOperations(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindingOperations {
@@ -1017,7 +1009,6 @@ pub struct IBindingOperations_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBindingOperationsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBindingOperationsStatics {
@@ -1278,7 +1269,7 @@ impl ICollectionView {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_Xaml_Data`, `Foundation_Collections`*"]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<::windows::runtime::IInspectable as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [<::windows::runtime::IInspectable as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVector<::windows::runtime::IInspectable>>(self)?;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -1287,7 +1278,7 @@ impl ICollectionView {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `UI_Xaml_Data`, `Foundation_Collections`*"]
-    pub fn ReplaceAll(&self, items: &[<::windows::runtime::IInspectable as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn ReplaceAll(&self, items: &[<::windows::runtime::IInspectable as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::Collections::IVector<::windows::runtime::IInspectable>>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), items.len() as u32, ::std::mem::transmute(items.as_ptr())).ok() }
     }
@@ -1498,7 +1489,6 @@ pub struct ICollectionViewGroup_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICollectionViewSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICollectionViewSource {
@@ -1523,7 +1513,6 @@ pub struct ICollectionViewSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICollectionViewSourceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICollectionViewSourceStatics {
@@ -1545,7 +1534,6 @@ pub struct ICollectionViewSourceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICurrentChangingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentChangingEventArgs {
@@ -1566,7 +1554,6 @@ pub struct ICurrentChangingEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICurrentChangingEventArgsFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentChangingEventArgsFactory {
@@ -1740,7 +1727,6 @@ pub struct ICustomPropertyProvider_abi(
     #[cfg(not(feature = "UI_Xaml_Interop"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IItemIndexRange(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IItemIndexRange {
@@ -1761,7 +1747,6 @@ pub struct IItemIndexRange_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IItemIndexRangeFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IItemIndexRangeFactory {
@@ -1885,7 +1870,6 @@ pub struct INotifyPropertyChanged_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPropertyChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPropertyChangedEventArgs {
@@ -1904,7 +1888,6 @@ pub struct IPropertyChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPropertyChangedEventArgsFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPropertyChangedEventArgsFactory {
@@ -1923,7 +1906,6 @@ pub struct IPropertyChangedEventArgsFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, baseinterface: ::windows::runtime::RawPtr, innerinterface: *mut ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRelativeSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRelativeSource {
@@ -1943,7 +1925,6 @@ pub struct IRelativeSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: RelativeSourceMode) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRelativeSourceFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRelativeSourceFactory {
@@ -2182,10 +2163,12 @@ impl ::std::cmp::PartialEq for LoadMoreItemsResult {
 impl ::std::cmp::Eq for LoadMoreItemsResult {}
 unsafe impl ::windows::runtime::Abi for LoadMoreItemsResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for LoadMoreItemsResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.Xaml.Data.LoadMoreItemsResult;u4)");
+}
+impl ::windows::runtime::DefaultType for LoadMoreItemsResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Data`*"]
 #[repr(transparent)]
@@ -2295,8 +2278,8 @@ impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, e: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         ((*this).invoke)(
-            &*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::DefaultType),
-            &*(&e as *const <PropertyChangedEventArgs as ::windows::runtime::Abi>::Abi as *const <PropertyChangedEventArgs as ::windows::runtime::Abi>::DefaultType),
+            &*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::DefaultType>::DefaultType),
+            &*(&e as *const <PropertyChangedEventArgs as ::windows::runtime::Abi>::Abi as *const <PropertyChangedEventArgs as ::windows::runtime::DefaultType>::DefaultType),
         )
         .into()
     }
@@ -2435,10 +2418,12 @@ impl ::std::convert::From<i32> for RelativeSourceMode {
 }
 unsafe impl ::windows::runtime::Abi for RelativeSourceMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RelativeSourceMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Data.RelativeSourceMode;i4)");
+}
+impl ::windows::runtime::DefaultType for RelativeSourceMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Data`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2457,8 +2442,10 @@ impl ::std::convert::From<i32> for UpdateSourceTrigger {
 }
 unsafe impl ::windows::runtime::Abi for UpdateSourceTrigger {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UpdateSourceTrigger {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Data.UpdateSourceTrigger;i4)");
+}
+impl ::windows::runtime::DefaultType for UpdateSourceTrigger {
+    type DefaultType = Self;
 }

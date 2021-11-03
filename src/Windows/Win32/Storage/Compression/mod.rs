@@ -10,7 +10,6 @@ impl ::std::default::Default for COMPRESSOR_HANDLE {
 unsafe impl ::windows::runtime::Handle for COMPRESSOR_HANDLE {}
 unsafe impl ::windows::runtime::Abi for COMPRESSOR_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Compression`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -27,7 +26,6 @@ impl ::std::convert::From<u32> for COMPRESS_ALGORITHM {
 }
 unsafe impl ::windows::runtime::Abi for COMPRESS_ALGORITHM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for COMPRESS_ALGORITHM {
     type Output = Self;
@@ -90,7 +88,6 @@ impl ::std::cmp::PartialEq for COMPRESS_ALLOCATION_ROUTINES {
 impl ::std::cmp::Eq for COMPRESS_ALLOCATION_ROUTINES {}
 unsafe impl ::windows::runtime::Abi for COMPRESS_ALLOCATION_ROUTINES {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Compression`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -106,7 +103,6 @@ impl ::std::convert::From<i32> for COMPRESS_INFORMATION_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for COMPRESS_INFORMATION_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Compression`*"]
 pub const COMPRESS_RAW: u32 = 536870912u32;

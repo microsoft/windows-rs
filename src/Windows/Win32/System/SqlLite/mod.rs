@@ -98,7 +98,6 @@ impl ::std::cmp::PartialEq for Fts5ExtensionApi {
 impl ::std::cmp::Eq for Fts5ExtensionApi {}
 unsafe impl ::windows::runtime::Abi for Fts5ExtensionApi {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -126,7 +125,6 @@ impl ::std::cmp::PartialEq for Fts5PhraseIter {
 impl ::std::cmp::Eq for Fts5PhraseIter {}
 unsafe impl ::windows::runtime::Abi for Fts5PhraseIter {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -913,7 +911,6 @@ impl ::std::cmp::PartialEq for fts5_api {
 impl ::std::cmp::Eq for fts5_api {}
 unsafe impl ::windows::runtime::Abi for fts5_api {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type fts5_extension_function = unsafe extern "system" fn(papi: *const Fts5ExtensionApi, pfts: *mut Fts5Context, pctx: *mut sqlite3_context, nval: i32, apval: *mut *mut sqlite3_value);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -943,7 +940,6 @@ impl ::std::cmp::PartialEq for fts5_tokenizer {
 impl ::std::cmp::Eq for fts5_tokenizer {}
 unsafe impl ::windows::runtime::Abi for fts5_tokenizer {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -1766,7 +1762,6 @@ impl ::std::cmp::Eq for sqlite3_api_routines {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for sqlite3_api_routines {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_SqlLite`*"]
 #[inline]
@@ -3243,7 +3238,6 @@ impl ::std::cmp::PartialEq for sqlite3_file {
 impl ::std::cmp::Eq for sqlite3_file {}
 unsafe impl ::windows::runtime::Abi for sqlite3_file {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
@@ -3503,7 +3497,6 @@ impl ::std::cmp::Eq for sqlite3_index_info {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for sqlite3_index_info {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3533,7 +3526,6 @@ impl ::std::cmp::PartialEq for sqlite3_index_info_0 {
 impl ::std::cmp::Eq for sqlite3_index_info_0 {}
 unsafe impl ::windows::runtime::Abi for sqlite3_index_info_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3561,7 +3553,6 @@ impl ::std::cmp::PartialEq for sqlite3_index_info_1 {
 impl ::std::cmp::Eq for sqlite3_index_info_1 {}
 unsafe impl ::windows::runtime::Abi for sqlite3_index_info_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3589,7 +3580,6 @@ impl ::std::cmp::PartialEq for sqlite3_index_info_2 {
 impl ::std::cmp::Eq for sqlite3_index_info_2 {}
 unsafe impl ::windows::runtime::Abi for sqlite3_index_info_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_SqlLite`*"]
 #[inline]
@@ -3700,7 +3690,6 @@ impl ::std::cmp::PartialEq for sqlite3_io_methods {
 impl ::std::cmp::Eq for sqlite3_io_methods {}
 unsafe impl ::windows::runtime::Abi for sqlite3_io_methods {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
@@ -3903,7 +3892,6 @@ impl ::std::cmp::PartialEq for sqlite3_mem_methods {
 impl ::std::cmp::Eq for sqlite3_mem_methods {}
 unsafe impl ::windows::runtime::Abi for sqlite3_mem_methods {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_SqlLite`*"]
 #[inline]
@@ -4043,7 +4031,6 @@ impl ::std::cmp::PartialEq for sqlite3_module {
 impl ::std::cmp::Eq for sqlite3_module {}
 unsafe impl ::windows::runtime::Abi for sqlite3_module {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
@@ -4176,7 +4163,6 @@ impl ::std::cmp::PartialEq for sqlite3_mutex_methods {
 impl ::std::cmp::Eq for sqlite3_mutex_methods {}
 unsafe impl ::windows::runtime::Abi for sqlite3_mutex_methods {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_SqlLite`*"]
 #[inline]
@@ -4343,7 +4329,6 @@ impl ::std::cmp::PartialEq for sqlite3_pcache_methods {
 impl ::std::cmp::Eq for sqlite3_pcache_methods {}
 unsafe impl ::windows::runtime::Abi for sqlite3_pcache_methods {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4396,7 +4381,6 @@ impl ::std::cmp::PartialEq for sqlite3_pcache_methods2 {
 impl ::std::cmp::Eq for sqlite3_pcache_methods2 {}
 unsafe impl ::windows::runtime::Abi for sqlite3_pcache_methods2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4424,7 +4408,6 @@ impl ::std::cmp::PartialEq for sqlite3_pcache_page {
 impl ::std::cmp::Eq for sqlite3_pcache_page {}
 unsafe impl ::windows::runtime::Abi for sqlite3_pcache_page {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
@@ -4966,7 +4949,6 @@ impl ::std::cmp::PartialEq for sqlite3_rtree_geometry {
 impl ::std::cmp::Eq for sqlite3_rtree_geometry {}
 unsafe impl ::windows::runtime::Abi for sqlite3_rtree_geometry {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
@@ -5070,7 +5052,6 @@ impl ::std::cmp::PartialEq for sqlite3_rtree_query_info {
 impl ::std::cmp::Eq for sqlite3_rtree_query_info {}
 unsafe impl ::windows::runtime::Abi for sqlite3_rtree_query_info {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
@@ -5182,7 +5163,6 @@ impl ::std::cmp::PartialEq for sqlite3_snapshot {
 impl ::std::cmp::Eq for sqlite3_snapshot {}
 unsafe impl ::windows::runtime::Abi for sqlite3_snapshot {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
@@ -6176,7 +6156,6 @@ impl ::std::cmp::Eq for sqlite3_vfs {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for sqlite3_vfs {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
@@ -6287,7 +6266,6 @@ impl ::std::cmp::Eq for sqlite3_vtab {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for sqlite3_vtab {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
@@ -6350,7 +6328,6 @@ impl ::std::cmp::Eq for sqlite3_vtab_cursor {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for sqlite3_vtab_cursor {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_SqlLite`*"]
 #[inline]

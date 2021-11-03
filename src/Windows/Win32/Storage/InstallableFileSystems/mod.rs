@@ -21,7 +21,6 @@ impl ::std::cmp::PartialEq for FILTER_AGGREGATE_BASIC_INFORMATION {
 impl ::std::cmp::Eq for FILTER_AGGREGATE_BASIC_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for FILTER_AGGREGATE_BASIC_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -44,7 +43,6 @@ impl ::std::cmp::PartialEq for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
 impl ::std::cmp::Eq for FILTER_AGGREGATE_BASIC_INFORMATION_0 {}
 unsafe impl ::windows::runtime::Abi for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -72,7 +70,6 @@ impl ::std::cmp::PartialEq for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
 impl ::std::cmp::Eq for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {}
 unsafe impl ::windows::runtime::Abi for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -111,7 +108,6 @@ impl ::std::cmp::PartialEq for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
 impl ::std::cmp::Eq for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {}
 unsafe impl ::windows::runtime::Abi for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -135,7 +131,6 @@ impl ::std::cmp::PartialEq for FILTER_AGGREGATE_STANDARD_INFORMATION {
 impl ::std::cmp::Eq for FILTER_AGGREGATE_STANDARD_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for FILTER_AGGREGATE_STANDARD_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -158,7 +153,6 @@ impl ::std::cmp::PartialEq for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
 impl ::std::cmp::Eq for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {}
 unsafe impl ::windows::runtime::Abi for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -195,7 +189,6 @@ impl ::std::cmp::PartialEq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
 impl ::std::cmp::Eq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {}
 unsafe impl ::windows::runtime::Abi for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -236,7 +229,6 @@ impl ::std::cmp::PartialEq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
 impl ::std::cmp::Eq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {}
 unsafe impl ::windows::runtime::Abi for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -267,7 +259,6 @@ impl ::std::cmp::PartialEq for FILTER_FULL_INFORMATION {
 impl ::std::cmp::Eq for FILTER_FULL_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for FILTER_FULL_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_InstallableFileSystems`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -283,7 +274,6 @@ impl ::std::convert::From<i32> for FILTER_INFORMATION_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for FILTER_INFORMATION_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -311,7 +301,6 @@ impl ::std::cmp::PartialEq for FILTER_MESSAGE_HEADER {
 impl ::std::cmp::Eq for FILTER_MESSAGE_HEADER {}
 unsafe impl ::windows::runtime::Abi for FILTER_MESSAGE_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_InstallableFileSystems`*"]
 pub const FILTER_NAME_MAX_CHARS: u32 = 255u32;
@@ -348,7 +337,6 @@ impl ::std::cmp::Eq for FILTER_REPLY_HEADER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FILTER_REPLY_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -376,7 +364,6 @@ impl ::std::cmp::PartialEq for FILTER_VOLUME_BASIC_INFORMATION {
 impl ::std::cmp::Eq for FILTER_VOLUME_BASIC_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for FILTER_VOLUME_BASIC_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_InstallableFileSystems`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -391,7 +378,6 @@ impl ::std::convert::From<i32> for FILTER_VOLUME_INFORMATION_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for FILTER_VOLUME_INFORMATION_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -430,7 +416,6 @@ impl ::std::cmp::PartialEq for FILTER_VOLUME_STANDARD_INFORMATION {
 impl ::std::cmp::Eq for FILTER_VOLUME_STANDARD_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for FILTER_VOLUME_STANDARD_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_InstallableFileSystems`*"]
 pub const FLTFL_AGGREGATE_INFO_IS_LEGACYFILTER: u32 = 2u32;
@@ -492,7 +477,6 @@ impl ::std::convert::From<i32> for FLT_FILESYSTEM_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for FLT_FILESYSTEM_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_InstallableFileSystems`*"]
 pub const FLT_PORT_FLAG_SYNC_HANDLE: u32 = 1u32;
@@ -634,7 +618,6 @@ impl ::std::default::Default for FilterFindHandle {
 unsafe impl ::windows::runtime::Handle for FilterFindHandle {}
 unsafe impl ::windows::runtime::Abi for FilterFindHandle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_InstallableFileSystems`, `Win32_Foundation`*"]
@@ -766,7 +749,6 @@ impl ::std::default::Default for FilterInstanceFindHandle {
 unsafe impl ::windows::runtime::Handle for FilterInstanceFindHandle {}
 unsafe impl ::windows::runtime::Abi for FilterInstanceFindHandle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_InstallableFileSystems`, `Win32_Foundation`*"]
@@ -897,7 +879,6 @@ impl ::std::default::Default for FilterVolumeFindHandle {
 unsafe impl ::windows::runtime::Handle for FilterVolumeFindHandle {}
 unsafe impl ::windows::runtime::Abi for FilterVolumeFindHandle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_InstallableFileSystems`, `Win32_Foundation`*"]
@@ -955,7 +936,6 @@ impl ::std::default::Default for FilterVolumeInstanceFindHandle {
 unsafe impl ::windows::runtime::Handle for FilterVolumeInstanceFindHandle {}
 unsafe impl ::windows::runtime::Abi for FilterVolumeInstanceFindHandle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_InstallableFileSystems`, `Win32_Foundation`*"]
@@ -983,7 +963,6 @@ impl ::std::default::Default for HFILTER {
 unsafe impl ::windows::runtime::Handle for HFILTER {}
 unsafe impl ::windows::runtime::Abi for HFILTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -996,7 +975,6 @@ impl ::std::default::Default for HFILTER_INSTANCE {
 unsafe impl ::windows::runtime::Handle for HFILTER_INSTANCE {}
 unsafe impl ::windows::runtime::Abi for HFILTER_INSTANCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1020,7 +998,6 @@ impl ::std::cmp::PartialEq for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
 impl ::std::cmp::Eq for INSTANCE_AGGREGATE_STANDARD_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1043,7 +1020,6 @@ impl ::std::cmp::PartialEq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
 impl ::std::cmp::Eq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {}
 unsafe impl ::windows::runtime::Abi for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1086,7 +1062,6 @@ impl ::std::cmp::PartialEq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
 impl ::std::cmp::Eq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {}
 unsafe impl ::windows::runtime::Abi for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1148,7 +1123,6 @@ impl ::std::cmp::PartialEq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
 impl ::std::cmp::Eq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {}
 unsafe impl ::windows::runtime::Abi for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1177,7 +1151,6 @@ impl ::std::cmp::PartialEq for INSTANCE_BASIC_INFORMATION {
 impl ::std::cmp::Eq for INSTANCE_BASIC_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for INSTANCE_BASIC_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1230,7 +1203,6 @@ impl ::std::cmp::PartialEq for INSTANCE_FULL_INFORMATION {
 impl ::std::cmp::Eq for INSTANCE_FULL_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for INSTANCE_FULL_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_InstallableFileSystems`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1247,7 +1219,6 @@ impl ::std::convert::From<i32> for INSTANCE_INFORMATION_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for INSTANCE_INFORMATION_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_InstallableFileSystems`*"]
 pub const INSTANCE_NAME_MAX_CHARS: u32 = 255u32;
@@ -1286,7 +1257,6 @@ impl ::std::cmp::PartialEq for INSTANCE_PARTIAL_INFORMATION {
 impl ::std::cmp::Eq for INSTANCE_PARTIAL_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for INSTANCE_PARTIAL_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_InstallableFileSystems`*"]
 pub const VOLUME_NAME_MAX_CHARS: u32 = 1024u32;

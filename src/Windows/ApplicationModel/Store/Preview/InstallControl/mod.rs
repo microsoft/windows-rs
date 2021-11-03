@@ -1026,10 +1026,12 @@ impl ::std::convert::From<i32> for AppInstallState {
 }
 unsafe impl ::windows::runtime::Abi for AppInstallState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppInstallState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallState;i4)");
+}
+impl ::windows::runtime::DefaultType for AppInstallState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Store_Preview_InstallControl`*"]
 #[repr(transparent)]
@@ -1130,10 +1132,12 @@ impl ::std::convert::From<i32> for AppInstallType {
 }
 unsafe impl ::windows::runtime::Abi for AppInstallType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppInstallType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallType;i4)");
+}
+impl ::windows::runtime::DefaultType for AppInstallType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Store_Preview_InstallControl`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1152,10 +1156,12 @@ impl ::std::convert::From<i32> for AppInstallationToastNotificationMode {
 }
 unsafe impl ::windows::runtime::Abi for AppInstallationToastNotificationMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppInstallationToastNotificationMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallationToastNotificationMode;i4)");
+}
+impl ::windows::runtime::DefaultType for AppInstallationToastNotificationMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Store_Preview_InstallControl`*"]
 #[repr(transparent)]
@@ -1238,10 +1244,12 @@ impl ::std::convert::From<i32> for AutoUpdateSetting {
 }
 unsafe impl ::windows::runtime::Abi for AutoUpdateSetting {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AutoUpdateSetting {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.InstallControl.AutoUpdateSetting;i4)");
+}
+impl ::windows::runtime::DefaultType for AutoUpdateSetting {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Store_Preview_InstallControl`*"]
 #[repr(transparent)]
@@ -1286,13 +1294,14 @@ impl ::std::convert::From<i32> for GetEntitlementStatus {
 }
 unsafe impl ::windows::runtime::Abi for GetEntitlementStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GetEntitlementStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.InstallControl.GetEntitlementStatus;i4)");
 }
+impl ::windows::runtime::DefaultType for GetEntitlementStatus {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppInstallItem(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallItem {
@@ -1326,7 +1335,6 @@ pub struct IAppInstallItem_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppInstallItem2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallItem2 {
@@ -1347,7 +1355,6 @@ pub struct IAppInstallItem2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, correlationvector: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppInstallItem3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallItem3 {
@@ -1368,7 +1375,6 @@ pub struct IAppInstallItem3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppInstallItem4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallItem4 {
@@ -1388,7 +1394,6 @@ pub struct IAppInstallItem4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppInstallItem5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallItem5 {
@@ -1416,7 +1421,6 @@ pub struct IAppInstallItem5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: AppInstallationToastNotificationMode) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppInstallManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallManager {
@@ -1465,7 +1469,6 @@ pub struct IAppInstallManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppInstallManager2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallManager2 {
@@ -1507,7 +1510,6 @@ pub struct IAppInstallManager2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, productid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, correlationvector: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppInstallManager3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallManager3 {
@@ -1565,7 +1567,6 @@ pub struct IAppInstallManager3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, productid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, correlationvector: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppInstallManager4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallManager4 {
@@ -1589,7 +1590,6 @@ pub struct IAppInstallManager4_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppInstallManager5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallManager5 {
@@ -1609,7 +1609,6 @@ pub struct IAppInstallManager5_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppInstallManager6(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallManager6 {
@@ -1646,7 +1645,6 @@ pub struct IAppInstallManager6_abi(
     #[cfg(not(all(feature = "Foundation", feature = "System")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppInstallManager7(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallManager7 {
@@ -1665,7 +1663,6 @@ pub struct IAppInstallManager7_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppInstallManagerItemEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallManagerItemEventArgs {
@@ -1684,7 +1681,6 @@ pub struct IAppInstallManagerItemEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppInstallOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallOptions {
@@ -1716,7 +1712,6 @@ pub struct IAppInstallOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppInstallOptions2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallOptions2 {
@@ -1752,7 +1747,6 @@ pub struct IAppInstallOptions2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppInstallStatus(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallStatus {
@@ -1775,7 +1769,6 @@ pub struct IAppInstallStatus_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppInstallStatus2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallStatus2 {
@@ -1796,7 +1789,6 @@ pub struct IAppInstallStatus2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppInstallStatus3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppInstallStatus3 {
@@ -1815,7 +1807,6 @@ pub struct IAppInstallStatus3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppUpdateOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppUpdateOptions {
@@ -1837,7 +1828,6 @@ pub struct IAppUpdateOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppUpdateOptions2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppUpdateOptions2 {
@@ -1857,7 +1847,6 @@ pub struct IAppUpdateOptions2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGetEntitlementResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGetEntitlementResult {

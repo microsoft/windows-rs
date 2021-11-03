@@ -2,7 +2,6 @@
 #[cfg(feature = "ApplicationModel_Wallet_System")]
 pub mod System;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWalletBarcode(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletBarcode {
@@ -24,7 +23,6 @@ pub struct IWalletBarcode_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWalletBarcodeFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletBarcodeFactory {
@@ -45,7 +43,6 @@ pub struct IWalletBarcodeFactory_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWalletItem(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletItem {
@@ -147,7 +144,6 @@ pub struct IWalletItem_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWalletItemCustomProperty(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletItemCustomProperty {
@@ -175,7 +171,6 @@ pub struct IWalletItemCustomProperty_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: WalletSummaryViewPosition) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWalletItemCustomPropertyFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletItemCustomPropertyFactory {
@@ -194,7 +189,6 @@ pub struct IWalletItemCustomPropertyFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWalletItemFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletItemFactory {
@@ -213,7 +207,6 @@ pub struct IWalletItemFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, kind: WalletItemKind, displayname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWalletItemStore(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletItemStore {
@@ -251,7 +244,6 @@ pub struct IWalletItemStore_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWalletItemStore2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletItemStore2 {
@@ -273,7 +265,6 @@ pub struct IWalletItemStore2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWalletManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletManagerStatics {
@@ -293,7 +284,6 @@ pub struct IWalletManagerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWalletRelevantLocation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletRelevantLocation {
@@ -317,7 +307,6 @@ pub struct IWalletRelevantLocation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWalletTransaction(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletTransaction {
@@ -349,7 +338,6 @@ pub struct IWalletTransaction_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWalletVerb(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletVerb {
@@ -369,7 +357,6 @@ pub struct IWalletVerb_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWalletVerbFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletVerbFactory {
@@ -405,10 +392,12 @@ impl ::std::convert::From<i32> for WalletActionKind {
 }
 unsafe impl ::windows::runtime::Abi for WalletActionKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WalletActionKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletActionKind;i4)");
+}
+impl ::windows::runtime::DefaultType for WalletActionKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Wallet`*"]
 #[repr(transparent)]
@@ -497,10 +486,12 @@ impl ::std::convert::From<i32> for WalletBarcodeSymbology {
 }
 unsafe impl ::windows::runtime::Abi for WalletBarcodeSymbology {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WalletBarcodeSymbology {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletBarcodeSymbology;i4)");
+}
+impl ::windows::runtime::DefaultType for WalletBarcodeSymbology {
+    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -533,10 +524,12 @@ impl ::std::convert::From<i32> for WalletDetailViewPosition {
 }
 unsafe impl ::windows::runtime::Abi for WalletDetailViewPosition {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WalletDetailViewPosition {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletDetailViewPosition;i4)");
+}
+impl ::windows::runtime::DefaultType for WalletDetailViewPosition {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Wallet`*"]
 #[repr(transparent)]
@@ -1060,10 +1053,12 @@ impl ::std::convert::From<i32> for WalletItemKind {
 }
 unsafe impl ::windows::runtime::Abi for WalletItemKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WalletItemKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletItemKind;i4)");
+}
+impl ::windows::runtime::DefaultType for WalletItemKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Wallet`*"]
 #[repr(transparent)]
@@ -1261,10 +1256,12 @@ impl ::std::convert::From<i32> for WalletSummaryViewPosition {
 }
 unsafe impl ::windows::runtime::Abi for WalletSummaryViewPosition {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WalletSummaryViewPosition {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletSummaryViewPosition;i4)");
+}
+impl ::windows::runtime::DefaultType for WalletSummaryViewPosition {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Wallet`*"]
 #[repr(transparent)]

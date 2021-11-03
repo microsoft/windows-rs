@@ -449,10 +449,12 @@ impl ::std::convert::From<i32> for CurrencyFormatterMode {
 }
 unsafe impl ::windows::runtime::Abi for CurrencyFormatterMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CurrencyFormatterMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Globalization.NumberFormatting.CurrencyFormatterMode;i4)");
+}
+impl ::windows::runtime::DefaultType for CurrencyFormatterMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
 #[repr(transparent)]
@@ -856,7 +858,6 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISignificantDigitsOption> for &Decima
 unsafe impl ::std::marker::Send for DecimalFormatter {}
 unsafe impl ::std::marker::Sync for DecimalFormatter {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICurrencyFormatter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrencyFormatter {
@@ -876,7 +877,6 @@ pub struct ICurrencyFormatter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICurrencyFormatter2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrencyFormatter2 {
@@ -897,7 +897,6 @@ pub struct ICurrencyFormatter2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, roundingalgorithm: RoundingAlgorithm) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICurrencyFormatterFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrencyFormatterFactory {
@@ -918,7 +917,6 @@ pub struct ICurrencyFormatterFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDecimalFormatterFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDecimalFormatterFactory {
@@ -938,7 +936,6 @@ pub struct IDecimalFormatterFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IIncrementNumberRounder(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIncrementNumberRounder {
@@ -1367,7 +1364,6 @@ pub struct INumberRounderOption_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INumeralSystemTranslator(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumeralSystemTranslator {
@@ -1391,7 +1387,6 @@ pub struct INumeralSystemTranslator_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INumeralSystemTranslatorFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumeralSystemTranslatorFactory {
@@ -1411,7 +1406,6 @@ pub struct INumeralSystemTranslatorFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPercentFormatterFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPercentFormatterFactory {
@@ -1431,7 +1425,6 @@ pub struct IPercentFormatterFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPermilleFormatterFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPermilleFormatterFactory {
@@ -1489,7 +1482,6 @@ pub struct ISignedZeroOption_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISignificantDigitsNumberRounder(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISignificantDigitsNumberRounder {
@@ -2568,10 +2560,12 @@ impl ::std::convert::From<i32> for RoundingAlgorithm {
 }
 unsafe impl ::windows::runtime::Abi for RoundingAlgorithm {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RoundingAlgorithm {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Globalization.NumberFormatting.RoundingAlgorithm;i4)");
+}
+impl ::windows::runtime::DefaultType for RoundingAlgorithm {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
 #[repr(transparent)]

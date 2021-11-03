@@ -49,7 +49,6 @@ impl ::std::cmp::Eq for ACTCTXA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACTCTXA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -101,7 +100,6 @@ impl ::std::cmp::Eq for ACTCTXW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACTCTXW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -118,7 +116,6 @@ impl ::std::convert::From<i32> for ACTCTX_COMPATIBILITY_ELEMENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for ACTCTX_COMPATIBILITY_ELEMENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -136,7 +133,6 @@ impl ::std::convert::From<i32> for ACTCTX_REQUESTED_RUN_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for ACTCTX_REQUESTED_RUN_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -205,7 +201,6 @@ impl ::std::cmp::Eq for ACTCTX_SECTION_KEYED_DATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 unsafe impl ::windows::runtime::Abi for ACTCTX_SECTION_KEYED_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -295,7 +290,6 @@ impl ::std::cmp::Eq for ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -323,7 +317,6 @@ impl ::std::cmp::PartialEq for ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {
 impl ::std::cmp::Eq for ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -392,7 +385,6 @@ impl ::std::cmp::Eq for ACTIVATION_CONTEXT_DETAILED_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACTIVATION_CONTEXT_DETAILED_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -420,7 +412,6 @@ impl ::std::cmp::PartialEq for ACTIVATION_CONTEXT_QUERY_INDEX {
 impl ::std::cmp::Eq for ACTIVATION_CONTEXT_QUERY_INDEX {}
 unsafe impl ::windows::runtime::Abi for ACTIVATION_CONTEXT_QUERY_INDEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -449,7 +440,6 @@ impl ::std::cmp::PartialEq for ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {
 impl ::std::cmp::Eq for ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -464,7 +454,6 @@ impl ::std::convert::From<i32> for ADVERTISEFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for ADVERTISEFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const APPLY_OPTION_FAIL_IF_CLOSE: u32 = 2u32;
@@ -491,7 +480,6 @@ impl ::std::convert::From<u32> for ASM_BIND_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for ASM_BIND_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ASM_BIND_FLAGS {
     type Output = Self;
@@ -542,7 +530,6 @@ impl ::std::convert::From<i32> for ASM_CMP_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for ASM_CMP_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -562,7 +549,6 @@ impl ::std::convert::From<i32> for ASM_DISPLAY_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for ASM_DISPLAY_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -596,7 +582,6 @@ impl ::std::convert::From<i32> for ASM_NAME {
 }
 unsafe impl ::windows::runtime::Abi for ASM_NAME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const ASSEMBLYINFO_FLAG_INSTALLED: u32 = 1u32;
@@ -638,7 +623,6 @@ impl ::std::cmp::Eq for ASSEMBLY_FILE_DETAILED_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ASSEMBLY_FILE_DETAILED_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -676,7 +660,6 @@ impl ::std::cmp::Eq for ASSEMBLY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ASSEMBLY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
@@ -936,7 +919,6 @@ impl ::std::cmp::PartialEq for COMPATIBILITY_CONTEXT_ELEMENT {
 impl ::std::cmp::Eq for COMPATIBILITY_CONTEXT_ELEMENT {}
 unsafe impl ::windows::runtime::Abi for COMPATIBILITY_CONTEXT_ELEMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -951,7 +933,6 @@ impl ::std::convert::From<i32> for CREATE_ASM_NAME_OBJ_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CREATE_ASM_NAME_OBJ_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
@@ -1267,7 +1248,6 @@ impl ::std::cmp::PartialEq for DELTA_HASH {
 impl ::std::cmp::Eq for DELTA_HASH {}
 unsafe impl ::windows::runtime::Abi for DELTA_HASH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1315,7 +1295,6 @@ impl ::std::cmp::Eq for DELTA_HEADER_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DELTA_HEADER_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1345,7 +1324,6 @@ impl ::std::cmp::Eq for DELTA_INPUT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DELTA_INPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1368,7 +1346,6 @@ impl ::std::cmp::PartialEq for DELTA_INPUT_0 {
 impl ::std::cmp::Eq for DELTA_INPUT_0 {}
 unsafe impl ::windows::runtime::Abi for DELTA_INPUT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const DELTA_MAX_HASH_SIZE: u32 = 32u32;
@@ -1398,7 +1375,6 @@ impl ::std::cmp::PartialEq for DELTA_OUTPUT {
 impl ::std::cmp::Eq for DELTA_OUTPUT {}
 unsafe impl ::windows::runtime::Abi for DELTA_OUTPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
@@ -1888,7 +1864,6 @@ impl ::std::cmp::Eq for FUSION_INSTALL_REFERENCE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FUSION_INSTALL_REFERENCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const FUSION_REFCOUNT_FILEPATH_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2955910501, 64375, 20346, [175, 165, 179, 145, 48, 159, 17, 201]);
 pub const FUSION_REFCOUNT_OPAQUE_STRING_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(784938083, 45251, 17889, [131, 100, 50, 126, 150, 174, 168, 86]);
@@ -2167,7 +2142,6 @@ impl ::std::convert::From<u32> for IASSEMBLYCACHE_UNINSTALL_DISPOSITION {
 }
 unsafe impl ::windows::runtime::Abi for IASSEMBLYCACHE_UNINSTALL_DISPOSITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for IASSEMBLYCACHE_UNINSTALL_DISPOSITION {
     type Output = Self;
@@ -3089,7 +3063,6 @@ impl ::std::convert::From<i32> for INSTALLFEATUREATTRIBUTE {
 }
 unsafe impl ::windows::runtime::Abi for INSTALLFEATUREATTRIBUTE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3105,7 +3078,6 @@ impl ::std::convert::From<i32> for INSTALLLEVEL {
 }
 unsafe impl ::windows::runtime::Abi for INSTALLLEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3120,7 +3092,6 @@ impl ::std::convert::From<i32> for INSTALLLOGATTRIBUTES {
 }
 unsafe impl ::windows::runtime::Abi for INSTALLLOGATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3152,7 +3123,6 @@ impl ::std::convert::From<i32> for INSTALLMESSAGE {
 }
 unsafe impl ::windows::runtime::Abi for INSTALLMESSAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const INSTALLMESSAGE_TYPEMASK: i32 = -16777216i32;
@@ -3172,7 +3142,6 @@ impl ::std::convert::From<i32> for INSTALLMODE {
 }
 unsafe impl ::windows::runtime::Abi for INSTALLMODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3208,7 +3177,6 @@ impl ::std::convert::From<i32> for INSTALLOGMODE {
 }
 unsafe impl ::windows::runtime::Abi for INSTALLOGMODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3235,7 +3203,6 @@ impl ::std::convert::From<i32> for INSTALLSTATE {
 }
 unsafe impl ::windows::runtime::Abi for INSTALLSTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3251,7 +3218,6 @@ impl ::std::convert::From<i32> for INSTALLTYPE {
 }
 unsafe impl ::windows::runtime::Abi for INSTALLTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3275,7 +3241,6 @@ impl ::std::convert::From<i32> for INSTALLUILEVEL {
 }
 unsafe impl ::windows::runtime::Abi for INSTALLUILEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type INSTALLUI_HANDLERA = unsafe extern "system" fn(pvcontext: *mut ::std::ffi::c_void, imessagetype: u32, szmessage: super::super::Foundation::PSTR) -> i32;
@@ -5392,7 +5357,6 @@ impl ::std::convert::From<i32> for MSIADVERTISEOPTIONFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MSIADVERTISEOPTIONFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5409,7 +5373,6 @@ impl ::std::convert::From<i32> for MSIARCHITECTUREFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MSIARCHITECTUREFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5424,7 +5387,6 @@ impl ::std::convert::From<u32> for MSIASSEMBLYINFO {
 }
 unsafe impl ::windows::runtime::Abi for MSIASSEMBLYINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MSIASSEMBLYINFO {
     type Output = Self;
@@ -5467,7 +5429,6 @@ impl ::std::convert::From<i32> for MSICODE {
 }
 unsafe impl ::windows::runtime::Abi for MSICODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5482,7 +5443,6 @@ impl ::std::convert::From<i32> for MSICOLINFO {
 }
 unsafe impl ::windows::runtime::Abi for MSICOLINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5499,7 +5459,6 @@ impl ::std::convert::From<i32> for MSICONDITION {
 }
 unsafe impl ::windows::runtime::Abi for MSICONDITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5516,7 +5475,6 @@ impl ::std::convert::From<i32> for MSICOSTTREE {
 }
 unsafe impl ::windows::runtime::Abi for MSICOSTTREE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5562,7 +5520,6 @@ impl ::std::convert::From<i32> for MSIDBERROR {
 }
 unsafe impl ::windows::runtime::Abi for MSIDBERROR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5578,7 +5535,6 @@ impl ::std::convert::From<i32> for MSIDBSTATE {
 }
 unsafe impl ::windows::runtime::Abi for MSIDBSTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5606,7 +5562,6 @@ impl ::std::cmp::PartialEq for MSIFILEHASHINFO {
 impl ::std::cmp::Eq for MSIFILEHASHINFO {}
 unsafe impl ::windows::runtime::Abi for MSIFILEHASHINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -5619,7 +5574,6 @@ impl ::std::default::Default for MSIHANDLE {
 unsafe impl ::windows::runtime::Handle for MSIHANDLE {}
 unsafe impl ::windows::runtime::Abi for MSIHANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5639,7 +5593,6 @@ impl ::std::convert::From<i32> for MSIINSTALLCONTEXT {
 }
 unsafe impl ::windows::runtime::Abi for MSIINSTALLCONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5665,7 +5618,6 @@ impl ::std::convert::From<i32> for MSIMODIFY {
 }
 unsafe impl ::windows::runtime::Abi for MSIMODIFY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5679,7 +5631,6 @@ impl ::std::convert::From<i32> for MSIOPENPACKAGEFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MSIOPENPACKAGEFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5695,7 +5646,6 @@ impl ::std::convert::From<i32> for MSIPATCHDATATYPE {
 }
 unsafe impl ::windows::runtime::Abi for MSIPATCHDATATYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5732,7 +5682,6 @@ impl ::std::cmp::Eq for MSIPATCHSEQUENCEINFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MSIPATCHSEQUENCEINFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5769,7 +5718,6 @@ impl ::std::cmp::Eq for MSIPATCHSEQUENCEINFOW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MSIPATCHSEQUENCEINFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5788,7 +5736,6 @@ impl ::std::convert::From<i32> for MSIPATCHSTATE {
 }
 unsafe impl ::windows::runtime::Abi for MSIPATCHSTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5820,7 +5767,6 @@ impl ::std::convert::From<i32> for MSIRUNMODE {
 }
 unsafe impl ::windows::runtime::Abi for MSIRUNMODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5837,7 +5783,6 @@ impl ::std::convert::From<i32> for MSISOURCETYPE {
 }
 unsafe impl ::windows::runtime::Abi for MSISOURCETYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5852,7 +5797,6 @@ impl ::std::convert::From<i32> for MSITRANSACTION {
 }
 unsafe impl ::windows::runtime::Abi for MSITRANSACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5867,7 +5811,6 @@ impl ::std::convert::From<u32> for MSITRANSACTIONSTATE {
 }
 unsafe impl ::windows::runtime::Abi for MSITRANSACTIONSTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MSITRANSACTIONSTATE {
     type Output = Self;
@@ -5916,7 +5859,6 @@ impl ::std::convert::From<i32> for MSITRANSFORM_ERROR {
 }
 unsafe impl ::windows::runtime::Abi for MSITRANSFORM_ERROR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5941,7 +5883,6 @@ impl ::std::convert::From<i32> for MSITRANSFORM_VALIDATE {
 }
 unsafe impl ::windows::runtime::Abi for MSITRANSFORM_VALIDATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const MSI_INVALID_HASH_IS_FATAL: u32 = 1u32;
@@ -10071,7 +10012,6 @@ impl ::std::convert::From<i32> for PACKMAN_RUNTIME {
 }
 unsafe impl ::windows::runtime::Abi for PACKMAN_RUNTIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10099,7 +10039,6 @@ impl ::std::cmp::PartialEq for PATCH_IGNORE_RANGE {
 impl ::std::cmp::Eq for PATCH_IGNORE_RANGE {}
 unsafe impl ::windows::runtime::Abi for PATCH_IGNORE_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10127,7 +10066,6 @@ impl ::std::cmp::PartialEq for PATCH_INTERLEAVE_MAP {
 impl ::std::cmp::Eq for PATCH_INTERLEAVE_MAP {}
 unsafe impl ::windows::runtime::Abi for PATCH_INTERLEAVE_MAP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10156,7 +10094,6 @@ impl ::std::cmp::PartialEq for PATCH_INTERLEAVE_MAP_0 {
 impl ::std::cmp::Eq for PATCH_INTERLEAVE_MAP_0 {}
 unsafe impl ::windows::runtime::Abi for PATCH_INTERLEAVE_MAP_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10189,7 +10126,6 @@ impl ::std::cmp::Eq for PATCH_OLD_FILE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PATCH_OLD_FILE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10219,7 +10155,6 @@ impl ::std::cmp::Eq for PATCH_OLD_FILE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PATCH_OLD_FILE_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10265,7 +10200,6 @@ impl ::std::cmp::Eq for PATCH_OLD_FILE_INFO_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PATCH_OLD_FILE_INFO_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10311,7 +10245,6 @@ impl ::std::cmp::Eq for PATCH_OLD_FILE_INFO_H {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PATCH_OLD_FILE_INFO_H {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10357,7 +10290,6 @@ impl ::std::cmp::Eq for PATCH_OLD_FILE_INFO_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PATCH_OLD_FILE_INFO_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -10416,7 +10348,6 @@ impl ::std::cmp::Eq for PATCH_OPTION_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PATCH_OPTION_DATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PATCH_OPTION_FAIL_IF_BIGGER: u32 = 1048576u32;
@@ -10479,7 +10410,6 @@ impl ::std::cmp::PartialEq for PATCH_RETAIN_RANGE {
 impl ::std::cmp::Eq for PATCH_RETAIN_RANGE {}
 unsafe impl ::windows::runtime::Abi for PATCH_RETAIN_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PATCH_SYMBOL_NO_FAILURES: u32 = 2u32;
@@ -10559,7 +10489,6 @@ impl ::std::cmp::PartialEq for PMSIHANDLE {
 impl ::std::cmp::Eq for PMSIHANDLE {}
 unsafe impl ::windows::runtime::Abi for PMSIHANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const PMSvc: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3118797308, 58212, 18810, [161, 33, 183, 179, 97, 44, 237, 206]);
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
@@ -10581,7 +10510,6 @@ impl ::std::convert::From<i32> for PM_ACTIVATION_POLICY {
 }
 unsafe impl ::windows::runtime::Abi for PM_ACTIVATION_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10597,7 +10525,6 @@ impl ::std::convert::From<i32> for PM_APPLICATION_HUBTYPE {
 }
 unsafe impl ::windows::runtime::Abi for PM_APPLICATION_HUBTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10616,7 +10543,6 @@ impl ::std::convert::From<i32> for PM_APPLICATION_INSTALL_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PM_APPLICATION_INSTALL_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10642,7 +10568,6 @@ impl ::std::convert::From<i32> for PM_APPLICATION_STATE {
 }
 unsafe impl ::windows::runtime::Abi for PM_APPLICATION_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10658,7 +10583,6 @@ impl ::std::convert::From<i32> for PM_APP_GENRE {
 }
 unsafe impl ::windows::runtime::Abi for PM_APP_GENRE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -10693,7 +10617,6 @@ impl ::std::cmp::Eq for PM_BSATASKID {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PM_BSATASKID {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -10728,7 +10651,6 @@ impl ::std::cmp::Eq for PM_BWTASKID {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PM_BWTASKID {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10750,7 +10672,6 @@ impl ::std::convert::From<i32> for PM_ENUM_APP_FILTER {
 }
 unsafe impl ::windows::runtime::Abi for PM_ENUM_APP_FILTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10769,7 +10690,6 @@ impl ::std::convert::From<i32> for PM_ENUM_BSA_FILTER {
 }
 unsafe impl ::windows::runtime::Abi for PM_ENUM_BSA_FILTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10785,7 +10705,6 @@ impl ::std::convert::From<i32> for PM_ENUM_BW_FILTER {
 }
 unsafe impl ::windows::runtime::Abi for PM_ENUM_BW_FILTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10809,7 +10728,6 @@ impl ::std::convert::From<i32> for PM_ENUM_EXTENSION_FILTER {
 }
 unsafe impl ::windows::runtime::Abi for PM_ENUM_EXTENSION_FILTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for PM_ENUM_FILTER {
@@ -10843,7 +10761,6 @@ impl ::std::cmp::Eq for PM_ENUM_FILTER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PM_ENUM_FILTER {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for PM_ENUM_FILTER_0 {
@@ -10892,7 +10809,6 @@ impl ::std::cmp::Eq for PM_ENUM_FILTER_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PM_ENUM_FILTER_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10911,7 +10827,6 @@ impl ::std::convert::From<i32> for PM_ENUM_TASK_FILTER {
 }
 unsafe impl ::windows::runtime::Abi for PM_ENUM_TASK_FILTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10929,7 +10844,6 @@ impl ::std::convert::From<i32> for PM_ENUM_TILE_FILTER {
 }
 unsafe impl ::windows::runtime::Abi for PM_ENUM_TILE_FILTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -10964,7 +10878,6 @@ impl ::std::cmp::Eq for PM_EXTENSIONCONSUMER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PM_EXTENSIONCONSUMER {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -11016,7 +10929,6 @@ impl ::std::cmp::Eq for PM_INSTALLINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PM_INSTALLINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -11051,7 +10963,6 @@ impl ::std::cmp::Eq for PM_INVOCATIONINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PM_INVOCATIONINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11068,7 +10979,6 @@ impl ::std::convert::From<i32> for PM_LIVETILE_RECURRENCE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PM_LIVETILE_RECURRENCE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11085,7 +10995,6 @@ impl ::std::convert::From<i32> for PM_LOGO_SIZE {
 }
 unsafe impl ::windows::runtime::Abi for PM_LOGO_SIZE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -11141,7 +11050,6 @@ impl ::std::cmp::Eq for PM_STARTAPPBLOB {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PM_STARTAPPBLOB {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -11213,7 +11121,6 @@ impl ::std::cmp::Eq for PM_STARTTILEBLOB {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PM_STARTTILEBLOB {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11231,7 +11138,6 @@ impl ::std::convert::From<i32> for PM_STARTTILE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PM_STARTTILE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11252,7 +11158,6 @@ impl ::std::convert::From<i32> for PM_TASK_TRANSITION {
 }
 unsafe impl ::windows::runtime::Abi for PM_TASK_TRANSITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11271,7 +11176,6 @@ impl ::std::convert::From<i32> for PM_TASK_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PM_TASK_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11293,7 +11197,6 @@ impl ::std::convert::From<i32> for PM_TILE_HUBTYPE {
 }
 unsafe impl ::windows::runtime::Abi for PM_TILE_HUBTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11312,7 +11215,6 @@ impl ::std::convert::From<i32> for PM_TILE_SIZE {
 }
 unsafe impl ::windows::runtime::Abi for PM_TILE_SIZE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -11360,7 +11262,6 @@ impl ::std::cmp::Eq for PM_UPDATEINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PM_UPDATEINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -11399,7 +11300,6 @@ impl ::std::cmp::Eq for PM_UPDATEINFO_LEGACY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PM_UPDATEINFO_LEGACY {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type PPATCH_PROGRESS_CALLBACK = unsafe extern "system" fn(callbackcontext: *mut ::std::ffi::c_void, currentposition: u32, maximumposition: u32) -> super::super::Foundation::BOOL;
@@ -11431,7 +11331,6 @@ impl ::std::cmp::PartialEq for PROTECTED_FILE_DATA {
 impl ::std::cmp::Eq for PROTECTED_FILE_DATA {}
 unsafe impl ::windows::runtime::Abi for PROTECTED_FILE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11445,7 +11344,6 @@ impl ::std::convert::From<u32> for QUERYASMINFO_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for QUERYASMINFO_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for QUERYASMINFO_FLAGS {
     type Output = Self;
@@ -11527,7 +11425,6 @@ impl ::std::convert::From<i32> for REINSTALLMODE {
 }
 unsafe impl ::windows::runtime::Abi for REINSTALLMODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11544,7 +11441,6 @@ impl ::std::convert::From<i32> for RESULTTYPES {
 }
 unsafe impl ::windows::runtime::Abi for RESULTTYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
@@ -11581,7 +11477,6 @@ impl ::std::convert::From<i32> for SCRIPTFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for SCRIPTFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const SFC_DISABLE_ASK: u32 = 1u32;
@@ -11625,7 +11520,6 @@ impl ::std::convert::From<i32> for STATUSTYPES {
 }
 unsafe impl ::windows::runtime::Abi for STATUSTYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const STREAM_FORMAT_COMPLIB_MANIFEST: u32 = 1u32;
@@ -11764,7 +11658,6 @@ impl ::std::convert::From<i32> for TILE_TEMPLATE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for TILE_TEMPLATE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const TXTLOG_BACKUP: u32 = 128u32;
@@ -11918,7 +11811,6 @@ impl ::std::convert::From<i32> for USERINFOSTATE {
 }
 unsafe impl ::windows::runtime::Abi for USERINFOSTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const WARN_BAD_MAJOR_VERSION: u32 = 3222294792u32;
@@ -11995,7 +11887,6 @@ impl ::std::cmp::PartialEq for _tagAPPTASKTYPE {
 impl ::std::cmp::Eq for _tagAPPTASKTYPE {}
 unsafe impl ::windows::runtime::Abi for _tagAPPTASKTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const cchMaxInteger: i32 = 12i32;
@@ -12012,7 +11903,6 @@ impl ::std::convert::From<i32> for msidbAssemblyAttributes {
 }
 unsafe impl ::windows::runtime::Abi for msidbAssemblyAttributes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12026,7 +11916,6 @@ impl ::std::convert::From<i32> for msidbClassAttributes {
 }
 unsafe impl ::windows::runtime::Abi for msidbClassAttributes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12052,7 +11941,6 @@ impl ::std::convert::From<i32> for msidbComponentAttributes {
 }
 unsafe impl ::windows::runtime::Abi for msidbComponentAttributes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12101,7 +11989,6 @@ impl ::std::convert::From<i32> for msidbControlAttributes {
 }
 unsafe impl ::windows::runtime::Abi for msidbControlAttributes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12137,7 +12024,6 @@ impl ::std::convert::From<i32> for msidbCustomActionType {
 }
 unsafe impl ::windows::runtime::Abi for msidbCustomActionType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12162,7 +12048,6 @@ impl ::std::convert::From<i32> for msidbDialogAttributes {
 }
 unsafe impl ::windows::runtime::Abi for msidbDialogAttributes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12177,7 +12062,6 @@ impl ::std::convert::From<i32> for msidbEmbeddedUIAttributes {
 }
 unsafe impl ::windows::runtime::Abi for msidbEmbeddedUIAttributes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12197,7 +12081,6 @@ impl ::std::convert::From<i32> for msidbFeatureAttributes {
 }
 unsafe impl ::windows::runtime::Abi for msidbFeatureAttributes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12224,7 +12107,6 @@ impl ::std::convert::From<i32> for msidbFileAttributes {
 }
 unsafe impl ::windows::runtime::Abi for msidbFileAttributes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12242,7 +12124,6 @@ impl ::std::convert::From<i32> for msidbIniFileAction {
 }
 unsafe impl ::windows::runtime::Abi for msidbIniFileAction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12259,7 +12140,6 @@ impl ::std::convert::From<i32> for msidbLocatorType {
 }
 unsafe impl ::windows::runtime::Abi for msidbLocatorType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12273,7 +12153,6 @@ impl ::std::convert::From<i32> for msidbMoveFileOptions {
 }
 unsafe impl ::windows::runtime::Abi for msidbMoveFileOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12288,7 +12167,6 @@ impl ::std::convert::From<i32> for msidbODBCDataSourceRegistration {
 }
 unsafe impl ::windows::runtime::Abi for msidbODBCDataSourceRegistration {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12302,7 +12180,6 @@ impl ::std::convert::From<i32> for msidbPatchAttributes {
 }
 unsafe impl ::windows::runtime::Abi for msidbPatchAttributes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12319,7 +12196,6 @@ impl ::std::convert::From<i32> for msidbRegistryRoot {
 }
 unsafe impl ::windows::runtime::Abi for msidbRegistryRoot {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12335,7 +12211,6 @@ impl ::std::convert::From<i32> for msidbRemoveFileInstallMode {
 }
 unsafe impl ::windows::runtime::Abi for msidbRemoveFileInstallMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12351,7 +12226,6 @@ impl ::std::convert::From<i32> for msidbServiceConfigEvent {
 }
 unsafe impl ::windows::runtime::Abi for msidbServiceConfigEvent {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12370,7 +12244,6 @@ impl ::std::convert::From<i32> for msidbServiceControlEvent {
 }
 unsafe impl ::windows::runtime::Abi for msidbServiceControlEvent {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12384,7 +12257,6 @@ impl ::std::convert::From<i32> for msidbServiceInstallErrorControl {
 }
 unsafe impl ::windows::runtime::Abi for msidbServiceInstallErrorControl {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12401,7 +12273,6 @@ impl ::std::convert::From<i32> for msidbSumInfoSourceType {
 }
 unsafe impl ::windows::runtime::Abi for msidbSumInfoSourceType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12418,7 +12289,6 @@ impl ::std::convert::From<i32> for msidbTextStyleStyleBits {
 }
 unsafe impl ::windows::runtime::Abi for msidbTextStyleStyleBits {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12437,7 +12307,6 @@ impl ::std::convert::From<i32> for msidbUpgradeAttributes {
 }
 unsafe impl ::windows::runtime::Abi for msidbUpgradeAttributes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12453,7 +12322,6 @@ impl ::std::convert::From<i32> for msifiFastInstallBits {
 }
 unsafe impl ::windows::runtime::Abi for msifiFastInstallBits {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12471,7 +12339,6 @@ impl ::std::convert::From<i32> for msirbRebootReason {
 }
 unsafe impl ::windows::runtime::Abi for msirbRebootReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12486,7 +12353,6 @@ impl ::std::convert::From<i32> for msirbRebootType {
 }
 unsafe impl ::windows::runtime::Abi for msirbRebootType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12507,5 +12373,4 @@ impl ::std::convert::From<i32> for msmErrorType {
 }
 unsafe impl ::windows::runtime::Abi for msmErrorType {
     type Abi = Self;
-    type DefaultType = Self;
 }

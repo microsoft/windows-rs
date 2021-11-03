@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechContinuousRecognitionCompletedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechContinuousRecognitionCompletedEventArgs {
@@ -19,7 +18,6 @@ pub struct ISpeechContinuousRecognitionCompletedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SpeechRecognitionResultStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechContinuousRecognitionResultGeneratedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechContinuousRecognitionResultGeneratedEventArgs {
@@ -38,7 +36,6 @@ pub struct ISpeechContinuousRecognitionResultGeneratedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechContinuousRecognitionSession(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechContinuousRecognitionSession {
@@ -79,7 +76,6 @@ pub struct ISpeechContinuousRecognitionSession_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionCompilationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionCompilationResult {
@@ -175,7 +171,6 @@ pub struct ISpeechRecognitionConstraint_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: SpeechRecognitionConstraintProbability) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionGrammarFileConstraint(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionGrammarFileConstraint {
@@ -195,7 +190,6 @@ pub struct ISpeechRecognitionGrammarFileConstraint_abi(
     #[cfg(not(feature = "Storage"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionGrammarFileConstraintFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionGrammarFileConstraintFactory {
@@ -217,7 +211,6 @@ pub struct ISpeechRecognitionGrammarFileConstraintFactory_abi(
     #[cfg(not(feature = "Storage"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionHypothesis(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionHypothesis {
@@ -236,7 +229,6 @@ pub struct ISpeechRecognitionHypothesis_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionHypothesisGeneratedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionHypothesisGeneratedEventArgs {
@@ -255,7 +247,6 @@ pub struct ISpeechRecognitionHypothesisGeneratedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionListConstraint(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionListConstraint {
@@ -275,7 +266,6 @@ pub struct ISpeechRecognitionListConstraint_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionListConstraintFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionListConstraintFactory {
@@ -297,7 +287,6 @@ pub struct ISpeechRecognitionListConstraintFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionQualityDegradingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionQualityDegradingEventArgs {
@@ -316,7 +305,6 @@ pub struct ISpeechRecognitionQualityDegradingEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SpeechRecognitionAudioProblem) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionResult {
@@ -344,7 +332,6 @@ pub struct ISpeechRecognitionResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionResult2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionResult2 {
@@ -366,7 +353,6 @@ pub struct ISpeechRecognitionResult2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionSemanticInterpretation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionSemanticInterpretation {
@@ -386,7 +372,6 @@ pub struct ISpeechRecognitionSemanticInterpretation_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionTopicConstraint(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionTopicConstraint {
@@ -406,7 +391,6 @@ pub struct ISpeechRecognitionTopicConstraint_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionTopicConstraintFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionTopicConstraintFactory {
@@ -426,7 +410,6 @@ pub struct ISpeechRecognitionTopicConstraintFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, scenario: SpeechRecognitionScenario, topichint: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, tag: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechRecognitionVoiceCommandDefinitionConstraint(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognitionVoiceCommandDefinitionConstraint {
@@ -444,7 +427,6 @@ pub struct ISpeechRecognitionVoiceCommandDefinitionConstraint_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechRecognizer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognizer {
@@ -482,7 +464,6 @@ pub struct ISpeechRecognizer_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechRecognizer2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognizer2 {
@@ -508,7 +489,6 @@ pub struct ISpeechRecognizer2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechRecognizerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognizerFactory {
@@ -528,7 +508,6 @@ pub struct ISpeechRecognizerFactory_abi(
     #[cfg(not(feature = "Globalization"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechRecognizerStateChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognizerStateChangedEventArgs {
@@ -547,7 +526,6 @@ pub struct ISpeechRecognizerStateChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut SpeechRecognizerState) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechRecognizerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognizerStatics {
@@ -571,7 +549,6 @@ pub struct ISpeechRecognizerStatics_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Globalization")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechRecognizerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognizerStatics2 {
@@ -591,7 +568,6 @@ pub struct ISpeechRecognizerStatics2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Globalization")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechRecognizerTimeouts(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognizerTimeouts {
@@ -621,7 +597,6 @@ pub struct ISpeechRecognizerTimeouts_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpeechRecognizerUIOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpeechRecognizerUIOptions {
@@ -647,7 +622,6 @@ pub struct ISpeechRecognizerUIOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVoiceCommandManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandManager {
@@ -669,7 +643,6 @@ pub struct IVoiceCommandManager_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVoiceCommandSet(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVoiceCommandSet {
@@ -731,10 +704,12 @@ impl ::std::convert::From<i32> for SpeechContinuousRecognitionMode {
 }
 unsafe impl ::windows::runtime::Abi for SpeechContinuousRecognitionMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SpeechContinuousRecognitionMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechContinuousRecognitionMode;i4)");
+}
+impl ::windows::runtime::DefaultType for SpeechContinuousRecognitionMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[repr(transparent)]
@@ -895,10 +870,12 @@ impl ::std::convert::From<i32> for SpeechRecognitionAudioProblem {
 }
 unsafe impl ::windows::runtime::Abi for SpeechRecognitionAudioProblem {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SpeechRecognitionAudioProblem {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionAudioProblem;i4)");
+}
+impl ::windows::runtime::DefaultType for SpeechRecognitionAudioProblem {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[repr(transparent)]
@@ -943,10 +920,12 @@ impl ::std::convert::From<i32> for SpeechRecognitionConfidence {
 }
 unsafe impl ::windows::runtime::Abi for SpeechRecognitionConfidence {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SpeechRecognitionConfidence {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConfidence;i4)");
+}
+impl ::windows::runtime::DefaultType for SpeechRecognitionConfidence {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -964,10 +943,12 @@ impl ::std::convert::From<i32> for SpeechRecognitionConstraintProbability {
 }
 unsafe impl ::windows::runtime::Abi for SpeechRecognitionConstraintProbability {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SpeechRecognitionConstraintProbability {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConstraintProbability;i4)");
+}
+impl ::windows::runtime::DefaultType for SpeechRecognitionConstraintProbability {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -986,10 +967,12 @@ impl ::std::convert::From<i32> for SpeechRecognitionConstraintType {
 }
 unsafe impl ::windows::runtime::Abi for SpeechRecognitionConstraintType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SpeechRecognitionConstraintType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConstraintType;i4)");
+}
+impl ::windows::runtime::DefaultType for SpeechRecognitionConstraintType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[repr(transparent)]
@@ -1427,10 +1410,12 @@ impl ::std::convert::From<i32> for SpeechRecognitionResultStatus {
 }
 unsafe impl ::windows::runtime::Abi for SpeechRecognitionResultStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SpeechRecognitionResultStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionResultStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for SpeechRecognitionResultStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1448,10 +1433,12 @@ impl ::std::convert::From<i32> for SpeechRecognitionScenario {
 }
 unsafe impl ::windows::runtime::Abi for SpeechRecognitionScenario {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SpeechRecognitionScenario {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionScenario;i4)");
+}
+impl ::windows::runtime::DefaultType for SpeechRecognitionScenario {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[repr(transparent)]
@@ -1948,10 +1935,12 @@ impl ::std::convert::From<i32> for SpeechRecognizerState {
 }
 unsafe impl ::windows::runtime::Abi for SpeechRecognizerState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SpeechRecognizerState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognizerState;i4)");
+}
+impl ::windows::runtime::DefaultType for SpeechRecognizerState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_SpeechRecognition`*"]
 #[repr(transparent)]

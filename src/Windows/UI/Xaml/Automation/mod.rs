@@ -98,10 +98,12 @@ impl ::std::convert::From<i32> for AnnotationType {
 }
 unsafe impl ::windows::runtime::Abi for AnnotationType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AnnotationType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AnnotationType;i4)");
+}
+impl ::windows::runtime::DefaultType for AnnotationType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -119,10 +121,12 @@ impl ::std::convert::From<i32> for AutomationActiveEnd {
 }
 unsafe impl ::windows::runtime::Abi for AutomationActiveEnd {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AutomationActiveEnd {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationActiveEnd;i4)");
+}
+impl ::windows::runtime::DefaultType for AutomationActiveEnd {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -145,10 +149,12 @@ impl ::std::convert::From<i32> for AutomationAnimationStyle {
 }
 unsafe impl ::windows::runtime::Abi for AutomationAnimationStyle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AutomationAnimationStyle {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationAnimationStyle;i4)");
+}
+impl ::windows::runtime::DefaultType for AutomationAnimationStyle {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
@@ -333,10 +339,12 @@ impl ::std::convert::From<i32> for AutomationBulletStyle {
 }
 unsafe impl ::windows::runtime::Abi for AutomationBulletStyle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AutomationBulletStyle {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationBulletStyle;i4)");
+}
+impl ::windows::runtime::DefaultType for AutomationBulletStyle {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -353,10 +361,12 @@ impl ::std::convert::From<i32> for AutomationCaretBidiMode {
 }
 unsafe impl ::windows::runtime::Abi for AutomationCaretBidiMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AutomationCaretBidiMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationCaretBidiMode;i4)");
+}
+impl ::windows::runtime::DefaultType for AutomationCaretBidiMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -374,10 +384,12 @@ impl ::std::convert::From<i32> for AutomationCaretPosition {
 }
 unsafe impl ::windows::runtime::Abi for AutomationCaretPosition {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AutomationCaretPosition {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationCaretPosition;i4)");
+}
+impl ::windows::runtime::DefaultType for AutomationCaretPosition {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
@@ -719,10 +731,12 @@ impl ::std::convert::From<i32> for AutomationFlowDirections {
 }
 unsafe impl ::windows::runtime::Abi for AutomationFlowDirections {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AutomationFlowDirections {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationFlowDirections;i4)");
+}
+impl ::windows::runtime::DefaultType for AutomationFlowDirections {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -742,10 +756,12 @@ impl ::std::convert::From<i32> for AutomationOutlineStyles {
 }
 unsafe impl ::windows::runtime::Abi for AutomationOutlineStyles {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AutomationOutlineStyles {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationOutlineStyles;i4)");
+}
+impl ::windows::runtime::DefaultType for AutomationOutlineStyles {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
@@ -1363,10 +1379,12 @@ impl ::std::convert::From<i32> for AutomationStyleId {
 }
 unsafe impl ::windows::runtime::Abi for AutomationStyleId {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AutomationStyleId {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationStyleId;i4)");
+}
+impl ::windows::runtime::DefaultType for AutomationStyleId {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1400,10 +1418,12 @@ impl ::std::convert::From<i32> for AutomationTextDecorationLineStyle {
 }
 unsafe impl ::windows::runtime::Abi for AutomationTextDecorationLineStyle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AutomationTextDecorationLineStyle {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationTextDecorationLineStyle;i4)");
+}
+impl ::windows::runtime::DefaultType for AutomationTextDecorationLineStyle {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1422,10 +1442,12 @@ impl ::std::convert::From<i32> for AutomationTextEditChangeType {
 }
 unsafe impl ::windows::runtime::Abi for AutomationTextEditChangeType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AutomationTextEditChangeType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationTextEditChangeType;i4)");
+}
+impl ::windows::runtime::DefaultType for AutomationTextEditChangeType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
@@ -1475,10 +1497,12 @@ impl ::std::convert::From<i32> for DockPosition {
 }
 unsafe impl ::windows::runtime::Abi for DockPosition {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DockPosition {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.DockPosition;i4)");
+}
+impl ::windows::runtime::DefaultType for DockPosition {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
@@ -1612,10 +1636,12 @@ impl ::std::convert::From<i32> for ExpandCollapseState {
 }
 unsafe impl ::windows::runtime::Abi for ExpandCollapseState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ExpandCollapseState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.ExpandCollapseState;i4)");
+}
+impl ::windows::runtime::DefaultType for ExpandCollapseState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
@@ -1711,7 +1737,6 @@ impl ::windows::runtime::RuntimeName for GridPatternIdentifiers {
 unsafe impl ::std::marker::Send for GridPatternIdentifiers {}
 unsafe impl ::std::marker::Sync for GridPatternIdentifiers {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAnnotationPatternIdentifiers(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAnnotationPatternIdentifiers {
@@ -1729,7 +1754,6 @@ pub struct IAnnotationPatternIdentifiers_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAnnotationPatternIdentifiersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAnnotationPatternIdentifiersStatics {
@@ -1752,7 +1776,6 @@ pub struct IAnnotationPatternIdentifiersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationAnnotation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationAnnotation {
@@ -1774,7 +1797,6 @@ pub struct IAutomationAnnotation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationAnnotationFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationAnnotationFactory {
@@ -1794,7 +1816,6 @@ pub struct IAutomationAnnotationFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: AnnotationType, element: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationAnnotationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationAnnotationStatics {
@@ -1814,7 +1835,6 @@ pub struct IAutomationAnnotationStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationElementIdentifiers(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationElementIdentifiers {
@@ -1832,7 +1852,6 @@ pub struct IAutomationElementIdentifiers_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationElementIdentifiersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationElementIdentifiersStatics {
@@ -1873,7 +1892,6 @@ pub struct IAutomationElementIdentifiersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationElementIdentifiersStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationElementIdentifiersStatics2 {
@@ -1892,7 +1910,6 @@ pub struct IAutomationElementIdentifiersStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationElementIdentifiersStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationElementIdentifiersStatics3 {
@@ -1914,7 +1931,6 @@ pub struct IAutomationElementIdentifiersStatics3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationElementIdentifiersStatics4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationElementIdentifiersStatics4 {
@@ -1934,7 +1950,6 @@ pub struct IAutomationElementIdentifiersStatics4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationElementIdentifiersStatics5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationElementIdentifiersStatics5 {
@@ -1958,7 +1973,6 @@ pub struct IAutomationElementIdentifiersStatics5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationElementIdentifiersStatics6(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationElementIdentifiersStatics6 {
@@ -1977,7 +1991,6 @@ pub struct IAutomationElementIdentifiersStatics6_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationElementIdentifiersStatics7(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationElementIdentifiersStatics7 {
@@ -1996,7 +2009,6 @@ pub struct IAutomationElementIdentifiersStatics7_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationElementIdentifiersStatics8(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationElementIdentifiersStatics8 {
@@ -2015,7 +2027,6 @@ pub struct IAutomationElementIdentifiersStatics8_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationProperties(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationProperties {
@@ -2033,7 +2044,6 @@ pub struct IAutomationProperties_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationPropertiesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationPropertiesStatics {
@@ -2083,7 +2093,6 @@ pub struct IAutomationPropertiesStatics_abi(
     #[cfg(not(feature = "UI_Xaml_Automation_Peers"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationPropertiesStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationPropertiesStatics2 {
@@ -2109,7 +2118,6 @@ pub struct IAutomationPropertiesStatics2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationPropertiesStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationPropertiesStatics3 {
@@ -2139,7 +2147,6 @@ pub struct IAutomationPropertiesStatics3_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationPropertiesStatics4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationPropertiesStatics4 {
@@ -2165,7 +2172,6 @@ pub struct IAutomationPropertiesStatics4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, element: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationPropertiesStatics5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationPropertiesStatics5 {
@@ -2204,7 +2210,6 @@ pub struct IAutomationPropertiesStatics5_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationPropertiesStatics6(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationPropertiesStatics6 {
@@ -2225,7 +2230,6 @@ pub struct IAutomationPropertiesStatics6_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, element: ::windows::runtime::RawPtr, value: i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationPropertiesStatics7(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationPropertiesStatics7 {
@@ -2248,7 +2252,6 @@ pub struct IAutomationPropertiesStatics7_abi(
     #[cfg(not(feature = "UI_Xaml_Automation_Peers"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationPropertiesStatics8(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationPropertiesStatics8 {
@@ -2269,7 +2272,6 @@ pub struct IAutomationPropertiesStatics8_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, element: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationPropertiesStatics9(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationPropertiesStatics9 {
@@ -2292,7 +2294,6 @@ pub struct IAutomationPropertiesStatics9_abi(
     #[cfg(not(feature = "UI_Xaml_Automation_Peers"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAutomationProperty(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAutomationProperty {
@@ -2310,7 +2311,6 @@ pub struct IAutomationProperty_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDockPatternIdentifiers(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDockPatternIdentifiers {
@@ -2328,7 +2328,6 @@ pub struct IDockPatternIdentifiers_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDockPatternIdentifiersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDockPatternIdentifiersStatics {
@@ -2347,7 +2346,6 @@ pub struct IDockPatternIdentifiersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDragPatternIdentifiers(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDragPatternIdentifiers {
@@ -2365,7 +2363,6 @@ pub struct IDragPatternIdentifiers_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDragPatternIdentifiersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDragPatternIdentifiersStatics {
@@ -2387,7 +2384,6 @@ pub struct IDragPatternIdentifiersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDropTargetPatternIdentifiers(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDropTargetPatternIdentifiers {
@@ -2405,7 +2401,6 @@ pub struct IDropTargetPatternIdentifiers_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDropTargetPatternIdentifiersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDropTargetPatternIdentifiersStatics {
@@ -2425,7 +2420,6 @@ pub struct IDropTargetPatternIdentifiersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IExpandCollapsePatternIdentifiers(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExpandCollapsePatternIdentifiers {
@@ -2443,7 +2437,6 @@ pub struct IExpandCollapsePatternIdentifiers_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IExpandCollapsePatternIdentifiersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExpandCollapsePatternIdentifiersStatics {
@@ -2462,7 +2455,6 @@ pub struct IExpandCollapsePatternIdentifiersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGridItemPatternIdentifiers(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGridItemPatternIdentifiers {
@@ -2480,7 +2472,6 @@ pub struct IGridItemPatternIdentifiers_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGridItemPatternIdentifiersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGridItemPatternIdentifiersStatics {
@@ -2503,7 +2494,6 @@ pub struct IGridItemPatternIdentifiersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGridPatternIdentifiers(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGridPatternIdentifiers {
@@ -2521,7 +2511,6 @@ pub struct IGridPatternIdentifiers_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGridPatternIdentifiersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGridPatternIdentifiersStatics {
@@ -2541,7 +2530,6 @@ pub struct IGridPatternIdentifiersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMultipleViewPatternIdentifiers(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMultipleViewPatternIdentifiers {
@@ -2559,7 +2547,6 @@ pub struct IMultipleViewPatternIdentifiers_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMultipleViewPatternIdentifiersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMultipleViewPatternIdentifiersStatics {
@@ -2579,7 +2566,6 @@ pub struct IMultipleViewPatternIdentifiersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRangeValuePatternIdentifiers(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRangeValuePatternIdentifiers {
@@ -2597,7 +2583,6 @@ pub struct IRangeValuePatternIdentifiers_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRangeValuePatternIdentifiersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRangeValuePatternIdentifiersStatics {
@@ -2621,7 +2606,6 @@ pub struct IRangeValuePatternIdentifiersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IScrollPatternIdentifiers(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScrollPatternIdentifiers {
@@ -2639,7 +2623,6 @@ pub struct IScrollPatternIdentifiers_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IScrollPatternIdentifiersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScrollPatternIdentifiersStatics {
@@ -2664,7 +2647,6 @@ pub struct IScrollPatternIdentifiersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISelectionItemPatternIdentifiers(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISelectionItemPatternIdentifiers {
@@ -2682,7 +2664,6 @@ pub struct ISelectionItemPatternIdentifiers_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISelectionItemPatternIdentifiersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISelectionItemPatternIdentifiersStatics {
@@ -2702,7 +2683,6 @@ pub struct ISelectionItemPatternIdentifiersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISelectionPatternIdentifiers(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISelectionPatternIdentifiers {
@@ -2720,7 +2700,6 @@ pub struct ISelectionPatternIdentifiers_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISelectionPatternIdentifiersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISelectionPatternIdentifiersStatics {
@@ -2741,7 +2720,6 @@ pub struct ISelectionPatternIdentifiersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpreadsheetItemPatternIdentifiers(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpreadsheetItemPatternIdentifiers {
@@ -2759,7 +2737,6 @@ pub struct ISpreadsheetItemPatternIdentifiers_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISpreadsheetItemPatternIdentifiersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISpreadsheetItemPatternIdentifiersStatics {
@@ -2778,7 +2755,6 @@ pub struct ISpreadsheetItemPatternIdentifiersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStylesPatternIdentifiers(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStylesPatternIdentifiers {
@@ -2796,7 +2772,6 @@ pub struct IStylesPatternIdentifiers_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStylesPatternIdentifiersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStylesPatternIdentifiersStatics {
@@ -2821,7 +2796,6 @@ pub struct IStylesPatternIdentifiersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITableItemPatternIdentifiers(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITableItemPatternIdentifiers {
@@ -2839,7 +2813,6 @@ pub struct ITableItemPatternIdentifiers_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITableItemPatternIdentifiersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITableItemPatternIdentifiersStatics {
@@ -2859,7 +2832,6 @@ pub struct ITableItemPatternIdentifiersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITablePatternIdentifiers(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITablePatternIdentifiers {
@@ -2877,7 +2849,6 @@ pub struct ITablePatternIdentifiers_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITablePatternIdentifiersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITablePatternIdentifiersStatics {
@@ -2898,7 +2869,6 @@ pub struct ITablePatternIdentifiersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITogglePatternIdentifiers(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITogglePatternIdentifiers {
@@ -2916,7 +2886,6 @@ pub struct ITogglePatternIdentifiers_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITogglePatternIdentifiersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITogglePatternIdentifiersStatics {
@@ -2935,7 +2904,6 @@ pub struct ITogglePatternIdentifiersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITransformPattern2Identifiers(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITransformPattern2Identifiers {
@@ -2953,7 +2921,6 @@ pub struct ITransformPattern2Identifiers_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITransformPattern2IdentifiersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITransformPattern2IdentifiersStatics {
@@ -2975,7 +2942,6 @@ pub struct ITransformPattern2IdentifiersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITransformPatternIdentifiers(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITransformPatternIdentifiers {
@@ -2993,7 +2959,6 @@ pub struct ITransformPatternIdentifiers_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITransformPatternIdentifiersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITransformPatternIdentifiersStatics {
@@ -3014,7 +2979,6 @@ pub struct ITransformPatternIdentifiersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IValuePatternIdentifiers(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IValuePatternIdentifiers {
@@ -3032,7 +2996,6 @@ pub struct IValuePatternIdentifiers_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IValuePatternIdentifiersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IValuePatternIdentifiersStatics {
@@ -3052,7 +3015,6 @@ pub struct IValuePatternIdentifiersStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWindowPatternIdentifiers(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowPatternIdentifiers {
@@ -3070,7 +3032,6 @@ pub struct IWindowPatternIdentifiers_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWindowPatternIdentifiersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowPatternIdentifiersStatics {
@@ -3209,10 +3170,12 @@ impl ::std::convert::From<i32> for RowOrColumnMajor {
 }
 unsafe impl ::windows::runtime::Abi for RowOrColumnMajor {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RowOrColumnMajor {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.RowOrColumnMajor;i4)");
+}
+impl ::windows::runtime::DefaultType for RowOrColumnMajor {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3232,10 +3195,12 @@ impl ::std::convert::From<i32> for ScrollAmount {
 }
 unsafe impl ::windows::runtime::Abi for ScrollAmount {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ScrollAmount {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.ScrollAmount;i4)");
+}
+impl ::windows::runtime::DefaultType for ScrollAmount {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
@@ -3503,10 +3468,12 @@ impl ::std::convert::From<i32> for SupportedTextSelection {
 }
 unsafe impl ::windows::runtime::Abi for SupportedTextSelection {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SupportedTextSelection {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.SupportedTextSelection;i4)");
+}
+impl ::windows::runtime::DefaultType for SupportedTextSelection {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3527,10 +3494,12 @@ impl ::std::convert::From<i32> for SynchronizedInputType {
 }
 unsafe impl ::windows::runtime::Abi for SynchronizedInputType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SynchronizedInputType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.SynchronizedInputType;i4)");
+}
+impl ::windows::runtime::DefaultType for SynchronizedInputType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
@@ -3656,10 +3625,12 @@ impl ::std::convert::From<i32> for ToggleState {
 }
 unsafe impl ::windows::runtime::Abi for ToggleState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ToggleState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.ToggleState;i4)");
+}
+impl ::windows::runtime::DefaultType for ToggleState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
@@ -3808,10 +3779,12 @@ impl ::std::convert::From<i32> for WindowInteractionState {
 }
 unsafe impl ::windows::runtime::Abi for WindowInteractionState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WindowInteractionState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.WindowInteractionState;i4)");
+}
+impl ::windows::runtime::DefaultType for WindowInteractionState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[repr(transparent)]
@@ -3893,10 +3866,12 @@ impl ::std::convert::From<i32> for WindowVisualState {
 }
 unsafe impl ::windows::runtime::Abi for WindowVisualState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WindowVisualState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.WindowVisualState;i4)");
+}
+impl ::windows::runtime::DefaultType for WindowVisualState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Automation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3916,8 +3891,10 @@ impl ::std::convert::From<i32> for ZoomUnit {
 }
 unsafe impl ::windows::runtime::Abi for ZoomUnit {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ZoomUnit {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.ZoomUnit;i4)");
+}
+impl ::windows::runtime::DefaultType for ZoomUnit {
+    type DefaultType = Self;
 }

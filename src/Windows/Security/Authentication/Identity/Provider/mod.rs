@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorAuthentication(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorAuthentication {
@@ -30,7 +29,6 @@ pub struct ISecondaryAuthenticationFactorAuthentication_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorAuthenticationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorAuthenticationResult {
@@ -50,7 +48,6 @@ pub struct ISecondaryAuthenticationFactorAuthenticationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {
@@ -69,7 +66,6 @@ pub struct ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_abi
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorAuthenticationStageInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorAuthenticationStageInfo {
@@ -90,7 +86,6 @@ pub struct ISecondaryAuthenticationFactorAuthenticationStageInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorAuthenticationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorAuthenticationStatics {
@@ -118,7 +113,6 @@ pub struct ISecondaryAuthenticationFactorAuthenticationStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics {
@@ -153,7 +147,6 @@ pub struct ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationSta
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorInfo {
@@ -176,7 +169,6 @@ pub struct ISecondaryAuthenticationFactorInfo_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorInfo2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorInfo2 {
@@ -198,7 +190,6 @@ pub struct ISecondaryAuthenticationFactorInfo2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorRegistration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorRegistration {
@@ -220,7 +211,6 @@ pub struct ISecondaryAuthenticationFactorRegistration_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorRegistrationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorRegistrationResult {
@@ -240,7 +230,6 @@ pub struct ISecondaryAuthenticationFactorRegistrationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorRegistrationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISecondaryAuthenticationFactorRegistrationStatics {
@@ -441,10 +430,12 @@ impl ::std::convert::From<i32> for SecondaryAuthenticationFactorAuthenticationMe
 }
 unsafe impl ::windows::runtime::Abi for SecondaryAuthenticationFactorAuthenticationMessage {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SecondaryAuthenticationFactorAuthenticationMessage {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationMessage;i4)");
+}
+impl ::windows::runtime::DefaultType for SecondaryAuthenticationFactorAuthenticationMessage {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
@@ -497,10 +488,12 @@ impl ::std::convert::From<i32> for SecondaryAuthenticationFactorAuthenticationSc
 }
 unsafe impl ::windows::runtime::Abi for SecondaryAuthenticationFactorAuthenticationScenario {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SecondaryAuthenticationFactorAuthenticationScenario {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationScenario;i4)");
+}
+impl ::windows::runtime::DefaultType for SecondaryAuthenticationFactorAuthenticationScenario {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -524,10 +517,12 @@ impl ::std::convert::From<i32> for SecondaryAuthenticationFactorAuthenticationSt
 }
 unsafe impl ::windows::runtime::Abi for SecondaryAuthenticationFactorAuthenticationStage {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SecondaryAuthenticationFactorAuthenticationStage {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStage;i4)");
+}
+impl ::windows::runtime::DefaultType for SecondaryAuthenticationFactorAuthenticationStage {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
@@ -619,10 +614,12 @@ impl ::std::convert::From<i32> for SecondaryAuthenticationFactorAuthenticationSt
 }
 unsafe impl ::windows::runtime::Abi for SecondaryAuthenticationFactorAuthenticationStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SecondaryAuthenticationFactorAuthenticationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for SecondaryAuthenticationFactorAuthenticationStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -645,10 +642,12 @@ impl ::std::convert::From<u32> for SecondaryAuthenticationFactorDeviceCapabiliti
 }
 unsafe impl ::windows::runtime::Abi for SecondaryAuthenticationFactorDeviceCapabilities {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SecondaryAuthenticationFactorDeviceCapabilities {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDeviceCapabilities;u4)");
+}
+impl ::windows::runtime::DefaultType for SecondaryAuthenticationFactorDeviceCapabilities {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SecondaryAuthenticationFactorDeviceCapabilities {
     type Output = Self;
@@ -693,10 +692,12 @@ impl ::std::convert::From<i32> for SecondaryAuthenticationFactorDeviceFindScope 
 }
 unsafe impl ::windows::runtime::Abi for SecondaryAuthenticationFactorDeviceFindScope {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SecondaryAuthenticationFactorDeviceFindScope {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDeviceFindScope;i4)");
+}
+impl ::windows::runtime::DefaultType for SecondaryAuthenticationFactorDeviceFindScope {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -713,10 +714,12 @@ impl ::std::convert::From<i32> for SecondaryAuthenticationFactorDevicePresence {
 }
 unsafe impl ::windows::runtime::Abi for SecondaryAuthenticationFactorDevicePresence {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SecondaryAuthenticationFactorDevicePresence {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDevicePresence;i4)");
+}
+impl ::windows::runtime::DefaultType for SecondaryAuthenticationFactorDevicePresence {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -734,10 +737,12 @@ impl ::std::convert::From<i32> for SecondaryAuthenticationFactorDevicePresenceMo
 }
 unsafe impl ::windows::runtime::Abi for SecondaryAuthenticationFactorDevicePresenceMonitoringMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SecondaryAuthenticationFactorDevicePresenceMonitoringMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDevicePresenceMonitoringMode;i4)");
+}
+impl ::windows::runtime::DefaultType for SecondaryAuthenticationFactorDevicePresenceMonitoringMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -755,10 +760,12 @@ impl ::std::convert::From<i32> for SecondaryAuthenticationFactorDevicePresenceMo
 }
 unsafe impl ::windows::runtime::Abi for SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -776,10 +783,12 @@ impl ::std::convert::From<i32> for SecondaryAuthenticationFactorFinishAuthentica
 }
 unsafe impl ::windows::runtime::Abi for SecondaryAuthenticationFactorFinishAuthenticationStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SecondaryAuthenticationFactorFinishAuthenticationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorFinishAuthenticationStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for SecondaryAuthenticationFactorFinishAuthenticationStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Authentication_Identity_Provider`*"]
 #[repr(transparent)]
@@ -1049,8 +1058,10 @@ impl ::std::convert::From<i32> for SecondaryAuthenticationFactorRegistrationStat
 }
 unsafe impl ::windows::runtime::Abi for SecondaryAuthenticationFactorRegistrationStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SecondaryAuthenticationFactorRegistrationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorRegistrationStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for SecondaryAuthenticationFactorRegistrationStatus {
+    type DefaultType = Self;
 }

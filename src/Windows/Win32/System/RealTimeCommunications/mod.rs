@@ -5853,7 +5853,6 @@ impl ::std::convert::From<i32> for RTC_ACE_SCOPE {
 }
 unsafe impl ::windows::runtime::Abi for RTC_ACE_SCOPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5870,7 +5869,6 @@ impl ::std::convert::From<i32> for RTC_ANSWER_MODE {
 }
 unsafe impl ::windows::runtime::Abi for RTC_ANSWER_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5885,7 +5883,6 @@ impl ::std::convert::From<i32> for RTC_AUDIO_DEVICE {
 }
 unsafe impl ::windows::runtime::Abi for RTC_AUDIO_DEVICE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5904,7 +5901,6 @@ impl ::std::convert::From<i32> for RTC_BUDDY_EVENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RTC_BUDDY_EVENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5921,7 +5917,6 @@ impl ::std::convert::From<i32> for RTC_BUDDY_SUBSCRIPTION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RTC_BUDDY_SUBSCRIPTION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5938,7 +5933,6 @@ impl ::std::convert::From<i32> for RTC_CLIENT_EVENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RTC_CLIENT_EVENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5968,7 +5962,6 @@ impl ::std::convert::From<i32> for RTC_DTMF {
 }
 unsafe impl ::windows::runtime::Abi for RTC_DTMF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6003,7 +5996,6 @@ impl ::std::convert::From<i32> for RTC_EVENT {
 }
 unsafe impl ::windows::runtime::Abi for RTC_EVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_E_ANOTHER_MEDIA_SESSION_ACTIVE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2131885961i32 as _);
@@ -6396,7 +6388,6 @@ impl ::std::convert::From<i32> for RTC_GROUP_EVENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RTC_GROUP_EVENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6412,7 +6403,6 @@ impl ::std::convert::From<i32> for RTC_LISTEN_MODE {
 }
 unsafe impl ::windows::runtime::Abi for RTC_LISTEN_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6432,7 +6422,6 @@ impl ::std::convert::From<i32> for RTC_MEDIA_EVENT_REASON {
 }
 unsafe impl ::windows::runtime::Abi for RTC_MEDIA_EVENT_REASON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6448,7 +6437,6 @@ impl ::std::convert::From<i32> for RTC_MEDIA_EVENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RTC_MEDIA_EVENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6463,7 +6451,6 @@ impl ::std::convert::From<i32> for RTC_MESSAGING_EVENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RTC_MESSAGING_EVENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6478,7 +6465,6 @@ impl ::std::convert::From<i32> for RTC_MESSAGING_USER_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for RTC_MESSAGING_USER_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6493,7 +6479,6 @@ impl ::std::convert::From<i32> for RTC_OFFER_WATCHER_MODE {
 }
 unsafe impl ::windows::runtime::Abi for RTC_OFFER_WATCHER_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6515,7 +6500,6 @@ impl ::std::convert::From<i32> for RTC_PARTICIPANT_STATE {
 }
 unsafe impl ::windows::runtime::Abi for RTC_PARTICIPANT_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6533,7 +6517,6 @@ impl ::std::convert::From<i32> for RTC_PORT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RTC_PORT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6551,7 +6534,6 @@ impl ::std::convert::From<i32> for RTC_PRESENCE_PROPERTY {
 }
 unsafe impl ::windows::runtime::Abi for RTC_PRESENCE_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6572,7 +6554,6 @@ impl ::std::convert::From<i32> for RTC_PRESENCE_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for RTC_PRESENCE_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6587,7 +6568,6 @@ impl ::std::convert::From<i32> for RTC_PRIVACY_MODE {
 }
 unsafe impl ::windows::runtime::Abi for RTC_PRIVACY_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6602,7 +6582,6 @@ impl ::std::convert::From<i32> for RTC_PROFILE_EVENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RTC_PROFILE_EVENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6620,7 +6599,6 @@ impl ::std::convert::From<i32> for RTC_PROVIDER_URI {
 }
 unsafe impl ::windows::runtime::Abi for RTC_PROVIDER_URI {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6642,7 +6620,6 @@ impl ::std::convert::From<i32> for RTC_REGISTRATION_STATE {
 }
 unsafe impl ::windows::runtime::Abi for RTC_REGISTRATION_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6658,7 +6635,6 @@ impl ::std::convert::From<i32> for RTC_REINVITE_STATE {
 }
 unsafe impl ::windows::runtime::Abi for RTC_REINVITE_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6674,7 +6650,6 @@ impl ::std::convert::From<i32> for RTC_RING_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RTC_RING_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6692,7 +6667,6 @@ impl ::std::convert::From<i32> for RTC_ROAMING_EVENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RTC_ROAMING_EVENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6708,7 +6682,6 @@ impl ::std::convert::From<i32> for RTC_SECURITY_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for RTC_SECURITY_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6723,7 +6696,6 @@ impl ::std::convert::From<i32> for RTC_SECURITY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RTC_SECURITY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6742,7 +6714,6 @@ impl ::std::convert::From<i32> for RTC_SESSION_REFER_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for RTC_SESSION_REFER_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6763,7 +6734,6 @@ impl ::std::convert::From<i32> for RTC_SESSION_STATE {
 }
 unsafe impl ::windows::runtime::Abi for RTC_SESSION_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6782,7 +6752,6 @@ impl ::std::convert::From<i32> for RTC_SESSION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RTC_SESSION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const RTC_S_ROAMING_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(15597633i32 as _);
@@ -6799,7 +6768,6 @@ impl ::std::convert::From<i32> for RTC_T120_APPLET {
 }
 unsafe impl ::windows::runtime::Abi for RTC_T120_APPLET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6820,7 +6788,6 @@ impl ::std::convert::From<i32> for RTC_TERMINATE_REASON {
 }
 unsafe impl ::windows::runtime::Abi for RTC_TERMINATE_REASON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6843,7 +6810,6 @@ impl ::std::convert::From<i32> for RTC_USER_SEARCH_COLUMN {
 }
 unsafe impl ::windows::runtime::Abi for RTC_USER_SEARCH_COLUMN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6858,7 +6824,6 @@ impl ::std::convert::From<i32> for RTC_USER_SEARCH_PREFERENCE {
 }
 unsafe impl ::windows::runtime::Abi for RTC_USER_SEARCH_PREFERENCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6873,7 +6838,6 @@ impl ::std::convert::From<i32> for RTC_VIDEO_DEVICE {
 }
 unsafe impl ::windows::runtime::Abi for RTC_VIDEO_DEVICE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6891,7 +6855,6 @@ impl ::std::convert::From<i32> for RTC_WATCHER_EVENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RTC_WATCHER_EVENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6906,7 +6869,6 @@ impl ::std::convert::From<i32> for RTC_WATCHER_MATCH_MODE {
 }
 unsafe impl ::windows::runtime::Abi for RTC_WATCHER_MATCH_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6925,7 +6887,6 @@ impl ::std::convert::From<i32> for RTC_WATCHER_STATE {
 }
 unsafe impl ::windows::runtime::Abi for RTC_WATCHER_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RealTimeCommunications`*"]
 pub const STATUS_SEVERITY_RTC_ERROR: u32 = 2u32;
@@ -6963,5 +6924,4 @@ impl ::std::cmp::Eq for TRANSPORT_SETTING {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for TRANSPORT_SETTING {
     type Abi = Self;
-    type DefaultType = Self;
 }

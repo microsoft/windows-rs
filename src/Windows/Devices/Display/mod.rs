@@ -238,10 +238,12 @@ impl ::std::convert::From<i32> for DisplayMonitorConnectionKind {
 }
 unsafe impl ::windows::runtime::Abi for DisplayMonitorConnectionKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplayMonitorConnectionKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorConnectionKind;i4)");
+}
+impl ::windows::runtime::DefaultType for DisplayMonitorConnectionKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -258,10 +260,12 @@ impl ::std::convert::From<i32> for DisplayMonitorDescriptorKind {
 }
 unsafe impl ::windows::runtime::Abi for DisplayMonitorDescriptorKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplayMonitorDescriptorKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorDescriptorKind;i4)");
+}
+impl ::windows::runtime::DefaultType for DisplayMonitorDescriptorKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -284,10 +288,12 @@ impl ::std::convert::From<i32> for DisplayMonitorPhysicalConnectorKind {
 }
 unsafe impl ::windows::runtime::Abi for DisplayMonitorPhysicalConnectorKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplayMonitorPhysicalConnectorKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorPhysicalConnectorKind;i4)");
+}
+impl ::windows::runtime::DefaultType for DisplayMonitorPhysicalConnectorKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_Display`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -305,13 +311,14 @@ impl ::std::convert::From<i32> for DisplayMonitorUsageKind {
 }
 unsafe impl ::windows::runtime::Abi for DisplayMonitorUsageKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DisplayMonitorUsageKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorUsageKind;i4)");
 }
+impl ::windows::runtime::DefaultType for DisplayMonitorUsageKind {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayMonitor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayMonitor {
@@ -356,7 +363,6 @@ pub struct IDisplayMonitor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, descriptorkind: DisplayMonitorDescriptorKind, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayMonitor2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayMonitor2 {
@@ -375,7 +381,6 @@ pub struct IDisplayMonitor2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayMonitorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayMonitorStatics {

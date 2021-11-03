@@ -208,10 +208,12 @@ impl ::std::convert::From<i32> for HidCollectionType {
 }
 unsafe impl ::windows::runtime::Abi for HidCollectionType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for HidCollectionType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.HumanInterfaceDevice.HidCollectionType;i4)");
+}
+impl ::windows::runtime::DefaultType for HidCollectionType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
@@ -952,13 +954,14 @@ impl ::std::convert::From<i32> for HidReportType {
 }
 unsafe impl ::windows::runtime::Abi for HidReportType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for HidReportType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.HumanInterfaceDevice.HidReportType;i4)");
 }
+impl ::windows::runtime::DefaultType for HidReportType {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHidBooleanControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidBooleanControl {
@@ -982,7 +985,6 @@ pub struct IHidBooleanControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHidBooleanControlDescription(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidBooleanControlDescription {
@@ -1007,7 +1009,6 @@ pub struct IHidBooleanControlDescription_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHidBooleanControlDescription2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidBooleanControlDescription2 {
@@ -1026,7 +1027,6 @@ pub struct IHidBooleanControlDescription2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHidCollection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidCollection {
@@ -1048,7 +1048,6 @@ pub struct IHidCollection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHidDevice(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidDevice {
@@ -1095,7 +1094,6 @@ pub struct IHidDevice_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHidDeviceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidDeviceStatics {
@@ -1117,7 +1115,6 @@ pub struct IHidDeviceStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHidFeatureReport(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidFeatureReport {
@@ -1144,7 +1141,6 @@ pub struct IHidFeatureReport_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, controldescription: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHidInputReport(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidInputReport {
@@ -1173,7 +1169,6 @@ pub struct IHidInputReport_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, controldescription: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHidInputReportReceivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidInputReportReceivedEventArgs {
@@ -1192,7 +1187,6 @@ pub struct IHidInputReportReceivedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHidNumericControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidNumericControl {
@@ -1219,7 +1213,6 @@ pub struct IHidNumericControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHidNumericControlDescription(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidNumericControlDescription {
@@ -1254,7 +1247,6 @@ pub struct IHidNumericControlDescription_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHidOutputReport(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidOutputReport {

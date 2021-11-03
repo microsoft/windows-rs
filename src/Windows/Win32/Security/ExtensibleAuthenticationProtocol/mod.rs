@@ -36,7 +36,6 @@ impl ::std::cmp::PartialEq for EAPHOST_AUTH_INFO {
 impl ::std::cmp::Eq for EAPHOST_AUTH_INFO {}
 unsafe impl ::windows::runtime::Abi for EAPHOST_AUTH_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -56,7 +55,6 @@ impl ::std::convert::From<i32> for EAPHOST_AUTH_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for EAPHOST_AUTH_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -112,7 +110,6 @@ impl ::std::cmp::Eq for EAPHOST_IDENTITY_UI_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EAPHOST_IDENTITY_UI_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -158,7 +155,6 @@ impl ::std::cmp::Eq for EAPHOST_INTERACTIVE_UI_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EAPHOST_INTERACTIVE_UI_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAPHOST_METHOD_API_VERSION: u32 = 1u32;
@@ -191,7 +187,6 @@ impl ::std::cmp::PartialEq for EAP_ATTRIBUTE {
 impl ::std::cmp::Eq for EAP_ATTRIBUTE {}
 unsafe impl ::windows::runtime::Abi for EAP_ATTRIBUTE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -219,7 +214,6 @@ impl ::std::cmp::PartialEq for EAP_ATTRIBUTES {
 impl ::std::cmp::Eq for EAP_ATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for EAP_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -330,7 +324,6 @@ impl ::std::convert::From<i32> for EAP_ATTRIBUTE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for EAP_ATTRIBUTE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -392,7 +385,6 @@ impl ::std::cmp::PartialEq for EAP_AUTHENTICATOR_METHOD_ROUTINES {
 impl ::std::cmp::Eq for EAP_AUTHENTICATOR_METHOD_ROUTINES {}
 unsafe impl ::windows::runtime::Abi for EAP_AUTHENTICATOR_METHOD_ROUTINES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -408,7 +400,6 @@ impl ::std::convert::From<i32> for EAP_AUTHENTICATOR_SEND_TIMEOUT {
 }
 unsafe impl ::windows::runtime::Abi for EAP_AUTHENTICATOR_SEND_TIMEOUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -444,7 +435,6 @@ impl ::std::cmp::Eq for EAP_CONFIG_INPUT_FIELD_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EAP_CONFIG_INPUT_FIELD_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -492,7 +482,6 @@ impl ::std::cmp::Eq for EAP_CONFIG_INPUT_FIELD_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EAP_CONFIG_INPUT_FIELD_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_CONFIG_INPUT_FIELD_PROPS_DEFAULT: u32 = 0u32;
@@ -520,7 +509,6 @@ impl ::std::convert::From<i32> for EAP_CONFIG_INPUT_FIELD_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for EAP_CONFIG_INPUT_FIELD_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_CREDENTIAL_VERSION: u32 = 1u32;
@@ -557,7 +545,6 @@ impl ::std::cmp::Eq for EAP_CRED_EXPIRY_REQ {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EAP_CRED_EXPIRY_REQ {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -607,7 +594,6 @@ impl ::std::cmp::Eq for EAP_ERROR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EAP_ERROR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_E_AUTHENTICATION_FAILED: u32 = 2151809045u32;
@@ -773,7 +759,6 @@ impl ::std::cmp::Eq for EAP_INTERACTIVE_UI_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EAP_INTERACTIVE_UI_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -792,7 +777,6 @@ impl ::std::convert::From<i32> for EAP_INTERACTIVE_UI_DATA_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for EAP_INTERACTIVE_UI_DATA_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_INTERACTIVE_UI_DATA_VERSION: u32 = 1u32;
@@ -829,7 +813,6 @@ impl ::std::convert::From<i32> for EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -865,7 +848,6 @@ impl ::std::cmp::Eq for EAP_METHOD_AUTHENTICATOR_RESULT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EAP_METHOD_AUTHENTICATOR_RESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -903,7 +885,6 @@ impl ::std::cmp::Eq for EAP_METHOD_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EAP_METHOD_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -938,7 +919,6 @@ impl ::std::cmp::Eq for EAP_METHOD_INFO_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EAP_METHOD_INFO_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -973,7 +953,6 @@ impl ::std::cmp::Eq for EAP_METHOD_INFO_ARRAY_EX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EAP_METHOD_INFO_ARRAY_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1011,7 +990,6 @@ impl ::std::cmp::Eq for EAP_METHOD_INFO_EX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EAP_METHOD_INFO_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_METHOD_INVALID_PACKET: u32 = 2151809047u32;
@@ -1043,7 +1021,6 @@ impl ::std::cmp::Eq for EAP_METHOD_PROPERTY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EAP_METHOD_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1078,7 +1055,6 @@ impl ::std::cmp::Eq for EAP_METHOD_PROPERTY_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EAP_METHOD_PROPERTY_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1122,7 +1098,6 @@ impl ::std::convert::From<i32> for EAP_METHOD_PROPERTY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for EAP_METHOD_PROPERTY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1152,7 +1127,6 @@ impl ::std::cmp::Eq for EAP_METHOD_PROPERTY_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EAP_METHOD_PROPERTY_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1187,7 +1161,6 @@ impl ::std::cmp::Eq for EAP_METHOD_PROPERTY_VALUE_BOOL {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EAP_METHOD_PROPERTY_VALUE_BOOL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1215,7 +1188,6 @@ impl ::std::cmp::PartialEq for EAP_METHOD_PROPERTY_VALUE_DWORD {
 impl ::std::cmp::Eq for EAP_METHOD_PROPERTY_VALUE_DWORD {}
 unsafe impl ::windows::runtime::Abi for EAP_METHOD_PROPERTY_VALUE_DWORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1243,7 +1215,6 @@ impl ::std::cmp::PartialEq for EAP_METHOD_PROPERTY_VALUE_STRING {
 impl ::std::cmp::Eq for EAP_METHOD_PROPERTY_VALUE_STRING {}
 unsafe impl ::windows::runtime::Abi for EAP_METHOD_PROPERTY_VALUE_STRING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1259,7 +1230,6 @@ impl ::std::convert::From<i32> for EAP_METHOD_PROPERTY_VALUE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for EAP_METHOD_PROPERTY_VALUE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1287,7 +1257,6 @@ impl ::std::cmp::PartialEq for EAP_METHOD_TYPE {
 impl ::std::cmp::Eq for EAP_METHOD_TYPE {}
 unsafe impl ::windows::runtime::Abi for EAP_METHOD_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_PEER_FLAG_GUEST_ACCESS: u32 = 64u32;
@@ -1362,7 +1331,6 @@ impl ::std::cmp::PartialEq for EAP_PEER_METHOD_ROUTINES {
 impl ::std::cmp::Eq for EAP_PEER_METHOD_ROUTINES {}
 unsafe impl ::windows::runtime::Abi for EAP_PEER_METHOD_ROUTINES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1391,7 +1359,6 @@ impl ::std::cmp::PartialEq for EAP_TYPE {
 impl ::std::cmp::Eq for EAP_TYPE {}
 unsafe impl ::windows::runtime::Abi for EAP_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1421,7 +1388,6 @@ impl ::std::cmp::Eq for EAP_UI_DATA_FORMAT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EAP_UI_DATA_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const EAP_UI_INPUT_FIELD_PROPS_DEFAULT: u32 = 0u32;
@@ -1464,7 +1430,6 @@ impl ::std::cmp::Eq for EapCertificateCredential {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EapCertificateCredential {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1483,7 +1448,6 @@ impl ::std::convert::From<i32> for EapCode {
 }
 unsafe impl ::windows::runtime::Abi for EapCode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1512,7 +1476,6 @@ impl ::std::cmp::Eq for EapCredential {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EapCredential {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1530,7 +1493,6 @@ impl ::std::convert::From<i32> for EapCredentialType {
 }
 unsafe impl ::windows::runtime::Abi for EapCredentialType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1560,7 +1522,6 @@ impl ::std::cmp::Eq for EapCredentialTypeData {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EapCredentialTypeData {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1577,7 +1538,6 @@ impl ::std::convert::From<i32> for EapHostPeerAuthParams {
 }
 unsafe impl ::windows::runtime::Abi for EapHostPeerAuthParams {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
@@ -2120,7 +2080,6 @@ impl ::std::cmp::Eq for EapHostPeerMethodResult {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EapHostPeerMethodResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2136,7 +2095,6 @@ impl ::std::convert::From<i32> for EapHostPeerMethodResultReason {
 }
 unsafe impl ::windows::runtime::Abi for EapHostPeerMethodResultReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
@@ -2267,7 +2225,6 @@ impl ::std::convert::From<i32> for EapHostPeerResponseAction {
 }
 unsafe impl ::windows::runtime::Abi for EapHostPeerResponseAction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_Foundation`*"]
@@ -2341,7 +2298,6 @@ impl ::std::cmp::PartialEq for EapPacket {
 impl ::std::cmp::Eq for EapPacket {}
 unsafe impl ::windows::runtime::Abi for EapPacket {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2376,7 +2332,6 @@ impl ::std::cmp::Eq for EapPeerMethodOutput {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EapPeerMethodOutput {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2395,7 +2350,6 @@ impl ::std::convert::From<i32> for EapPeerMethodResponseAction {
 }
 unsafe impl ::windows::runtime::Abi for EapPeerMethodResponseAction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2464,7 +2418,6 @@ impl ::std::cmp::Eq for EapPeerMethodResult {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EapPeerMethodResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2480,7 +2433,6 @@ impl ::std::convert::From<i32> for EapPeerMethodResultReason {
 }
 unsafe impl ::windows::runtime::Abi for EapPeerMethodResultReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2514,7 +2466,6 @@ impl ::std::cmp::Eq for EapSimCredential {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EapSimCredential {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2549,7 +2500,6 @@ impl ::std::cmp::Eq for EapUsernamePasswordCredential {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for EapUsernamePasswordCredential {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const FACILITY_EAP_MESSAGE: u32 = 2114u32;
@@ -3094,7 +3044,6 @@ impl ::std::convert::From<i32> for ISOLATION_STATE {
 }
 unsafe impl ::windows::runtime::Abi for ISOLATION_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3148,7 +3097,6 @@ impl ::std::cmp::Eq for LEGACY_IDENTITY_UI_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for LEGACY_IDENTITY_UI_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3187,7 +3135,6 @@ impl ::std::cmp::PartialEq for LEGACY_INTERACTIVE_UI_PARAMS {
 impl ::std::cmp::Eq for LEGACY_INTERACTIVE_UI_PARAMS {}
 unsafe impl ::windows::runtime::Abi for LEGACY_INTERACTIVE_UI_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const MAXEAPCODE: u32 = 4u32;
@@ -3231,7 +3178,6 @@ impl ::std::cmp::Eq for NgcTicketContext {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NgcTicketContext {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type NotificationHandler = unsafe extern "system" fn(connectionid: ::windows::runtime::GUID, pcontextdata: *mut ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
@@ -3254,7 +3200,6 @@ impl ::std::convert::From<i32> for PPP_EAP_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for PPP_EAP_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3293,7 +3238,6 @@ impl ::std::cmp::PartialEq for PPP_EAP_INFO {
 impl ::std::cmp::Eq for PPP_EAP_INFO {}
 unsafe impl ::windows::runtime::Abi for PPP_EAP_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3389,7 +3333,6 @@ impl ::std::cmp::Eq for PPP_EAP_INPUT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PPP_EAP_INPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3467,7 +3410,6 @@ impl ::std::cmp::Eq for PPP_EAP_OUTPUT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PPP_EAP_OUTPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3497,7 +3439,6 @@ impl ::std::cmp::PartialEq for PPP_EAP_PACKET {
 impl ::std::cmp::Eq for PPP_EAP_PACKET {}
 unsafe impl ::windows::runtime::Abi for PPP_EAP_PACKET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3526,7 +3467,6 @@ impl ::std::cmp::PartialEq for RAS_AUTH_ATTRIBUTE {
 impl ::std::cmp::Eq for RAS_AUTH_ATTRIBUTE {}
 unsafe impl ::windows::runtime::Abi for RAS_AUTH_ATTRIBUTE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3635,7 +3575,6 @@ impl ::std::convert::From<i32> for RAS_AUTH_ATTRIBUTE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RAS_AUTH_ATTRIBUTE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub const RAS_EAP_FLAG_8021X_AUTH: u32 = 128u32;

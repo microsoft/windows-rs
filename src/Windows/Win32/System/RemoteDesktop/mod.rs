@@ -63,7 +63,6 @@ impl ::std::cmp::Eq for AAAccountingData {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AAAccountingData {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -80,7 +79,6 @@ impl ::std::convert::From<i32> for AAAccountingDataType {
 }
 unsafe impl ::windows::runtime::Abi for AAAccountingDataType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -106,7 +104,6 @@ impl ::std::convert::From<i32> for AAAuthSchemes {
 }
 unsafe impl ::windows::runtime::Abi for AAAuthSchemes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -122,7 +119,6 @@ impl ::std::convert::From<i32> for AATrustClassID {
 }
 unsafe impl ::windows::runtime::Abi for AATrustClassID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const ACQUIRE_TARGET_LOCK_TIMEOUT: u32 = 300000u32;
@@ -164,7 +160,6 @@ impl ::std::cmp::PartialEq for AE_CURRENT_POSITION {
 impl ::std::cmp::Eq for AE_CURRENT_POSITION {}
 unsafe impl ::windows::runtime::Abi for AE_CURRENT_POSITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -181,7 +176,6 @@ impl ::std::convert::From<i32> for AE_POSITION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for AE_POSITION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -197,7 +191,6 @@ impl ::std::convert::From<i32> for APO_BUFFER_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for APO_BUFFER_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -227,7 +220,6 @@ impl ::std::cmp::PartialEq for APO_CONNECTION_PROPERTY {
 impl ::std::cmp::Eq for APO_CONNECTION_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for APO_CONNECTION_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -255,7 +247,6 @@ impl ::std::cmp::PartialEq for BITMAP_RENDERER_STATISTICS {
 impl ::std::cmp::Eq for BITMAP_RENDERER_STATISTICS {}
 unsafe impl ::windows::runtime::Abi for BITMAP_RENDERER_STATISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_BUFFER_SIZE: u32 = 65535u32;
@@ -288,7 +279,6 @@ impl ::std::cmp::Eq for CHANNEL_DEF {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CHANNEL_DEF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -327,7 +317,6 @@ impl ::std::cmp::Eq for CHANNEL_ENTRY_POINTS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CHANNEL_ENTRY_POINTS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_EVENT_CONNECTED: u32 = 1u32;
@@ -405,7 +394,6 @@ impl ::std::cmp::PartialEq for CHANNEL_PDU_HEADER {
 impl ::std::cmp::Eq for CHANNEL_PDU_HEADER {}
 unsafe impl ::windows::runtime::Abi for CHANNEL_PDU_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const CHANNEL_RC_ALREADY_CONNECTED: u32 = 3u32;
@@ -480,7 +468,6 @@ impl ::std::cmp::PartialEq for CLIENT_DISPLAY {
 impl ::std::cmp::Eq for CLIENT_DISPLAY {}
 unsafe impl ::windows::runtime::Abi for CLIENT_DISPLAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -496,7 +483,6 @@ impl ::std::convert::From<i32> for CLIENT_MESSAGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CLIENT_MESSAGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -518,7 +504,6 @@ impl ::std::convert::From<i32> for CONNECTION_CHANGE_NOTIFICATION {
 }
 unsafe impl ::windows::runtime::Abi for CONNECTION_CHANGE_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const CONNECTION_PROPERTY_CURSOR_BLINK_DISABLED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1259668864, 65188, 19772, [157, 228, 116, 51, 166, 102, 24, 247]);
 pub const CONNECTION_PROPERTY_IDLE_TIME_WARNING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1765769205, 3150, 19735, [184, 224, 31, 112, 50, 94, 93, 88]);
@@ -609,7 +594,6 @@ impl ::std::default::Default for HwtsVirtualChannelHandle {
 unsafe impl ::windows::runtime::Handle for HwtsVirtualChannelHandle {}
 unsafe impl ::windows::runtime::Abi for HwtsVirtualChannelHandle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[repr(transparent)]
@@ -6812,7 +6796,6 @@ impl ::std::convert::From<i32> for KeyCombinationType {
 }
 unsafe impl ::windows::runtime::Abi for KeyCombinationType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const MAX_DATE_TIME_LENGTH: u32 = 56u32;
@@ -6861,7 +6844,6 @@ impl ::std::convert::From<i32> for PLUGIN_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PLUGIN_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const PRODUCTINFO_COMPANYNAME_LENGTH: u32 = 256u32;
@@ -6893,7 +6875,6 @@ impl ::std::convert::From<i32> for PasswordEncodingType {
 }
 unsafe impl ::windows::runtime::Abi for PasswordEncodingType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6914,7 +6895,6 @@ impl ::std::convert::From<i32> for PolicyAttributeType {
 }
 unsafe impl ::windows::runtime::Abi for PolicyAttributeType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -6952,7 +6932,6 @@ impl ::std::convert::From<i32> for RDV_TASK_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for RDV_TASK_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6972,7 +6951,6 @@ impl ::std::convert::From<i32> for RD_FARM_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RD_FARM_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const REMOTECONTROL_KBDALT_HOTKEY: u32 = 4u32;
@@ -7025,7 +7003,6 @@ impl ::std::cmp::Eq for RFX_GFX_MONITOR_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RFX_GFX_MONITOR_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7047,7 +7024,6 @@ impl ::std::cmp::PartialEq for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
 impl ::std::cmp::Eq for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {}
 unsafe impl ::windows::runtime::Abi for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -7079,7 +7055,6 @@ impl ::std::cmp::Eq for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7101,7 +7076,6 @@ impl ::std::cmp::PartialEq for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
 impl ::std::cmp::Eq for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {}
 unsafe impl ::windows::runtime::Abi for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -7127,7 +7101,6 @@ impl ::std::cmp::PartialEq for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
 impl ::std::cmp::Eq for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {}
 unsafe impl ::windows::runtime::Abi for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -7151,7 +7124,6 @@ impl ::std::cmp::PartialEq for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
 impl ::std::cmp::Eq for RFX_GFX_MSG_DESKTOP_INPUT_RESET {}
 unsafe impl ::windows::runtime::Abi for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7174,7 +7146,6 @@ impl ::std::cmp::PartialEq for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
 impl ::std::cmp::Eq for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {}
 unsafe impl ::windows::runtime::Abi for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -7197,7 +7168,6 @@ impl ::std::cmp::PartialEq for RFX_GFX_MSG_DISCONNECT_NOTIFY {
 impl ::std::cmp::Eq for RFX_GFX_MSG_DISCONNECT_NOTIFY {}
 unsafe impl ::windows::runtime::Abi for RFX_GFX_MSG_DISCONNECT_NOTIFY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -7220,7 +7190,6 @@ impl ::std::cmp::PartialEq for RFX_GFX_MSG_HEADER {
 impl ::std::cmp::Eq for RFX_GFX_MSG_HEADER {}
 unsafe impl ::windows::runtime::Abi for RFX_GFX_MSG_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const RFX_GFX_MSG_PREFIX: u32 = 48u32;
@@ -7247,7 +7216,6 @@ impl ::std::cmp::PartialEq for RFX_GFX_MSG_RDP_DATA {
 impl ::std::cmp::Eq for RFX_GFX_MSG_RDP_DATA {}
 unsafe impl ::windows::runtime::Abi for RFX_GFX_MSG_RDP_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -7272,7 +7240,6 @@ impl ::std::cmp::PartialEq for RFX_GFX_RECT {
 impl ::std::cmp::Eq for RFX_GFX_RECT {}
 unsafe impl ::windows::runtime::Abi for RFX_GFX_RECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const RFX_RDP_MSG_PREFIX: u32 = 0u32;
@@ -7292,7 +7259,6 @@ impl ::std::convert::From<i32> for RemoteActionType {
 }
 unsafe impl ::windows::runtime::Abi for RemoteActionType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const SB_SYNCH_CONFLICT_MAX_WRITE_ATTEMPTS: u32 = 100u32;
@@ -7309,7 +7275,6 @@ impl ::std::convert::From<i32> for SESSION_TIMEOUT_ACTION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SESSION_TIMEOUT_ACTION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const SINGLE_SESSION: u32 = 1u32;
@@ -7325,7 +7290,6 @@ impl ::std::convert::From<i32> for SnapshotEncodingType {
 }
 unsafe impl ::windows::runtime::Abi for SnapshotEncodingType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7341,7 +7305,6 @@ impl ::std::convert::From<i32> for SnapshotFormatType {
 }
 unsafe impl ::windows::runtime::Abi for SnapshotFormatType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7365,7 +7328,6 @@ impl ::std::convert::From<i32> for TARGET_CHANGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for TARGET_CHANGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7381,7 +7343,6 @@ impl ::std::convert::From<i32> for TARGET_OWNER {
 }
 unsafe impl ::windows::runtime::Abi for TARGET_OWNER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7399,7 +7360,6 @@ impl ::std::convert::From<i32> for TARGET_PATCH_STATE {
 }
 unsafe impl ::windows::runtime::Abi for TARGET_PATCH_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7423,7 +7383,6 @@ impl ::std::convert::From<i32> for TARGET_STATE {
 }
 unsafe impl ::windows::runtime::Abi for TARGET_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7439,7 +7398,6 @@ impl ::std::convert::From<i32> for TARGET_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for TARGET_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7454,7 +7412,6 @@ impl ::std::convert::From<i32> for TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7469,7 +7426,6 @@ impl ::std::convert::From<i32> for TSPUB_PLUGIN_PD_RESOLUTION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for TSPUB_PLUGIN_PD_RESOLUTION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7486,7 +7442,6 @@ impl ::std::convert::From<i32> for TSSB_NOTIFICATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for TSSB_NOTIFICATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7502,7 +7457,6 @@ impl ::std::convert::From<i32> for TSSD_AddrV46Type {
 }
 unsafe impl ::windows::runtime::Abi for TSSD_AddrV46Type {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7532,7 +7486,6 @@ impl ::std::cmp::PartialEq for TSSD_ConnectionPoint {
 impl ::std::cmp::Eq for TSSD_ConnectionPoint {}
 unsafe impl ::windows::runtime::Abi for TSSD_ConnectionPoint {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7557,7 +7510,6 @@ impl ::std::convert::From<i32> for TSSESSION_STATE {
 }
 unsafe impl ::windows::runtime::Abi for TSSESSION_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const TSUserExInterfaces: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(152100097, 57228, 4561, [174, 39, 0, 192, 79, 163, 88, 19]);
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
@@ -7574,7 +7526,6 @@ impl ::std::convert::From<i32> for TS_SB_SORT_BY {
 }
 unsafe impl ::windows::runtime::Abi for TS_SB_SORT_BY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const TS_VC_LISTENER_STATIC_CHANNEL: u32 = 1u32;
@@ -7601,7 +7552,6 @@ impl ::std::convert::From<i32> for VM_HOST_NOTIFY_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for VM_HOST_NOTIFY_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7629,7 +7579,6 @@ impl ::std::cmp::PartialEq for VM_NOTIFY_ENTRY {
 impl ::std::cmp::Eq for VM_NOTIFY_ENTRY {}
 unsafe impl ::windows::runtime::Abi for VM_NOTIFY_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7657,7 +7606,6 @@ impl ::std::cmp::PartialEq for VM_NOTIFY_INFO {
 impl ::std::cmp::Eq for VM_NOTIFY_INFO {}
 unsafe impl ::windows::runtime::Abi for VM_NOTIFY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7675,7 +7623,6 @@ impl ::std::convert::From<i32> for VM_NOTIFY_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for VM_NOTIFY_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7710,7 +7657,6 @@ impl ::std::cmp::Eq for VM_PATCH_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VM_PATCH_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WINSTATIONNAME_LENGTH: u32 = 32u32;
@@ -7752,7 +7698,6 @@ impl ::std::cmp::Eq for WRDS_CONNECTION_SETTING {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WRDS_CONNECTION_SETTING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7781,7 +7726,6 @@ impl ::std::cmp::Eq for WRDS_CONNECTION_SETTINGS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WRDS_CONNECTION_SETTINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7873,7 +7817,6 @@ impl ::std::cmp::Eq for WRDS_CONNECTION_SETTINGS_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WRDS_CONNECTION_SETTINGS_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7888,7 +7831,6 @@ impl ::std::convert::From<i32> for WRDS_CONNECTION_SETTING_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for WRDS_CONNECTION_SETTING_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_DEVICE_NAME_LENGTH: u32 = 19u32;
@@ -7941,7 +7883,6 @@ impl ::std::cmp::PartialEq for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
 impl ::std::cmp::Eq for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_IMEFILENAME_LENGTH: u32 = 32u32;
@@ -7975,7 +7916,6 @@ impl ::std::cmp::PartialEq for WRDS_LISTENER_SETTING {
 impl ::std::cmp::Eq for WRDS_LISTENER_SETTING {}
 unsafe impl ::windows::runtime::Abi for WRDS_LISTENER_SETTING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7998,7 +7938,6 @@ impl ::std::cmp::PartialEq for WRDS_LISTENER_SETTINGS {
 impl ::std::cmp::Eq for WRDS_LISTENER_SETTINGS {}
 unsafe impl ::windows::runtime::Abi for WRDS_LISTENER_SETTINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8027,7 +7966,6 @@ impl ::std::cmp::PartialEq for WRDS_LISTENER_SETTINGS_1 {
 impl ::std::cmp::Eq for WRDS_LISTENER_SETTINGS_1 {}
 unsafe impl ::windows::runtime::Abi for WRDS_LISTENER_SETTINGS_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8042,7 +7980,6 @@ impl ::std::convert::From<i32> for WRDS_LISTENER_SETTING_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for WRDS_LISTENER_SETTING_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_MAX_CACHE_RESERVED: u32 = 20u32;
@@ -8105,7 +8042,6 @@ impl ::std::cmp::Eq for WRDS_SETTING {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WRDS_SETTING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8135,7 +8071,6 @@ impl ::std::cmp::Eq for WRDS_SETTINGS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WRDS_SETTINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8261,7 +8196,6 @@ impl ::std::cmp::Eq for WRDS_SETTINGS_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WRDS_SETTINGS_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8276,7 +8210,6 @@ impl ::std::convert::From<i32> for WRDS_SETTING_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for WRDS_SETTING_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8293,7 +8226,6 @@ impl ::std::convert::From<i32> for WRDS_SETTING_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for WRDS_SETTING_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8310,7 +8242,6 @@ impl ::std::convert::From<i32> for WRDS_SETTING_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WRDS_SETTING_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRDS_USERNAME_LENGTH: u32 = 255u32;
@@ -8335,7 +8266,6 @@ impl ::std::convert::From<i32> for WRdsGraphicsChannelType {
 }
 unsafe impl ::windows::runtime::Abi for WRdsGraphicsChannelType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WRdsGraphicsChannels_LossyChannelMaxMessageSize: u32 = 988u32;
@@ -8427,7 +8357,6 @@ impl ::std::cmp::Eq for WTSCLIENTA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WTSCLIENTA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8510,7 +8439,6 @@ impl ::std::cmp::PartialEq for WTSCLIENTW {
 impl ::std::cmp::Eq for WTSCLIENTW {}
 unsafe impl ::windows::runtime::Abi for WTSCLIENTW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8576,7 +8504,6 @@ impl ::std::cmp::Eq for WTSCONFIGINFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WTSCONFIGINFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8635,7 +8562,6 @@ impl ::std::cmp::PartialEq for WTSCONFIGINFOW {
 impl ::std::cmp::Eq for WTSCONFIGINFOW {}
 unsafe impl ::windows::runtime::Abi for WTSCONFIGINFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -9122,7 +9048,6 @@ impl ::std::cmp::Eq for WTSINFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WTSINFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9151,7 +9076,6 @@ impl ::std::cmp::Eq for WTSINFOEXA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WTSINFOEXA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9174,7 +9098,6 @@ impl ::std::cmp::PartialEq for WTSINFOEXW {
 impl ::std::cmp::Eq for WTSINFOEXW {}
 unsafe impl ::windows::runtime::Abi for WTSINFOEXW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9258,7 +9181,6 @@ impl ::std::cmp::Eq for WTSINFOEX_LEVEL1_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WTSINFOEX_LEVEL1_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9335,7 +9257,6 @@ impl ::std::cmp::PartialEq for WTSINFOEX_LEVEL1_W {
 impl ::std::cmp::Eq for WTSINFOEX_LEVEL1_W {}
 unsafe impl ::windows::runtime::Abi for WTSINFOEX_LEVEL1_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9363,7 +9284,6 @@ impl ::std::cmp::Eq for WTSINFOEX_LEVEL_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WTSINFOEX_LEVEL_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9385,7 +9305,6 @@ impl ::std::cmp::PartialEq for WTSINFOEX_LEVEL_W {
 impl ::std::cmp::Eq for WTSINFOEX_LEVEL_W {}
 unsafe impl ::windows::runtime::Abi for WTSINFOEX_LEVEL_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9459,7 +9378,6 @@ impl ::std::cmp::PartialEq for WTSINFOW {
 impl ::std::cmp::Eq for WTSINFOW {}
 unsafe impl ::windows::runtime::Abi for WTSINFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -9600,7 +9518,6 @@ impl ::std::cmp::Eq for WTSLISTENERCONFIGA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WTSLISTENERCONFIGA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9719,7 +9636,6 @@ impl ::std::cmp::PartialEq for WTSLISTENERCONFIGW {
 impl ::std::cmp::Eq for WTSLISTENERCONFIGW {}
 unsafe impl ::windows::runtime::Abi for WTSLISTENERCONFIGW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -9947,7 +9863,6 @@ impl ::std::convert::From<i32> for WTSSBX_ADDRESS_FAMILY {
 }
 unsafe impl ::windows::runtime::Abi for WTSSBX_ADDRESS_FAMILY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9977,7 +9892,6 @@ impl ::std::cmp::PartialEq for WTSSBX_IP_ADDRESS {
 impl ::std::cmp::Eq for WTSSBX_IP_ADDRESS {}
 unsafe impl ::windows::runtime::Abi for WTSSBX_IP_ADDRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10007,7 +9921,6 @@ impl ::std::cmp::PartialEq for WTSSBX_MACHINE_CONNECT_INFO {
 impl ::std::cmp::Eq for WTSSBX_MACHINE_CONNECT_INFO {}
 unsafe impl ::windows::runtime::Abi for WTSSBX_MACHINE_CONNECT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10023,7 +9936,6 @@ impl ::std::convert::From<i32> for WTSSBX_MACHINE_DRAIN {
 }
 unsafe impl ::windows::runtime::Abi for WTSSBX_MACHINE_DRAIN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10066,7 +9978,6 @@ impl ::std::cmp::PartialEq for WTSSBX_MACHINE_INFO {
 impl ::std::cmp::Eq for WTSSBX_MACHINE_INFO {}
 unsafe impl ::windows::runtime::Abi for WTSSBX_MACHINE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10082,7 +9993,6 @@ impl ::std::convert::From<i32> for WTSSBX_MACHINE_SESSION_MODE {
 }
 unsafe impl ::windows::runtime::Abi for WTSSBX_MACHINE_SESSION_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10098,7 +10008,6 @@ impl ::std::convert::From<i32> for WTSSBX_MACHINE_STATE {
 }
 unsafe impl ::windows::runtime::Abi for WTSSBX_MACHINE_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10115,7 +10024,6 @@ impl ::std::convert::From<i32> for WTSSBX_NOTIFICATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WTSSBX_NOTIFICATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10163,7 +10071,6 @@ impl ::std::cmp::Eq for WTSSBX_SESSION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WTSSBX_SESSION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10179,7 +10086,6 @@ impl ::std::convert::From<i32> for WTSSBX_SESSION_STATE {
 }
 unsafe impl ::windows::runtime::Abi for WTSSBX_SESSION_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10207,7 +10113,6 @@ impl ::std::cmp::PartialEq for WTSSESSION_NOTIFICATION {
 impl ::std::cmp::Eq for WTSSESSION_NOTIFICATION {}
 unsafe impl ::windows::runtime::Abi for WTSSESSION_NOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
@@ -10518,7 +10423,6 @@ impl ::std::cmp::Eq for WTSUSERCONFIGA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WTSUSERCONFIGA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10598,7 +10502,6 @@ impl ::std::cmp::PartialEq for WTSUSERCONFIGW {
 impl ::std::cmp::Eq for WTSUSERCONFIGW {}
 unsafe impl ::windows::runtime::Abi for WTSUSERCONFIGW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
@@ -10788,7 +10691,6 @@ impl ::std::cmp::PartialEq for WTS_CACHE_STATS {
 impl ::std::cmp::Eq for WTS_CACHE_STATS {}
 unsafe impl ::windows::runtime::Abi for WTS_CACHE_STATS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10812,7 +10714,6 @@ impl ::std::cmp::PartialEq for WTS_CACHE_STATS_UN {
 impl ::std::cmp::Eq for WTS_CACHE_STATS_UN {}
 unsafe impl ::windows::runtime::Abi for WTS_CACHE_STATS_UN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10828,7 +10729,6 @@ impl ::std::convert::From<i32> for WTS_CERT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WTS_CERT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_CHANNEL_OPTION_DYNAMIC: u32 = 1u32;
@@ -10872,7 +10772,6 @@ impl ::std::cmp::PartialEq for WTS_CLIENT_ADDRESS {
 impl ::std::cmp::Eq for WTS_CLIENT_ADDRESS {}
 unsafe impl ::windows::runtime::Abi for WTS_CLIENT_ADDRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10954,7 +10853,6 @@ impl ::std::cmp::Eq for WTS_CLIENT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WTS_CLIENT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10983,7 +10881,6 @@ impl ::std::cmp::PartialEq for WTS_CLIENT_DISPLAY {
 impl ::std::cmp::Eq for WTS_CLIENT_DISPLAY {}
 unsafe impl ::windows::runtime::Abi for WTS_CLIENT_DISPLAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_CLIENT_PRODUCT_ID_LENGTH: u32 = 32u32;
@@ -11020,7 +10917,6 @@ impl ::std::convert::From<i32> for WTS_CONFIG_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for WTS_CONFIG_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11034,7 +10930,6 @@ impl ::std::convert::From<i32> for WTS_CONFIG_SOURCE {
 }
 unsafe impl ::windows::runtime::Abi for WTS_CONFIG_SOURCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11057,7 +10952,6 @@ impl ::std::convert::From<i32> for WTS_CONNECTSTATE_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for WTS_CONNECTSTATE_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_CURRENT_SESSION: u32 = 4294967295u32;
@@ -11091,7 +10985,6 @@ impl ::std::cmp::PartialEq for WTS_DISPLAY_IOCTL {
 impl ::std::cmp::Eq for WTS_DISPLAY_IOCTL {}
 unsafe impl ::windows::runtime::Abi for WTS_DISPLAY_IOCTL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_DOMAIN_LENGTH: u32 = 255u32;
@@ -11166,7 +11059,6 @@ impl ::std::convert::From<i32> for WTS_INFO_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for WTS_INFO_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_INITIALPROGRAM_LENGTH: u32 = 256u32;
@@ -11218,7 +11110,6 @@ impl ::std::cmp::Eq for WTS_LICENSE_CAPABILITIES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WTS_LICENSE_CAPABILITIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_LICENSE_PREAMBLE_VERSION: u32 = 3u32;
@@ -11246,7 +11137,6 @@ impl ::std::convert::From<i32> for WTS_LOGON_ERROR_REDIRECTOR_RESPONSE {
 }
 unsafe impl ::windows::runtime::Abi for WTS_LOGON_ERROR_REDIRECTOR_RESPONSE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_MAX_CACHE_RESERVED: u32 = 20u32;
@@ -11332,7 +11222,6 @@ impl ::std::cmp::Eq for WTS_POLICY_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WTS_POLICY_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11369,7 +11258,6 @@ impl ::std::cmp::Eq for WTS_PROCESS_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WTS_PROCESS_INFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11406,7 +11294,6 @@ impl ::std::cmp::Eq for WTS_PROCESS_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WTS_PROCESS_INFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11475,7 +11362,6 @@ impl ::std::cmp::Eq for WTS_PROCESS_INFO_EXA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WTS_PROCESS_INFO_EXA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11544,7 +11430,6 @@ impl ::std::cmp::Eq for WTS_PROCESS_INFO_EXW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WTS_PROCESS_INFO_EXW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_PROCESS_INFO_LEVEL_0: u32 = 0u32;
@@ -11577,7 +11462,6 @@ impl ::std::cmp::Eq for WTS_PROPERTY_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WTS_PROPERTY_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11608,7 +11492,6 @@ impl ::std::cmp::Eq for WTS_PROPERTY_VALUE_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WTS_PROPERTY_VALUE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11643,7 +11526,6 @@ impl ::std::cmp::Eq for WTS_PROPERTY_VALUE_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WTS_PROPERTY_VALUE_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11678,7 +11560,6 @@ impl ::std::cmp::Eq for WTS_PROPERTY_VALUE_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WTS_PROPERTY_VALUE_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11706,7 +11587,6 @@ impl ::std::cmp::PartialEq for WTS_PROTOCOL_CACHE {
 impl ::std::cmp::Eq for WTS_PROTOCOL_CACHE {}
 unsafe impl ::windows::runtime::Abi for WTS_PROTOCOL_CACHE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11786,7 +11666,6 @@ impl ::std::cmp::PartialEq for WTS_PROTOCOL_COUNTERS {
 impl ::std::cmp::Eq for WTS_PROTOCOL_COUNTERS {}
 unsafe impl ::windows::runtime::Abi for WTS_PROTOCOL_COUNTERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_PROTOCOL_NAME_LENGTH: u32 = 8u32;
@@ -11815,7 +11694,6 @@ impl ::std::cmp::PartialEq for WTS_PROTOCOL_STATUS {
 impl ::std::cmp::Eq for WTS_PROTOCOL_STATUS {}
 unsafe impl ::windows::runtime::Abi for WTS_PROTOCOL_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_PROTOCOL_TYPE_CONSOLE: u32 = 0u32;
@@ -11841,7 +11719,6 @@ impl ::std::convert::From<i32> for WTS_RCM_DRAIN_STATE {
 }
 unsafe impl ::windows::runtime::Abi for WTS_RCM_DRAIN_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11857,7 +11734,6 @@ impl ::std::convert::From<i32> for WTS_RCM_SERVICE_STATE {
 }
 unsafe impl ::windows::runtime::Abi for WTS_RCM_SERVICE_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_SECURITY_CONNECT: u32 = 256u32;
@@ -11913,7 +11789,6 @@ impl ::std::cmp::Eq for WTS_SERVER_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WTS_SERVER_INFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11947,7 +11822,6 @@ impl ::std::cmp::Eq for WTS_SERVER_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WTS_SERVER_INFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11975,7 +11849,6 @@ impl ::std::cmp::PartialEq for WTS_SERVICE_STATE {
 impl ::std::cmp::Eq for WTS_SERVICE_STATE {}
 unsafe impl ::windows::runtime::Abi for WTS_SERVICE_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_SESSIONSTATE_LOCK: u32 = 0u32;
@@ -12009,7 +11882,6 @@ impl ::std::cmp::PartialEq for WTS_SESSION_ADDRESS {
 impl ::std::cmp::Eq for WTS_SESSION_ADDRESS {}
 unsafe impl ::windows::runtime::Abi for WTS_SESSION_ADDRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12037,7 +11909,6 @@ impl ::std::cmp::PartialEq for WTS_SESSION_ID {
 impl ::std::cmp::Eq for WTS_SESSION_ID {}
 unsafe impl ::windows::runtime::Abi for WTS_SESSION_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12073,7 +11944,6 @@ impl ::std::cmp::Eq for WTS_SESSION_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WTS_SESSION_INFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12109,7 +11979,6 @@ impl ::std::cmp::Eq for WTS_SESSION_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WTS_SESSION_INFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12159,7 +12028,6 @@ impl ::std::cmp::Eq for WTS_SESSION_INFO_1A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WTS_SESSION_INFO_1A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12209,7 +12077,6 @@ impl ::std::cmp::Eq for WTS_SESSION_INFO_1W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WTS_SESSION_INFO_1W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12239,7 +12106,6 @@ impl ::std::cmp::PartialEq for WTS_SMALL_RECT {
 impl ::std::cmp::Eq for WTS_SMALL_RECT {}
 unsafe impl ::windows::runtime::Abi for WTS_SMALL_RECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12262,7 +12128,6 @@ impl ::std::cmp::PartialEq for WTS_SOCKADDR {
 impl ::std::cmp::Eq for WTS_SOCKADDR {}
 unsafe impl ::windows::runtime::Abi for WTS_SOCKADDR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12285,7 +12150,6 @@ impl ::std::cmp::PartialEq for WTS_SOCKADDR_0 {
 impl ::std::cmp::Eq for WTS_SOCKADDR_0 {}
 unsafe impl ::windows::runtime::Abi for WTS_SOCKADDR_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12314,7 +12178,6 @@ impl ::std::cmp::PartialEq for WTS_SOCKADDR_0_0 {
 impl ::std::cmp::Eq for WTS_SOCKADDR_0_0 {}
 unsafe impl ::windows::runtime::Abi for WTS_SOCKADDR_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12344,7 +12207,6 @@ impl ::std::cmp::PartialEq for WTS_SOCKADDR_0_1 {
 impl ::std::cmp::Eq for WTS_SOCKADDR_0_1 {}
 unsafe impl ::windows::runtime::Abi for WTS_SOCKADDR_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12387,7 +12249,6 @@ impl ::std::cmp::PartialEq for WTS_SYSTEMTIME {
 impl ::std::cmp::Eq for WTS_SYSTEMTIME {}
 unsafe impl ::windows::runtime::Abi for WTS_SYSTEMTIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12428,7 +12289,6 @@ impl ::std::cmp::PartialEq for WTS_TIME_ZONE_INFORMATION {
 impl ::std::cmp::Eq for WTS_TIME_ZONE_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for WTS_TIME_ZONE_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12444,7 +12304,6 @@ impl ::std::convert::From<i32> for WTS_TYPE_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for WTS_TYPE_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_USERNAME_LENGTH: u32 = 255u32;
@@ -12475,7 +12334,6 @@ impl ::std::cmp::PartialEq for WTS_USER_CREDENTIAL {
 impl ::std::cmp::Eq for WTS_USER_CREDENTIAL {}
 unsafe impl ::windows::runtime::Abi for WTS_USER_CREDENTIAL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12504,7 +12362,6 @@ impl ::std::cmp::PartialEq for WTS_USER_DATA {
 impl ::std::cmp::Eq for WTS_USER_DATA {}
 unsafe impl ::windows::runtime::Abi for WTS_USER_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12542,7 +12399,6 @@ impl ::std::cmp::Eq for WTS_VALIDATION_INFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WTS_VALIDATION_INFORMATIONA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12573,7 +12429,6 @@ impl ::std::cmp::PartialEq for WTS_VALIDATION_INFORMATIONW {
 impl ::std::cmp::Eq for WTS_VALIDATION_INFORMATIONW {}
 unsafe impl ::windows::runtime::Abi for WTS_VALIDATION_INFORMATIONW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_VALUE_TYPE_BINARY: u32 = 3u32;
@@ -12596,7 +12451,6 @@ impl ::std::convert::From<i32> for WTS_VIRTUAL_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for WTS_VIRTUAL_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_RemoteDesktop`*"]
 pub const WTS_WSD_FASTREBOOT: u32 = 16u32;
@@ -12690,7 +12544,6 @@ impl ::std::cmp::Eq for _WTS_PRODUCT_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for _WTS_PRODUCT_INFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12718,7 +12571,6 @@ impl ::std::cmp::PartialEq for _WTS_PRODUCT_INFOW {
 impl ::std::cmp::Eq for _WTS_PRODUCT_INFOW {}
 unsafe impl ::windows::runtime::Abi for _WTS_PRODUCT_INFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12774,7 +12626,6 @@ impl ::std::cmp::Eq for pluginResource {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for pluginResource {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12820,7 +12671,6 @@ impl ::std::cmp::Eq for pluginResource2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for pluginResource2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12850,5 +12700,4 @@ impl ::std::cmp::PartialEq for pluginResource2FileAssociation {
 impl ::std::cmp::Eq for pluginResource2FileAssociation {}
 unsafe impl ::windows::runtime::Abi for pluginResource2FileAssociation {
     type Abi = Self;
-    type DefaultType = Self;
 }

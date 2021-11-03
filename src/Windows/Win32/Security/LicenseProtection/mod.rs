@@ -15,7 +15,6 @@ impl ::std::convert::From<i32> for LicenseProtectionStatus {
 }
 unsafe impl ::windows::runtime::Abi for LicenseProtectionStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_LicenseProtection`, `Win32_Foundation`*"]

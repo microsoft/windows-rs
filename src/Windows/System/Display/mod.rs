@@ -33,7 +33,6 @@ impl ::windows::runtime::RuntimeName for DisplayRequest {
     const NAME: &'static str = "Windows.System.Display.DisplayRequest";
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDisplayRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDisplayRequest {

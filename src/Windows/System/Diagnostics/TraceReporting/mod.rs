@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlatformDiagnosticActionsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlatformDiagnosticActionsStatics {
@@ -29,7 +28,6 @@ pub struct IPlatformDiagnosticActionsStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlatformDiagnosticTraceInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlatformDiagnosticTraceInfo {
@@ -53,7 +51,6 @@ pub struct IPlatformDiagnosticTraceInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut PlatformDiagnosticTracePriority) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlatformDiagnosticTraceRuntimeInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlatformDiagnosticTraceRuntimeInfo {
@@ -88,10 +85,12 @@ impl ::std::convert::From<i32> for PlatformDiagnosticActionState {
 }
 unsafe impl ::windows::runtime::Abi for PlatformDiagnosticActionState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PlatformDiagnosticActionState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticActionState;i4)");
+}
+impl ::windows::runtime::DefaultType for PlatformDiagnosticActionState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System_Diagnostics_TraceReporting`*"]
 pub struct PlatformDiagnosticActions {}
@@ -185,10 +184,12 @@ impl ::std::convert::From<i32> for PlatformDiagnosticEscalationType {
 }
 unsafe impl ::windows::runtime::Abi for PlatformDiagnosticEscalationType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PlatformDiagnosticEscalationType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticEscalationType;i4)");
+}
+impl ::windows::runtime::DefaultType for PlatformDiagnosticEscalationType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System_Diagnostics_TraceReporting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -206,10 +207,12 @@ impl ::std::convert::From<u32> for PlatformDiagnosticEventBufferLatencies {
 }
 unsafe impl ::windows::runtime::Abi for PlatformDiagnosticEventBufferLatencies {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PlatformDiagnosticEventBufferLatencies {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticEventBufferLatencies;u4)");
+}
+impl ::windows::runtime::DefaultType for PlatformDiagnosticEventBufferLatencies {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PlatformDiagnosticEventBufferLatencies {
     type Output = Self;
@@ -320,10 +323,12 @@ impl ::std::convert::From<i32> for PlatformDiagnosticTracePriority {
 }
 unsafe impl ::windows::runtime::Abi for PlatformDiagnosticTracePriority {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PlatformDiagnosticTracePriority {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTracePriority;i4)");
+}
+impl ::windows::runtime::DefaultType for PlatformDiagnosticTracePriority {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System_Diagnostics_TraceReporting`*"]
 #[repr(transparent)]
@@ -375,10 +380,12 @@ impl ::std::convert::From<i32> for PlatformDiagnosticTraceSlotState {
 }
 unsafe impl ::windows::runtime::Abi for PlatformDiagnosticTraceSlotState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PlatformDiagnosticTraceSlotState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceSlotState;i4)");
+}
+impl ::windows::runtime::DefaultType for PlatformDiagnosticTraceSlotState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System_Diagnostics_TraceReporting`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -396,8 +403,10 @@ impl ::std::convert::From<i32> for PlatformDiagnosticTraceSlotType {
 }
 unsafe impl ::windows::runtime::Abi for PlatformDiagnosticTraceSlotType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PlatformDiagnosticTraceSlotType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceSlotType;i4)");
+}
+impl ::windows::runtime::DefaultType for PlatformDiagnosticTraceSlotType {
+    type DefaultType = Self;
 }

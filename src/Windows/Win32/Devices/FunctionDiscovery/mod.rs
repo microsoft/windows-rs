@@ -874,7 +874,6 @@ impl ::std::convert::From<i32> for PropertyConstraint {
 }
 unsafe impl ::windows::runtime::Abi for PropertyConstraint {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const PropertyStore: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3833161040, 57185, 17547, [145, 147, 19, 252, 19, 65, 177, 99]);
 pub const PropertyStoreCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3990052905, 55123, 18530, [170, 91, 91, 204, 173, 42, 77, 41]);
@@ -891,7 +890,6 @@ impl ::std::convert::From<i32> for QueryCategoryType {
 }
 unsafe impl ::windows::runtime::Abi for QueryCategoryType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_FunctionDiscovery`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -907,7 +905,6 @@ impl ::std::convert::From<i32> for QueryUpdateAction {
 }
 unsafe impl ::windows::runtime::Abi for QueryUpdateAction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const SID_DeviceDisplayStatusManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4120552787, 33545, 18122, [151, 54, 26, 195, 198, 45, 96, 49]);
 pub const SID_EnumDeviceFunction: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(333507042, 50170, 20028, [144, 110, 100, 80, 47, 164, 220, 149]);
@@ -934,5 +931,4 @@ impl ::std::convert::From<i32> for SystemVisibilityFlags {
 }
 unsafe impl ::windows::runtime::Abi for SystemVisibilityFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }

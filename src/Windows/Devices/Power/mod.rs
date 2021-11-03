@@ -138,7 +138,6 @@ impl ::windows::runtime::RuntimeName for BatteryReport {
 unsafe impl ::std::marker::Send for BatteryReport {}
 unsafe impl ::std::marker::Sync for BatteryReport {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBattery(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBattery {
@@ -162,7 +161,6 @@ pub struct IBattery_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBatteryReport(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBatteryReport {
@@ -190,7 +188,6 @@ pub struct IBatteryReport_abi(
     #[cfg(not(feature = "System_Power"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBatteryStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBatteryStatics {

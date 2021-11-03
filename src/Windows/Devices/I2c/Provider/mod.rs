@@ -55,12 +55,12 @@ impl II2cDeviceProvider {
         }
     }
     #[doc = "*Required features: `Devices_I2c_Provider`*"]
-    pub fn Write(&self, buffer: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn Write(&self, buffer: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), buffer.len() as u32, ::std::mem::transmute(buffer.as_ptr())).ok() }
     }
     #[doc = "*Required features: `Devices_I2c_Provider`*"]
-    pub fn WritePartial(&self, buffer: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<ProviderI2cTransferResult> {
+    pub fn WritePartial(&self, buffer: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<ProviderI2cTransferResult> {
         let this = self;
         unsafe {
             let mut result__: ProviderI2cTransferResult = ::std::mem::zeroed();
@@ -68,12 +68,12 @@ impl II2cDeviceProvider {
         }
     }
     #[doc = "*Required features: `Devices_I2c_Provider`*"]
-    pub fn Read(&self, buffer: &mut [<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn Read(&self, buffer: &mut [<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), buffer.len() as u32, ::std::mem::transmute_copy(&buffer)).ok() }
     }
     #[doc = "*Required features: `Devices_I2c_Provider`*"]
-    pub fn ReadPartial(&self, buffer: &mut [<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<ProviderI2cTransferResult> {
+    pub fn ReadPartial(&self, buffer: &mut [<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<ProviderI2cTransferResult> {
         let this = self;
         unsafe {
             let mut result__: ProviderI2cTransferResult = ::std::mem::zeroed();
@@ -81,12 +81,12 @@ impl II2cDeviceProvider {
         }
     }
     #[doc = "*Required features: `Devices_I2c_Provider`*"]
-    pub fn WriteRead(&self, writebuffer: &[<u8 as ::windows::runtime::Abi>::DefaultType], readbuffer: &mut [<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn WriteRead(&self, writebuffer: &[<u8 as ::windows::runtime::DefaultType>::DefaultType], readbuffer: &mut [<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), writebuffer.len() as u32, ::std::mem::transmute(writebuffer.as_ptr()), readbuffer.len() as u32, ::std::mem::transmute_copy(&readbuffer)).ok() }
     }
     #[doc = "*Required features: `Devices_I2c_Provider`*"]
-    pub fn WriteReadPartial(&self, writebuffer: &[<u8 as ::windows::runtime::Abi>::DefaultType], readbuffer: &mut [<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<ProviderI2cTransferResult> {
+    pub fn WriteReadPartial(&self, writebuffer: &[<u8 as ::windows::runtime::DefaultType>::DefaultType], readbuffer: &mut [<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<ProviderI2cTransferResult> {
         let this = self;
         unsafe {
             let mut result__: ProviderI2cTransferResult = ::std::mem::zeroed();
@@ -175,7 +175,6 @@ pub struct II2cProvider_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProviderI2cConnectionSettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProviderI2cConnectionSettings {
@@ -213,10 +212,12 @@ impl ::std::convert::From<i32> for ProviderI2cBusSpeed {
 }
 unsafe impl ::windows::runtime::Abi for ProviderI2cBusSpeed {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ProviderI2cBusSpeed {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.Provider.ProviderI2cBusSpeed;i4)");
+}
+impl ::windows::runtime::DefaultType for ProviderI2cBusSpeed {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_I2c_Provider`*"]
 #[repr(transparent)]
@@ -290,10 +291,12 @@ impl ::std::convert::From<i32> for ProviderI2cSharingMode {
 }
 unsafe impl ::windows::runtime::Abi for ProviderI2cSharingMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ProviderI2cSharingMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.Provider.ProviderI2cSharingMode;i4)");
+}
+impl ::windows::runtime::DefaultType for ProviderI2cSharingMode {
+    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -321,10 +324,12 @@ impl ::std::cmp::PartialEq for ProviderI2cTransferResult {
 impl ::std::cmp::Eq for ProviderI2cTransferResult {}
 unsafe impl ::windows::runtime::Abi for ProviderI2cTransferResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ProviderI2cTransferResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Devices.I2c.Provider.ProviderI2cTransferResult;enum(Windows.Devices.I2c.Provider.ProviderI2cTransferStatus;i4);u4)");
+}
+impl ::windows::runtime::DefaultType for ProviderI2cTransferResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Devices_I2c_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -342,8 +347,10 @@ impl ::std::convert::From<i32> for ProviderI2cTransferStatus {
 }
 unsafe impl ::windows::runtime::Abi for ProviderI2cTransferStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ProviderI2cTransferStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.Provider.ProviderI2cTransferStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for ProviderI2cTransferStatus {
+    type DefaultType = Self;
 }

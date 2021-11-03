@@ -44,7 +44,6 @@ impl ::std::convert::From<u32> for CROSS_SLIDE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CROSS_SLIDE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CROSS_SLIDE_FLAGS {
     type Output = Self;
@@ -100,7 +99,6 @@ impl ::std::cmp::PartialEq for CROSS_SLIDE_PARAMETER {
 impl ::std::cmp::Eq for CROSS_SLIDE_PARAMETER {}
 unsafe impl ::windows::runtime::Abi for CROSS_SLIDE_PARAMETER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -119,7 +117,6 @@ impl ::std::convert::From<i32> for CROSS_SLIDE_THRESHOLD {
 }
 unsafe impl ::windows::runtime::Abi for CROSS_SLIDE_THRESHOLD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[inline]
@@ -296,7 +293,6 @@ impl ::std::default::Default for HINTERACTIONCONTEXT {
 unsafe impl ::windows::runtime::Handle for HINTERACTIONCONTEXT {}
 unsafe impl ::windows::runtime::Abi for HINTERACTIONCONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -314,7 +310,6 @@ impl ::std::convert::From<i32> for HOLD_PARAMETER {
 }
 unsafe impl ::windows::runtime::Abi for HOLD_PARAMETER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -334,7 +329,6 @@ impl ::std::convert::From<i32> for INERTIA_PARAMETER {
 }
 unsafe impl ::windows::runtime::Abi for INERTIA_PARAMETER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -361,7 +355,6 @@ impl ::std::cmp::PartialEq for INTERACTION_ARGUMENTS_CROSS_SLIDE {
 impl ::std::cmp::Eq for INTERACTION_ARGUMENTS_CROSS_SLIDE {}
 unsafe impl ::windows::runtime::Abi for INTERACTION_ARGUMENTS_CROSS_SLIDE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -391,7 +384,6 @@ impl ::std::cmp::PartialEq for INTERACTION_ARGUMENTS_MANIPULATION {
 impl ::std::cmp::Eq for INTERACTION_ARGUMENTS_MANIPULATION {}
 unsafe impl ::windows::runtime::Abi for INTERACTION_ARGUMENTS_MANIPULATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -418,7 +410,6 @@ impl ::std::cmp::PartialEq for INTERACTION_ARGUMENTS_TAP {
 impl ::std::cmp::Eq for INTERACTION_ARGUMENTS_TAP {}
 unsafe impl ::windows::runtime::Abi for INTERACTION_ARGUMENTS_TAP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -459,7 +450,6 @@ impl ::std::convert::From<u32> for INTERACTION_CONFIGURATION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for INTERACTION_CONFIGURATION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for INTERACTION_CONFIGURATION_FLAGS {
     type Output = Self;
@@ -515,7 +505,6 @@ impl ::std::cmp::PartialEq for INTERACTION_CONTEXT_CONFIGURATION {
 impl ::std::cmp::Eq for INTERACTION_CONTEXT_CONFIGURATION {}
 unsafe impl ::windows::runtime::Abi for INTERACTION_CONTEXT_CONFIGURATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -548,7 +537,6 @@ impl ::std::cmp::Eq for INTERACTION_CONTEXT_OUTPUT {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 unsafe impl ::windows::runtime::Abi for INTERACTION_CONTEXT_OUTPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -572,7 +560,6 @@ impl ::std::cmp::PartialEq for INTERACTION_CONTEXT_OUTPUT_0 {
 impl ::std::cmp::Eq for INTERACTION_CONTEXT_OUTPUT_0 {}
 unsafe impl ::windows::runtime::Abi for INTERACTION_CONTEXT_OUTPUT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -607,7 +594,6 @@ impl ::std::cmp::Eq for INTERACTION_CONTEXT_OUTPUT2 {}
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 unsafe impl ::windows::runtime::Abi for INTERACTION_CONTEXT_OUTPUT2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -631,7 +617,6 @@ impl ::std::cmp::PartialEq for INTERACTION_CONTEXT_OUTPUT2_0 {
 impl ::std::cmp::Eq for INTERACTION_CONTEXT_OUTPUT2_0 {}
 unsafe impl ::windows::runtime::Abi for INTERACTION_CONTEXT_OUTPUT2_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK = unsafe extern "system" fn(clientdata: *const ::std::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT);
@@ -652,7 +637,6 @@ impl ::std::convert::From<i32> for INTERACTION_CONTEXT_PROPERTY {
 }
 unsafe impl ::windows::runtime::Abi for INTERACTION_CONTEXT_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -671,7 +655,6 @@ impl ::std::convert::From<u32> for INTERACTION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for INTERACTION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for INTERACTION_FLAGS {
     type Output = Self;
@@ -720,7 +703,6 @@ impl ::std::convert::From<i32> for INTERACTION_ID {
 }
 unsafe impl ::windows::runtime::Abi for INTERACTION_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -737,7 +719,6 @@ impl ::std::convert::From<i32> for INTERACTION_STATE {
 }
 unsafe impl ::windows::runtime::Abi for INTERACTION_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -754,7 +735,6 @@ impl ::std::convert::From<i32> for MANIPULATION_RAILS_STATE {
 }
 unsafe impl ::windows::runtime::Abi for MANIPULATION_RAILS_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -785,7 +765,6 @@ impl ::std::cmp::PartialEq for MANIPULATION_TRANSFORM {
 impl ::std::cmp::Eq for MANIPULATION_TRANSFORM {}
 unsafe impl ::windows::runtime::Abi for MANIPULATION_TRANSFORM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -815,7 +794,6 @@ impl ::std::cmp::PartialEq for MANIPULATION_VELOCITY {
 impl ::std::cmp::Eq for MANIPULATION_VELOCITY {}
 unsafe impl ::windows::runtime::Abi for MANIPULATION_VELOCITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -835,7 +813,6 @@ impl ::std::convert::From<i32> for MOUSE_WHEEL_PARAMETER {
 }
 unsafe impl ::windows::runtime::Abi for MOUSE_WHEEL_PARAMETER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[inline]
@@ -1092,7 +1069,6 @@ impl ::std::convert::From<i32> for TAP_PARAMETER {
 }
 unsafe impl ::windows::runtime::Abi for TAP_PARAMETER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_InteractionContext`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1108,5 +1084,4 @@ impl ::std::convert::From<i32> for TRANSLATION_PARAMETER {
 }
 unsafe impl ::windows::runtime::Abi for TRANSLATION_PARAMETER {
     type Abi = Self;
-    type DefaultType = Self;
 }

@@ -32,7 +32,6 @@ impl ::std::cmp::PartialEq for DFS_GET_PKT_ENTRY_STATE_ARG {
 impl ::std::cmp::Eq for DFS_GET_PKT_ENTRY_STATE_ARG {}
 unsafe impl ::windows::runtime::Abi for DFS_GET_PKT_ENTRY_STATE_ARG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -66,7 +65,6 @@ impl ::std::cmp::Eq for DFS_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DFS_INFO_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -100,7 +98,6 @@ impl ::std::cmp::Eq for DFS_INFO_100 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DFS_INFO_100 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -127,7 +124,6 @@ impl ::std::cmp::PartialEq for DFS_INFO_101 {
 impl ::std::cmp::Eq for DFS_INFO_101 {}
 unsafe impl ::windows::runtime::Abi for DFS_INFO_101 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -154,7 +150,6 @@ impl ::std::cmp::PartialEq for DFS_INFO_102 {
 impl ::std::cmp::Eq for DFS_INFO_102 {}
 unsafe impl ::windows::runtime::Abi for DFS_INFO_102 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -182,7 +177,6 @@ impl ::std::cmp::PartialEq for DFS_INFO_103 {
 impl ::std::cmp::Eq for DFS_INFO_103 {}
 unsafe impl ::windows::runtime::Abi for DFS_INFO_103 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -209,7 +203,6 @@ impl ::std::cmp::PartialEq for DFS_INFO_104 {
 impl ::std::cmp::Eq for DFS_INFO_104 {}
 unsafe impl ::windows::runtime::Abi for DFS_INFO_104 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -247,7 +240,6 @@ impl ::std::cmp::Eq for DFS_INFO_105 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DFS_INFO_105 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -275,7 +267,6 @@ impl ::std::cmp::PartialEq for DFS_INFO_106 {
 impl ::std::cmp::Eq for DFS_INFO_106 {}
 unsafe impl ::windows::runtime::Abi for DFS_INFO_106 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -323,7 +314,6 @@ impl ::std::cmp::Eq for DFS_INFO_107 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for DFS_INFO_107 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -358,7 +348,6 @@ impl ::std::cmp::Eq for DFS_INFO_150 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for DFS_INFO_150 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -385,7 +374,6 @@ impl ::std::cmp::PartialEq for DFS_INFO_1_32 {
 impl ::std::cmp::Eq for DFS_INFO_1_32 {}
 unsafe impl ::windows::runtime::Abi for DFS_INFO_1_32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -422,7 +410,6 @@ impl ::std::cmp::Eq for DFS_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DFS_INFO_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -456,7 +443,6 @@ impl ::std::cmp::Eq for DFS_INFO_200 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DFS_INFO_200 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -486,7 +472,6 @@ impl ::std::cmp::PartialEq for DFS_INFO_2_32 {
 impl ::std::cmp::Eq for DFS_INFO_2_32 {}
 unsafe impl ::windows::runtime::Abi for DFS_INFO_2_32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -524,7 +509,6 @@ impl ::std::cmp::Eq for DFS_INFO_3 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DFS_INFO_3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -559,7 +543,6 @@ impl ::std::cmp::Eq for DFS_INFO_300 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DFS_INFO_300 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -590,7 +573,6 @@ impl ::std::cmp::PartialEq for DFS_INFO_3_32 {
 impl ::std::cmp::Eq for DFS_INFO_3_32 {}
 unsafe impl ::windows::runtime::Abi for DFS_INFO_3_32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -630,7 +612,6 @@ impl ::std::cmp::Eq for DFS_INFO_4 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DFS_INFO_4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -663,7 +644,6 @@ impl ::std::cmp::PartialEq for DFS_INFO_4_32 {
 impl ::std::cmp::Eq for DFS_INFO_4_32 {}
 unsafe impl ::windows::runtime::Abi for DFS_INFO_4_32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -713,7 +693,6 @@ impl ::std::cmp::Eq for DFS_INFO_5 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DFS_INFO_5 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -742,7 +721,6 @@ impl ::std::cmp::PartialEq for DFS_INFO_50 {
 impl ::std::cmp::Eq for DFS_INFO_50 {}
 unsafe impl ::windows::runtime::Abi for DFS_INFO_50 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -794,7 +772,6 @@ impl ::std::cmp::Eq for DFS_INFO_6 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DFS_INFO_6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -821,7 +798,6 @@ impl ::std::cmp::PartialEq for DFS_INFO_7 {
 impl ::std::cmp::Eq for DFS_INFO_7 {}
 unsafe impl ::windows::runtime::Abi for DFS_INFO_7 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -875,7 +851,6 @@ impl ::std::cmp::Eq for DFS_INFO_8 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for DFS_INFO_8 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -931,7 +906,6 @@ impl ::std::cmp::Eq for DFS_INFO_9 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for DFS_INFO_9 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_MOVE_FLAG_REPLACE_IF_EXISTS: u32 = 1u32;
@@ -949,7 +923,6 @@ impl ::std::convert::From<i32> for DFS_NAMESPACE_VERSION_ORIGIN {
 }
 unsafe impl ::windows::runtime::Abi for DFS_NAMESPACE_VERSION_ORIGIN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_PROPERTY_FLAG_ABDE: u32 = 32u32;
@@ -998,7 +971,6 @@ impl ::std::cmp::Eq for DFS_SITELIST_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DFS_SITELIST_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1033,7 +1005,6 @@ impl ::std::cmp::Eq for DFS_SITENAME_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DFS_SITENAME_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_SITE_PRIMARY: u32 = 1u32;
@@ -1073,7 +1044,6 @@ impl ::std::cmp::Eq for DFS_STORAGE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DFS_STORAGE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1102,7 +1072,6 @@ impl ::std::cmp::PartialEq for DFS_STORAGE_INFO_0_32 {
 impl ::std::cmp::Eq for DFS_STORAGE_INFO_0_32 {}
 unsafe impl ::windows::runtime::Abi for DFS_STORAGE_INFO_0_32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1139,7 +1108,6 @@ impl ::std::cmp::Eq for DFS_STORAGE_INFO_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DFS_STORAGE_INFO_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_STORAGE_STATES: u32 = 15u32;
@@ -1186,7 +1154,6 @@ impl ::std::cmp::PartialEq for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
 impl ::std::cmp::Eq for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {}
 unsafe impl ::windows::runtime::Abi for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1215,7 +1182,6 @@ impl ::std::cmp::PartialEq for DFS_TARGET_PRIORITY {
 impl ::std::cmp::Eq for DFS_TARGET_PRIORITY {}
 unsafe impl ::windows::runtime::Abi for DFS_TARGET_PRIORITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1234,7 +1200,6 @@ impl ::std::convert::From<i32> for DFS_TARGET_PRIORITY_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for DFS_TARGET_PRIORITY_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub const DFS_VOLUME_FLAVORS: u32 = 768u32;

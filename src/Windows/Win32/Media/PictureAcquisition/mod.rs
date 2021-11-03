@@ -17,7 +17,6 @@ impl ::std::convert::From<i32> for DEVICE_SELECTION_DEVICE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DEVICE_SELECTION_DEVICE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`*"]
 pub const DSF_ALL_DEVICES: u32 = 65535u32;
@@ -54,7 +53,6 @@ impl ::std::convert::From<i32> for ERROR_ADVISE_MESSAGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for ERROR_ADVISE_MESSAGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -74,7 +72,6 @@ impl ::std::convert::From<i32> for ERROR_ADVISE_RESULT {
 }
 unsafe impl ::windows::runtime::Abi for ERROR_ADVISE_RESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`*"]
 #[repr(transparent)]
@@ -946,7 +943,6 @@ impl ::std::convert::From<i32> for PROGRESS_DIALOG_CHECKBOX_ID {
 }
 unsafe impl ::windows::runtime::Abi for PROGRESS_DIALOG_CHECKBOX_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -963,7 +959,6 @@ impl ::std::convert::From<i32> for PROGRESS_DIALOG_IMAGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PROGRESS_DIALOG_IMAGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_PictureAcquisition`*"]
 pub const PROGRESS_INDETERMINATE: i32 = -1i32;
@@ -986,5 +981,4 @@ impl ::std::convert::From<i32> for USER_INPUT_STRING_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for USER_INPUT_STRING_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }

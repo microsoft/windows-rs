@@ -15,10 +15,12 @@ impl ::std::convert::From<i32> for AdaptiveNotificationContentKind {
 }
 unsafe impl ::windows::runtime::Abi for AdaptiveNotificationContentKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AdaptiveNotificationContentKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.AdaptiveNotificationContentKind;i4)");
+}
+impl ::windows::runtime::DefaultType for AdaptiveNotificationContentKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
@@ -179,10 +181,12 @@ impl ::std::convert::From<i32> for BadgeTemplateType {
 }
 unsafe impl ::windows::runtime::Abi for BadgeTemplateType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BadgeTemplateType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.BadgeTemplateType;i4)");
+}
+impl ::windows::runtime::DefaultType for BadgeTemplateType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Notifications`*"]
 pub struct BadgeUpdateManager {}
@@ -376,7 +380,6 @@ pub struct IAdaptiveNotificationContent_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAdaptiveNotificationText(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdaptiveNotificationText {
@@ -398,7 +401,6 @@ pub struct IAdaptiveNotificationText_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBadgeNotification(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBadgeNotification {
@@ -422,7 +424,6 @@ pub struct IBadgeNotification_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBadgeNotificationFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBadgeNotificationFactory {
@@ -442,7 +443,6 @@ pub struct IBadgeNotificationFactory_abi(
     #[cfg(not(feature = "Data_Xml_Dom"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBadgeUpdateManagerForUser(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBadgeUpdateManagerForUser {
@@ -465,7 +465,6 @@ pub struct IBadgeUpdateManagerForUser_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBadgeUpdateManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBadgeUpdateManagerStatics {
@@ -488,7 +487,6 @@ pub struct IBadgeUpdateManagerStatics_abi(
     #[cfg(not(feature = "Data_Xml_Dom"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBadgeUpdateManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBadgeUpdateManagerStatics2 {
@@ -508,7 +506,6 @@ pub struct IBadgeUpdateManagerStatics2_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBadgeUpdater(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBadgeUpdater {
@@ -533,7 +530,6 @@ pub struct IBadgeUpdater_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKnownAdaptiveNotificationHintsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownAdaptiveNotificationHintsStatics {
@@ -557,7 +553,6 @@ pub struct IKnownAdaptiveNotificationHintsStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKnownAdaptiveNotificationTextStylesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownAdaptiveNotificationTextStylesStatics {
@@ -594,7 +589,6 @@ pub struct IKnownAdaptiveNotificationTextStylesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKnownNotificationBindingsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownNotificationBindingsStatics {
@@ -613,7 +607,6 @@ pub struct IKnownNotificationBindingsStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INotification(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INotification {
@@ -637,7 +630,6 @@ pub struct INotification_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INotificationBinding(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INotificationBinding {
@@ -663,7 +655,6 @@ pub struct INotificationBinding_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INotificationData(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INotificationData {
@@ -685,7 +676,6 @@ pub struct INotificationData_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INotificationDataFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INotificationDataFactory {
@@ -707,7 +697,6 @@ pub struct INotificationDataFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INotificationVisual(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INotificationVisual {
@@ -730,7 +719,6 @@ pub struct INotificationVisual_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, templatename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IScheduledTileNotification(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScheduledTileNotification {
@@ -760,7 +748,6 @@ pub struct IScheduledTileNotification_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IScheduledTileNotificationFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScheduledTileNotificationFactory {
@@ -780,7 +767,6 @@ pub struct IScheduledTileNotificationFactory_abi(
     #[cfg(not(all(feature = "Data_Xml_Dom", feature = "Foundation")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IScheduledToastNotification(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScheduledToastNotification {
@@ -807,7 +793,6 @@ pub struct IScheduledToastNotification_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IScheduledToastNotification2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScheduledToastNotification2 {
@@ -831,7 +816,6 @@ pub struct IScheduledToastNotification2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IScheduledToastNotification3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScheduledToastNotification3 {
@@ -853,7 +837,6 @@ pub struct IScheduledToastNotification3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IScheduledToastNotification4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScheduledToastNotification4 {
@@ -875,7 +858,6 @@ pub struct IScheduledToastNotification4_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IScheduledToastNotificationFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScheduledToastNotificationFactory {
@@ -897,7 +879,6 @@ pub struct IScheduledToastNotificationFactory_abi(
     #[cfg(not(all(feature = "Data_Xml_Dom", feature = "Foundation")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IScheduledToastNotificationShowingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScheduledToastNotificationShowingEventArgs {
@@ -920,7 +901,6 @@ pub struct IScheduledToastNotificationShowingEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IShownTileNotification(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShownTileNotification {
@@ -939,7 +919,6 @@ pub struct IShownTileNotification_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITileFlyoutNotification(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileFlyoutNotification {
@@ -963,7 +942,6 @@ pub struct ITileFlyoutNotification_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITileFlyoutNotificationFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileFlyoutNotificationFactory {
@@ -983,7 +961,6 @@ pub struct ITileFlyoutNotificationFactory_abi(
     #[cfg(not(feature = "Data_Xml_Dom"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITileFlyoutUpdateManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileFlyoutUpdateManagerStatics {
@@ -1006,7 +983,6 @@ pub struct ITileFlyoutUpdateManagerStatics_abi(
     #[cfg(not(feature = "Data_Xml_Dom"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITileFlyoutUpdater(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileFlyoutUpdater {
@@ -1032,7 +1008,6 @@ pub struct ITileFlyoutUpdater_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut NotificationSetting) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITileNotification(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileNotification {
@@ -1058,7 +1033,6 @@ pub struct ITileNotification_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITileNotificationFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileNotificationFactory {
@@ -1078,7 +1052,6 @@ pub struct ITileNotificationFactory_abi(
     #[cfg(not(feature = "Data_Xml_Dom"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITileUpdateManagerForUser(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileUpdateManagerForUser {
@@ -1101,7 +1074,6 @@ pub struct ITileUpdateManagerForUser_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITileUpdateManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileUpdateManagerStatics {
@@ -1124,7 +1096,6 @@ pub struct ITileUpdateManagerStatics_abi(
     #[cfg(not(feature = "Data_Xml_Dom"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITileUpdateManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileUpdateManagerStatics2 {
@@ -1144,7 +1115,6 @@ pub struct ITileUpdateManagerStatics2_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITileUpdater(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileUpdater {
@@ -1179,7 +1149,6 @@ pub struct ITileUpdater_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITileUpdater2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileUpdater2 {
@@ -1200,7 +1169,6 @@ pub struct ITileUpdater2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enable: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastActivatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastActivatedEventArgs {
@@ -1219,7 +1187,6 @@ pub struct IToastActivatedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastActivatedEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastActivatedEventArgs2 {
@@ -1239,7 +1206,6 @@ pub struct IToastActivatedEventArgs2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastCollection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastCollection {
@@ -1266,7 +1232,6 @@ pub struct IToastCollection_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastCollectionFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastCollectionFactory {
@@ -1286,7 +1251,6 @@ pub struct IToastCollectionFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastCollectionManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastCollectionManager {
@@ -1317,7 +1281,6 @@ pub struct IToastCollectionManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastDismissedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastDismissedEventArgs {
@@ -1336,7 +1299,6 @@ pub struct IToastDismissedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ToastDismissalReason) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastFailedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastFailedEventArgs {
@@ -1355,7 +1317,6 @@ pub struct IToastFailedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastNotification(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotification {
@@ -1391,7 +1352,6 @@ pub struct IToastNotification_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastNotification2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotification2 {
@@ -1415,7 +1375,6 @@ pub struct IToastNotification2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastNotification3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotification3 {
@@ -1437,7 +1396,6 @@ pub struct IToastNotification3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastNotification4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotification4 {
@@ -1459,7 +1417,6 @@ pub struct IToastNotification4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ToastNotificationPriority) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastNotification6(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotification6 {
@@ -1479,7 +1436,6 @@ pub struct IToastNotification6_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastNotificationActionTriggerDetail(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationActionTriggerDetail {
@@ -1500,7 +1456,6 @@ pub struct IToastNotificationActionTriggerDetail_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastNotificationFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationFactory {
@@ -1520,7 +1475,6 @@ pub struct IToastNotificationFactory_abi(
     #[cfg(not(feature = "Data_Xml_Dom"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastNotificationHistory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationHistory {
@@ -1545,7 +1499,6 @@ pub struct IToastNotificationHistory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, applicationid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastNotificationHistory2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationHistory2 {
@@ -1567,7 +1520,6 @@ pub struct IToastNotificationHistory2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastNotificationHistoryChangedTriggerDetail(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationHistoryChangedTriggerDetail {
@@ -1586,7 +1538,6 @@ pub struct IToastNotificationHistoryChangedTriggerDetail_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ToastHistoryChangedType) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastNotificationHistoryChangedTriggerDetail2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationHistoryChangedTriggerDetail2 {
@@ -1605,7 +1556,6 @@ pub struct IToastNotificationHistoryChangedTriggerDetail2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastNotificationManagerForUser(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationManagerForUser {
@@ -1628,7 +1578,6 @@ pub struct IToastNotificationManagerForUser_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastNotificationManagerForUser2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationManagerForUser2 {
@@ -1652,7 +1601,6 @@ pub struct IToastNotificationManagerForUser2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastNotificationManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationManagerStatics {
@@ -1674,7 +1622,6 @@ pub struct IToastNotificationManagerStatics_abi(
     #[cfg(not(feature = "Data_Xml_Dom"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastNotificationManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationManagerStatics2 {
@@ -1693,7 +1640,6 @@ pub struct IToastNotificationManagerStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastNotificationManagerStatics4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationManagerStatics4 {
@@ -1714,7 +1660,6 @@ pub struct IToastNotificationManagerStatics4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: NotificationMirroring) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastNotificationManagerStatics5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotificationManagerStatics5 {
@@ -1733,7 +1678,6 @@ pub struct IToastNotificationManagerStatics5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastNotifier(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotifier {
@@ -1758,7 +1702,6 @@ pub struct IToastNotifier_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastNotifier2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotifier2 {
@@ -1778,7 +1721,6 @@ pub struct IToastNotifier2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, data: ::windows::runtime::RawPtr, tag: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut NotificationUpdateResult) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IToastNotifier3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IToastNotifier3 {
@@ -1800,7 +1742,6 @@ pub struct IToastNotifier3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserNotification(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserNotification {
@@ -1824,7 +1765,6 @@ pub struct IUserNotification_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserNotificationChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserNotificationChangedEventArgs {
@@ -2255,10 +2195,12 @@ impl ::std::convert::From<u32> for NotificationKinds {
 }
 unsafe impl ::windows::runtime::Abi for NotificationKinds {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for NotificationKinds {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationKinds;u4)");
+}
+impl ::windows::runtime::DefaultType for NotificationKinds {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for NotificationKinds {
     type Output = Self;
@@ -2303,10 +2245,12 @@ impl ::std::convert::From<i32> for NotificationMirroring {
 }
 unsafe impl ::windows::runtime::Abi for NotificationMirroring {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for NotificationMirroring {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationMirroring;i4)");
+}
+impl ::windows::runtime::DefaultType for NotificationMirroring {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Notifications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2326,10 +2270,12 @@ impl ::std::convert::From<i32> for NotificationSetting {
 }
 unsafe impl ::windows::runtime::Abi for NotificationSetting {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for NotificationSetting {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationSetting;i4)");
+}
+impl ::windows::runtime::DefaultType for NotificationSetting {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Notifications`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2347,10 +2293,12 @@ impl ::std::convert::From<i32> for NotificationUpdateResult {
 }
 unsafe impl ::windows::runtime::Abi for NotificationUpdateResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for NotificationUpdateResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationUpdateResult;i4)");
+}
+impl ::windows::runtime::DefaultType for NotificationUpdateResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
@@ -2418,10 +2366,12 @@ impl ::std::convert::From<i32> for PeriodicUpdateRecurrence {
 }
 unsafe impl ::windows::runtime::Abi for PeriodicUpdateRecurrence {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PeriodicUpdateRecurrence {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.PeriodicUpdateRecurrence;i4)");
+}
+impl ::windows::runtime::DefaultType for PeriodicUpdateRecurrence {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
@@ -2820,10 +2770,12 @@ impl ::std::convert::From<i32> for TileFlyoutTemplateType {
 }
 unsafe impl ::windows::runtime::Abi for TileFlyoutTemplateType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TileFlyoutTemplateType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.TileFlyoutTemplateType;i4)");
+}
+impl ::windows::runtime::DefaultType for TileFlyoutTemplateType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Notifications`*"]
 pub struct TileFlyoutUpdateManager {}
@@ -3122,10 +3074,12 @@ impl ::std::convert::From<i32> for TileTemplateType {
 }
 unsafe impl ::windows::runtime::Abi for TileTemplateType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TileTemplateType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.TileTemplateType;i4)");
+}
+impl ::windows::runtime::DefaultType for TileTemplateType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Notifications`*"]
 pub struct TileUpdateManager {}
@@ -3542,10 +3496,12 @@ impl ::std::convert::From<i32> for ToastDismissalReason {
 }
 unsafe impl ::windows::runtime::Abi for ToastDismissalReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ToastDismissalReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastDismissalReason;i4)");
+}
+impl ::windows::runtime::DefaultType for ToastDismissalReason {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
@@ -3616,10 +3572,12 @@ impl ::std::convert::From<i32> for ToastHistoryChangedType {
 }
 unsafe impl ::windows::runtime::Abi for ToastHistoryChangedType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ToastHistoryChangedType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastHistoryChangedType;i4)");
+}
+impl ::windows::runtime::DefaultType for ToastHistoryChangedType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
@@ -4129,10 +4087,12 @@ impl ::std::convert::From<i32> for ToastNotificationPriority {
 }
 unsafe impl ::windows::runtime::Abi for ToastNotificationPriority {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ToastNotificationPriority {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastNotificationPriority;i4)");
+}
+impl ::windows::runtime::DefaultType for ToastNotificationPriority {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
@@ -4241,10 +4201,12 @@ impl ::std::convert::From<i32> for ToastTemplateType {
 }
 unsafe impl ::windows::runtime::Abi for ToastTemplateType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ToastTemplateType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastTemplateType;i4)");
+}
+impl ::windows::runtime::DefaultType for ToastTemplateType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Notifications`*"]
 #[repr(transparent)]
@@ -4347,8 +4309,10 @@ impl ::std::convert::From<i32> for UserNotificationChangedKind {
 }
 unsafe impl ::windows::runtime::Abi for UserNotificationChangedKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserNotificationChangedKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.UserNotificationChangedKind;i4)");
+}
+impl ::windows::runtime::DefaultType for UserNotificationChangedKind {
+    type DefaultType = Self;
 }

@@ -16,10 +16,12 @@ impl ::std::convert::From<u32> for CachedFileOptions {
 }
 unsafe impl ::windows::runtime::Abi for CachedFileOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CachedFileOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.CachedFileOptions;u4)");
+}
+impl ::windows::runtime::DefaultType for CachedFileOptions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CachedFileOptions {
     type Output = Self;
@@ -64,10 +66,12 @@ impl ::std::convert::From<i32> for CachedFileTarget {
 }
 unsafe impl ::windows::runtime::Abi for CachedFileTarget {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CachedFileTarget {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.CachedFileTarget;i4)");
+}
+impl ::windows::runtime::DefaultType for CachedFileTarget {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Storage_Provider`*"]
 pub struct CachedFileUpdater {}
@@ -313,13 +317,14 @@ impl ::std::convert::From<i32> for FileUpdateStatus {
 }
 unsafe impl ::windows::runtime::Abi for FileUpdateStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for FileUpdateStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.FileUpdateStatus;i4)");
 }
+impl ::windows::runtime::DefaultType for FileUpdateStatus {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICachedFileUpdaterStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICachedFileUpdaterStatics {
@@ -338,7 +343,6 @@ pub struct ICachedFileUpdaterStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, file: ::windows::runtime::RawPtr, contentid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, readmode: ReadActivationMode, writemode: WriteActivationMode, options: CachedFileOptions) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICachedFileUpdaterUI(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICachedFileUpdaterUI {
@@ -368,7 +372,6 @@ pub struct ICachedFileUpdaterUI_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut UIStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICachedFileUpdaterUI2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICachedFileUpdaterUI2 {
@@ -388,7 +391,6 @@ pub struct ICachedFileUpdaterUI2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFileUpdateRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileUpdateRequest {
@@ -412,7 +414,6 @@ pub struct IFileUpdateRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFileUpdateRequest2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileUpdateRequest2 {
@@ -432,7 +433,6 @@ pub struct IFileUpdateRequest2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFileUpdateRequestDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileUpdateRequestDeferral {
@@ -451,7 +451,6 @@ pub struct IFileUpdateRequestDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFileUpdateRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileUpdateRequestedEventArgs {
@@ -470,7 +469,6 @@ pub struct IFileUpdateRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageProviderError(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderError {
@@ -499,7 +497,6 @@ pub struct IStorageProviderError_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageProviderErrorCommand(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderErrorCommand {
@@ -520,7 +517,6 @@ pub struct IStorageProviderErrorCommand_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageProviderErrorCommandFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderErrorCommandFactory {
@@ -540,7 +536,6 @@ pub struct IStorageProviderErrorCommandFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageProviderErrorFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderErrorFactory {
@@ -559,7 +554,6 @@ pub struct IStorageProviderErrorFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, title: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, message: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageProviderFileTypeInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderFileTypeInfo {
@@ -579,7 +573,6 @@ pub struct IStorageProviderFileTypeInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageProviderFileTypeInfoFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderFileTypeInfoFactory {
@@ -598,7 +591,6 @@ pub struct IStorageProviderFileTypeInfoFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fileextension: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, iconresource: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageProviderGetContentInfoForPathResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderGetContentInfoForPathResult {
@@ -622,7 +614,6 @@ pub struct IStorageProviderGetContentInfoForPathResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageProviderGetPathForContentUriResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderGetPathForContentUriResult {
@@ -676,7 +667,6 @@ pub struct IStorageProviderHandlerFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, syncrootid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageProviderItemPropertiesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderItemPropertiesStatics {
@@ -696,7 +686,6 @@ pub struct IStorageProviderItemPropertiesStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageProviderItemProperty(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderItemProperty {
@@ -720,7 +709,6 @@ pub struct IStorageProviderItemProperty_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageProviderItemPropertyDefinition(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderItemPropertyDefinition {
@@ -808,7 +796,6 @@ pub struct IStorageProviderPropertyCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propertycanonicalname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageProviderStatus(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderStatus {
@@ -830,7 +817,6 @@ pub struct IStorageProviderStatus_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageProviderStatusFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderStatusFactory {
@@ -902,7 +888,6 @@ pub struct IStorageProviderStatusSource_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageProviderSyncRootInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderSyncRootInfo {
@@ -956,7 +941,6 @@ pub struct IStorageProviderSyncRootInfo_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageProviderSyncRootInfo2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderSyncRootInfo2 {
@@ -976,7 +960,6 @@ pub struct IStorageProviderSyncRootInfo2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageProviderSyncRootInfo3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderSyncRootInfo3 {
@@ -996,7 +979,6 @@ pub struct IStorageProviderSyncRootInfo3_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageProviderSyncRootManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderSyncRootManagerStatics {
@@ -1020,7 +1002,6 @@ pub struct IStorageProviderSyncRootManagerStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageProviderSyncRootManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageProviderSyncRootManagerStatics2 {
@@ -1088,10 +1069,12 @@ impl ::std::convert::From<i32> for ReadActivationMode {
 }
 unsafe impl ::windows::runtime::Abi for ReadActivationMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ReadActivationMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.ReadActivationMode;i4)");
+}
+impl ::windows::runtime::DefaultType for ReadActivationMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Storage_Provider`*"]
 #[repr(transparent)]
@@ -1420,10 +1403,12 @@ impl ::std::convert::From<u32> for StorageProviderHardlinkPolicy {
 }
 unsafe impl ::windows::runtime::Abi for StorageProviderHardlinkPolicy {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for StorageProviderHardlinkPolicy {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHardlinkPolicy;u4)");
+}
+impl ::windows::runtime::DefaultType for StorageProviderHardlinkPolicy {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for StorageProviderHardlinkPolicy {
     type Output = Self;
@@ -1470,10 +1455,12 @@ impl ::std::convert::From<i32> for StorageProviderHydrationPolicy {
 }
 unsafe impl ::windows::runtime::Abi for StorageProviderHydrationPolicy {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for StorageProviderHydrationPolicy {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHydrationPolicy;i4)");
+}
+impl ::windows::runtime::DefaultType for StorageProviderHydrationPolicy {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Storage_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1493,10 +1480,12 @@ impl ::std::convert::From<u32> for StorageProviderHydrationPolicyModifier {
 }
 unsafe impl ::windows::runtime::Abi for StorageProviderHydrationPolicyModifier {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for StorageProviderHydrationPolicyModifier {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHydrationPolicyModifier;u4)");
+}
+impl ::windows::runtime::DefaultType for StorageProviderHydrationPolicyModifier {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for StorageProviderHydrationPolicyModifier {
     type Output = Self;
@@ -1551,10 +1540,12 @@ impl ::std::convert::From<u32> for StorageProviderInSyncPolicy {
 }
 unsafe impl ::windows::runtime::Abi for StorageProviderInSyncPolicy {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for StorageProviderInSyncPolicy {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderInSyncPolicy;u4)");
+}
+impl ::windows::runtime::DefaultType for StorageProviderInSyncPolicy {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for StorageProviderInSyncPolicy {
     type Output = Self;
@@ -1733,10 +1724,12 @@ impl ::std::convert::From<i32> for StorageProviderPopulationPolicy {
 }
 unsafe impl ::windows::runtime::Abi for StorageProviderPopulationPolicy {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for StorageProviderPopulationPolicy {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderPopulationPolicy;i4)");
+}
+impl ::windows::runtime::DefaultType for StorageProviderPopulationPolicy {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Storage_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1753,10 +1746,12 @@ impl ::std::convert::From<i32> for StorageProviderProtectionMode {
 }
 unsafe impl ::windows::runtime::Abi for StorageProviderProtectionMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for StorageProviderProtectionMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderProtectionMode;i4)");
+}
+impl ::windows::runtime::DefaultType for StorageProviderProtectionMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Storage_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1777,10 +1772,12 @@ impl ::std::convert::From<i32> for StorageProviderState {
 }
 unsafe impl ::windows::runtime::Abi for StorageProviderState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for StorageProviderState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderState;i4)");
+}
+impl ::windows::runtime::DefaultType for StorageProviderState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Storage_Provider`*"]
 #[repr(transparent)]
@@ -2167,10 +2164,12 @@ impl ::std::convert::From<i32> for StorageProviderUriSourceStatus {
 }
 unsafe impl ::windows::runtime::Abi for StorageProviderUriSourceStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for StorageProviderUriSourceStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderUriSourceStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for StorageProviderUriSourceStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Storage_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2189,10 +2188,12 @@ impl ::std::convert::From<i32> for UIStatus {
 }
 unsafe impl ::windows::runtime::Abi for UIStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UIStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.UIStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for UIStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Storage_Provider`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2210,8 +2211,10 @@ impl ::std::convert::From<i32> for WriteActivationMode {
 }
 unsafe impl ::windows::runtime::Abi for WriteActivationMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WriteActivationMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.WriteActivationMode;i4)");
+}
+impl ::windows::runtime::DefaultType for WriteActivationMode {
+    type DefaultType = Self;
 }

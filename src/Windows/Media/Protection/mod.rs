@@ -106,8 +106,8 @@ impl<F: FnMut(&::std::option::Option<MediaProtectionManager>, &::std::option::Op
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, e: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         ((*this).invoke)(
-            &*(&sender as *const <MediaProtectionManager as ::windows::runtime::Abi>::Abi as *const <MediaProtectionManager as ::windows::runtime::Abi>::DefaultType),
-            &*(&e as *const <ComponentLoadFailedEventArgs as ::windows::runtime::Abi>::Abi as *const <ComponentLoadFailedEventArgs as ::windows::runtime::Abi>::DefaultType),
+            &*(&sender as *const <MediaProtectionManager as ::windows::runtime::Abi>::Abi as *const <MediaProtectionManager as ::windows::runtime::DefaultType>::DefaultType),
+            &*(&e as *const <ComponentLoadFailedEventArgs as ::windows::runtime::Abi>::Abi as *const <ComponentLoadFailedEventArgs as ::windows::runtime::DefaultType>::DefaultType),
         )
         .into()
     }
@@ -150,10 +150,12 @@ impl ::std::convert::From<i32> for GraphicsTrustStatus {
 }
 unsafe impl ::windows::runtime::Abi for GraphicsTrustStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GraphicsTrustStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.GraphicsTrustStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for GraphicsTrustStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Protection`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -171,10 +173,12 @@ impl ::std::convert::From<i32> for HdcpProtection {
 }
 unsafe impl ::windows::runtime::Abi for HdcpProtection {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for HdcpProtection {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.HdcpProtection;i4)");
+}
+impl ::windows::runtime::DefaultType for HdcpProtection {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Protection`*"]
 #[repr(transparent)]
@@ -291,13 +295,14 @@ impl ::std::convert::From<i32> for HdcpSetProtectionResult {
 }
 unsafe impl ::windows::runtime::Abi for HdcpSetProtectionResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for HdcpSetProtectionResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.HdcpSetProtectionResult;i4)");
 }
+impl ::windows::runtime::DefaultType for HdcpSetProtectionResult {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IComponentLoadFailedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IComponentLoadFailedEventArgs {
@@ -317,7 +322,6 @@ pub struct IComponentLoadFailedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IComponentRenewalStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IComponentRenewalStatics {
@@ -337,7 +341,6 @@ pub struct IComponentRenewalStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHdcpSession(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHdcpSession {
@@ -364,7 +367,6 @@ pub struct IHdcpSession_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaProtectionManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaProtectionManager {
@@ -396,7 +398,6 @@ pub struct IMediaProtectionManager_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaProtectionPMPServer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaProtectionPMPServer {
@@ -416,7 +417,6 @@ pub struct IMediaProtectionPMPServer_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaProtectionPMPServerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaProtectionPMPServerFactory {
@@ -436,7 +436,6 @@ pub struct IMediaProtectionPMPServerFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaProtectionServiceCompletion(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaProtectionServiceCompletion {
@@ -496,7 +495,6 @@ pub struct IMediaProtectionServiceRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProtectionCapabilities(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtectionCapabilities {
@@ -515,7 +513,6 @@ pub struct IProtectionCapabilities_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, keysystem: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ProtectionCapabilityResult) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRevocationAndRenewalInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRevocationAndRenewalInformation {
@@ -535,7 +532,6 @@ pub struct IRevocationAndRenewalInformation_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRevocationAndRenewalItem(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRevocationAndRenewalItem {
@@ -558,7 +554,6 @@ pub struct IRevocationAndRenewalItem_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IServiceRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IServiceRequestedEventArgs {
@@ -578,7 +573,6 @@ pub struct IServiceRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IServiceRequestedEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IServiceRequestedEventArgs2 {
@@ -787,10 +781,12 @@ impl ::std::convert::From<i32> for ProtectionCapabilityResult {
 }
 unsafe impl ::windows::runtime::Abi for ProtectionCapabilityResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ProtectionCapabilityResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.ProtectionCapabilityResult;i4)");
+}
+impl ::windows::runtime::DefaultType for ProtectionCapabilityResult {
+    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -865,7 +861,7 @@ impl<F: FnMut(&::std::option::Option<MediaProtectionManager>) -> ::windows::runt
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <MediaProtectionManager as ::windows::runtime::Abi>::Abi as *const <MediaProtectionManager as ::windows::runtime::Abi>::DefaultType)).into()
+        ((*this).invoke)(&*(&sender as *const <MediaProtectionManager as ::windows::runtime::Abi>::Abi as *const <MediaProtectionManager as ::windows::runtime::DefaultType>::DefaultType)).into()
     }
 }
 #[doc = "*Required features: `Media_Protection`*"]
@@ -886,10 +882,12 @@ impl ::std::convert::From<i32> for RenewalStatus {
 }
 unsafe impl ::windows::runtime::Abi for RenewalStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RenewalStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.RenewalStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for RenewalStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Protection`*"]
 #[repr(transparent)]
@@ -1004,10 +1002,12 @@ impl ::std::convert::From<u32> for RevocationAndRenewalReasons {
 }
 unsafe impl ::windows::runtime::Abi for RevocationAndRenewalReasons {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RevocationAndRenewalReasons {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.RevocationAndRenewalReasons;u4)");
+}
+impl ::windows::runtime::DefaultType for RevocationAndRenewalReasons {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for RevocationAndRenewalReasons {
     type Output = Self;
@@ -1151,8 +1151,8 @@ impl<F: FnMut(&::std::option::Option<MediaProtectionManager>, &::std::option::Op
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, e: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         ((*this).invoke)(
-            &*(&sender as *const <MediaProtectionManager as ::windows::runtime::Abi>::Abi as *const <MediaProtectionManager as ::windows::runtime::Abi>::DefaultType),
-            &*(&e as *const <ServiceRequestedEventArgs as ::windows::runtime::Abi>::Abi as *const <ServiceRequestedEventArgs as ::windows::runtime::Abi>::DefaultType),
+            &*(&sender as *const <MediaProtectionManager as ::windows::runtime::Abi>::Abi as *const <MediaProtectionManager as ::windows::runtime::DefaultType>::DefaultType),
+            &*(&e as *const <ServiceRequestedEventArgs as ::windows::runtime::Abi>::Abi as *const <ServiceRequestedEventArgs as ::windows::runtime::DefaultType>::DefaultType),
         )
         .into()
     }

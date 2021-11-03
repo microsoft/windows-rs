@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPaymentAppCanMakePaymentTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentAppCanMakePaymentTriggerDetails {
@@ -20,7 +19,6 @@ pub struct IPaymentAppCanMakePaymentTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPaymentAppManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentAppManager {
@@ -42,7 +40,6 @@ pub struct IPaymentAppManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPaymentAppManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentAppManagerStatics {
@@ -61,7 +58,6 @@ pub struct IPaymentAppManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPaymentTransaction(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentTransaction {
@@ -93,7 +89,6 @@ pub struct IPaymentTransaction_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPaymentTransactionAcceptResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentTransactionAcceptResult {
@@ -112,7 +107,6 @@ pub struct IPaymentTransactionAcceptResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::PaymentRequestCompletionStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPaymentTransactionStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentTransactionStatics {

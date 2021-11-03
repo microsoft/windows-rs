@@ -227,7 +227,7 @@ impl AsymmetricKeyAlgorithmProvider {
         }
     }
     #[doc = "*Required features: `Security_Cryptography_Core`*"]
-    pub fn CreateKeyPairWithCurveParameters(&self, parameters: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<CryptographicKey> {
+    pub fn CreateKeyPairWithCurveParameters(&self, parameters: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<CryptographicKey> {
         let this = &::windows::runtime::Interface::cast::<IAsymmetricKeyAlgorithmProvider2>(self)?;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -273,10 +273,12 @@ impl ::std::convert::From<i32> for Capi1KdfTargetAlgorithm {
 }
 unsafe impl ::windows::runtime::Abi for Capi1KdfTargetAlgorithm {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for Capi1KdfTargetAlgorithm {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.Capi1KdfTargetAlgorithm;i4)");
+}
+impl ::windows::runtime::DefaultType for Capi1KdfTargetAlgorithm {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Cryptography_Core`*"]
 pub struct CryptographicEngine {}
@@ -512,10 +514,12 @@ impl ::std::convert::From<i32> for CryptographicPadding {
 }
 unsafe impl ::windows::runtime::Abi for CryptographicPadding {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CryptographicPadding {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPadding;i4)");
+}
+impl ::windows::runtime::DefaultType for CryptographicPadding {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Cryptography_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -535,10 +539,12 @@ impl ::std::convert::From<i32> for CryptographicPrivateKeyBlobType {
 }
 unsafe impl ::windows::runtime::Abi for CryptographicPrivateKeyBlobType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CryptographicPrivateKeyBlobType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPrivateKeyBlobType;i4)");
+}
+impl ::windows::runtime::DefaultType for CryptographicPrivateKeyBlobType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Cryptography_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -558,10 +564,12 @@ impl ::std::convert::From<i32> for CryptographicPublicKeyBlobType {
 }
 unsafe impl ::windows::runtime::Abi for CryptographicPublicKeyBlobType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CryptographicPublicKeyBlobType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPublicKeyBlobType;i4)");
+}
+impl ::windows::runtime::DefaultType for CryptographicPublicKeyBlobType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Security_Cryptography_Core`*"]
 pub struct EccCurveNames {}
@@ -1042,7 +1050,6 @@ impl ::windows::runtime::RuntimeName for HashAlgorithmProvider {
 unsafe impl ::std::marker::Send for HashAlgorithmProvider {}
 unsafe impl ::std::marker::Sync for HashAlgorithmProvider {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAsymmetricAlgorithmNamesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAsymmetricAlgorithmNamesStatics {
@@ -1078,7 +1085,6 @@ pub struct IAsymmetricAlgorithmNamesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAsymmetricAlgorithmNamesStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAsymmetricAlgorithmNamesStatics2 {
@@ -1099,7 +1105,6 @@ pub struct IAsymmetricAlgorithmNamesStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAsymmetricKeyAlgorithmProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAsymmetricKeyAlgorithmProvider {
@@ -1127,7 +1132,6 @@ pub struct IAsymmetricKeyAlgorithmProvider_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAsymmetricKeyAlgorithmProvider2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAsymmetricKeyAlgorithmProvider2 {
@@ -1147,7 +1151,6 @@ pub struct IAsymmetricKeyAlgorithmProvider2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, parameters_array_size: u32, parameters: *const u8, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAsymmetricKeyAlgorithmProviderStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAsymmetricKeyAlgorithmProviderStatics {
@@ -1166,7 +1169,6 @@ pub struct IAsymmetricKeyAlgorithmProviderStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, algorithm: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICryptographicEngineStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICryptographicEngineStatics {
@@ -1198,7 +1200,6 @@ pub struct ICryptographicEngineStatics_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICryptographicEngineStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICryptographicEngineStatics2 {
@@ -1226,7 +1227,6 @@ pub struct ICryptographicEngineStatics2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICryptographicKey(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICryptographicKey {
@@ -1253,7 +1253,6 @@ pub struct ICryptographicKey_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEccCurveNamesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEccCurveNamesStatics {
@@ -1318,7 +1317,6 @@ pub struct IEccCurveNamesStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEncryptedAndAuthenticatedData(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEncryptedAndAuthenticatedData {
@@ -1340,7 +1338,6 @@ pub struct IEncryptedAndAuthenticatedData_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHashAlgorithmNamesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHashAlgorithmNamesStatics {
@@ -1363,7 +1360,6 @@ pub struct IHashAlgorithmNamesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHashAlgorithmProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHashAlgorithmProvider {
@@ -1386,7 +1382,6 @@ pub struct IHashAlgorithmProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHashAlgorithmProviderStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHashAlgorithmProviderStatics {
@@ -1405,7 +1400,6 @@ pub struct IHashAlgorithmProviderStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, algorithm: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHashComputation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHashComputation {
@@ -1427,7 +1421,6 @@ pub struct IHashComputation_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyDerivationAlgorithmNamesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyDerivationAlgorithmNamesStatics {
@@ -1460,7 +1453,6 @@ pub struct IKeyDerivationAlgorithmNamesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyDerivationAlgorithmNamesStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyDerivationAlgorithmNamesStatics2 {
@@ -1483,7 +1475,6 @@ pub struct IKeyDerivationAlgorithmNamesStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyDerivationAlgorithmProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyDerivationAlgorithmProvider {
@@ -1504,7 +1495,6 @@ pub struct IKeyDerivationAlgorithmProvider_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyDerivationAlgorithmProviderStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyDerivationAlgorithmProviderStatics {
@@ -1523,7 +1513,6 @@ pub struct IKeyDerivationAlgorithmProviderStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, algorithm: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyDerivationParameters(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyDerivationParameters {
@@ -1546,7 +1535,6 @@ pub struct IKeyDerivationParameters_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyDerivationParameters2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyDerivationParameters2 {
@@ -1566,7 +1554,6 @@ pub struct IKeyDerivationParameters2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: Capi1KdfTargetAlgorithm) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyDerivationParametersStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyDerivationParametersStatics {
@@ -1590,7 +1577,6 @@ pub struct IKeyDerivationParametersStatics_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKeyDerivationParametersStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKeyDerivationParametersStatics2 {
@@ -1609,7 +1595,6 @@ pub struct IKeyDerivationParametersStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, capi1kdftargetalgorithm: Capi1KdfTargetAlgorithm, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMacAlgorithmNamesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMacAlgorithmNamesStatics {
@@ -1633,7 +1618,6 @@ pub struct IMacAlgorithmNamesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMacAlgorithmProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMacAlgorithmProvider {
@@ -1655,7 +1639,6 @@ pub struct IMacAlgorithmProvider_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMacAlgorithmProvider2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMacAlgorithmProvider2 {
@@ -1675,7 +1658,6 @@ pub struct IMacAlgorithmProvider2_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMacAlgorithmProviderStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMacAlgorithmProviderStatics {
@@ -1694,7 +1676,6 @@ pub struct IMacAlgorithmProviderStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, algorithm: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPersistedKeyProviderStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPersistedKeyProviderStatics {
@@ -1716,7 +1697,6 @@ pub struct IPersistedKeyProviderStatics_abi(
     #[cfg(not(feature = "Security_Cryptography_Certificates"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISymmetricAlgorithmNamesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISymmetricAlgorithmNamesStatics {
@@ -1753,7 +1733,6 @@ pub struct ISymmetricAlgorithmNamesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISymmetricKeyAlgorithmProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISymmetricKeyAlgorithmProvider {
@@ -1775,7 +1754,6 @@ pub struct ISymmetricKeyAlgorithmProvider_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISymmetricKeyAlgorithmProviderStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISymmetricKeyAlgorithmProviderStatics {

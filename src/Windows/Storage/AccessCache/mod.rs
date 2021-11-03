@@ -17,10 +17,12 @@ impl ::std::convert::From<u32> for AccessCacheOptions {
 }
 unsafe impl ::windows::runtime::Abi for AccessCacheOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AccessCacheOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.AccessCache.AccessCacheOptions;u4)");
+}
+impl ::windows::runtime::DefaultType for AccessCacheOptions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for AccessCacheOptions {
     type Output = Self;
@@ -76,10 +78,12 @@ impl ::std::cmp::PartialEq for AccessListEntry {
 impl ::std::cmp::Eq for AccessListEntry {}
 unsafe impl ::windows::runtime::Abi for AccessListEntry {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AccessListEntry {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Storage.AccessCache.AccessListEntry;string;string)");
+}
+impl ::windows::runtime::DefaultType for AccessListEntry {
+    type DefaultType = Self;
 }
 #[cfg(feature = "Foundation_Collections")]
 #[doc = "*Required features: `Storage_AccessCache`, `Foundation_Collections`*"]
@@ -117,7 +121,7 @@ impl AccessListEntryView {
     }
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Storage_AccessCache`, `Foundation_Collections`*"]
-    pub fn GetMany(&self, startindex: u32, items: &mut [<AccessListEntry as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [<AccessListEntry as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
@@ -214,7 +218,6 @@ impl ::std::iter::IntoIterator for &AccessListEntryView {
     }
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IItemRemovedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IItemRemovedEventArgs {
@@ -233,7 +236,6 @@ pub struct IItemRemovedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<AccessListEntry>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageApplicationPermissionsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageApplicationPermissionsStatics {
@@ -253,7 +255,6 @@ pub struct IStorageApplicationPermissionsStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageApplicationPermissionsStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageApplicationPermissionsStatics2 {
@@ -444,7 +445,6 @@ pub struct IStorageItemAccessList_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageItemMostRecentlyUsedList(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageItemMostRecentlyUsedList {
@@ -466,7 +466,6 @@ pub struct IStorageItemMostRecentlyUsedList_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStorageItemMostRecentlyUsedList2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageItemMostRecentlyUsedList2 {
@@ -524,10 +523,12 @@ impl ::std::convert::From<i32> for RecentStorageItemVisibility {
 }
 unsafe impl ::windows::runtime::Abi for RecentStorageItemVisibility {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RecentStorageItemVisibility {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.AccessCache.RecentStorageItemVisibility;i4)");
+}
+impl ::windows::runtime::DefaultType for RecentStorageItemVisibility {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Storage_AccessCache`*"]
 pub struct StorageApplicationPermissions {}

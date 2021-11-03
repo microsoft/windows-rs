@@ -73,7 +73,6 @@ impl ::std::cmp::Eq for ApplicationProcessRecycleInfo {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ApplicationProcessRecycleInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -116,7 +115,6 @@ impl ::std::cmp::PartialEq for ApplicationProcessStatistics {
 impl ::std::cmp::Eq for ApplicationProcessStatistics {}
 unsafe impl ::windows::runtime::Abi for ApplicationProcessStatistics {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -168,7 +166,6 @@ impl ::std::cmp::Eq for ApplicationProcessSummary {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ApplicationProcessSummary {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -216,7 +213,6 @@ impl ::std::cmp::Eq for ApplicationSummary {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ApplicationSummary {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -255,7 +251,6 @@ impl ::std::convert::From<u32> for AutoSvcs_Error_Constants {
 }
 unsafe impl ::windows::runtime::Abi for AutoSvcs_Error_Constants {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for AutoSvcs_Error_Constants {
     type Output = Self;
@@ -314,7 +309,6 @@ impl ::std::cmp::PartialEq for CAppData {
 impl ::std::cmp::Eq for CAppData {}
 unsafe impl ::windows::runtime::Abi for CAppData {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -344,7 +338,6 @@ impl ::std::cmp::PartialEq for CAppStatistics {
 impl ::std::cmp::Eq for CAppStatistics {}
 unsafe impl ::windows::runtime::Abi for CAppStatistics {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -387,7 +380,6 @@ impl ::std::cmp::PartialEq for CCLSIDData {
 impl ::std::cmp::Eq for CCLSIDData {}
 unsafe impl ::windows::runtime::Abi for CCLSIDData {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -459,7 +451,6 @@ impl ::std::cmp::Eq for CCLSIDData2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CCLSIDData2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -474,7 +465,6 @@ impl ::std::convert::From<i32> for COMAdminAccessChecksLevelOptions {
 }
 unsafe impl ::windows::runtime::Abi for COMAdminAccessChecksLevelOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -489,7 +479,6 @@ impl ::std::convert::From<i32> for COMAdminActivationOptions {
 }
 unsafe impl ::windows::runtime::Abi for COMAdminActivationOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -507,7 +496,6 @@ impl ::std::convert::From<i32> for COMAdminApplicationExportOptions {
 }
 unsafe impl ::windows::runtime::Abi for COMAdminApplicationExportOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -523,7 +511,6 @@ impl ::std::convert::From<i32> for COMAdminApplicationInstallOptions {
 }
 unsafe impl ::windows::runtime::Abi for COMAdminApplicationInstallOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -540,7 +527,6 @@ impl ::std::convert::From<i32> for COMAdminAuthenticationCapabilitiesOptions {
 }
 unsafe impl ::windows::runtime::Abi for COMAdminAuthenticationCapabilitiesOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -560,7 +546,6 @@ impl ::std::convert::From<i32> for COMAdminAuthenticationLevelOptions {
 }
 unsafe impl ::windows::runtime::Abi for COMAdminAuthenticationLevelOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const COMAdminCatalog: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4128818452, 57272, 4561, [162, 207, 0, 128, 95, 199, 146, 53]);
 pub const COMAdminCatalogCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4128818454, 57272, 4561, [162, 207, 0, 128, 95, 199, 146, 53]);
@@ -582,7 +567,6 @@ impl ::std::convert::From<i32> for COMAdminComponentFlags {
 }
 unsafe impl ::windows::runtime::Abi for COMAdminComponentFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -597,7 +581,6 @@ impl ::std::convert::From<i32> for COMAdminComponentType {
 }
 unsafe impl ::windows::runtime::Abi for COMAdminComponentType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -698,7 +681,6 @@ impl ::std::convert::From<i32> for COMAdminErrorCodes {
 }
 unsafe impl ::windows::runtime::Abi for COMAdminErrorCodes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -730,7 +712,6 @@ impl ::std::convert::From<i32> for COMAdminFileFlags {
 }
 unsafe impl ::windows::runtime::Abi for COMAdminFileFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -747,7 +728,6 @@ impl ::std::convert::From<i32> for COMAdminImpersonationLevelOptions {
 }
 unsafe impl ::windows::runtime::Abi for COMAdminImpersonationLevelOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -766,7 +746,6 @@ impl ::std::convert::From<i32> for COMAdminInUse {
 }
 unsafe impl ::windows::runtime::Abi for COMAdminInUse {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -816,7 +795,6 @@ impl ::std::convert::From<i32> for COMAdminOS {
 }
 unsafe impl ::windows::runtime::Abi for COMAdminOS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -832,7 +810,6 @@ impl ::std::convert::From<i32> for COMAdminQCMessageAuthenticateOptions {
 }
 unsafe impl ::windows::runtime::Abi for COMAdminQCMessageAuthenticateOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -846,7 +823,6 @@ impl ::std::convert::From<i32> for COMAdminServiceOptions {
 }
 unsafe impl ::windows::runtime::Abi for COMAdminServiceOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -867,7 +843,6 @@ impl ::std::convert::From<i32> for COMAdminServiceStatusOptions {
 }
 unsafe impl ::windows::runtime::Abi for COMAdminServiceStatusOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -885,7 +860,6 @@ impl ::std::convert::From<i32> for COMAdminSynchronizationOptions {
 }
 unsafe impl ::windows::runtime::Abi for COMAdminSynchronizationOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -904,7 +878,6 @@ impl ::std::convert::From<i32> for COMAdminThreadingModels {
 }
 unsafe impl ::windows::runtime::Abi for COMAdminThreadingModels {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -922,7 +895,6 @@ impl ::std::convert::From<i32> for COMAdminTransactionOptions {
 }
 unsafe impl ::windows::runtime::Abi for COMAdminTransactionOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -940,7 +912,6 @@ impl ::std::convert::From<i32> for COMAdminTxIsolationLevelOptions {
 }
 unsafe impl ::windows::runtime::Abi for COMAdminTxIsolationLevelOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const COMEvents: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3970674859, 32537, 4562, [151, 142, 0, 0, 248, 117, 126, 42]);
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
@@ -958,7 +929,6 @@ impl ::std::convert::From<i32> for COMPLUS_APPTYPE {
 }
 unsafe impl ::windows::runtime::Abi for COMPLUS_APPTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -998,7 +968,6 @@ impl ::std::cmp::Eq for COMSVCSEVENTINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for COMSVCSEVENTINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const CRMClerk: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3970674877, 32537, 4562, [151, 142, 0, 0, 248, 117, 126, 42]);
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
@@ -1019,7 +988,6 @@ impl ::std::convert::From<i32> for CRMFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CRMFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1037,7 +1005,6 @@ impl ::std::convert::From<i32> for CRMREGFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CRMREGFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const CRMRecoveryClerk: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3970674878, 32537, 4562, [151, 142, 0, 0, 248, 117, 126, 42]);
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
@@ -1065,7 +1032,6 @@ impl ::std::convert::From<i32> for CSC_Binding {
 }
 unsafe impl ::windows::runtime::Abi for CSC_Binding {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1080,7 +1046,6 @@ impl ::std::convert::From<i32> for CSC_COMTIIntrinsicsConfig {
 }
 unsafe impl ::windows::runtime::Abi for CSC_COMTIIntrinsicsConfig {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1095,7 +1060,6 @@ impl ::std::convert::From<i32> for CSC_IISIntrinsicsConfig {
 }
 unsafe impl ::windows::runtime::Abi for CSC_IISIntrinsicsConfig {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1110,7 +1074,6 @@ impl ::std::convert::From<i32> for CSC_InheritanceConfig {
 }
 unsafe impl ::windows::runtime::Abi for CSC_InheritanceConfig {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1126,7 +1089,6 @@ impl ::std::convert::From<i32> for CSC_PartitionConfig {
 }
 unsafe impl ::windows::runtime::Abi for CSC_PartitionConfig {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1142,7 +1104,6 @@ impl ::std::convert::From<i32> for CSC_SxsConfig {
 }
 unsafe impl ::windows::runtime::Abi for CSC_SxsConfig {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1159,7 +1120,6 @@ impl ::std::convert::From<i32> for CSC_SynchronizationConfig {
 }
 unsafe impl ::windows::runtime::Abi for CSC_SynchronizationConfig {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1176,7 +1136,6 @@ impl ::std::convert::From<i32> for CSC_ThreadPool {
 }
 unsafe impl ::windows::runtime::Abi for CSC_ThreadPool {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1191,7 +1150,6 @@ impl ::std::convert::From<i32> for CSC_TrackerConfig {
 }
 unsafe impl ::windows::runtime::Abi for CSC_TrackerConfig {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1208,7 +1166,6 @@ impl ::std::convert::From<i32> for CSC_TransactionConfig {
 }
 unsafe impl ::windows::runtime::Abi for CSC_TransactionConfig {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const CServiceConfig: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3970674888, 32537, 4562, [151, 142, 0, 0, 248, 117, 126, 42]);
 pub const ClrAssemblyLocator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1166713781, 9818, 19317, [188, 5, 155, 234, 70, 48, 207, 24]);
@@ -1306,7 +1263,6 @@ impl ::std::cmp::Eq for ComponentHangMonitorInfo {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ComponentHangMonitorInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1371,7 +1327,6 @@ impl ::std::cmp::PartialEq for ComponentStatistics {
 impl ::std::cmp::Eq for ComponentStatistics {}
 unsafe impl ::windows::runtime::Abi for ComponentStatistics {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1417,7 +1372,6 @@ impl ::std::cmp::Eq for ComponentSummary {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ComponentSummary {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[repr(transparent)]
@@ -1688,7 +1642,6 @@ impl ::std::cmp::Eq for CrmLogRecordRead {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for CrmLogRecordRead {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1705,7 +1658,6 @@ impl ::std::convert::From<i32> for CrmTransactionState {
 }
 unsafe impl ::windows::runtime::Abi for CrmTransactionState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 pub const DATA_NOT_AVAILABLE: u32 = 4294967295u32;
@@ -1723,7 +1675,6 @@ impl ::std::convert::From<i32> for DUMPTYPE {
 }
 unsafe impl ::windows::runtime::Abi for DUMPTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const DispenserManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3970674880, 32537, 4562, [151, 142, 0, 0, 248, 117, 126, 42]);
 pub const Dummy30040732: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3970674857, 32537, 4562, [151, 142, 0, 0, 248, 117, 126, 42]);
@@ -1746,7 +1697,6 @@ impl ::std::convert::From<i32> for GetAppTrackerDataFlags {
 }
 unsafe impl ::windows::runtime::Abi for GetAppTrackerDataFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[inline]
@@ -1822,7 +1772,6 @@ impl ::std::cmp::Eq for HANG_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HANG_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[repr(transparent)]
@@ -8377,7 +8326,6 @@ impl ::std::convert::From<i32> for LockModes {
 }
 unsafe impl ::windows::runtime::Abi for LockModes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[inline]
@@ -8594,7 +8542,6 @@ impl ::std::cmp::PartialEq for RECYCLE_INFO {
 impl ::std::cmp::Eq for RECYCLE_INFO {}
 unsafe impl ::windows::runtime::Abi for RECYCLE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[inline]
@@ -8623,7 +8570,6 @@ impl ::std::convert::From<i32> for ReleaseModes {
 }
 unsafe impl ::windows::runtime::Abi for ReleaseModes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ComponentServices`*"]
 #[inline]
@@ -8742,7 +8688,6 @@ impl ::std::convert::From<i32> for TRACKING_COLL_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for TRACKING_COLL_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const TrackerServer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3970674617, 32537, 4562, [151, 142, 0, 0, 248, 117, 126, 42]);
 pub const TransactionContext: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2040134693, 54214, 4559, [172, 171, 0, 160, 36, 165, 90, 239]);
@@ -8760,5 +8705,4 @@ impl ::std::convert::From<i32> for TransactionVote {
 }
 unsafe impl ::windows::runtime::Abi for TransactionVote {
     type Abi = Self;
-    type DefaultType = Self;
 }

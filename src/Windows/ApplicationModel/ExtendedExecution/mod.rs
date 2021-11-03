@@ -17,10 +17,12 @@ impl ::std::convert::From<i32> for ExtendedExecutionReason {
 }
 unsafe impl ::windows::runtime::Abi for ExtendedExecutionReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ExtendedExecutionReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionReason;i4)");
+}
+impl ::windows::runtime::DefaultType for ExtendedExecutionReason {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ExtendedExecution`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -37,10 +39,12 @@ impl ::std::convert::From<i32> for ExtendedExecutionResult {
 }
 unsafe impl ::windows::runtime::Abi for ExtendedExecutionResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ExtendedExecutionResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionResult;i4)");
+}
+impl ::windows::runtime::DefaultType for ExtendedExecutionResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ExtendedExecution`*"]
 #[repr(transparent)]
@@ -83,10 +87,12 @@ impl ::std::convert::From<i32> for ExtendedExecutionRevokedReason {
 }
 unsafe impl ::windows::runtime::Abi for ExtendedExecutionRevokedReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ExtendedExecutionRevokedReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedReason;i4)");
+}
+impl ::windows::runtime::DefaultType for ExtendedExecutionRevokedReason {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_ExtendedExecution`*"]
 #[repr(transparent)]
@@ -209,7 +215,6 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 unsafe impl ::std::marker::Send for ExtendedExecutionSession {}
 unsafe impl ::std::marker::Sync for ExtendedExecutionSession {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IExtendedExecutionRevokedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExtendedExecutionRevokedEventArgs {
@@ -228,7 +233,6 @@ pub struct IExtendedExecutionRevokedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ExtendedExecutionRevokedReason) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IExtendedExecutionSession(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IExtendedExecutionSession {

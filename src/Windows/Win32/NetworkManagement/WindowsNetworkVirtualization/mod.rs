@@ -18,7 +18,6 @@ impl ::std::convert::From<i32> for WNV_CA_NOTIFICATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WNV_CA_NOTIFICATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -52,7 +51,6 @@ impl ::std::cmp::Eq for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {}
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -80,7 +78,6 @@ impl ::std::cmp::Eq for WNV_IP_ADDRESS {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for WNV_IP_ADDRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -110,7 +107,6 @@ impl ::std::cmp::Eq for WNV_IP_ADDRESS_0 {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for WNV_IP_ADDRESS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -140,7 +136,6 @@ impl ::std::cmp::PartialEq for WNV_NOTIFICATION_PARAM {
 impl ::std::cmp::Eq for WNV_NOTIFICATION_PARAM {}
 unsafe impl ::windows::runtime::Abi for WNV_NOTIFICATION_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsNetworkVirtualization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -157,7 +152,6 @@ impl ::std::convert::From<i32> for WNV_NOTIFICATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WNV_NOTIFICATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -186,7 +180,6 @@ impl ::std::cmp::Eq for WNV_OBJECT_CHANGE_PARAM {}
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for WNV_OBJECT_CHANGE_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -215,7 +208,6 @@ impl ::std::cmp::Eq for WNV_OBJECT_CHANGE_PARAM_0 {}
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for WNV_OBJECT_CHANGE_PARAM_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -244,7 +236,6 @@ impl ::std::cmp::PartialEq for WNV_OBJECT_HEADER {
 impl ::std::cmp::Eq for WNV_OBJECT_HEADER {}
 unsafe impl ::windows::runtime::Abi for WNV_OBJECT_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsNetworkVirtualization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -260,7 +251,6 @@ impl ::std::convert::From<i32> for WNV_OBJECT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WNV_OBJECT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -292,7 +282,6 @@ impl ::std::cmp::Eq for WNV_POLICY_MISMATCH_PARAM {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for WNV_POLICY_MISMATCH_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -322,7 +311,6 @@ impl ::std::cmp::Eq for WNV_PROVIDER_ADDRESS_CHANGE_PARAM {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -356,7 +344,6 @@ impl ::std::cmp::Eq for WNV_REDIRECT_PARAM {}
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for WNV_REDIRECT_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsNetworkVirtualization`, `Win32_Foundation`*"]

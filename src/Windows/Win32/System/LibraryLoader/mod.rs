@@ -100,7 +100,6 @@ impl ::std::cmp::PartialEq for ENUMUILANG {
 impl ::std::cmp::Eq for ENUMUILANG {}
 unsafe impl ::windows::runtime::Abi for ENUMUILANG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
@@ -575,7 +574,6 @@ impl ::std::default::Default for HRSRC {
 unsafe impl ::windows::runtime::Handle for HRSRC {}
 unsafe impl ::windows::runtime::Abi for HRSRC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_LibraryLoader`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -602,7 +600,6 @@ impl ::std::convert::From<u32> for LOAD_LIBRARY_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for LOAD_LIBRARY_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for LOAD_LIBRARY_FLAGS {
     type Output = Self;
@@ -791,7 +788,6 @@ impl ::std::cmp::Eq for REDIRECTION_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for REDIRECTION_DESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -827,7 +823,6 @@ impl ::std::cmp::Eq for REDIRECTION_FUNCTION_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for REDIRECTION_FUNCTION_DESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_LibraryLoader`*"]
 pub const RESOURCE_ENUM_LN: u32 = 1u32;

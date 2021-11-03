@@ -13,7 +13,6 @@ impl ::std::convert::From<i32> for AdrClientDisplayFlags {
 }
 unsafe impl ::windows::runtime::Abi for AdrClientDisplayFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -29,7 +28,6 @@ impl ::std::convert::From<i32> for AdrClientErrorType {
 }
 unsafe impl ::windows::runtime::Abi for AdrClientErrorType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -46,7 +44,6 @@ impl ::std::convert::From<i32> for AdrClientFlags {
 }
 unsafe impl ::windows::runtime::Abi for AdrClientFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -64,7 +61,6 @@ impl ::std::convert::From<i32> for AdrEmailFlags {
 }
 unsafe impl ::windows::runtime::Abi for AdrEmailFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]
@@ -419,7 +415,6 @@ impl ::std::convert::From<i32> for FsrmAccountType {
 }
 unsafe impl ::windows::runtime::Abi for FsrmAccountType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -437,7 +432,6 @@ impl ::std::convert::From<i32> for FsrmActionType {
 }
 unsafe impl ::windows::runtime::Abi for FsrmActionType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -455,7 +449,6 @@ impl ::std::convert::From<i32> for FsrmClassificationLoggingFlags {
 }
 unsafe impl ::windows::runtime::Abi for FsrmClassificationLoggingFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const FsrmClassificationManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2975600199, 50065, 17849, [149, 200, 235, 89, 108, 133, 63, 58]);
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -473,7 +466,6 @@ impl ::std::convert::From<i32> for FsrmCollectionState {
 }
 unsafe impl ::windows::runtime::Abi for FsrmCollectionState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -488,7 +480,6 @@ impl ::std::convert::From<i32> for FsrmCommitOptions {
 }
 unsafe impl ::windows::runtime::Abi for FsrmCommitOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FsrmDaysNotSpecified: i32 = -1i32;
@@ -508,7 +499,6 @@ impl ::std::convert::From<i32> for FsrmEnumOptions {
 }
 unsafe impl ::windows::runtime::Abi for FsrmEnumOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -525,7 +515,6 @@ impl ::std::convert::From<i32> for FsrmEventType {
 }
 unsafe impl ::windows::runtime::Abi for FsrmEventType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -542,7 +531,6 @@ impl ::std::convert::From<i32> for FsrmExecutionOption {
 }
 unsafe impl ::windows::runtime::Abi for FsrmExecutionOption {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const FsrmExportImport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(344120375, 64233, 18311, [144, 37, 140, 228, 224, 36, 171, 86]);
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -558,7 +546,6 @@ impl ::std::convert::From<i32> for FsrmFileConditionType {
 }
 unsafe impl ::windows::runtime::Abi for FsrmFileConditionType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const FsrmFileGroupManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2400412662, 25967, 17558, [146, 38, 19, 174, 203, 215, 113, 143]);
 pub const FsrmFileManagementJobManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3944282546, 19514, 17185, [178, 3, 32, 81, 32, 207, 246, 20]);
@@ -577,7 +564,6 @@ impl ::std::convert::From<i32> for FsrmFileManagementLoggingFlags {
 }
 unsafe impl ::windows::runtime::Abi for FsrmFileManagementLoggingFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -594,7 +580,6 @@ impl ::std::convert::From<i32> for FsrmFileManagementType {
 }
 unsafe impl ::windows::runtime::Abi for FsrmFileManagementType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -608,7 +593,6 @@ impl ::std::convert::From<i32> for FsrmFileScreenFlags {
 }
 unsafe impl ::windows::runtime::Abi for FsrmFileScreenFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const FsrmFileScreenManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2509508995, 56147, 19551, [179, 123, 125, 9, 33, 207, 157, 199]);
 pub const FsrmFileScreenTemplateManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(607195615, 58484, 18090, [160, 84, 234, 163, 62, 220, 41, 42]);
@@ -626,7 +610,6 @@ impl ::std::convert::From<i32> for FsrmFileStreamingInterfaceType {
 }
 unsafe impl ::windows::runtime::Abi for FsrmFileStreamingInterfaceType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -642,7 +625,6 @@ impl ::std::convert::From<i32> for FsrmFileStreamingMode {
 }
 unsafe impl ::windows::runtime::Abi for FsrmFileStreamingMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -661,7 +643,6 @@ impl ::std::convert::From<i32> for FsrmFileSystemPropertyId {
 }
 unsafe impl ::windows::runtime::Abi for FsrmFileSystemPropertyId {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -679,7 +660,6 @@ impl ::std::convert::From<i32> for FsrmGetFilePropertyOptions {
 }
 unsafe impl ::windows::runtime::Abi for FsrmGetFilePropertyOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 pub const FsrmMaxExcludeFolders: u32 = 32u32;
@@ -709,7 +689,6 @@ impl ::std::convert::From<i32> for FsrmPipelineModuleType {
 }
 unsafe impl ::windows::runtime::Abi for FsrmPipelineModuleType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -724,7 +703,6 @@ impl ::std::convert::From<i32> for FsrmPropertyBagField {
 }
 unsafe impl ::windows::runtime::Abi for FsrmPropertyBagField {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -741,7 +719,6 @@ impl ::std::convert::From<i32> for FsrmPropertyBagFlags {
 }
 unsafe impl ::windows::runtime::Abi for FsrmPropertyBagFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -768,7 +745,6 @@ impl ::std::convert::From<i32> for FsrmPropertyConditionType {
 }
 unsafe impl ::windows::runtime::Abi for FsrmPropertyConditionType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -783,7 +759,6 @@ impl ::std::convert::From<i32> for FsrmPropertyDefinitionAppliesTo {
 }
 unsafe impl ::windows::runtime::Abi for FsrmPropertyDefinitionAppliesTo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -799,7 +774,6 @@ impl ::std::convert::From<i32> for FsrmPropertyDefinitionFlags {
 }
 unsafe impl ::windows::runtime::Abi for FsrmPropertyDefinitionFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -821,7 +795,6 @@ impl ::std::convert::From<i32> for FsrmPropertyDefinitionType {
 }
 unsafe impl ::windows::runtime::Abi for FsrmPropertyDefinitionType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -854,7 +827,6 @@ impl ::std::convert::From<i32> for FsrmPropertyFlags {
 }
 unsafe impl ::windows::runtime::Abi for FsrmPropertyFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -870,7 +842,6 @@ impl ::std::convert::From<i32> for FsrmPropertyValueType {
 }
 unsafe impl ::windows::runtime::Abi for FsrmPropertyValueType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -887,7 +858,6 @@ impl ::std::convert::From<i32> for FsrmQuotaFlags {
 }
 unsafe impl ::windows::runtime::Abi for FsrmQuotaFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const FsrmQuotaManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2430380927, 13436, 19452, [181, 67, 84, 3, 38, 48, 95, 190]);
 pub const FsrmQuotaTemplateManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2547242051, 9500, 17207, [129, 231, 179, 46, 143, 78, 230, 94]);
@@ -910,7 +880,6 @@ impl ::std::convert::From<i32> for FsrmReportFilter {
 }
 unsafe impl ::windows::runtime::Abi for FsrmReportFilter {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -929,7 +898,6 @@ impl ::std::convert::From<i32> for FsrmReportFormat {
 }
 unsafe impl ::windows::runtime::Abi for FsrmReportFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -946,7 +914,6 @@ impl ::std::convert::From<i32> for FsrmReportGenerationContext {
 }
 unsafe impl ::windows::runtime::Abi for FsrmReportGenerationContext {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -971,7 +938,6 @@ impl ::std::convert::From<i32> for FsrmReportLimit {
 }
 unsafe impl ::windows::runtime::Abi for FsrmReportLimit {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const FsrmReportManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(5828407, 43622, 19528, [189, 91, 47, 206, 67, 42, 176, 200]);
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -989,7 +955,6 @@ impl ::std::convert::From<i32> for FsrmReportRunningStatus {
 }
 unsafe impl ::windows::runtime::Abi for FsrmReportRunningStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const FsrmReportScheduler: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3928355256, 7053, 17040, [142, 232, 225, 124, 18, 194, 254, 32]);
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -1017,7 +982,6 @@ impl ::std::convert::From<i32> for FsrmReportType {
 }
 unsafe impl ::windows::runtime::Abi for FsrmReportType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1034,7 +998,6 @@ impl ::std::convert::From<i32> for FsrmRuleFlags {
 }
 unsafe impl ::windows::runtime::Abi for FsrmRuleFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1050,7 +1013,6 @@ impl ::std::convert::From<i32> for FsrmRuleType {
 }
 unsafe impl ::windows::runtime::Abi for FsrmRuleType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const FsrmSetting: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4116109064, 27981, 17812, [156, 97, 125, 187, 13, 174, 42, 70]);
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
@@ -1069,7 +1031,6 @@ impl ::std::convert::From<i32> for FsrmStorageModuleCaps {
 }
 unsafe impl ::windows::runtime::Abi for FsrmStorageModuleCaps {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1087,7 +1048,6 @@ impl ::std::convert::From<i32> for FsrmStorageModuleType {
 }
 unsafe impl ::windows::runtime::Abi for FsrmStorageModuleType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1102,7 +1062,6 @@ impl ::std::convert::From<i32> for FsrmTemplateApplyOptions {
 }
 unsafe impl ::windows::runtime::Abi for FsrmTemplateApplyOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_FileServerResourceManager`*"]
 #[repr(transparent)]

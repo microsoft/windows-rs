@@ -17,7 +17,6 @@ impl ::std::convert::From<u32> for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
     type Output = Self;
@@ -112,7 +111,6 @@ impl ::std::cmp::Eq for HEAPENTRY32 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HEAPENTRY32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -128,7 +126,6 @@ impl ::std::convert::From<u32> for HEAPENTRY32_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for HEAPENTRY32_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for HEAPENTRY32_FLAGS {
     type Output = Self;
@@ -186,7 +183,6 @@ impl ::std::cmp::PartialEq for HEAPLIST32 {
 impl ::std::cmp::Eq for HEAPLIST32 {}
 unsafe impl ::windows::runtime::Abi for HEAPLIST32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`*"]
 pub const HF32_DEFAULT: u32 = 1u32;
@@ -306,7 +302,6 @@ impl ::std::cmp::Eq for MODULEENTRY32 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MODULEENTRY32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -360,7 +355,6 @@ impl ::std::cmp::Eq for MODULEENTRY32W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MODULEENTRY32W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
@@ -474,7 +468,6 @@ impl ::std::cmp::Eq for PROCESSENTRY32 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PROCESSENTRY32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -521,7 +514,6 @@ impl ::std::cmp::PartialEq for PROCESSENTRY32W {
 impl ::std::cmp::Eq for PROCESSENTRY32W {}
 unsafe impl ::windows::runtime::Abi for PROCESSENTRY32W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
@@ -622,7 +614,6 @@ impl ::std::cmp::PartialEq for THREADENTRY32 {
 impl ::std::cmp::Eq for THREADENTRY32 {}
 unsafe impl ::windows::runtime::Abi for THREADENTRY32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]

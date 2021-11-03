@@ -20,7 +20,6 @@ impl ::std::convert::From<i32> for ACTIVITY_STATE {
 }
 unsafe impl ::windows::runtime::Abi for ACTIVITY_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -34,7 +33,6 @@ impl ::std::convert::From<i32> for ACTIVITY_STATE_COUNT {
 }
 unsafe impl ::windows::runtime::Abi for ACTIVITY_STATE_COUNT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -51,7 +49,6 @@ impl ::std::convert::From<i32> for AXIS {
 }
 unsafe impl ::windows::runtime::Abi for AXIS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
@@ -233,7 +230,6 @@ impl ::std::convert::From<i32> for ELEVATION_CHANGE_MODE {
 }
 unsafe impl ::windows::runtime::Abi for ELEVATION_CHANGE_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
@@ -316,7 +312,6 @@ impl ::std::convert::From<i32> for HUMAN_PRESENCE_DETECTION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for HUMAN_PRESENCE_DETECTION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -330,7 +325,6 @@ impl ::std::convert::From<i32> for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
 }
 unsafe impl ::windows::runtime::Abi for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[repr(transparent)]
@@ -796,7 +790,6 @@ impl ::std::convert::From<i32> for LOCATION_DESIRED_ACCURACY {
 }
 unsafe impl ::windows::runtime::Abi for LOCATION_DESIRED_ACCURACY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -814,7 +807,6 @@ impl ::std::convert::From<i32> for LOCATION_POSITION_SOURCE {
 }
 unsafe impl ::windows::runtime::Abi for LOCATION_POSITION_SOURCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -831,7 +823,6 @@ impl ::std::convert::From<i32> for MAGNETOMETER_ACCURACY {
 }
 unsafe impl ::windows::runtime::Abi for MAGNETOMETER_ACCURACY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -853,7 +844,6 @@ impl ::std::cmp::PartialEq for MATRIX3X3 {
 impl ::std::cmp::Eq for MATRIX3X3 {}
 unsafe impl ::windows::runtime::Abi for MATRIX3X3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -877,7 +867,6 @@ impl ::std::cmp::PartialEq for MATRIX3X3_0 {
 impl ::std::cmp::Eq for MATRIX3X3_0 {}
 unsafe impl ::windows::runtime::Abi for MATRIX3X3_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -912,7 +901,6 @@ impl ::std::cmp::PartialEq for MATRIX3X3_0_0 {
 impl ::std::cmp::Eq for MATRIX3X3_0_0 {}
 unsafe impl ::windows::runtime::Abi for MATRIX3X3_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -941,7 +929,6 @@ impl ::std::cmp::PartialEq for MATRIX3X3_0_1 {
 impl ::std::cmp::Eq for MATRIX3X3_0_1 {}
 unsafe impl ::windows::runtime::Abi for MATRIX3X3_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -958,7 +945,6 @@ impl ::std::convert::From<i32> for MagnetometerAccuracy {
 }
 unsafe impl ::windows::runtime::Abi for MagnetometerAccuracy {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -976,7 +962,6 @@ impl ::std::convert::From<i32> for PEDOMETER_STEP_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PEDOMETER_STEP_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -990,7 +975,6 @@ impl ::std::convert::From<i32> for PEDOMETER_STEP_TYPE_COUNT {
 }
 unsafe impl ::windows::runtime::Abi for PEDOMETER_STEP_TYPE_COUNT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1006,7 +990,6 @@ impl ::std::convert::From<i32> for PROXIMITY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PROXIMITY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
@@ -1290,7 +1273,6 @@ impl ::std::cmp::PartialEq for QUATERNION {
 impl ::std::cmp::Eq for QUATERNION {}
 unsafe impl ::windows::runtime::Abi for QUATERNION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const SENSOR_CATEGORY_ALL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3273114246, 50280, 17032, [153, 117, 212, 196, 88, 124, 68, 44]);
 pub const SENSOR_CATEGORY_BIOMETRIC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3390662927, 41671, 18301, [169, 158, 153, 236, 110, 43, 86, 72]);
@@ -1337,7 +1319,6 @@ impl ::std::cmp::Eq for SENSOR_COLLECTION_LIST {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
 unsafe impl ::windows::runtime::Abi for SENSOR_COLLECTION_LIST {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1353,7 +1334,6 @@ impl ::std::convert::From<i32> for SENSOR_CONNECTION_TYPES {
 }
 unsafe impl ::windows::runtime::Abi for SENSOR_CONNECTION_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const SENSOR_DATA_TYPE_BIOMETRIC_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(580462730, 28062, 19211, [183, 236, 53, 40, 248, 158, 64, 175]);
 pub const SENSOR_DATA_TYPE_COMMON_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3680374002, 53023, 19480, [180, 108, 216, 96, 17, 214, 33, 80]);
@@ -1407,7 +1387,6 @@ impl ::std::cmp::Eq for SENSOR_PROPERTY_LIST {}
 #[cfg(feature = "Win32_System_PropertiesSystem")]
 unsafe impl ::windows::runtime::Abi for SENSOR_PROPERTY_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 pub const SENSOR_PROPERTY_LIST_HEADER_SIZE: u32 = 8u32;
@@ -1427,7 +1406,6 @@ impl ::std::convert::From<i32> for SENSOR_STATE {
 }
 unsafe impl ::windows::runtime::Abi for SENSOR_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const SENSOR_TYPE_ACCELEROMETER_1D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3226280839, 29504, 19650, [153, 30, 59, 24, 203, 142, 242, 244]);
 pub const SENSOR_TYPE_ACCELEROMETER_2D: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2999261096, 63157, 19366, [164, 35, 93, 245, 96, 180, 204, 7]);
@@ -1516,7 +1494,6 @@ impl ::std::cmp::Eq for SENSOR_VALUE_PAIR {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
 unsafe impl ::windows::runtime::Abi for SENSOR_VALUE_PAIR {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1535,7 +1512,6 @@ impl ::std::convert::From<i32> for SIMPLE_DEVICE_ORIENTATION {
 }
 unsafe impl ::windows::runtime::Abi for SIMPLE_DEVICE_ORIENTATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const Sensor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3917278464, 21050, 16691, [191, 111, 211, 162, 218, 231, 246, 186]);
 pub const SensorCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2042903259, 42025, 18079, [170, 57, 47, 43, 116, 183, 89, 55]);
@@ -1568,7 +1544,6 @@ impl ::std::convert::From<i32> for SensorConnectionType {
 }
 unsafe impl ::windows::runtime::Abi for SensorConnectionType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const SensorDataReport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1319753455, 26955, 16920, [136, 22, 204, 218, 141, 167, 75, 186]);
 pub const SensorManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2007091239, 64722, 18057, [137, 21, 157, 97, 60, 197, 250, 62]);
@@ -1591,7 +1566,6 @@ impl ::std::convert::From<i32> for SensorState {
 }
 unsafe impl ::windows::runtime::Abi for SensorState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`*"]
@@ -1639,7 +1613,6 @@ impl ::std::convert::From<i32> for SimpleDeviceOrientation {
 }
 unsafe impl ::windows::runtime::Abi for SimpleDeviceOrientation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1668,5 +1641,4 @@ impl ::std::cmp::PartialEq for VEC3D {
 impl ::std::cmp::Eq for VEC3D {}
 unsafe impl ::windows::runtime::Abi for VEC3D {
     type Abi = Self;
-    type DefaultType = Self;
 }

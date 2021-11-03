@@ -387,7 +387,6 @@ impl ::std::convert::From<i32> for CLCTL_CODES {
 }
 unsafe impl ::windows::runtime::Abi for CLCTL_CODES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLCTL_GLOBAL_SHIFT: u32 = 23u32;
@@ -457,7 +456,6 @@ impl ::std::cmp::Eq for CLRES_CALLBACK_FUNCTION_TABLE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLRES_CALLBACK_FUNCTION_TABLE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::std::clone::Clone for CLRES_FUNCTION_TABLE {
@@ -492,7 +490,6 @@ impl ::std::cmp::Eq for CLRES_FUNCTION_TABLE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::runtime::Abi for CLRES_FUNCTION_TABLE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::std::clone::Clone for CLRES_FUNCTION_TABLE_0 {
@@ -528,7 +525,6 @@ impl ::std::cmp::Eq for CLRES_FUNCTION_TABLE_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::runtime::Abi for CLRES_FUNCTION_TABLE_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -582,7 +578,6 @@ impl ::std::cmp::Eq for CLRES_V1_FUNCTIONS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::runtime::Abi for CLRES_V1_FUNCTIONS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -638,7 +633,6 @@ impl ::std::cmp::Eq for CLRES_V2_FUNCTIONS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::runtime::Abi for CLRES_V2_FUNCTIONS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -694,7 +688,6 @@ impl ::std::cmp::Eq for CLRES_V3_FUNCTIONS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::runtime::Abi for CLRES_V3_FUNCTIONS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -754,7 +747,6 @@ impl ::std::cmp::Eq for CLRES_V4_FUNCTIONS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::runtime::Abi for CLRES_V4_FUNCTIONS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLRES_VERSION_V1_00: u32 = 256u32;
@@ -783,7 +775,6 @@ impl ::std::convert::From<i32> for CLUADMEX_OBJECT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CLUADMEX_OBJECT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSAPI_CHANGE_ACCESS: i32 = 2i32;
@@ -889,7 +880,6 @@ impl ::std::convert::From<i32> for CLUSCTL_AFFINITYRULE_CODES {
 }
 unsafe impl ::windows::runtime::Abi for CLUSCTL_AFFINITYRULE_CODES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -940,7 +930,6 @@ impl ::std::convert::From<i32> for CLUSCTL_CLUSTER_CODES {
 }
 unsafe impl ::windows::runtime::Abi for CLUSCTL_CLUSTER_CODES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSCTL_CONTROL_CODE_MASK: u32 = 4194303u32;
@@ -968,7 +957,6 @@ impl ::std::convert::From<i32> for CLUSCTL_GROUPSET_CODES {
 }
 unsafe impl ::windows::runtime::Abi for CLUSCTL_GROUPSET_CODES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1002,7 +990,6 @@ impl ::std::convert::From<i32> for CLUSCTL_GROUP_CODES {
 }
 unsafe impl ::windows::runtime::Abi for CLUSCTL_GROUP_CODES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1038,7 +1025,6 @@ impl ::std::cmp::Eq for CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1070,7 +1056,6 @@ impl ::std::convert::From<i32> for CLUSCTL_NETINTERFACE_CODES {
 }
 unsafe impl ::windows::runtime::Abi for CLUSCTL_NETINTERFACE_CODES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1100,7 +1085,6 @@ impl ::std::convert::From<i32> for CLUSCTL_NETWORK_CODES {
 }
 unsafe impl ::windows::runtime::Abi for CLUSCTL_NETWORK_CODES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1137,7 +1121,6 @@ impl ::std::convert::From<i32> for CLUSCTL_NODE_CODES {
 }
 unsafe impl ::windows::runtime::Abi for CLUSCTL_NODE_CODES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSCTL_OBJECT_MASK: u32 = 255u32;
@@ -1264,7 +1247,6 @@ impl ::std::convert::From<i32> for CLUSCTL_RESOURCE_CODES {
 }
 unsafe impl ::windows::runtime::Abi for CLUSCTL_RESOURCE_CODES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1293,7 +1275,6 @@ impl ::std::cmp::PartialEq for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
 impl ::std::cmp::Eq for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {}
 unsafe impl ::windows::runtime::Abi for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSCTL_RESOURCE_STATE_CHANGE_REASON_VERSION_1: u32 = 1u32;
@@ -1373,7 +1354,6 @@ impl ::std::convert::From<i32> for CLUSCTL_RESOURCE_TYPE_CODES {
 }
 unsafe impl ::windows::runtime::Abi for CLUSCTL_RESOURCE_TYPE_CODES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_ADD_VOLUME_INFO: u32 = 1u32;
@@ -1407,7 +1387,6 @@ impl ::std::cmp::PartialEq for CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS
 impl ::std::cmp::Eq for CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {}
 unsafe impl ::windows::runtime::Abi for CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSGROUPSET_STATUS_APPLICATION_READY: u64 = 8u64;
@@ -1458,7 +1437,6 @@ impl ::std::convert::From<i32> for CLUSGROUP_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSGROUP_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSGRP_STATUS_APPLICATION_READY: u64 = 1024u64;
@@ -1507,7 +1485,6 @@ impl ::std::cmp::PartialEq for CLUSPROP_BINARY {
 impl ::std::cmp::Eq for CLUSPROP_BINARY {}
 unsafe impl ::windows::runtime::Abi for CLUSPROP_BINARY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1562,7 +1539,6 @@ impl ::std::cmp::Eq for CLUSPROP_BUFFER_HELPER {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 unsafe impl ::windows::runtime::Abi for CLUSPROP_BUFFER_HELPER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1585,7 +1561,6 @@ impl ::std::cmp::PartialEq for CLUSPROP_DWORD {
 impl ::std::cmp::Eq for CLUSPROP_DWORD {}
 unsafe impl ::windows::runtime::Abi for CLUSPROP_DWORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1614,7 +1589,6 @@ impl ::std::cmp::Eq for CLUSPROP_FILETIME {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLUSPROP_FILETIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1637,7 +1611,6 @@ impl ::std::cmp::PartialEq for CLUSPROP_FTSET_INFO {
 impl ::std::cmp::Eq for CLUSPROP_FTSET_INFO {}
 unsafe impl ::windows::runtime::Abi for CLUSPROP_FTSET_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1653,7 +1626,6 @@ impl ::std::convert::From<i32> for CLUSPROP_IPADDR_ENABLENETBIOS {
 }
 unsafe impl ::windows::runtime::Abi for CLUSPROP_IPADDR_ENABLENETBIOS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1676,7 +1648,6 @@ impl ::std::cmp::PartialEq for CLUSPROP_LARGE_INTEGER {
 impl ::std::cmp::Eq for CLUSPROP_LARGE_INTEGER {}
 unsafe impl ::windows::runtime::Abi for CLUSPROP_LARGE_INTEGER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1699,7 +1670,6 @@ impl ::std::cmp::PartialEq for CLUSPROP_LIST {
 impl ::std::cmp::Eq for CLUSPROP_LIST {}
 unsafe impl ::windows::runtime::Abi for CLUSPROP_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1722,7 +1692,6 @@ impl ::std::cmp::PartialEq for CLUSPROP_LONG {
 impl ::std::cmp::Eq for CLUSPROP_LONG {}
 unsafe impl ::windows::runtime::Abi for CLUSPROP_LONG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1745,7 +1714,6 @@ impl ::std::cmp::PartialEq for CLUSPROP_PARTITION_INFO {
 impl ::std::cmp::Eq for CLUSPROP_PARTITION_INFO {}
 unsafe impl ::windows::runtime::Abi for CLUSPROP_PARTITION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1768,7 +1736,6 @@ impl ::std::cmp::PartialEq for CLUSPROP_PARTITION_INFO_EX {
 impl ::std::cmp::Eq for CLUSPROP_PARTITION_INFO_EX {}
 unsafe impl ::windows::runtime::Abi for CLUSPROP_PARTITION_INFO_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1791,7 +1758,6 @@ impl ::std::cmp::PartialEq for CLUSPROP_PARTITION_INFO_EX2 {
 impl ::std::cmp::Eq for CLUSPROP_PARTITION_INFO_EX2 {}
 unsafe impl ::windows::runtime::Abi for CLUSPROP_PARTITION_INFO_EX2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1812,7 +1778,6 @@ impl ::std::convert::From<i32> for CLUSPROP_PIFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CLUSPROP_PIFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1836,7 +1801,6 @@ impl ::std::cmp::PartialEq for CLUSPROP_REQUIRED_DEPENDENCY {
 impl ::std::cmp::Eq for CLUSPROP_REQUIRED_DEPENDENCY {}
 unsafe impl ::windows::runtime::Abi for CLUSPROP_REQUIRED_DEPENDENCY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1859,7 +1823,6 @@ impl ::std::cmp::PartialEq for CLUSPROP_RESOURCE_CLASS {
 impl ::std::cmp::Eq for CLUSPROP_RESOURCE_CLASS {}
 unsafe impl ::windows::runtime::Abi for CLUSPROP_RESOURCE_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1882,7 +1845,6 @@ impl ::std::cmp::PartialEq for CLUSPROP_RESOURCE_CLASS_INFO {
 impl ::std::cmp::Eq for CLUSPROP_RESOURCE_CLASS_INFO {}
 unsafe impl ::windows::runtime::Abi for CLUSPROP_RESOURCE_CLASS_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1905,7 +1867,6 @@ impl ::std::cmp::PartialEq for CLUSPROP_SCSI_ADDRESS {
 impl ::std::cmp::Eq for CLUSPROP_SCSI_ADDRESS {}
 unsafe impl ::windows::runtime::Abi for CLUSPROP_SCSI_ADDRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1934,7 +1895,6 @@ impl ::std::cmp::Eq for CLUSPROP_SECURITY_DESCRIPTOR {}
 #[cfg(feature = "Win32_System_SystemServices")]
 unsafe impl ::windows::runtime::Abi for CLUSPROP_SECURITY_DESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1963,7 +1923,6 @@ impl ::std::cmp::Eq for CLUSPROP_SECURITY_DESCRIPTOR_0 {}
 #[cfg(feature = "Win32_System_SystemServices")]
 unsafe impl ::windows::runtime::Abi for CLUSPROP_SECURITY_DESCRIPTOR_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1986,7 +1945,6 @@ impl ::std::cmp::PartialEq for CLUSPROP_SYNTAX {
 impl ::std::cmp::Eq for CLUSPROP_SYNTAX {}
 unsafe impl ::windows::runtime::Abi for CLUSPROP_SYNTAX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2014,7 +1972,6 @@ impl ::std::cmp::PartialEq for CLUSPROP_SYNTAX_0 {
 impl ::std::cmp::Eq for CLUSPROP_SYNTAX_0 {}
 unsafe impl ::windows::runtime::Abi for CLUSPROP_SYNTAX_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2037,7 +1994,6 @@ impl ::std::cmp::PartialEq for CLUSPROP_SZ {
 impl ::std::cmp::Eq for CLUSPROP_SZ {}
 unsafe impl ::windows::runtime::Abi for CLUSPROP_SZ {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2060,7 +2016,6 @@ impl ::std::cmp::PartialEq for CLUSPROP_ULARGE_INTEGER {
 impl ::std::cmp::Eq for CLUSPROP_ULARGE_INTEGER {}
 unsafe impl ::windows::runtime::Abi for CLUSPROP_ULARGE_INTEGER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2083,7 +2038,6 @@ impl ::std::cmp::PartialEq for CLUSPROP_VALUE {
 impl ::std::cmp::Eq for CLUSPROP_VALUE {}
 unsafe impl ::windows::runtime::Abi for CLUSPROP_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2106,7 +2060,6 @@ impl ::std::cmp::PartialEq for CLUSPROP_WORD {
 impl ::std::cmp::Eq for CLUSPROP_WORD {}
 unsafe impl ::windows::runtime::Abi for CLUSPROP_WORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSREG_DATABASE_ISOLATE_READ: u32 = 2u32;
@@ -2169,7 +2122,6 @@ impl ::std::convert::From<i32> for CLUSTERSET_OBJECT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTERSET_OBJECT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2216,7 +2168,6 @@ impl ::std::cmp::PartialEq for CLUSTERVERSIONINFO {
 impl ::std::cmp::Eq for CLUSTERVERSIONINFO {}
 unsafe impl ::windows::runtime::Abi for CLUSTERVERSIONINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2255,7 +2206,6 @@ impl ::std::cmp::PartialEq for CLUSTERVERSIONINFO_NT4 {
 impl ::std::cmp::Eq for CLUSTERVERSIONINFO_NT4 {}
 unsafe impl ::windows::runtime::Abi for CLUSTERVERSIONINFO_NT4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2292,7 +2242,6 @@ impl ::std::cmp::Eq for CLUSTER_AVAILABILITY_SET_CONFIG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLUSTER_AVAILABILITY_SET_CONFIG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSTER_AVAILABILITY_SET_CONFIG_V1: u32 = 1u32;
@@ -2332,7 +2281,6 @@ impl ::std::cmp::Eq for CLUSTER_BATCH_COMMAND {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLUSTER_BATCH_COMMAND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2378,7 +2326,6 @@ impl ::std::convert::From<i32> for CLUSTER_CHANGE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_CHANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2405,7 +2352,6 @@ impl ::std::convert::From<i32> for CLUSTER_CHANGE_CLUSTER_V2 {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_CHANGE_CLUSTER_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2428,7 +2374,6 @@ impl ::std::convert::From<i32> for CLUSTER_CHANGE_GROUPSET_V2 {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_CHANGE_GROUPSET_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2452,7 +2397,6 @@ impl ::std::convert::From<i32> for CLUSTER_CHANGE_GROUP_V2 {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_CHANGE_GROUP_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2471,7 +2415,6 @@ impl ::std::convert::From<i32> for CLUSTER_CHANGE_NETINTERFACE_V2 {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_CHANGE_NETINTERFACE_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2490,7 +2433,6 @@ impl ::std::convert::From<i32> for CLUSTER_CHANGE_NETWORK_V2 {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_CHANGE_NETWORK_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2507,7 +2449,6 @@ impl ::std::convert::From<i32> for CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2529,7 +2470,6 @@ impl ::std::convert::From<i32> for CLUSTER_CHANGE_NODE_V2 {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_CHANGE_NODE_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2544,7 +2484,6 @@ impl ::std::convert::From<i32> for CLUSTER_CHANGE_QUORUM_V2 {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_CHANGE_QUORUM_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2563,7 +2502,6 @@ impl ::std::convert::From<i32> for CLUSTER_CHANGE_REGISTRY_V2 {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_CHANGE_REGISTRY_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2583,7 +2521,6 @@ impl ::std::convert::From<i32> for CLUSTER_CHANGE_RESOURCE_TYPE_V2 {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_CHANGE_RESOURCE_TYPE_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2608,7 +2545,6 @@ impl ::std::convert::From<i32> for CLUSTER_CHANGE_RESOURCE_V2 {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_CHANGE_RESOURCE_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2625,7 +2561,6 @@ impl ::std::convert::From<i32> for CLUSTER_CHANGE_SHARED_VOLUME_V2 {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_CHANGE_SHARED_VOLUME_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2639,7 +2574,6 @@ impl ::std::convert::From<i32> for CLUSTER_CHANGE_SPACEPORT_V2 {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_CHANGE_SPACEPORT_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2656,7 +2590,6 @@ impl ::std::convert::From<i32> for CLUSTER_CLOUD_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_CLOUD_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSTER_CONFIGURED: u32 = 2u32;
@@ -2682,7 +2615,6 @@ impl ::std::convert::From<i32> for CLUSTER_CONTROL_OBJECT {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_CONTROL_OBJECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2710,7 +2642,6 @@ impl ::std::cmp::PartialEq for CLUSTER_CREATE_GROUP_INFO {
 impl ::std::cmp::Eq for CLUSTER_CREATE_GROUP_INFO {}
 unsafe impl ::windows::runtime::Abi for CLUSTER_CREATE_GROUP_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSTER_CREATE_GROUP_INFO_VERSION: u32 = 1u32;
@@ -2732,7 +2663,6 @@ impl ::std::convert::From<i32> for CLUSTER_CSV_VOLUME_FAULT_STATE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_CSV_VOLUME_FAULT_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSTER_DELETE_ACCESS_CONTROL_ENTRY: u32 = 2u32;
@@ -2757,7 +2687,6 @@ impl ::std::convert::From<i32> for CLUSTER_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2796,7 +2725,6 @@ impl ::std::cmp::Eq for CLUSTER_ENUM_ITEM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLUSTER_ENUM_ITEM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSTER_ENUM_ITEM_VERSION: u32 = 1u32;
@@ -2816,7 +2744,6 @@ impl ::std::convert::From<i32> for CLUSTER_GROUP_AUTOFAILBACK_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_GROUP_AUTOFAILBACK_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2832,7 +2759,6 @@ impl ::std::convert::From<i32> for CLUSTER_GROUP_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_GROUP_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2892,7 +2818,6 @@ impl ::std::cmp::Eq for CLUSTER_GROUP_ENUM_ITEM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLUSTER_GROUP_ENUM_ITEM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSTER_GROUP_ENUM_ITEM_VERSION: u32 = 1u32;
@@ -2913,7 +2838,6 @@ impl ::std::convert::From<i32> for CLUSTER_GROUP_PRIORITY {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_GROUP_PRIORITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2932,7 +2856,6 @@ impl ::std::convert::From<i32> for CLUSTER_GROUP_STATE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_GROUP_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2972,7 +2895,6 @@ impl ::std::cmp::Eq for CLUSTER_HEALTH_FAULT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLUSTER_HEALTH_FAULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSTER_HEALTH_FAULT_ARGS: u32 = 7u32;
@@ -3009,7 +2931,6 @@ impl ::std::cmp::Eq for CLUSTER_HEALTH_FAULT_ARRAY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLUSTER_HEALTH_FAULT_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSTER_HEALTH_FAULT_DESCRIPTION: u32 = 3u32;
@@ -3060,7 +2981,6 @@ impl ::std::cmp::Eq for CLUSTER_IP_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLUSTER_IP_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3096,7 +3016,6 @@ impl ::std::cmp::Eq for CLUSTER_MEMBERSHIP_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLUSTER_MEMBERSHIP_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3112,7 +3031,6 @@ impl ::std::convert::From<i32> for CLUSTER_MGMT_POINT_RESTYPE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_MGMT_POINT_RESTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3129,7 +3047,6 @@ impl ::std::convert::From<i32> for CLUSTER_MGMT_POINT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_MGMT_POINT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3147,7 +3064,6 @@ impl ::std::convert::From<i32> for CLUSTER_NETINTERFACE_STATE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_NETINTERFACE_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3162,7 +3078,6 @@ impl ::std::convert::From<i32> for CLUSTER_NETWORK_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_NETWORK_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3179,7 +3094,6 @@ impl ::std::convert::From<i32> for CLUSTER_NETWORK_ROLE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_NETWORK_ROLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3197,7 +3111,6 @@ impl ::std::convert::From<i32> for CLUSTER_NETWORK_STATE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_NETWORK_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3215,7 +3128,6 @@ impl ::std::convert::From<i32> for CLUSTER_NODE_DRAIN_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_NODE_DRAIN_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3232,7 +3144,6 @@ impl ::std::convert::From<i32> for CLUSTER_NODE_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_NODE_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3249,7 +3160,6 @@ impl ::std::convert::From<i32> for CLUSTER_NODE_RESUME_FAILBACK_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_NODE_RESUME_FAILBACK_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3267,7 +3177,6 @@ impl ::std::convert::From<i32> for CLUSTER_NODE_STATE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_NODE_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3288,7 +3197,6 @@ impl ::std::convert::From<i32> for CLUSTER_NODE_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_NODE_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3303,7 +3211,6 @@ impl ::std::convert::From<i32> for CLUSTER_NOTIFICATIONS_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_NOTIFICATIONS_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3329,7 +3236,6 @@ impl ::std::convert::From<i32> for CLUSTER_OBJECT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_OBJECT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3358,7 +3264,6 @@ impl ::std::convert::From<i32> for CLUSTER_PROPERTY_FORMAT {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_PROPERTY_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3398,7 +3303,6 @@ impl ::std::convert::From<u32> for CLUSTER_PROPERTY_SYNTAX {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_PROPERTY_SYNTAX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CLUSTER_PROPERTY_SYNTAX {
     type Output = Self;
@@ -3457,7 +3361,6 @@ impl ::std::convert::From<i32> for CLUSTER_PROPERTY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_PROPERTY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3472,7 +3375,6 @@ impl ::std::convert::From<i32> for CLUSTER_QUORUM_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_QUORUM_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3487,7 +3389,6 @@ impl ::std::convert::From<i32> for CLUSTER_QUORUM_VALUE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_QUORUM_VALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3526,7 +3427,6 @@ impl ::std::cmp::Eq for CLUSTER_READ_BATCH_COMMAND {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLUSTER_READ_BATCH_COMMAND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3559,7 +3459,6 @@ impl ::std::convert::From<i32> for CLUSTER_REG_COMMAND {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_REG_COMMAND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3575,7 +3474,6 @@ impl ::std::convert::From<i32> for CLUSTER_RESOURCE_APPLICATION_STATE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_RESOURCE_APPLICATION_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3592,7 +3490,6 @@ impl ::std::convert::From<i32> for CLUSTER_RESOURCE_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_RESOURCE_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3608,7 +3505,6 @@ impl ::std::convert::From<i32> for CLUSTER_RESOURCE_CREATE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_RESOURCE_CREATE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3624,7 +3520,6 @@ impl ::std::convert::From<i32> for CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3641,7 +3536,6 @@ impl ::std::convert::From<i32> for CLUSTER_RESOURCE_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_RESOURCE_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3713,7 +3607,6 @@ impl ::std::cmp::Eq for CLUSTER_RESOURCE_ENUM_ITEM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLUSTER_RESOURCE_ENUM_ITEM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSTER_RESOURCE_ENUM_ITEM_VERSION: u32 = 1u32;
@@ -3734,7 +3627,6 @@ impl ::std::convert::From<i32> for CLUSTER_RESOURCE_RESTART_ACTION {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_RESOURCE_RESTART_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3756,7 +3648,6 @@ impl ::std::convert::From<i32> for CLUSTER_RESOURCE_STATE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_RESOURCE_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3775,7 +3666,6 @@ impl ::std::convert::From<i32> for CLUSTER_RESOURCE_STATE_CHANGE_REASON {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_RESOURCE_STATE_CHANGE_REASON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3791,7 +3681,6 @@ impl ::std::convert::From<i32> for CLUSTER_RESOURCE_TYPE_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_RESOURCE_TYPE_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3836,7 +3725,6 @@ impl ::std::convert::From<i32> for CLUSTER_ROLE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_ROLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3852,7 +3740,6 @@ impl ::std::convert::From<i32> for CLUSTER_ROLE_STATE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_ROLE_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSTER_RUNNING: u32 = 16u32;
@@ -3895,7 +3782,6 @@ impl ::std::convert::From<i32> for CLUSTER_SETUP_PHASE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_SETUP_PHASE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3911,7 +3797,6 @@ impl ::std::convert::From<i32> for CLUSTER_SETUP_PHASE_SEVERITY {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_SETUP_PHASE_SEVERITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3928,7 +3813,6 @@ impl ::std::convert::From<i32> for CLUSTER_SETUP_PHASE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_SETUP_PHASE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSTER_SET_ACCESS_TYPE_ALLOWED: u32 = 0u32;
@@ -3968,7 +3852,6 @@ impl ::std::cmp::Eq for CLUSTER_SET_PASSWORD_STATUS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLUSTER_SET_PASSWORD_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3983,7 +3866,6 @@ impl ::std::convert::From<i32> for CLUSTER_SHARED_VOLUME_BACKUP_STATE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_SHARED_VOLUME_BACKUP_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4006,7 +3888,6 @@ impl ::std::cmp::PartialEq for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
 impl ::std::cmp::Eq for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {}
 unsafe impl ::windows::runtime::Abi for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4029,7 +3910,6 @@ impl ::std::cmp::PartialEq for CLUSTER_SHARED_VOLUME_RENAME_INPUT {
 impl ::std::cmp::Eq for CLUSTER_SHARED_VOLUME_RENAME_INPUT {}
 unsafe impl ::windows::runtime::Abi for CLUSTER_SHARED_VOLUME_RENAME_INPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4057,7 +3937,6 @@ impl ::std::cmp::PartialEq for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
 impl ::std::cmp::Eq for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {}
 unsafe impl ::windows::runtime::Abi for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4084,7 +3963,6 @@ impl ::std::cmp::PartialEq for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
 impl ::std::cmp::Eq for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {}
 unsafe impl ::windows::runtime::Abi for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4102,7 +3980,6 @@ impl ::std::convert::From<i32> for CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4125,7 +4002,6 @@ impl ::std::cmp::PartialEq for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
 impl ::std::cmp::Eq for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {}
 unsafe impl ::windows::runtime::Abi for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4150,7 +4026,6 @@ impl ::std::cmp::PartialEq for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
 impl ::std::cmp::Eq for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {}
 unsafe impl ::windows::runtime::Abi for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4167,7 +4042,6 @@ impl ::std::convert::From<i32> for CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4185,7 +4059,6 @@ impl ::std::convert::From<i32> for CLUSTER_SHARED_VOLUME_STATE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_SHARED_VOLUME_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4214,7 +4087,6 @@ impl ::std::cmp::PartialEq for CLUSTER_SHARED_VOLUME_STATE_INFO {
 impl ::std::cmp::Eq for CLUSTER_SHARED_VOLUME_STATE_INFO {}
 unsafe impl ::windows::runtime::Abi for CLUSTER_SHARED_VOLUME_STATE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4253,7 +4125,6 @@ impl ::std::cmp::PartialEq for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
 impl ::std::cmp::Eq for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {}
 unsafe impl ::windows::runtime::Abi for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4272,7 +4143,6 @@ impl ::std::convert::From<i32> for CLUSTER_STORAGENODE_STATE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_STORAGENODE_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4290,7 +4160,6 @@ impl ::std::convert::From<i32> for CLUSTER_UPGRADE_PHASE {
 }
 unsafe impl ::windows::runtime::Abi for CLUSTER_UPGRADE_PHASE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4317,7 +4186,6 @@ impl ::std::cmp::PartialEq for CLUSTER_VALIDATE_CSV_FILENAME {
 impl ::std::cmp::Eq for CLUSTER_VALIDATE_CSV_FILENAME {}
 unsafe impl ::windows::runtime::Abi for CLUSTER_VALIDATE_CSV_FILENAME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4344,7 +4212,6 @@ impl ::std::cmp::PartialEq for CLUSTER_VALIDATE_DIRECTORY {
 impl ::std::cmp::Eq for CLUSTER_VALIDATE_DIRECTORY {}
 unsafe impl ::windows::runtime::Abi for CLUSTER_VALIDATE_DIRECTORY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4371,7 +4238,6 @@ impl ::std::cmp::PartialEq for CLUSTER_VALIDATE_NETNAME {
 impl ::std::cmp::Eq for CLUSTER_VALIDATE_NETNAME {}
 unsafe impl ::windows::runtime::Abi for CLUSTER_VALIDATE_NETNAME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4398,7 +4264,6 @@ impl ::std::cmp::PartialEq for CLUSTER_VALIDATE_PATH {
 impl ::std::cmp::Eq for CLUSTER_VALIDATE_PATH {}
 unsafe impl ::windows::runtime::Abi for CLUSTER_VALIDATE_PATH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUSTER_VERSION_FLAG_MIXED_MODE: u32 = 1u32;
@@ -4428,7 +4293,6 @@ impl ::std::convert::From<i32> for CLUS_AFFINITY_RULE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CLUS_AFFINITY_RULE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4462,7 +4326,6 @@ impl ::std::convert::From<i32> for CLUS_CHARACTERISTICS {
 }
 unsafe impl ::windows::runtime::Abi for CLUS_CHARACTERISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4492,7 +4355,6 @@ impl ::std::cmp::PartialEq for CLUS_CHKDSK_INFO {
 impl ::std::cmp::Eq for CLUS_CHKDSK_INFO {}
 unsafe impl ::windows::runtime::Abi for CLUS_CHKDSK_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUS_CREATE_CRYPT_CONTAINER_NOT_FOUND: u32 = 1u32;
@@ -4521,7 +4383,6 @@ impl ::std::cmp::PartialEq for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
 impl ::std::cmp::Eq for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {}
 unsafe impl ::windows::runtime::Abi for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4548,7 +4409,6 @@ impl ::std::cmp::PartialEq for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
 impl ::std::cmp::Eq for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {}
 unsafe impl ::windows::runtime::Abi for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4583,7 +4443,6 @@ impl ::std::cmp::Eq for CLUS_CSV_MAINTENANCE_MODE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLUS_CSV_MAINTENANCE_MODE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4622,7 +4481,6 @@ impl ::std::cmp::PartialEq for CLUS_CSV_VOLUME_INFO {
 impl ::std::cmp::Eq for CLUS_CSV_VOLUME_INFO {}
 unsafe impl ::windows::runtime::Abi for CLUS_CSV_VOLUME_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4651,7 +4509,6 @@ impl ::std::cmp::PartialEq for CLUS_CSV_VOLUME_NAME {
 impl ::std::cmp::Eq for CLUS_CSV_VOLUME_NAME {}
 unsafe impl ::windows::runtime::Abi for CLUS_CSV_VOLUME_NAME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4679,7 +4536,6 @@ impl ::std::cmp::PartialEq for CLUS_DISK_NUMBER_INFO {
 impl ::std::cmp::Eq for CLUS_DISK_NUMBER_INFO {}
 unsafe impl ::windows::runtime::Abi for CLUS_DISK_NUMBER_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4714,7 +4570,6 @@ impl ::std::cmp::Eq for CLUS_DNN_LEADER_STATUS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLUS_DNN_LEADER_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4742,7 +4597,6 @@ impl ::std::cmp::PartialEq for CLUS_DNN_SODAFS_CLONE_STATUS {
 impl ::std::cmp::Eq for CLUS_DNN_SODAFS_CLONE_STATUS {}
 unsafe impl ::windows::runtime::Abi for CLUS_DNN_SODAFS_CLONE_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4756,7 +4610,6 @@ impl ::std::convert::From<i32> for CLUS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CLUS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4786,7 +4639,6 @@ impl ::std::cmp::PartialEq for CLUS_FORCE_QUORUM_INFO {
 impl ::std::cmp::Eq for CLUS_FORCE_QUORUM_INFO {}
 unsafe impl ::windows::runtime::Abi for CLUS_FORCE_QUORUM_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4814,7 +4666,6 @@ impl ::std::cmp::PartialEq for CLUS_FTSET_INFO {
 impl ::std::cmp::Eq for CLUS_FTSET_INFO {}
 unsafe impl ::windows::runtime::Abi for CLUS_FTSET_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUS_GLOBAL: u32 = 1u32;
@@ -4832,7 +4683,6 @@ impl ::std::convert::From<i32> for CLUS_GROUP_START_SETTING {
 }
 unsafe impl ::windows::runtime::Abi for CLUS_GROUP_START_SETTING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUS_GRP_MOVE_ALLOWED: u32 = 0u32;
@@ -4872,7 +4722,6 @@ impl ::std::cmp::Eq for CLUS_MAINTENANCE_MODE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLUS_MAINTENANCE_MODE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4909,7 +4758,6 @@ impl ::std::cmp::Eq for CLUS_MAINTENANCE_MODE_INFOEX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLUS_MAINTENANCE_MODE_INFOEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUS_MODIFY: u32 = 1u32;
@@ -4940,7 +4788,6 @@ impl ::std::cmp::PartialEq for CLUS_NETNAME_IP_INFO_ENTRY {
 impl ::std::cmp::Eq for CLUS_NETNAME_IP_INFO_ENTRY {}
 unsafe impl ::windows::runtime::Abi for CLUS_NETNAME_IP_INFO_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4969,7 +4816,6 @@ impl ::std::cmp::PartialEq for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
 impl ::std::cmp::Eq for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {}
 unsafe impl ::windows::runtime::Abi for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4999,7 +4845,6 @@ impl ::std::cmp::PartialEq for CLUS_NETNAME_PWD_INFO {
 impl ::std::cmp::Eq for CLUS_NETNAME_PWD_INFO {}
 unsafe impl ::windows::runtime::Abi for CLUS_NETNAME_PWD_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5029,7 +4874,6 @@ impl ::std::cmp::PartialEq for CLUS_NETNAME_PWD_INFOEX {
 impl ::std::cmp::Eq for CLUS_NETNAME_PWD_INFOEX {}
 unsafe impl ::windows::runtime::Abi for CLUS_NETNAME_PWD_INFOEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5065,7 +4909,6 @@ impl ::std::cmp::Eq for CLUS_NETNAME_VS_TOKEN_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLUS_NETNAME_VS_TOKEN_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUS_NODE_MAJORITY_QUORUM: u32 = 0u32;
@@ -5112,7 +4955,6 @@ impl ::std::cmp::PartialEq for CLUS_PARTITION_INFO {
 impl ::std::cmp::Eq for CLUS_PARTITION_INFO {}
 unsafe impl ::windows::runtime::Abi for CLUS_PARTITION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5174,7 +5016,6 @@ impl ::std::cmp::PartialEq for CLUS_PARTITION_INFO_EX {
 impl ::std::cmp::Eq for CLUS_PARTITION_INFO_EX {}
 unsafe impl ::windows::runtime::Abi for CLUS_PARTITION_INFO_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5203,7 +5044,6 @@ impl ::std::cmp::PartialEq for CLUS_PARTITION_INFO_EX2 {
 impl ::std::cmp::Eq for CLUS_PARTITION_INFO_EX2 {}
 unsafe impl ::windows::runtime::Abi for CLUS_PARTITION_INFO_EX2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5232,7 +5072,6 @@ impl ::std::cmp::PartialEq for CLUS_PROVIDER_STATE_CHANGE_INFO {
 impl ::std::cmp::Eq for CLUS_PROVIDER_STATE_CHANGE_INFO {}
 unsafe impl ::windows::runtime::Abi for CLUS_PROVIDER_STATE_CHANGE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CLUS_RESDLL_OFFLINE_DO_NOT_UPDATE_PERSISTENT_STATE: u32 = 64u32;
@@ -5282,7 +5121,6 @@ impl ::std::cmp::PartialEq for CLUS_RESOURCE_CLASS_INFO {
 impl ::std::cmp::Eq for CLUS_RESOURCE_CLASS_INFO {}
 unsafe impl ::windows::runtime::Abi for CLUS_RESOURCE_CLASS_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5305,7 +5143,6 @@ impl ::std::cmp::PartialEq for CLUS_RESOURCE_CLASS_INFO_0 {
 impl ::std::cmp::Eq for CLUS_RESOURCE_CLASS_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for CLUS_RESOURCE_CLASS_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5328,7 +5165,6 @@ impl ::std::cmp::PartialEq for CLUS_RESOURCE_CLASS_INFO_0_0 {
 impl ::std::cmp::Eq for CLUS_RESOURCE_CLASS_INFO_0_0 {}
 unsafe impl ::windows::runtime::Abi for CLUS_RESOURCE_CLASS_INFO_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5351,7 +5187,6 @@ impl ::std::cmp::PartialEq for CLUS_RESOURCE_CLASS_INFO_0_0_0 {
 impl ::std::cmp::Eq for CLUS_RESOURCE_CLASS_INFO_0_0_0 {}
 unsafe impl ::windows::runtime::Abi for CLUS_RESOURCE_CLASS_INFO_0_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5365,7 +5200,6 @@ impl ::std::convert::From<i32> for CLUS_RESSUBCLASS {
 }
 unsafe impl ::windows::runtime::Abi for CLUS_RESSUBCLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5379,7 +5213,6 @@ impl ::std::convert::From<i32> for CLUS_RESSUBCLASS_NETWORK {
 }
 unsafe impl ::windows::runtime::Abi for CLUS_RESSUBCLASS_NETWORK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5395,7 +5228,6 @@ impl ::std::convert::From<i32> for CLUS_RESSUBCLASS_STORAGE {
 }
 unsafe impl ::windows::runtime::Abi for CLUS_RESSUBCLASS_STORAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5417,7 +5249,6 @@ impl ::std::cmp::PartialEq for CLUS_SCSI_ADDRESS {
 impl ::std::cmp::Eq for CLUS_SCSI_ADDRESS {}
 unsafe impl ::windows::runtime::Abi for CLUS_SCSI_ADDRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5440,7 +5271,6 @@ impl ::std::cmp::PartialEq for CLUS_SCSI_ADDRESS_0 {
 impl ::std::cmp::Eq for CLUS_SCSI_ADDRESS_0 {}
 unsafe impl ::windows::runtime::Abi for CLUS_SCSI_ADDRESS_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5470,7 +5300,6 @@ impl ::std::cmp::PartialEq for CLUS_SCSI_ADDRESS_0_0 {
 impl ::std::cmp::Eq for CLUS_SCSI_ADDRESS_0_0 {}
 unsafe impl ::windows::runtime::Abi for CLUS_SCSI_ADDRESS_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5506,7 +5335,6 @@ impl ::std::cmp::Eq for CLUS_SET_MAINTENANCE_MODE_INPUT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLUS_SET_MAINTENANCE_MODE_INPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5535,7 +5363,6 @@ impl ::std::cmp::PartialEq for CLUS_SHARED_VOLUME_BACKUP_MODE {
 impl ::std::cmp::Eq for CLUS_SHARED_VOLUME_BACKUP_MODE {}
 unsafe impl ::windows::runtime::Abi for CLUS_SHARED_VOLUME_BACKUP_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5571,7 +5398,6 @@ impl ::std::cmp::Eq for CLUS_STARTING_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLUS_STARTING_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5598,7 +5424,6 @@ impl ::std::cmp::PartialEq for CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
 impl ::std::cmp::Eq for CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {}
 unsafe impl ::windows::runtime::Abi for CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5626,7 +5451,6 @@ impl ::std::cmp::PartialEq for CLUS_STORAGE_REMAP_DRIVELETTER {
 impl ::std::cmp::Eq for CLUS_STORAGE_REMAP_DRIVELETTER {}
 unsafe impl ::windows::runtime::Abi for CLUS_STORAGE_REMAP_DRIVELETTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5654,7 +5478,6 @@ impl ::std::cmp::PartialEq for CLUS_STORAGE_SET_DRIVELETTER {
 impl ::std::cmp::Eq for CLUS_STORAGE_SET_DRIVELETTER {}
 unsafe impl ::windows::runtime::Abi for CLUS_STORAGE_SET_DRIVELETTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5689,7 +5512,6 @@ impl ::std::cmp::Eq for CLUS_WORKER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CLUS_WORKER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CREATEDC_PRESENT: u32 = 2u32;
@@ -5743,7 +5565,6 @@ impl ::std::cmp::Eq for CREATE_CLUSTER_CONFIG {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CREATE_CLUSTER_CONFIG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CREATE_CLUSTER_MAJOR_VERSION_MASK: u32 = 4294967040u32;
@@ -5797,7 +5618,6 @@ impl ::std::cmp::Eq for CREATE_CLUSTER_NAME_ACCOUNT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CREATE_CLUSTER_NAME_ACCOUNT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CREATE_CLUSTER_VERSION: u32 = 1536u32;
@@ -8107,7 +7927,6 @@ impl ::std::convert::From<i32> for FAILURE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for FAILURE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const FE_UPGRADE_VERSION: u32 = 4u32;
@@ -8137,7 +7956,6 @@ impl ::std::cmp::PartialEq for FILESHARE_CHANGE {
 impl ::std::cmp::Eq for FILESHARE_CHANGE {}
 unsafe impl ::windows::runtime::Abi for FILESHARE_CHANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8154,7 +7972,6 @@ impl ::std::convert::From<i32> for FILESHARE_CHANGE_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for FILESHARE_CHANGE_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8182,7 +7999,6 @@ impl ::std::cmp::PartialEq for FILESHARE_CHANGE_LIST {
 impl ::std::cmp::Eq for FILESHARE_CHANGE_LIST {}
 unsafe impl ::windows::runtime::Abi for FILESHARE_CHANGE_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[inline]
@@ -8270,7 +8086,6 @@ impl ::std::cmp::PartialEq for GET_OPERATION_CONTEXT_PARAMS {
 impl ::std::cmp::Eq for GET_OPERATION_CONTEXT_PARAMS {}
 unsafe impl ::windows::runtime::Abi for GET_OPERATION_CONTEXT_PARAMS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const GROUPSET_READY_SETTING_APPLICATION_READY: u32 = 4u32;
@@ -8306,7 +8121,6 @@ impl ::std::cmp::PartialEq for GROUP_FAILURE_INFO {
 impl ::std::cmp::Eq for GROUP_FAILURE_INFO {}
 unsafe impl ::windows::runtime::Abi for GROUP_FAILURE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8334,7 +8148,6 @@ impl ::std::cmp::PartialEq for GROUP_FAILURE_INFO_BUFFER {
 impl ::std::cmp::Eq for GROUP_FAILURE_INFO_BUFFER {}
 unsafe impl ::windows::runtime::Abi for GROUP_FAILURE_INFO_BUFFER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const GROUP_FAILURE_INFO_VERSION_1: u32 = 1u32;
@@ -8353,7 +8166,6 @@ impl ::std::convert::From<i32> for GRP_PLACEMENT_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for GRP_PLACEMENT_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const GUID_PRESENT: u32 = 1u32;
@@ -13327,7 +13139,6 @@ impl ::std::convert::From<i32> for LOG_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for LOG_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type LPGROUP_CALLBACK_EX = unsafe extern "system" fn(param0: *mut _HCLUSTER, param1: *mut _HGROUP, param2: *mut _HGROUP, param3: *mut ::std::ffi::c_void) -> u32;
 pub type LPNODE_CALLBACK = unsafe extern "system" fn(param0: *mut _HCLUSTER, param1: *mut _HNODE, param2: CLUSTER_NODE_STATE, param3: *mut ::std::ffi::c_void) -> u32;
@@ -13347,7 +13158,6 @@ impl ::std::convert::From<i32> for MAINTENANCE_MODE_TYPE_ENUM {
 }
 unsafe impl ::windows::runtime::Abi for MAINTENANCE_MODE_TYPE_ENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const MAINTENANCE_MODE_V2_SIG: u32 = 2881155087u32;
@@ -13400,7 +13210,6 @@ impl ::std::cmp::Eq for MONITOR_STATE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MONITOR_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[inline]
@@ -13451,7 +13260,6 @@ impl ::std::convert::From<i32> for NODE_CLUSTER_STATE {
 }
 unsafe impl ::windows::runtime::Abi for NODE_CLUSTER_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13479,7 +13287,6 @@ impl ::std::cmp::PartialEq for NOTIFY_FILTER_AND_TYPE {
 impl ::std::cmp::Eq for NOTIFY_FILTER_AND_TYPE {}
 unsafe impl ::windows::runtime::Abi for NOTIFY_FILTER_AND_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const NT10_MAJOR_VERSION: u32 = 9u32;
@@ -13532,7 +13339,6 @@ impl ::std::cmp::PartialEq for NodeUtilizationInfoElement {
 impl ::std::cmp::Eq for NodeUtilizationInfoElement {}
 unsafe impl ::windows::runtime::Abi for NodeUtilizationInfoElement {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[inline]
@@ -14271,7 +14077,6 @@ impl ::std::convert::From<i32> for PLACEMENT_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for PLACEMENT_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type PLOG_EVENT_ROUTINE = unsafe extern "system" fn(resourcehandle: isize, loglevel: LOG_LEVEL, formatstring: super::super::Foundation::PWSTR);
@@ -14321,7 +14126,6 @@ impl ::std::cmp::PartialEq for POST_UPGRADE_VERSION_INFO {
 impl ::std::cmp::Eq for POST_UPGRADE_VERSION_INFO {}
 unsafe impl ::windows::runtime::Abi for POST_UPGRADE_VERSION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type PQUERY_APPINSTANCE_VERSION = unsafe extern "system" fn(appinstanceid: *const ::windows::runtime::GUID, instanceversionhigh: *mut u64, instanceversionlow: *mut u64, versionstatus: *mut super::super::Foundation::NTSTATUS) -> u32;
@@ -14606,7 +14410,6 @@ impl ::std::cmp::PartialEq for PaxosTagCStruct {
 impl ::std::cmp::Eq for PaxosTagCStruct {}
 unsafe impl ::windows::runtime::Abi for PaxosTagCStruct {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
@@ -14641,7 +14444,6 @@ impl ::std::convert::From<i32> for RESDLL_CONTEXT_OPERATION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RESDLL_CONTEXT_OPERATION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14657,7 +14459,6 @@ impl ::std::convert::From<i32> for RESOURCE_EXIT_STATE {
 }
 unsafe impl ::windows::runtime::Abi for RESOURCE_EXIT_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14685,7 +14486,6 @@ impl ::std::cmp::PartialEq for RESOURCE_FAILURE_INFO {
 impl ::std::cmp::Eq for RESOURCE_FAILURE_INFO {}
 unsafe impl ::windows::runtime::Abi for RESOURCE_FAILURE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14713,7 +14513,6 @@ impl ::std::cmp::PartialEq for RESOURCE_FAILURE_INFO_BUFFER {
 impl ::std::cmp::Eq for RESOURCE_FAILURE_INFO_BUFFER {}
 unsafe impl ::windows::runtime::Abi for RESOURCE_FAILURE_INFO_BUFFER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const RESOURCE_FAILURE_INFO_VERSION_1: u32 = 1u32;
@@ -14744,7 +14543,6 @@ impl ::std::convert::From<i32> for RESOURCE_MONITOR_STATE {
 }
 unsafe impl ::windows::runtime::Abi for RESOURCE_MONITOR_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14781,7 +14579,6 @@ impl ::std::cmp::Eq for RESOURCE_STATUS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RESOURCE_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14827,7 +14624,6 @@ impl ::std::cmp::Eq for RESOURCE_STATUS_EX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RESOURCE_STATUS_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14862,7 +14658,6 @@ impl ::std::cmp::Eq for RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const RESTYPE_MONITOR_SHUTTING_DOWN_CLUSSVC_CRASH: u32 = 2u32;
@@ -14902,7 +14697,6 @@ impl ::std::cmp::Eq for RESUTIL_FILETIME_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RESUTIL_FILETIME_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14931,7 +14725,6 @@ impl ::std::cmp::PartialEq for RESUTIL_LARGEINT_DATA {
 impl ::std::cmp::Eq for RESUTIL_LARGEINT_DATA {}
 unsafe impl ::windows::runtime::Abi for RESUTIL_LARGEINT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14966,7 +14759,6 @@ impl ::std::cmp::Eq for RESUTIL_PROPERTY_ITEM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RESUTIL_PROPERTY_ITEM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14999,7 +14791,6 @@ impl ::std::cmp::Eq for RESUTIL_PROPERTY_ITEM_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RESUTIL_PROPERTY_ITEM_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const RESUTIL_PROPITEM_IN_MEMORY: u32 = 8u32;
@@ -15036,7 +14827,6 @@ impl ::std::cmp::PartialEq for RESUTIL_ULARGEINT_DATA {
 impl ::std::cmp::Eq for RESUTIL_ULARGEINT_DATA {}
 unsafe impl ::windows::runtime::Abi for RESUTIL_ULARGEINT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const RS3_UPGRADE_VERSION: u32 = 1u32;
@@ -16772,7 +16562,6 @@ impl ::std::cmp::PartialEq for ResourceUtilizationInfoElement {
 impl ::std::cmp::Eq for ResourceUtilizationInfoElement {}
 unsafe impl ::windows::runtime::Abi for ResourceUtilizationInfoElement {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[inline]
@@ -16858,7 +16647,6 @@ impl ::std::convert::From<i32> for SR_DISK_REPLICATION_ELIGIBLE {
 }
 unsafe impl ::windows::runtime::Abi for SR_DISK_REPLICATION_ELIGIBLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -16879,7 +16667,6 @@ impl ::std::convert::From<i32> for SR_REPLICATED_DISK_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SR_REPLICATED_DISK_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const SR_REPLICATED_PARTITION_DISALLOW_MULTINODE_IO: u32 = 1u32;
@@ -16950,7 +16737,6 @@ impl ::std::cmp::Eq for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -16978,7 +16764,6 @@ impl ::std::cmp::PartialEq for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
 impl ::std::cmp::Eq for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {}
 unsafe impl ::windows::runtime::Abi for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17006,7 +16791,6 @@ impl ::std::cmp::PartialEq for SR_RESOURCE_TYPE_DISK_INFO {
 impl ::std::cmp::Eq for SR_RESOURCE_TYPE_DISK_INFO {}
 unsafe impl ::windows::runtime::Abi for SR_RESOURCE_TYPE_DISK_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17034,7 +16818,6 @@ impl ::std::cmp::PartialEq for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
 impl ::std::cmp::Eq for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {}
 unsafe impl ::windows::runtime::Abi for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17069,7 +16852,6 @@ impl ::std::cmp::Eq for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17104,7 +16886,6 @@ impl ::std::cmp::Eq for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17146,7 +16927,6 @@ impl ::std::cmp::Eq for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17176,7 +16956,6 @@ impl ::std::cmp::PartialEq for SR_RESOURCE_TYPE_REPLICATED_DISK {
 impl ::std::cmp::Eq for SR_RESOURCE_TYPE_REPLICATED_DISK {}
 unsafe impl ::windows::runtime::Abi for SR_RESOURCE_TYPE_REPLICATED_DISK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17204,7 +16983,6 @@ impl ::std::cmp::PartialEq for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
 impl ::std::cmp::Eq for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {}
 unsafe impl ::windows::runtime::Abi for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17232,7 +17010,6 @@ impl ::std::cmp::PartialEq for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
 impl ::std::cmp::Eq for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {}
 unsafe impl ::windows::runtime::Abi for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17260,7 +17037,6 @@ impl ::std::cmp::PartialEq for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
 impl ::std::cmp::Eq for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {}
 unsafe impl ::windows::runtime::Abi for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
@@ -17456,7 +17232,6 @@ impl ::std::convert::From<i32> for VM_RESDLL_CONTEXT {
 }
 unsafe impl ::windows::runtime::Abi for VM_RESDLL_CONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const VolumeRedirectedIOReasonMax: u64 = 9223372036854775808u64;
@@ -17498,7 +17273,6 @@ impl ::std::cmp::PartialEq for WitnessTagHelper {
 impl ::std::cmp::Eq for WitnessTagHelper {}
 unsafe impl ::windows::runtime::Abi for WitnessTagHelper {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17527,7 +17301,6 @@ impl ::std::cmp::PartialEq for WitnessTagUpdateHelper {
 impl ::std::cmp::Eq for WitnessTagUpdateHelper {}
 unsafe impl ::windows::runtime::Abi for WitnessTagUpdateHelper {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]

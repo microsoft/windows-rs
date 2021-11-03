@@ -88,7 +88,6 @@ impl ::std::cmp::Eq for CONVCONTEXT {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for CONVCONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -169,7 +168,6 @@ impl ::std::cmp::Eq for CONVINFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for CONVINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DataExchange`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -199,7 +197,6 @@ impl ::std::convert::From<u32> for CONVINFO_CONVERSATION_STATE {
 }
 unsafe impl ::windows::runtime::Abi for CONVINFO_CONVERSATION_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CONVINFO_CONVERSATION_STATE {
     type Output = Self;
@@ -249,7 +246,6 @@ impl ::std::convert::From<u32> for CONVINFO_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for CONVINFO_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CONVINFO_STATUS {
     type Output = Self;
@@ -306,7 +302,6 @@ impl ::std::cmp::PartialEq for COPYDATASTRUCT {
 impl ::std::cmp::Eq for COPYDATASTRUCT {}
 unsafe impl ::windows::runtime::Abi for COPYDATASTRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const CP_WINANSI: i32 = 1004i32;
@@ -383,7 +378,6 @@ impl ::std::cmp::PartialEq for DDEACK {
 impl ::std::cmp::Eq for DDEACK {}
 unsafe impl ::windows::runtime::Abi for DDEACK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -411,7 +405,6 @@ impl ::std::cmp::PartialEq for DDEADVISE {
 impl ::std::cmp::Eq for DDEADVISE {}
 unsafe impl ::windows::runtime::Abi for DDEADVISE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -440,7 +433,6 @@ impl ::std::cmp::PartialEq for DDEDATA {
 impl ::std::cmp::Eq for DDEDATA {}
 unsafe impl ::windows::runtime::Abi for DDEDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -468,7 +460,6 @@ impl ::std::cmp::PartialEq for DDELN {
 impl ::std::cmp::Eq for DDELN {}
 unsafe impl ::windows::runtime::Abi for DDELN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -498,7 +489,6 @@ impl ::std::cmp::PartialEq for DDEML_MSG_HOOK_DATA {
 impl ::std::cmp::Eq for DDEML_MSG_HOOK_DATA {}
 unsafe impl ::windows::runtime::Abi for DDEML_MSG_HOOK_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -527,7 +517,6 @@ impl ::std::cmp::PartialEq for DDEPOKE {
 impl ::std::cmp::Eq for DDEPOKE {}
 unsafe impl ::windows::runtime::Abi for DDEPOKE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -556,7 +545,6 @@ impl ::std::cmp::PartialEq for DDEUP {
 impl ::std::cmp::Eq for DDEUP {}
 unsafe impl ::windows::runtime::Abi for DDEUP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DataExchange`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -584,7 +572,6 @@ impl ::std::convert::From<u32> for DDE_CLIENT_TRANSACTION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DDE_CLIENT_TRANSACTION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DDE_CLIENT_TRANSACTION_TYPE {
     type Output = Self;
@@ -629,7 +616,6 @@ impl ::std::convert::From<u32> for DDE_ENABLE_CALLBACK_CMD {
 }
 unsafe impl ::windows::runtime::Abi for DDE_ENABLE_CALLBACK_CMD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DDE_ENABLE_CALLBACK_CMD {
     type Output = Self;
@@ -709,7 +695,6 @@ impl ::std::convert::From<u32> for DDE_INITIALIZE_COMMAND {
 }
 unsafe impl ::windows::runtime::Abi for DDE_INITIALIZE_COMMAND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DDE_INITIALIZE_COMMAND {
     type Output = Self;
@@ -754,7 +739,6 @@ impl ::std::convert::From<u32> for DDE_NAME_SERVICE_CMD {
 }
 unsafe impl ::windows::runtime::Abi for DDE_NAME_SERVICE_CMD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DDE_NAME_SERVICE_CMD {
     type Output = Self;
@@ -1690,7 +1674,6 @@ impl ::std::default::Default for HCONV {
 unsafe impl ::windows::runtime::Handle for HCONV {}
 unsafe impl ::windows::runtime::Abi for HCONV {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -1703,7 +1686,6 @@ impl ::std::default::Default for HCONVLIST {
 unsafe impl ::windows::runtime::Handle for HCONVLIST {}
 unsafe impl ::windows::runtime::Abi for HCONVLIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const HDATA_APPOWNED: u32 = 1u32;
@@ -1718,7 +1700,6 @@ impl ::std::default::Default for HDDEDATA {
 unsafe impl ::windows::runtime::Handle for HDDEDATA {}
 unsafe impl ::windows::runtime::Abi for HDDEDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -1731,7 +1712,6 @@ impl ::std::default::Default for HSZ {
 unsafe impl ::windows::runtime::Handle for HSZ {}
 unsafe impl ::windows::runtime::Abi for HSZ {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1759,7 +1739,6 @@ impl ::std::cmp::PartialEq for HSZPAIR {
 impl ::std::cmp::Eq for HSZPAIR {}
 unsafe impl ::windows::runtime::Abi for HSZPAIR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
@@ -1843,7 +1822,6 @@ impl ::std::cmp::Eq for METAFILEPICT {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for METAFILEPICT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const MF_MASK: u32 = 4278190080u32;
@@ -1917,7 +1895,6 @@ impl ::std::cmp::Eq for MONCBSTRUCT {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for MONCBSTRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1958,7 +1935,6 @@ impl ::std::cmp::Eq for MONCONVSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MONCONVSTRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1995,7 +1971,6 @@ impl ::std::cmp::Eq for MONERRSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MONERRSTRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2034,7 +2009,6 @@ impl ::std::cmp::Eq for MONHSZSTRUCTA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MONHSZSTRUCTA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2073,7 +2047,6 @@ impl ::std::cmp::Eq for MONHSZSTRUCTW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MONHSZSTRUCTW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2131,7 +2104,6 @@ impl ::std::cmp::Eq for MONLINKSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MONLINKSTRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2172,7 +2144,6 @@ impl ::std::cmp::Eq for MONMSGSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MONMSGSTRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub const MSGF_DDEMGR: u32 = 32769u32;

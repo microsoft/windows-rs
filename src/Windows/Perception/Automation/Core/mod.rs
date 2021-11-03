@@ -16,7 +16,6 @@ impl ::windows::runtime::RuntimeName for CorePerceptionAutomation {
     const NAME: &'static str = "Windows.Perception.Automation.Core.CorePerceptionAutomation";
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICorePerceptionAutomationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICorePerceptionAutomationStatics {

@@ -165,10 +165,12 @@ impl ::std::convert::From<i32> for EnterpriseEnrollmentStatus {
 }
 unsafe impl ::windows::runtime::Abi for EnterpriseEnrollmentStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EnterpriseEnrollmentStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Phone.Management.Deployment.EnterpriseEnrollmentStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for EnterpriseEnrollmentStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Phone_Management_Deployment`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -187,13 +189,14 @@ impl ::std::convert::From<i32> for EnterpriseStatus {
 }
 unsafe impl ::windows::runtime::Abi for EnterpriseStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EnterpriseStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Phone.Management.Deployment.EnterpriseStatus;i4)");
 }
+impl ::windows::runtime::DefaultType for EnterpriseStatus {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEnterprise(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEnterprise {
@@ -219,7 +222,6 @@ pub struct IEnterprise_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut EnterpriseStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEnterpriseEnrollmentManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEnterpriseEnrollmentManager {
@@ -246,7 +248,6 @@ pub struct IEnterpriseEnrollmentManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEnterpriseEnrollmentResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEnterpriseEnrollmentResult {
@@ -266,7 +267,6 @@ pub struct IEnterpriseEnrollmentResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut EnterpriseEnrollmentStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInstallationManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInstallationManagerStatics {
@@ -294,7 +294,6 @@ pub struct IInstallationManagerStatics_abi(
     #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInstallationManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInstallationManagerStatics2 {
@@ -318,7 +317,6 @@ pub struct IInstallationManagerStatics2_abi(
     #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPackageInstallResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageInstallResult {
@@ -339,7 +337,6 @@ pub struct IPackageInstallResult_abi(
     #[cfg(not(feature = "Management_Deployment"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPackageInstallResult2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageInstallResult2 {

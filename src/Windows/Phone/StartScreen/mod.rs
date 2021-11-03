@@ -141,7 +141,6 @@ impl ::windows::runtime::RuntimeName for DualSimTile {
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct DualSimTileContract(pub u8);
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDualSimTile(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDualSimTile {
@@ -168,7 +167,6 @@ pub struct IDualSimTile_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDualSimTileStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDualSimTileStatics {

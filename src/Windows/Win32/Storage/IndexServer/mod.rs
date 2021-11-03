@@ -43,7 +43,6 @@ impl ::std::convert::From<i32> for CHUNKSTATE {
 }
 unsafe impl ::windows::runtime::Abi for CHUNKSTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -61,7 +60,6 @@ impl ::std::convert::From<i32> for CHUNK_BREAKTYPE {
 }
 unsafe impl ::windows::runtime::Abi for CHUNK_BREAKTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const CICAT_ALL_OPENED: u32 = 32u32;
@@ -150,7 +148,6 @@ impl ::std::cmp::PartialEq for CI_STATE {
 impl ::std::cmp::Eq for CI_STATE {}
 unsafe impl ::windows::runtime::Abi for CI_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const CI_STATE_ANNEALING_MERGE: u32 = 8u32;
@@ -224,7 +221,6 @@ impl ::std::cmp::Eq for DBID {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DBID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -247,7 +243,6 @@ impl ::std::cmp::PartialEq for DBID_0 {
 impl ::std::cmp::Eq for DBID_0 {}
 unsafe impl ::windows::runtime::Abi for DBID_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -276,7 +271,6 @@ impl ::std::cmp::Eq for DBID_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DBID_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -296,7 +290,6 @@ impl ::std::convert::From<i32> for DBKINDENUM {
 }
 unsafe impl ::windows::runtime::Abi for DBKINDENUM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const DBPROP_APPLICATION_NAME: u32 = 11u32;
@@ -383,7 +376,6 @@ impl ::std::cmp::PartialEq for FILTERREGION {
 impl ::std::cmp::Eq for FILTERREGION {}
 unsafe impl ::windows::runtime::Abi for FILTERREGION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const FILTER_E_ACCESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147215613i32 as _);
@@ -438,7 +430,6 @@ impl ::std::cmp::Eq for FULLPROPSPEC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for FULLPROPSPEC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const GENERATE_METHOD_EXACT: u32 = 0u32;
@@ -458,7 +449,6 @@ impl ::std::convert::From<i32> for IFILTER_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for IFILTER_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -484,7 +474,6 @@ impl ::std::convert::From<i32> for IFILTER_INIT {
 }
 unsafe impl ::windows::runtime::Abi for IFILTER_INIT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 #[repr(transparent)]
@@ -714,7 +703,6 @@ impl ::std::cmp::Eq for STAT_CHUNK {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for STAT_CHUNK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const STAT_COALESCE_COMP_ALL_NOISE: u32 = 8192u32;
@@ -769,5 +757,4 @@ impl ::std::convert::From<i32> for WORDREP_BREAK_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WORDREP_BREAK_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }

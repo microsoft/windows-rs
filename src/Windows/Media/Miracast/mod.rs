@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMiracastReceiver(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiver {
@@ -38,7 +37,6 @@ pub struct IMiracastReceiver_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, transmitter: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMiracastReceiverApplySettingsResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverApplySettingsResult {
@@ -58,7 +56,6 @@ pub struct IMiracastReceiverApplySettingsResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMiracastReceiverConnection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverConnection {
@@ -88,7 +85,6 @@ pub struct IMiracastReceiverConnection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMiracastReceiverConnectionCreatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverConnectionCreatedEventArgs {
@@ -110,7 +106,6 @@ pub struct IMiracastReceiverConnectionCreatedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMiracastReceiverCursorImageChannel(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverCursorImageChannel {
@@ -143,7 +138,6 @@ pub struct IMiracastReceiverCursorImageChannel_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMiracastReceiverCursorImageChannelSettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverCursorImageChannelSettings {
@@ -167,7 +161,6 @@ pub struct IMiracastReceiverCursorImageChannelSettings_abi(
     #[cfg(not(feature = "Graphics"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMiracastReceiverDisconnectedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverDisconnectedEventArgs {
@@ -186,7 +179,6 @@ pub struct IMiracastReceiverDisconnectedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMiracastReceiverGameControllerDevice(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverGameControllerDevice {
@@ -214,7 +206,6 @@ pub struct IMiracastReceiverGameControllerDevice_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMiracastReceiverInputDevices(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverInputDevices {
@@ -234,7 +225,6 @@ pub struct IMiracastReceiverInputDevices_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMiracastReceiverKeyboardDevice(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverKeyboardDevice {
@@ -260,7 +250,6 @@ pub struct IMiracastReceiverKeyboardDevice_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMiracastReceiverMediaSourceCreatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverMediaSourceCreatedEventArgs {
@@ -284,7 +273,6 @@ pub struct IMiracastReceiverMediaSourceCreatedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMiracastReceiverSession(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverSession {
@@ -321,7 +309,6 @@ pub struct IMiracastReceiverSession_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMiracastReceiverSessionStartResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverSessionStartResult {
@@ -341,7 +328,6 @@ pub struct IMiracastReceiverSessionStartResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMiracastReceiverSettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverSettings {
@@ -369,7 +355,6 @@ pub struct IMiracastReceiverSettings_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMiracastReceiverStatus(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverStatus {
@@ -393,7 +378,6 @@ pub struct IMiracastReceiverStatus_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMiracastReceiverStreamControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverStreamControl {
@@ -419,7 +403,6 @@ pub struct IMiracastReceiverStreamControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMiracastReceiverVideoStreamSettings(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastReceiverVideoStreamSettings {
@@ -443,7 +426,6 @@ pub struct IMiracastReceiverVideoStreamSettings_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMiracastTransmitter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMiracastTransmitter {
@@ -651,10 +633,12 @@ impl ::std::convert::From<i32> for MiracastReceiverApplySettingsStatus {
 }
 unsafe impl ::windows::runtime::Abi for MiracastReceiverApplySettingsStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverApplySettingsStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverApplySettingsStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for MiracastReceiverApplySettingsStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Miracast`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -673,10 +657,12 @@ impl ::std::convert::From<i32> for MiracastReceiverAuthorizationMethod {
 }
 unsafe impl ::windows::runtime::Abi for MiracastReceiverAuthorizationMethod {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverAuthorizationMethod {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverAuthorizationMethod;i4)");
+}
+impl ::windows::runtime::DefaultType for MiracastReceiverAuthorizationMethod {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
@@ -991,10 +977,12 @@ impl ::std::convert::From<i32> for MiracastReceiverDisconnectReason {
 }
 unsafe impl ::windows::runtime::Abi for MiracastReceiverDisconnectReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverDisconnectReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverDisconnectReason;i4)");
+}
+impl ::windows::runtime::DefaultType for MiracastReceiverDisconnectReason {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
@@ -1112,10 +1100,12 @@ impl ::std::convert::From<i32> for MiracastReceiverGameControllerDeviceUsageMode
 }
 unsafe impl ::windows::runtime::Abi for MiracastReceiverGameControllerDeviceUsageMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverGameControllerDeviceUsageMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverGameControllerDeviceUsageMode;i4)");
+}
+impl ::windows::runtime::DefaultType for MiracastReceiverGameControllerDeviceUsageMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
@@ -1232,10 +1222,12 @@ impl ::std::convert::From<i32> for MiracastReceiverListeningStatus {
 }
 unsafe impl ::windows::runtime::Abi for MiracastReceiverListeningStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverListeningStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverListeningStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for MiracastReceiverListeningStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
@@ -1478,10 +1470,12 @@ impl ::std::convert::From<i32> for MiracastReceiverSessionStartStatus {
 }
 unsafe impl ::windows::runtime::Abi for MiracastReceiverSessionStartStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverSessionStartStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverSessionStartStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for MiracastReceiverSessionStartStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
@@ -1750,10 +1744,12 @@ impl ::std::convert::From<i32> for MiracastReceiverWiFiStatus {
 }
 unsafe impl ::windows::runtime::Abi for MiracastReceiverWiFiStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MiracastReceiverWiFiStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverWiFiStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for MiracastReceiverWiFiStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Miracast`*"]
 #[repr(transparent)]
@@ -1842,8 +1838,10 @@ impl ::std::convert::From<i32> for MiracastTransmitterAuthorizationStatus {
 }
 unsafe impl ::windows::runtime::Abi for MiracastTransmitterAuthorizationStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MiracastTransmitterAuthorizationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastTransmitterAuthorizationStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for MiracastTransmitterAuthorizationStatus {
+    type DefaultType = Self;
 }

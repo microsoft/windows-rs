@@ -13,7 +13,6 @@ impl ::std::convert::From<i32> for DeviceDiscoveryMechanism {
 }
 unsafe impl ::windows::runtime::Abi for DeviceDiscoveryMechanism {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[repr(transparent)]
@@ -2313,7 +2312,6 @@ impl ::std::cmp::Eq for REQUESTBODY_GetStatus {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for REQUESTBODY_GetStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2348,7 +2346,6 @@ impl ::std::cmp::Eq for REQUESTBODY_Renew {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for REQUESTBODY_Renew {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2386,7 +2383,6 @@ impl ::std::cmp::Eq for REQUESTBODY_Subscribe {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for REQUESTBODY_Subscribe {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2420,7 +2416,6 @@ impl ::std::cmp::Eq for REQUESTBODY_Unsubscribe {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for REQUESTBODY_Unsubscribe {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2454,7 +2449,6 @@ impl ::std::cmp::Eq for RESPONSEBODY_GetMetadata {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RESPONSEBODY_GetMetadata {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2489,7 +2483,6 @@ impl ::std::cmp::Eq for RESPONSEBODY_GetStatus {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RESPONSEBODY_GetStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2524,7 +2517,6 @@ impl ::std::cmp::Eq for RESPONSEBODY_Renew {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RESPONSEBODY_Renew {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2560,7 +2552,6 @@ impl ::std::cmp::Eq for RESPONSEBODY_Subscribe {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RESPONSEBODY_Subscribe {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2597,7 +2588,6 @@ impl ::std::cmp::Eq for RESPONSEBODY_SubscriptionEnd {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RESPONSEBODY_SubscriptionEnd {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 pub const WSDAPI_ADDRESSFAMILY_IPV4: u32 = 1u32;
@@ -2912,7 +2902,6 @@ impl ::std::convert::From<i32> for WSDEventType {
 }
 unsafe impl ::windows::runtime::Abi for WSDEventType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[inline]
@@ -3007,7 +2996,6 @@ impl ::std::convert::From<i32> for WSDUdpMessageType {
 }
 unsafe impl ::windows::runtime::Abi for WSDUdpMessageType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3038,7 +3026,6 @@ impl ::std::cmp::PartialEq for WSDUdpRetransmitParams {
 impl ::std::cmp::Eq for WSDUdpRetransmitParams {}
 unsafe impl ::windows::runtime::Abi for WSDUdpRetransmitParams {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
@@ -3211,7 +3198,6 @@ impl ::std::cmp::Eq for WSDXML_ATTRIBUTE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSDXML_ATTRIBUTE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3249,7 +3235,6 @@ impl ::std::cmp::Eq for WSDXML_ELEMENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSDXML_ELEMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3284,7 +3269,6 @@ impl ::std::cmp::Eq for WSDXML_ELEMENT_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSDXML_ELEMENT_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3319,7 +3303,6 @@ impl ::std::cmp::Eq for WSDXML_NAME {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSDXML_NAME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3357,7 +3340,6 @@ impl ::std::cmp::Eq for WSDXML_NAMESPACE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSDXML_NAMESPACE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3396,7 +3378,6 @@ impl ::std::cmp::Eq for WSDXML_NODE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSDXML_NODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3456,7 +3437,6 @@ impl ::std::convert::From<i32> for WSDXML_OP {
 }
 unsafe impl ::windows::runtime::Abi for WSDXML_OP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3493,7 +3473,6 @@ impl ::std::cmp::Eq for WSDXML_PREFIX_MAPPING {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSDXML_PREFIX_MAPPING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3528,7 +3507,6 @@ impl ::std::cmp::Eq for WSDXML_TEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSDXML_TEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3563,7 +3541,6 @@ impl ::std::cmp::Eq for WSDXML_TYPE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSDXML_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3599,7 +3576,6 @@ impl ::std::cmp::Eq for WSD_APP_SEQUENCE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_APP_SEQUENCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3634,7 +3610,6 @@ impl ::std::cmp::Eq for WSD_BYE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_BYE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3662,7 +3637,6 @@ impl ::std::cmp::PartialEq for WSD_CONFIG_ADDRESSES {
 impl ::std::cmp::Eq for WSD_CONFIG_ADDRESSES {}
 unsafe impl ::windows::runtime::Abi for WSD_CONFIG_ADDRESSES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3691,7 +3665,6 @@ impl ::std::cmp::PartialEq for WSD_CONFIG_PARAM {
 impl ::std::cmp::Eq for WSD_CONFIG_PARAM {}
 unsafe impl ::windows::runtime::Abi for WSD_CONFIG_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3717,7 +3690,6 @@ impl ::std::convert::From<i32> for WSD_CONFIG_PARAM_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WSD_CONFIG_PARAM_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3775,7 +3747,6 @@ impl ::std::cmp::Eq for WSD_DATETIME {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_DATETIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3816,7 +3787,6 @@ impl ::std::cmp::Eq for WSD_DURATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_DURATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3855,7 +3825,6 @@ impl ::std::cmp::Eq for WSD_ENDPOINT_REFERENCE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_ENDPOINT_REFERENCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3890,7 +3859,6 @@ impl ::std::cmp::Eq for WSD_ENDPOINT_REFERENCE_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_ENDPOINT_REFERENCE_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3930,7 +3898,6 @@ impl ::std::cmp::Eq for WSD_EVENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_EVENT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3966,7 +3933,6 @@ impl ::std::cmp::Eq for WSD_EVENTING_DELIVERY_MODE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_EVENTING_DELIVERY_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4000,7 +3966,6 @@ impl ::std::cmp::Eq for WSD_EVENTING_DELIVERY_MODE_PUSH {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_EVENTING_DELIVERY_MODE_PUSH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4035,7 +4000,6 @@ impl ::std::cmp::Eq for WSD_EVENTING_EXPIRES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_EVENTING_EXPIRES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4071,7 +4035,6 @@ impl ::std::cmp::Eq for WSD_EVENTING_FILTER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_EVENTING_FILTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4105,7 +4068,6 @@ impl ::std::cmp::Eq for WSD_EVENTING_FILTER_ACTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_EVENTING_FILTER_ACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4141,7 +4103,6 @@ impl ::std::cmp::Eq for WSD_HANDLER_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_HANDLER_CONTEXT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4176,7 +4137,6 @@ impl ::std::cmp::Eq for WSD_HEADER_RELATESTO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_HEADER_RELATESTO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4215,7 +4175,6 @@ impl ::std::cmp::Eq for WSD_HELLO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_HELLO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4250,7 +4209,6 @@ impl ::std::cmp::Eq for WSD_HOST_METADATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_HOST_METADATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4285,7 +4243,6 @@ impl ::std::cmp::Eq for WSD_LOCALIZED_STRING {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_LOCALIZED_STRING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4320,7 +4277,6 @@ impl ::std::cmp::Eq for WSD_LOCALIZED_STRING_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_LOCALIZED_STRING_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4359,7 +4315,6 @@ impl ::std::cmp::Eq for WSD_METADATA_SECTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_METADATA_SECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4394,7 +4349,6 @@ impl ::std::cmp::Eq for WSD_METADATA_SECTION_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_METADATA_SECTION_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4429,7 +4383,6 @@ impl ::std::cmp::Eq for WSD_NAME_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_NAME_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4465,7 +4418,6 @@ impl ::std::cmp::Eq for WSD_OPERATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_OPERATION {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4502,7 +4454,6 @@ impl ::std::cmp::Eq for WSD_PORT_TYPE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_PORT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4538,7 +4489,6 @@ impl ::std::cmp::Eq for WSD_PROBE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_PROBE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4577,7 +4527,6 @@ impl ::std::cmp::Eq for WSD_PROBE_MATCH {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_PROBE_MATCH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4612,7 +4561,6 @@ impl ::std::cmp::Eq for WSD_PROBE_MATCHES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_PROBE_MATCHES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4647,7 +4595,6 @@ impl ::std::cmp::Eq for WSD_PROBE_MATCH_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_PROBE_MATCH_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4665,7 +4612,6 @@ impl ::std::convert::From<i32> for WSD_PROTOCOL_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WSD_PROTOCOL_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4699,7 +4645,6 @@ impl ::std::cmp::Eq for WSD_REFERENCE_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_REFERENCE_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4733,7 +4678,6 @@ impl ::std::cmp::Eq for WSD_REFERENCE_PROPERTIES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_REFERENCE_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4769,7 +4713,6 @@ impl ::std::cmp::Eq for WSD_RELATIONSHIP_METADATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_RELATIONSHIP_METADATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4804,7 +4747,6 @@ impl ::std::cmp::Eq for WSD_RESOLVE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_RESOLVE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4843,7 +4785,6 @@ impl ::std::cmp::Eq for WSD_RESOLVE_MATCH {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_RESOLVE_MATCH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4878,7 +4819,6 @@ impl ::std::cmp::Eq for WSD_RESOLVE_MATCHES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_RESOLVE_MATCHES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4913,7 +4853,6 @@ impl ::std::cmp::Eq for WSD_SCOPES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_SCOPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4963,7 +4902,6 @@ impl ::std::cmp::Eq for WSD_SECURITY_CERT_VALIDATION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for WSD_SECURITY_CERT_VALIDATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5007,7 +4945,6 @@ impl ::std::cmp::Eq for WSD_SECURITY_CERT_VALIDATION_V1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for WSD_SECURITY_CERT_VALIDATION_V1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`*"]
 pub const WSD_SECURITY_HTTP_AUTH_SCHEME_NEGOTIATE: u32 = 1u32;
@@ -5048,7 +4985,6 @@ impl ::std::cmp::Eq for WSD_SECURITY_SIGNATURE_VALIDATION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for WSD_SECURITY_SIGNATURE_VALIDATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5085,7 +5021,6 @@ impl ::std::cmp::Eq for WSD_SERVICE_METADATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_SERVICE_METADATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5120,7 +5055,6 @@ impl ::std::cmp::Eq for WSD_SERVICE_METADATA_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_SERVICE_METADATA_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5158,7 +5092,6 @@ impl ::std::cmp::Eq for WSD_SOAP_FAULT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_SOAP_FAULT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5193,7 +5126,6 @@ impl ::std::cmp::Eq for WSD_SOAP_FAULT_CODE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_SOAP_FAULT_CODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5227,7 +5159,6 @@ impl ::std::cmp::Eq for WSD_SOAP_FAULT_REASON {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_SOAP_FAULT_REASON {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5262,7 +5193,6 @@ impl ::std::cmp::Eq for WSD_SOAP_FAULT_SUBCODE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_SOAP_FAULT_SUBCODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5314,7 +5244,6 @@ impl ::std::cmp::Eq for WSD_SOAP_HEADER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_SOAP_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5350,7 +5279,6 @@ impl ::std::cmp::Eq for WSD_SOAP_MESSAGE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_SOAP_MESSAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type WSD_STUB_FUNCTION = unsafe extern "system" fn(server: ::windows::runtime::RawPtr, session: ::windows::runtime::RawPtr, event: *mut ::std::mem::ManuallyDrop<WSD_EVENT>) -> ::windows::runtime::HRESULT;
@@ -5389,7 +5317,6 @@ impl ::std::cmp::Eq for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5426,7 +5353,6 @@ impl ::std::cmp::Eq for WSD_THIS_DEVICE_METADATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_THIS_DEVICE_METADATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5474,7 +5400,6 @@ impl ::std::cmp::Eq for WSD_THIS_MODEL_METADATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_THIS_MODEL_METADATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5508,7 +5433,6 @@ impl ::std::cmp::Eq for WSD_UNKNOWN_LOOKUP {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_UNKNOWN_LOOKUP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5543,5 +5467,4 @@ impl ::std::cmp::Eq for WSD_URI_LIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSD_URI_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }

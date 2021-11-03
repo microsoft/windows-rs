@@ -475,10 +475,12 @@ impl ::std::convert::From<i32> for CoreTextFormatUpdatingReason {
 }
 unsafe impl ::windows::runtime::Abi for CoreTextFormatUpdatingReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CoreTextFormatUpdatingReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextFormatUpdatingReason;i4)");
+}
+impl ::windows::runtime::DefaultType for CoreTextFormatUpdatingReason {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -495,10 +497,12 @@ impl ::std::convert::From<i32> for CoreTextFormatUpdatingResult {
 }
 unsafe impl ::windows::runtime::Abi for CoreTextFormatUpdatingResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CoreTextFormatUpdatingResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextFormatUpdatingResult;i4)");
+}
+impl ::windows::runtime::DefaultType for CoreTextFormatUpdatingResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -515,10 +519,12 @@ impl ::std::convert::From<i32> for CoreTextInputPaneDisplayPolicy {
 }
 unsafe impl ::windows::runtime::Abi for CoreTextInputPaneDisplayPolicy {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CoreTextInputPaneDisplayPolicy {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextInputPaneDisplayPolicy;i4)");
+}
+impl ::windows::runtime::DefaultType for CoreTextInputPaneDisplayPolicy {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -600,10 +606,12 @@ impl ::std::convert::From<i32> for CoreTextInputScope {
 }
 unsafe impl ::windows::runtime::Abi for CoreTextInputScope {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CoreTextInputScope {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextInputScope;i4)");
+}
+impl ::windows::runtime::DefaultType for CoreTextInputScope {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
@@ -764,10 +772,12 @@ impl ::std::cmp::PartialEq for CoreTextRange {
 impl ::std::cmp::Eq for CoreTextRange {}
 unsafe impl ::windows::runtime::Abi for CoreTextRange {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CoreTextRange {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.Text.Core.CoreTextRange;i4;i4)");
+}
+impl ::windows::runtime::DefaultType for CoreTextRange {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text_Core`*"]
 #[repr(transparent)]
@@ -914,10 +924,12 @@ impl ::std::convert::From<i32> for CoreTextSelectionUpdatingResult {
 }
 unsafe impl ::windows::runtime::Abi for CoreTextSelectionUpdatingResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CoreTextSelectionUpdatingResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextSelectionUpdatingResult;i4)");
+}
+impl ::windows::runtime::DefaultType for CoreTextSelectionUpdatingResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Text_Core`*"]
 pub struct CoreTextServicesConstants {}
@@ -1176,13 +1188,14 @@ impl ::std::convert::From<i32> for CoreTextTextUpdatingResult {
 }
 unsafe impl ::windows::runtime::Abi for CoreTextTextUpdatingResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CoreTextTextUpdatingResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextTextUpdatingResult;i4)");
 }
+impl ::windows::runtime::DefaultType for CoreTextTextUpdatingResult {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreTextCompositionCompletedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextCompositionCompletedEventArgs {
@@ -1205,7 +1218,6 @@ pub struct ICoreTextCompositionCompletedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreTextCompositionSegment(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextCompositionSegment {
@@ -1225,7 +1237,6 @@ pub struct ICoreTextCompositionSegment_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut CoreTextRange) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreTextCompositionStartedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextCompositionStartedEventArgs {
@@ -1246,7 +1257,6 @@ pub struct ICoreTextCompositionStartedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreTextEditContext(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextEditContext {
@@ -1313,7 +1323,6 @@ pub struct ICoreTextEditContext_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreTextEditContext2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextEditContext2 {
@@ -1335,7 +1344,6 @@ pub struct ICoreTextEditContext2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreTextFormatUpdatingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextFormatUpdatingEventArgs {
@@ -1368,7 +1376,6 @@ pub struct ICoreTextFormatUpdatingEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreTextLayoutBounds(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextLayoutBounds {
@@ -1394,7 +1401,6 @@ pub struct ICoreTextLayoutBounds_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreTextLayoutRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextLayoutRequest {
@@ -1417,7 +1423,6 @@ pub struct ICoreTextLayoutRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreTextLayoutRequest2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextLayoutRequest2 {
@@ -1436,7 +1441,6 @@ pub struct ICoreTextLayoutRequest2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreTextLayoutRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextLayoutRequestedEventArgs {
@@ -1455,7 +1459,6 @@ pub struct ICoreTextLayoutRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreTextSelectionRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextSelectionRequest {
@@ -1478,7 +1481,6 @@ pub struct ICoreTextSelectionRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreTextSelectionRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextSelectionRequestedEventArgs {
@@ -1497,7 +1499,6 @@ pub struct ICoreTextSelectionRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreTextSelectionUpdatingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextSelectionUpdatingEventArgs {
@@ -1521,7 +1522,6 @@ pub struct ICoreTextSelectionUpdatingEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreTextServicesManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextServicesManager {
@@ -1546,7 +1546,6 @@ pub struct ICoreTextServicesManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreTextServicesManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextServicesManagerStatics {
@@ -1565,7 +1564,6 @@ pub struct ICoreTextServicesManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreTextServicesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextServicesStatics {
@@ -1584,7 +1582,6 @@ pub struct ICoreTextServicesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u16) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreTextTextRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextTextRequest {
@@ -1608,7 +1605,6 @@ pub struct ICoreTextTextRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreTextTextRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextTextRequestedEventArgs {
@@ -1627,7 +1623,6 @@ pub struct ICoreTextTextRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreTextTextUpdatingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreTextTextUpdatingEventArgs {

@@ -148,7 +148,6 @@ impl ::std::cmp::PartialEq for DSKTLSYSTEMTIME {
 impl ::std::cmp::Eq for DSKTLSYSTEMTIME {}
 unsafe impl ::windows::runtime::Abi for DSKTLSYSTEMTIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Registry`*"]
 pub const DTRESULTFIX: u32 = 1u32;
@@ -212,7 +211,6 @@ impl ::std::default::Default for HKEY {
 unsafe impl ::windows::runtime::Handle for HKEY {}
 unsafe impl ::windows::runtime::Abi for HKEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Registry`*"]
 pub const HKEY_CLASSES_ROOT: HKEY = HKEY(-2147483648i32 as _);
@@ -384,7 +382,6 @@ impl ::std::convert::From<u32> for REG_CREATE_KEY_DISPOSITION {
 }
 unsafe impl ::windows::runtime::Abi for REG_CREATE_KEY_DISPOSITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for REG_CREATE_KEY_DISPOSITION {
     type Output = Self;
@@ -432,7 +429,6 @@ impl ::std::convert::From<u32> for REG_NOTIFY_FILTER {
 }
 unsafe impl ::windows::runtime::Abi for REG_NOTIFY_FILTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for REG_NOTIFY_FILTER {
     type Output = Self;
@@ -480,7 +476,6 @@ impl ::std::convert::From<u32> for REG_OPEN_CREATE_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for REG_OPEN_CREATE_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for REG_OPEN_CREATE_OPTIONS {
     type Output = Self;
@@ -525,7 +520,6 @@ impl ::std::convert::From<i32> for REG_RESTORE_KEY_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for REG_RESTORE_KEY_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Registry`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -551,7 +545,6 @@ impl ::std::convert::From<u32> for REG_SAM_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for REG_SAM_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for REG_SAM_FLAGS {
     type Output = Self;
@@ -595,7 +588,6 @@ impl ::std::convert::From<u32> for REG_SAVE_FORMAT {
 }
 unsafe impl ::windows::runtime::Abi for REG_SAVE_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for REG_SAVE_FORMAT {
     type Output = Self;
@@ -654,7 +646,6 @@ impl ::std::convert::From<u32> for REG_VALUE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for REG_VALUE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for REG_VALUE_TYPE {
     type Output = Self;
@@ -707,7 +698,6 @@ impl ::std::convert::From<u32> for RRF_RT {
 }
 unsafe impl ::windows::runtime::Abi for RRF_RT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for RRF_RT {
     type Output = Self;
@@ -2140,7 +2130,6 @@ impl ::std::cmp::Eq for VALENTA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VALENTA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2177,7 +2166,6 @@ impl ::std::cmp::Eq for VALENTW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VALENTW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Registry`*"]
 pub const VPDF_DISABLEPWRMGMT: u32 = 1u32;
@@ -2221,7 +2209,6 @@ impl ::std::cmp::PartialEq for provider_info {
 impl ::std::cmp::Eq for provider_info {}
 unsafe impl ::windows::runtime::Abi for provider_info {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2258,7 +2245,6 @@ impl ::std::cmp::Eq for pvalueA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for pvalueA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2295,7 +2281,6 @@ impl ::std::cmp::Eq for pvalueW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for pvalueW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2324,5 +2309,4 @@ impl ::std::cmp::PartialEq for val_context {
 impl ::std::cmp::Eq for val_context {}
 unsafe impl ::windows::runtime::Abi for val_context {
     type Abi = Self;
-    type DefaultType = Self;
 }

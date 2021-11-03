@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INamedPolicyData(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INamedPolicyData {
@@ -35,7 +34,6 @@ pub struct INamedPolicyData_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INamedPolicyStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INamedPolicyStatics {
@@ -223,8 +221,10 @@ impl ::std::convert::From<i32> for NamedPolicyKind {
 }
 unsafe impl ::windows::runtime::Abi for NamedPolicyKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for NamedPolicyKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Management.Policies.NamedPolicyKind;i4)");
+}
+impl ::windows::runtime::DefaultType for NamedPolicyKind {
+    type DefaultType = Self;
 }

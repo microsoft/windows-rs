@@ -1884,7 +1884,6 @@ impl ::std::convert::From<i32> for MBN_ACTIVATION_STATE {
 }
 unsafe impl ::windows::runtime::Abi for MBN_ACTIVATION_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1901,7 +1900,6 @@ impl ::std::convert::From<i32> for MBN_AUTH_PROTOCOL {
 }
 unsafe impl ::windows::runtime::Abi for MBN_AUTH_PROTOCOL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1934,7 +1932,6 @@ impl ::std::convert::From<i32> for MBN_BAND_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for MBN_BAND_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1950,7 +1947,6 @@ impl ::std::convert::From<i32> for MBN_CELLULAR_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for MBN_CELLULAR_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1965,7 +1961,6 @@ impl ::std::convert::From<i32> for MBN_COMPRESSION {
 }
 unsafe impl ::windows::runtime::Abi for MBN_COMPRESSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1980,7 +1975,6 @@ impl ::std::convert::From<i32> for MBN_CONNECTION_MODE {
 }
 unsafe impl ::windows::runtime::Abi for MBN_CONNECTION_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2020,7 +2014,6 @@ impl ::std::cmp::Eq for MBN_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MBN_CONTEXT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2037,7 +2030,6 @@ impl ::std::convert::From<i32> for MBN_CONTEXT_CONSTANTS {
 }
 unsafe impl ::windows::runtime::Abi for MBN_CONTEXT_CONSTANTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2057,7 +2049,6 @@ impl ::std::convert::From<i32> for MBN_CONTEXT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MBN_CONTEXT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2079,7 +2070,6 @@ impl ::std::convert::From<i32> for MBN_CTRL_CAPS {
 }
 unsafe impl ::windows::runtime::Abi for MBN_CTRL_CAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2109,7 +2099,6 @@ impl ::std::convert::From<i32> for MBN_DATA_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for MBN_DATA_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2145,7 +2134,6 @@ impl ::std::cmp::Eq for MBN_DEVICE_SERVICE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MBN_DEVICE_SERVICE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2160,7 +2148,6 @@ impl ::std::convert::From<i32> for MBN_DEVICE_SERVICES_INTERFACE_STATE {
 }
 unsafe impl ::windows::runtime::Abi for MBN_DEVICE_SERVICES_INTERFACE_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2174,7 +2161,6 @@ impl ::std::convert::From<i32> for MBN_DEVICE_SERVICE_SESSIONS_STATE {
 }
 unsafe impl ::windows::runtime::Abi for MBN_DEVICE_SERVICE_SESSIONS_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2246,7 +2232,6 @@ impl ::std::cmp::Eq for MBN_INTERFACE_CAPS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MBN_INTERFACE_CAPS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2263,7 +2248,6 @@ impl ::std::convert::From<i32> for MBN_INTERFACE_CAPS_CONSTANTS {
 }
 unsafe impl ::windows::runtime::Abi for MBN_INTERFACE_CAPS_CONSTANTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2280,7 +2264,6 @@ impl ::std::convert::From<i32> for MBN_MSG_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for MBN_MSG_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2295,7 +2278,6 @@ impl ::std::convert::From<i32> for MBN_PIN_CONSTANTS {
 }
 unsafe impl ::windows::runtime::Abi for MBN_PIN_CONSTANTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2311,7 +2293,6 @@ impl ::std::convert::From<i32> for MBN_PIN_FORMAT {
 }
 unsafe impl ::windows::runtime::Abi for MBN_PIN_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2340,7 +2321,6 @@ impl ::std::cmp::PartialEq for MBN_PIN_INFO {
 impl ::std::cmp::Eq for MBN_PIN_INFO {}
 unsafe impl ::windows::runtime::Abi for MBN_PIN_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2355,7 +2335,6 @@ impl ::std::convert::From<i32> for MBN_PIN_MODE {
 }
 unsafe impl ::windows::runtime::Abi for MBN_PIN_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2371,7 +2350,6 @@ impl ::std::convert::From<i32> for MBN_PIN_STATE {
 }
 unsafe impl ::windows::runtime::Abi for MBN_PIN_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2395,7 +2373,6 @@ impl ::std::convert::From<i32> for MBN_PIN_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MBN_PIN_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2432,7 +2409,6 @@ impl ::std::cmp::Eq for MBN_PROVIDER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MBN_PROVIDER {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2469,7 +2445,6 @@ impl ::std::cmp::Eq for MBN_PROVIDER2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MBN_PROVIDER2 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2484,7 +2459,6 @@ impl ::std::convert::From<i32> for MBN_PROVIDER_CONSTANTS {
 }
 unsafe impl ::windows::runtime::Abi for MBN_PROVIDER_CONSTANTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2504,7 +2478,6 @@ impl ::std::convert::From<i32> for MBN_PROVIDER_STATE {
 }
 unsafe impl ::windows::runtime::Abi for MBN_PROVIDER_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2519,7 +2492,6 @@ impl ::std::convert::From<i32> for MBN_RADIO {
 }
 unsafe impl ::windows::runtime::Abi for MBN_RADIO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2541,7 +2513,6 @@ impl ::std::convert::From<i32> for MBN_READY_STATE {
 }
 unsafe impl ::windows::runtime::Abi for MBN_READY_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2557,7 +2528,6 @@ impl ::std::convert::From<i32> for MBN_REGISTER_MODE {
 }
 unsafe impl ::windows::runtime::Abi for MBN_REGISTER_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2577,7 +2547,6 @@ impl ::std::convert::From<i32> for MBN_REGISTER_STATE {
 }
 unsafe impl ::windows::runtime::Abi for MBN_REGISTER_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2592,7 +2561,6 @@ impl ::std::convert::From<i32> for MBN_REGISTRATION_CONSTANTS {
 }
 unsafe impl ::windows::runtime::Abi for MBN_REGISTRATION_CONSTANTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2609,7 +2577,6 @@ impl ::std::convert::From<i32> for MBN_SIGNAL_CONSTANTS {
 }
 unsafe impl ::windows::runtime::Abi for MBN_SIGNAL_CONSTANTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2627,7 +2594,6 @@ impl ::std::convert::From<i32> for MBN_SMS_CAPS {
 }
 unsafe impl ::windows::runtime::Abi for MBN_SMS_CAPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2650,7 +2616,6 @@ impl ::std::convert::From<i32> for MBN_SMS_CDMA_ENCODING {
 }
 unsafe impl ::windows::runtime::Abi for MBN_SMS_CDMA_ENCODING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2671,7 +2636,6 @@ impl ::std::convert::From<i32> for MBN_SMS_CDMA_LANG {
 }
 unsafe impl ::windows::runtime::Abi for MBN_SMS_CDMA_LANG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2699,7 +2663,6 @@ impl ::std::cmp::PartialEq for MBN_SMS_FILTER {
 impl ::std::cmp::Eq for MBN_SMS_FILTER {}
 unsafe impl ::windows::runtime::Abi for MBN_SMS_FILTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2718,7 +2681,6 @@ impl ::std::convert::From<i32> for MBN_SMS_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for MBN_SMS_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2734,7 +2696,6 @@ impl ::std::convert::From<i32> for MBN_SMS_FORMAT {
 }
 unsafe impl ::windows::runtime::Abi for MBN_SMS_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2750,7 +2711,6 @@ impl ::std::convert::From<i32> for MBN_SMS_STATUS_FLAG {
 }
 unsafe impl ::windows::runtime::Abi for MBN_SMS_STATUS_FLAG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2778,7 +2738,6 @@ impl ::std::cmp::PartialEq for MBN_SMS_STATUS_INFO {
 impl ::std::cmp::Eq for MBN_SMS_STATUS_INFO {}
 unsafe impl ::windows::runtime::Abi for MBN_SMS_STATUS_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2794,7 +2753,6 @@ impl ::std::convert::From<i32> for MBN_VOICE_CALL_STATE {
 }
 unsafe impl ::windows::runtime::Abi for MBN_VOICE_CALL_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_NetworkManagement_MobileBroadband`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2811,7 +2769,6 @@ impl ::std::convert::From<i32> for MBN_VOICE_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for MBN_VOICE_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const MbnConnectionManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3187597404, 17432, 4573, [144, 237, 0, 28, 37, 124, 207, 241]);
 pub const MbnConnectionProfileManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3187597402, 17432, 4573, [144, 237, 0, 28, 37, 124, 207, 241]);
@@ -2831,7 +2788,6 @@ impl ::std::convert::From<i32> for WWAEXT_SMS_CONSTANTS {
 }
 unsafe impl ::windows::runtime::Abi for WWAEXT_SMS_CONSTANTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2858,7 +2814,6 @@ impl ::std::cmp::PartialEq for __DummyPinType__ {
 impl ::std::cmp::Eq for __DummyPinType__ {}
 unsafe impl ::windows::runtime::Abi for __DummyPinType__ {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2926,5 +2881,4 @@ impl ::std::cmp::PartialEq for __mbnapi_ReferenceRemainingTypes__ {
 impl ::std::cmp::Eq for __mbnapi_ReferenceRemainingTypes__ {}
 unsafe impl ::windows::runtime::Abi for __mbnapi_ReferenceRemainingTypes__ {
     type Abi = Self;
-    type DefaultType = Self;
 }

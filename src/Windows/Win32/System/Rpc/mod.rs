@@ -36,7 +36,6 @@ impl ::std::cmp::PartialEq for ARRAY_INFO {
 impl ::std::cmp::Eq for ARRAY_INFO {}
 unsafe impl ::windows::runtime::Abi for ARRAY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -64,7 +63,6 @@ impl ::std::cmp::PartialEq for BinaryParam {
 impl ::std::cmp::Eq for BinaryParam {}
 unsafe impl ::windows::runtime::Abi for BinaryParam {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -87,7 +85,6 @@ impl ::std::cmp::PartialEq for CLIENT_CALL_RETURN {
 impl ::std::cmp::Eq for CLIENT_CALL_RETURN {}
 unsafe impl ::windows::runtime::Abi for CLIENT_CALL_RETURN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -115,7 +112,6 @@ impl ::std::cmp::PartialEq for COMM_FAULT_OFFSETS {
 impl ::std::cmp::Eq for COMM_FAULT_OFFSETS {}
 unsafe impl ::windows::runtime::Abi for COMM_FAULT_OFFSETS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type CS_TAG_GETTING_ROUTINE = unsafe extern "system" fn(hbinding: *mut ::std::ffi::c_void, fserverside: i32, pulsendingtag: *mut u32, puldesiredreceivingtag: *mut u32, pulreceivingtag: *mut u32, pstatus: *mut u32);
 pub type CS_TYPE_FROM_NETCS_ROUTINE = unsafe extern "system" fn(hbinding: *mut ::std::ffi::c_void, ulnetworkcodeset: u32, pnetworkdata: *mut u8, ulnetworkdatalength: u32, ullocalbuffersize: u32, plocaldata: *mut ::std::ffi::c_void, pullocaldatalength: *mut u32, pstatus: *mut u32);
@@ -183,7 +179,6 @@ impl ::std::convert::From<i32> for EXPR_TOKEN {
 }
 unsafe impl ::windows::runtime::Abi for EXPR_TOKEN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -203,7 +198,6 @@ impl ::std::convert::From<i32> for ExtendedErrorParamTypes {
 }
 unsafe impl ::windows::runtime::Abi for ExtendedErrorParamTypes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -233,7 +227,6 @@ impl ::std::cmp::PartialEq for FULL_PTR_XLAT_TABLES {
 impl ::std::cmp::Eq for FULL_PTR_XLAT_TABLES {}
 unsafe impl ::windows::runtime::Abi for FULL_PTR_XLAT_TABLES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -263,7 +256,6 @@ impl ::std::cmp::PartialEq for GENERIC_BINDING_INFO {
 impl ::std::cmp::Eq for GENERIC_BINDING_INFO {}
 unsafe impl ::windows::runtime::Abi for GENERIC_BINDING_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 pub type GENERIC_BINDING_ROUTINE = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void) -> *mut ::std::ffi::c_void;
 #[derive(:: std :: clone :: Clone)]
@@ -292,7 +284,6 @@ impl ::std::cmp::PartialEq for GENERIC_BINDING_ROUTINE_PAIR {
 impl ::std::cmp::Eq for GENERIC_BINDING_ROUTINE_PAIR {}
 unsafe impl ::windows::runtime::Abi for GENERIC_BINDING_ROUTINE_PAIR {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 pub type GENERIC_UNBIND_ROUTINE = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: *mut u8);
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -308,7 +299,6 @@ impl ::std::convert::From<u32> for GROUP_NAME_SYNTAX {
 }
 unsafe impl ::windows::runtime::Abi for GROUP_NAME_SYNTAX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for GROUP_NAME_SYNTAX {
     type Output = Self;
@@ -352,7 +342,6 @@ impl ::std::convert::From<i32> for IDL_CS_CONVERT {
 }
 unsafe impl ::windows::runtime::Abi for IDL_CS_CONVERT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const INVALID_FRAGMENT_ID: u32 = 0u32;
@@ -1011,7 +1000,6 @@ impl ::std::cmp::Eq for I_RpcProxyCallbackInterface {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for I_RpcProxyCallbackInterface {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 pub type I_RpcProxyFilterIfFn = unsafe extern "system" fn(context: *const ::std::ffi::c_void, ifuuid: *const ::windows::runtime::GUID, ifmajorversion: u16, fallow: *mut i32) -> RPC_STATUS;
 #[cfg(feature = "Win32_Foundation")]
@@ -1426,7 +1414,6 @@ impl ::std::convert::From<i32> for LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION {
 }
 unsafe impl ::windows::runtime::Abi for LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1454,7 +1441,6 @@ impl ::std::cmp::PartialEq for MALLOC_FREE_STRUCT {
 impl ::std::cmp::Eq for MALLOC_FREE_STRUCT {}
 unsafe impl ::windows::runtime::Abi for MALLOC_FREE_STRUCT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type MIDL_ES_ALLOC = unsafe extern "system" fn(state: *mut ::std::ffi::c_void, pbuffer: *mut *mut i8, psize: *mut u32);
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -1471,7 +1457,6 @@ impl ::std::convert::From<i32> for MIDL_ES_CODE {
 }
 unsafe impl ::windows::runtime::Abi for MIDL_ES_CODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1487,7 +1472,6 @@ impl ::std::convert::From<i32> for MIDL_ES_HANDLE_STYLE {
 }
 unsafe impl ::windows::runtime::Abi for MIDL_ES_HANDLE_STYLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type MIDL_ES_READ = unsafe extern "system" fn(state: *mut ::std::ffi::c_void, pbuffer: *mut *mut i8, psize: *mut u32);
 #[cfg(feature = "Win32_Foundation")]
@@ -1518,7 +1502,6 @@ impl ::std::cmp::PartialEq for MIDL_FORMAT_STRING {
 impl ::std::cmp::Eq for MIDL_FORMAT_STRING {}
 unsafe impl ::windows::runtime::Abi for MIDL_FORMAT_STRING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1549,7 +1532,6 @@ impl ::std::cmp::PartialEq for MIDL_INTERCEPTION_INFO {
 impl ::std::cmp::Eq for MIDL_INTERCEPTION_INFO {}
 unsafe impl ::windows::runtime::Abi for MIDL_INTERCEPTION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1577,7 +1559,6 @@ impl ::std::cmp::PartialEq for MIDL_INTERFACE_METHOD_PROPERTIES {
 impl ::std::cmp::Eq for MIDL_INTERFACE_METHOD_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for MIDL_INTERFACE_METHOD_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1605,7 +1586,6 @@ impl ::std::cmp::PartialEq for MIDL_METHOD_PROPERTY {
 impl ::std::cmp::Eq for MIDL_METHOD_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for MIDL_METHOD_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1633,7 +1613,6 @@ impl ::std::cmp::PartialEq for MIDL_METHOD_PROPERTY_MAP {
 impl ::std::cmp::Eq for MIDL_METHOD_PROPERTY_MAP {}
 unsafe impl ::windows::runtime::Abi for MIDL_METHOD_PROPERTY_MAP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1674,7 +1653,6 @@ impl ::std::cmp::Eq for MIDL_SERVER_INFO {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for MIDL_SERVER_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1720,7 +1698,6 @@ impl ::std::cmp::Eq for MIDL_STUBLESS_PROXY_INFO {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for MIDL_STUBLESS_PROXY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1767,7 +1744,6 @@ impl ::std::cmp::Eq for MIDL_STUB_DESC {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for MIDL_STUB_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1791,7 +1767,6 @@ impl ::std::cmp::PartialEq for MIDL_STUB_DESC_0 {
 impl ::std::cmp::Eq for MIDL_STUB_DESC_0 {}
 unsafe impl ::windows::runtime::Abi for MIDL_STUB_DESC_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2001,7 +1976,6 @@ impl ::std::cmp::Eq for MIDL_STUB_MESSAGE {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for MIDL_STUB_MESSAGE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2044,7 +2018,6 @@ impl ::std::cmp::PartialEq for MIDL_SYNTAX_INFO {
 impl ::std::cmp::Eq for MIDL_SYNTAX_INFO {}
 unsafe impl ::windows::runtime::Abi for MIDL_SYNTAX_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2073,7 +2046,6 @@ impl ::std::cmp::PartialEq for MIDL_TYPE_PICKLING_INFO {
 impl ::std::cmp::Eq for MIDL_TYPE_PICKLING_INFO {}
 unsafe impl ::windows::runtime::Abi for MIDL_TYPE_PICKLING_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2111,7 +2083,6 @@ impl ::std::cmp::Eq for MIDL_WINRT_TYPE_SERIALIZATION_INFO {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const MIDL_WINRT_TYPE_SERIALIZATION_INFO_CURRENT_VERSION: i32 = 1i32;
@@ -2277,7 +2248,6 @@ impl ::std::cmp::PartialEq for NDR64_ARRAY_ELEMENT_INFO {
 impl ::std::cmp::Eq for NDR64_ARRAY_ELEMENT_INFO {}
 unsafe impl ::windows::runtime::Abi for NDR64_ARRAY_ELEMENT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2304,7 +2274,6 @@ impl ::std::cmp::PartialEq for NDR64_ARRAY_FLAGS {
 impl ::std::cmp::Eq for NDR64_ARRAY_FLAGS {}
 unsafe impl ::windows::runtime::Abi for NDR64_ARRAY_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2328,7 +2297,6 @@ impl ::std::cmp::PartialEq for NDR64_BINDINGS {
 impl ::std::cmp::Eq for NDR64_BINDINGS {}
 unsafe impl ::windows::runtime::Abi for NDR64_BINDINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2356,7 +2324,6 @@ impl ::std::cmp::PartialEq for NDR64_BIND_AND_NOTIFY_EXTENSION {
 impl ::std::cmp::Eq for NDR64_BIND_AND_NOTIFY_EXTENSION {}
 unsafe impl ::windows::runtime::Abi for NDR64_BIND_AND_NOTIFY_EXTENSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2387,7 +2354,6 @@ impl ::std::cmp::PartialEq for NDR64_BIND_CONTEXT {
 impl ::std::cmp::Eq for NDR64_BIND_CONTEXT {}
 unsafe impl ::windows::runtime::Abi for NDR64_BIND_CONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2418,7 +2384,6 @@ impl ::std::cmp::PartialEq for NDR64_BIND_GENERIC {
 impl ::std::cmp::Eq for NDR64_BIND_GENERIC {}
 unsafe impl ::windows::runtime::Abi for NDR64_BIND_GENERIC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2448,7 +2413,6 @@ impl ::std::cmp::PartialEq for NDR64_BIND_PRIMITIVE {
 impl ::std::cmp::Eq for NDR64_BIND_PRIMITIVE {}
 unsafe impl ::windows::runtime::Abi for NDR64_BIND_PRIMITIVE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2480,7 +2444,6 @@ impl ::std::cmp::PartialEq for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
 impl ::std::cmp::Eq for NDR64_BOGUS_ARRAY_HEADER_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2523,7 +2486,6 @@ impl ::std::cmp::PartialEq for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
 impl ::std::cmp::Eq for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2553,7 +2515,6 @@ impl ::std::cmp::PartialEq for NDR64_BUFFER_ALIGN_FORMAT {
 impl ::std::cmp::Eq for NDR64_BUFFER_ALIGN_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_BUFFER_ALIGN_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2580,7 +2541,6 @@ impl ::std::cmp::PartialEq for NDR64_CONFORMANT_STRING_FORMAT {
 impl ::std::cmp::Eq for NDR64_CONFORMANT_STRING_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_CONFORMANT_STRING_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2612,7 +2572,6 @@ impl ::std::cmp::PartialEq for NDR64_CONF_ARRAY_HEADER_FORMAT {
 impl ::std::cmp::Eq for NDR64_CONF_ARRAY_HEADER_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_CONF_ARRAY_HEADER_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2657,7 +2616,6 @@ impl ::std::cmp::PartialEq for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
 impl ::std::cmp::Eq for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2689,7 +2647,6 @@ impl ::std::cmp::PartialEq for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
 impl ::std::cmp::Eq for NDR64_CONF_STRUCTURE_HEADER_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2730,7 +2687,6 @@ impl ::std::cmp::PartialEq for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
 impl ::std::cmp::Eq for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2760,7 +2716,6 @@ impl ::std::cmp::PartialEq for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
 impl ::std::cmp::Eq for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2790,7 +2745,6 @@ impl ::std::cmp::PartialEq for NDR64_CONSTANT_IID_FORMAT {
 impl ::std::cmp::Eq for NDR64_CONSTANT_IID_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_CONSTANT_IID_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2817,7 +2771,6 @@ impl ::std::cmp::PartialEq for NDR64_CONTEXT_HANDLE_FLAGS {
 impl ::std::cmp::Eq for NDR64_CONTEXT_HANDLE_FLAGS {}
 unsafe impl ::windows::runtime::Abi for NDR64_CONTEXT_HANDLE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2847,7 +2800,6 @@ impl ::std::cmp::PartialEq for NDR64_CONTEXT_HANDLE_FORMAT {
 impl ::std::cmp::Eq for NDR64_CONTEXT_HANDLE_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_CONTEXT_HANDLE_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2877,7 +2829,6 @@ impl ::std::cmp::PartialEq for NDR64_EMBEDDED_COMPLEX_FORMAT {
 impl ::std::cmp::Eq for NDR64_EMBEDDED_COMPLEX_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_EMBEDDED_COMPLEX_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2918,7 +2869,6 @@ impl ::std::cmp::PartialEq for NDR64_ENCAPSULATED_UNION {
 impl ::std::cmp::Eq for NDR64_ENCAPSULATED_UNION {}
 unsafe impl ::windows::runtime::Abi for NDR64_ENCAPSULATED_UNION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2948,7 +2898,6 @@ impl ::std::cmp::PartialEq for NDR64_EXPR_CONST32 {
 impl ::std::cmp::Eq for NDR64_EXPR_CONST32 {}
 unsafe impl ::windows::runtime::Abi for NDR64_EXPR_CONST32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2978,7 +2927,6 @@ impl ::std::cmp::PartialEq for NDR64_EXPR_CONST64 {
 impl ::std::cmp::Eq for NDR64_EXPR_CONST64 {}
 unsafe impl ::windows::runtime::Abi for NDR64_EXPR_CONST64 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3007,7 +2955,6 @@ impl ::std::cmp::PartialEq for NDR64_EXPR_NOOP {
 impl ::std::cmp::Eq for NDR64_EXPR_NOOP {}
 unsafe impl ::windows::runtime::Abi for NDR64_EXPR_NOOP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3037,7 +2984,6 @@ impl ::std::cmp::PartialEq for NDR64_EXPR_OPERATOR {
 impl ::std::cmp::Eq for NDR64_EXPR_OPERATOR {}
 unsafe impl ::windows::runtime::Abi for NDR64_EXPR_OPERATOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3067,7 +3013,6 @@ impl ::std::cmp::PartialEq for NDR64_EXPR_VAR {
 impl ::std::cmp::Eq for NDR64_EXPR_VAR {}
 unsafe impl ::windows::runtime::Abi for NDR64_EXPR_VAR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const NDR64_FC_AUTO_HANDLE: u32 = 3u32;
@@ -3108,7 +3053,6 @@ impl ::std::cmp::PartialEq for NDR64_FIXED_REPEAT_FORMAT {
 impl ::std::cmp::Eq for NDR64_FIXED_REPEAT_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_FIXED_REPEAT_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3139,7 +3083,6 @@ impl ::std::cmp::PartialEq for NDR64_FIX_ARRAY_HEADER_FORMAT {
 impl ::std::cmp::Eq for NDR64_FIX_ARRAY_HEADER_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_FIX_ARRAY_HEADER_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3166,7 +3109,6 @@ impl ::std::cmp::PartialEq for NDR64_IID_FLAGS {
 impl ::std::cmp::Eq for NDR64_IID_FLAGS {}
 unsafe impl ::windows::runtime::Abi for NDR64_IID_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3196,7 +3138,6 @@ impl ::std::cmp::PartialEq for NDR64_IID_FORMAT {
 impl ::std::cmp::Eq for NDR64_IID_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_IID_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3226,7 +3167,6 @@ impl ::std::cmp::PartialEq for NDR64_MEMPAD_FORMAT {
 impl ::std::cmp::Eq for NDR64_MEMPAD_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_MEMPAD_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3254,7 +3194,6 @@ impl ::std::cmp::PartialEq for NDR64_NON_CONFORMANT_STRING_FORMAT {
 impl ::std::cmp::Eq for NDR64_NON_CONFORMANT_STRING_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_NON_CONFORMANT_STRING_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3287,7 +3226,6 @@ impl ::std::cmp::PartialEq for NDR64_NON_ENCAPSULATED_UNION {
 impl ::std::cmp::Eq for NDR64_NON_ENCAPSULATED_UNION {}
 unsafe impl ::windows::runtime::Abi for NDR64_NON_ENCAPSULATED_UNION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3317,7 +3255,6 @@ impl ::std::cmp::PartialEq for NDR64_NO_REPEAT_FORMAT {
 impl ::std::cmp::Eq for NDR64_NO_REPEAT_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_NO_REPEAT_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3344,7 +3281,6 @@ impl ::std::cmp::PartialEq for NDR64_PARAM_FLAGS {
 impl ::std::cmp::Eq for NDR64_PARAM_FLAGS {}
 unsafe impl ::windows::runtime::Abi for NDR64_PARAM_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3374,7 +3310,6 @@ impl ::std::cmp::PartialEq for NDR64_PARAM_FORMAT {
 impl ::std::cmp::Eq for NDR64_PARAM_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_PARAM_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3401,7 +3336,6 @@ impl ::std::cmp::PartialEq for NDR64_PIPE_FLAGS {
 impl ::std::cmp::Eq for NDR64_PIPE_FLAGS {}
 unsafe impl ::windows::runtime::Abi for NDR64_PIPE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3434,7 +3368,6 @@ impl ::std::cmp::PartialEq for NDR64_PIPE_FORMAT {
 impl ::std::cmp::Eq for NDR64_PIPE_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_PIPE_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3464,7 +3397,6 @@ impl ::std::cmp::PartialEq for NDR64_POINTER_FORMAT {
 impl ::std::cmp::Eq for NDR64_POINTER_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_POINTER_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3492,7 +3424,6 @@ impl ::std::cmp::PartialEq for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
 impl ::std::cmp::Eq for NDR64_POINTER_INSTANCE_HEADER_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3519,7 +3450,6 @@ impl ::std::cmp::PartialEq for NDR64_POINTER_REPEAT_FLAGS {
 impl ::std::cmp::Eq for NDR64_POINTER_REPEAT_FLAGS {}
 unsafe impl ::windows::runtime::Abi for NDR64_POINTER_REPEAT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3546,7 +3476,6 @@ impl ::std::cmp::PartialEq for NDR64_PROC_FLAGS {
 impl ::std::cmp::Eq for NDR64_PROC_FLAGS {}
 unsafe impl ::windows::runtime::Abi for NDR64_PROC_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3589,7 +3518,6 @@ impl ::std::cmp::PartialEq for NDR64_PROC_FORMAT {
 impl ::std::cmp::Eq for NDR64_PROC_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_PROC_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3619,7 +3547,6 @@ impl ::std::cmp::PartialEq for NDR64_RANGED_STRING_FORMAT {
 impl ::std::cmp::Eq for NDR64_RANGED_STRING_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_RANGED_STRING_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3650,7 +3577,6 @@ impl ::std::cmp::PartialEq for NDR64_RANGE_FORMAT {
 impl ::std::cmp::Eq for NDR64_RANGE_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_RANGE_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3695,7 +3621,6 @@ impl ::std::cmp::PartialEq for NDR64_RANGE_PIPE_FORMAT {
 impl ::std::cmp::Eq for NDR64_RANGE_PIPE_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_RANGE_PIPE_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3727,7 +3652,6 @@ impl ::std::cmp::PartialEq for NDR64_REPEAT_FORMAT {
 impl ::std::cmp::Eq for NDR64_REPEAT_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_REPEAT_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3754,7 +3678,6 @@ impl ::std::cmp::PartialEq for NDR64_RPC_FLAGS {
 impl ::std::cmp::Eq for NDR64_RPC_FLAGS {}
 unsafe impl ::windows::runtime::Abi for NDR64_RPC_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3784,7 +3707,6 @@ impl ::std::cmp::PartialEq for NDR64_SIMPLE_MEMBER_FORMAT {
 impl ::std::cmp::Eq for NDR64_SIMPLE_MEMBER_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_SIMPLE_MEMBER_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3814,7 +3736,6 @@ impl ::std::cmp::PartialEq for NDR64_SIMPLE_REGION_FORMAT {
 impl ::std::cmp::Eq for NDR64_SIMPLE_REGION_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_SIMPLE_REGION_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3842,7 +3763,6 @@ impl ::std::cmp::PartialEq for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
 impl ::std::cmp::Eq for NDR64_SIZED_CONFORMANT_STRING_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3869,7 +3789,6 @@ impl ::std::cmp::PartialEq for NDR64_STRING_FLAGS {
 impl ::std::cmp::Eq for NDR64_STRING_FLAGS {}
 unsafe impl ::windows::runtime::Abi for NDR64_STRING_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3898,7 +3817,6 @@ impl ::std::cmp::PartialEq for NDR64_STRING_HEADER_FORMAT {
 impl ::std::cmp::Eq for NDR64_STRING_HEADER_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_STRING_HEADER_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3925,7 +3843,6 @@ impl ::std::cmp::PartialEq for NDR64_STRUCTURE_FLAGS {
 impl ::std::cmp::Eq for NDR64_STRUCTURE_FLAGS {}
 unsafe impl ::windows::runtime::Abi for NDR64_STRUCTURE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3956,7 +3873,6 @@ impl ::std::cmp::PartialEq for NDR64_STRUCTURE_HEADER_FORMAT {
 impl ::std::cmp::Eq for NDR64_STRUCTURE_HEADER_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_STRUCTURE_HEADER_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3985,7 +3901,6 @@ impl ::std::cmp::PartialEq for NDR64_SYSTEM_HANDLE_FORMAT {
 impl ::std::cmp::Eq for NDR64_SYSTEM_HANDLE_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_SYSTEM_HANDLE_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4012,7 +3927,6 @@ impl ::std::cmp::PartialEq for NDR64_TRANSMIT_AS_FLAGS {
 impl ::std::cmp::Eq for NDR64_TRANSMIT_AS_FLAGS {}
 unsafe impl ::windows::runtime::Abi for NDR64_TRANSMIT_AS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4055,7 +3969,6 @@ impl ::std::cmp::PartialEq for NDR64_TRANSMIT_AS_FORMAT {
 impl ::std::cmp::Eq for NDR64_TRANSMIT_AS_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_TRANSMIT_AS_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4087,7 +4000,6 @@ impl ::std::cmp::PartialEq for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
 impl ::std::cmp::Eq for NDR64_TYPE_STRICT_CONTEXT_HANDLE {}
 unsafe impl ::windows::runtime::Abi for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4116,7 +4028,6 @@ impl ::std::cmp::PartialEq for NDR64_UNION_ARM {
 impl ::std::cmp::Eq for NDR64_UNION_ARM {}
 unsafe impl ::windows::runtime::Abi for NDR64_UNION_ARM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4146,7 +4057,6 @@ impl ::std::cmp::PartialEq for NDR64_UNION_ARM_SELECTOR {
 impl ::std::cmp::Eq for NDR64_UNION_ARM_SELECTOR {}
 unsafe impl ::windows::runtime::Abi for NDR64_UNION_ARM_SELECTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4173,7 +4083,6 @@ impl ::std::cmp::PartialEq for NDR64_USER_MARSHAL_FLAGS {
 impl ::std::cmp::Eq for NDR64_USER_MARSHAL_FLAGS {}
 unsafe impl ::windows::runtime::Abi for NDR64_USER_MARSHAL_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4216,7 +4125,6 @@ impl ::std::cmp::PartialEq for NDR64_USER_MARSHAL_FORMAT {
 impl ::std::cmp::Eq for NDR64_USER_MARSHAL_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_USER_MARSHAL_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4257,7 +4165,6 @@ impl ::std::cmp::PartialEq for NDR64_VAR_ARRAY_HEADER_FORMAT {
 impl ::std::cmp::Eq for NDR64_VAR_ARRAY_HEADER_FORMAT {}
 unsafe impl ::windows::runtime::Abi for NDR64_VAR_ARRAY_HEADER_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
@@ -4414,7 +4321,6 @@ impl ::std::cmp::PartialEq for NDR_CS_ROUTINES {
 impl ::std::cmp::Eq for NDR_CS_ROUTINES {}
 unsafe impl ::windows::runtime::Abi for NDR_CS_ROUTINES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4444,7 +4350,6 @@ impl ::std::cmp::PartialEq for NDR_CS_SIZE_CONVERT_ROUTINES {
 impl ::std::cmp::Eq for NDR_CS_SIZE_CONVERT_ROUTINES {}
 unsafe impl ::windows::runtime::Abi for NDR_CS_SIZE_CONVERT_ROUTINES {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const NDR_CUSTOM_OR_DEFAULT_ALLOCATOR: u32 = 268435456u32;
@@ -4476,7 +4381,6 @@ impl ::std::cmp::PartialEq for NDR_EXPR_DESC {
 impl ::std::cmp::Eq for NDR_EXPR_DESC {}
 unsafe impl ::windows::runtime::Abi for NDR_EXPR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type NDR_NOTIFY2_ROUTINE = unsafe extern "system" fn(flag: u8);
 pub type NDR_NOTIFY_ROUTINE = unsafe extern "system" fn();
@@ -4510,7 +4414,6 @@ impl ::std::cmp::PartialEq for NDR_SCONTEXT_1 {
 impl ::std::cmp::Eq for NDR_SCONTEXT_1 {}
 unsafe impl ::windows::runtime::Abi for NDR_SCONTEXT_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::clone::Clone for NDR_USER_MARSHAL_INFO {
@@ -4544,7 +4447,6 @@ impl ::std::cmp::Eq for NDR_USER_MARSHAL_INFO {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for NDR_USER_MARSHAL_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::clone::Clone for NDR_USER_MARSHAL_INFO_0 {
@@ -4577,7 +4479,6 @@ impl ::std::cmp::Eq for NDR_USER_MARSHAL_INFO_0 {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for NDR_USER_MARSHAL_INFO_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4616,7 +4517,6 @@ impl ::std::cmp::Eq for NDR_USER_MARSHAL_INFO_LEVEL1 {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for NDR_USER_MARSHAL_INFO_LEVEL1 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const NT351_INTERFACE_SIZE: u32 = 64u32;
@@ -7214,7 +7114,6 @@ impl ::std::convert::From<i32> for PROXY_PHASE {
 }
 unsafe impl ::windows::runtime::Abi for PROXY_PHASE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type PRPC_RUNDOWN = unsafe extern "system" fn(associationcontext: *mut ::std::ffi::c_void);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -7283,7 +7182,6 @@ impl ::std::cmp::PartialEq for RDR_CALLOUT_STATE {
 impl ::std::cmp::Eq for RDR_CALLOUT_STATE {}
 unsafe impl ::windows::runtime::Abi for RDR_CALLOUT_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const RPCFLG_ACCESSIBILITY_BIT1: u32 = 1048576u32;
@@ -7331,7 +7229,6 @@ impl ::std::convert::From<i32> for RPC_ADDRESS_CHANGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RPC_ADDRESS_CHANGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7349,7 +7246,6 @@ impl ::std::convert::From<i32> for RPC_ASYNC_EVENT {
 }
 unsafe impl ::windows::runtime::Abi for RPC_ASYNC_EVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::clone::Clone for RPC_ASYNC_NOTIFICATION_INFO {
@@ -7386,7 +7282,6 @@ impl ::std::cmp::Eq for RPC_ASYNC_NOTIFICATION_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::runtime::Abi for RPC_ASYNC_NOTIFICATION_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -7421,7 +7316,6 @@ impl ::std::cmp::Eq for RPC_ASYNC_NOTIFICATION_INFO_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::runtime::Abi for RPC_ASYNC_NOTIFICATION_INFO_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7458,7 +7352,6 @@ impl ::std::cmp::Eq for RPC_ASYNC_NOTIFICATION_INFO_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::runtime::Abi for RPC_ASYNC_NOTIFICATION_INFO_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7493,7 +7386,6 @@ impl ::std::cmp::Eq for RPC_ASYNC_NOTIFICATION_INFO_2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RPC_ASYNC_NOTIFICATION_INFO_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::clone::Clone for RPC_ASYNC_STATE {
@@ -7536,7 +7428,6 @@ impl ::std::cmp::Eq for RPC_ASYNC_STATE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::runtime::Abi for RPC_ASYNC_STATE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 pub type RPC_AUTH_KEY_RETRIEVAL_FN = unsafe extern "system" fn(arg: *const ::std::ffi::c_void, serverprincname: *const u16, keyver: u32, key: *mut *mut ::std::ffi::c_void, status: *mut RPC_STATUS);
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -7556,7 +7447,6 @@ impl ::std::convert::From<u32> for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
     type Output = Self;
@@ -7614,7 +7504,6 @@ impl ::std::cmp::PartialEq for RPC_BINDING_HANDLE_OPTIONS_V1 {
 impl ::std::cmp::Eq for RPC_BINDING_HANDLE_OPTIONS_V1 {}
 unsafe impl ::windows::runtime::Abi for RPC_BINDING_HANDLE_OPTIONS_V1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7653,7 +7542,6 @@ impl ::std::cmp::Eq for RPC_BINDING_HANDLE_SECURITY_V1_A {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for RPC_BINDING_HANDLE_SECURITY_V1_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7692,7 +7580,6 @@ impl ::std::cmp::Eq for RPC_BINDING_HANDLE_SECURITY_V1_W {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for RPC_BINDING_HANDLE_SECURITY_V1_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7720,7 +7607,6 @@ impl ::std::cmp::PartialEq for RPC_BINDING_HANDLE_TEMPLATE_V1_A {
 impl ::std::cmp::Eq for RPC_BINDING_HANDLE_TEMPLATE_V1_A {}
 unsafe impl ::windows::runtime::Abi for RPC_BINDING_HANDLE_TEMPLATE_V1_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7742,7 +7628,6 @@ impl ::std::cmp::PartialEq for RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {
 impl ::std::cmp::Eq for RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {}
 unsafe impl ::windows::runtime::Abi for RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7770,7 +7655,6 @@ impl ::std::cmp::PartialEq for RPC_BINDING_HANDLE_TEMPLATE_V1_W {
 impl ::std::cmp::Eq for RPC_BINDING_HANDLE_TEMPLATE_V1_W {}
 unsafe impl ::windows::runtime::Abi for RPC_BINDING_HANDLE_TEMPLATE_V1_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7792,7 +7676,6 @@ impl ::std::cmp::PartialEq for RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {
 impl ::std::cmp::Eq for RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {}
 unsafe impl ::windows::runtime::Abi for RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7820,7 +7703,6 @@ impl ::std::cmp::PartialEq for RPC_BINDING_VECTOR {
 impl ::std::cmp::Eq for RPC_BINDING_VECTOR {}
 unsafe impl ::windows::runtime::Abi for RPC_BINDING_VECTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type RPC_BLOCKING_FN = unsafe extern "system" fn(hwnd: *mut ::std::ffi::c_void, context: *mut ::std::ffi::c_void, hsyncevent: *mut ::std::ffi::c_void) -> RPC_STATUS;
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -7891,7 +7773,6 @@ impl ::std::cmp::Eq for RPC_CALL_ATTRIBUTES_V1_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RPC_CALL_ATTRIBUTES_V1_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7951,7 +7832,6 @@ impl ::std::cmp::Eq for RPC_CALL_ATTRIBUTES_V1_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RPC_CALL_ATTRIBUTES_V1_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8038,7 +7918,6 @@ impl ::std::cmp::Eq for RPC_CALL_ATTRIBUTES_V2_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RPC_CALL_ATTRIBUTES_V2_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8125,7 +8004,6 @@ impl ::std::cmp::Eq for RPC_CALL_ATTRIBUTES_V2_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RPC_CALL_ATTRIBUTES_V2_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8218,7 +8096,6 @@ impl ::std::cmp::Eq for RPC_CALL_ATTRIBUTES_V3_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RPC_CALL_ATTRIBUTES_V3_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8311,7 +8188,6 @@ impl ::std::cmp::Eq for RPC_CALL_ATTRIBUTES_V3_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RPC_CALL_ATTRIBUTES_V3_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const RPC_CALL_ATTRIBUTES_VERSION: u32 = 2u32;
@@ -8343,7 +8219,6 @@ impl ::std::cmp::PartialEq for RPC_CALL_LOCAL_ADDRESS_V1 {
 impl ::std::cmp::Eq for RPC_CALL_LOCAL_ADDRESS_V1 {}
 unsafe impl ::windows::runtime::Abi for RPC_CALL_LOCAL_ADDRESS_V1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const RPC_CALL_STATUS_CANCELLED: u32 = 1u32;
@@ -8379,7 +8254,6 @@ impl ::std::cmp::PartialEq for RPC_CLIENT_INFORMATION1 {
 impl ::std::cmp::Eq for RPC_CLIENT_INFORMATION1 {}
 unsafe impl ::windows::runtime::Abi for RPC_CLIENT_INFORMATION1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8424,7 +8298,6 @@ impl ::std::cmp::PartialEq for RPC_CLIENT_INTERFACE {
 impl ::std::cmp::Eq for RPC_CLIENT_INTERFACE {}
 unsafe impl ::windows::runtime::Abi for RPC_CLIENT_INTERFACE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const RPC_CONTEXT_HANDLE_DEFAULT_FLAGS: u32 = 0u32;
@@ -8467,7 +8340,6 @@ impl ::std::convert::From<u32> for RPC_C_AUTHN_INFO_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RPC_C_AUTHN_INFO_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for RPC_C_AUTHN_INFO_TYPE {
     type Output = Self;
@@ -8574,7 +8446,6 @@ impl ::std::convert::From<u32> for RPC_C_HTTP_AUTHN_TARGET {
 }
 unsafe impl ::windows::runtime::Abi for RPC_C_HTTP_AUTHN_TARGET {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for RPC_C_HTTP_AUTHN_TARGET {
     type Output = Self;
@@ -8619,7 +8490,6 @@ impl ::std::convert::From<u32> for RPC_C_HTTP_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for RPC_C_HTTP_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for RPC_C_HTTP_FLAGS {
     type Output = Self;
@@ -8730,7 +8600,6 @@ impl ::std::cmp::Eq for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const RPC_C_OPT_DONT_LINGER: u32 = 13u32;
@@ -8808,7 +8677,6 @@ impl ::std::convert::From<u32> for RPC_C_QOS_CAPABILITIES {
 }
 unsafe impl ::windows::runtime::Abi for RPC_C_QOS_CAPABILITIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for RPC_C_QOS_CAPABILITIES {
     type Output = Self;
@@ -8851,7 +8719,6 @@ impl ::std::convert::From<u32> for RPC_C_QOS_IDENTITY {
 }
 unsafe impl ::windows::runtime::Abi for RPC_C_QOS_IDENTITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for RPC_C_QOS_IDENTITY {
     type Output = Self;
@@ -8947,7 +8814,6 @@ impl ::std::cmp::PartialEq for RPC_DISPATCH_TABLE {
 impl ::std::cmp::Eq for RPC_DISPATCH_TABLE {}
 unsafe impl ::windows::runtime::Abi for RPC_DISPATCH_TABLE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const RPC_EEINFO_VERSION: u32 = 1u32;
@@ -8978,7 +8844,6 @@ impl ::std::cmp::Eq for RPC_EE_INFO_PARAM {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RPC_EE_INFO_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9011,7 +8876,6 @@ impl ::std::cmp::Eq for RPC_EE_INFO_PARAM_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RPC_EE_INFO_PARAM_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9042,7 +8906,6 @@ impl ::std::cmp::PartialEq for RPC_ENDPOINT_TEMPLATEA {
 impl ::std::cmp::Eq for RPC_ENDPOINT_TEMPLATEA {}
 unsafe impl ::windows::runtime::Abi for RPC_ENDPOINT_TEMPLATEA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9073,7 +8936,6 @@ impl ::std::cmp::PartialEq for RPC_ENDPOINT_TEMPLATEW {
 impl ::std::cmp::Eq for RPC_ENDPOINT_TEMPLATEW {}
 unsafe impl ::windows::runtime::Abi for RPC_ENDPOINT_TEMPLATEW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9102,7 +8964,6 @@ impl ::std::cmp::PartialEq for RPC_ERROR_ENUM_HANDLE {
 impl ::std::cmp::Eq for RPC_ERROR_ENUM_HANDLE {}
 unsafe impl ::windows::runtime::Abi for RPC_ERROR_ENUM_HANDLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9139,7 +9000,6 @@ impl ::std::cmp::Eq for RPC_EXTENDED_ERROR_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RPC_EXTENDED_ERROR_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9168,7 +9028,6 @@ impl ::std::cmp::Eq for RPC_EXTENDED_ERROR_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RPC_EXTENDED_ERROR_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const RPC_FLAGS_VALID_BIT: u32 = 32768u32;
@@ -9192,7 +9051,6 @@ impl ::std::convert::From<i32> for RPC_HTTP_REDIRECTOR_STAGE {
 }
 unsafe impl ::windows::runtime::Abi for RPC_HTTP_REDIRECTOR_STAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9231,7 +9089,6 @@ impl ::std::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
 impl ::std::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_A {}
 unsafe impl ::windows::runtime::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9276,7 +9133,6 @@ impl ::std::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
 impl ::std::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {}
 unsafe impl ::windows::runtime::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9321,7 +9177,6 @@ impl ::std::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
 impl ::std::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {}
 unsafe impl ::windows::runtime::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9366,7 +9221,6 @@ impl ::std::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
 impl ::std::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {}
 unsafe impl ::windows::runtime::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9411,7 +9265,6 @@ impl ::std::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
 impl ::std::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {}
 unsafe impl ::windows::runtime::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9450,7 +9303,6 @@ impl ::std::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
 impl ::std::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_W {}
 unsafe impl ::windows::runtime::Abi for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const RPC_IF_ALLOW_CALLBACKS_WITH_NO_AUTH: u32 = 16u32;
@@ -9492,7 +9344,6 @@ impl ::std::cmp::PartialEq for RPC_IF_ID {
 impl ::std::cmp::Eq for RPC_IF_ID {}
 unsafe impl ::windows::runtime::Abi for RPC_IF_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9520,7 +9371,6 @@ impl ::std::cmp::PartialEq for RPC_IF_ID_VECTOR {
 impl ::std::cmp::Eq for RPC_IF_ID_VECTOR {}
 unsafe impl ::windows::runtime::Abi for RPC_IF_ID_VECTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const RPC_IF_OLE: u32 = 2u32;
@@ -9577,7 +9427,6 @@ impl ::std::cmp::PartialEq for RPC_INTERFACE_TEMPLATEA {
 impl ::std::cmp::Eq for RPC_INTERFACE_TEMPLATEA {}
 unsafe impl ::windows::runtime::Abi for RPC_INTERFACE_TEMPLATEA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -9625,7 +9474,6 @@ impl ::std::cmp::PartialEq for RPC_INTERFACE_TEMPLATEW {
 impl ::std::cmp::Eq for RPC_INTERFACE_TEMPLATEW {}
 unsafe impl ::windows::runtime::Abi for RPC_INTERFACE_TEMPLATEW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9674,7 +9522,6 @@ impl ::std::cmp::PartialEq for RPC_MESSAGE {
 impl ::std::cmp::Eq for RPC_MESSAGE {}
 unsafe impl ::windows::runtime::Abi for RPC_MESSAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type RPC_MGMT_AUTHORIZATION_FN = unsafe extern "system" fn(clientbinding: *const ::std::ffi::c_void, requestedmgmtoperation: u32, status: *mut RPC_STATUS) -> i32;
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -9700,7 +9547,6 @@ impl ::std::convert::From<i32> for RPC_NOTIFICATIONS {
 }
 unsafe impl ::windows::runtime::Abi for RPC_NOTIFICATIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9719,7 +9565,6 @@ impl ::std::convert::From<i32> for RPC_NOTIFICATION_TYPES {
 }
 unsafe impl ::windows::runtime::Abi for RPC_NOTIFICATION_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type RPC_OBJECT_INQ_FN = unsafe extern "system" fn(objectuuid: *const ::windows::runtime::GUID, typeuuid: *mut ::windows::runtime::GUID, status: *mut RPC_STATUS);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -9749,7 +9594,6 @@ impl ::std::cmp::PartialEq for RPC_POLICY {
 impl ::std::cmp::Eq for RPC_POLICY {}
 unsafe impl ::windows::runtime::Abi for RPC_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9777,7 +9621,6 @@ impl ::std::cmp::PartialEq for RPC_PROTSEQ_ENDPOINT {
 impl ::std::cmp::Eq for RPC_PROTSEQ_ENDPOINT {}
 unsafe impl ::windows::runtime::Abi for RPC_PROTSEQ_ENDPOINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const RPC_PROTSEQ_HTTP: u32 = 4u32;
@@ -9813,7 +9656,6 @@ impl ::std::cmp::PartialEq for RPC_PROTSEQ_VECTORA {
 impl ::std::cmp::Eq for RPC_PROTSEQ_VECTORA {}
 unsafe impl ::windows::runtime::Abi for RPC_PROTSEQ_VECTORA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9841,7 +9683,6 @@ impl ::std::cmp::PartialEq for RPC_PROTSEQ_VECTORW {
 impl ::std::cmp::Eq for RPC_PROTSEQ_VECTORW {}
 unsafe impl ::windows::runtime::Abi for RPC_PROTSEQ_VECTORW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const RPC_PROXY_CONNECTION_TYPE_IN_PROXY: u32 = 0u32;
@@ -9901,7 +9742,6 @@ impl ::std::cmp::Eq for RPC_SECURITY_QOS {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9934,7 +9774,6 @@ impl ::std::cmp::Eq for RPC_SECURITY_QOS_V2_A {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V2_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9956,7 +9795,6 @@ impl ::std::cmp::PartialEq for RPC_SECURITY_QOS_V2_A_0 {
 impl ::std::cmp::Eq for RPC_SECURITY_QOS_V2_A_0 {}
 unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V2_A_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9989,7 +9827,6 @@ impl ::std::cmp::Eq for RPC_SECURITY_QOS_V2_W {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V2_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10011,7 +9848,6 @@ impl ::std::cmp::PartialEq for RPC_SECURITY_QOS_V2_W_0 {
 impl ::std::cmp::Eq for RPC_SECURITY_QOS_V2_W_0 {}
 unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V2_W_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10045,7 +9881,6 @@ impl ::std::cmp::Eq for RPC_SECURITY_QOS_V3_A {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V3_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10067,7 +9902,6 @@ impl ::std::cmp::PartialEq for RPC_SECURITY_QOS_V3_A_0 {
 impl ::std::cmp::Eq for RPC_SECURITY_QOS_V3_A_0 {}
 unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V3_A_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10101,7 +9935,6 @@ impl ::std::cmp::Eq for RPC_SECURITY_QOS_V3_W {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V3_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10123,7 +9956,6 @@ impl ::std::cmp::PartialEq for RPC_SECURITY_QOS_V3_W_0 {
 impl ::std::cmp::Eq for RPC_SECURITY_QOS_V3_W_0 {}
 unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V3_W_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10158,7 +9990,6 @@ impl ::std::cmp::Eq for RPC_SECURITY_QOS_V4_A {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V4_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10180,7 +10011,6 @@ impl ::std::cmp::PartialEq for RPC_SECURITY_QOS_V4_A_0 {
 impl ::std::cmp::Eq for RPC_SECURITY_QOS_V4_A_0 {}
 unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V4_A_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10215,7 +10045,6 @@ impl ::std::cmp::Eq for RPC_SECURITY_QOS_V4_W {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V4_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10237,7 +10066,6 @@ impl ::std::cmp::PartialEq for RPC_SECURITY_QOS_V4_W_0 {
 impl ::std::cmp::Eq for RPC_SECURITY_QOS_V4_W_0 {}
 unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V4_W_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10273,7 +10101,6 @@ impl ::std::cmp::Eq for RPC_SECURITY_QOS_V5_A {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V5_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10295,7 +10122,6 @@ impl ::std::cmp::PartialEq for RPC_SECURITY_QOS_V5_A_0 {
 impl ::std::cmp::Eq for RPC_SECURITY_QOS_V5_A_0 {}
 unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V5_A_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10331,7 +10157,6 @@ impl ::std::cmp::Eq for RPC_SECURITY_QOS_V5_W {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V5_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10353,7 +10178,6 @@ impl ::std::cmp::PartialEq for RPC_SECURITY_QOS_V5_W_0 {
 impl ::std::cmp::Eq for RPC_SECURITY_QOS_V5_W_0 {}
 unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V5_W_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10382,7 +10206,6 @@ impl ::std::cmp::PartialEq for RPC_SEC_CONTEXT_KEY_INFO {
 impl ::std::cmp::Eq for RPC_SEC_CONTEXT_KEY_INFO {}
 unsafe impl ::windows::runtime::Abi for RPC_SEC_CONTEXT_KEY_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10427,7 +10250,6 @@ impl ::std::cmp::PartialEq for RPC_SERVER_INTERFACE {
 impl ::std::cmp::Eq for RPC_SERVER_INTERFACE {}
 unsafe impl ::windows::runtime::Abi for RPC_SERVER_INTERFACE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type RPC_SETFILTER_FUNC = unsafe extern "system" fn(pfnfilter: ::windows::runtime::RawPtr);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -10456,7 +10278,6 @@ impl ::std::cmp::PartialEq for RPC_STATS_VECTOR {
 impl ::std::cmp::Eq for RPC_STATS_VECTOR {}
 unsafe impl ::windows::runtime::Abi for RPC_STATS_VECTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10569,7 +10390,6 @@ impl ::std::convert::From<i32> for RPC_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for RPC_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10597,7 +10417,6 @@ impl ::std::cmp::PartialEq for RPC_SYNTAX_IDENTIFIER {
 impl ::std::cmp::Eq for RPC_SYNTAX_IDENTIFIER {}
 unsafe impl ::windows::runtime::Abi for RPC_SYNTAX_IDENTIFIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const RPC_SYSTEM_HANDLE_FREE_ALL: u32 = 3u32;
@@ -10634,7 +10453,6 @@ impl ::std::cmp::PartialEq for RPC_TRANSFER_SYNTAX {
 impl ::std::cmp::Eq for RPC_TRANSFER_SYNTAX {}
 unsafe impl ::windows::runtime::Abi for RPC_TRANSFER_SYNTAX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const RPC_TYPE_DISCONNECT_EVENT_CONTEXT_HANDLE: u32 = 2147483648u32;
@@ -10666,7 +10484,6 @@ impl ::std::cmp::PartialEq for RPC_VERSION {
 impl ::std::cmp::Eq for RPC_VERSION {}
 unsafe impl ::windows::runtime::Abi for RPC_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_System_IO`*"]
@@ -11218,7 +11035,6 @@ impl ::std::convert::From<i32> for RpcCallClientLocality {
 }
 unsafe impl ::windows::runtime::Abi for RpcCallClientLocality {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11235,7 +11051,6 @@ impl ::std::convert::From<i32> for RpcCallType {
 }
 unsafe impl ::windows::runtime::Abi for RpcCallType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
@@ -11643,7 +11458,6 @@ impl ::std::convert::From<i32> for RpcLocalAddressFormat {
 }
 unsafe impl ::windows::runtime::Abi for RpcLocalAddressFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
@@ -12904,7 +12718,6 @@ impl ::std::convert::From<i32> for RpcProxyPerfCounters {
 }
 unsafe impl ::windows::runtime::Abi for RpcProxyPerfCounters {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
@@ -14057,7 +13870,6 @@ impl ::std::cmp::PartialEq for SCONTEXT_QUEUE {
 impl ::std::cmp::Eq for SCONTEXT_QUEUE {}
 unsafe impl ::windows::runtime::Abi for SCONTEXT_QUEUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14072,7 +13884,6 @@ impl ::std::convert::From<u32> for SEC_WINNT_AUTH_IDENTITY {
 }
 unsafe impl ::windows::runtime::Abi for SEC_WINNT_AUTH_IDENTITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SEC_WINNT_AUTH_IDENTITY {
     type Output = Self;
@@ -14133,7 +13944,6 @@ impl ::std::cmp::PartialEq for SEC_WINNT_AUTH_IDENTITY_A {
 impl ::std::cmp::Eq for SEC_WINNT_AUTH_IDENTITY_A {}
 unsafe impl ::windows::runtime::Abi for SEC_WINNT_AUTH_IDENTITY_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -14166,7 +13976,6 @@ impl ::std::cmp::PartialEq for SEC_WINNT_AUTH_IDENTITY_W {
 impl ::std::cmp::Eq for SEC_WINNT_AUTH_IDENTITY_W {}
 unsafe impl ::windows::runtime::Abi for SEC_WINNT_AUTH_IDENTITY_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type SERVER_ROUTINE = unsafe extern "system" fn() -> i32;
 #[doc = "*Required features: `Win32_System_Rpc`*"]
@@ -14184,7 +13993,6 @@ impl ::std::convert::From<i32> for STUB_PHASE {
 }
 unsafe impl ::windows::runtime::Abi for STUB_PHASE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
 pub type STUB_THUNK = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
@@ -14256,7 +14064,6 @@ impl ::std::cmp::Eq for USER_MARSHAL_CB {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for USER_MARSHAL_CB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14273,7 +14080,6 @@ impl ::std::convert::From<i32> for USER_MARSHAL_CB_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for USER_MARSHAL_CB_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const USER_MARSHAL_FC_BYTE: u32 = 1u32;
@@ -14329,7 +14135,6 @@ impl ::std::cmp::PartialEq for USER_MARSHAL_ROUTINE_QUADRUPLE {
 impl ::std::cmp::Eq for USER_MARSHAL_ROUTINE_QUADRUPLE {}
 unsafe impl ::windows::runtime::Abi for USER_MARSHAL_ROUTINE_QUADRUPLE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 pub type USER_MARSHAL_SIZING_ROUTINE = unsafe extern "system" fn(param0: *mut u32, param1: u32, param2: *mut ::std::ffi::c_void) -> u32;
 pub type USER_MARSHAL_UNMARSHALLING_ROUTINE = unsafe extern "system" fn(param0: *mut u32, param1: *mut u8, param2: *mut ::std::ffi::c_void) -> *mut u8;
@@ -14359,7 +14164,6 @@ impl ::std::cmp::PartialEq for UUID_VECTOR {
 impl ::std::cmp::Eq for UUID_VECTOR {}
 unsafe impl ::windows::runtime::Abi for UUID_VECTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 #[inline]
@@ -14528,7 +14332,6 @@ impl ::std::convert::From<i32> for XLAT_SIDE {
 }
 unsafe impl ::windows::runtime::Abi for XLAT_SIDE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
 pub type XMIT_HELPER_ROUTINE = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
@@ -14567,7 +14370,6 @@ impl ::std::cmp::Eq for XMIT_ROUTINE_QUINTUPLE {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for XMIT_ROUTINE_QUINTUPLE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -14604,7 +14406,6 @@ impl ::std::cmp::PartialEq for _NDR_SCONTEXT {
 impl ::std::cmp::Eq for _NDR_SCONTEXT {}
 unsafe impl ::windows::runtime::Abi for _NDR_SCONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Rpc`*"]
 pub const __RPCPROXY_H_VERSION__: u32 = 475u32;
@@ -14634,5 +14435,4 @@ impl ::std::convert::From<i32> for system_handle_t {
 }
 unsafe impl ::windows::runtime::Abi for system_handle_t {
     type Abi = Self;
-    type DefaultType = Self;
 }

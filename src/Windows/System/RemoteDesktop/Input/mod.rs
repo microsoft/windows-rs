@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteTextConnection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteTextConnection {
@@ -23,7 +22,6 @@ pub struct IRemoteTextConnection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pduData_array_size: u32, pdudata: *const u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteTextConnectionFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteTextConnectionFactory {
@@ -76,7 +74,7 @@ impl RemoteTextConnection {
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), threadid).ok() }
     }
     #[doc = "*Required features: `System_RemoteDesktop_Input`*"]
-    pub fn ReportDataReceived(&self, pdudata: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn ReportDataReceived(&self, pdudata: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), pdudata.len() as u32, ::std::mem::transmute(pdudata.as_ptr())).ok() }
     }
@@ -135,7 +133,7 @@ unsafe impl ::std::marker::Sync for RemoteTextConnection {}
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct RemoteTextConnectionDataHandler(::windows::runtime::IUnknown);
 impl RemoteTextConnectionDataHandler {
-    pub fn new<F: FnMut(&[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<bool> + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<bool> + 'static>(invoke: F) -> Self {
         let com = RemoteTextConnectionDataHandler_box::<F> {
             vtable: &RemoteTextConnectionDataHandler_box::<F>::VTABLE,
             count: ::windows::runtime::RefCount::new(1),
@@ -144,7 +142,7 @@ impl RemoteTextConnectionDataHandler {
         unsafe { std::mem::transmute(::std::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `System_RemoteDesktop_Input`*"]
-    pub fn Invoke(&self, pdudata: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<bool> {
+    pub fn Invoke(&self, pdudata: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::std::mem::zeroed();
@@ -168,12 +166,12 @@ pub struct RemoteTextConnectionDataHandler_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pduData_array_size: u32, pdudata: *const u8, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(C)]
-struct RemoteTextConnectionDataHandler_box<F: FnMut(&[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<bool> + 'static> {
+struct RemoteTextConnectionDataHandler_box<F: FnMut(&[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<bool> + 'static> {
     vtable: *const RemoteTextConnectionDataHandler_abi,
     invoke: F,
     count: ::windows::runtime::RefCount,
 }
-impl<F: FnMut(&[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<bool> + 'static> RemoteTextConnectionDataHandler_box<F> {
+impl<F: FnMut(&[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<bool> + 'static> RemoteTextConnectionDataHandler_box<F> {
     const VTABLE: RemoteTextConnectionDataHandler_abi = RemoteTextConnectionDataHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;

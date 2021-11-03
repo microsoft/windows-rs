@@ -4,7 +4,6 @@ pub mod Provider;
 #[cfg(feature = "ApplicationModel_UserDataAccounts_SystemAccess")]
 pub mod SystemAccess;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataAccount(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccount {
@@ -43,7 +42,6 @@ pub struct IUserDataAccount_abi(
     #[cfg(not(all(feature = "ApplicationModel_Contacts", feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataAccount2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccount2 {
@@ -63,7 +61,6 @@ pub struct IUserDataAccount2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataAccount3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccount3 {
@@ -85,7 +82,6 @@ pub struct IUserDataAccount3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataAccount4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccount4 {
@@ -116,7 +112,6 @@ pub struct IUserDataAccount4_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataAccountManagerForUser(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountManagerForUser {
@@ -138,7 +133,6 @@ pub struct IUserDataAccountManagerForUser_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataAccountManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountManagerStatics {
@@ -164,7 +158,6 @@ pub struct IUserDataAccountManagerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataAccountManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountManagerStatics2 {
@@ -184,7 +177,6 @@ pub struct IUserDataAccountManagerStatics2_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataAccountStore(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountStore {
@@ -208,7 +200,6 @@ pub struct IUserDataAccountStore_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataAccountStore2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountStore2 {
@@ -232,7 +223,6 @@ pub struct IUserDataAccountStore2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataAccountStore3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountStore3 {
@@ -252,7 +242,6 @@ pub struct IUserDataAccountStore3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDataAccountStoreChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataAccountStoreChangedEventArgs {
@@ -516,10 +505,12 @@ impl ::std::convert::From<u32> for UserDataAccountContentKinds {
 }
 unsafe impl ::windows::runtime::Abi for UserDataAccountContentKinds {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserDataAccountContentKinds {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.UserDataAccountContentKinds;u4)");
+}
+impl ::windows::runtime::DefaultType for UserDataAccountContentKinds {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for UserDataAccountContentKinds {
     type Output = Self;
@@ -656,10 +647,12 @@ impl ::std::convert::From<i32> for UserDataAccountOtherAppReadAccess {
 }
 unsafe impl ::windows::runtime::Abi for UserDataAccountOtherAppReadAccess {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserDataAccountOtherAppReadAccess {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.UserDataAccountOtherAppReadAccess;i4)");
+}
+impl ::windows::runtime::DefaultType for UserDataAccountOtherAppReadAccess {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_UserDataAccounts`*"]
 #[repr(transparent)]
@@ -754,10 +747,12 @@ impl ::std::convert::From<i32> for UserDataAccountStoreAccessType {
 }
 unsafe impl ::windows::runtime::Abi for UserDataAccountStoreAccessType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserDataAccountStoreAccessType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.UserDataAccountStoreAccessType;i4)");
+}
+impl ::windows::runtime::DefaultType for UserDataAccountStoreAccessType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_UserDataAccounts`*"]
 #[repr(transparent)]

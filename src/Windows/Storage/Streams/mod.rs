@@ -104,10 +104,12 @@ impl ::std::convert::From<i32> for ByteOrder {
 }
 unsafe impl ::windows::runtime::Abi for ByteOrder {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ByteOrder {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.ByteOrder;i4)");
+}
+impl ::windows::runtime::DefaultType for ByteOrder {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Storage_Streams`*"]
 #[repr(transparent)]
@@ -170,7 +172,7 @@ impl DataReader {
         }
     }
     #[doc = "*Required features: `Storage_Streams`*"]
-    pub fn ReadBytes(&self, value: &mut [<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn ReadBytes(&self, value: &mut [<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute_copy(&value)).ok() }
     }
@@ -617,7 +619,7 @@ impl DataWriter {
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Storage_Streams`*"]
-    pub fn WriteBytes(&self, value: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn WriteBytes(&self, value: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr())).ok() }
     }
@@ -1081,10 +1083,12 @@ impl ::std::convert::From<i32> for FileOpenDisposition {
 }
 unsafe impl ::windows::runtime::Abi for FileOpenDisposition {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for FileOpenDisposition {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.FileOpenDisposition;i4)");
+}
+impl ::windows::runtime::DefaultType for FileOpenDisposition {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Storage_Streams`*"]
 #[repr(transparent)]
@@ -1497,7 +1501,6 @@ pub struct IBuffer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBufferFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBufferFactory {
@@ -1516,7 +1519,6 @@ pub struct IBufferFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, capacity: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBufferStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBufferStatics {
@@ -1634,7 +1636,7 @@ impl IDataReader {
         }
     }
     #[doc = "*Required features: `Storage_Streams`*"]
-    pub fn ReadBytes(&self, value: &mut [<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn ReadBytes(&self, value: &mut [<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute_copy(&value)).ok() }
     }
@@ -1821,7 +1823,6 @@ pub struct IDataReader_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataReaderFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataReaderFactory {
@@ -1840,7 +1841,6 @@ pub struct IDataReaderFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputstream: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataReaderStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataReaderStatics {
@@ -1907,7 +1907,7 @@ impl IDataWriter {
         unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: `Storage_Streams`*"]
-    pub fn WriteBytes(&self, value: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn WriteBytes(&self, value: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), value.len() as u32, ::std::mem::transmute(value.as_ptr())).ok() }
     }
@@ -2079,7 +2079,6 @@ pub struct IDataWriter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataWriterFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataWriterFactory {
@@ -2098,7 +2097,6 @@ pub struct IDataWriterFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, outputstream: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFileRandomAccessStreamStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileRandomAccessStreamStatics {
@@ -2586,7 +2584,6 @@ pub struct IRandomAccessStreamReference_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRandomAccessStreamReferenceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRandomAccessStreamReferenceStatics {
@@ -2608,7 +2605,6 @@ pub struct IRandomAccessStreamReferenceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, stream: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRandomAccessStreamStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRandomAccessStreamStatics {
@@ -3105,10 +3101,12 @@ impl ::std::convert::From<u32> for InputStreamOptions {
 }
 unsafe impl ::windows::runtime::Abi for InputStreamOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for InputStreamOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.InputStreamOptions;u4)");
+}
+impl ::windows::runtime::DefaultType for InputStreamOptions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for InputStreamOptions {
     type Output = Self;
@@ -3636,8 +3634,10 @@ impl ::std::convert::From<i32> for UnicodeEncoding {
 }
 unsafe impl ::windows::runtime::Abi for UnicodeEncoding {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UnicodeEncoding {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.UnicodeEncoding;i4)");
+}
+impl ::windows::runtime::DefaultType for UnicodeEncoding {
+    type DefaultType = Self;
 }

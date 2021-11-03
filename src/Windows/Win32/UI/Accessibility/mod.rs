@@ -26,7 +26,6 @@ impl ::std::cmp::PartialEq for ACCESSTIMEOUT {
 impl ::std::cmp::Eq for ACCESSTIMEOUT {}
 unsafe impl ::windows::runtime::Abi for ACCESSTIMEOUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -43,7 +42,6 @@ impl ::std::convert::From<u32> for ACC_UTILITY_STATE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for ACC_UTILITY_STATE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ACC_UTILITY_STATE_FLAGS {
     type Output = Self;
@@ -181,7 +179,6 @@ impl ::std::convert::From<i32> for ActiveEnd {
 }
 unsafe impl ::windows::runtime::Abi for ActiveEnd {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const ActiveTextPositionChanged_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2780864156, 51069, 20261, [180, 145, 229, 187, 112, 23, 203, 212]);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -203,7 +200,6 @@ impl ::std::convert::From<i32> for AnimationStyle {
 }
 unsafe impl ::windows::runtime::Abi for AnimationStyle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -218,7 +214,6 @@ impl ::std::convert::From<i32> for AnnoScope {
 }
 unsafe impl ::windows::runtime::Abi for AnnoScope {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const AnnotationObjects_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(822677704, 31854, 20256, [190, 205, 74, 175, 109, 25, 17, 86]);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -320,7 +315,6 @@ impl ::std::convert::From<i32> for AsyncContentLoadedState {
 }
 unsafe impl ::windows::runtime::Abi for AsyncContentLoadedState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const AsyncContentLoaded_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1608442140, 54010, 20409, [144, 78, 92, 190, 232, 148, 213, 239]);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -336,7 +330,6 @@ impl ::std::convert::From<i32> for AutomationElementMode {
 }
 unsafe impl ::windows::runtime::Abi for AutomationElementMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const AutomationFocusChanged_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3062505239, 62989, 16807, [163, 204, 176, 82, 146, 21, 95, 224]);
 pub const AutomationId_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3358328064, 46606, 17168, [162, 103, 48, 60, 83, 31, 142, 229]);
@@ -360,7 +353,6 @@ impl ::std::convert::From<i32> for AutomationIdentifierType {
 }
 unsafe impl ::windows::runtime::Abi for AutomationIdentifierType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const AutomationPropertyChanged_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(623377313, 36218, 17968, [164, 204, 230, 99, 21, 148, 47, 82]);
 pub const BoundingRectangle_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2076174514, 15356, 18653, [183, 41, 199, 148, 184, 70, 233, 161]);
@@ -382,7 +374,6 @@ impl ::std::convert::From<i32> for BulletStyle {
 }
 unsafe impl ::windows::runtime::Abi for BulletStyle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const Button_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1517871977, 50849, 20275, [169, 215, 121, 242, 13, 12, 120, 142]);
 pub const CAccPropServices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3052942603, 1352, 18609, [166, 238, 136, 189, 0, 180, 165, 231]);
@@ -410,7 +401,6 @@ impl ::std::convert::From<i32> for CapStyle {
 }
 unsafe impl ::windows::runtime::Abi for CapStyle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -425,7 +415,6 @@ impl ::std::convert::From<i32> for CaretBidiMode {
 }
 unsafe impl ::windows::runtime::Abi for CaretBidiMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -441,7 +430,6 @@ impl ::std::convert::From<i32> for CaretPosition {
 }
 unsafe impl ::windows::runtime::Abi for CaretPosition {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const CenterPoint_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(212864008, 21516, 20187, [148, 69, 38, 53, 158, 166, 151, 133]);
 pub const Changes_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2113038100, 24911, 19973, [148, 136, 113, 108, 91, 161, 148, 54]);
@@ -462,7 +450,6 @@ impl ::std::convert::From<i32> for CoalesceEventsOptions {
 }
 unsafe impl ::windows::runtime::Abi for CoalesceEventsOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const ComboBox_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1422606956, 12083, 20479, [170, 161, 174, 246, 13, 172, 93, 235]);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -482,7 +469,6 @@ impl ::std::convert::From<i32> for ConditionType {
 }
 unsafe impl ::windows::runtime::Abi for ConditionType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -497,7 +483,6 @@ impl ::std::convert::From<i32> for ConnectionRecoveryBehaviorOptions {
 }
 unsafe impl ::windows::runtime::Abi for ConnectionRecoveryBehaviorOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const ControlType_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3396816874, 10412, 19394, [148, 202, 172, 236, 109, 108, 16, 163]);
 pub const ControllerFor_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1360153738, 42450, 20243, [155, 230, 127, 168, 186, 157, 58, 144]);
@@ -621,7 +606,6 @@ impl ::std::convert::From<i32> for DockPosition {
 }
 unsafe impl ::windows::runtime::Abi for DockPosition {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const Dock_DockPosition_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1835528238, 49328, 19216, [181, 185, 24, 214, 236, 249, 135, 96]);
 pub const Dock_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2629478470, 33736, 17037, [130, 127, 126, 96, 99, 254, 6, 32]);
@@ -662,7 +646,6 @@ impl ::std::convert::From<i32> for EventArgsType {
 }
 unsafe impl ::windows::runtime::Abi for EventArgsType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[inline]
@@ -707,7 +690,6 @@ impl ::std::convert::From<i32> for ExpandCollapseState {
 }
 unsafe impl ::windows::runtime::Abi for ExpandCollapseState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const ExpandCollapse_ExpandCollapseState_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(660229192, 34215, 20329, [171, 160, 175, 21, 118, 16, 0, 43]);
 pub const ExpandCollapse_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2919624610, 63953, 17034, [131, 76, 83, 165, 197, 47, 155, 139]);
@@ -744,7 +726,6 @@ impl ::std::cmp::Eq for ExtendedProperty {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ExtendedProperty {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -776,7 +757,6 @@ impl ::std::cmp::PartialEq for FILTERKEYS {
 impl ::std::cmp::Eq for FILTERKEYS {}
 unsafe impl ::windows::runtime::Abi for FILTERKEYS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const FillColor_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1846461648, 58024, 19030, [157, 231, 149, 51, 137, 147, 59, 57]);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -795,7 +775,6 @@ impl ::std::convert::From<i32> for FillType {
 }
 unsafe impl ::windows::runtime::Abi for FillType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const FillType_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3338433764, 36025, 17052, [169, 225, 155, 196, 172, 55, 43, 98]);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -813,7 +792,6 @@ impl ::std::convert::From<i32> for FlowDirections {
 }
 unsafe impl ::windows::runtime::Abi for FlowDirections {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const FlowsFrom_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(96896079, 6622, 18680, [149, 250, 136, 13, 91, 15, 214, 21]);
 pub const FlowsTo_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3841146144, 21914, 18427, [168, 48, 249, 203, 79, 241, 167, 10]);
@@ -951,7 +929,6 @@ impl ::std::cmp::Eq for HIGHCONTRASTA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HIGHCONTRASTA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -987,7 +964,6 @@ impl ::std::cmp::Eq for HIGHCONTRASTW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HIGHCONTRASTW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1008,7 +984,6 @@ impl ::std::convert::From<u32> for HIGHCONTRASTW_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for HIGHCONTRASTW_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for HIGHCONTRASTW_FLAGS {
     type Output = Self;
@@ -1049,7 +1024,6 @@ impl ::std::default::Default for HUIAEVENT {
 unsafe impl ::windows::runtime::Handle for HUIAEVENT {}
 unsafe impl ::windows::runtime::Abi for HUIAEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -1062,7 +1036,6 @@ impl ::std::default::Default for HUIANODE {
 unsafe impl ::windows::runtime::Handle for HUIANODE {}
 unsafe impl ::windows::runtime::Abi for HUIANODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -1075,7 +1048,6 @@ impl ::std::default::Default for HUIAPATTERNOBJECT {
 unsafe impl ::windows::runtime::Handle for HUIAPATTERNOBJECT {}
 unsafe impl ::windows::runtime::Abi for HUIAPATTERNOBJECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -1088,7 +1060,6 @@ impl ::std::default::Default for HUIATEXTRANGE {
 unsafe impl ::windows::runtime::Handle for HUIATEXTRANGE {}
 unsafe impl ::windows::runtime::Abi for HUIATEXTRANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -1101,7 +1072,6 @@ impl ::std::default::Default for HWINEVENTHOOK {
 unsafe impl ::windows::runtime::Handle for HWINEVENTHOOK {}
 unsafe impl ::windows::runtime::Abi for HWINEVENTHOOK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const HasKeyboardFocus_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3481992505, 16198, 18432, [150, 86, 178, 191, 18, 82, 153, 5]);
 pub const HeaderItem_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3871085259, 31886, 18895, [177, 104, 74, 147, 163, 43, 235, 176]);
@@ -1143,7 +1113,6 @@ impl ::std::convert::From<i32> for HorizontalTextAlignment {
 }
 unsafe impl ::windows::runtime::Abi for HorizontalTextAlignment {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const HostedFragmentRootsInvalidated_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3871191102, 2337, 20165, [141, 207, 234, 232, 119, 176, 66, 107]);
 pub const Hyperlink_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2320892460, 45069, 19733, [143, 240, 91, 107, 38, 110, 94, 2]);
@@ -18487,7 +18456,6 @@ impl ::std::convert::From<i32> for LiveSetting {
 }
 unsafe impl ::windows::runtime::Abi for LiveSetting {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const LiveSetting_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3240873358, 10894, 18768, [138, 231, 54, 37, 17, 29, 88, 235]);
 pub const LocalizedControlType_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2271428687, 41405, 17706, [137, 196, 63, 1, 211, 131, 56, 6]);
@@ -18546,7 +18514,6 @@ impl ::std::cmp::PartialEq for MOUSEKEYS {
 impl ::std::cmp::Eq for MOUSEKEYS {}
 unsafe impl ::windows::runtime::Abi for MOUSEKEYS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -18582,7 +18549,6 @@ impl ::std::cmp::Eq for MSAAMENUINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MSAAMENUINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const MSAA_MENU_SIG: i32 = -1441927155i32;
@@ -18662,7 +18628,6 @@ impl ::std::convert::From<i32> for NavigateDirection {
 }
 unsafe impl ::windows::runtime::Abi for NavigateDirection {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const NewNativeWindowHandle_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1368830779, 14346, 18818, [149, 225, 145, 243, 239, 96, 224, 36]);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -18679,7 +18644,6 @@ impl ::std::convert::From<i32> for NormalizeState {
 }
 unsafe impl ::windows::runtime::Abi for NormalizeState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -18697,7 +18661,6 @@ impl ::std::convert::From<i32> for NotificationKind {
 }
 unsafe impl ::windows::runtime::Abi for NotificationKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -18715,7 +18678,6 @@ impl ::std::convert::From<i32> for NotificationProcessing {
 }
 unsafe impl ::windows::runtime::Abi for NotificationProcessing {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const Notification_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1925554935, 38792, 18447, [184, 235, 77, 238, 0, 246, 24, 111]);
 #[cfg(feature = "Win32_Foundation")]
@@ -18764,7 +18726,6 @@ impl ::std::convert::From<i32> for OrientationType {
 }
 unsafe impl ::windows::runtime::Abi for OrientationType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const Orientation_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2686381666, 14468, 17429, [136, 126, 103, 142, 194, 30, 57, 186]);
 pub const OutlineColor_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3281376960, 19285, 18274, [160, 115, 253, 48, 58, 99, 79, 82]);
@@ -18784,7 +18745,6 @@ impl ::std::convert::From<i32> for OutlineStyles {
 }
 unsafe impl ::windows::runtime::Abi for OutlineStyles {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const OutlineThickness_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(333872327, 56002, 18568, [189, 211, 55, 92, 98, 250, 150, 24]);
 pub const PROPID_ACC_DEFAULTACTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(403441451, 49791, 17351, [153, 34, 246, 53, 98, 164, 99, 43]);
@@ -18830,7 +18790,6 @@ impl ::std::convert::From<i32> for PropertyConditionFlags {
 }
 unsafe impl ::windows::runtime::Abi for PropertyConditionFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const ProviderDescription_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3701829770, 49515, 19673, [184, 137, 190, 177, 106, 128, 73, 4]);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -18853,7 +18812,6 @@ impl ::std::convert::From<i32> for ProviderOptions {
 }
 unsafe impl ::windows::runtime::Abi for ProviderOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -18869,7 +18827,6 @@ impl ::std::convert::From<i32> for ProviderType {
 }
 unsafe impl ::windows::runtime::Abi for ProviderType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const ROLE_SYSTEM_ALERT: u32 = 8u32;
@@ -19066,7 +19023,6 @@ impl ::std::convert::From<i32> for RowOrColumnMajor {
 }
 unsafe impl ::windows::runtime::Abi for RowOrColumnMajor {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const RuntimeId_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2745101306, 32698, 19593, [180, 212, 185, 158, 45, 231, 209, 96]);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -19121,7 +19077,6 @@ impl ::std::cmp::Eq for SERIALKEYSA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERIALKEYSA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19161,7 +19116,6 @@ impl ::std::cmp::Eq for SERIALKEYSW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SERIALKEYSW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -19177,7 +19131,6 @@ impl ::std::convert::From<u32> for SERIALKEYS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for SERIALKEYS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SERIALKEYS_FLAGS {
     type Output = Self;
@@ -19276,7 +19229,6 @@ impl ::std::cmp::Eq for SOUNDSENTRYA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SOUNDSENTRYA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19345,7 +19297,6 @@ impl ::std::cmp::Eq for SOUNDSENTRYW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SOUNDSENTRYW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -19361,7 +19312,6 @@ impl ::std::convert::From<u32> for SOUNDSENTRY_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for SOUNDSENTRY_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SOUNDSENTRY_FLAGS {
     type Output = Self;
@@ -19406,7 +19356,6 @@ impl ::std::convert::From<u32> for SOUNDSENTRY_TEXT_EFFECT {
 }
 unsafe impl ::windows::runtime::Abi for SOUNDSENTRY_TEXT_EFFECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SOUNDSENTRY_TEXT_EFFECT {
     type Output = Self;
@@ -19452,7 +19401,6 @@ impl ::std::convert::From<u32> for SOUNDSENTRY_WINDOWS_EFFECT {
 }
 unsafe impl ::windows::runtime::Abi for SOUNDSENTRY_WINDOWS_EFFECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SOUNDSENTRY_WINDOWS_EFFECT {
     type Output = Self;
@@ -19495,7 +19443,6 @@ impl ::std::convert::From<u32> for SOUND_SENTRY_GRAPHICS_EFFECT {
 }
 unsafe impl ::windows::runtime::Abi for SOUND_SENTRY_GRAPHICS_EFFECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SOUND_SENTRY_GRAPHICS_EFFECT {
     type Output = Self;
@@ -19555,7 +19502,6 @@ impl ::std::cmp::PartialEq for STICKYKEYS {
 impl ::std::cmp::Eq for STICKYKEYS {}
 unsafe impl ::windows::runtime::Abi for STICKYKEYS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -19593,7 +19539,6 @@ impl ::std::convert::From<u32> for STICKYKEYS_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for STICKYKEYS_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for STICKYKEYS_FLAGS {
     type Output = Self;
@@ -19661,7 +19606,6 @@ impl ::std::convert::From<i32> for SayAsInterpretAs {
 }
 unsafe impl ::windows::runtime::Abi for SayAsInterpretAs {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -19679,7 +19623,6 @@ impl ::std::convert::From<i32> for ScrollAmount {
 }
 unsafe impl ::windows::runtime::Abi for ScrollAmount {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const ScrollBar_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3673377590, 20581, 18758, [178, 47, 146, 89, 95, 192, 117, 26]);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -19835,7 +19778,6 @@ impl ::std::convert::From<i32> for StructureChangeType {
 }
 unsafe impl ::windows::runtime::Abi for StructureChangeType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const StructureChanged_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1503099233, 16093, 19217, [177, 59, 103, 107, 42, 42, 108, 169]);
 pub const StructuredMarkup_CompositionComplete_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3297393687, 26490, 16455, [166, 141, 252, 18, 87, 82, 138, 239]);
@@ -19915,7 +19857,6 @@ impl ::std::convert::From<i32> for SupportedTextSelection {
 }
 unsafe impl ::windows::runtime::Abi for SupportedTextSelection {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[inline]
@@ -19962,7 +19903,6 @@ impl ::std::convert::From<i32> for SynchronizedInputType {
 }
 unsafe impl ::windows::runtime::Abi for SynchronizedInputType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const SynchronizedInput_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(96635046, 50299, 18571, [182, 83, 51, 151, 122, 85, 27, 139]);
 pub const SystemAlert_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3530642525, 31290, 18343, [132, 116, 129, 210, 154, 36, 81, 201]);
@@ -19992,7 +19932,6 @@ impl ::std::cmp::PartialEq for TOGGLEKEYS {
 impl ::std::cmp::Eq for TOGGLEKEYS {}
 unsafe impl ::windows::runtime::Abi for TOGGLEKEYS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const TabItem_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(745169743, 37403, 20078, [178, 110, 8, 252, 176, 121, 143, 76]);
 pub const Tab_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(952966957, 13178, 19410, [165, 227, 173, 180, 105, 227, 11, 211]);
@@ -20035,7 +19974,6 @@ impl ::std::convert::From<i32> for TextDecorationLineStyle {
 }
 unsafe impl ::windows::runtime::Abi for TextDecorationLineStyle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -20053,7 +19991,6 @@ impl ::std::convert::From<i32> for TextEditChangeType {
 }
 unsafe impl ::windows::runtime::Abi for TextEditChangeType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const TextEdit_ConversionTargetChanged_Event_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(864600451, 60751, 19595, [155, 170, 54, 77, 81, 216, 132, 127]);
 pub const TextEdit_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1777598345, 23289, 19573, [147, 64, 242, 222, 41, 46, 69, 145]);
@@ -20071,7 +20008,6 @@ impl ::std::convert::From<i32> for TextPatternRangeEndpoint {
 }
 unsafe impl ::windows::runtime::Abi for TextPatternRangeEndpoint {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_System_Com`*"]
@@ -20437,7 +20373,6 @@ impl ::std::convert::From<i32> for TextUnit {
 }
 unsafe impl ::windows::runtime::Abi for TextUnit {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const Text_AfterParagraphSpacing_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1485617976, 58927, 18812, [181, 209, 204, 223, 14, 232, 35, 216]);
 pub const Text_AfterSpacing_Attribute_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1485617976, 58927, 18812, [181, 209, 204, 223, 14, 232, 35, 216]);
@@ -20520,7 +20455,6 @@ impl ::std::convert::From<i32> for ToggleState {
 }
 unsafe impl ::windows::runtime::Abi for ToggleState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const Toggle_Pattern_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(188847968, 58100, 17407, [140, 95, 148, 87, 200, 43, 86, 233]);
 pub const Toggle_ToggleState_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2990333010, 8898, 19564, [157, 237, 245, 196, 34, 71, 158, 222]);
@@ -20598,7 +20532,6 @@ impl ::std::convert::From<i32> for TreeScope {
 }
 unsafe impl ::windows::runtime::Abi for TreeScope {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -20614,7 +20547,6 @@ impl ::std::convert::From<i32> for TreeTraversalOptions {
 }
 unsafe impl ::windows::runtime::Abi for TreeTraversalOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const Tree_Control_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1969304732, 53825, 17396, [153, 8, 181, 240, 145, 190, 230, 17]);
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
@@ -21352,7 +21284,6 @@ impl ::std::cmp::Eq for UIAutomationEventInfo {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for UIAutomationEventInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -21398,7 +21329,6 @@ impl ::std::cmp::Eq for UIAutomationMethodInfo {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for UIAutomationMethodInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -21426,7 +21356,6 @@ impl ::std::cmp::PartialEq for UIAutomationParameter {
 impl ::std::cmp::Eq for UIAutomationParameter {}
 unsafe impl ::windows::runtime::Abi for UIAutomationParameter {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -21482,7 +21411,6 @@ impl ::std::cmp::Eq for UIAutomationPatternInfo {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for UIAutomationPatternInfo {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -21518,7 +21446,6 @@ impl ::std::cmp::Eq for UIAutomationPropertyInfo {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for UIAutomationPropertyInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -21561,7 +21488,6 @@ impl ::std::convert::From<i32> for UIAutomationType {
 }
 unsafe impl ::windows::runtime::Abi for UIAutomationType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -21605,7 +21531,6 @@ impl ::std::cmp::PartialEq for UiaAndOrCondition {
 impl ::std::cmp::Eq for UiaAndOrCondition {}
 unsafe impl ::windows::runtime::Abi for UiaAndOrCondition {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 pub const UiaAppendRuntimeId: u32 = 3u32;
@@ -21637,7 +21562,6 @@ impl ::std::cmp::PartialEq for UiaAsyncContentLoadedEventArgs {
 impl ::std::cmp::Eq for UiaAsyncContentLoadedEventArgs {}
 unsafe impl ::windows::runtime::Abi for UiaAsyncContentLoadedEventArgs {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -21678,7 +21602,6 @@ impl ::std::cmp::PartialEq for UiaCacheRequest {
 impl ::std::cmp::Eq for UiaCacheRequest {}
 unsafe impl ::windows::runtime::Abi for UiaCacheRequest {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for UiaChangeInfo {
@@ -21713,7 +21636,6 @@ impl ::std::cmp::Eq for UiaChangeInfo {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for UiaChangeInfo {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -21750,7 +21672,6 @@ impl ::std::cmp::Eq for UiaChangesEventArgs {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for UiaChangesEventArgs {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
@@ -21792,7 +21713,6 @@ impl ::std::cmp::PartialEq for UiaCondition {
 impl ::std::cmp::Eq for UiaCondition {}
 unsafe impl ::windows::runtime::Abi for UiaCondition {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[inline]
@@ -21863,7 +21783,6 @@ impl ::std::cmp::PartialEq for UiaEventArgs {
 impl ::std::cmp::Eq for UiaEventArgs {}
 unsafe impl ::windows::runtime::Abi for UiaEventArgs {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub type UiaEventCallback = unsafe extern "system" fn(pargs: *mut UiaEventArgs, prequesteddata: *mut super::super::System::Com::SAFEARRAY, ptreestructure: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>);
@@ -21932,7 +21851,6 @@ impl ::std::cmp::Eq for UiaFindParams {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for UiaFindParams {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
@@ -22272,7 +22190,6 @@ impl ::std::cmp::PartialEq for UiaNotCondition {
 impl ::std::cmp::Eq for UiaNotCondition {}
 unsafe impl ::windows::runtime::Abi for UiaNotCondition {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
@@ -22315,7 +22232,6 @@ impl ::std::cmp::PartialEq for UiaPoint {
 impl ::std::cmp::Eq for UiaPoint {}
 unsafe impl ::windows::runtime::Abi for UiaPoint {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for UiaPropertyChangedEventArgs {
@@ -22352,7 +22268,6 @@ impl ::std::cmp::Eq for UiaPropertyChangedEventArgs {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for UiaPropertyChangedEventArgs {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for UiaPropertyCondition {
@@ -22388,7 +22303,6 @@ impl ::std::cmp::Eq for UiaPropertyCondition {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for UiaPropertyCondition {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub type UiaProviderCallback = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, providertype: ProviderType) -> *mut super::super::System::Com::SAFEARRAY;
@@ -22567,7 +22481,6 @@ impl ::std::cmp::PartialEq for UiaRect {
 impl ::std::cmp::Eq for UiaRect {}
 unsafe impl ::windows::runtime::Abi for UiaRect {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -22658,7 +22571,6 @@ impl ::std::cmp::PartialEq for UiaStructureChangedEventArgs {
 impl ::std::cmp::Eq for UiaStructureChangedEventArgs {}
 unsafe impl ::windows::runtime::Abi for UiaStructureChangedEventArgs {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -22695,7 +22607,6 @@ impl ::std::cmp::Eq for UiaTextEditTextChangedEventArgs {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for UiaTextEditTextChangedEventArgs {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
@@ -22740,7 +22651,6 @@ impl ::std::cmp::PartialEq for UiaWindowClosedEventArgs {
 impl ::std::cmp::Eq for UiaWindowClosedEventArgs {}
 unsafe impl ::windows::runtime::Abi for UiaWindowClosedEventArgs {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
@@ -22837,7 +22747,6 @@ impl ::std::convert::From<i32> for VisualEffects {
 }
 unsafe impl ::windows::runtime::Abi for VisualEffects {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const VisualEffects_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3860497765, 43737, 18135, [158, 112, 78, 138, 132, 32, 212, 32]);
 #[cfg(feature = "Win32_Foundation")]
@@ -22874,7 +22783,6 @@ impl ::std::convert::From<i32> for WindowInteractionState {
 }
 unsafe impl ::windows::runtime::Abi for WindowInteractionState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Accessibility`*"]
 #[inline]
@@ -22933,7 +22841,6 @@ impl ::std::convert::From<i32> for WindowVisualState {
 }
 unsafe impl ::windows::runtime::Abi for WindowVisualState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const Window_CanMaximize_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1694496063, 25437, 16833, [149, 12, 203, 90, 223, 190, 40, 227]);
 pub const Window_CanMinimize_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3074115109, 22920, 19351, [180, 194, 166, 254, 110, 120, 200, 198]);
@@ -22961,5 +22868,4 @@ impl ::std::convert::From<i32> for ZoomUnit {
 }
 unsafe impl ::windows::runtime::Abi for ZoomUnit {
     type Abi = Self;
-    type DefaultType = Self;
 }

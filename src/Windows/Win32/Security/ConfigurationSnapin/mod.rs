@@ -146,7 +146,6 @@ impl ::std::cmp::PartialEq for SCESVC_ANALYSIS_INFO {
 impl ::std::cmp::Eq for SCESVC_ANALYSIS_INFO {}
 unsafe impl ::windows::runtime::Abi for SCESVC_ANALYSIS_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -175,7 +174,6 @@ impl ::std::cmp::PartialEq for SCESVC_ANALYSIS_LINE {
 impl ::std::cmp::Eq for SCESVC_ANALYSIS_LINE {}
 unsafe impl ::windows::runtime::Abi for SCESVC_ANALYSIS_LINE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -213,7 +211,6 @@ impl ::std::cmp::Eq for SCESVC_CALLBACK_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SCESVC_CALLBACK_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -241,7 +238,6 @@ impl ::std::cmp::PartialEq for SCESVC_CONFIGURATION_INFO {
 impl ::std::cmp::Eq for SCESVC_CONFIGURATION_INFO {}
 unsafe impl ::windows::runtime::Abi for SCESVC_CONFIGURATION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -270,7 +266,6 @@ impl ::std::cmp::PartialEq for SCESVC_CONFIGURATION_LINE {
 impl ::std::cmp::Eq for SCESVC_CONFIGURATION_LINE {}
 unsafe impl ::windows::runtime::Abi for SCESVC_CONFIGURATION_LINE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub const SCESVC_ENUMERATION_MAX: i32 = 100i32;
@@ -289,7 +284,6 @@ impl ::std::convert::From<i32> for SCESVC_INFO_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SCESVC_INFO_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -306,7 +300,6 @@ impl ::std::convert::From<u32> for SCE_LOG_ERR_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for SCE_LOG_ERR_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SCE_LOG_ERR_LEVEL {
     type Output = Self;

@@ -12,7 +12,6 @@ impl ::std::convert::From<u32> for ANCHOR_CHANGE_HISTORY_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for ANCHOR_CHANGE_HISTORY_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ANCHOR_CHANGE_HISTORY_FLAGS {
     type Output = Self;
@@ -90,7 +89,6 @@ impl ::std::convert::From<u32> for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
     type Output = Self;
@@ -206,7 +204,6 @@ impl ::std::default::Default for HKL {
 unsafe impl ::windows::runtime::Handle for HKL {}
 unsafe impl ::windows::runtime::Abi for HKL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[repr(transparent)]
@@ -1238,7 +1235,6 @@ impl ::std::convert::From<u32> for INSERT_TEXT_AT_SELECTION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for INSERT_TEXT_AT_SELECTION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for INSERT_TEXT_AT_SELECTION_FLAGS {
     type Output = Self;
@@ -8610,7 +8606,6 @@ impl ::std::convert::From<i32> for InputScope {
 }
 unsafe impl ::windows::runtime::Abi for InputScope {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8625,7 +8620,6 @@ impl ::std::convert::From<u32> for LANG_BAR_ITEM_ICON_MODE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for LANG_BAR_ITEM_ICON_MODE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for LANG_BAR_ITEM_ICON_MODE_FLAGS {
     type Output = Self;
@@ -8670,7 +8664,6 @@ impl ::std::convert::From<u32> for TEXT_STORE_CHANGE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for TEXT_STORE_CHANGE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for TEXT_STORE_CHANGE_FLAGS {
     type Output = Self;
@@ -8713,7 +8706,6 @@ impl ::std::convert::From<u32> for TEXT_STORE_LOCK_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for TEXT_STORE_LOCK_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for TEXT_STORE_LOCK_FLAGS {
     type Output = Self;
@@ -8756,7 +8748,6 @@ impl ::std::convert::From<u32> for TEXT_STORE_TEXT_CHANGE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for TEXT_STORE_TEXT_CHANGE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for TEXT_STORE_TEXT_CHANGE_FLAGS {
     type Output = Self;
@@ -8820,7 +8811,6 @@ impl ::std::convert::From<u32> for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
     type Output = Self;
@@ -8890,7 +8880,6 @@ impl ::std::convert::From<i32> for TF_DA_ATTR_INFO {
 }
 unsafe impl ::windows::runtime::Abi for TF_DA_ATTR_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8913,7 +8902,6 @@ impl ::std::cmp::PartialEq for TF_DA_COLOR {
 impl ::std::cmp::Eq for TF_DA_COLOR {}
 unsafe impl ::windows::runtime::Abi for TF_DA_COLOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8936,7 +8924,6 @@ impl ::std::cmp::PartialEq for TF_DA_COLOR_0 {
 impl ::std::cmp::Eq for TF_DA_COLOR_0 {}
 unsafe impl ::windows::runtime::Abi for TF_DA_COLOR_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8952,7 +8939,6 @@ impl ::std::convert::From<i32> for TF_DA_COLORTYPE {
 }
 unsafe impl ::windows::runtime::Abi for TF_DA_COLORTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8970,7 +8956,6 @@ impl ::std::convert::From<i32> for TF_DA_LINESTYLE {
 }
 unsafe impl ::windows::runtime::Abi for TF_DA_LINESTYLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_DICTATION_ENABLED: u32 = 2u32;
@@ -9015,7 +9000,6 @@ impl ::std::cmp::Eq for TF_DISPLAYATTRIBUTE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TF_DISPLAYATTRIBUTE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_E_ALREADY_EXISTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147220218i32 as _);
@@ -9088,7 +9072,6 @@ impl ::std::cmp::PartialEq for TF_HALTCOND {
 impl ::std::cmp::Eq for TF_HALTCOND {}
 unsafe impl ::windows::runtime::Abi for TF_HALTCOND {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_HF_OBJECT: u32 = 1u32;
@@ -9137,7 +9120,6 @@ impl ::std::cmp::PartialEq for TF_INPUTPROCESSORPROFILE {
 impl ::std::cmp::Eq for TF_INPUTPROCESSORPROFILE {}
 unsafe impl ::windows::runtime::Abi for TF_INPUTPROCESSORPROFILE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_INVALID_COOKIE: u32 = 4294967295u32;
@@ -9206,7 +9188,6 @@ impl ::std::cmp::PartialEq for TF_LANGBARITEMINFO {
 impl ::std::cmp::Eq for TF_LANGBARITEMINFO {}
 unsafe impl ::windows::runtime::Abi for TF_LANGBARITEMINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9244,7 +9225,6 @@ impl ::std::cmp::Eq for TF_LANGUAGEPROFILE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TF_LANGUAGEPROFILE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -9279,7 +9259,6 @@ impl ::std::cmp::Eq for TF_LBBALLOONINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TF_LBBALLOONINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_LBI_BALLOON: u32 = 16u32;
@@ -9368,7 +9347,6 @@ impl ::std::cmp::Eq for TF_LMLATTELEMENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TF_LMLATTELEMENT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9390,7 +9368,6 @@ impl ::std::cmp::PartialEq for TF_LMLATTELEMENT_0 {
 impl ::std::cmp::Eq for TF_LMLATTELEMENT_0 {}
 unsafe impl ::windows::runtime::Abi for TF_LMLATTELEMENT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_MENUREADY: u32 = 1u32;
@@ -9446,7 +9423,6 @@ impl ::std::cmp::PartialEq for TF_PERSISTENT_PROPERTY_HEADER_ACP {
 impl ::std::cmp::Eq for TF_PERSISTENT_PROPERTY_HEADER_ACP {}
 unsafe impl ::windows::runtime::Abi for TF_PERSISTENT_PROPERTY_HEADER_ACP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_POPF_ALL: u32 = 1u32;
@@ -9476,7 +9452,6 @@ impl ::std::cmp::PartialEq for TF_PRESERVEDKEY {
 impl ::std::cmp::Eq for TF_PRESERVEDKEY {}
 unsafe impl ::windows::runtime::Abi for TF_PRESERVEDKEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_PROFILETYPE_INPUTPROCESSOR: u32 = 1u32;
@@ -9528,7 +9503,6 @@ impl ::std::cmp::Eq for TF_PROPERTYVAL {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for TF_PROPERTYVAL {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_PROPUI_STATUS_SAVETOFILE: u32 = 1u32;
@@ -9597,7 +9571,6 @@ impl ::std::cmp::Eq for TF_SELECTION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TF_SELECTION {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9632,7 +9605,6 @@ impl ::std::cmp::Eq for TF_SELECTIONSTYLE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TF_SELECTIONSTYLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TF_SENTENCEMODE_AUTOMATIC: u32 = 4u32;
@@ -9768,7 +9740,6 @@ impl ::std::convert::From<i32> for TKBLayoutType {
 }
 unsafe impl ::windows::runtime::Abi for TKBLayoutType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TKB_ALTERNATES_AUTOCORRECTION_APPLIED: u32 = 4u32;
@@ -9905,7 +9876,6 @@ impl ::std::cmp::Eq for TS_ATTRVAL {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for TS_ATTRVAL {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_ATTR_FIND_BACKWARDS: u32 = 1u32;
@@ -9987,7 +9957,6 @@ impl ::std::cmp::PartialEq for TS_RUNINFO {
 impl ::std::cmp::Eq for TS_RUNINFO {}
 unsafe impl ::windows::runtime::Abi for TS_RUNINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_ENABLED: u32 = 128u32;
@@ -10040,7 +10009,6 @@ impl ::std::cmp::Eq for TS_SELECTIONSTYLE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TS_SELECTIONSTYLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10076,7 +10044,6 @@ impl ::std::cmp::Eq for TS_SELECTION_ACP {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TS_SELECTION_ACP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -10112,7 +10079,6 @@ impl ::std::cmp::Eq for TS_SELECTION_ANCHOR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TS_SELECTION_ANCHOR {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_SHIFT_COUNT_HIDDEN: u32 = 1u32;
@@ -10162,7 +10128,6 @@ impl ::std::cmp::PartialEq for TS_STATUS {
 impl ::std::cmp::Eq for TS_STATUS {}
 unsafe impl ::windows::runtime::Abi for TS_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_STRF_END: u32 = 2u32;
@@ -10199,7 +10164,6 @@ impl ::std::cmp::PartialEq for TS_TEXTCHANGE {
 impl ::std::cmp::Eq for TS_TEXTCHANGE {}
 unsafe impl ::windows::runtime::Abi for TS_TEXTCHANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const TS_VCOOKIE_NUL: u32 = 4294967295u32;
@@ -10217,7 +10181,6 @@ impl ::std::convert::From<i32> for TfActiveSelEnd {
 }
 unsafe impl ::windows::runtime::Abi for TfActiveSelEnd {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10232,7 +10195,6 @@ impl ::std::convert::From<i32> for TfAnchor {
 }
 unsafe impl ::windows::runtime::Abi for TfAnchor {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10248,7 +10210,6 @@ impl ::std::convert::From<i32> for TfCandidateResult {
 }
 unsafe impl ::windows::runtime::Abi for TfCandidateResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10263,7 +10224,6 @@ impl ::std::convert::From<i32> for TfGravity {
 }
 unsafe impl ::windows::runtime::Abi for TfGravity {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10278,7 +10238,6 @@ impl ::std::convert::From<i32> for TfIntegratableCandidateListSelectionStyle {
 }
 unsafe impl ::windows::runtime::Abi for TfIntegratableCandidateListSelectionStyle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10294,7 +10253,6 @@ impl ::std::convert::From<i32> for TfLBBalloonStyle {
 }
 unsafe impl ::windows::runtime::Abi for TfLBBalloonStyle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10309,7 +10267,6 @@ impl ::std::convert::From<i32> for TfLBIClick {
 }
 unsafe impl ::windows::runtime::Abi for TfLBIClick {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10325,7 +10282,6 @@ impl ::std::convert::From<i32> for TfLayoutCode {
 }
 unsafe impl ::windows::runtime::Abi for TfLayoutCode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10344,7 +10300,6 @@ impl ::std::convert::From<i32> for TfSapiObject {
 }
 unsafe impl ::windows::runtime::Abi for TfSapiObject {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10359,7 +10314,6 @@ impl ::std::convert::From<i32> for TfShiftDir {
 }
 unsafe impl ::windows::runtime::Abi for TfShiftDir {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10375,7 +10329,6 @@ impl ::std::convert::From<i32> for TsActiveSelEnd {
 }
 unsafe impl ::windows::runtime::Abi for TsActiveSelEnd {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10390,7 +10343,6 @@ impl ::std::convert::From<i32> for TsGravity {
 }
 unsafe impl ::windows::runtime::Abi for TsGravity {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10406,7 +10358,6 @@ impl ::std::convert::From<i32> for TsLayoutCode {
 }
 unsafe impl ::windows::runtime::Abi for TsLayoutCode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10422,7 +10373,6 @@ impl ::std::convert::From<i32> for TsRunType {
 }
 unsafe impl ::windows::runtime::Abi for TsRunType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10437,7 +10387,6 @@ impl ::std::convert::From<i32> for TsShiftDir {
 }
 unsafe impl ::windows::runtime::Abi for TsShiftDir {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 #[inline]

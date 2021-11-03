@@ -474,7 +474,6 @@ impl ::windows::runtime::RuntimeName for ContactListSyncManagerSyncRequestEventA
 unsafe impl ::std::marker::Send for ContactListSyncManagerSyncRequestEventArgs {}
 unsafe impl ::std::marker::Sync for ContactListSyncManagerSyncRequestEventArgs {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactDataProviderConnection(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactDataProviderConnection {
@@ -501,7 +500,6 @@ pub struct IContactDataProviderConnection_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactDataProviderConnection2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactDataProviderConnection2 {
@@ -527,7 +525,6 @@ pub struct IContactDataProviderConnection2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactDataProviderTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactDataProviderTriggerDetails {
@@ -546,7 +543,6 @@ pub struct IContactDataProviderTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactListCreateOrUpdateContactRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactListCreateOrUpdateContactRequest {
@@ -570,7 +566,6 @@ pub struct IContactListCreateOrUpdateContactRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactListCreateOrUpdateContactRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactListCreateOrUpdateContactRequestEventArgs {
@@ -591,7 +586,6 @@ pub struct IContactListCreateOrUpdateContactRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactListDeleteContactRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactListDeleteContactRequest {
@@ -615,7 +609,6 @@ pub struct IContactListDeleteContactRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactListDeleteContactRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactListDeleteContactRequestEventArgs {
@@ -636,7 +629,6 @@ pub struct IContactListDeleteContactRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactListServerSearchReadBatchRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactListServerSearchReadBatchRequest {
@@ -664,7 +656,6 @@ pub struct IContactListServerSearchReadBatchRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactListServerSearchReadBatchRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactListServerSearchReadBatchRequestEventArgs {
@@ -685,7 +676,6 @@ pub struct IContactListServerSearchReadBatchRequestEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactListSyncManagerSyncRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactListSyncManagerSyncRequest {
@@ -708,7 +698,6 @@ pub struct IContactListSyncManagerSyncRequest_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IContactListSyncManagerSyncRequestEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IContactListSyncManagerSyncRequestEventArgs {

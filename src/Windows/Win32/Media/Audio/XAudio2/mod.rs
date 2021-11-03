@@ -90,7 +90,6 @@ impl ::std::cmp::PartialEq for FXECHO_INITDATA {
 impl ::std::cmp::Eq for FXECHO_INITDATA {}
 unsafe impl ::windows::runtime::Abi for FXECHO_INITDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 pub const FXECHO_MAX_DELAY: f32 = 2000f32;
@@ -126,7 +125,6 @@ impl ::std::cmp::PartialEq for FXECHO_PARAMETERS {
 impl ::std::cmp::Eq for FXECHO_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for FXECHO_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const FXEQ: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4125102359, 54980, 18522, [163, 245, 105, 81, 150, 243, 219, 250]);
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
@@ -188,7 +186,6 @@ impl ::std::cmp::PartialEq for FXEQ_PARAMETERS {
 impl ::std::cmp::Eq for FXEQ_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for FXEQ_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const FXEcho: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1345967936, 63286, 17562, [132, 211, 165, 98, 2, 85, 123, 135]);
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
@@ -228,7 +225,6 @@ impl ::std::cmp::PartialEq for FXMASTERINGLIMITER_PARAMETERS {
 impl ::std::cmp::Eq for FXMASTERINGLIMITER_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for FXMASTERINGLIMITER_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const FXMasteringLimiter: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3289610518, 11233, 18173, [133, 153, 68, 21, 54, 244, 152, 86]);
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
@@ -264,7 +260,6 @@ impl ::std::cmp::PartialEq for FXREVERB_PARAMETERS {
 impl ::std::cmp::Eq for FXREVERB_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for FXREVERB_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const FXReverb: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2107296342, 52072, 18439, [182, 50, 177, 55, 53, 46, 133, 150]);
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
@@ -301,7 +296,6 @@ impl ::std::cmp::PartialEq for HrtfApoInit {
 impl ::std::cmp::Eq for HrtfApoInit {}
 unsafe impl ::windows::runtime::Abi for HrtfApoInit {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -329,7 +323,6 @@ impl ::std::cmp::PartialEq for HrtfDirectivity {
 impl ::std::cmp::Eq for HrtfDirectivity {}
 unsafe impl ::windows::runtime::Abi for HrtfDirectivity {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -357,7 +350,6 @@ impl ::std::cmp::PartialEq for HrtfDirectivityCardioid {
 impl ::std::cmp::Eq for HrtfDirectivityCardioid {}
 unsafe impl ::windows::runtime::Abi for HrtfDirectivityCardioid {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -386,7 +378,6 @@ impl ::std::cmp::PartialEq for HrtfDirectivityCone {
 impl ::std::cmp::Eq for HrtfDirectivityCone {}
 unsafe impl ::windows::runtime::Abi for HrtfDirectivityCone {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -402,7 +393,6 @@ impl ::std::convert::From<i32> for HrtfDirectivityType {
 }
 unsafe impl ::windows::runtime::Abi for HrtfDirectivityType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -433,7 +423,6 @@ impl ::std::cmp::PartialEq for HrtfDistanceDecay {
 impl ::std::cmp::Eq for HrtfDistanceDecay {}
 unsafe impl ::windows::runtime::Abi for HrtfDistanceDecay {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -448,7 +437,6 @@ impl ::std::convert::From<i32> for HrtfDistanceDecayType {
 }
 unsafe impl ::windows::runtime::Abi for HrtfDistanceDecayType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -465,7 +453,6 @@ impl ::std::convert::From<i32> for HrtfEnvironment {
 }
 unsafe impl ::windows::runtime::Abi for HrtfEnvironment {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -492,7 +479,6 @@ impl ::std::cmp::PartialEq for HrtfOrientation {
 impl ::std::cmp::Eq for HrtfOrientation {}
 unsafe impl ::windows::runtime::Abi for HrtfOrientation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -521,7 +507,6 @@ impl ::std::cmp::PartialEq for HrtfPosition {
 impl ::std::cmp::Eq for HrtfPosition {}
 unsafe impl ::windows::runtime::Abi for HrtfPosition {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 #[repr(transparent)]
@@ -1543,7 +1528,6 @@ impl ::std::convert::From<i32> for XAPO_BUFFER_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for XAPO_BUFFER_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 pub const XAPO_E_FORMAT_UNSUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2003369983i32 as _);
@@ -1586,7 +1570,6 @@ impl ::std::cmp::Eq for XAPO_LOCKFORPROCESS_PARAMETERS {}
 #[cfg(feature = "Win32_Media_Multimedia")]
 unsafe impl ::windows::runtime::Abi for XAPO_LOCKFORPROCESS_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 pub const XAPO_MAX_CHANNELS: u32 = 64u32;
@@ -1618,7 +1601,6 @@ impl ::std::cmp::PartialEq for XAPO_PROCESS_BUFFER_PARAMETERS {
 impl ::std::cmp::Eq for XAPO_PROCESS_BUFFER_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for XAPO_PROCESS_BUFFER_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -1649,7 +1631,6 @@ impl ::std::cmp::PartialEq for XAPO_REGISTRATION_PROPERTIES {
 impl ::std::cmp::Eq for XAPO_REGISTRATION_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for XAPO_REGISTRATION_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 pub const XAPO_REGISTRATION_STRING_LENGTH: u32 = 256u32;
@@ -1731,7 +1712,6 @@ impl ::std::cmp::PartialEq for XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
 impl ::std::cmp::Eq for XAUDIO2FX_REVERB_I3DL2_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 pub const XAUDIO2FX_REVERB_MAX_7POINT1_REAR_DELAY: u32 = 20u32;
@@ -1864,7 +1844,6 @@ impl ::std::cmp::Eq for XAUDIO2FX_REVERB_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for XAUDIO2FX_REVERB_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -1888,7 +1867,6 @@ impl ::std::cmp::PartialEq for XAUDIO2FX_VOLUMEMETER_LEVELS {
 impl ::std::cmp::Eq for XAUDIO2FX_VOLUMEMETER_LEVELS {}
 unsafe impl ::windows::runtime::Abi for XAUDIO2FX_VOLUMEMETER_LEVELS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 pub const XAUDIO2_1024_QUANTUM: u32 = 32768u32;
@@ -1922,7 +1900,6 @@ impl ::std::cmp::PartialEq for XAUDIO2_BUFFER {
 impl ::std::cmp::Eq for XAUDIO2_BUFFER {}
 unsafe impl ::windows::runtime::Abi for XAUDIO2_BUFFER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -1945,7 +1922,6 @@ impl ::std::cmp::PartialEq for XAUDIO2_BUFFER_WMA {
 impl ::std::cmp::Eq for XAUDIO2_BUFFER_WMA {}
 unsafe impl ::windows::runtime::Abi for XAUDIO2_BUFFER_WMA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 pub const XAUDIO2_COMMIT_ALL: u32 = 0u32;
@@ -1982,7 +1958,6 @@ impl ::std::cmp::Eq for XAUDIO2_DEBUG_CONFIGURATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for XAUDIO2_DEBUG_CONFIGURATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 pub const XAUDIO2_DEBUG_ENGINE: u32 = 1u32;
@@ -2025,7 +2000,6 @@ impl ::std::cmp::Eq for XAUDIO2_EFFECT_CHAIN {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for XAUDIO2_EFFECT_CHAIN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for XAUDIO2_EFFECT_DESCRIPTOR {
@@ -2060,7 +2034,6 @@ impl ::std::cmp::Eq for XAUDIO2_EFFECT_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for XAUDIO2_EFFECT_DESCRIPTOR {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 pub const XAUDIO2_END_OF_STREAM: u32 = 64u32;
@@ -2094,7 +2067,6 @@ impl ::std::cmp::PartialEq for XAUDIO2_FILTER_PARAMETERS {
 impl ::std::cmp::Eq for XAUDIO2_FILTER_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for XAUDIO2_FILTER_PARAMETERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2113,7 +2085,6 @@ impl ::std::convert::From<i32> for XAUDIO2_FILTER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for XAUDIO2_FILTER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 pub const XAUDIO2_LOG_API_CALLS: u32 = 16u32;
@@ -2202,7 +2173,6 @@ impl ::std::cmp::PartialEq for XAUDIO2_PERFORMANCE_DATA {
 impl ::std::cmp::Eq for XAUDIO2_PERFORMANCE_DATA {}
 unsafe impl ::windows::runtime::Abi for XAUDIO2_PERFORMANCE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 pub const XAUDIO2_PLAY_TAILS: u32 = 32u32;
@@ -2235,7 +2205,6 @@ impl ::std::cmp::PartialEq for XAUDIO2_SEND_DESCRIPTOR {
 impl ::std::cmp::Eq for XAUDIO2_SEND_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for XAUDIO2_SEND_DESCRIPTOR {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 pub const XAUDIO2_SEND_USEFILTER: u32 = 128u32;
@@ -2266,7 +2235,6 @@ impl ::std::cmp::PartialEq for XAUDIO2_VOICE_DETAILS {
 impl ::std::cmp::Eq for XAUDIO2_VOICE_DETAILS {}
 unsafe impl ::windows::runtime::Abi for XAUDIO2_VOICE_DETAILS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 pub const XAUDIO2_VOICE_NOPITCH: u32 = 2u32;
@@ -2295,7 +2263,6 @@ impl ::std::cmp::PartialEq for XAUDIO2_VOICE_SENDS {
 impl ::std::cmp::Eq for XAUDIO2_VOICE_SENDS {}
 unsafe impl ::windows::runtime::Abi for XAUDIO2_VOICE_SENDS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -2319,7 +2286,6 @@ impl ::std::cmp::PartialEq for XAUDIO2_VOICE_STATE {
 impl ::std::cmp::Eq for XAUDIO2_VOICE_STATE {}
 unsafe impl ::windows::runtime::Abi for XAUDIO2_VOICE_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Audio_XAudio2`*"]
 pub const XAUDIO2_VOICE_USEFILTER: u32 = 8u32;

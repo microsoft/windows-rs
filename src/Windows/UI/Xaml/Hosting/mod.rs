@@ -234,10 +234,12 @@ impl ::std::convert::From<i32> for DesignerAppViewState {
 }
 unsafe impl ::windows::runtime::Abi for DesignerAppViewState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DesignerAppViewState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Hosting.DesignerAppViewState;i4)");
+}
+impl ::windows::runtime::DefaultType for DesignerAppViewState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Hosting`*"]
 #[repr(transparent)]
@@ -509,7 +511,6 @@ unsafe impl ::std::marker::Sync for ElementCompositionPreview {}
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct HostingContract(pub u8);
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDesignerAppExitedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesignerAppExitedEventArgs {
@@ -528,7 +529,6 @@ pub struct IDesignerAppExitedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDesignerAppManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesignerAppManager {
@@ -555,7 +555,6 @@ pub struct IDesignerAppManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDesignerAppManagerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesignerAppManagerFactory {
@@ -574,7 +573,6 @@ pub struct IDesignerAppManagerFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appusermodelid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDesignerAppView(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesignerAppView {
@@ -599,7 +597,6 @@ pub struct IDesignerAppView_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDesktopWindowXamlSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesktopWindowXamlSource {
@@ -629,7 +626,6 @@ pub struct IDesktopWindowXamlSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, request: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDesktopWindowXamlSourceFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesktopWindowXamlSourceFactory {
@@ -648,7 +644,6 @@ pub struct IDesktopWindowXamlSourceFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, baseinterface: ::windows::runtime::RawPtr, innerinterface: *mut ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDesktopWindowXamlSourceGotFocusEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesktopWindowXamlSourceGotFocusEventArgs {
@@ -667,7 +662,6 @@ pub struct IDesktopWindowXamlSourceGotFocusEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDesktopWindowXamlSourceTakeFocusRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesktopWindowXamlSourceTakeFocusRequestedEventArgs {
@@ -686,7 +680,6 @@ pub struct IDesktopWindowXamlSourceTakeFocusRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IElementCompositionPreview(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IElementCompositionPreview {
@@ -704,7 +697,6 @@ pub struct IElementCompositionPreview_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IElementCompositionPreviewStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IElementCompositionPreviewStatics {
@@ -730,7 +722,6 @@ pub struct IElementCompositionPreviewStatics_abi(
     #[cfg(not(all(feature = "UI_Composition", feature = "UI_Xaml_Controls")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IElementCompositionPreviewStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IElementCompositionPreviewStatics2 {
@@ -755,7 +746,6 @@ pub struct IElementCompositionPreviewStatics2_abi(
     #[cfg(not(feature = "UI_Composition"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IElementCompositionPreviewStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IElementCompositionPreviewStatics3 {
@@ -777,7 +767,6 @@ pub struct IElementCompositionPreviewStatics3_abi(
     #[cfg(not(feature = "UI_WindowManagement"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWindowsXamlManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowsXamlManager {
@@ -795,7 +784,6 @@ pub struct IWindowsXamlManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWindowsXamlManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowsXamlManagerStatics {
@@ -814,7 +802,6 @@ pub struct IWindowsXamlManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXamlSourceFocusNavigationRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlSourceFocusNavigationRequest {
@@ -836,7 +823,6 @@ pub struct IXamlSourceFocusNavigationRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXamlSourceFocusNavigationRequestFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlSourceFocusNavigationRequestFactory {
@@ -859,7 +845,6 @@ pub struct IXamlSourceFocusNavigationRequestFactory_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXamlSourceFocusNavigationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlSourceFocusNavigationResult {
@@ -878,7 +863,6 @@ pub struct IXamlSourceFocusNavigationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXamlSourceFocusNavigationResultFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlSourceFocusNavigationResultFactory {
@@ -897,7 +881,6 @@ pub struct IXamlSourceFocusNavigationResultFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, focusmoved: bool, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXamlUIPresenter(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlUIPresenter {
@@ -1020,7 +1003,6 @@ pub struct IXamlUIPresenterHost3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dictionary: ::windows::runtime::RawPtr, dictionarykey: ::windows::runtime::RawPtr, suggestedvalue: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXamlUIPresenterStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlUIPresenterStatics {
@@ -1042,7 +1024,6 @@ pub struct IXamlUIPresenterStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXamlUIPresenterStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlUIPresenterStatics2 {
@@ -1156,10 +1137,12 @@ impl ::std::convert::From<i32> for XamlSourceFocusNavigationReason {
 }
 unsafe impl ::windows::runtime::Abi for XamlSourceFocusNavigationReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for XamlSourceFocusNavigationReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Hosting.XamlSourceFocusNavigationReason;i4)");
+}
+impl ::windows::runtime::DefaultType for XamlSourceFocusNavigationReason {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Xaml_Hosting`*"]
 #[repr(transparent)]

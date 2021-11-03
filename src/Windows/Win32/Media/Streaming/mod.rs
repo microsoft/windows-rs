@@ -25,7 +25,6 @@ impl ::std::cmp::PartialEq for CapturedMetadataExposureCompensation {
 impl ::std::cmp::Eq for CapturedMetadataExposureCompensation {}
 unsafe impl ::windows::runtime::Abi for CapturedMetadataExposureCompensation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -53,7 +52,6 @@ impl ::std::cmp::PartialEq for CapturedMetadataISOGains {
 impl ::std::cmp::Eq for CapturedMetadataISOGains {}
 unsafe impl ::windows::runtime::Abi for CapturedMetadataISOGains {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -82,7 +80,6 @@ impl ::std::cmp::PartialEq for CapturedMetadataWhiteBalanceGains {
 impl ::std::cmp::Eq for CapturedMetadataWhiteBalanceGains {}
 unsafe impl ::windows::runtime::Abi for CapturedMetadataWhiteBalanceGains {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -112,7 +109,6 @@ impl ::std::cmp::PartialEq for FaceCharacterization {
 impl ::std::cmp::Eq for FaceCharacterization {}
 unsafe impl ::windows::runtime::Abi for FaceCharacterization {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -140,7 +136,6 @@ impl ::std::cmp::PartialEq for FaceCharacterizationBlobHeader {
 impl ::std::cmp::Eq for FaceCharacterizationBlobHeader {}
 unsafe impl ::windows::runtime::Abi for FaceCharacterizationBlobHeader {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -175,7 +170,6 @@ impl ::std::cmp::Eq for FaceRectInfo {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FaceRectInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -203,7 +197,6 @@ impl ::std::cmp::PartialEq for FaceRectInfoBlobHeader {
 impl ::std::cmp::Eq for FaceRectInfoBlobHeader {}
 unsafe impl ::windows::runtime::Abi for FaceRectInfoBlobHeader {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -231,7 +224,6 @@ impl ::std::cmp::PartialEq for HistogramBlobHeader {
 impl ::std::cmp::Eq for HistogramBlobHeader {}
 unsafe impl ::windows::runtime::Abi for HistogramBlobHeader {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -260,7 +252,6 @@ impl ::std::cmp::PartialEq for HistogramDataHeader {
 impl ::std::cmp::Eq for HistogramDataHeader {}
 unsafe impl ::windows::runtime::Abi for HistogramDataHeader {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -296,7 +287,6 @@ impl ::std::cmp::Eq for HistogramGrid {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HistogramGrid {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -334,7 +324,6 @@ impl ::std::cmp::Eq for HistogramHeader {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HistogramHeader {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Streaming`*"]
 #[repr(transparent)]
@@ -530,7 +519,6 @@ impl ::std::convert::From<i32> for MF_MEDIASOURCE_STATUS_INFO {
 }
 unsafe impl ::windows::runtime::Abi for MF_MEDIASOURCE_STATUS_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Media_Streaming`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -546,7 +534,6 @@ impl ::std::convert::From<i32> for MF_TRANSFER_VIDEO_FRAME_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MF_TRANSFER_VIDEO_FRAME_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -575,5 +562,4 @@ impl ::std::cmp::PartialEq for MetadataTimeStamps {
 impl ::std::cmp::Eq for MetadataTimeStamps {}
 unsafe impl ::windows::runtime::Abi for MetadataTimeStamps {
     type Abi = Self;
-    type DefaultType = Self;
 }

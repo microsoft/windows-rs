@@ -1,6 +1,5 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInjectedInputGamepadInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInjectedInputGamepadInfo {
@@ -34,7 +33,6 @@ pub struct IInjectedInputGamepadInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInjectedInputGamepadInfoFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInjectedInputGamepadInfoFactory {
@@ -54,7 +52,6 @@ pub struct IInjectedInputGamepadInfoFactory_abi(
     #[cfg(not(feature = "Gaming_Input"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInjectedInputKeyboardInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInjectedInputKeyboardInfo {
@@ -78,7 +75,6 @@ pub struct IInjectedInputKeyboardInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u16) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInjectedInputMouseInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInjectedInputMouseInfo {
@@ -106,7 +102,6 @@ pub struct IInjectedInputMouseInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInjectedInputPenInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInjectedInputPenInfo {
@@ -138,7 +133,6 @@ pub struct IInjectedInputPenInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInjectedInputTouchInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInjectedInputTouchInfo {
@@ -166,7 +160,6 @@ pub struct IInjectedInputTouchInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: InjectedInputTouchParameters) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInputInjector(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputInjector {
@@ -196,7 +189,6 @@ pub struct IInputInjector_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, shortcut: InjectedInputShortcut) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInputInjector2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputInjector2 {
@@ -217,7 +209,6 @@ pub struct IInputInjector2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInputInjectorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputInjectorStatics {
@@ -236,7 +227,6 @@ pub struct IInputInjectorStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInputInjectorStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputInjectorStatics2 {
@@ -278,10 +268,12 @@ impl ::std::convert::From<i32> for InjectedInputButtonChangeKind {
 }
 unsafe impl ::windows::runtime::Abi for InjectedInputButtonChangeKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for InjectedInputButtonChangeKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputButtonChangeKind;i4)");
+}
+impl ::windows::runtime::DefaultType for InjectedInputButtonChangeKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[repr(transparent)]
@@ -429,10 +421,12 @@ impl ::std::convert::From<u32> for InjectedInputKeyOptions {
 }
 unsafe impl ::windows::runtime::Abi for InjectedInputKeyOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for InjectedInputKeyOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputKeyOptions;u4)");
+}
+impl ::windows::runtime::DefaultType for InjectedInputKeyOptions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for InjectedInputKeyOptions {
     type Output = Self;
@@ -640,10 +634,12 @@ impl ::std::convert::From<u32> for InjectedInputMouseOptions {
 }
 unsafe impl ::windows::runtime::Abi for InjectedInputMouseOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for InjectedInputMouseOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputMouseOptions;u4)");
+}
+impl ::windows::runtime::DefaultType for InjectedInputMouseOptions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for InjectedInputMouseOptions {
     type Output = Self;
@@ -690,10 +686,12 @@ impl ::std::convert::From<u32> for InjectedInputPenButtons {
 }
 unsafe impl ::windows::runtime::Abi for InjectedInputPenButtons {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for InjectedInputPenButtons {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPenButtons;u4)");
+}
+impl ::windows::runtime::DefaultType for InjectedInputPenButtons {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for InjectedInputPenButtons {
     type Output = Self;
@@ -855,10 +853,12 @@ impl ::std::convert::From<u32> for InjectedInputPenParameters {
 }
 unsafe impl ::windows::runtime::Abi for InjectedInputPenParameters {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for InjectedInputPenParameters {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPenParameters;u4)");
+}
+impl ::windows::runtime::DefaultType for InjectedInputPenParameters {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for InjectedInputPenParameters {
     type Output = Self;
@@ -914,10 +914,12 @@ impl ::std::cmp::PartialEq for InjectedInputPoint {
 impl ::std::cmp::Eq for InjectedInputPoint {}
 unsafe impl ::windows::runtime::Abi for InjectedInputPoint {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for InjectedInputPoint {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputPoint;i4;i4)");
+}
+impl ::windows::runtime::DefaultType for InjectedInputPoint {
+    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -948,10 +950,12 @@ impl ::std::cmp::PartialEq for InjectedInputPointerInfo {
 impl ::std::cmp::Eq for InjectedInputPointerInfo {}
 unsafe impl ::windows::runtime::Abi for InjectedInputPointerInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for InjectedInputPointerInfo {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputPointerInfo;u4;enum(Windows.UI.Input.Preview.Injection.InjectedInputPointerOptions;u4);struct(Windows.UI.Input.Preview.Injection.InjectedInputPoint;i4;i4);u4;u8)");
+}
+impl ::windows::runtime::DefaultType for InjectedInputPointerInfo {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -979,10 +983,12 @@ impl ::std::convert::From<u32> for InjectedInputPointerOptions {
 }
 unsafe impl ::windows::runtime::Abi for InjectedInputPointerOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for InjectedInputPointerOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPointerOptions;u4)");
+}
+impl ::windows::runtime::DefaultType for InjectedInputPointerOptions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for InjectedInputPointerOptions {
     type Output = Self;
@@ -1040,10 +1046,12 @@ impl ::std::cmp::PartialEq for InjectedInputRectangle {
 impl ::std::cmp::Eq for InjectedInputRectangle {}
 unsafe impl ::windows::runtime::Abi for InjectedInputRectangle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for InjectedInputRectangle {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputRectangle;i4;i4;i4;i4)");
+}
+impl ::windows::runtime::DefaultType for InjectedInputRectangle {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1061,10 +1069,12 @@ impl ::std::convert::From<i32> for InjectedInputShortcut {
 }
 unsafe impl ::windows::runtime::Abi for InjectedInputShortcut {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for InjectedInputShortcut {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputShortcut;i4)");
+}
+impl ::windows::runtime::DefaultType for InjectedInputShortcut {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[repr(transparent)]
@@ -1171,10 +1181,12 @@ impl ::std::convert::From<u32> for InjectedInputTouchParameters {
 }
 unsafe impl ::windows::runtime::Abi for InjectedInputTouchParameters {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for InjectedInputTouchParameters {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputTouchParameters;u4)");
+}
+impl ::windows::runtime::DefaultType for InjectedInputTouchParameters {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for InjectedInputTouchParameters {
     type Output = Self;
@@ -1220,10 +1232,12 @@ impl ::std::convert::From<i32> for InjectedInputVisualizationMode {
 }
 unsafe impl ::windows::runtime::Abi for InjectedInputVisualizationMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for InjectedInputVisualizationMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputVisualizationMode;i4)");
+}
+impl ::windows::runtime::DefaultType for InjectedInputVisualizationMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_Input_Preview_Injection`*"]
 #[repr(transparent)]

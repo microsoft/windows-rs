@@ -101,8 +101,8 @@ impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, eventargs: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         ((*this).invoke)(
-            &*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::DefaultType),
-            &*(&eventargs as *const <super::super::ApplicationModel::Activation::IActivatedEventArgs as ::windows::runtime::Abi>::Abi as *const <super::super::ApplicationModel::Activation::IActivatedEventArgs as ::windows::runtime::Abi>::DefaultType),
+            &*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::DefaultType>::DefaultType),
+            &*(&eventargs as *const <super::super::ApplicationModel::Activation::IActivatedEventArgs as ::windows::runtime::Abi>::Abi as *const <super::super::ApplicationModel::Activation::IActivatedEventArgs as ::windows::runtime::DefaultType>::DefaultType),
         )
         .into()
     }
@@ -268,8 +268,8 @@ impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, eventargs: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         ((*this).invoke)(
-            &*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::DefaultType),
-            &*(&eventargs as *const <super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs as ::windows::runtime::Abi>::Abi as *const <super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs as ::windows::runtime::Abi>::DefaultType),
+            &*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::DefaultType>::DefaultType),
+            &*(&eventargs as *const <super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs as ::windows::runtime::Abi>::Abi as *const <super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs as ::windows::runtime::DefaultType>::DefaultType),
         )
         .into()
     }
@@ -411,8 +411,8 @@ impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, e: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         ((*this).invoke)(
-            &*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::DefaultType),
-            &*(&e as *const <super::super::ApplicationModel::IEnteredBackgroundEventArgs as ::windows::runtime::Abi>::Abi as *const <super::super::ApplicationModel::IEnteredBackgroundEventArgs as ::windows::runtime::Abi>::DefaultType),
+            &*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::DefaultType>::DefaultType),
+            &*(&e as *const <super::super::ApplicationModel::IEnteredBackgroundEventArgs as ::windows::runtime::Abi>::Abi as *const <super::super::ApplicationModel::IEnteredBackgroundEventArgs as ::windows::runtime::DefaultType>::DefaultType),
         )
         .into()
     }
@@ -614,7 +614,6 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Printing::IPr
 unsafe impl ::std::marker::Send for HtmlPrintDocumentSource {}
 unsafe impl ::std::marker::Sync for HtmlPrintDocumentSource {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IActivatedDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivatedDeferral {
@@ -665,7 +664,6 @@ pub struct IActivatedEventArgsDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IActivatedOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivatedOperation {
@@ -684,7 +682,6 @@ pub struct IActivatedOperation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHtmlPrintDocumentSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHtmlPrintDocumentSource {
@@ -720,7 +717,6 @@ pub struct IHtmlPrintDocumentSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, strpagerange: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct INewWebUIViewCreatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INewWebUIViewCreatedEventArgs {
@@ -744,7 +740,6 @@ pub struct INewWebUIViewCreatedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebUIActivationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUIActivationStatics {
@@ -778,7 +773,6 @@ pub struct IWebUIActivationStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebUIActivationStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUIActivationStatics2 {
@@ -805,7 +799,6 @@ pub struct IWebUIActivationStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebUIActivationStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUIActivationStatics3 {
@@ -827,7 +820,6 @@ pub struct IWebUIActivationStatics3_abi(
     #[cfg(not(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebUIActivationStatics4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUIActivationStatics4 {
@@ -891,7 +883,6 @@ pub struct IWebUIBackgroundTaskInstance_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, succeeded: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebUIBackgroundTaskInstanceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUIBackgroundTaskInstanceStatics {
@@ -910,7 +901,6 @@ pub struct IWebUIBackgroundTaskInstanceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebUINavigatedDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUINavigatedDeferral {
@@ -961,7 +951,6 @@ pub struct IWebUINavigatedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebUINavigatedOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUINavigatedOperation {
@@ -980,7 +969,6 @@ pub struct IWebUINavigatedOperation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebUIView(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUIView {
@@ -1009,7 +997,6 @@ pub struct IWebUIView_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebUIViewStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebUIViewStatics {
@@ -1167,8 +1154,8 @@ impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, e: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         ((*this).invoke)(
-            &*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::DefaultType),
-            &*(&e as *const <super::super::ApplicationModel::ILeavingBackgroundEventArgs as ::windows::runtime::Abi>::Abi as *const <super::super::ApplicationModel::ILeavingBackgroundEventArgs as ::windows::runtime::Abi>::DefaultType),
+            &*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::DefaultType>::DefaultType),
+            &*(&e as *const <super::super::ApplicationModel::ILeavingBackgroundEventArgs as ::windows::runtime::Abi>::Abi as *const <super::super::ApplicationModel::ILeavingBackgroundEventArgs as ::windows::runtime::DefaultType>::DefaultType),
         )
         .into()
     }
@@ -1244,8 +1231,8 @@ impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, e: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         ((*this).invoke)(
-            &*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::DefaultType),
-            &*(&e as *const <IWebUINavigatedEventArgs as ::windows::runtime::Abi>::Abi as *const <IWebUINavigatedEventArgs as ::windows::runtime::Abi>::DefaultType),
+            &*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::DefaultType>::DefaultType),
+            &*(&e as *const <IWebUINavigatedEventArgs as ::windows::runtime::Abi>::Abi as *const <IWebUINavigatedEventArgs as ::windows::runtime::DefaultType>::DefaultType),
         )
         .into()
     }
@@ -1317,10 +1304,12 @@ impl ::std::convert::From<i32> for PrintContent {
 }
 unsafe impl ::windows::runtime::Abi for PrintContent {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PrintContent {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.WebUI.PrintContent;i4)");
+}
+impl ::windows::runtime::DefaultType for PrintContent {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `UI_WebUI`*"]
 #[repr(transparent)]
@@ -1392,7 +1381,7 @@ impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>) -> ::win
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::DefaultType)).into()
+        ((*this).invoke)(&*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::DefaultType>::DefaultType)).into()
     }
 }
 #[cfg(feature = "ApplicationModel")]
@@ -1579,8 +1568,8 @@ impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, sender: ::windows::runtime::RawPtr, e: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
         ((*this).invoke)(
-            &*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::DefaultType),
-            &*(&e as *const <super::super::ApplicationModel::ISuspendingEventArgs as ::windows::runtime::Abi>::Abi as *const <super::super::ApplicationModel::ISuspendingEventArgs as ::windows::runtime::Abi>::DefaultType),
+            &*(&sender as *const <::windows::runtime::IInspectable as ::windows::runtime::Abi>::Abi as *const <::windows::runtime::IInspectable as ::windows::runtime::DefaultType>::DefaultType),
+            &*(&e as *const <super::super::ApplicationModel::ISuspendingEventArgs as ::windows::runtime::Abi>::Abi as *const <super::super::ApplicationModel::ISuspendingEventArgs as ::windows::runtime::DefaultType>::DefaultType),
         )
         .into()
     }

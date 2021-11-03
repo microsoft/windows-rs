@@ -13,7 +13,6 @@ impl ::std::convert::From<i32> for AUTHENTICATEF {
 }
 unsafe impl ::windows::runtime::Abi for AUTHENTICATEF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -41,7 +40,6 @@ impl ::std::cmp::PartialEq for AUTHENTICATEINFO {
 impl ::std::cmp::Eq for AUTHENTICATEINFO {}
 unsafe impl ::windows::runtime::Abi for AUTHENTICATEINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -85,7 +83,6 @@ impl ::std::convert::From<i32> for BINDF {
 }
 unsafe impl ::windows::runtime::Abi for BINDF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -129,7 +126,6 @@ impl ::std::convert::From<i32> for BINDF2 {
 }
 unsafe impl ::windows::runtime::Abi for BINDF2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -145,7 +141,6 @@ impl ::std::convert::From<i32> for BINDHANDLETYPES {
 }
 unsafe impl ::windows::runtime::Abi for BINDHANDLETYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -173,7 +168,6 @@ impl ::std::convert::From<i32> for BINDINFO_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for BINDINFO_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -265,7 +259,6 @@ impl ::std::convert::From<i32> for BINDSTATUS {
 }
 unsafe impl ::windows::runtime::Abi for BINDSTATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -304,7 +297,6 @@ impl ::std::convert::From<i32> for BINDSTRING {
 }
 unsafe impl ::windows::runtime::Abi for BINDSTRING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -322,7 +314,6 @@ impl ::std::convert::From<i32> for BINDVERB {
 }
 unsafe impl ::windows::runtime::Abi for BINDVERB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -342,7 +333,6 @@ impl ::std::convert::From<i32> for BSCF {
 }
 unsafe impl ::windows::runtime::Abi for BSCF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const CF_NULL: u32 = 0u32;
@@ -367,7 +357,6 @@ impl ::std::convert::From<i32> for CIP_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for CIP_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -406,7 +395,6 @@ impl ::std::cmp::Eq for CODEBASEHOLD {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CODEBASEHOLD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -435,7 +423,6 @@ impl ::std::cmp::PartialEq for CONFIRMSAFETY {
 impl ::std::cmp::Eq for CONFIRMSAFETY {}
 unsafe impl ::windows::runtime::Abi for CONFIRMSAFETY {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const CONFIRMSAFETYACTION_LOADOBJECT: u32 = 1u32;
@@ -917,7 +904,6 @@ impl ::std::cmp::PartialEq for DATAINFO {
 impl ::std::cmp::Eq for DATAINFO {}
 unsafe impl ::windows::runtime::Abi for DATAINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const E_PENDING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147483638i32 as _);
@@ -1124,7 +1110,6 @@ impl ::std::cmp::Eq for HIT_LOGGING_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HIT_LOGGING_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[inline]
@@ -1574,7 +1559,6 @@ impl ::std::convert::From<i32> for IEObjectType {
 }
 unsafe impl ::windows::runtime::Abi for IEObjectType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
@@ -3341,7 +3325,6 @@ impl ::std::convert::From<i32> for INET_ZONE_MANAGER_CONSTANTS {
 }
 unsafe impl ::windows::runtime::Abi for INET_ZONE_MANAGER_CONSTANTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3383,7 +3366,6 @@ impl ::std::convert::From<i32> for INTERNETFEATURELIST {
 }
 unsafe impl ::windows::runtime::Abi for INTERNETFEATURELIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[repr(transparent)]
@@ -3978,7 +3960,6 @@ impl ::std::convert::From<i32> for MONIKERPROPERTY {
 }
 unsafe impl ::windows::runtime::Abi for MONIKERPROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const MUTZ_ACCEPT_WILDCARD_SCHEME: u32 = 128u32;
@@ -4028,7 +4009,6 @@ impl ::std::convert::From<i32> for OIBDG_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for OIBDG_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
@@ -4075,7 +4055,6 @@ impl ::std::convert::From<i32> for PARSEACTION {
 }
 unsafe impl ::windows::runtime::Abi for PARSEACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4103,7 +4082,6 @@ impl ::std::convert::From<i32> for PI_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PI_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4133,7 +4111,6 @@ impl ::std::cmp::PartialEq for PROTOCOLDATA {
 impl ::std::cmp::Eq for PROTOCOLDATA {}
 unsafe impl ::windows::runtime::Abi for PROTOCOLDATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4164,7 +4141,6 @@ impl ::std::cmp::PartialEq for PROTOCOLFILTERDATA {
 impl ::std::cmp::Eq for PROTOCOLFILTERDATA {}
 unsafe impl ::windows::runtime::Abi for PROTOCOLFILTERDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const PROTOCOLFLAG_NO_PICS_CHECK: u32 = 1u32;
@@ -4201,7 +4177,6 @@ impl ::std::cmp::Eq for PROTOCOL_ARGUMENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PROTOCOL_ARGUMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4216,7 +4191,6 @@ impl ::std::convert::From<i32> for PSUACTION {
 }
 unsafe impl ::windows::runtime::Abi for PSUACTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4250,7 +4224,6 @@ impl ::std::convert::From<i32> for PUAF {
 }
 unsafe impl ::windows::runtime::Abi for PUAF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4265,7 +4238,6 @@ impl ::std::convert::From<i32> for PUAFOUT {
 }
 unsafe impl ::windows::runtime::Abi for PUAFOUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4294,7 +4266,6 @@ impl ::std::convert::From<i32> for QUERYOPTION {
 }
 unsafe impl ::windows::runtime::Abi for QUERYOPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4330,7 +4301,6 @@ impl ::std::cmp::Eq for REMSECURITY_ATTRIBUTES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for REMSECURITY_ATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[inline]
@@ -4475,7 +4445,6 @@ impl ::std::cmp::Eq for RemBINDINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RemBINDINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4506,7 +4475,6 @@ impl ::std::cmp::PartialEq for RemFORMATETC {
 impl ::std::cmp::Eq for RemFORMATETC {}
 unsafe impl ::windows::runtime::Abi for RemFORMATETC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[inline]
@@ -4626,7 +4594,6 @@ impl ::std::cmp::Eq for SOFTDISTINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SOFTDISTINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const SOFTDIST_ADSTATE_AVAILABLE: u32 = 1u32;
@@ -4657,7 +4624,6 @@ impl ::std::convert::From<i32> for SZM_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for SZM_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const S_ASYNCHRONOUS: i32 = 262632i32;
@@ -4718,7 +4684,6 @@ impl ::std::cmp::PartialEq for StartParam {
 impl ::std::cmp::Eq for StartParam {}
 unsafe impl ::windows::runtime::Abi for StartParam {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const UAS_EXACTLEGACY: u32 = 4096u32;
@@ -5243,7 +5208,6 @@ impl ::std::convert::From<i32> for URLTEMPLATE {
 }
 unsafe impl ::windows::runtime::Abi for URLTEMPLATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5266,7 +5230,6 @@ impl ::std::convert::From<i32> for URLZONE {
 }
 unsafe impl ::windows::runtime::Abi for URLZONE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5282,7 +5245,6 @@ impl ::std::convert::From<i32> for URLZONEREG {
 }
 unsafe impl ::windows::runtime::Abi for URLZONEREG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const URLZONE_ESC_FLAG: u32 = 256u32;
@@ -5300,7 +5262,6 @@ impl ::std::convert::From<i32> for URL_ENCODING {
 }
 unsafe impl ::windows::runtime::Abi for URL_ENCODING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const URL_MK_LEGACY: u32 = 0u32;
@@ -5346,7 +5307,6 @@ impl ::std::convert::From<i32> for Uri_HOST_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for Uri_HOST_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const Uri_PUNYCODE_IDN_HOST: u32 = 2u32;
@@ -5418,7 +5378,6 @@ impl ::std::convert::From<i32> for ZAFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for ZAFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5461,5 +5420,4 @@ impl ::std::cmp::PartialEq for ZONEATTRIBUTES {
 impl ::std::cmp::Eq for ZONEATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for ZONEATTRIBUTES {
     type Abi = Self;
-    type DefaultType = Self;
 }

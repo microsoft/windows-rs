@@ -62,10 +62,12 @@ impl ::std::convert::From<i32> for ActivationKind {
 }
 unsafe impl ::windows::runtime::Abi for ActivationKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ActivationKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Activation.ActivationKind;i4)");
+}
+impl ::windows::runtime::DefaultType for ActivationKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -85,10 +87,12 @@ impl ::std::convert::From<i32> for ApplicationExecutionState {
 }
 unsafe impl ::windows::runtime::Abi for ApplicationExecutionState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ApplicationExecutionState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Activation.ApplicationExecutionState;i4)");
+}
+impl ::windows::runtime::DefaultType for ApplicationExecutionState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Activation`*"]
 #[repr(transparent)]
@@ -5174,7 +5178,6 @@ pub struct ICommandLineActivatedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICommandLineActivationOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICommandLineActivationOperation {
@@ -8651,7 +8654,6 @@ pub struct IShareTargetActivatedEventArgs_abi(
     #[cfg(not(feature = "ApplicationModel_DataTransfer_ShareTarget"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISplashScreen(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISplashScreen {
@@ -8753,7 +8755,6 @@ pub struct IStartupTaskActivatedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITileActivatedInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITileActivatedInfo {

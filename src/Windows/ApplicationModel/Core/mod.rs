@@ -76,10 +76,12 @@ impl ::std::convert::From<i32> for AppRestartFailureReason {
 }
 unsafe impl ::windows::runtime::Abi for AppRestartFailureReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppRestartFailureReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Core.AppRestartFailureReason;i4)");
+}
+impl ::windows::runtime::DefaultType for AppRestartFailureReason {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_Core`*"]
 pub struct CoreApplication {}
@@ -547,7 +549,6 @@ impl ::windows::runtime::RuntimeName for HostedViewClosingEventArgs {
 unsafe impl ::std::marker::Send for HostedViewClosingEventArgs {}
 unsafe impl ::std::marker::Sync for HostedViewClosingEventArgs {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppListEntry(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppListEntry {
@@ -568,7 +569,6 @@ pub struct IAppListEntry_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppListEntry2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppListEntry2 {
@@ -587,7 +587,6 @@ pub struct IAppListEntry2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppListEntry3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppListEntry3 {
@@ -607,7 +606,6 @@ pub struct IAppListEntry3_abi(
     #[cfg(not(all(feature = "Foundation", feature = "System")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppListEntry4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppListEntry4 {
@@ -626,7 +624,6 @@ pub struct IAppListEntry4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreApplication(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplication {
@@ -659,7 +656,6 @@ pub struct ICoreApplication_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreApplication2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplication2 {
@@ -690,7 +686,6 @@ pub struct ICoreApplication2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreApplication3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplication3 {
@@ -712,7 +707,6 @@ pub struct ICoreApplication3_abi(
     #[cfg(not(all(feature = "Foundation", feature = "System")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreApplicationExit(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplicationExit {
@@ -777,7 +771,6 @@ pub struct ICoreApplicationUnhandledError_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreApplicationUseCount(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplicationUseCount {
@@ -797,7 +790,6 @@ pub struct ICoreApplicationUseCount_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreApplicationView(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplicationView {
@@ -823,7 +815,6 @@ pub struct ICoreApplicationView_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreApplicationView2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplicationView2 {
@@ -843,7 +834,6 @@ pub struct ICoreApplicationView2_abi(
     #[cfg(not(feature = "UI_Core"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreApplicationView3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplicationView3 {
@@ -867,7 +857,6 @@ pub struct ICoreApplicationView3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreApplicationView5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplicationView5 {
@@ -887,7 +876,6 @@ pub struct ICoreApplicationView5_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreApplicationView6(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplicationView6 {
@@ -907,7 +895,6 @@ pub struct ICoreApplicationView6_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreApplicationViewTitleBar(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplicationViewTitleBar {
@@ -939,7 +926,6 @@ pub struct ICoreApplicationViewTitleBar_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreImmersiveApplication(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreImmersiveApplication {
@@ -961,7 +947,6 @@ pub struct ICoreImmersiveApplication_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreImmersiveApplication2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreImmersiveApplication2 {
@@ -980,7 +965,6 @@ pub struct ICoreImmersiveApplication2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICoreImmersiveApplication3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreImmersiveApplication3 {
@@ -1086,7 +1070,6 @@ pub struct IFrameworkViewSource_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHostedViewClosingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHostedViewClosingEventArgs {
@@ -1106,7 +1089,6 @@ pub struct IHostedViewClosingEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUnhandledError(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUnhandledError {
@@ -1126,7 +1108,6 @@ pub struct IUnhandledError_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUnhandledErrorDetectedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUnhandledErrorDetectedEventArgs {

@@ -1788,7 +1788,6 @@ impl ::std::convert::From<i32> for STDMSHLFLAGS {
 }
 unsafe impl ::windows::runtime::Abi for STDMSHLFLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[doc = "*Required features: `Win32_System_Com_Marshal`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com_StructuredStorage`*"]

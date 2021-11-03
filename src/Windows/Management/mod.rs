@@ -10,7 +10,6 @@ pub mod Update;
 #[cfg(feature = "Management_Workplace")]
 pub mod Workplace;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMdmAlert(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMdmAlert {
@@ -41,7 +40,6 @@ pub struct IMdmAlert_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMdmSession(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMdmSession {
@@ -71,7 +69,6 @@ pub struct IMdmSession_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMdmSessionManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMdmSessionManagerStatics {
@@ -219,10 +216,12 @@ impl ::std::convert::From<i32> for MdmAlertDataType {
 }
 unsafe impl ::windows::runtime::Abi for MdmAlertDataType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MdmAlertDataType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertDataType;i4)");
+}
+impl ::windows::runtime::DefaultType for MdmAlertDataType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Management`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -242,10 +241,12 @@ impl ::std::convert::From<i32> for MdmAlertMark {
 }
 unsafe impl ::windows::runtime::Abi for MdmAlertMark {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MdmAlertMark {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertMark;i4)");
+}
+impl ::windows::runtime::DefaultType for MdmAlertMark {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Management`*"]
 #[repr(transparent)]
@@ -385,8 +386,10 @@ impl ::std::convert::From<i32> for MdmSessionState {
 }
 unsafe impl ::windows::runtime::Abi for MdmSessionState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MdmSessionState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Management.MdmSessionState;i4)");
+}
+impl ::windows::runtime::DefaultType for MdmSessionState {
+    type DefaultType = Self;
 }

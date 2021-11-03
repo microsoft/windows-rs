@@ -15,10 +15,12 @@ impl ::std::convert::From<i32> for GuidanceAudioMeasurementSystem {
 }
 unsafe impl ::windows::runtime::Abi for GuidanceAudioMeasurementSystem {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GuidanceAudioMeasurementSystem {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioMeasurementSystem;i4)");
+}
+impl ::windows::runtime::DefaultType for GuidanceAudioMeasurementSystem {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_Maps_Guidance`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -39,10 +41,12 @@ impl ::std::convert::From<i32> for GuidanceAudioNotificationKind {
 }
 unsafe impl ::windows::runtime::Abi for GuidanceAudioNotificationKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GuidanceAudioNotificationKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioNotificationKind;i4)");
+}
+impl ::windows::runtime::DefaultType for GuidanceAudioNotificationKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_Maps_Guidance`*"]
 #[repr(transparent)]
@@ -107,10 +111,12 @@ impl ::std::convert::From<u32> for GuidanceAudioNotifications {
 }
 unsafe impl ::windows::runtime::Abi for GuidanceAudioNotifications {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GuidanceAudioNotifications {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioNotifications;u4)");
+}
+impl ::windows::runtime::DefaultType for GuidanceAudioNotifications {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for GuidanceAudioNotifications {
     type Output = Self;
@@ -198,10 +204,12 @@ impl ::std::convert::From<u32> for GuidanceLaneMarkers {
 }
 unsafe impl ::windows::runtime::Abi for GuidanceLaneMarkers {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GuidanceLaneMarkers {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceLaneMarkers;u4)");
+}
+impl ::windows::runtime::DefaultType for GuidanceLaneMarkers {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for GuidanceLaneMarkers {
     type Output = Self;
@@ -407,10 +415,12 @@ impl ::std::convert::From<i32> for GuidanceManeuverKind {
 }
 unsafe impl ::windows::runtime::Abi for GuidanceManeuverKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GuidanceManeuverKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceManeuverKind;i4)");
+}
+impl ::windows::runtime::DefaultType for GuidanceManeuverKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_Maps_Guidance`*"]
 #[repr(transparent)]
@@ -488,10 +498,12 @@ impl ::std::convert::From<i32> for GuidanceMode {
 }
 unsafe impl ::windows::runtime::Abi for GuidanceMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GuidanceMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceMode;i4)");
+}
+impl ::windows::runtime::DefaultType for GuidanceMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_Maps_Guidance`*"]
 #[repr(transparent)]
@@ -1235,7 +1247,6 @@ impl ::windows::runtime::RuntimeName for GuidanceUpdatedEventArgs {
 unsafe impl ::std::marker::Send for GuidanceUpdatedEventArgs {}
 unsafe impl ::std::marker::Sync for GuidanceUpdatedEventArgs {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGuidanceAudioNotificationRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceAudioNotificationRequestedEventArgs {
@@ -1257,7 +1268,6 @@ pub struct IGuidanceAudioNotificationRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGuidanceLaneInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceLaneInfo {
@@ -1277,7 +1287,6 @@ pub struct IGuidanceLaneInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGuidanceManeuver(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceManeuver {
@@ -1308,7 +1317,6 @@ pub struct IGuidanceManeuver_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGuidanceMapMatchedCoordinate(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceMapMatchedCoordinate {
@@ -1332,7 +1340,6 @@ pub struct IGuidanceMapMatchedCoordinate_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGuidanceNavigator(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceNavigator {
@@ -1394,7 +1401,6 @@ pub struct IGuidanceNavigator_abi(
     #[cfg(not(feature = "Devices_Geolocation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGuidanceNavigator2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceNavigator2 {
@@ -1418,7 +1424,6 @@ pub struct IGuidanceNavigator2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGuidanceNavigatorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceNavigatorStatics {
@@ -1437,7 +1442,6 @@ pub struct IGuidanceNavigatorStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGuidanceNavigatorStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceNavigatorStatics2 {
@@ -1456,7 +1460,6 @@ pub struct IGuidanceNavigatorStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGuidanceReroutedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceReroutedEventArgs {
@@ -1475,7 +1478,6 @@ pub struct IGuidanceReroutedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGuidanceRoadSegment(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceRoadSegment {
@@ -1504,7 +1506,6 @@ pub struct IGuidanceRoadSegment_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGuidanceRoadSegment2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceRoadSegment2 {
@@ -1523,7 +1524,6 @@ pub struct IGuidanceRoadSegment2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGuidanceRoadSignpost(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceRoadSignpost {
@@ -1549,7 +1549,6 @@ pub struct IGuidanceRoadSignpost_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGuidanceRoute(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceRoute {
@@ -1579,7 +1578,6 @@ pub struct IGuidanceRoute_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGuidanceRouteStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceRouteStatics {
@@ -1599,7 +1597,6 @@ pub struct IGuidanceRouteStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, maproute: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGuidanceTelemetryCollector(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceTelemetryCollector {
@@ -1624,7 +1621,6 @@ pub struct IGuidanceTelemetryCollector_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGuidanceTelemetryCollectorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceTelemetryCollectorStatics {
@@ -1643,7 +1639,6 @@ pub struct IGuidanceTelemetryCollectorStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGuidanceUpdatedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGuidanceUpdatedEventArgs {

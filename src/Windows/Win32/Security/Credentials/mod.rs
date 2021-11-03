@@ -25,7 +25,6 @@ impl ::std::cmp::PartialEq for BINARY_BLOB_CREDENTIAL_INFO {
 impl ::std::cmp::Eq for BINARY_BLOB_CREDENTIAL_INFO {}
 unsafe impl ::windows::runtime::Abi for BINARY_BLOB_CREDENTIAL_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -53,7 +52,6 @@ impl ::std::cmp::PartialEq for CERT_CREDENTIAL_INFO {
 impl ::std::cmp::Eq for CERT_CREDENTIAL_INFO {}
 unsafe impl ::windows::runtime::Abi for CERT_CREDENTIAL_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CERT_HASH_LENGTH: u32 = 20u32;
@@ -113,7 +111,6 @@ impl ::std::cmp::Eq for CREDENTIALA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CREDENTIALA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -171,7 +168,6 @@ impl ::std::cmp::Eq for CREDENTIALW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CREDENTIALW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -208,7 +204,6 @@ impl ::std::cmp::Eq for CREDENTIAL_ATTRIBUTEA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CREDENTIAL_ATTRIBUTEA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -245,7 +240,6 @@ impl ::std::cmp::Eq for CREDENTIAL_ATTRIBUTEW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CREDENTIAL_ATTRIBUTEW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -299,7 +293,6 @@ impl ::std::cmp::Eq for CREDENTIAL_TARGET_INFORMATIONA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CREDENTIAL_TARGET_INFORMATIONA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -353,7 +346,6 @@ impl ::std::cmp::Eq for CREDENTIAL_TARGET_INFORMATIONW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CREDENTIAL_TARGET_INFORMATIONW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -372,7 +364,6 @@ impl ::std::convert::From<i32> for CREDSPP_SUBMIT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CREDSPP_SUBMIT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -401,7 +392,6 @@ impl ::std::cmp::PartialEq for CREDSSP_CRED {
 impl ::std::cmp::Eq for CREDSSP_CRED {}
 unsafe impl ::windows::runtime::Abi for CREDSSP_CRED {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -432,7 +422,6 @@ impl ::std::cmp::PartialEq for CREDSSP_CRED_EX {
 impl ::std::cmp::Eq for CREDSSP_CRED_EX {}
 unsafe impl ::windows::runtime::Abi for CREDSSP_CRED_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CREDSSP_CRED_EX_VERSION: u32 = 0u32;
@@ -466,7 +455,6 @@ impl ::std::convert::From<u32> for CREDUIWIN_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CREDUIWIN_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CREDUIWIN_FLAGS {
     type Output = Self;
@@ -526,7 +514,6 @@ impl ::std::convert::From<u32> for CREDUI_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CREDUI_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CREDUI_FLAGS {
     type Output = Self;
@@ -592,7 +579,6 @@ impl ::std::cmp::Eq for CREDUI_INFOA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for CREDUI_INFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -630,7 +616,6 @@ impl ::std::cmp::Eq for CREDUI_INFOW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for CREDUI_INFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CREDUI_MAX_CAPTION_LENGTH: u32 = 128u32;
@@ -654,7 +639,6 @@ impl ::std::convert::From<u32> for CRED_ENUMERATE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CRED_ENUMERATE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRED_ENUMERATE_FLAGS {
     type Output = Self;
@@ -705,7 +689,6 @@ impl ::std::convert::From<u32> for CRED_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CRED_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRED_FLAGS {
     type Output = Self;
@@ -753,7 +736,6 @@ impl ::std::convert::From<i32> for CRED_MARSHAL_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CRED_MARSHAL_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CRED_MAX_ATTRIBUTES: u32 = 64u32;
@@ -782,7 +764,6 @@ impl ::std::convert::From<u32> for CRED_PACK_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for CRED_PACK_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRED_PACK_FLAGS {
     type Output = Self;
@@ -827,7 +808,6 @@ impl ::std::convert::From<u32> for CRED_PERSIST {
 }
 unsafe impl ::windows::runtime::Abi for CRED_PERSIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRED_PERSIST {
     type Output = Self;
@@ -874,7 +854,6 @@ impl ::std::convert::From<i32> for CRED_PROTECTION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CRED_PROTECTION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const CRED_PROTECT_AS_SELF: u32 = 1u32;
@@ -915,7 +894,6 @@ impl ::std::convert::From<u32> for CRED_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for CRED_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for CRED_TYPE {
     type Output = Self;
@@ -1894,7 +1872,6 @@ impl ::std::cmp::PartialEq for KeyCredentialManagerInfo {
 impl ::std::cmp::Eq for KeyCredentialManagerInfo {}
 unsafe impl ::windows::runtime::Abi for KeyCredentialManagerInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1915,7 +1892,6 @@ impl ::std::convert::From<u32> for KeyCredentialManagerOperationErrorStates {
 }
 unsafe impl ::windows::runtime::Abi for KeyCredentialManagerOperationErrorStates {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for KeyCredentialManagerOperationErrorStates {
     type Output = Self;
@@ -1959,7 +1935,6 @@ impl ::std::convert::From<i32> for KeyCredentialManagerOperationType {
 }
 unsafe impl ::windows::runtime::Abi for KeyCredentialManagerOperationType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
@@ -2084,7 +2059,6 @@ impl ::std::cmp::Eq for OPENCARDNAMEA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OPENCARDNAMEA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2183,7 +2157,6 @@ impl ::std::cmp::Eq for OPENCARDNAMEW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OPENCARDNAMEW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2269,7 +2242,6 @@ impl ::std::cmp::Eq for OPENCARDNAME_EXA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for OPENCARDNAME_EXA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2355,7 +2327,6 @@ impl ::std::cmp::Eq for OPENCARDNAME_EXW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for OPENCARDNAME_EXW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2424,7 +2395,6 @@ impl ::std::cmp::Eq for OPENCARD_SEARCH_CRITERIAA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OPENCARD_SEARCH_CRITERIAA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2493,7 +2463,6 @@ impl ::std::cmp::Eq for OPENCARD_SEARCH_CRITERIAW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OPENCARD_SEARCH_CRITERIAW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2518,7 +2487,6 @@ impl ::std::cmp::PartialEq for READER_SEL_REQUEST {
 impl ::std::cmp::Eq for READER_SEL_REQUEST {}
 unsafe impl ::windows::runtime::Abi for READER_SEL_REQUEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2541,7 +2509,6 @@ impl ::std::cmp::PartialEq for READER_SEL_REQUEST_0 {
 impl ::std::cmp::Eq for READER_SEL_REQUEST_0 {}
 unsafe impl ::windows::runtime::Abi for READER_SEL_REQUEST_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2580,7 +2547,6 @@ impl ::std::cmp::PartialEq for READER_SEL_REQUEST_0_0 {
 impl ::std::cmp::Eq for READER_SEL_REQUEST_0_0 {}
 unsafe impl ::windows::runtime::Abi for READER_SEL_REQUEST_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2609,7 +2575,6 @@ impl ::std::cmp::PartialEq for READER_SEL_REQUEST_0_1 {
 impl ::std::cmp::Eq for READER_SEL_REQUEST_0_1 {}
 unsafe impl ::windows::runtime::Abi for READER_SEL_REQUEST_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2625,7 +2590,6 @@ impl ::std::convert::From<i32> for READER_SEL_REQUEST_MATCH_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for READER_SEL_REQUEST_MATCH_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2655,7 +2619,6 @@ impl ::std::cmp::PartialEq for READER_SEL_RESPONSE {
 impl ::std::cmp::Eq for READER_SEL_RESPONSE {}
 unsafe impl ::windows::runtime::Abi for READER_SEL_RESPONSE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_ABSENT: u32 = 1u32;
@@ -2686,7 +2649,6 @@ impl ::std::cmp::PartialEq for SCARD_ATRMASK {
 impl ::std::cmp::Eq for SCARD_ATRMASK {}
 unsafe impl ::windows::runtime::Abi for SCARD_ATRMASK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_ATR_LENGTH: u32 = 33u32;
@@ -2746,7 +2708,6 @@ impl ::std::cmp::PartialEq for SCARD_IO_REQUEST {
 impl ::std::cmp::Eq for SCARD_IO_REQUEST {}
 unsafe impl ::windows::runtime::Abi for SCARD_IO_REQUEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_LEAVE_CARD: u32 = 0u32;
@@ -2813,7 +2774,6 @@ impl ::std::cmp::Eq for SCARD_READERSTATEA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SCARD_READERSTATEA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2852,7 +2812,6 @@ impl ::std::cmp::Eq for SCARD_READERSTATEW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SCARD_READERSTATEW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_READER_CONFISCATES: u32 = 4u32;
@@ -2903,7 +2862,6 @@ impl ::std::convert::From<u32> for SCARD_SCOPE {
 }
 unsafe impl ::windows::runtime::Abi for SCARD_SCOPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SCARD_SCOPE {
     type Output = Self;
@@ -2965,7 +2923,6 @@ impl ::std::convert::From<u32> for SCARD_STATE {
 }
 unsafe impl ::windows::runtime::Abi for SCARD_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for SCARD_STATE {
     type Output = Self;
@@ -3030,7 +2987,6 @@ impl ::std::cmp::PartialEq for SCARD_T0_COMMAND {
 impl ::std::cmp::Eq for SCARD_T0_COMMAND {}
 unsafe impl ::windows::runtime::Abi for SCARD_T0_COMMAND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_T0_HEADER_LENGTH: u32 = 7u32;
@@ -3057,7 +3013,6 @@ impl ::std::cmp::PartialEq for SCARD_T0_REQUEST {
 impl ::std::cmp::Eq for SCARD_T0_REQUEST {}
 unsafe impl ::windows::runtime::Abi for SCARD_T0_REQUEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3080,7 +3035,6 @@ impl ::std::cmp::PartialEq for SCARD_T0_REQUEST_0 {
 impl ::std::cmp::Eq for SCARD_T0_REQUEST_0 {}
 unsafe impl ::windows::runtime::Abi for SCARD_T0_REQUEST_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_T1_EPILOGUE_LENGTH: u32 = 2u32;
@@ -3115,7 +3069,6 @@ impl ::std::cmp::PartialEq for SCARD_T1_REQUEST {
 impl ::std::cmp::Eq for SCARD_T1_REQUEST {}
 unsafe impl ::windows::runtime::Abi for SCARD_T1_REQUEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const SCARD_UNKNOWN: u32 = 0u32;
@@ -4300,7 +4253,6 @@ impl ::std::cmp::PartialEq for SecHandle {
 impl ::std::cmp::Eq for SecHandle {}
 unsafe impl ::windows::runtime::Abi for SecHandle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4328,7 +4280,6 @@ impl ::std::cmp::PartialEq for SecPkgContext_ClientCreds {
 impl ::std::cmp::Eq for SecPkgContext_ClientCreds {}
 unsafe impl ::windows::runtime::Abi for SecPkgContext_ClientCreds {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4362,5 +4313,4 @@ impl ::std::cmp::Eq for USERNAME_TARGET_CREDENTIAL_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for USERNAME_TARGET_CREDENTIAL_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }

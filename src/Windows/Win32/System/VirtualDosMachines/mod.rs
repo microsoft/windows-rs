@@ -115,7 +115,6 @@ impl ::std::cmp::Eq for GLOBALENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GLOBALENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const GLOBAL_ALL: u32 = 0u32;
@@ -180,7 +179,6 @@ impl ::std::cmp::Eq for IMAGE_NOTE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IMAGE_NOTE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const MAX_MODULE_NAME: u32 = 9u32;
@@ -217,7 +215,6 @@ impl ::std::cmp::Eq for MODULEENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MODULEENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type PROCESSENUMPROC = unsafe extern "system" fn(dwprocessid: u32, dwattributes: u32, lpuserdefined: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
@@ -259,7 +256,6 @@ impl ::std::cmp::Eq for SEGMENT_NOTE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SEGMENT_NOTE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const SN_CODE: u32 = 0u32;
@@ -307,7 +303,6 @@ impl ::std::cmp::Eq for TEMP_BP_NOTE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TEMP_BP_NOTE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const V86FLAGS_ALIGNMENT: u32 = 262144u32;
@@ -451,7 +446,6 @@ impl ::std::cmp::Eq for VDMCONTEXT {}
 #[cfg(feature = "Win32_System_Kernel")]
 unsafe impl ::windows::runtime::Abi for VDMCONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -556,7 +550,6 @@ impl ::std::cmp::Eq for VDMCONTEXT_WITHOUT_XSAVE {}
 #[cfg(feature = "Win32_System_Kernel")]
 unsafe impl ::windows::runtime::Abi for VDMCONTEXT_WITHOUT_XSAVE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub const VDMCONTEXT_i386: u32 = 65536u32;
@@ -648,7 +641,6 @@ impl ::std::cmp::PartialEq for VDMLDT_ENTRY {
 impl ::std::cmp::Eq for VDMLDT_ENTRY {}
 unsafe impl ::windows::runtime::Abi for VDMLDT_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -671,7 +663,6 @@ impl ::std::cmp::PartialEq for VDMLDT_ENTRY_0 {
 impl ::std::cmp::Eq for VDMLDT_ENTRY_0 {}
 unsafe impl ::windows::runtime::Abi for VDMLDT_ENTRY_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -698,7 +689,6 @@ impl ::std::cmp::PartialEq for VDMLDT_ENTRY_0_0 {
 impl ::std::cmp::Eq for VDMLDT_ENTRY_0_0 {}
 unsafe impl ::windows::runtime::Abi for VDMLDT_ENTRY_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -728,7 +718,6 @@ impl ::std::cmp::PartialEq for VDMLDT_ENTRY_0_1 {
 impl ::std::cmp::Eq for VDMLDT_ENTRY_0_1 {}
 unsafe impl ::windows::runtime::Abi for VDMLDT_ENTRY_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
 pub type VDMMODULEFIRSTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: ::windows::runtime::RawPtr, param4: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
@@ -785,5 +774,4 @@ impl ::std::cmp::Eq for VDM_SEGINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VDM_SEGINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }

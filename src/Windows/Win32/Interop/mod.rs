@@ -15,7 +15,6 @@ impl ::std::convert::From<i32> for Architecture {
 }
 unsafe impl ::windows::runtime::Abi for Architecture {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for Architecture {
     type Output = Self;

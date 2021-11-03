@@ -10,5 +10,4 @@ impl ::std::default::Default for HCS_CALLBACK {
 unsafe impl ::windows::runtime::Handle for HCS_CALLBACK {}
 unsafe impl ::windows::runtime::Abi for HCS_CALLBACK {
     type Abi = Self;
-    type DefaultType = Self;
 }

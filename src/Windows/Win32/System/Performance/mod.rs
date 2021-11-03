@@ -23,7 +23,6 @@ impl ::std::convert::From<i32> for AutoPathFormat {
 }
 unsafe impl ::windows::runtime::Abi for AutoPathFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
@@ -57,7 +56,6 @@ impl ::std::convert::From<i32> for ClockType {
 }
 unsafe impl ::windows::runtime::Abi for ClockType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -76,7 +74,6 @@ impl ::std::convert::From<i32> for CommitMode {
 }
 unsafe impl ::windows::runtime::Abi for CommitMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const CounterItem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3302152416, 53725, 4558, [148, 15, 0, 128, 41, 0, 67, 72]);
 pub const CounterItem2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1125739618, 49951, 19683, [160, 46, 121, 239, 224, 246, 165, 37]);
@@ -346,7 +343,6 @@ impl ::std::convert::From<i32> for DataCollectorSetStatus {
 }
 unsafe impl ::windows::runtime::Abi for DataCollectorSetStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -364,7 +360,6 @@ impl ::std::convert::From<i32> for DataCollectorType {
 }
 unsafe impl ::windows::runtime::Abi for DataCollectorType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -382,7 +377,6 @@ impl ::std::convert::From<i32> for DataManagerSteps {
 }
 unsafe impl ::windows::runtime::Abi for DataManagerSteps {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -399,7 +393,6 @@ impl ::std::convert::From<i32> for DataSourceTypeConstants {
 }
 unsafe impl ::windows::runtime::Abi for DataSourceTypeConstants {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -417,7 +410,6 @@ impl ::std::convert::From<i32> for DisplayTypeConstants {
 }
 unsafe impl ::windows::runtime::Abi for DisplayTypeConstants {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -434,7 +426,6 @@ impl ::std::convert::From<i32> for FileFormat {
 }
 unsafe impl ::windows::runtime::Abi for FileFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -452,7 +443,6 @@ impl ::std::convert::From<i32> for FolderActionSteps {
 }
 unsafe impl ::windows::runtime::Abi for FolderActionSteps {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const GeneralPropPage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3286619090, 6659, 4559, [148, 45, 0, 128, 41, 0, 67, 71]);
 pub const GraphPropPage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3286619091, 6659, 4559, [148, 45, 0, 128, 41, 0, 67, 71]);
@@ -5992,7 +5982,6 @@ impl ::std::cmp::Eq for PDH_BROWSE_DLG_CONFIG_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_BROWSE_DLG_CONFIG_A {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -6054,7 +6043,6 @@ impl ::std::cmp::Eq for PDH_BROWSE_DLG_CONFIG_HA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_BROWSE_DLG_CONFIG_HA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -6116,7 +6104,6 @@ impl ::std::cmp::Eq for PDH_BROWSE_DLG_CONFIG_HW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_BROWSE_DLG_CONFIG_HW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -6178,7 +6165,6 @@ impl ::std::cmp::Eq for PDH_BROWSE_DLG_CONFIG_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_BROWSE_DLG_CONFIG_W {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PDH_CALC_NEGATIVE_DENOMINATOR: i32 = -2147481642i32;
@@ -6233,7 +6219,6 @@ impl ::std::cmp::Eq for PDH_COUNTER_INFO_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_COUNTER_INFO_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6263,7 +6248,6 @@ impl ::std::cmp::Eq for PDH_COUNTER_INFO_A_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_COUNTER_INFO_A_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6309,7 +6293,6 @@ impl ::std::cmp::Eq for PDH_COUNTER_INFO_A_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_COUNTER_INFO_A_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6348,7 +6331,6 @@ impl ::std::cmp::Eq for PDH_COUNTER_INFO_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_COUNTER_INFO_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6378,7 +6360,6 @@ impl ::std::cmp::Eq for PDH_COUNTER_INFO_W_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_COUNTER_INFO_W_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6424,7 +6405,6 @@ impl ::std::cmp::Eq for PDH_COUNTER_INFO_W_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_COUNTER_INFO_W_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6470,7 +6450,6 @@ impl ::std::cmp::Eq for PDH_COUNTER_PATH_ELEMENTS_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_COUNTER_PATH_ELEMENTS_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6516,7 +6495,6 @@ impl ::std::cmp::Eq for PDH_COUNTER_PATH_ELEMENTS_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_COUNTER_PATH_ELEMENTS_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PDH_CSTATUS_BAD_COUNTERNAME: i32 = -1073738816i32;
@@ -6573,7 +6551,6 @@ impl ::std::cmp::Eq for PDH_DATA_ITEM_PATH_ELEMENTS_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_DATA_ITEM_PATH_ELEMENTS_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6610,7 +6587,6 @@ impl ::std::cmp::Eq for PDH_DATA_ITEM_PATH_ELEMENTS_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_DATA_ITEM_PATH_ELEMENTS_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PDH_DATA_SOURCE_IS_LOG_FILE: i32 = -1073738802i32;
@@ -6631,7 +6607,6 @@ impl ::std::convert::From<u32> for PDH_DLL_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for PDH_DLL_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PDH_DLL_VERSION {
     type Output = Self;
@@ -6683,7 +6658,6 @@ impl ::std::convert::From<u32> for PDH_FMT {
 }
 unsafe impl ::windows::runtime::Abi for PDH_FMT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PDH_FMT {
     type Output = Self;
@@ -6740,7 +6714,6 @@ impl ::std::cmp::Eq for PDH_FMT_COUNTERVALUE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_FMT_COUNTERVALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6772,7 +6745,6 @@ impl ::std::cmp::Eq for PDH_FMT_COUNTERVALUE_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_FMT_COUNTERVALUE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6801,7 +6773,6 @@ impl ::std::cmp::Eq for PDH_FMT_COUNTERVALUE_ITEM_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_FMT_COUNTERVALUE_ITEM_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6830,7 +6801,6 @@ impl ::std::cmp::Eq for PDH_FMT_COUNTERVALUE_ITEM_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_FMT_COUNTERVALUE_ITEM_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PDH_FUNCTION_NOT_FOUND: i32 = -1073738818i32;
@@ -6870,7 +6840,6 @@ impl ::std::convert::From<u32> for PDH_LOG {
 }
 unsafe impl ::windows::runtime::Abi for PDH_LOG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PDH_LOG {
     type Output = Self;
@@ -6946,7 +6915,6 @@ impl ::std::cmp::Eq for PDH_LOG_SERVICE_QUERY_INFO_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_LOG_SERVICE_QUERY_INFO_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6975,7 +6943,6 @@ impl ::std::cmp::Eq for PDH_LOG_SERVICE_QUERY_INFO_A_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_LOG_SERVICE_QUERY_INFO_A_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7025,7 +6992,6 @@ impl ::std::cmp::Eq for PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7079,7 +7045,6 @@ impl ::std::cmp::Eq for PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7115,7 +7080,6 @@ impl ::std::cmp::Eq for PDH_LOG_SERVICE_QUERY_INFO_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_LOG_SERVICE_QUERY_INFO_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7144,7 +7108,6 @@ impl ::std::cmp::Eq for PDH_LOG_SERVICE_QUERY_INFO_W_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_LOG_SERVICE_QUERY_INFO_W_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7194,7 +7157,6 @@ impl ::std::cmp::Eq for PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7248,7 +7210,6 @@ impl ::std::cmp::Eq for PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7267,7 +7228,6 @@ impl ::std::convert::From<u32> for PDH_LOG_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for PDH_LOG_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PDH_LOG_TYPE {
     type Output = Self;
@@ -7353,7 +7313,6 @@ impl ::std::convert::From<u32> for PDH_PATH_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PDH_PATH_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PDH_PATH_FLAGS {
     type Output = Self;
@@ -7445,7 +7404,6 @@ impl ::std::cmp::Eq for PDH_RAW_COUNTER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_RAW_COUNTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7480,7 +7438,6 @@ impl ::std::cmp::Eq for PDH_RAW_COUNTER_ITEM_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_RAW_COUNTER_ITEM_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7515,7 +7472,6 @@ impl ::std::cmp::Eq for PDH_RAW_COUNTER_ITEM_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_RAW_COUNTER_ITEM_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7545,7 +7501,6 @@ impl ::std::cmp::PartialEq for PDH_RAW_LOG_RECORD {
 impl ::std::cmp::Eq for PDH_RAW_LOG_RECORD {}
 unsafe impl ::windows::runtime::Abi for PDH_RAW_LOG_RECORD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PDH_REFRESHCOUNTERS: u32 = 4u32;
@@ -7564,7 +7519,6 @@ impl ::std::convert::From<u32> for PDH_SELECT_DATA_SOURCE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for PDH_SELECT_DATA_SOURCE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PDH_SELECT_DATA_SOURCE_FLAGS {
     type Output = Self;
@@ -7642,7 +7596,6 @@ impl ::std::cmp::Eq for PDH_STATISTICS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PDH_STATISTICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PDH_STRING_NOT_FOUND: i32 = -1073738796i32;
@@ -7673,7 +7626,6 @@ impl ::std::cmp::PartialEq for PDH_TIME_INFO {
 impl ::std::cmp::Eq for PDH_TIME_INFO {}
 unsafe impl ::windows::runtime::Abi for PDH_TIME_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PDH_UNABLE_MAP_NAME_FILES: i32 = -2147480619i32;
@@ -7742,7 +7694,6 @@ impl ::std::cmp::PartialEq for PERF_COUNTERSET_INFO {
 impl ::std::cmp::Eq for PERF_COUNTERSET_INFO {}
 unsafe impl ::windows::runtime::Abi for PERF_COUNTERSET_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7773,7 +7724,6 @@ impl ::std::cmp::PartialEq for PERF_COUNTERSET_INSTANCE {
 impl ::std::cmp::Eq for PERF_COUNTERSET_INSTANCE {}
 unsafe impl ::windows::runtime::Abi for PERF_COUNTERSET_INSTANCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PERF_COUNTERSET_MULTI_INSTANCES: u32 = 2u32;
@@ -7806,7 +7756,6 @@ impl ::std::cmp::PartialEq for PERF_COUNTERSET_REG_INFO {
 impl ::std::cmp::Eq for PERF_COUNTERSET_REG_INFO {}
 unsafe impl ::windows::runtime::Abi for PERF_COUNTERSET_REG_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PERF_COUNTERSET_SINGLE_AGGREGATE: u32 = 4u32;
@@ -7827,7 +7776,6 @@ impl ::std::convert::From<u32> for PERF_COUNTER_AGGREGATE_FUNC {
 }
 unsafe impl ::windows::runtime::Abi for PERF_COUNTER_AGGREGATE_FUNC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PERF_COUNTER_AGGREGATE_FUNC {
     type Output = Self;
@@ -7884,7 +7832,6 @@ impl ::std::cmp::PartialEq for PERF_COUNTER_BLOCK {
 impl ::std::cmp::Eq for PERF_COUNTER_BLOCK {}
 unsafe impl ::windows::runtime::Abi for PERF_COUNTER_BLOCK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7912,7 +7859,6 @@ impl ::std::cmp::PartialEq for PERF_COUNTER_DATA {
 impl ::std::cmp::Eq for PERF_COUNTER_DATA {}
 unsafe impl ::windows::runtime::Abi for PERF_COUNTER_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7959,7 +7905,6 @@ impl ::std::cmp::PartialEq for PERF_COUNTER_DEFINITION {
 impl ::std::cmp::Eq for PERF_COUNTER_DEFINITION {}
 unsafe impl ::windows::runtime::Abi for PERF_COUNTER_DEFINITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PERF_COUNTER_ELAPSED: u32 = 262144u32;
@@ -7993,7 +7938,6 @@ impl ::std::cmp::PartialEq for PERF_COUNTER_HEADER {
 impl ::std::cmp::Eq for PERF_COUNTER_HEADER {}
 unsafe impl ::windows::runtime::Abi for PERF_COUNTER_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PERF_COUNTER_HISTOGRAM: u32 = 393216u32;
@@ -8030,7 +7974,6 @@ impl ::std::cmp::PartialEq for PERF_COUNTER_IDENTIFIER {
 impl ::std::cmp::Eq for PERF_COUNTER_IDENTIFIER {}
 unsafe impl ::windows::runtime::Abi for PERF_COUNTER_IDENTIFIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8071,7 +8014,6 @@ impl ::std::cmp::PartialEq for PERF_COUNTER_IDENTITY {
 impl ::std::cmp::Eq for PERF_COUNTER_IDENTITY {}
 unsafe impl ::windows::runtime::Abi for PERF_COUNTER_IDENTITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8104,7 +8046,6 @@ impl ::std::cmp::PartialEq for PERF_COUNTER_INFO {
 impl ::std::cmp::Eq for PERF_COUNTER_INFO {}
 unsafe impl ::windows::runtime::Abi for PERF_COUNTER_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PERF_COUNTER_PRECISION: u32 = 458752u32;
@@ -8159,7 +8100,6 @@ impl ::std::cmp::PartialEq for PERF_COUNTER_REG_INFO {
 impl ::std::cmp::Eq for PERF_COUNTER_REG_INFO {}
 unsafe impl ::windows::runtime::Abi for PERF_COUNTER_REG_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PERF_COUNTER_VALUE: u32 = 0u32;
@@ -8236,7 +8176,6 @@ impl ::std::cmp::Eq for PERF_DATA_BLOCK {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PERF_DATA_BLOCK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8275,7 +8214,6 @@ impl ::std::cmp::Eq for PERF_DATA_HEADER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PERF_DATA_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PERF_DATA_REVISION: u32 = 1u32;
@@ -8300,7 +8238,6 @@ impl ::std::convert::From<u32> for PERF_DETAIL {
 }
 unsafe impl ::windows::runtime::Abi for PERF_DETAIL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for PERF_DETAIL {
     type Output = Self;
@@ -8381,7 +8318,6 @@ impl ::std::cmp::PartialEq for PERF_INSTANCE_DEFINITION {
 impl ::std::cmp::Eq for PERF_INSTANCE_DEFINITION {}
 unsafe impl ::windows::runtime::Abi for PERF_INSTANCE_DEFINITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8409,7 +8345,6 @@ impl ::std::cmp::PartialEq for PERF_INSTANCE_HEADER {
 impl ::std::cmp::Eq for PERF_INSTANCE_HEADER {}
 unsafe impl ::windows::runtime::Abi for PERF_INSTANCE_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PERF_INVERSE_COUNTER: u32 = 16777216u32;
@@ -8449,7 +8384,6 @@ impl ::std::cmp::PartialEq for PERF_MULTI_COUNTERS {
 impl ::std::cmp::Eq for PERF_MULTI_COUNTERS {}
 unsafe impl ::windows::runtime::Abi for PERF_MULTI_COUNTERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8477,7 +8411,6 @@ impl ::std::cmp::PartialEq for PERF_MULTI_INSTANCES {
 impl ::std::cmp::Eq for PERF_MULTI_INSTANCES {}
 unsafe impl ::windows::runtime::Abi for PERF_MULTI_INSTANCES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PERF_NO_INSTANCES: i32 = -1i32;
@@ -8557,7 +8490,6 @@ impl ::std::cmp::PartialEq for PERF_OBJECT_TYPE {
 impl ::std::cmp::Eq for PERF_OBJECT_TYPE {}
 unsafe impl ::windows::runtime::Abi for PERF_OBJECT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -8589,7 +8521,6 @@ impl ::std::cmp::PartialEq for PERF_PROVIDER_CONTEXT {
 impl ::std::cmp::Eq for PERF_PROVIDER_CONTEXT {}
 unsafe impl ::windows::runtime::Abi for PERF_PROVIDER_CONTEXT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PERF_PROVIDER_DRIVER: u32 = 2u32;
@@ -8633,7 +8564,6 @@ impl ::std::cmp::PartialEq for PERF_STRING_BUFFER_HEADER {
 impl ::std::cmp::Eq for PERF_STRING_BUFFER_HEADER {}
 unsafe impl ::windows::runtime::Abi for PERF_STRING_BUFFER_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8661,7 +8591,6 @@ impl ::std::cmp::PartialEq for PERF_STRING_COUNTER_HEADER {
 impl ::std::cmp::Eq for PERF_STRING_COUNTER_HEADER {}
 unsafe impl ::windows::runtime::Abi for PERF_STRING_COUNTER_HEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PERF_TEXT_ASCII: u32 = 65536u32;
@@ -10261,7 +10190,6 @@ impl ::std::convert::From<i32> for PerfCounterDataType {
 }
 unsafe impl ::windows::runtime::Abi for PerfCounterDataType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
@@ -10422,7 +10350,6 @@ impl ::std::default::Default for PerfProviderHandle {
 unsafe impl ::windows::runtime::Handle for PerfProviderHandle {}
 unsafe impl ::windows::runtime::Abi for PerfProviderHandle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
@@ -10479,7 +10406,6 @@ impl ::std::default::Default for PerfQueryHandle {
 unsafe impl ::windows::runtime::Handle for PerfQueryHandle {}
 unsafe impl ::windows::runtime::Abi for PerfQueryHandle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
@@ -10517,7 +10443,6 @@ impl ::std::convert::From<i32> for PerfRegInfoType {
 }
 unsafe impl ::windows::runtime::Abi for PerfRegInfoType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
@@ -10664,7 +10589,6 @@ impl ::std::convert::From<u32> for REAL_TIME_DATA_SOURCE_ID_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for REAL_TIME_DATA_SOURCE_ID_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for REAL_TIME_DATA_SOURCE_ID_FLAGS {
     type Output = Self;
@@ -10710,7 +10634,6 @@ impl ::std::convert::From<i32> for ReportValueTypeConstants {
 }
 unsafe impl ::windows::runtime::Abi for ReportValueTypeConstants {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10725,7 +10648,6 @@ impl ::std::convert::From<i32> for ResourcePolicy {
 }
 unsafe impl ::windows::runtime::Abi for ResourcePolicy {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
@@ -10791,7 +10713,6 @@ impl ::std::convert::From<i32> for StreamMode {
 }
 unsafe impl ::windows::runtime::Abi for StreamMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10808,7 +10729,6 @@ impl ::std::convert::From<i32> for SysmonBatchReason {
 }
 unsafe impl ::windows::runtime::Abi for SysmonBatchReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10826,7 +10746,6 @@ impl ::std::convert::From<i32> for SysmonDataType {
 }
 unsafe impl ::windows::runtime::Abi for SysmonDataType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10846,7 +10765,6 @@ impl ::std::convert::From<i32> for SysmonFileType {
 }
 unsafe impl ::windows::runtime::Abi for SysmonFileType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const SystemDataCollectorSet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946886, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
 pub const SystemDataCollectorSetCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(58946887, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
@@ -10931,7 +10849,6 @@ impl ::std::convert::From<i32> for ValueMapType {
 }
 unsafe impl ::windows::runtime::Abi for ValueMapType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const WINPERF_LOG_DEBUG: u32 = 2u32;
@@ -10961,7 +10878,6 @@ impl ::std::convert::From<i32> for WeekDays {
 }
 unsafe impl ::windows::runtime::Abi for WeekDays {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Performance`*"]
 #[repr(transparent)]

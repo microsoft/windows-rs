@@ -179,7 +179,6 @@ impl ::windows::runtime::RuntimeName for DepthMediaFrameFormat {
 unsafe impl ::std::marker::Send for DepthMediaFrameFormat {}
 unsafe impl ::std::marker::Sync for DepthMediaFrameFormat {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAudioMediaFrame(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAudioMediaFrame {
@@ -201,7 +200,6 @@ pub struct IAudioMediaFrame_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBufferMediaFrame(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBufferMediaFrame {
@@ -222,7 +220,6 @@ pub struct IBufferMediaFrame_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDepthMediaFrame(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDepthMediaFrame {
@@ -245,7 +242,6 @@ pub struct IDepthMediaFrame_abi(
     #[cfg(not(all(feature = "Media_Devices_Core", feature = "Perception_Spatial")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDepthMediaFrame2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDepthMediaFrame2 {
@@ -265,7 +261,6 @@ pub struct IDepthMediaFrame2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDepthMediaFrameFormat(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDepthMediaFrameFormat {
@@ -285,7 +280,6 @@ pub struct IDepthMediaFrameFormat_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IInfraredMediaFrame(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInfraredMediaFrame {
@@ -306,7 +300,6 @@ pub struct IInfraredMediaFrame_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaFrameArrivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameArrivedEventArgs {
@@ -324,7 +317,6 @@ pub struct IMediaFrameArrivedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaFrameFormat(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameFormat {
@@ -349,7 +341,6 @@ pub struct IMediaFrameFormat_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaFrameFormat2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameFormat2 {
@@ -369,7 +360,6 @@ pub struct IMediaFrameFormat2_abi(
     #[cfg(not(feature = "Media_MediaProperties"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaFrameReader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameReader {
@@ -396,7 +386,6 @@ pub struct IMediaFrameReader_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaFrameReader2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameReader2 {
@@ -416,7 +405,6 @@ pub struct IMediaFrameReader2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut MediaFrameReaderAcquisitionMode) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaFrameReference(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameReference {
@@ -446,7 +434,6 @@ pub struct IMediaFrameReference_abi(
     #[cfg(not(feature = "Perception_Spatial"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaFrameReference2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameReference2 {
@@ -465,7 +452,6 @@ pub struct IMediaFrameReference2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaFrameSource(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSource {
@@ -496,7 +482,6 @@ pub struct IMediaFrameSource_abi(
     #[cfg(not(feature = "Media_Devices_Core"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaFrameSourceController(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSourceController {
@@ -520,7 +505,6 @@ pub struct IMediaFrameSourceController_abi(
     #[cfg(not(feature = "Media_Devices"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaFrameSourceController2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSourceController2 {
@@ -542,7 +526,6 @@ pub struct IMediaFrameSourceController2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaFrameSourceController3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSourceController3 {
@@ -562,7 +545,6 @@ pub struct IMediaFrameSourceController3_abi(
     #[cfg(not(feature = "Media_Devices"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaFrameSourceGetPropertyResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSourceGetPropertyResult {
@@ -582,7 +564,6 @@ pub struct IMediaFrameSourceGetPropertyResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaFrameSourceGroup(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSourceGroup {
@@ -604,7 +585,6 @@ pub struct IMediaFrameSourceGroup_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaFrameSourceGroupStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSourceGroupStatics {
@@ -627,7 +607,6 @@ pub struct IMediaFrameSourceGroupStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaFrameSourceInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSourceInfo {
@@ -655,7 +634,6 @@ pub struct IMediaFrameSourceInfo_abi(
     #[cfg(not(feature = "Perception_Spatial"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaFrameSourceInfo2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSourceInfo2 {
@@ -676,7 +654,6 @@ pub struct IMediaFrameSourceInfo2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMediaFrameSourceInfo3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMediaFrameSourceInfo3 {
@@ -696,7 +673,6 @@ pub struct IMediaFrameSourceInfo3_abi(
     #[cfg(not(all(feature = "Devices_Enumeration", feature = "UI_WindowManagement")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMultiSourceMediaFrameArrivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMultiSourceMediaFrameArrivedEventArgs {
@@ -714,7 +690,6 @@ pub struct IMultiSourceMediaFrameArrivedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMultiSourceMediaFrameReader(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMultiSourceMediaFrameReader {
@@ -741,7 +716,6 @@ pub struct IMultiSourceMediaFrameReader_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMultiSourceMediaFrameReader2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMultiSourceMediaFrameReader2 {
@@ -761,7 +735,6 @@ pub struct IMultiSourceMediaFrameReader2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut MediaFrameReaderAcquisitionMode) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMultiSourceMediaFrameReference(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMultiSourceMediaFrameReference {
@@ -780,7 +753,6 @@ pub struct IMultiSourceMediaFrameReference_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, sourceid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVideoMediaFrame(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoMediaFrame {
@@ -809,7 +781,6 @@ pub struct IVideoMediaFrame_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IVideoMediaFrameFormat(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoMediaFrameFormat {
@@ -1077,10 +1048,12 @@ impl ::std::convert::From<i32> for MediaFrameReaderAcquisitionMode {
 }
 unsafe impl ::windows::runtime::Abi for MediaFrameReaderAcquisitionMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MediaFrameReaderAcquisitionMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameReaderAcquisitionMode;i4)");
+}
+impl ::windows::runtime::DefaultType for MediaFrameReaderAcquisitionMode {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Capture_Frames`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1100,10 +1073,12 @@ impl ::std::convert::From<i32> for MediaFrameReaderStartStatus {
 }
 unsafe impl ::windows::runtime::Abi for MediaFrameReaderStartStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MediaFrameReaderStartStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameReaderStartStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for MediaFrameReaderStartStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
@@ -1349,7 +1324,7 @@ impl MediaFrameSourceController {
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
-    pub fn GetPropertyByExtendedIdAsync<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IReference<u32>>>(&self, extendedpropertyid: &[<u8 as ::windows::runtime::Abi>::DefaultType], maxpropertyvaluesize: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<MediaFrameSourceGetPropertyResult>> {
+    pub fn GetPropertyByExtendedIdAsync<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IReference<u32>>>(&self, extendedpropertyid: &[<u8 as ::windows::runtime::DefaultType>::DefaultType], maxpropertyvaluesize: Param1) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<MediaFrameSourceGetPropertyResult>> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrameSourceController2>(self)?;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1358,7 +1333,7 @@ impl MediaFrameSourceController {
     }
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Media_Capture_Frames`, `Foundation`*"]
-    pub fn SetPropertyByExtendedIdAsync(&self, extendedpropertyid: &[<u8 as ::windows::runtime::Abi>::DefaultType], propertyvalue: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<MediaFrameSourceSetPropertyStatus>> {
+    pub fn SetPropertyByExtendedIdAsync(&self, extendedpropertyid: &[<u8 as ::windows::runtime::DefaultType>::DefaultType], propertyvalue: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<MediaFrameSourceSetPropertyStatus>> {
         let this = &::windows::runtime::Interface::cast::<IMediaFrameSourceController2>(self)?;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
@@ -1440,10 +1415,12 @@ impl ::std::convert::From<i32> for MediaFrameSourceGetPropertyStatus {
 }
 unsafe impl ::windows::runtime::Abi for MediaFrameSourceGetPropertyStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MediaFrameSourceGetPropertyStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceGetPropertyStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for MediaFrameSourceGetPropertyStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
@@ -1638,10 +1615,12 @@ impl ::std::convert::From<i32> for MediaFrameSourceKind {
 }
 unsafe impl ::windows::runtime::Abi for MediaFrameSourceKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MediaFrameSourceKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceKind;i4)");
+}
+impl ::windows::runtime::DefaultType for MediaFrameSourceKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Capture_Frames`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1662,10 +1641,12 @@ impl ::std::convert::From<i32> for MediaFrameSourceSetPropertyStatus {
 }
 unsafe impl ::windows::runtime::Abi for MediaFrameSourceSetPropertyStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MediaFrameSourceSetPropertyStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceSetPropertyStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for MediaFrameSourceSetPropertyStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]
@@ -1806,10 +1787,12 @@ impl ::std::convert::From<i32> for MultiSourceMediaFrameReaderStartStatus {
 }
 unsafe impl ::windows::runtime::Abi for MultiSourceMediaFrameReaderStartStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MultiSourceMediaFrameReaderStartStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MultiSourceMediaFrameReaderStartStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for MultiSourceMediaFrameReaderStartStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Media_Capture_Frames`*"]
 #[repr(transparent)]

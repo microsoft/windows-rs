@@ -14,7 +14,6 @@ impl ::std::convert::From<u32> for ENTERPRISE_DATA_POLICIES {
 }
 unsafe impl ::windows::runtime::Abi for ENTERPRISE_DATA_POLICIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ENTERPRISE_DATA_POLICIES {
     type Output = Self;
@@ -69,7 +68,6 @@ impl ::std::cmp::PartialEq for FILE_UNPROTECT_OPTIONS {
 impl ::std::cmp::Eq for FILE_UNPROTECT_OPTIONS {}
 unsafe impl ::windows::runtime::Abi for FILE_UNPROTECT_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -104,7 +102,6 @@ impl ::std::cmp::Eq for HTHREAD_NETWORK_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTHREAD_NETWORK_CONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_EnterpriseData`*"]
 #[repr(transparent)]
@@ -422,7 +419,6 @@ impl ::std::convert::From<i32> for SRPHOSTING_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for SRPHOSTING_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Security_EnterpriseData`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -436,7 +432,6 @@ impl ::std::convert::From<i32> for SRPHOSTING_VERSION {
 }
 unsafe impl ::windows::runtime::Abi for SRPHOSTING_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_EnterpriseData`, `Win32_Foundation`*"]

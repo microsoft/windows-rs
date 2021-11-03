@@ -119,7 +119,6 @@ impl ::std::convert::From<i32> for DtdProcessing {
 }
 unsafe impl ::windows::runtime::Abi for DtdProcessing {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_Xml_XmlLite`*"]
 #[repr(transparent)]
@@ -733,7 +732,6 @@ impl ::std::convert::From<i32> for XmlConformanceLevel {
 }
 unsafe impl ::windows::runtime::Abi for XmlConformanceLevel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_Xml_XmlLite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -831,7 +829,6 @@ impl ::std::convert::From<i32> for XmlError {
 }
 unsafe impl ::windows::runtime::Abi for XmlError {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_Xml_XmlLite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -856,7 +853,6 @@ impl ::std::convert::From<i32> for XmlNodeType {
 }
 unsafe impl ::windows::runtime::Abi for XmlNodeType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_Xml_XmlLite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -874,7 +870,6 @@ impl ::std::convert::From<i32> for XmlReadState {
 }
 unsafe impl ::windows::runtime::Abi for XmlReadState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_Xml_XmlLite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -896,7 +891,6 @@ impl ::std::convert::From<i32> for XmlReaderProperty {
 }
 unsafe impl ::windows::runtime::Abi for XmlReaderProperty {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_Xml_XmlLite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -913,7 +907,6 @@ impl ::std::convert::From<i32> for XmlStandalone {
 }
 unsafe impl ::windows::runtime::Abi for XmlStandalone {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Data_Xml_XmlLite`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -933,7 +926,6 @@ impl ::std::convert::From<i32> for XmlWriterProperty {
 }
 unsafe impl ::windows::runtime::Abi for XmlWriterProperty {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const _IID_IXmlReader: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1920597121, 28829, 16533, [182, 61, 105, 254, 75, 13, 144, 48]);
 pub const _IID_IXmlResolver: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1920597122, 28829, 16533, [182, 61, 105, 254, 75, 13, 144, 48]);

@@ -13,7 +13,6 @@ impl ::std::convert::From<i32> for ALT_BREAKS {
 }
 unsafe impl ::windows::runtime::Abi for ALT_BREAKS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const ASYNC_RECO_ADDSTROKE_FAILED: u32 = 4u32;
@@ -93,7 +92,6 @@ impl ::std::convert::From<i32> for AppearanceConstants {
 }
 unsafe impl ::windows::runtime::Abi for AppearanceConstants {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const BEST_COMPLETE: u32 = 2u32;
@@ -110,7 +108,6 @@ impl ::std::convert::From<i32> for BorderStyleConstants {
 }
 unsafe impl ::windows::runtime::Abi for BorderStyleConstants {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const CAC_FULL: u32 = 0u32;
@@ -144,7 +141,6 @@ impl ::std::cmp::PartialEq for CHARACTER_RANGE {
 impl ::std::cmp::Eq for CHARACTER_RANGE {}
 unsafe impl ::windows::runtime::Abi for CHARACTER_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -160,7 +156,6 @@ impl ::std::convert::From<i32> for CONFIDENCE_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for CONFIDENCE_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -177,7 +172,6 @@ impl ::std::convert::From<i32> for CorrectionMode {
 }
 unsafe impl ::windows::runtime::Abi for CorrectionMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -193,7 +187,6 @@ impl ::std::convert::From<i32> for CorrectionPosition {
 }
 unsafe impl ::windows::runtime::Abi for CorrectionPosition {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[inline]
@@ -259,7 +252,6 @@ impl ::std::convert::From<i32> for DISPID_Ink {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_Ink {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -311,7 +303,6 @@ impl ::std::convert::From<i32> for DISPID_InkCollector {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkCollector {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -365,7 +356,6 @@ impl ::std::convert::From<i32> for DISPID_InkCollectorEvent {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkCollectorEvent {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -384,7 +374,6 @@ impl ::std::convert::From<i32> for DISPID_InkCursor {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkCursor {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -400,7 +389,6 @@ impl ::std::convert::From<i32> for DISPID_InkCursorButton {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkCursorButton {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -416,7 +404,6 @@ impl ::std::convert::From<i32> for DISPID_InkCursorButtons {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkCursorButtons {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -432,7 +419,6 @@ impl ::std::convert::From<i32> for DISPID_InkCursors {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkCursors {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -451,7 +437,6 @@ impl ::std::convert::From<i32> for DISPID_InkCustomStrokes {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkCustomStrokes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -468,7 +453,6 @@ impl ::std::convert::From<i32> for DISPID_InkDivider {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkDivider {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -483,7 +467,6 @@ impl ::std::convert::From<i32> for DISPID_InkDivisionResult {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkDivisionResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -500,7 +483,6 @@ impl ::std::convert::From<i32> for DISPID_InkDivisionUnit {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkDivisionUnit {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -516,7 +498,6 @@ impl ::std::convert::From<i32> for DISPID_InkDivisionUnits {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkDivisionUnits {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -540,7 +521,6 @@ impl ::std::convert::From<i32> for DISPID_InkDrawingAttributes {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkDrawingAttributes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -589,7 +569,6 @@ impl ::std::convert::From<i32> for DISPID_InkEdit {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkEdit {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -616,7 +595,6 @@ impl ::std::convert::From<i32> for DISPID_InkEditEvents {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkEditEvents {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -631,7 +609,6 @@ impl ::std::convert::From<i32> for DISPID_InkEvent {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkEvent {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -651,7 +628,6 @@ impl ::std::convert::From<i32> for DISPID_InkExtendedProperties {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkExtendedProperties {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -666,7 +642,6 @@ impl ::std::convert::From<i32> for DISPID_InkExtendedProperty {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkExtendedProperty {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -682,7 +657,6 @@ impl ::std::convert::From<i32> for DISPID_InkGesture {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkGesture {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -710,7 +684,6 @@ impl ::std::convert::From<i32> for DISPID_InkRecoAlternate {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkRecoAlternate {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -740,7 +713,6 @@ impl ::std::convert::From<i32> for DISPID_InkRecoContext {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkRecoContext {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -754,7 +726,6 @@ impl ::std::convert::From<i32> for DISPID_InkRecoContext2 {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkRecoContext2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -771,7 +742,6 @@ impl ::std::convert::From<i32> for DISPID_InkRecognitionAlternates {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkRecognitionAlternates {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -786,7 +756,6 @@ impl ::std::convert::From<i32> for DISPID_InkRecognitionEvent {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkRecognitionEvent {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -806,7 +775,6 @@ impl ::std::convert::From<i32> for DISPID_InkRecognitionResult {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkRecognitionResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -827,7 +795,6 @@ impl ::std::convert::From<i32> for DISPID_InkRecognizer {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkRecognizer {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -842,7 +809,6 @@ impl ::std::convert::From<i32> for DISPID_InkRecognizer2 {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkRecognizer2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -861,7 +827,6 @@ impl ::std::convert::From<i32> for DISPID_InkRecognizerGuide {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkRecognizerGuide {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -878,7 +843,6 @@ impl ::std::convert::From<i32> for DISPID_InkRecognizers {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkRecognizers {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -898,7 +862,6 @@ impl ::std::convert::From<i32> for DISPID_InkRectangle {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkRectangle {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -926,7 +889,6 @@ impl ::std::convert::From<i32> for DISPID_InkRenderer {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkRenderer {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -972,7 +934,6 @@ impl ::std::convert::From<i32> for DISPID_InkStrokeDisp {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkStrokeDisp {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1006,7 +967,6 @@ impl ::std::convert::From<i32> for DISPID_InkStrokes {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkStrokes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1025,7 +985,6 @@ impl ::std::convert::From<i32> for DISPID_InkTablet {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkTablet {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1039,7 +998,6 @@ impl ::std::convert::From<i32> for DISPID_InkTablet2 {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkTablet2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1054,7 +1012,6 @@ impl ::std::convert::From<i32> for DISPID_InkTablet3 {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkTablet3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1072,7 +1029,6 @@ impl ::std::convert::From<i32> for DISPID_InkTablets {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkTablets {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1100,7 +1056,6 @@ impl ::std::convert::From<i32> for DISPID_InkTransform {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkTransform {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1116,7 +1071,6 @@ impl ::std::convert::From<i32> for DISPID_InkWordList {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkWordList {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1130,7 +1084,6 @@ impl ::std::convert::From<i32> for DISPID_InkWordList2 {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_InkWordList2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1147,7 +1100,6 @@ impl ::std::convert::From<i32> for DISPID_MathInputControlEvents {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_MathInputControlEvents {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1177,7 +1129,6 @@ impl ::std::convert::From<i32> for DISPID_PenInputPanel {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_PenInputPanel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1194,7 +1145,6 @@ impl ::std::convert::From<i32> for DISPID_PenInputPanelEvents {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_PenInputPanelEvents {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1209,7 +1159,6 @@ impl ::std::convert::From<i32> for DISPID_StrokeEvent {
 }
 unsafe impl ::windows::runtime::Abi for DISPID_StrokeEvent {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1237,7 +1186,6 @@ impl ::std::cmp::PartialEq for DYNAMIC_RENDERER_CACHED_DATA {
 impl ::std::cmp::Eq for DYNAMIC_RENDERER_CACHED_DATA {}
 unsafe impl ::windows::runtime::Abi for DYNAMIC_RENDERER_CACHED_DATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[inline]
@@ -1372,7 +1320,6 @@ impl ::std::convert::From<i32> for EventMask {
 }
 unsafe impl ::windows::runtime::Abi for EventMask {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const FACILITY_INK: u32 = 40u32;
@@ -1392,7 +1339,6 @@ impl ::std::convert::From<i32> for FLICKACTION_COMMANDCODE {
 }
 unsafe impl ::windows::runtime::Abi for FLICKACTION_COMMANDCODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1415,7 +1361,6 @@ impl ::std::convert::From<i32> for FLICKDIRECTION {
 }
 unsafe impl ::windows::runtime::Abi for FLICKDIRECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1434,7 +1379,6 @@ impl ::std::convert::From<i32> for FLICKMODE {
 }
 unsafe impl ::windows::runtime::Abi for FLICKMODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1461,7 +1405,6 @@ impl ::std::cmp::PartialEq for FLICK_DATA {
 impl ::std::cmp::Eq for FLICK_DATA {}
 unsafe impl ::windows::runtime::Abi for FLICK_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1488,7 +1431,6 @@ impl ::std::cmp::PartialEq for FLICK_POINT {
 impl ::std::cmp::Eq for FLICK_POINT {}
 unsafe impl ::windows::runtime::Abi for FLICK_POINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const FLICK_WM_HANDLED_MASK: u32 = 1u32;
@@ -1577,7 +1519,6 @@ impl ::std::cmp::PartialEq for GESTURE_DATA {
 impl ::std::cmp::Eq for GESTURE_DATA {}
 unsafe impl ::windows::runtime::Abi for GESTURE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const GESTURE_DIAGONAL_LEFTDOWN: u32 = 61534u32;
@@ -1939,7 +1880,6 @@ impl ::std::default::Default for HRECOALT {
 unsafe impl ::windows::runtime::Handle for HRECOALT {}
 unsafe impl ::windows::runtime::Abi for HRECOALT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -1952,7 +1892,6 @@ impl ::std::default::Default for HRECOCONTEXT {
 unsafe impl ::windows::runtime::Handle for HRECOCONTEXT {}
 unsafe impl ::windows::runtime::Abi for HRECOCONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -1965,7 +1904,6 @@ impl ::std::default::Default for HRECOGNIZER {
 unsafe impl ::windows::runtime::Handle for HRECOGNIZER {}
 unsafe impl ::windows::runtime::Abi for HRECOGNIZER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -1978,7 +1916,6 @@ impl ::std::default::Default for HRECOLATTICE {
 unsafe impl ::windows::runtime::Handle for HRECOLATTICE {}
 unsafe impl ::windows::runtime::Abi for HRECOLATTICE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -1991,7 +1928,6 @@ impl ::std::default::Default for HRECOWORDLIST {
 unsafe impl ::windows::runtime::Handle for HRECOWORDLIST {}
 unsafe impl ::windows::runtime::Abi for HRECOWORDLIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const HandwrittenTextInsertion: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2668056290, 59113, 19850, [160, 71, 235, 91, 92, 60, 85, 218]);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
@@ -2156,7 +2092,6 @@ impl ::std::cmp::Eq for IEC_GESTUREINFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation", feature = "Win32_UI_Controls"))]
 unsafe impl ::windows::runtime::Abi for IEC_GESTUREINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2191,7 +2126,6 @@ impl ::std::cmp::Eq for IEC_RECOGNITIONRESULTINFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 unsafe impl ::windows::runtime::Abi for IEC_RECOGNITIONRESULTINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2227,7 +2161,6 @@ impl ::std::cmp::Eq for IEC_STROKEINFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 unsafe impl ::windows::runtime::Abi for IEC_STROKEINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const IEC__BASE: u32 = 1536u32;
@@ -7658,7 +7591,6 @@ impl ::std::cmp::PartialEq for INKMETRIC {
 impl ::std::cmp::Eq for INKMETRIC {}
 unsafe impl ::windows::runtime::Abi for INKMETRIC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const IP_CURSOR_DOWN: u32 = 1u32;
@@ -9032,7 +8964,6 @@ impl ::std::convert::From<i32> for InPlaceDirection {
 }
 unsafe impl ::windows::runtime::Abi for InPlaceDirection {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9048,7 +8979,6 @@ impl ::std::convert::From<i32> for InPlaceState {
 }
 unsafe impl ::windows::runtime::Abi for InPlaceState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const Ink: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(333335106, 36129, 19598, [191, 156, 143, 105, 203, 6, 143, 202]);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
@@ -9106,7 +9036,6 @@ impl ::std::convert::From<i32> for InkApplicationGesture {
 }
 unsafe impl ::windows::runtime::Abi for InkApplicationGesture {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9124,7 +9053,6 @@ impl ::std::convert::From<i32> for InkBoundingBoxMode {
 }
 unsafe impl ::windows::runtime::Abi for InkBoundingBoxMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9147,7 +9075,6 @@ impl ::std::convert::From<i32> for InkClipboardFormats {
 }
 unsafe impl ::windows::runtime::Abi for InkClipboardFormats {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9165,7 +9092,6 @@ impl ::std::convert::From<i32> for InkClipboardModes {
 }
 unsafe impl ::windows::runtime::Abi for InkClipboardModes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9181,7 +9107,6 @@ impl ::std::convert::From<i32> for InkCollectionMode {
 }
 unsafe impl ::windows::runtime::Abi for InkCollectionMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const InkCollector: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1140528467, 44404, 20200, [136, 228, 62, 109, 170, 201, 21, 219]);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
@@ -9217,7 +9142,6 @@ impl ::std::convert::From<i32> for InkCollectorEventInterest {
 }
 unsafe impl ::windows::runtime::Abi for InkCollectorEventInterest {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9233,7 +9157,6 @@ impl ::std::convert::From<i32> for InkCursorButtonState {
 }
 unsafe impl ::windows::runtime::Abi for InkCursorButtonState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const InkDisp: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2474383924, 5405, 17936, [156, 166, 168, 204, 155, 219, 93, 131]);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
@@ -9249,7 +9172,6 @@ impl ::std::convert::From<i32> for InkDisplayMode {
 }
 unsafe impl ::windows::runtime::Abi for InkDisplayMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const InkDivider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2287269536, 18051, 19175, [145, 145, 117, 47, 230, 70, 18, 195]);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
@@ -9267,7 +9189,6 @@ impl ::std::convert::From<i32> for InkDivisionType {
 }
 unsafe impl ::windows::runtime::Abi for InkDivisionType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const InkDrawingAttributes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3636408994, 1445, 17603, [179, 170, 94, 128, 172, 125, 37, 118]);
 pub const InkEdit: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3855243765, 22468, 19928, [155, 214, 29, 238, 237, 210, 122, 244]);
@@ -9285,7 +9206,6 @@ impl ::std::convert::From<i32> for InkEditStatus {
 }
 unsafe impl ::windows::runtime::Abi for InkEditStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9301,7 +9221,6 @@ impl ::std::convert::From<i32> for InkExtractFlags {
 }
 unsafe impl ::windows::runtime::Abi for InkExtractFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9316,7 +9235,6 @@ impl ::std::convert::From<i32> for InkInsertMode {
 }
 unsafe impl ::windows::runtime::Abi for InkInsertMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const InkMaxTransparencyValue: i32 = 255i32;
@@ -9336,7 +9254,6 @@ impl ::std::convert::From<i32> for InkMode {
 }
 unsafe impl ::windows::runtime::Abi for InkMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9352,7 +9269,6 @@ impl ::std::convert::From<i32> for InkMouseButton {
 }
 unsafe impl ::windows::runtime::Abi for InkMouseButton {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9381,7 +9297,6 @@ impl ::std::convert::From<i32> for InkMousePointer {
 }
 unsafe impl ::windows::runtime::Abi for InkMousePointer {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const InkOverlay: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1708131910, 52707, 19080, [145, 99, 103, 105, 240, 241, 169, 125]);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
@@ -9397,7 +9312,6 @@ impl ::std::convert::From<i32> for InkOverlayAttachMode {
 }
 unsafe impl ::windows::runtime::Abi for InkOverlayAttachMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9413,7 +9327,6 @@ impl ::std::convert::From<i32> for InkOverlayEditingMode {
 }
 unsafe impl ::windows::runtime::Abi for InkOverlayEditingMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9428,7 +9341,6 @@ impl ::std::convert::From<i32> for InkOverlayEraserMode {
 }
 unsafe impl ::windows::runtime::Abi for InkOverlayEraserMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9443,7 +9355,6 @@ impl ::std::convert::From<i32> for InkPenTip {
 }
 unsafe impl ::windows::runtime::Abi for InkPenTip {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9459,7 +9370,6 @@ impl ::std::convert::From<i32> for InkPersistenceCompressionMode {
 }
 unsafe impl ::windows::runtime::Abi for InkPersistenceCompressionMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9476,7 +9386,6 @@ impl ::std::convert::From<i32> for InkPersistenceFormat {
 }
 unsafe impl ::windows::runtime::Abi for InkPersistenceFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const InkPicture: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(77718867, 65078, 20446, [134, 94, 52, 65, 148, 230, 148, 36]);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
@@ -9494,7 +9403,6 @@ impl ::std::convert::From<i32> for InkPictureSizeMode {
 }
 unsafe impl ::windows::runtime::Abi for InkPictureSizeMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9523,7 +9431,6 @@ impl ::std::convert::From<i32> for InkRasterOperation {
 }
 unsafe impl ::windows::runtime::Abi for InkRasterOperation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9561,7 +9468,6 @@ impl ::std::cmp::Eq for InkRecoGuide {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for InkRecoGuide {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9577,7 +9483,6 @@ impl ::std::convert::From<i32> for InkRecognitionAlternatesSelection {
 }
 unsafe impl ::windows::runtime::Abi for InkRecognitionAlternatesSelection {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9593,7 +9498,6 @@ impl ::std::convert::From<i32> for InkRecognitionConfidence {
 }
 unsafe impl ::windows::runtime::Abi for InkRecognitionConfidence {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9615,7 +9519,6 @@ impl ::std::convert::From<i32> for InkRecognitionModes {
 }
 unsafe impl ::windows::runtime::Abi for InkRecognitionModes {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9639,7 +9542,6 @@ impl ::std::convert::From<i32> for InkRecognitionStatus {
 }
 unsafe impl ::windows::runtime::Abi for InkRecognitionStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9674,7 +9576,6 @@ impl ::std::convert::From<i32> for InkRecognizerCapabilities {
 }
 unsafe impl ::windows::runtime::Abi for InkRecognizerCapabilities {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9690,7 +9591,6 @@ impl ::std::convert::From<i32> for InkRecognizerCharacterAutoCompletionMode {
 }
 unsafe impl ::windows::runtime::Abi for InkRecognizerCharacterAutoCompletionMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const InkRecognizerContext: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2864998967, 37417, 20416, [140, 206, 68, 151, 86, 155, 244, 209]);
 pub const InkRecognizerGuide: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2272319809, 42554, 18033, [163, 117, 40, 85, 161, 142, 186, 115]);
@@ -9710,7 +9610,6 @@ impl ::std::convert::From<i32> for InkSelectionConstants {
 }
 unsafe impl ::windows::runtime::Abi for InkSelectionConstants {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9726,7 +9625,6 @@ impl ::std::convert::From<i32> for InkShiftKeyModifierFlags {
 }
 unsafe impl ::windows::runtime::Abi for InkShiftKeyModifierFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const InkStrokes: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1223987644, 9230, 18528, [176, 121, 161, 233, 77, 61, 44, 134]);
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
@@ -9750,7 +9648,6 @@ impl ::std::convert::From<i32> for InkSystemGesture {
 }
 unsafe impl ::windows::runtime::Abi for InkSystemGesture {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const InkTablets: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1850723090, 20746, 19776, [147, 4, 29, 161, 10, 233, 20, 124]);
 pub const InkTransform: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3822442812, 5731, 19064, [161, 167, 34, 55, 93, 254, 186, 238]);
@@ -9770,7 +9667,6 @@ impl ::std::convert::From<i32> for InteractionMode {
 }
 unsafe impl ::windows::runtime::Abi for InteractionMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
@@ -9804,7 +9700,6 @@ impl ::std::convert::From<i32> for KEYMODIFIER {
 }
 unsafe impl ::windows::runtime::Abi for KEYMODIFIER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9839,7 +9734,6 @@ impl ::std::cmp::Eq for LATTICE_METRICS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for LATTICE_METRICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9856,7 +9750,6 @@ impl ::std::convert::From<i32> for LINE_METRICS {
 }
 unsafe impl ::windows::runtime::Abi for LINE_METRICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9891,7 +9784,6 @@ impl ::std::cmp::Eq for LINE_SEGMENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for LINE_SEGMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[inline]
@@ -9946,7 +9838,6 @@ impl ::std::convert::From<i32> for MICUIELEMENT {
 }
 unsafe impl ::windows::runtime::Abi for MICUIELEMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9963,7 +9854,6 @@ impl ::std::convert::From<i32> for MICUIELEMENTSTATE {
 }
 unsafe impl ::windows::runtime::Abi for MICUIELEMENTSTATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
@@ -9996,7 +9886,6 @@ impl ::std::convert::From<i32> for MouseButton {
 }
 unsafe impl ::windows::runtime::Abi for MouseButton {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const NUM_FLICK_DIRECTIONS: u32 = 8u32;
@@ -10029,7 +9918,6 @@ impl ::std::cmp::PartialEq for PACKET_DESCRIPTION {
 impl ::std::cmp::Eq for PACKET_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for PACKET_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10057,7 +9945,6 @@ impl ::std::cmp::PartialEq for PACKET_PROPERTY {
 impl ::std::cmp::Eq for PACKET_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for PACKET_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10087,7 +9974,6 @@ impl ::std::cmp::PartialEq for PROPERTY_METRICS {
 impl ::std::cmp::Eq for PROPERTY_METRICS {}
 unsafe impl ::windows::runtime::Abi for PROPERTY_METRICS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10117,7 +10003,6 @@ impl ::std::convert::From<i32> for PROPERTY_UNITS {
 }
 unsafe impl ::windows::runtime::Abi for PROPERTY_UNITS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10134,7 +10019,6 @@ impl ::std::convert::From<i32> for PanelInputArea {
 }
 unsafe impl ::windows::runtime::Abi for PanelInputArea {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10151,7 +10035,6 @@ impl ::std::convert::From<i32> for PanelType {
 }
 unsafe impl ::windows::runtime::Abi for PanelType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const PenInputPanel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4148487318, 7002, 18590, [129, 220, 251, 215, 172, 98, 152, 168]);
 pub const PenInputPanel_Internal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2150309817, 1387, 18208, [176, 204, 128, 210, 59, 113, 23, 30]);
@@ -10221,7 +10104,6 @@ impl ::std::cmp::PartialEq for RECO_ATTRS {
 impl ::std::cmp::Eq for RECO_ATTRS {}
 unsafe impl ::windows::runtime::Abi for RECO_ATTRS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10266,7 +10148,6 @@ impl ::std::cmp::PartialEq for RECO_GUIDE {
 impl ::std::cmp::Eq for RECO_GUIDE {}
 unsafe impl ::windows::runtime::Abi for RECO_GUIDE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10307,7 +10188,6 @@ impl ::std::cmp::PartialEq for RECO_LATTICE {
 impl ::std::cmp::Eq for RECO_LATTICE {}
 unsafe impl ::windows::runtime::Abi for RECO_LATTICE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10339,7 +10219,6 @@ impl ::std::cmp::PartialEq for RECO_LATTICE_COLUMN {
 impl ::std::cmp::Eq for RECO_LATTICE_COLUMN {}
 unsafe impl ::windows::runtime::Abi for RECO_LATTICE_COLUMN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10371,7 +10250,6 @@ impl ::std::cmp::PartialEq for RECO_LATTICE_ELEMENT {
 impl ::std::cmp::Eq for RECO_LATTICE_ELEMENT {}
 unsafe impl ::windows::runtime::Abi for RECO_LATTICE_ELEMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10399,7 +10277,6 @@ impl ::std::cmp::PartialEq for RECO_LATTICE_PROPERTIES {
 impl ::std::cmp::Eq for RECO_LATTICE_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for RECO_LATTICE_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10428,7 +10305,6 @@ impl ::std::cmp::PartialEq for RECO_LATTICE_PROPERTY {
 impl ::std::cmp::Eq for RECO_LATTICE_PROPERTY {}
 unsafe impl ::windows::runtime::Abi for RECO_LATTICE_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10456,7 +10332,6 @@ impl ::std::cmp::PartialEq for RECO_RANGE {
 impl ::std::cmp::Eq for RECO_RANGE {}
 unsafe impl ::windows::runtime::Abi for RECO_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const RF_ADVISEINKCHANGE: i32 = 4096i32;
@@ -10524,7 +10399,6 @@ impl ::std::convert::From<i32> for RealTimeStylusDataInterest {
 }
 unsafe impl ::windows::runtime::Abi for RealTimeStylusDataInterest {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10543,7 +10417,6 @@ impl ::std::convert::From<i32> for RealTimeStylusLockType {
 }
 unsafe impl ::windows::runtime::Abi for RealTimeStylusLockType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const SAFE_PARTIAL: u32 = 1u32;
@@ -10560,7 +10433,6 @@ impl ::std::convert::From<i32> for SCROLLDIRECTION {
 }
 unsafe impl ::windows::runtime::Abi for SCROLLDIRECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10588,7 +10460,6 @@ impl ::std::cmp::PartialEq for STROKE_RANGE {
 impl ::std::cmp::Eq for STROKE_RANGE {}
 unsafe impl ::windows::runtime::Abi for STROKE_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10620,7 +10491,6 @@ impl ::std::cmp::PartialEq for SYSTEM_EVENT_DATA {
 impl ::std::cmp::Eq for SYSTEM_EVENT_DATA {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_EVENT_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10637,7 +10507,6 @@ impl ::std::convert::From<i32> for ScrollBarsConstants {
 }
 unsafe impl ::windows::runtime::Abi for ScrollBarsConstants {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10653,7 +10522,6 @@ impl ::std::convert::From<i32> for SelAlignmentConstants {
 }
 unsafe impl ::windows::runtime::Abi for SelAlignmentConstants {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10676,7 +10544,6 @@ impl ::std::convert::From<i32> for SelectionHitResult {
 }
 unsafe impl ::windows::runtime::Abi for SelectionHitResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[inline]
@@ -10800,7 +10667,6 @@ impl ::std::cmp::Eq for StylusInfo {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for StylusInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10816,7 +10682,6 @@ impl ::std::convert::From<i32> for StylusQueue {
 }
 unsafe impl ::windows::runtime::Abi for StylusQueue {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const TABLET_DISABLE_FLICKFALLBACKKEYS: u32 = 1048576u32;
@@ -10856,7 +10721,6 @@ impl ::std::convert::From<i32> for TabletDeviceKind {
 }
 unsafe impl ::windows::runtime::Abi for TabletDeviceKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10873,7 +10737,6 @@ impl ::std::convert::From<i32> for TabletHardwareCapabilities {
 }
 unsafe impl ::windows::runtime::Abi for TabletHardwareCapabilities {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10894,7 +10757,6 @@ impl ::std::convert::From<i32> for TabletPropertyMetricUnit {
 }
 unsafe impl ::windows::runtime::Abi for TabletPropertyMetricUnit {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const TextInputPanel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4189161943, 8843, 20267, [134, 80, 185, 127, 89, 224, 44, 140]);
 pub const TipAutoCompleteClient: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2155617900, 7424, 17727, [185, 32, 182, 27, 183, 205, 217, 151]);
@@ -10914,7 +10776,6 @@ impl ::std::convert::From<i32> for VisualState {
 }
 unsafe impl ::windows::runtime::Abi for VisualState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const WM_TABLET_ADDED: u32 = 712u32;
@@ -11373,7 +11234,6 @@ impl ::std::convert::From<i32> for enumGetCandidateFlags {
 }
 unsafe impl ::windows::runtime::Abi for enumGetCandidateFlags {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11389,7 +11249,6 @@ impl ::std::convert::From<i32> for enumINKMETRIC_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for enumINKMETRIC_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11404,5 +11263,4 @@ impl ::std::convert::From<i32> for enumRECO_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for enumRECO_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }

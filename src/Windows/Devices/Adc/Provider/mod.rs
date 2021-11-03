@@ -152,8 +152,10 @@ impl ::std::convert::From<i32> for ProviderAdcChannelMode {
 }
 unsafe impl ::windows::runtime::Abi for ProviderAdcChannelMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ProviderAdcChannelMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Devices.Adc.Provider.ProviderAdcChannelMode;i4)");
+}
+impl ::windows::runtime::DefaultType for ProviderAdcChannelMode {
+    type DefaultType = Self;
 }

@@ -60,7 +60,6 @@ impl ::std::cmp::PartialEq for ATA_PASS_THROUGH_DIRECT {
 impl ::std::cmp::Eq for ATA_PASS_THROUGH_DIRECT {}
 unsafe impl ::windows::runtime::Abi for ATA_PASS_THROUGH_DIRECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -111,7 +110,6 @@ impl ::std::cmp::PartialEq for ATA_PASS_THROUGH_DIRECT32 {
 impl ::std::cmp::Eq for ATA_PASS_THROUGH_DIRECT32 {}
 unsafe impl ::windows::runtime::Abi for ATA_PASS_THROUGH_DIRECT32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -173,7 +171,6 @@ impl ::std::cmp::PartialEq for ATA_PASS_THROUGH_EX {
 impl ::std::cmp::Eq for ATA_PASS_THROUGH_EX {}
 unsafe impl ::windows::runtime::Abi for ATA_PASS_THROUGH_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -235,7 +232,6 @@ impl ::std::cmp::PartialEq for ATA_PASS_THROUGH_EX32 {
 impl ::std::cmp::Eq for ATA_PASS_THROUGH_EX32 {}
 unsafe impl ::windows::runtime::Abi for ATA_PASS_THROUGH_EX32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
@@ -490,7 +486,6 @@ impl ::std::cmp::PartialEq for DSM_NOTIFICATION_REQUEST_BLOCK {
 impl ::std::cmp::Eq for DSM_NOTIFICATION_REQUEST_BLOCK {}
 unsafe impl ::windows::runtime::Abi for DSM_NOTIFICATION_REQUEST_BLOCK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type DUMP_DEVICE_POWERON_ROUTINE = unsafe extern "system" fn(context: *const ::std::ffi::c_void) -> i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -520,7 +515,6 @@ impl ::std::cmp::PartialEq for DUMP_DRIVER {
 impl ::std::cmp::Eq for DUMP_DRIVER {}
 unsafe impl ::windows::runtime::Abi for DUMP_DRIVER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -557,7 +551,6 @@ impl ::std::cmp::Eq for DUMP_DRIVER_EX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DUMP_DRIVER_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const DUMP_DRIVER_NAME_LENGTH: u32 = 15u32;
@@ -621,7 +614,6 @@ impl ::std::cmp::Eq for DUMP_POINTERS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DUMP_POINTERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -701,7 +693,6 @@ impl ::std::cmp::Eq for DUMP_POINTERS_EX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DUMP_POINTERS_EX {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -729,7 +720,6 @@ impl ::std::cmp::PartialEq for DUMP_POINTERS_VERSION {
 impl ::std::cmp::Eq for DUMP_POINTERS_VERSION {}
 unsafe impl ::windows::runtime::Abi for DUMP_POINTERS_VERSION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const DUMP_POINTERS_VERSION_1: u32 = 1u32;
@@ -777,7 +767,6 @@ impl ::std::cmp::PartialEq for FIRMWARE_REQUEST_BLOCK {
 impl ::std::cmp::Eq for FIRMWARE_REQUEST_BLOCK {}
 unsafe impl ::windows::runtime::Abi for FIRMWARE_REQUEST_BLOCK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const FIRMWARE_REQUEST_BLOCK_STRUCTURE_VERSION: u32 = 1u32;
@@ -1045,7 +1034,6 @@ impl ::std::cmp::PartialEq for HYBRID_DEMOTE_BY_SIZE {
 impl ::std::cmp::Eq for HYBRID_DEMOTE_BY_SIZE {}
 unsafe impl ::windows::runtime::Abi for HYBRID_DEMOTE_BY_SIZE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1075,7 +1063,6 @@ impl ::std::cmp::PartialEq for HYBRID_DIRTY_THRESHOLDS {
 impl ::std::cmp::Eq for HYBRID_DIRTY_THRESHOLDS {}
 unsafe impl ::windows::runtime::Abi for HYBRID_DIRTY_THRESHOLDS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const HYBRID_FUNCTION_DEMOTE_BY_SIZE: u32 = 19u32;
@@ -1139,7 +1126,6 @@ impl ::std::cmp::Eq for HYBRID_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HYBRID_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1166,7 +1152,6 @@ impl ::std::cmp::PartialEq for HYBRID_INFORMATION_0 {
 impl ::std::cmp::Eq for HYBRID_INFORMATION_0 {}
 unsafe impl ::windows::runtime::Abi for HYBRID_INFORMATION_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1216,7 +1201,6 @@ impl ::std::cmp::Eq for HYBRID_INFORMATION_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HYBRID_INFORMATION_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1246,7 +1230,6 @@ impl ::std::cmp::PartialEq for HYBRID_INFORMATION_1_0 {
 impl ::std::cmp::Eq for HYBRID_INFORMATION_1_0 {}
 unsafe impl ::windows::runtime::Abi for HYBRID_INFORMATION_1_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1278,7 +1261,6 @@ impl ::std::cmp::PartialEq for HYBRID_REQUEST_BLOCK {
 impl ::std::cmp::Eq for HYBRID_REQUEST_BLOCK {}
 unsafe impl ::windows::runtime::Abi for HYBRID_REQUEST_BLOCK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const HYBRID_REQUEST_BLOCK_STRUCTURE_VERSION: u32 = 1u32;
@@ -1324,7 +1306,6 @@ impl ::std::cmp::PartialEq for IDE_IO_CONTROL {
 impl ::std::cmp::Eq for IDE_IO_CONTROL {}
 unsafe impl ::windows::runtime::Abi for IDE_IO_CONTROL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const ID_FQDN: u32 = 2u32;
@@ -1355,7 +1336,6 @@ impl ::std::cmp::PartialEq for IKE_AUTHENTICATION_INFORMATION {
 impl ::std::cmp::Eq for IKE_AUTHENTICATION_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for IKE_AUTHENTICATION_INFORMATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1377,7 +1357,6 @@ impl ::std::cmp::PartialEq for IKE_AUTHENTICATION_INFORMATION_0 {
 impl ::std::cmp::Eq for IKE_AUTHENTICATION_INFORMATION_0 {}
 unsafe impl ::windows::runtime::Abi for IKE_AUTHENTICATION_INFORMATION_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1391,7 +1370,6 @@ impl ::std::convert::From<i32> for IKE_AUTHENTICATION_METHOD {
 }
 unsafe impl ::windows::runtime::Abi for IKE_AUTHENTICATION_METHOD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1423,7 +1401,6 @@ impl ::std::cmp::PartialEq for IKE_AUTHENTICATION_PRESHARED_KEY {
 impl ::std::cmp::Eq for IKE_AUTHENTICATION_PRESHARED_KEY {}
 unsafe impl ::windows::runtime::Abi for IKE_AUTHENTICATION_PRESHARED_KEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const IOCTL_ATA_MINIPORT: u32 = 315444u32;
@@ -1515,7 +1492,6 @@ impl ::std::cmp::Eq for IO_SCSI_CAPABILITIES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IO_SCSI_CAPABILITIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1531,7 +1507,6 @@ impl ::std::convert::From<i32> for ISCSI_AUTH_TYPES {
 }
 unsafe impl ::windows::runtime::Abi for ISCSI_AUTH_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1577,7 +1552,6 @@ impl ::std::cmp::Eq for ISCSI_CONNECTION_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ISCSI_CONNECTION_INFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1623,7 +1597,6 @@ impl ::std::cmp::Eq for ISCSI_CONNECTION_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ISCSI_CONNECTION_INFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1668,7 +1641,6 @@ impl ::std::cmp::PartialEq for ISCSI_CONNECTION_INFO_EX {
 impl ::std::cmp::Eq for ISCSI_CONNECTION_INFO_EX {}
 unsafe impl ::windows::runtime::Abi for ISCSI_CONNECTION_INFO_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1718,7 +1690,6 @@ impl ::std::cmp::Eq for ISCSI_DEVICE_ON_SESSIONA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
 unsafe impl ::windows::runtime::Abi for ISCSI_DEVICE_ON_SESSIONA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1768,7 +1739,6 @@ impl ::std::cmp::Eq for ISCSI_DEVICE_ON_SESSIONW {}
 #[cfg(feature = "Win32_System_Ioctl")]
 unsafe impl ::windows::runtime::Abi for ISCSI_DEVICE_ON_SESSIONW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1783,7 +1753,6 @@ impl ::std::convert::From<i32> for ISCSI_DIGEST_TYPES {
 }
 unsafe impl ::windows::runtime::Abi for ISCSI_DIGEST_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const ISCSI_LOGIN_FLAG_ALLOW_PORTAL_HOPPING: u32 = 8u32;
@@ -1860,7 +1829,6 @@ impl ::std::cmp::PartialEq for ISCSI_LOGIN_OPTIONS {
 impl ::std::cmp::Eq for ISCSI_LOGIN_OPTIONS {}
 unsafe impl ::windows::runtime::Abi for ISCSI_LOGIN_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const ISCSI_LOGIN_OPTIONS_AUTH_TYPE: u32 = 128u32;
@@ -1942,7 +1910,6 @@ impl ::std::cmp::Eq for ISCSI_SESSION_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ISCSI_SESSION_INFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1992,7 +1959,6 @@ impl ::std::cmp::Eq for ISCSI_SESSION_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ISCSI_SESSION_INFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2064,7 +2030,6 @@ impl ::std::cmp::Eq for ISCSI_SESSION_INFO_EX {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ISCSI_SESSION_INFO_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const ISCSI_TARGET_FLAG_HIDE_STATIC_TARGET: u32 = 2u32;
@@ -2118,7 +2083,6 @@ impl ::std::cmp::Eq for ISCSI_TARGET_MAPPINGA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_MAPPINGA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2161,7 +2125,6 @@ impl ::std::cmp::PartialEq for ISCSI_TARGET_MAPPINGW {
 impl ::std::cmp::Eq for ISCSI_TARGET_MAPPINGW {}
 unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_MAPPINGW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2197,7 +2160,6 @@ impl ::std::cmp::Eq for ISCSI_TARGET_PORTALA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_PORTALA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2226,7 +2188,6 @@ impl ::std::cmp::PartialEq for ISCSI_TARGET_PORTALW {
 impl ::std::cmp::Eq for ISCSI_TARGET_PORTALW {}
 unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_PORTALW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2261,7 +2222,6 @@ impl ::std::cmp::Eq for ISCSI_TARGET_PORTAL_GROUPA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_PORTAL_GROUPA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2289,7 +2249,6 @@ impl ::std::cmp::PartialEq for ISCSI_TARGET_PORTAL_GROUPW {
 impl ::std::cmp::Eq for ISCSI_TARGET_PORTAL_GROUPW {}
 unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_PORTAL_GROUPW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2327,7 +2286,6 @@ impl ::std::cmp::Eq for ISCSI_TARGET_PORTAL_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_PORTAL_INFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2358,7 +2316,6 @@ impl ::std::cmp::PartialEq for ISCSI_TARGET_PORTAL_INFOW {
 impl ::std::cmp::Eq for ISCSI_TARGET_PORTAL_INFOW {}
 unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_PORTAL_INFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2406,7 +2363,6 @@ impl ::std::cmp::Eq for ISCSI_TARGET_PORTAL_INFO_EXA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_PORTAL_INFO_EXA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2447,7 +2403,6 @@ impl ::std::cmp::PartialEq for ISCSI_TARGET_PORTAL_INFO_EXW {
 impl ::std::cmp::Eq for ISCSI_TARGET_PORTAL_INFO_EXW {}
 unsafe impl ::windows::runtime::Abi for ISCSI_TARGET_PORTAL_INFO_EXW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2475,7 +2430,6 @@ impl ::std::cmp::PartialEq for ISCSI_UNIQUE_SESSION_ID {
 impl ::std::cmp::Eq for ISCSI_UNIQUE_SESSION_ID {}
 unsafe impl ::windows::runtime::Abi for ISCSI_UNIQUE_SESSION_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2504,7 +2458,6 @@ impl ::std::cmp::PartialEq for ISCSI_VERSION_INFO {
 impl ::std::cmp::Eq for ISCSI_VERSION_INFO {}
 unsafe impl ::windows::runtime::Abi for ISCSI_VERSION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
@@ -2704,7 +2657,6 @@ impl ::std::cmp::PartialEq for MPIO_PASS_THROUGH_PATH {
 impl ::std::cmp::Eq for MPIO_PASS_THROUGH_PATH {}
 unsafe impl ::windows::runtime::Abi for MPIO_PASS_THROUGH_PATH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2736,7 +2688,6 @@ impl ::std::cmp::PartialEq for MPIO_PASS_THROUGH_PATH32 {
 impl ::std::cmp::Eq for MPIO_PASS_THROUGH_PATH32 {}
 unsafe impl ::windows::runtime::Abi for MPIO_PASS_THROUGH_PATH32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2768,7 +2719,6 @@ impl ::std::cmp::PartialEq for MPIO_PASS_THROUGH_PATH32_EX {
 impl ::std::cmp::Eq for MPIO_PASS_THROUGH_PATH32_EX {}
 unsafe impl ::windows::runtime::Abi for MPIO_PASS_THROUGH_PATH32_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2800,7 +2750,6 @@ impl ::std::cmp::PartialEq for MPIO_PASS_THROUGH_PATH_DIRECT {
 impl ::std::cmp::Eq for MPIO_PASS_THROUGH_PATH_DIRECT {}
 unsafe impl ::windows::runtime::Abi for MPIO_PASS_THROUGH_PATH_DIRECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2832,7 +2781,6 @@ impl ::std::cmp::PartialEq for MPIO_PASS_THROUGH_PATH_DIRECT32 {
 impl ::std::cmp::Eq for MPIO_PASS_THROUGH_PATH_DIRECT32 {}
 unsafe impl ::windows::runtime::Abi for MPIO_PASS_THROUGH_PATH_DIRECT32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2864,7 +2812,6 @@ impl ::std::cmp::PartialEq for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
 impl ::std::cmp::Eq for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {}
 unsafe impl ::windows::runtime::Abi for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2896,7 +2843,6 @@ impl ::std::cmp::PartialEq for MPIO_PASS_THROUGH_PATH_DIRECT_EX {
 impl ::std::cmp::Eq for MPIO_PASS_THROUGH_PATH_DIRECT_EX {}
 unsafe impl ::windows::runtime::Abi for MPIO_PASS_THROUGH_PATH_DIRECT_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2928,7 +2874,6 @@ impl ::std::cmp::PartialEq for MPIO_PASS_THROUGH_PATH_EX {
 impl ::std::cmp::Eq for MPIO_PASS_THROUGH_PATH_EX {}
 unsafe impl ::windows::runtime::Abi for MPIO_PASS_THROUGH_PATH_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2956,7 +2901,6 @@ impl ::std::cmp::PartialEq for MP_DEVICE_DATA_SET_RANGE {
 impl ::std::cmp::Eq for MP_DEVICE_DATA_SET_RANGE {}
 unsafe impl ::windows::runtime::Abi for MP_DEVICE_DATA_SET_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2971,7 +2915,6 @@ impl ::std::convert::From<i32> for MP_STORAGE_DIAGNOSTIC_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for MP_STORAGE_DIAGNOSTIC_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2988,7 +2931,6 @@ impl ::std::convert::From<i32> for MP_STORAGE_DIAGNOSTIC_TARGET_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MP_STORAGE_DIAGNOSTIC_TARGET_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const NRB_FUNCTION_ADD_LBAS_PINNED_SET: u32 = 16u32;
@@ -3070,7 +3012,6 @@ impl ::std::cmp::Eq for NTSCSI_UNICODE_STRING {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTSCSI_UNICODE_STRING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3123,7 +3064,6 @@ impl ::std::cmp::PartialEq for NVCACHE_HINT_PAYLOAD {
 impl ::std::cmp::Eq for NVCACHE_HINT_PAYLOAD {}
 unsafe impl ::windows::runtime::Abi for NVCACHE_HINT_PAYLOAD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3164,7 +3104,6 @@ impl ::std::cmp::PartialEq for NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {
 impl ::std::cmp::Eq for NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3209,7 +3148,6 @@ impl ::std::cmp::PartialEq for NVCACHE_REQUEST_BLOCK {
 impl ::std::cmp::Eq for NVCACHE_REQUEST_BLOCK {}
 unsafe impl ::windows::runtime::Abi for NVCACHE_REQUEST_BLOCK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3226,7 +3164,6 @@ impl ::std::convert::From<i32> for NVCACHE_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for NVCACHE_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3243,7 +3180,6 @@ impl ::std::convert::From<i32> for NVCACHE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for NVCACHE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3290,7 +3226,6 @@ impl ::std::cmp::PartialEq for NV_FEATURE_PARAMETER {
 impl ::std::cmp::Eq for NV_FEATURE_PARAMETER {}
 unsafe impl ::windows::runtime::Abi for NV_FEATURE_PARAMETER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3317,7 +3252,6 @@ impl ::std::cmp::PartialEq for NV_SEP_CACHE_PARAMETER {
 impl ::std::cmp::Eq for NV_SEP_CACHE_PARAMETER {}
 unsafe impl ::windows::runtime::Abi for NV_SEP_CACHE_PARAMETER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3340,7 +3274,6 @@ impl ::std::cmp::PartialEq for NV_SEP_CACHE_PARAMETER_0 {
 impl ::std::cmp::Eq for NV_SEP_CACHE_PARAMETER_0 {}
 unsafe impl ::windows::runtime::Abi for NV_SEP_CACHE_PARAMETER_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3367,7 +3300,6 @@ impl ::std::cmp::PartialEq for NV_SEP_CACHE_PARAMETER_0_0 {
 impl ::std::cmp::Eq for NV_SEP_CACHE_PARAMETER_0_0 {}
 unsafe impl ::windows::runtime::Abi for NV_SEP_CACHE_PARAMETER_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const NV_SEP_CACHE_PARAMETER_VERSION: u32 = 1u32;
@@ -3388,7 +3320,6 @@ impl ::std::convert::From<i32> for NV_SEP_WRITE_CACHE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for NV_SEP_WRITE_CACHE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type PDUMP_DEVICE_POWERON_ROUTINE = unsafe extern "system" fn() -> i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -3439,7 +3370,6 @@ impl ::std::cmp::Eq for PERSISTENT_ISCSI_LOGIN_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PERSISTENT_ISCSI_LOGIN_INFOA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3489,7 +3419,6 @@ impl ::std::cmp::Eq for PERSISTENT_ISCSI_LOGIN_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PERSISTENT_ISCSI_LOGIN_INFOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
@@ -4068,7 +3997,6 @@ impl ::std::cmp::PartialEq for SCSI_ADAPTER_BUS_INFO {
 impl ::std::cmp::Eq for SCSI_ADAPTER_BUS_INFO {}
 unsafe impl ::windows::runtime::Abi for SCSI_ADAPTER_BUS_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4099,7 +4027,6 @@ impl ::std::cmp::PartialEq for SCSI_ADDRESS {
 impl ::std::cmp::Eq for SCSI_ADDRESS {}
 unsafe impl ::windows::runtime::Abi for SCSI_ADDRESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4128,7 +4055,6 @@ impl ::std::cmp::PartialEq for SCSI_BUS_DATA {
 impl ::std::cmp::Eq for SCSI_BUS_DATA {}
 unsafe impl ::windows::runtime::Abi for SCSI_BUS_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4176,7 +4102,6 @@ impl ::std::cmp::Eq for SCSI_INQUIRY_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SCSI_INQUIRY_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const SCSI_IOCTL_DATA_BIDIRECTIONAL: u32 = 3u32;
@@ -4212,7 +4137,6 @@ impl ::std::cmp::PartialEq for SCSI_LUN_LIST {
 impl ::std::cmp::Eq for SCSI_LUN_LIST {}
 unsafe impl ::windows::runtime::Abi for SCSI_LUN_LIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4277,7 +4201,6 @@ impl ::std::cmp::PartialEq for SCSI_PASS_THROUGH {
 impl ::std::cmp::Eq for SCSI_PASS_THROUGH {}
 unsafe impl ::windows::runtime::Abi for SCSI_PASS_THROUGH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4342,7 +4265,6 @@ impl ::std::cmp::PartialEq for SCSI_PASS_THROUGH32 {
 impl ::std::cmp::Eq for SCSI_PASS_THROUGH32 {}
 unsafe impl ::windows::runtime::Abi for SCSI_PASS_THROUGH32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4416,7 +4338,6 @@ impl ::std::cmp::PartialEq for SCSI_PASS_THROUGH32_EX {
 impl ::std::cmp::Eq for SCSI_PASS_THROUGH32_EX {}
 unsafe impl ::windows::runtime::Abi for SCSI_PASS_THROUGH32_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4469,7 +4390,6 @@ impl ::std::cmp::PartialEq for SCSI_PASS_THROUGH_DIRECT {
 impl ::std::cmp::Eq for SCSI_PASS_THROUGH_DIRECT {}
 unsafe impl ::windows::runtime::Abi for SCSI_PASS_THROUGH_DIRECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4522,7 +4442,6 @@ impl ::std::cmp::PartialEq for SCSI_PASS_THROUGH_DIRECT32 {
 impl ::std::cmp::Eq for SCSI_PASS_THROUGH_DIRECT32 {}
 unsafe impl ::windows::runtime::Abi for SCSI_PASS_THROUGH_DIRECT32 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4596,7 +4515,6 @@ impl ::std::cmp::PartialEq for SCSI_PASS_THROUGH_DIRECT32_EX {
 impl ::std::cmp::Eq for SCSI_PASS_THROUGH_DIRECT32_EX {}
 unsafe impl ::windows::runtime::Abi for SCSI_PASS_THROUGH_DIRECT32_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4670,7 +4588,6 @@ impl ::std::cmp::PartialEq for SCSI_PASS_THROUGH_DIRECT_EX {
 impl ::std::cmp::Eq for SCSI_PASS_THROUGH_DIRECT_EX {}
 unsafe impl ::windows::runtime::Abi for SCSI_PASS_THROUGH_DIRECT_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4744,7 +4661,6 @@ impl ::std::cmp::PartialEq for SCSI_PASS_THROUGH_EX {
 impl ::std::cmp::Eq for SCSI_PASS_THROUGH_EX {}
 unsafe impl ::windows::runtime::Abi for SCSI_PASS_THROUGH_EX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4776,7 +4692,6 @@ impl ::std::cmp::PartialEq for SRB_IO_CONTROL {
 impl ::std::cmp::Eq for SRB_IO_CONTROL {}
 unsafe impl ::windows::runtime::Abi for SRB_IO_CONTROL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4819,7 +4734,6 @@ impl ::std::cmp::PartialEq for STORAGE_DIAGNOSTIC_MP_REQUEST {
 impl ::std::cmp::Eq for STORAGE_DIAGNOSTIC_MP_REQUEST {}
 unsafe impl ::windows::runtime::Abi for STORAGE_DIAGNOSTIC_MP_REQUEST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const STORAGE_DIAGNOSTIC_STATUS_BUFFER_TOO_SMALL: u32 = 1u32;
@@ -4862,7 +4776,6 @@ impl ::std::cmp::PartialEq for STORAGE_ENDURANCE_DATA_DESCRIPTOR {
 impl ::std::cmp::Eq for STORAGE_ENDURANCE_DATA_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for STORAGE_ENDURANCE_DATA_DESCRIPTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4894,7 +4807,6 @@ impl ::std::cmp::PartialEq for STORAGE_ENDURANCE_INFO {
 impl ::std::cmp::Eq for STORAGE_ENDURANCE_INFO {}
 unsafe impl ::windows::runtime::Abi for STORAGE_ENDURANCE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4921,7 +4833,6 @@ impl ::std::cmp::PartialEq for STORAGE_ENDURANCE_INFO_0 {
 impl ::std::cmp::Eq for STORAGE_ENDURANCE_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for STORAGE_ENDURANCE_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4951,7 +4862,6 @@ impl ::std::cmp::PartialEq for STORAGE_FIRMWARE_ACTIVATE {
 impl ::std::cmp::Eq for STORAGE_FIRMWARE_ACTIVATE {}
 unsafe impl ::windows::runtime::Abi for STORAGE_FIRMWARE_ACTIVATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const STORAGE_FIRMWARE_ACTIVATE_STRUCTURE_VERSION: u32 = 1u32;
@@ -4984,7 +4894,6 @@ impl ::std::cmp::PartialEq for STORAGE_FIRMWARE_DOWNLOAD {
 impl ::std::cmp::Eq for STORAGE_FIRMWARE_DOWNLOAD {}
 unsafe impl ::windows::runtime::Abi for STORAGE_FIRMWARE_DOWNLOAD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const STORAGE_FIRMWARE_DOWNLOAD_STRUCTURE_VERSION: u32 = 1u32;
@@ -5031,7 +4940,6 @@ impl ::std::cmp::PartialEq for STORAGE_FIRMWARE_DOWNLOAD_V2 {
 impl ::std::cmp::Eq for STORAGE_FIRMWARE_DOWNLOAD_V2 {}
 unsafe impl ::windows::runtime::Abi for STORAGE_FIRMWARE_DOWNLOAD_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5066,7 +4974,6 @@ impl ::std::cmp::Eq for STORAGE_FIRMWARE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for STORAGE_FIRMWARE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const STORAGE_FIRMWARE_INFO_INVALID_SLOT: u32 = 255u32;
@@ -5128,7 +5035,6 @@ impl ::std::cmp::Eq for STORAGE_FIRMWARE_INFO_V2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for STORAGE_FIRMWARE_INFO_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5159,7 +5065,6 @@ impl ::std::cmp::Eq for STORAGE_FIRMWARE_SLOT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for STORAGE_FIRMWARE_SLOT_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5182,7 +5087,6 @@ impl ::std::cmp::PartialEq for STORAGE_FIRMWARE_SLOT_INFO_0 {
 impl ::std::cmp::Eq for STORAGE_FIRMWARE_SLOT_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for STORAGE_FIRMWARE_SLOT_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5219,7 +5123,6 @@ impl ::std::cmp::Eq for STORAGE_FIRMWARE_SLOT_INFO_V2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for STORAGE_FIRMWARE_SLOT_INFO_V2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub const STORAGE_FIRMWARE_SLOT_INFO_V2_REVISION_LENGTH: u32 = 16u32;
@@ -5449,7 +5352,6 @@ impl ::std::convert::From<i32> for TARGETPROTOCOLTYPE {
 }
 unsafe impl ::windows::runtime::Abi for TARGETPROTOCOLTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5470,7 +5372,6 @@ impl ::std::convert::From<i32> for TARGET_INFORMATION_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for TARGET_INFORMATION_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WmiScsiAddressGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408590607, 46783, 4560, [148, 242, 0, 160, 201, 30, 251, 139]);
 #[repr(C)]

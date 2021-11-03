@@ -319,10 +319,12 @@ impl ::std::convert::From<i32> for ClipboardHistoryItemsResultStatus {
 }
 unsafe impl ::windows::runtime::Abi for ClipboardHistoryItemsResultStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ClipboardHistoryItemsResultStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.ClipboardHistoryItemsResultStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for ClipboardHistoryItemsResultStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
@@ -526,10 +528,12 @@ impl ::std::convert::From<u32> for DataPackageOperation {
 }
 unsafe impl ::windows::runtime::Abi for DataPackageOperation {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DataPackageOperation {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.DataPackageOperation;u4)");
+}
+impl ::windows::runtime::DefaultType for DataPackageOperation {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DataPackageOperation {
     type Output = Self;
@@ -1416,7 +1420,7 @@ impl<F: FnMut(&::std::option::Option<DataProviderRequest>) -> ::windows::runtime
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, request: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&request as *const <DataProviderRequest as ::windows::runtime::Abi>::Abi as *const <DataProviderRequest as ::windows::runtime::Abi>::DefaultType)).into()
+        ((*this).invoke)(&*(&request as *const <DataProviderRequest as ::windows::runtime::Abi>::Abi as *const <DataProviderRequest as ::windows::runtime::DefaultType>::DefaultType)).into()
     }
 }
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
@@ -1690,7 +1694,6 @@ impl ::windows::runtime::RuntimeName for HtmlFormatHelper {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.HtmlFormatHelper";
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClipboardContentOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClipboardContentOptions {
@@ -1716,7 +1719,6 @@ pub struct IClipboardContentOptions_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClipboardHistoryChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClipboardHistoryChangedEventArgs {
@@ -1734,7 +1736,6 @@ pub struct IClipboardHistoryChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClipboardHistoryItem(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClipboardHistoryItem {
@@ -1756,7 +1757,6 @@ pub struct IClipboardHistoryItem_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClipboardHistoryItemsResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClipboardHistoryItemsResult {
@@ -1777,7 +1777,6 @@ pub struct IClipboardHistoryItemsResult_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClipboardStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClipboardStatics {
@@ -1803,7 +1802,6 @@ pub struct IClipboardStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IClipboardStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClipboardStatics2 {
@@ -1841,7 +1839,6 @@ pub struct IClipboardStatics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataPackage(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackage {
@@ -1886,7 +1883,6 @@ pub struct IDataPackage_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataPackage2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackage2 {
@@ -1908,7 +1904,6 @@ pub struct IDataPackage2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataPackage3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackage3 {
@@ -1930,7 +1925,6 @@ pub struct IDataPackage3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataPackage4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackage4 {
@@ -1952,7 +1946,6 @@ pub struct IDataPackage4_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataPackagePropertySet(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackagePropertySet {
@@ -1986,7 +1979,6 @@ pub struct IDataPackagePropertySet_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataPackagePropertySet2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackagePropertySet2 {
@@ -2022,7 +2014,6 @@ pub struct IDataPackagePropertySet2_abi(
     #[cfg(not(feature = "UI"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataPackagePropertySet3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackagePropertySet3 {
@@ -2042,7 +2033,6 @@ pub struct IDataPackagePropertySet3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataPackagePropertySet4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackagePropertySet4 {
@@ -2062,7 +2052,6 @@ pub struct IDataPackagePropertySet4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataPackagePropertySetView(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackagePropertySetView {
@@ -2089,7 +2078,6 @@ pub struct IDataPackagePropertySetView_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataPackagePropertySetView2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackagePropertySetView2 {
@@ -2116,7 +2104,6 @@ pub struct IDataPackagePropertySetView2_abi(
     #[cfg(not(feature = "UI"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataPackagePropertySetView3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackagePropertySetView3 {
@@ -2135,7 +2122,6 @@ pub struct IDataPackagePropertySetView3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataPackagePropertySetView4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackagePropertySetView4 {
@@ -2154,7 +2140,6 @@ pub struct IDataPackagePropertySetView4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataPackagePropertySetView5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackagePropertySetView5 {
@@ -2173,7 +2158,6 @@ pub struct IDataPackagePropertySetView5_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataPackageView(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackageView {
@@ -2215,7 +2199,6 @@ pub struct IDataPackageView_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataPackageView2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackageView2 {
@@ -2237,7 +2220,6 @@ pub struct IDataPackageView2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataPackageView3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackageView3 {
@@ -2261,7 +2243,6 @@ pub struct IDataPackageView3_abi(
     #[cfg(not(feature = "Security_EnterpriseData"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataPackageView4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataPackageView4 {
@@ -2280,7 +2261,6 @@ pub struct IDataPackageView4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, formatid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataProviderDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataProviderDeferral {
@@ -2299,7 +2279,6 @@ pub struct IDataProviderDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataProviderRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataProviderRequest {
@@ -2322,7 +2301,6 @@ pub struct IDataProviderRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataRequest {
@@ -2346,7 +2324,6 @@ pub struct IDataRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataRequestDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataRequestDeferral {
@@ -2365,7 +2342,6 @@ pub struct IDataRequestDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataRequestedEventArgs {
@@ -2384,7 +2360,6 @@ pub struct IDataRequestedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataTransferManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataTransferManager {
@@ -2410,7 +2385,6 @@ pub struct IDataTransferManager_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataTransferManager2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataTransferManager2 {
@@ -2432,7 +2406,6 @@ pub struct IDataTransferManager2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataTransferManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataTransferManagerStatics {
@@ -2452,7 +2425,6 @@ pub struct IDataTransferManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataTransferManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataTransferManagerStatics2 {
@@ -2471,7 +2443,6 @@ pub struct IDataTransferManagerStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDataTransferManagerStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDataTransferManagerStatics3 {
@@ -2490,7 +2461,6 @@ pub struct IDataTransferManagerStatics3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, options: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHtmlFormatHelperStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHtmlFormatHelperStatics {
@@ -2510,7 +2480,6 @@ pub struct IHtmlFormatHelperStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, htmlfragment: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IOperationCompletedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOperationCompletedEventArgs {
@@ -2529,7 +2498,6 @@ pub struct IOperationCompletedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut DataPackageOperation) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IOperationCompletedEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOperationCompletedEventArgs2 {
@@ -2548,7 +2516,6 @@ pub struct IOperationCompletedEventArgs2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IShareCompletedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareCompletedEventArgs {
@@ -2567,7 +2534,6 @@ pub struct IShareCompletedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IShareProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareProvider {
@@ -2592,7 +2558,6 @@ pub struct IShareProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IShareProviderFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareProviderFactory {
@@ -2612,7 +2577,6 @@ pub struct IShareProviderFactory_abi(
     #[cfg(not(all(feature = "Storage_Streams", feature = "UI")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IShareProviderOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareProviderOperation {
@@ -2633,7 +2597,6 @@ pub struct IShareProviderOperation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IShareProvidersRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareProvidersRequestedEventArgs {
@@ -2656,7 +2619,6 @@ pub struct IShareProvidersRequestedEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IShareTargetInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareTargetInfo {
@@ -2676,7 +2638,6 @@ pub struct IShareTargetInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IShareUIOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShareUIOptions {
@@ -2700,7 +2661,6 @@ pub struct IShareUIOptions_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISharedStorageAccessManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISharedStorageAccessManagerStatics {
@@ -2723,7 +2683,6 @@ pub struct ISharedStorageAccessManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, token: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStandardDataFormatsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStandardDataFormatsStatics {
@@ -2747,7 +2706,6 @@ pub struct IStandardDataFormatsStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStandardDataFormatsStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStandardDataFormatsStatics2 {
@@ -2767,7 +2725,6 @@ pub struct IStandardDataFormatsStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStandardDataFormatsStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStandardDataFormatsStatics3 {
@@ -2786,7 +2743,6 @@ pub struct IStandardDataFormatsStatics3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITargetApplicationChosenEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITargetApplicationChosenEventArgs {
@@ -2854,10 +2810,12 @@ impl ::std::convert::From<i32> for SetHistoryItemAsContentStatus {
 }
 unsafe impl ::windows::runtime::Abi for SetHistoryItemAsContentStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SetHistoryItemAsContentStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.SetHistoryItemAsContentStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for SetHistoryItemAsContentStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 #[repr(transparent)]
@@ -3024,7 +2982,7 @@ impl<F: FnMut(&::std::option::Option<ShareProviderOperation>) -> ::windows::runt
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, operation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&operation as *const <ShareProviderOperation as ::windows::runtime::Abi>::Abi as *const <ShareProviderOperation as ::windows::runtime::Abi>::DefaultType)).into()
+        ((*this).invoke)(&*(&operation as *const <ShareProviderOperation as ::windows::runtime::Abi>::Abi as *const <ShareProviderOperation as ::windows::runtime::DefaultType>::DefaultType)).into()
     }
 }
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
@@ -3213,10 +3171,12 @@ impl ::std::convert::From<i32> for ShareUITheme {
 }
 unsafe impl ::windows::runtime::Abi for ShareUITheme {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ShareUITheme {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.ShareUITheme;i4)");
+}
+impl ::windows::runtime::DefaultType for ShareUITheme {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `ApplicationModel_DataTransfer`*"]
 pub struct SharedStorageAccessManager {}

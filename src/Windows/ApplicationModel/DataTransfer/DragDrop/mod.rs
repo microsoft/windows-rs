@@ -21,10 +21,12 @@ impl ::std::convert::From<u32> for DragDropModifiers {
 }
 unsafe impl ::windows::runtime::Abi for DragDropModifiers {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DragDropModifiers {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.DragDrop.DragDropModifiers;u4)");
+}
+impl ::windows::runtime::DefaultType for DragDropModifiers {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DragDropModifiers {
     type Output = Self;

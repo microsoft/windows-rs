@@ -366,7 +366,6 @@ impl ::std::convert::From<i32> for __MIDL___MIDL_itf_mtxadmin_0107_0001 {
 }
 unsafe impl ::windows::runtime::Abi for __MIDL___MIDL_itf_mtxadmin_0107_0001 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_TransactionServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -380,7 +379,6 @@ impl ::std::convert::From<i32> for __MIDL___MIDL_itf_mtxadmin_0107_0002 {
 }
 unsafe impl ::windows::runtime::Abi for __MIDL___MIDL_itf_mtxadmin_0107_0002 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_TransactionServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -438,5 +436,4 @@ impl ::std::convert::From<i32> for __MIDL___MIDL_itf_mtxadmin_0107_0003 {
 }
 unsafe impl ::windows::runtime::Abi for __MIDL___MIDL_itf_mtxadmin_0107_0003 {
     type Abi = Self;
-    type DefaultType = Self;
 }

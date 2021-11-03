@@ -18,7 +18,6 @@ impl ::std::convert::From<u32> for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
     type Output = Self;
@@ -119,7 +118,6 @@ impl ::std::cmp::PartialEq for DEADKEY {
 impl ::std::cmp::Eq for DEADKEY {}
 unsafe impl ::windows::runtime::Abi for DEADKEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const DEC_KBD_ANSI_LAYOUT_TYPE: u32 = 1u32;
@@ -190,7 +188,6 @@ impl ::std::convert::From<u32> for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
 }
 unsafe impl ::windows::runtime::Abi for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
     type Output = Self;
@@ -502,7 +499,6 @@ impl ::std::cmp::PartialEq for HARDWAREINPUT {
 impl ::std::cmp::Eq for HARDWAREINPUT {}
 unsafe impl ::windows::runtime::Abi for HARDWAREINPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const HOOK_ABOVE: u32 = 777u32;
@@ -522,7 +518,6 @@ impl ::std::convert::From<u32> for HOT_KEY_MODIFIERS {
 }
 unsafe impl ::windows::runtime::Abi for HOT_KEY_MODIFIERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for HOT_KEY_MODIFIERS {
     type Output = Self;
@@ -573,7 +568,6 @@ impl ::std::cmp::PartialEq for INPUT {
 impl ::std::cmp::Eq for INPUT {}
 unsafe impl ::windows::runtime::Abi for INPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -597,7 +591,6 @@ impl ::std::cmp::PartialEq for INPUT_0 {
 impl ::std::cmp::Eq for INPUT_0 {}
 unsafe impl ::windows::runtime::Abi for INPUT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -613,7 +606,6 @@ impl ::std::convert::From<u32> for INPUT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for INPUT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for INPUT_TYPE {
     type Output = Self;
@@ -745,7 +737,6 @@ impl ::std::cmp::PartialEq for KBDTABLE_DESC {
 impl ::std::cmp::Eq for KBDTABLE_DESC {}
 unsafe impl ::windows::runtime::Abi for KBDTABLE_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -773,7 +764,6 @@ impl ::std::cmp::PartialEq for KBDTABLE_MULTI {
 impl ::std::cmp::Eq for KBDTABLE_MULTI {}
 unsafe impl ::windows::runtime::Abi for KBDTABLE_MULTI {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const KBDTABLE_MULTI_MAX: u32 = 8u32;
@@ -806,7 +796,6 @@ impl ::std::cmp::PartialEq for KBD_TYPE_INFO {
 impl ::std::cmp::Eq for KBD_TYPE_INFO {}
 unsafe impl ::windows::runtime::Abi for KBD_TYPE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const KBD_VERSION: u32 = 1u32;
@@ -839,7 +828,6 @@ impl ::std::cmp::PartialEq for KEYBDINPUT {
 impl ::std::cmp::Eq for KEYBDINPUT {}
 unsafe impl ::windows::runtime::Abi for KEYBDINPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -856,7 +844,6 @@ impl ::std::convert::From<u32> for KEYBD_EVENT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for KEYBD_EVENT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for KEYBD_EVENT_FLAGS {
     type Output = Self;
@@ -928,7 +915,6 @@ impl ::std::cmp::PartialEq for LASTINPUTINFO {
 impl ::std::cmp::Eq for LASTINPUTINFO {}
 unsafe impl ::windows::runtime::Abi for LASTINPUTINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -957,7 +943,6 @@ impl ::std::cmp::PartialEq for LIGATURE1 {
 impl ::std::cmp::Eq for LIGATURE1 {}
 unsafe impl ::windows::runtime::Abi for LIGATURE1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -986,7 +971,6 @@ impl ::std::cmp::PartialEq for LIGATURE2 {
 impl ::std::cmp::Eq for LIGATURE2 {}
 unsafe impl ::windows::runtime::Abi for LIGATURE2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1015,7 +999,6 @@ impl ::std::cmp::PartialEq for LIGATURE3 {
 impl ::std::cmp::Eq for LIGATURE3 {}
 unsafe impl ::windows::runtime::Abi for LIGATURE3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1044,7 +1027,6 @@ impl ::std::cmp::PartialEq for LIGATURE4 {
 impl ::std::cmp::Eq for LIGATURE4 {}
 unsafe impl ::windows::runtime::Abi for LIGATURE4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1073,7 +1055,6 @@ impl ::std::cmp::PartialEq for LIGATURE5 {
 impl ::std::cmp::Eq for LIGATURE5 {}
 unsafe impl ::windows::runtime::Abi for LIGATURE5 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
@@ -1154,7 +1135,6 @@ impl ::std::cmp::PartialEq for MODIFIERS {
 impl ::std::cmp::Eq for MODIFIERS {}
 unsafe impl ::windows::runtime::Abi for MODIFIERS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1186,7 +1166,6 @@ impl ::std::cmp::PartialEq for MOUSEINPUT {
 impl ::std::cmp::Eq for MOUSEINPUT {}
 unsafe impl ::windows::runtime::Abi for MOUSEINPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1216,7 +1195,6 @@ impl ::std::cmp::PartialEq for MOUSEMOVEPOINT {
 impl ::std::cmp::Eq for MOUSEMOVEPOINT {}
 unsafe impl ::windows::runtime::Abi for MOUSEMOVEPOINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1243,7 +1221,6 @@ impl ::std::convert::From<u32> for MOUSE_EVENT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for MOUSE_EVENT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MOUSE_EVENT_FLAGS {
     type Output = Self;
@@ -1586,7 +1563,6 @@ impl ::std::cmp::Eq for TRACKMOUSEEVENT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TRACKMOUSEEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1604,7 +1580,6 @@ impl ::std::convert::From<u32> for TRACKMOUSEEVENT_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for TRACKMOUSEEVENT_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for TRACKMOUSEEVENT_FLAGS {
     type Output = Self;
@@ -1981,7 +1956,6 @@ impl ::std::convert::From<u16> for VIRTUAL_KEY {
 }
 unsafe impl ::windows::runtime::Abi for VIRTUAL_KEY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const VK_ABNT_C1: u32 = 193u32;
@@ -2041,7 +2015,6 @@ impl ::std::cmp::PartialEq for VK_TO_BIT {
 impl ::std::cmp::Eq for VK_TO_BIT {}
 unsafe impl ::windows::runtime::Abi for VK_TO_BIT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2070,7 +2043,6 @@ impl ::std::cmp::PartialEq for VK_TO_WCHARS1 {
 impl ::std::cmp::Eq for VK_TO_WCHARS1 {}
 unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2099,7 +2071,6 @@ impl ::std::cmp::PartialEq for VK_TO_WCHARS10 {
 impl ::std::cmp::Eq for VK_TO_WCHARS10 {}
 unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS10 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2128,7 +2099,6 @@ impl ::std::cmp::PartialEq for VK_TO_WCHARS2 {
 impl ::std::cmp::Eq for VK_TO_WCHARS2 {}
 unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2157,7 +2127,6 @@ impl ::std::cmp::PartialEq for VK_TO_WCHARS3 {
 impl ::std::cmp::Eq for VK_TO_WCHARS3 {}
 unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2186,7 +2155,6 @@ impl ::std::cmp::PartialEq for VK_TO_WCHARS4 {
 impl ::std::cmp::Eq for VK_TO_WCHARS4 {}
 unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2215,7 +2183,6 @@ impl ::std::cmp::PartialEq for VK_TO_WCHARS5 {
 impl ::std::cmp::Eq for VK_TO_WCHARS5 {}
 unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS5 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2244,7 +2211,6 @@ impl ::std::cmp::PartialEq for VK_TO_WCHARS6 {
 impl ::std::cmp::Eq for VK_TO_WCHARS6 {}
 unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS6 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2273,7 +2239,6 @@ impl ::std::cmp::PartialEq for VK_TO_WCHARS7 {
 impl ::std::cmp::Eq for VK_TO_WCHARS7 {}
 unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS7 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2302,7 +2267,6 @@ impl ::std::cmp::PartialEq for VK_TO_WCHARS8 {
 impl ::std::cmp::Eq for VK_TO_WCHARS8 {}
 unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS8 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2331,7 +2295,6 @@ impl ::std::cmp::PartialEq for VK_TO_WCHARS9 {
 impl ::std::cmp::Eq for VK_TO_WCHARS9 {}
 unsafe impl ::windows::runtime::Abi for VK_TO_WCHARS9 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2360,7 +2323,6 @@ impl ::std::cmp::PartialEq for VK_TO_WCHAR_TABLE {
 impl ::std::cmp::Eq for VK_TO_WCHAR_TABLE {}
 unsafe impl ::windows::runtime::Abi for VK_TO_WCHAR_TABLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2388,7 +2350,6 @@ impl ::std::cmp::PartialEq for VK_VSC {
 impl ::std::cmp::Eq for VK_VSC {}
 unsafe impl ::windows::runtime::Abi for VK_VSC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const VK__none_: u32 = 255u32;
@@ -2425,7 +2386,6 @@ impl ::std::cmp::Eq for VSC_LPWSTR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VSC_LPWSTR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2453,7 +2413,6 @@ impl ::std::cmp::PartialEq for VSC_VK {
 impl ::std::cmp::Eq for VSC_VK {}
 unsafe impl ::windows::runtime::Abi for VSC_VK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
@@ -2561,7 +2520,6 @@ impl ::std::cmp::PartialEq for _VK_FUNCTION_PARAM {
 impl ::std::cmp::Eq for _VK_FUNCTION_PARAM {}
 unsafe impl ::windows::runtime::Abi for _VK_FUNCTION_PARAM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2593,7 +2551,6 @@ impl ::std::cmp::PartialEq for _VK_TO_FUNCTION_TABLE {
 impl ::std::cmp::Eq for _VK_TO_FUNCTION_TABLE {}
 unsafe impl ::windows::runtime::Abi for _VK_TO_FUNCTION_TABLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 #[inline]
@@ -2702,7 +2659,6 @@ impl ::std::cmp::Eq for tagKbdLayer {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for tagKbdLayer {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2734,5 +2690,4 @@ impl ::std::cmp::PartialEq for tagKbdNlsLayer {
 impl ::std::cmp::Eq for tagKbdNlsLayer {}
 unsafe impl ::windows::runtime::Abi for tagKbdNlsLayer {
     type Abi = Self;
-    type DefaultType = Self;
 }

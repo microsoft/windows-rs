@@ -324,7 +324,6 @@ impl ::std::convert::From<u32> for D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE {
     type Output = Self;
@@ -370,7 +369,6 @@ impl ::std::convert::From<u32> for D2D1_2DAFFINETRANSFORM_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_2DAFFINETRANSFORM_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_2DAFFINETRANSFORM_PROP {
     type Output = Self;
@@ -417,7 +415,6 @@ impl ::std::convert::From<u32> for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MOD
 }
 unsafe impl ::windows::runtime::Abi for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {
     type Output = Self;
@@ -467,7 +464,6 @@ impl ::std::convert::From<u32> for D2D1_3DPERSPECTIVETRANSFORM_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_3DPERSPECTIVETRANSFORM_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_3DPERSPECTIVETRANSFORM_PROP {
     type Output = Self;
@@ -514,7 +510,6 @@ impl ::std::convert::From<u32> for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
     type Output = Self;
@@ -559,7 +554,6 @@ impl ::std::convert::From<u32> for D2D1_3DTRANSFORM_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_3DTRANSFORM_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_3DTRANSFORM_PROP {
     type Output = Self;
@@ -605,7 +599,6 @@ impl ::std::convert::From<u32> for D2D1_ALPHA_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_ALPHA_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_ALPHA_MODE {
     type Output = Self;
@@ -649,7 +642,6 @@ impl ::std::convert::From<u32> for D2D1_ANTIALIAS_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_ANTIALIAS_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_ANTIALIAS_MODE {
     type Output = Self;
@@ -710,7 +702,6 @@ impl ::std::cmp::PartialEq for D2D1_ARC_SEGMENT {
 impl ::std::cmp::Eq for D2D1_ARC_SEGMENT {}
 unsafe impl ::windows::runtime::Abi for D2D1_ARC_SEGMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -726,7 +717,6 @@ impl ::std::convert::From<u32> for D2D1_ARC_SIZE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_ARC_SIZE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_ARC_SIZE {
     type Output = Self;
@@ -770,7 +760,6 @@ impl ::std::convert::From<u32> for D2D1_ARITHMETICCOMPOSITE_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_ARITHMETICCOMPOSITE_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_ARITHMETICCOMPOSITE_PROP {
     type Output = Self;
@@ -814,7 +803,6 @@ impl ::std::convert::From<u32> for D2D1_ATLAS_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_ATLAS_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_ATLAS_PROP {
     type Output = Self;
@@ -871,7 +859,6 @@ impl ::std::cmp::PartialEq for D2D1_BEZIER_SEGMENT {
 impl ::std::cmp::Eq for D2D1_BEZIER_SEGMENT {}
 unsafe impl ::windows::runtime::Abi for D2D1_BEZIER_SEGMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -887,7 +874,6 @@ impl ::std::convert::From<u32> for D2D1_BITMAPSOURCE_ALPHA_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_BITMAPSOURCE_ALPHA_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_BITMAPSOURCE_ALPHA_MODE {
     type Output = Self;
@@ -934,7 +920,6 @@ impl ::std::convert::From<u32> for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
     type Output = Self;
@@ -984,7 +969,6 @@ impl ::std::convert::From<u32> for D2D1_BITMAPSOURCE_ORIENTATION {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_BITMAPSOURCE_ORIENTATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_BITMAPSOURCE_ORIENTATION {
     type Output = Self;
@@ -1032,7 +1016,6 @@ impl ::std::convert::From<u32> for D2D1_BITMAPSOURCE_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_BITMAPSOURCE_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_BITMAPSOURCE_PROP {
     type Output = Self;
@@ -1089,7 +1072,6 @@ impl ::std::cmp::PartialEq for D2D1_BITMAP_BRUSH_PROPERTIES {
 impl ::std::cmp::Eq for D2D1_BITMAP_BRUSH_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for D2D1_BITMAP_BRUSH_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1118,7 +1100,6 @@ impl ::std::cmp::PartialEq for D2D1_BITMAP_BRUSH_PROPERTIES1 {
 impl ::std::cmp::Eq for D2D1_BITMAP_BRUSH_PROPERTIES1 {}
 unsafe impl ::windows::runtime::Abi for D2D1_BITMAP_BRUSH_PROPERTIES1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1134,7 +1115,6 @@ impl ::std::convert::From<u32> for D2D1_BITMAP_INTERPOLATION_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_BITMAP_INTERPOLATION_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_BITMAP_INTERPOLATION_MODE {
     type Output = Self;
@@ -1181,7 +1161,6 @@ impl ::std::convert::From<u32> for D2D1_BITMAP_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_BITMAP_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_BITMAP_OPTIONS {
     type Output = Self;
@@ -1245,7 +1224,6 @@ impl ::std::cmp::Eq for D2D1_BITMAP_PROPERTIES {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D2D1_BITMAP_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1283,7 +1261,6 @@ impl ::std::cmp::Eq for D2D1_BITMAP_PROPERTIES1 {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D2D1_BITMAP_PROPERTIES1 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1310,7 +1287,6 @@ impl ::std::convert::From<u32> for D2D1_BLEND {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_BLEND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_BLEND {
     type Output = Self;
@@ -1379,7 +1355,6 @@ impl ::std::cmp::PartialEq for D2D1_BLEND_DESCRIPTION {
 impl ::std::cmp::Eq for D2D1_BLEND_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for D2D1_BLEND_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1419,7 +1394,6 @@ impl ::std::convert::From<u32> for D2D1_BLEND_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_BLEND_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_BLEND_MODE {
     type Output = Self;
@@ -1466,7 +1440,6 @@ impl ::std::convert::From<u32> for D2D1_BLEND_OPERATION {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_BLEND_OPERATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_BLEND_OPERATION {
     type Output = Self;
@@ -1509,7 +1482,6 @@ impl ::std::convert::From<u32> for D2D1_BLEND_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_BLEND_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_BLEND_PROP {
     type Output = Self;
@@ -1554,7 +1526,6 @@ impl ::std::convert::From<u32> for D2D1_BORDER_EDGE_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_BORDER_EDGE_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_BORDER_EDGE_MODE {
     type Output = Self;
@@ -1598,7 +1569,6 @@ impl ::std::convert::From<u32> for D2D1_BORDER_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_BORDER_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_BORDER_MODE {
     type Output = Self;
@@ -1642,7 +1612,6 @@ impl ::std::convert::From<u32> for D2D1_BORDER_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_BORDER_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_BORDER_PROP {
     type Output = Self;
@@ -1686,7 +1655,6 @@ impl ::std::convert::From<u32> for D2D1_BRIGHTNESS_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_BRIGHTNESS_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_BRIGHTNESS_PROP {
     type Output = Self;
@@ -1749,7 +1717,6 @@ impl ::std::cmp::Eq for D2D1_BRUSH_PROPERTIES {}
 #[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::runtime::Abi for D2D1_BRUSH_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1769,7 +1736,6 @@ impl ::std::convert::From<u32> for D2D1_BUFFER_PRECISION {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_BUFFER_PRECISION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_BUFFER_PRECISION {
     type Output = Self;
@@ -1815,7 +1781,6 @@ impl ::std::convert::From<u32> for D2D1_CAP_STYLE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_CAP_STYLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_CAP_STYLE {
     type Output = Self;
@@ -1861,7 +1826,6 @@ impl ::std::convert::From<u32> for D2D1_CHANGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_CHANGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_CHANGE_TYPE {
     type Output = Self;
@@ -1906,7 +1870,6 @@ impl ::std::convert::From<u32> for D2D1_CHANNEL_DEPTH {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_CHANNEL_DEPTH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_CHANNEL_DEPTH {
     type Output = Self;
@@ -1952,7 +1915,6 @@ impl ::std::convert::From<u32> for D2D1_CHANNEL_SELECTOR {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_CHANNEL_SELECTOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_CHANNEL_SELECTOR {
     type Output = Self;
@@ -1998,7 +1960,6 @@ impl ::std::convert::From<u32> for D2D1_CHROMAKEY_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_CHROMAKEY_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_CHROMAKEY_PROP {
     type Output = Self;
@@ -2042,7 +2003,6 @@ impl ::std::convert::From<u32> for D2D1_COLORMANAGEMENT_ALPHA_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_COLORMANAGEMENT_ALPHA_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_COLORMANAGEMENT_ALPHA_MODE {
     type Output = Self;
@@ -2090,7 +2050,6 @@ impl ::std::convert::From<u32> for D2D1_COLORMANAGEMENT_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_COLORMANAGEMENT_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_COLORMANAGEMENT_PROP {
     type Output = Self;
@@ -2135,7 +2094,6 @@ impl ::std::convert::From<u32> for D2D1_COLORMANAGEMENT_QUALITY {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_COLORMANAGEMENT_QUALITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_COLORMANAGEMENT_QUALITY {
     type Output = Self;
@@ -2181,7 +2139,6 @@ impl ::std::convert::From<u32> for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
     type Output = Self;
@@ -2225,7 +2182,6 @@ impl ::std::convert::From<u32> for D2D1_COLORMATRIX_ALPHA_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_COLORMATRIX_ALPHA_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_COLORMATRIX_ALPHA_MODE {
     type Output = Self;
@@ -2270,7 +2226,6 @@ impl ::std::convert::From<u32> for D2D1_COLORMATRIX_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_COLORMATRIX_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_COLORMATRIX_PROP {
     type Output = Self;
@@ -2314,7 +2269,6 @@ impl ::std::convert::From<u32> for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
     type Output = Self;
@@ -2359,7 +2313,6 @@ impl ::std::convert::From<u32> for D2D1_COLOR_CONTEXT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_COLOR_CONTEXT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_COLOR_CONTEXT_TYPE {
     type Output = Self;
@@ -2417,7 +2370,6 @@ impl ::std::cmp::PartialEq for D2D1_COLOR_F {
 impl ::std::cmp::Eq for D2D1_COLOR_F {}
 unsafe impl ::windows::runtime::Abi for D2D1_COLOR_F {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2433,7 +2385,6 @@ impl ::std::convert::From<u32> for D2D1_COLOR_INTERPOLATION_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_COLOR_INTERPOLATION_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_COLOR_INTERPOLATION_MODE {
     type Output = Self;
@@ -2478,7 +2429,6 @@ impl ::std::convert::From<u32> for D2D1_COLOR_SPACE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_COLOR_SPACE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_COLOR_SPACE {
     type Output = Self;
@@ -2524,7 +2474,6 @@ impl ::std::convert::From<u32> for D2D1_COMBINE_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_COMBINE_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_COMBINE_MODE {
     type Output = Self;
@@ -2568,7 +2517,6 @@ impl ::std::convert::From<u32> for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
     type Output = Self;
@@ -2623,7 +2571,6 @@ impl ::std::convert::From<u32> for D2D1_COMPOSITE_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_COMPOSITE_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_COMPOSITE_MODE {
     type Output = Self;
@@ -2666,7 +2613,6 @@ impl ::std::convert::From<u32> for D2D1_COMPOSITE_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_COMPOSITE_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_COMPOSITE_PROP {
     type Output = Self;
@@ -2710,7 +2656,6 @@ impl ::std::convert::From<u32> for D2D1_CONTRAST_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_CONTRAST_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_CONTRAST_PROP {
     type Output = Self;
@@ -2763,7 +2708,6 @@ impl ::std::convert::From<u32> for D2D1_CONVOLVEMATRIX_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_CONVOLVEMATRIX_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_CONVOLVEMATRIX_PROP {
     type Output = Self;
@@ -2811,7 +2755,6 @@ impl ::std::convert::From<u32> for D2D1_CONVOLVEMATRIX_SCALE_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_CONVOLVEMATRIX_SCALE_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_CONVOLVEMATRIX_SCALE_MODE {
     type Output = Self;
@@ -2868,7 +2811,6 @@ impl ::std::cmp::PartialEq for D2D1_CREATION_PROPERTIES {
 impl ::std::cmp::Eq for D2D1_CREATION_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for D2D1_CREATION_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2884,7 +2826,6 @@ impl ::std::convert::From<u32> for D2D1_CROP_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_CROP_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_CROP_PROP {
     type Output = Self;
@@ -2927,7 +2868,6 @@ impl ::std::convert::From<u32> for D2D1_CROSSFADE_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_CROSSFADE_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_CROSSFADE_PROP {
     type Output = Self;
@@ -2999,7 +2939,6 @@ impl ::std::cmp::Eq for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3019,7 +2958,6 @@ impl ::std::convert::From<u32> for D2D1_DASH_STYLE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_DASH_STYLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_DASH_STYLE {
     type Output = Self;
@@ -3063,7 +3001,6 @@ impl ::std::convert::From<u32> for D2D1_DC_INITIALIZE_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_DC_INITIALIZE_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_DC_INITIALIZE_MODE {
     type Output = Self;
@@ -3109,7 +3046,6 @@ impl ::std::convert::From<u32> for D2D1_DEBUG_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_DEBUG_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_DEBUG_LEVEL {
     type Output = Self;
@@ -3155,7 +3091,6 @@ impl ::std::convert::From<u32> for D2D1_DEVICE_CONTEXT_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_DEVICE_CONTEXT_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_DEVICE_CONTEXT_OPTIONS {
     type Output = Self;
@@ -3200,7 +3135,6 @@ impl ::std::convert::From<u32> for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
     type Output = Self;
@@ -3246,7 +3180,6 @@ impl ::std::convert::From<u32> for D2D1_DIRECTIONALBLUR_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_DIRECTIONALBLUR_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_DIRECTIONALBLUR_PROP {
     type Output = Self;
@@ -3297,7 +3230,6 @@ impl ::std::convert::From<u32> for D2D1_DISCRETETRANSFER_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_DISCRETETRANSFER_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_DISCRETETRANSFER_PROP {
     type Output = Self;
@@ -3342,7 +3274,6 @@ impl ::std::convert::From<u32> for D2D1_DISPLACEMENTMAP_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_DISPLACEMENTMAP_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_DISPLACEMENTMAP_PROP {
     type Output = Self;
@@ -3391,7 +3322,6 @@ impl ::std::convert::From<u32> for D2D1_DISTANTDIFFUSE_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_DISTANTDIFFUSE_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_DISTANTDIFFUSE_PROP {
     type Output = Self;
@@ -3439,7 +3369,6 @@ impl ::std::convert::From<u32> for D2D1_DISTANTDIFFUSE_SCALE_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_DISTANTDIFFUSE_SCALE_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_DISTANTDIFFUSE_SCALE_MODE {
     type Output = Self;
@@ -3489,7 +3418,6 @@ impl ::std::convert::From<u32> for D2D1_DISTANTSPECULAR_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_DISTANTSPECULAR_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_DISTANTSPECULAR_PROP {
     type Output = Self;
@@ -3537,7 +3465,6 @@ impl ::std::convert::From<u32> for D2D1_DISTANTSPECULAR_SCALE_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_DISTANTSPECULAR_SCALE_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_DISTANTSPECULAR_SCALE_MODE {
     type Output = Self;
@@ -3585,7 +3512,6 @@ impl ::std::convert::From<u32> for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
     type Output = Self;
@@ -3630,7 +3556,6 @@ impl ::std::convert::From<u32> for D2D1_DPICOMPENSATION_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_DPICOMPENSATION_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_DPICOMPENSATION_PROP {
     type Output = Self;
@@ -3696,7 +3621,6 @@ impl ::std::cmp::Eq for D2D1_DRAWING_STATE_DESCRIPTION {}
 #[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::runtime::Abi for D2D1_DRAWING_STATE_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3744,7 +3668,6 @@ impl ::std::cmp::Eq for D2D1_DRAWING_STATE_DESCRIPTION1 {}
 #[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::runtime::Abi for D2D1_DRAWING_STATE_DESCRIPTION1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3763,7 +3686,6 @@ impl ::std::convert::From<u32> for D2D1_DRAW_TEXT_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_DRAW_TEXT_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_DRAW_TEXT_OPTIONS {
     type Output = Self;
@@ -3807,7 +3729,6 @@ impl ::std::convert::From<u32> for D2D1_EDGEDETECTION_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_EDGEDETECTION_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_EDGEDETECTION_MODE {
     type Output = Self;
@@ -3854,7 +3775,6 @@ impl ::std::convert::From<u32> for D2D1_EDGEDETECTION_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_EDGEDETECTION_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_EDGEDETECTION_PROP {
     type Output = Self;
@@ -3911,7 +3831,6 @@ impl ::std::cmp::PartialEq for D2D1_EFFECT_INPUT_DESCRIPTION {
 impl ::std::cmp::Eq for D2D1_EFFECT_INPUT_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for D2D1_EFFECT_INPUT_DESCRIPTION {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3940,7 +3859,6 @@ impl ::std::cmp::PartialEq for D2D1_ELLIPSE {
 impl ::std::cmp::Eq for D2D1_ELLIPSE {}
 unsafe impl ::windows::runtime::Abi for D2D1_ELLIPSE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3956,7 +3874,6 @@ impl ::std::convert::From<u32> for D2D1_EMBOSS_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_EMBOSS_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_EMBOSS_PROP {
     type Output = Self;
@@ -3999,7 +3916,6 @@ impl ::std::convert::From<u32> for D2D1_EXPOSURE_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_EXPOSURE_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_EXPOSURE_PROP {
     type Output = Self;
@@ -4044,7 +3960,6 @@ impl ::std::convert::From<u32> for D2D1_EXTEND_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_EXTEND_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_EXTEND_MODE {
     type Output = Self;
@@ -4099,7 +4014,6 @@ impl ::std::cmp::PartialEq for D2D1_FACTORY_OPTIONS {
 impl ::std::cmp::Eq for D2D1_FACTORY_OPTIONS {}
 unsafe impl ::windows::runtime::Abi for D2D1_FACTORY_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4115,7 +4029,6 @@ impl ::std::convert::From<u32> for D2D1_FACTORY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_FACTORY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_FACTORY_TYPE {
     type Output = Self;
@@ -4159,7 +4072,6 @@ impl ::std::convert::From<u32> for D2D1_FEATURE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_FEATURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_FEATURE {
     type Output = Self;
@@ -4221,7 +4133,6 @@ impl ::std::cmp::Eq for D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4255,7 +4166,6 @@ impl ::std::cmp::Eq for D2D1_FEATURE_DATA_DOUBLES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D2D1_FEATURE_DATA_DOUBLES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4272,7 +4182,6 @@ impl ::std::convert::From<u32> for D2D1_FEATURE_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_FEATURE_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_FEATURE_LEVEL {
     type Output = Self;
@@ -4316,7 +4225,6 @@ impl ::std::convert::From<u32> for D2D1_FIGURE_BEGIN {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_FIGURE_BEGIN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_FIGURE_BEGIN {
     type Output = Self;
@@ -4360,7 +4268,6 @@ impl ::std::convert::From<u32> for D2D1_FIGURE_END {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_FIGURE_END {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_FIGURE_END {
     type Output = Self;
@@ -4404,7 +4311,6 @@ impl ::std::convert::From<u32> for D2D1_FILL_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_FILL_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_FILL_MODE {
     type Output = Self;
@@ -4455,7 +4361,6 @@ impl ::std::convert::From<u32> for D2D1_FILTER {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_FILTER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_FILTER {
     type Output = Self;
@@ -4498,7 +4403,6 @@ impl ::std::convert::From<u32> for D2D1_FLOOD_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_FLOOD_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_FLOOD_PROP {
     type Output = Self;
@@ -4542,7 +4446,6 @@ impl ::std::convert::From<u32> for D2D1_GAMMA {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_GAMMA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_GAMMA {
     type Output = Self;
@@ -4587,7 +4490,6 @@ impl ::std::convert::From<u32> for D2D1_GAMMA1 {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_GAMMA1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_GAMMA1 {
     type Output = Self;
@@ -4646,7 +4548,6 @@ impl ::std::convert::From<u32> for D2D1_GAMMATRANSFER_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_GAMMATRANSFER_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_GAMMATRANSFER_PROP {
     type Output = Self;
@@ -4691,7 +4592,6 @@ impl ::std::convert::From<u32> for D2D1_GAUSSIANBLUR_OPTIMIZATION {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_GAUSSIANBLUR_OPTIMIZATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_GAUSSIANBLUR_OPTIMIZATION {
     type Output = Self;
@@ -4736,7 +4636,6 @@ impl ::std::convert::From<u32> for D2D1_GAUSSIANBLUR_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_GAUSSIANBLUR_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_GAUSSIANBLUR_PROP {
     type Output = Self;
@@ -4783,7 +4682,6 @@ impl ::std::convert::From<u32> for D2D1_GEOMETRY_RELATION {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_GEOMETRY_RELATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_GEOMETRY_RELATION {
     type Output = Self;
@@ -4827,7 +4725,6 @@ impl ::std::convert::From<u32> for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
     type Output = Self;
@@ -4953,7 +4850,6 @@ impl ::std::cmp::PartialEq for D2D1_GRADIENT_MESH_PATCH {
 impl ::std::cmp::Eq for D2D1_GRADIENT_MESH_PATCH {}
 unsafe impl ::windows::runtime::Abi for D2D1_GRADIENT_MESH_PATCH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4981,7 +4877,6 @@ impl ::std::cmp::PartialEq for D2D1_GRADIENT_STOP {
 impl ::std::cmp::Eq for D2D1_GRADIENT_STOP {}
 unsafe impl ::windows::runtime::Abi for D2D1_GRADIENT_STOP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4997,7 +4892,6 @@ impl ::std::convert::From<u32> for D2D1_HDRTONEMAP_DISPLAY_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_HDRTONEMAP_DISPLAY_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_HDRTONEMAP_DISPLAY_MODE {
     type Output = Self;
@@ -5042,7 +4936,6 @@ impl ::std::convert::From<u32> for D2D1_HDRTONEMAP_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_HDRTONEMAP_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_HDRTONEMAP_PROP {
     type Output = Self;
@@ -5086,7 +4979,6 @@ impl ::std::convert::From<u32> for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
     type Output = Self;
@@ -5133,7 +5025,6 @@ impl ::std::convert::From<u32> for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
     type Output = Self;
@@ -5178,7 +5069,6 @@ impl ::std::convert::From<u32> for D2D1_HISTOGRAM_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_HISTOGRAM_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_HISTOGRAM_PROP {
     type Output = Self;
@@ -5221,7 +5111,6 @@ impl ::std::convert::From<u32> for D2D1_HUEROTATION_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_HUEROTATION_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_HUEROTATION_PROP {
     type Output = Self;
@@ -5265,7 +5154,6 @@ impl ::std::convert::From<u32> for D2D1_HUETORGB_INPUT_COLOR_SPACE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_HUETORGB_INPUT_COLOR_SPACE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_HUETORGB_INPUT_COLOR_SPACE {
     type Output = Self;
@@ -5308,7 +5196,6 @@ impl ::std::convert::From<u32> for D2D1_HUETORGB_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_HUETORGB_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_HUETORGB_PROP {
     type Output = Self;
@@ -5372,7 +5259,6 @@ impl ::std::cmp::Eq for D2D1_HWND_RENDER_TARGET_PROPERTIES {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D2D1_HWND_RENDER_TARGET_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5402,7 +5288,6 @@ impl ::std::cmp::PartialEq for D2D1_IMAGE_BRUSH_PROPERTIES {
 impl ::std::cmp::Eq for D2D1_IMAGE_BRUSH_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for D2D1_IMAGE_BRUSH_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5418,7 +5303,6 @@ impl ::std::convert::From<u32> for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
     type Output = Self;
@@ -5463,7 +5347,6 @@ impl ::std::convert::From<u32> for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
     type Output = Self;
@@ -5520,7 +5403,6 @@ impl ::std::cmp::PartialEq for D2D1_INK_BEZIER_SEGMENT {
 impl ::std::cmp::Eq for D2D1_INK_BEZIER_SEGMENT {}
 unsafe impl ::windows::runtime::Abi for D2D1_INK_BEZIER_SEGMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5536,7 +5418,6 @@ impl ::std::convert::From<u32> for D2D1_INK_NIB_SHAPE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_INK_NIB_SHAPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_INK_NIB_SHAPE {
     type Output = Self;
@@ -5593,7 +5474,6 @@ impl ::std::cmp::PartialEq for D2D1_INK_POINT {
 impl ::std::cmp::Eq for D2D1_INK_POINT {}
 unsafe impl ::windows::runtime::Abi for D2D1_INK_POINT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5628,7 +5508,6 @@ impl ::std::cmp::Eq for D2D1_INK_STYLE_PROPERTIES {}
 #[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::runtime::Abi for D2D1_INK_STYLE_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5656,7 +5535,6 @@ impl ::std::cmp::PartialEq for D2D1_INPUT_DESCRIPTION {
 impl ::std::cmp::Eq for D2D1_INPUT_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for D2D1_INPUT_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5694,7 +5572,6 @@ impl ::std::cmp::Eq for D2D1_INPUT_ELEMENT_DESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for D2D1_INPUT_ELEMENT_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5714,7 +5591,6 @@ impl ::std::convert::From<u32> for D2D1_INTERPOLATION_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_INTERPOLATION_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_INTERPOLATION_MODE {
     type Output = Self;
@@ -5763,7 +5639,6 @@ impl ::std::convert::From<i32> for D2D1_INTERPOLATION_MODE_DEFINITION {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_INTERPOLATION_MODE_DEFINITION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5779,7 +5654,6 @@ impl ::std::convert::From<u32> for D2D1_LAYER_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_LAYER_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_LAYER_OPTIONS {
     type Output = Self;
@@ -5824,7 +5698,6 @@ impl ::std::convert::From<u32> for D2D1_LAYER_OPTIONS1 {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_LAYER_OPTIONS1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_LAYER_OPTIONS1 {
     type Output = Self;
@@ -5900,7 +5773,6 @@ impl ::std::cmp::Eq for D2D1_LAYER_PARAMETERS {}
 #[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::runtime::Abi for D2D1_LAYER_PARAMETERS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -5948,7 +5820,6 @@ impl ::std::cmp::Eq for D2D1_LAYER_PARAMETERS1 {}
 #[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::runtime::Abi for D2D1_LAYER_PARAMETERS1 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5975,7 +5846,6 @@ impl ::std::convert::From<u32> for D2D1_LINEARTRANSFER_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_LINEARTRANSFER_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_LINEARTRANSFER_PROP {
     type Output = Self;
@@ -6031,7 +5901,6 @@ impl ::std::cmp::PartialEq for D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
 impl ::std::cmp::Eq for D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6049,7 +5918,6 @@ impl ::std::convert::From<u32> for D2D1_LINE_JOIN {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_LINE_JOIN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_LINE_JOIN {
     type Output = Self;
@@ -6093,7 +5961,6 @@ impl ::std::convert::From<u32> for D2D1_LOOKUPTABLE3D_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_LOOKUPTABLE3D_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_LOOKUPTABLE3D_PROP {
     type Output = Self;
@@ -6149,7 +6016,6 @@ impl ::std::cmp::PartialEq for D2D1_MAPPED_RECT {
 impl ::std::cmp::Eq for D2D1_MAPPED_RECT {}
 unsafe impl ::windows::runtime::Abi for D2D1_MAPPED_RECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6167,7 +6033,6 @@ impl ::std::convert::From<u32> for D2D1_MAP_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_MAP_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_MAP_OPTIONS {
     type Output = Self;
@@ -6211,7 +6076,6 @@ impl ::std::convert::From<u32> for D2D1_MORPHOLOGY_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_MORPHOLOGY_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_MORPHOLOGY_MODE {
     type Output = Self;
@@ -6256,7 +6120,6 @@ impl ::std::convert::From<u32> for D2D1_MORPHOLOGY_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_MORPHOLOGY_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_MORPHOLOGY_PROP {
     type Output = Self;
@@ -6299,7 +6162,6 @@ impl ::std::convert::From<u32> for D2D1_OPACITYMETADATA_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_OPACITYMETADATA_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_OPACITYMETADATA_PROP {
     type Output = Self;
@@ -6344,7 +6206,6 @@ impl ::std::convert::From<u32> for D2D1_OPACITY_MASK_CONTENT {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_OPACITY_MASK_CONTENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_OPACITY_MASK_CONTENT {
     type Output = Self;
@@ -6387,7 +6248,6 @@ impl ::std::convert::From<u32> for D2D1_OPACITY_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_OPACITY_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_OPACITY_PROP {
     type Output = Self;
@@ -6437,7 +6297,6 @@ impl ::std::convert::From<u32> for D2D1_ORIENTATION {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_ORIENTATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_ORIENTATION {
     type Output = Self;
@@ -6482,7 +6341,6 @@ impl ::std::convert::From<u32> for D2D1_PATCH_EDGE_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_PATCH_EDGE_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_PATCH_EDGE_MODE {
     type Output = Self;
@@ -6527,7 +6385,6 @@ impl ::std::convert::From<u32> for D2D1_PATH_SEGMENT {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_PATH_SEGMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_PATH_SEGMENT {
     type Output = Self;
@@ -6590,7 +6447,6 @@ impl ::std::cmp::Eq for D2D1_PIXEL_FORMAT {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D2D1_PIXEL_FORMAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6606,7 +6462,6 @@ impl ::std::convert::From<u32> for D2D1_PIXEL_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_PIXEL_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_PIXEL_OPTIONS {
     type Output = Self;
@@ -6654,7 +6509,6 @@ impl ::std::convert::From<u32> for D2D1_POINTDIFFUSE_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_POINTDIFFUSE_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_POINTDIFFUSE_PROP {
     type Output = Self;
@@ -6702,7 +6556,6 @@ impl ::std::convert::From<u32> for D2D1_POINTDIFFUSE_SCALE_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_POINTDIFFUSE_SCALE_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_POINTDIFFUSE_SCALE_MODE {
     type Output = Self;
@@ -6751,7 +6604,6 @@ impl ::std::convert::From<u32> for D2D1_POINTSPECULAR_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_POINTSPECULAR_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_POINTSPECULAR_PROP {
     type Output = Self;
@@ -6799,7 +6651,6 @@ impl ::std::convert::From<u32> for D2D1_POINTSPECULAR_SCALE_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_POINTSPECULAR_SCALE_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_POINTSPECULAR_SCALE_MODE {
     type Output = Self;
@@ -6858,7 +6709,6 @@ impl ::std::cmp::PartialEq for D2D1_POINT_DESCRIPTION {
 impl ::std::cmp::Eq for D2D1_POINT_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for D2D1_POINT_DESCRIPTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6875,7 +6725,6 @@ impl ::std::convert::From<u32> for D2D1_POSTERIZE_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_POSTERIZE_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_POSTERIZE_PROP {
     type Output = Self;
@@ -6920,7 +6769,6 @@ impl ::std::convert::From<u32> for D2D1_PRESENT_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_PRESENT_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_PRESENT_OPTIONS {
     type Output = Self;
@@ -6967,7 +6815,6 @@ impl ::std::convert::From<u32> for D2D1_PRIMITIVE_BLEND {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_PRIMITIVE_BLEND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_PRIMITIVE_BLEND {
     type Output = Self;
@@ -7024,7 +6871,6 @@ impl ::std::cmp::PartialEq for D2D1_PRINT_CONTROL_PROPERTIES {
 impl ::std::cmp::Eq for D2D1_PRINT_CONTROL_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for D2D1_PRINT_CONTROL_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7041,7 +6887,6 @@ impl ::std::convert::From<u32> for D2D1_PRINT_FONT_SUBSET_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_PRINT_FONT_SUBSET_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_PRINT_FONT_SUBSET_MODE {
     type Output = Self;
@@ -7093,7 +6938,6 @@ impl ::std::convert::From<u32> for D2D1_PROPERTY {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_PROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_PROPERTY {
     type Output = Self;
@@ -7157,7 +7001,6 @@ impl ::std::cmp::Eq for D2D1_PROPERTY_BINDING {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D2D1_PROPERTY_BINDING {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7190,7 +7033,6 @@ impl ::std::convert::From<u32> for D2D1_PROPERTY_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_PROPERTY_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_PROPERTY_TYPE {
     type Output = Self;
@@ -7246,7 +7088,6 @@ impl ::std::cmp::PartialEq for D2D1_QUADRATIC_BEZIER_SEGMENT {
 impl ::std::cmp::Eq for D2D1_QUADRATIC_BEZIER_SEGMENT {}
 unsafe impl ::windows::runtime::Abi for D2D1_QUADRATIC_BEZIER_SEGMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7276,7 +7117,6 @@ impl ::std::cmp::PartialEq for D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
 impl ::std::cmp::Eq for D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7304,7 +7144,6 @@ impl ::std::cmp::PartialEq for D2D1_RENDERING_CONTROLS {
 impl ::std::cmp::Eq for D2D1_RENDERING_CONTROLS {}
 unsafe impl ::windows::runtime::Abi for D2D1_RENDERING_CONTROLS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7320,7 +7159,6 @@ impl ::std::convert::From<u32> for D2D1_RENDERING_PRIORITY {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_RENDERING_PRIORITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_RENDERING_PRIORITY {
     type Output = Self;
@@ -7387,7 +7225,6 @@ impl ::std::cmp::Eq for D2D1_RENDER_TARGET_PROPERTIES {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D2D1_RENDER_TARGET_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7404,7 +7241,6 @@ impl ::std::convert::From<u32> for D2D1_RENDER_TARGET_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_RENDER_TARGET_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_RENDER_TARGET_TYPE {
     type Output = Self;
@@ -7449,7 +7285,6 @@ impl ::std::convert::From<u32> for D2D1_RENDER_TARGET_USAGE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_RENDER_TARGET_USAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_RENDER_TARGET_USAGE {
     type Output = Self;
@@ -7509,7 +7344,6 @@ impl ::std::cmp::PartialEq for D2D1_RESOURCE_TEXTURE_PROPERTIES {
 impl ::std::cmp::Eq for D2D1_RESOURCE_TEXTURE_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for D2D1_RESOURCE_TEXTURE_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7525,7 +7359,6 @@ impl ::std::convert::From<u32> for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
     type Output = Self;
@@ -7568,7 +7401,6 @@ impl ::std::convert::From<u32> for D2D1_RGBTOHUE_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_RGBTOHUE_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_RGBTOHUE_PROP {
     type Output = Self;
@@ -7625,7 +7457,6 @@ impl ::std::cmp::PartialEq for D2D1_ROUNDED_RECT {
 impl ::std::cmp::Eq for D2D1_ROUNDED_RECT {}
 unsafe impl ::windows::runtime::Abi for D2D1_ROUNDED_RECT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7640,7 +7471,6 @@ impl ::std::convert::From<u32> for D2D1_SATURATION_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_SATURATION_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_SATURATION_PROP {
     type Output = Self;
@@ -7688,7 +7518,6 @@ impl ::std::convert::From<u32> for D2D1_SCALE_INTERPOLATION_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_SCALE_INTERPOLATION_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_SCALE_INTERPOLATION_MODE {
     type Output = Self;
@@ -7735,7 +7564,6 @@ impl ::std::convert::From<u32> for D2D1_SCALE_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_SCALE_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_SCALE_PROP {
     type Output = Self;
@@ -7781,7 +7609,6 @@ impl ::std::convert::From<u32> for D2D1_SEPIA_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_SEPIA_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_SEPIA_PROP {
     type Output = Self;
@@ -7826,7 +7653,6 @@ impl ::std::convert::From<u32> for D2D1_SHADOW_OPTIMIZATION {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_SHADOW_OPTIMIZATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_SHADOW_OPTIMIZATION {
     type Output = Self;
@@ -7871,7 +7697,6 @@ impl ::std::convert::From<u32> for D2D1_SHADOW_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_SHADOW_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_SHADOW_PROP {
     type Output = Self;
@@ -7915,7 +7740,6 @@ impl ::std::convert::From<u32> for D2D1_SHARPEN_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_SHARPEN_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_SHARPEN_PROP {
     type Output = Self;
@@ -7974,7 +7798,6 @@ impl ::std::cmp::PartialEq for D2D1_SIMPLE_COLOR_PROFILE {
 impl ::std::cmp::Eq for D2D1_SIMPLE_COLOR_PROFILE {}
 unsafe impl ::windows::runtime::Abi for D2D1_SIMPLE_COLOR_PROFILE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7997,7 +7820,6 @@ impl ::std::convert::From<u32> for D2D1_SPOTDIFFUSE_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_SPOTDIFFUSE_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_SPOTDIFFUSE_PROP {
     type Output = Self;
@@ -8045,7 +7867,6 @@ impl ::std::convert::From<u32> for D2D1_SPOTDIFFUSE_SCALE_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_SPOTDIFFUSE_SCALE_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_SPOTDIFFUSE_SCALE_MODE {
     type Output = Self;
@@ -8097,7 +7918,6 @@ impl ::std::convert::From<u32> for D2D1_SPOTSPECULAR_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_SPOTSPECULAR_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_SPOTSPECULAR_PROP {
     type Output = Self;
@@ -8145,7 +7965,6 @@ impl ::std::convert::From<u32> for D2D1_SPOTSPECULAR_SCALE_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_SPOTSPECULAR_SCALE_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_SPOTSPECULAR_SCALE_MODE {
     type Output = Self;
@@ -8189,7 +8008,6 @@ impl ::std::convert::From<u32> for D2D1_SPRITE_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_SPRITE_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_SPRITE_OPTIONS {
     type Output = Self;
@@ -8234,7 +8052,6 @@ impl ::std::convert::From<u32> for D2D1_STRAIGHTEN_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_STRAIGHTEN_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_STRAIGHTEN_PROP {
     type Output = Self;
@@ -8281,7 +8098,6 @@ impl ::std::convert::From<u32> for D2D1_STRAIGHTEN_SCALE_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_STRAIGHTEN_SCALE_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_STRAIGHTEN_SCALE_MODE {
     type Output = Self;
@@ -8342,7 +8158,6 @@ impl ::std::cmp::PartialEq for D2D1_STROKE_STYLE_PROPERTIES {
 impl ::std::cmp::Eq for D2D1_STROKE_STYLE_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for D2D1_STROKE_STYLE_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -8385,7 +8200,6 @@ impl ::std::cmp::PartialEq for D2D1_STROKE_STYLE_PROPERTIES1 {
 impl ::std::cmp::Eq for D2D1_STROKE_STYLE_PROPERTIES1 {}
 unsafe impl ::windows::runtime::Abi for D2D1_STROKE_STYLE_PROPERTIES1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8402,7 +8216,6 @@ impl ::std::convert::From<u32> for D2D1_STROKE_TRANSFORM_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_STROKE_TRANSFORM_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_STROKE_TRANSFORM_TYPE {
     type Output = Self;
@@ -8451,7 +8264,6 @@ impl ::std::convert::From<u32> for D2D1_SUBPROPERTY {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_SUBPROPERTY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_SUBPROPERTY {
     type Output = Self;
@@ -8503,7 +8315,6 @@ impl ::std::convert::From<u32> for D2D1_SVG_ASPECT_ALIGN {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_SVG_ASPECT_ALIGN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_SVG_ASPECT_ALIGN {
     type Output = Self;
@@ -8547,7 +8358,6 @@ impl ::std::convert::From<u32> for D2D1_SVG_ASPECT_SCALING {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_SVG_ASPECT_SCALING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_SVG_ASPECT_SCALING {
     type Output = Self;
@@ -8603,7 +8413,6 @@ impl ::std::convert::From<u32> for D2D1_SVG_ATTRIBUTE_POD_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_SVG_ATTRIBUTE_POD_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_SVG_ATTRIBUTE_POD_TYPE {
     type Output = Self;
@@ -8647,7 +8456,6 @@ impl ::std::convert::From<u32> for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
     type Output = Self;
@@ -8691,7 +8499,6 @@ impl ::std::convert::From<u32> for D2D1_SVG_DISPLAY {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_SVG_DISPLAY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_SVG_DISPLAY {
     type Output = Self;
@@ -8747,7 +8554,6 @@ impl ::std::cmp::PartialEq for D2D1_SVG_LENGTH {
 impl ::std::cmp::Eq for D2D1_SVG_LENGTH {}
 unsafe impl ::windows::runtime::Abi for D2D1_SVG_LENGTH {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8763,7 +8569,6 @@ impl ::std::convert::From<u32> for D2D1_SVG_LENGTH_UNITS {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_SVG_LENGTH_UNITS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_SVG_LENGTH_UNITS {
     type Output = Self;
@@ -8808,7 +8613,6 @@ impl ::std::convert::From<u32> for D2D1_SVG_LINE_CAP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_SVG_LINE_CAP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_SVG_LINE_CAP {
     type Output = Self;
@@ -8853,7 +8657,6 @@ impl ::std::convert::From<u32> for D2D1_SVG_LINE_JOIN {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_SVG_LINE_JOIN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_SVG_LINE_JOIN {
     type Output = Self;
@@ -8897,7 +8700,6 @@ impl ::std::convert::From<u32> for D2D1_SVG_OVERFLOW {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_SVG_OVERFLOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_SVG_OVERFLOW {
     type Output = Self;
@@ -8946,7 +8748,6 @@ impl ::std::convert::From<u32> for D2D1_SVG_PAINT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_SVG_PAINT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_SVG_PAINT_TYPE {
     type Output = Self;
@@ -9007,7 +8808,6 @@ impl ::std::convert::From<u32> for D2D1_SVG_PATH_COMMAND {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_SVG_PATH_COMMAND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_SVG_PATH_COMMAND {
     type Output = Self;
@@ -9071,7 +8871,6 @@ impl ::std::cmp::Eq for D2D1_SVG_PRESERVE_ASPECT_RATIO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for D2D1_SVG_PRESERVE_ASPECT_RATIO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9087,7 +8886,6 @@ impl ::std::convert::From<u32> for D2D1_SVG_UNIT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_SVG_UNIT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_SVG_UNIT_TYPE {
     type Output = Self;
@@ -9145,7 +8943,6 @@ impl ::std::cmp::PartialEq for D2D1_SVG_VIEWBOX {
 impl ::std::cmp::Eq for D2D1_SVG_VIEWBOX {}
 unsafe impl ::windows::runtime::Abi for D2D1_SVG_VIEWBOX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9161,7 +8958,6 @@ impl ::std::convert::From<u32> for D2D1_SVG_VISIBILITY {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_SVG_VISIBILITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_SVG_VISIBILITY {
     type Output = Self;
@@ -9205,7 +9001,6 @@ impl ::std::convert::From<u32> for D2D1_SWEEP_DIRECTION {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_SWEEP_DIRECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_SWEEP_DIRECTION {
     type Output = Self;
@@ -9256,7 +9051,6 @@ impl ::std::convert::From<u32> for D2D1_TABLETRANSFER_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_TABLETRANSFER_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_TABLETRANSFER_PROP {
     type Output = Self;
@@ -9300,7 +9094,6 @@ impl ::std::convert::From<u32> for D2D1_TEMPERATUREANDTINT_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_TEMPERATUREANDTINT_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_TEMPERATUREANDTINT_PROP {
     type Output = Self;
@@ -9346,7 +9139,6 @@ impl ::std::convert::From<u32> for D2D1_TEXT_ANTIALIAS_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_TEXT_ANTIALIAS_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_TEXT_ANTIALIAS_MODE {
     type Output = Self;
@@ -9390,7 +9182,6 @@ impl ::std::convert::From<u32> for D2D1_THREADING_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_THREADING_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_THREADING_MODE {
     type Output = Self;
@@ -9433,7 +9224,6 @@ impl ::std::convert::From<u32> for D2D1_TILE_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_TILE_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_TILE_PROP {
     type Output = Self;
@@ -9477,7 +9267,6 @@ impl ::std::convert::From<u32> for D2D1_TINT_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_TINT_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_TINT_PROP {
     type Output = Self;
@@ -9521,7 +9310,6 @@ impl ::std::convert::From<u32> for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
     type Output = Self;
@@ -9580,7 +9368,6 @@ impl ::std::cmp::PartialEq for D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
 impl ::std::cmp::Eq for D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9609,7 +9396,6 @@ impl ::std::cmp::PartialEq for D2D1_TRIANGLE {
 impl ::std::cmp::Eq for D2D1_TRIANGLE {}
 unsafe impl ::windows::runtime::Abi for D2D1_TRIANGLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9625,7 +9411,6 @@ impl ::std::convert::From<u32> for D2D1_TURBULENCE_NOISE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_TURBULENCE_NOISE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_TURBULENCE_NOISE {
     type Output = Self;
@@ -9674,7 +9459,6 @@ impl ::std::convert::From<u32> for D2D1_TURBULENCE_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_TURBULENCE_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_TURBULENCE_PROP {
     type Output = Self;
@@ -9718,7 +9502,6 @@ impl ::std::convert::From<u32> for D2D1_UNIT_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_UNIT_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_UNIT_MODE {
     type Output = Self;
@@ -9776,7 +9559,6 @@ impl ::std::cmp::PartialEq for D2D1_VERTEX_BUFFER_PROPERTIES {
 impl ::std::cmp::Eq for D2D1_VERTEX_BUFFER_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for D2D1_VERTEX_BUFFER_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9794,7 +9576,6 @@ impl ::std::convert::From<u32> for D2D1_VERTEX_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_VERTEX_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_VERTEX_OPTIONS {
     type Output = Self;
@@ -9850,7 +9631,6 @@ impl ::std::cmp::PartialEq for D2D1_VERTEX_RANGE {
 impl ::std::cmp::Eq for D2D1_VERTEX_RANGE {}
 unsafe impl ::windows::runtime::Abi for D2D1_VERTEX_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9866,7 +9646,6 @@ impl ::std::convert::From<u32> for D2D1_VERTEX_USAGE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_VERTEX_USAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_VERTEX_USAGE {
     type Output = Self;
@@ -9911,7 +9690,6 @@ impl ::std::convert::From<u32> for D2D1_VIGNETTE_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_VIGNETTE_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_VIGNETTE_PROP {
     type Output = Self;
@@ -9955,7 +9733,6 @@ impl ::std::convert::From<u32> for D2D1_WHITELEVELADJUSTMENT_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_WHITELEVELADJUSTMENT_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_WHITELEVELADJUSTMENT_PROP {
     type Output = Self;
@@ -9999,7 +9776,6 @@ impl ::std::convert::From<u32> for D2D1_WINDOW_STATE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_WINDOW_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_WINDOW_STATE {
     type Output = Self;
@@ -10046,7 +9822,6 @@ impl ::std::convert::From<u32> for D2D1_YCBCR_CHROMA_SUBSAMPLING {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_YCBCR_CHROMA_SUBSAMPLING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_YCBCR_CHROMA_SUBSAMPLING {
     type Output = Self;
@@ -10094,7 +9869,6 @@ impl ::std::convert::From<u32> for D2D1_YCBCR_INTERPOLATION_MODE {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_YCBCR_INTERPOLATION_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_YCBCR_INTERPOLATION_MODE {
     type Output = Self;
@@ -10139,7 +9913,6 @@ impl ::std::convert::From<u32> for D2D1_YCBCR_PROP {
 }
 unsafe impl ::windows::runtime::Abi for D2D1_YCBCR_PROP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for D2D1_YCBCR_PROP {
     type Output = Self;
@@ -10197,7 +9970,6 @@ impl ::std::cmp::PartialEq for D2D_COLOR_F {
 impl ::std::cmp::Eq for D2D_COLOR_F {}
 unsafe impl ::windows::runtime::Abi for D2D_COLOR_F {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10219,7 +9991,6 @@ impl ::std::cmp::PartialEq for D2D_MATRIX_3X2_F {
 impl ::std::cmp::Eq for D2D_MATRIX_3X2_F {}
 unsafe impl ::windows::runtime::Abi for D2D_MATRIX_3X2_F {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10243,7 +10014,6 @@ impl ::std::cmp::PartialEq for D2D_MATRIX_3X2_F_0 {
 impl ::std::cmp::Eq for D2D_MATRIX_3X2_F_0 {}
 unsafe impl ::windows::runtime::Abi for D2D_MATRIX_3X2_F_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10275,7 +10045,6 @@ impl ::std::cmp::PartialEq for D2D_MATRIX_3X2_F_0_0 {
 impl ::std::cmp::Eq for D2D_MATRIX_3X2_F_0_0 {}
 unsafe impl ::windows::runtime::Abi for D2D_MATRIX_3X2_F_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10307,7 +10076,6 @@ impl ::std::cmp::PartialEq for D2D_MATRIX_3X2_F_0_1 {
 impl ::std::cmp::Eq for D2D_MATRIX_3X2_F_0_1 {}
 unsafe impl ::windows::runtime::Abi for D2D_MATRIX_3X2_F_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10329,7 +10097,6 @@ impl ::std::cmp::PartialEq for D2D_MATRIX_4X3_F {
 impl ::std::cmp::Eq for D2D_MATRIX_4X3_F {}
 unsafe impl ::windows::runtime::Abi for D2D_MATRIX_4X3_F {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10352,7 +10119,6 @@ impl ::std::cmp::PartialEq for D2D_MATRIX_4X3_F_0 {
 impl ::std::cmp::Eq for D2D_MATRIX_4X3_F_0 {}
 unsafe impl ::windows::runtime::Abi for D2D_MATRIX_4X3_F_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10403,7 +10169,6 @@ impl ::std::cmp::PartialEq for D2D_MATRIX_4X3_F_0_0 {
 impl ::std::cmp::Eq for D2D_MATRIX_4X3_F_0_0 {}
 unsafe impl ::windows::runtime::Abi for D2D_MATRIX_4X3_F_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10425,7 +10190,6 @@ impl ::std::cmp::PartialEq for D2D_MATRIX_4X4_F {
 impl ::std::cmp::Eq for D2D_MATRIX_4X4_F {}
 unsafe impl ::windows::runtime::Abi for D2D_MATRIX_4X4_F {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10448,7 +10212,6 @@ impl ::std::cmp::PartialEq for D2D_MATRIX_4X4_F_0 {
 impl ::std::cmp::Eq for D2D_MATRIX_4X4_F_0 {}
 unsafe impl ::windows::runtime::Abi for D2D_MATRIX_4X4_F_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10507,7 +10270,6 @@ impl ::std::cmp::PartialEq for D2D_MATRIX_4X4_F_0_0 {
 impl ::std::cmp::Eq for D2D_MATRIX_4X4_F_0_0 {}
 unsafe impl ::windows::runtime::Abi for D2D_MATRIX_4X4_F_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10529,7 +10291,6 @@ impl ::std::cmp::PartialEq for D2D_MATRIX_5X4_F {
 impl ::std::cmp::Eq for D2D_MATRIX_5X4_F {}
 unsafe impl ::windows::runtime::Abi for D2D_MATRIX_5X4_F {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10552,7 +10313,6 @@ impl ::std::cmp::PartialEq for D2D_MATRIX_5X4_F_0 {
 impl ::std::cmp::Eq for D2D_MATRIX_5X4_F_0 {}
 unsafe impl ::windows::runtime::Abi for D2D_MATRIX_5X4_F_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10638,7 +10398,6 @@ impl ::std::cmp::PartialEq for D2D_MATRIX_5X4_F_0_0 {
 impl ::std::cmp::Eq for D2D_MATRIX_5X4_F_0_0 {}
 unsafe impl ::windows::runtime::Abi for D2D_MATRIX_5X4_F_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10666,7 +10425,6 @@ impl ::std::cmp::PartialEq for D2D_POINT_2F {
 impl ::std::cmp::Eq for D2D_POINT_2F {}
 unsafe impl ::windows::runtime::Abi for D2D_POINT_2F {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10694,7 +10452,6 @@ impl ::std::cmp::PartialEq for D2D_POINT_2U {
 impl ::std::cmp::Eq for D2D_POINT_2U {}
 unsafe impl ::windows::runtime::Abi for D2D_POINT_2U {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10724,7 +10481,6 @@ impl ::std::cmp::PartialEq for D2D_RECT_F {
 impl ::std::cmp::Eq for D2D_RECT_F {}
 unsafe impl ::windows::runtime::Abi for D2D_RECT_F {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10754,7 +10510,6 @@ impl ::std::cmp::PartialEq for D2D_RECT_U {
 impl ::std::cmp::Eq for D2D_RECT_U {}
 unsafe impl ::windows::runtime::Abi for D2D_RECT_U {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10782,7 +10537,6 @@ impl ::std::cmp::PartialEq for D2D_SIZE_F {
 impl ::std::cmp::Eq for D2D_SIZE_F {}
 unsafe impl ::windows::runtime::Abi for D2D_SIZE_F {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10810,7 +10564,6 @@ impl ::std::cmp::PartialEq for D2D_SIZE_U {
 impl ::std::cmp::Eq for D2D_SIZE_U {}
 unsafe impl ::windows::runtime::Abi for D2D_SIZE_U {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10838,7 +10591,6 @@ impl ::std::cmp::PartialEq for D2D_VECTOR_2F {
 impl ::std::cmp::Eq for D2D_VECTOR_2F {}
 unsafe impl ::windows::runtime::Abi for D2D_VECTOR_2F {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10867,7 +10619,6 @@ impl ::std::cmp::PartialEq for D2D_VECTOR_3F {
 impl ::std::cmp::Eq for D2D_VECTOR_3F {}
 unsafe impl ::windows::runtime::Abi for D2D_VECTOR_3F {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10897,7 +10648,6 @@ impl ::std::cmp::PartialEq for D2D_VECTOR_4F {
 impl ::std::cmp::Eq for D2D_VECTOR_4F {}
 unsafe impl ::windows::runtime::Abi for D2D_VECTOR_4F {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 pub const FACILITY_D2D: u32 = 2201u32;
@@ -30116,7 +29866,6 @@ impl ::std::cmp::PartialEq for Matrix4x3F {
 impl ::std::cmp::Eq for Matrix4x3F {}
 unsafe impl ::windows::runtime::Abi for Matrix4x3F {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -30138,7 +29887,6 @@ impl ::std::cmp::PartialEq for Matrix4x4F {
 impl ::std::cmp::Eq for Matrix4x4F {}
 unsafe impl ::windows::runtime::Abi for Matrix4x4F {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -30160,7 +29908,6 @@ impl ::std::cmp::PartialEq for Matrix5x4F {
 impl ::std::cmp::Eq for Matrix5x4F {}
 unsafe impl ::windows::runtime::Abi for Matrix5x4F {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub type PD2D1_EFFECT_FACTORY = unsafe extern "system" fn(effectimpl: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
 pub type PD2D1_PROPERTY_GET_FUNCTION = unsafe extern "system" fn(effect: ::windows::runtime::RawPtr, data: *mut u8, datasize: u32, actualsize: *mut u32) -> ::windows::runtime::HRESULT;

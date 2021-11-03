@@ -26,7 +26,6 @@ impl ::std::cmp::PartialEq for DAILY {
 impl ::std::cmp::Eq for DAILY {}
 unsafe impl ::windows::runtime::Abi for DAILY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[repr(transparent)]
@@ -6738,7 +6737,6 @@ impl ::std::cmp::PartialEq for MONTHLYDATE {
 impl ::std::cmp::Eq for MONTHLYDATE {}
 unsafe impl ::windows::runtime::Abi for MONTHLYDATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6767,7 +6765,6 @@ impl ::std::cmp::PartialEq for MONTHLYDOW {
 impl ::std::cmp::Eq for MONTHLYDOW {}
 unsafe impl ::windows::runtime::Abi for MONTHLYDOW {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6783,7 +6780,6 @@ impl ::std::convert::From<i32> for TASKPAGE {
 }
 unsafe impl ::windows::runtime::Abi for TASKPAGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6800,7 +6796,6 @@ impl ::std::convert::From<i32> for TASK_ACTION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for TASK_ACTION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 pub const TASK_APRIL: u32 = 8u32;
@@ -6824,7 +6819,6 @@ impl ::std::convert::From<i32> for TASK_COMPATIBILITY {
 }
 unsafe impl ::windows::runtime::Abi for TASK_COMPATIBILITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6844,7 +6838,6 @@ impl ::std::convert::From<i32> for TASK_CREATION {
 }
 unsafe impl ::windows::runtime::Abi for TASK_CREATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 pub const TASK_DECEMBER: u32 = 2048u32;
@@ -6860,7 +6853,6 @@ impl ::std::convert::From<i32> for TASK_ENUM_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for TASK_ENUM_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 pub const TASK_FEBRUARY: u32 = 2u32;
@@ -6911,7 +6903,6 @@ impl ::std::convert::From<i32> for TASK_INSTANCES_POLICY {
 }
 unsafe impl ::windows::runtime::Abi for TASK_INSTANCES_POLICY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 pub const TASK_JANUARY: u32 = 1u32;
@@ -6939,7 +6930,6 @@ impl ::std::convert::From<i32> for TASK_LOGON_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for TASK_LOGON_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 pub const TASK_MARCH: u32 = 4u32;
@@ -6967,7 +6957,6 @@ impl ::std::convert::From<i32> for TASK_PROCESSTOKENSID_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for TASK_PROCESSTOKENSID_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6982,7 +6971,6 @@ impl ::std::convert::From<i32> for TASK_RUNLEVEL_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for TASK_RUNLEVEL_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7000,7 +6988,6 @@ impl ::std::convert::From<i32> for TASK_RUN_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for TASK_RUN_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 pub const TASK_SATURDAY: u32 = 64u32;
@@ -7025,7 +7012,6 @@ impl ::std::convert::From<i32> for TASK_SESSION_STATE_CHANGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for TASK_SESSION_STATE_CHANGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7043,7 +7029,6 @@ impl ::std::convert::From<i32> for TASK_STATE {
 }
 unsafe impl ::windows::runtime::Abi for TASK_STATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 pub const TASK_SUNDAY: u32 = 1u32;
@@ -7087,7 +7072,6 @@ impl ::std::cmp::PartialEq for TASK_TRIGGER {
 impl ::std::cmp::Eq for TASK_TRIGGER {}
 unsafe impl ::windows::runtime::Abi for TASK_TRIGGER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 pub const TASK_TRIGGER_FLAG_DISABLED: u32 = 4u32;
@@ -7114,7 +7098,6 @@ impl ::std::convert::From<i32> for TASK_TRIGGER_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for TASK_TRIGGER_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7139,7 +7122,6 @@ impl ::std::convert::From<i32> for TASK_TRIGGER_TYPE2 {
 }
 unsafe impl ::windows::runtime::Abi for TASK_TRIGGER_TYPE2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_TaskScheduler`*"]
 pub const TASK_TUESDAY: u32 = 4u32;
@@ -7168,7 +7150,6 @@ impl ::std::cmp::PartialEq for TRIGGER_TYPE_UNION {
 impl ::std::cmp::Eq for TRIGGER_TYPE_UNION {}
 unsafe impl ::windows::runtime::Abi for TRIGGER_TYPE_UNION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const TaskHandlerPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4071005623, 55852, 17234, [144, 102, 134, 254, 230, 218, 202, 201]);
 pub const TaskHandlerStatusPS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2668963437, 55226, 18672, [147, 193, 230, 137, 95, 111, 229, 172]);
@@ -7199,5 +7180,4 @@ impl ::std::cmp::PartialEq for WEEKLY {
 impl ::std::cmp::Eq for WEEKLY {}
 unsafe impl ::windows::runtime::Abi for WEEKLY {
     type Abi = Self;
-    type DefaultType = Self;
 }

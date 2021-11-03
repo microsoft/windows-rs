@@ -15,13 +15,14 @@ impl ::std::convert::From<i32> for CredentialPromptType {
 }
 unsafe impl ::windows::runtime::Abi for CredentialPromptType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CredentialPromptType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.OnlineId.CredentialPromptType;i4)");
 }
+impl ::windows::runtime::DefaultType for CredentialPromptType {
+    type DefaultType = Self;
+}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IOnlineIdAuthenticator(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOnlineIdAuthenticator {
@@ -49,7 +50,6 @@ pub struct IOnlineIdAuthenticator_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IOnlineIdServiceTicket(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOnlineIdServiceTicket {
@@ -70,7 +70,6 @@ pub struct IOnlineIdServiceTicket_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IOnlineIdServiceTicketRequest(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOnlineIdServiceTicketRequest {
@@ -90,7 +89,6 @@ pub struct IOnlineIdServiceTicketRequest_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IOnlineIdServiceTicketRequestFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOnlineIdServiceTicketRequestFactory {
@@ -110,7 +108,6 @@ pub struct IOnlineIdServiceTicketRequestFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, service: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IOnlineIdSystemAuthenticatorForUser(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOnlineIdSystemAuthenticatorForUser {
@@ -134,7 +131,6 @@ pub struct IOnlineIdSystemAuthenticatorForUser_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IOnlineIdSystemAuthenticatorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOnlineIdSystemAuthenticatorStatics {
@@ -155,7 +151,6 @@ pub struct IOnlineIdSystemAuthenticatorStatics_abi(
     #[cfg(not(feature = "System"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IOnlineIdSystemIdentity(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOnlineIdSystemIdentity {
@@ -175,7 +170,6 @@ pub struct IOnlineIdSystemIdentity_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IOnlineIdSystemTicketResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOnlineIdSystemTicketResult {
@@ -196,7 +190,6 @@ pub struct IOnlineIdSystemTicketResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserIdentity(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserIdentity {
@@ -564,10 +557,12 @@ impl ::std::convert::From<i32> for OnlineIdSystemTicketStatus {
 }
 unsafe impl ::windows::runtime::Abi for OnlineIdSystemTicketStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for OnlineIdSystemTicketStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for OnlineIdSystemTicketStatus {
+    type DefaultType = Self;
 }
 #[cfg(feature = "Foundation")]
 #[doc = "*Required features: `Security_Authentication_OnlineId`, `Foundation`*"]

@@ -553,7 +553,6 @@ impl ::std::convert::From<i32> for WPCFLAG_IM_FEATURE {
 }
 unsafe impl ::windows::runtime::Abi for WPCFLAG_IM_FEATURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -569,7 +568,6 @@ impl ::std::convert::From<i32> for WPCFLAG_IM_LEAVE {
 }
 unsafe impl ::windows::runtime::Abi for WPCFLAG_IM_LEAVE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -609,7 +607,6 @@ impl ::std::convert::From<i32> for WPCFLAG_ISBLOCKED {
 }
 unsafe impl ::windows::runtime::Abi for WPCFLAG_ISBLOCKED {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -627,7 +624,6 @@ impl ::std::convert::From<i32> for WPCFLAG_LOGOFF_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WPCFLAG_LOGOFF_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -641,7 +637,6 @@ impl ::std::convert::From<i32> for WPCFLAG_OVERRIDE {
 }
 unsafe impl ::windows::runtime::Abi for WPCFLAG_OVERRIDE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -662,7 +657,6 @@ impl ::std::convert::From<i32> for WPCFLAG_RESTRICTION {
 }
 unsafe impl ::windows::runtime::Abi for WPCFLAG_RESTRICTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -677,7 +671,6 @@ impl ::std::convert::From<i32> for WPCFLAG_VISIBILITY {
 }
 unsafe impl ::windows::runtime::Abi for WPCFLAG_VISIBILITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -692,7 +685,6 @@ impl ::std::convert::From<i32> for WPCFLAG_WEB_SETTING {
 }
 unsafe impl ::windows::runtime::Abi for WPCFLAG_WEB_SETTING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WPCPROV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(17367141, 46183, 17667, [155, 40, 83, 55, 102, 118, 16, 135]);
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
@@ -760,7 +752,6 @@ impl ::std::convert::From<i32> for WPC_ARGS_APPLICATIONEVENT {
 }
 unsafe impl ::windows::runtime::Abi for WPC_ARGS_APPLICATIONEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -777,7 +768,6 @@ impl ::std::convert::From<i32> for WPC_ARGS_APPOVERRIDEEVENT {
 }
 unsafe impl ::windows::runtime::Abi for WPC_ARGS_APPOVERRIDEEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -793,7 +783,6 @@ impl ::std::convert::From<i32> for WPC_ARGS_COMPUTERUSAGEEVENT {
 }
 unsafe impl ::windows::runtime::Abi for WPC_ARGS_COMPUTERUSAGEEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -814,7 +803,6 @@ impl ::std::convert::From<i32> for WPC_ARGS_CONTENTUSAGEEVENT {
 }
 unsafe impl ::windows::runtime::Abi for WPC_ARGS_CONTENTUSAGEEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -837,7 +825,6 @@ impl ::std::convert::From<i32> for WPC_ARGS_CONVERSATIONINITEVENT {
 }
 unsafe impl ::windows::runtime::Abi for WPC_ARGS_CONVERSATIONINITEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -861,7 +848,6 @@ impl ::std::convert::From<i32> for WPC_ARGS_CONVERSATIONJOINEVENT {
 }
 unsafe impl ::windows::runtime::Abi for WPC_ARGS_CONVERSATIONJOINEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -885,7 +871,6 @@ impl ::std::convert::From<i32> for WPC_ARGS_CONVERSATIONLEAVEEVENT {
 }
 unsafe impl ::windows::runtime::Abi for WPC_ARGS_CONVERSATIONLEAVEEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -908,7 +893,6 @@ impl ::std::convert::From<i32> for WPC_ARGS_CUSTOMEVENT {
 }
 unsafe impl ::windows::runtime::Abi for WPC_ARGS_CUSTOMEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -930,7 +914,6 @@ impl ::std::convert::From<i32> for WPC_ARGS_EMAILCONTACTEVENT {
 }
 unsafe impl ::windows::runtime::Abi for WPC_ARGS_EMAILCONTACTEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -955,7 +938,6 @@ impl ::std::convert::From<i32> for WPC_ARGS_EMAILRECEIEVEDEVENT {
 }
 unsafe impl ::windows::runtime::Abi for WPC_ARGS_EMAILRECEIEVEDEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -979,7 +961,6 @@ impl ::std::convert::From<i32> for WPC_ARGS_EMAILSENTEVENT {
 }
 unsafe impl ::windows::runtime::Abi for WPC_ARGS_EMAILSENTEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -998,7 +979,6 @@ impl ::std::convert::From<i32> for WPC_ARGS_FILEDOWNLOADEVENT {
 }
 unsafe impl ::windows::runtime::Abi for WPC_ARGS_FILEDOWNLOADEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1022,7 +1002,6 @@ impl ::std::convert::From<i32> for WPC_ARGS_GAMESTARTEVENT {
 }
 unsafe impl ::windows::runtime::Abi for WPC_ARGS_GAMESTARTEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1044,7 +1023,6 @@ impl ::std::convert::From<i32> for WPC_ARGS_IMCONTACTEVENT {
 }
 unsafe impl ::windows::runtime::Abi for WPC_ARGS_IMCONTACTEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1069,7 +1047,6 @@ impl ::std::convert::From<i32> for WPC_ARGS_IMFEATUREEVENT {
 }
 unsafe impl ::windows::runtime::Abi for WPC_ARGS_IMFEATUREEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1092,7 +1069,6 @@ impl ::std::convert::From<i32> for WPC_ARGS_MEDIADOWNLOADEVENT {
 }
 unsafe impl ::windows::runtime::Abi for WPC_ARGS_MEDIADOWNLOADEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1115,7 +1091,6 @@ impl ::std::convert::From<i32> for WPC_ARGS_MEDIAPLAYBACKEVENT {
 }
 unsafe impl ::windows::runtime::Abi for WPC_ARGS_MEDIAPLAYBACKEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1133,7 +1108,6 @@ impl ::std::convert::From<i32> for WPC_ARGS_SAFERAPPBLOCKED {
 }
 unsafe impl ::windows::runtime::Abi for WPC_ARGS_SAFERAPPBLOCKED {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1154,7 +1128,6 @@ impl ::std::convert::From<i32> for WPC_ARGS_SETTINGSCHANGEEVENT {
 }
 unsafe impl ::windows::runtime::Abi for WPC_ARGS_SETTINGSCHANGEEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1175,7 +1148,6 @@ impl ::std::convert::From<i32> for WPC_ARGS_URLVISITEVENT {
 }
 unsafe impl ::windows::runtime::Abi for WPC_ARGS_URLVISITEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1192,7 +1164,6 @@ impl ::std::convert::From<i32> for WPC_ARGS_WEBOVERRIDEEVENT {
 }
 unsafe impl ::windows::runtime::Abi for WPC_ARGS_WEBOVERRIDEEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1215,7 +1186,6 @@ impl ::std::convert::From<i32> for WPC_ARGS_WEBSITEVISITEVENT {
 }
 unsafe impl ::windows::runtime::Abi for WPC_ARGS_WEBSITEVISITEVENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1231,7 +1201,6 @@ impl ::std::convert::From<i32> for WPC_MEDIA_EXPLICIT {
 }
 unsafe impl ::windows::runtime::Abi for WPC_MEDIA_EXPLICIT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1252,7 +1221,6 @@ impl ::std::convert::From<i32> for WPC_MEDIA_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WPC_MEDIA_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1303,7 +1271,6 @@ impl ::std::convert::From<i32> for WPC_SETTINGS {
 }
 unsafe impl ::windows::runtime::Abi for WPC_SETTINGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ParentalControls`*"]
 pub const WPC_SETTINGS_LOCATE: u32 = 20u32;

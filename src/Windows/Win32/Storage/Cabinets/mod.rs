@@ -65,7 +65,6 @@ impl ::std::cmp::Eq for CCAB {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CCAB {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -101,7 +100,6 @@ impl ::std::cmp::Eq for ERF {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ERF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
@@ -206,7 +204,6 @@ impl ::std::convert::From<i32> for FCIERROR {
 }
 unsafe impl ::windows::runtime::Abi for FCIERROR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
@@ -286,7 +283,6 @@ impl ::std::cmp::Eq for FDICABINETINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FDICABINETINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -301,7 +297,6 @@ impl ::std::convert::From<u32> for FDICREATE_CPU_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for FDICREATE_CPU_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for FDICREATE_CPU_TYPE {
     type Output = Self;
@@ -389,7 +384,6 @@ impl ::std::cmp::Eq for FDIDECRYPT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FDIDECRYPT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -419,7 +413,6 @@ impl ::std::cmp::Eq for FDIDECRYPT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FDIDECRYPT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -449,7 +442,6 @@ impl ::std::cmp::PartialEq for FDIDECRYPT_0_0 {
 impl ::std::cmp::Eq for FDIDECRYPT_0_0 {}
 unsafe impl ::windows::runtime::Abi for FDIDECRYPT_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -488,7 +480,6 @@ impl ::std::cmp::Eq for FDIDECRYPT_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FDIDECRYPT_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -517,7 +508,6 @@ impl ::std::cmp::PartialEq for FDIDECRYPT_0_2 {
 impl ::std::cmp::Eq for FDIDECRYPT_0_2 {}
 unsafe impl ::windows::runtime::Abi for FDIDECRYPT_0_2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -533,7 +523,6 @@ impl ::std::convert::From<i32> for FDIDECRYPTTYPE {
 }
 unsafe impl ::windows::runtime::Abi for FDIDECRYPTTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
@@ -574,7 +563,6 @@ impl ::std::convert::From<i32> for FDIERROR {
 }
 unsafe impl ::windows::runtime::Abi for FDIERROR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
@@ -649,7 +637,6 @@ impl ::std::cmp::Eq for FDINOTIFICATION {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FDINOTIFICATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Cabinets`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -668,7 +655,6 @@ impl ::std::convert::From<i32> for FDINOTIFICATIONTYPE {
 }
 unsafe impl ::windows::runtime::Abi for FDINOTIFICATIONTYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -703,7 +689,6 @@ impl ::std::cmp::Eq for FDISPILLFILE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FDISPILLFILE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]

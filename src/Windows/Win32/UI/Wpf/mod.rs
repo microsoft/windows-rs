@@ -986,7 +986,6 @@ impl ::std::cmp::PartialEq for MILMatrixF {
 impl ::std::cmp::Eq for MILMatrixF {}
 unsafe impl ::windows::runtime::Abi for MILMatrixF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1014,7 +1013,6 @@ impl ::std::cmp::PartialEq for MilPoint2D {
 impl ::std::cmp::Eq for MilPoint2D {}
 unsafe impl ::windows::runtime::Abi for MilPoint2D {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1044,5 +1042,4 @@ impl ::std::cmp::PartialEq for MilRectD {
 impl ::std::cmp::Eq for MilRectD {}
 unsafe impl ::windows::runtime::Abi for MilRectD {
     type Abi = Self;
-    type DefaultType = Self;
 }

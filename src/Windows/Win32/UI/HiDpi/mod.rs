@@ -43,7 +43,6 @@ impl ::std::convert::From<u32> for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
 }
 unsafe impl ::windows::runtime::Abi for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
     type Output = Self;
@@ -88,7 +87,6 @@ impl ::std::convert::From<u32> for DIALOG_DPI_CHANGE_BEHAVIORS {
 }
 unsafe impl ::windows::runtime::Abi for DIALOG_DPI_CHANGE_BEHAVIORS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DIALOG_DPI_CHANGE_BEHAVIORS {
     type Output = Self;
@@ -133,7 +131,6 @@ impl ::std::convert::From<i32> for DPI_AWARENESS {
 }
 unsafe impl ::windows::runtime::Abi for DPI_AWARENESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -146,7 +143,6 @@ impl ::std::default::Default for DPI_AWARENESS_CONTEXT {
 unsafe impl ::windows::runtime::Handle for DPI_AWARENESS_CONTEXT {}
 unsafe impl ::windows::runtime::Abi for DPI_AWARENESS_CONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_HiDpi`*"]
 pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-3i32 as _);
@@ -172,7 +168,6 @@ impl ::std::convert::From<i32> for DPI_HOSTING_BEHAVIOR {
 }
 unsafe impl ::windows::runtime::Abi for DPI_HOSTING_BEHAVIOR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_HiDpi`, `Win32_Foundation`*"]
@@ -454,7 +449,6 @@ impl ::std::convert::From<i32> for MONITOR_DPI_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for MONITOR_DPI_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_HiDpi`, `Win32_Foundation`*"]
@@ -485,7 +479,6 @@ impl ::std::convert::From<i32> for PROCESS_DPI_AWARENESS {
 }
 unsafe impl ::windows::runtime::Abi for PROCESS_DPI_AWARENESS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_HiDpi`, `Win32_Foundation`*"]

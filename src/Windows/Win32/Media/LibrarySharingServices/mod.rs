@@ -457,6 +457,5 @@ impl ::std::convert::From<i32> for WindowsMediaLibrarySharingDeviceAuthorization
 }
 unsafe impl ::windows::runtime::Abi for WindowsMediaLibrarySharingDeviceAuthorizationStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const WindowsMediaLibrarySharingServices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2908232448, 31588, 20057, [163, 141, 210, 197, 191, 81, 221, 179]);

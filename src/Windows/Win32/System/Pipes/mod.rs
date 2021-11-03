@@ -293,7 +293,6 @@ impl ::std::convert::From<u32> for NAMED_PIPE_MODE {
 }
 unsafe impl ::windows::runtime::Abi for NAMED_PIPE_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for NAMED_PIPE_MODE {
     type Output = Self;

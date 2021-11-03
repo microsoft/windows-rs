@@ -825,7 +825,6 @@ impl ::std::cmp::Eq for MLOperatorAttribute {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MLOperatorAttribute {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -856,7 +855,6 @@ impl ::std::cmp::Eq for MLOperatorAttributeNameValue {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MLOperatorAttributeNameValue {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -881,7 +879,6 @@ impl ::std::cmp::PartialEq for MLOperatorAttributeNameValue_0 {
 impl ::std::cmp::Eq for MLOperatorAttributeNameValue_0 {}
 unsafe impl ::windows::runtime::Abi for MLOperatorAttributeNameValue_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -903,7 +900,6 @@ impl ::std::convert::From<u32> for MLOperatorAttributeType {
 }
 unsafe impl ::windows::runtime::Abi for MLOperatorAttributeType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MLOperatorAttributeType {
     type Output = Self;
@@ -954,7 +950,6 @@ impl ::std::cmp::PartialEq for MLOperatorEdgeDescription {
 impl ::std::cmp::Eq for MLOperatorEdgeDescription {}
 unsafe impl ::windows::runtime::Abi for MLOperatorEdgeDescription {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -977,7 +972,6 @@ impl ::std::cmp::PartialEq for MLOperatorEdgeDescription_0 {
 impl ::std::cmp::Eq for MLOperatorEdgeDescription_0 {}
 unsafe impl ::windows::runtime::Abi for MLOperatorEdgeDescription_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -994,7 +988,6 @@ impl ::std::convert::From<u32> for MLOperatorEdgeType {
 }
 unsafe impl ::windows::runtime::Abi for MLOperatorEdgeType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MLOperatorEdgeType {
     type Output = Self;
@@ -1058,7 +1051,6 @@ impl ::std::cmp::Eq for MLOperatorEdgeTypeConstraint {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MLOperatorEdgeTypeConstraint {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1076,7 +1068,6 @@ impl ::std::convert::From<u32> for MLOperatorExecutionType {
 }
 unsafe impl ::windows::runtime::Abi for MLOperatorExecutionType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MLOperatorExecutionType {
     type Output = Self;
@@ -1158,7 +1149,6 @@ impl ::std::cmp::Eq for MLOperatorKernelDescription {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MLOperatorKernelDescription {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1175,7 +1165,6 @@ impl ::std::convert::From<u32> for MLOperatorKernelOptions {
 }
 unsafe impl ::windows::runtime::Abi for MLOperatorKernelOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MLOperatorKernelOptions {
     type Output = Self;
@@ -1221,7 +1210,6 @@ impl ::std::convert::From<u32> for MLOperatorParameterOptions {
 }
 unsafe impl ::windows::runtime::Abi for MLOperatorParameterOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MLOperatorParameterOptions {
     type Output = Self;
@@ -1318,7 +1306,6 @@ impl ::std::cmp::Eq for MLOperatorSchemaDescription {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MLOperatorSchemaDescription {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1348,7 +1335,6 @@ impl ::std::cmp::Eq for MLOperatorSchemaEdgeDescription {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MLOperatorSchemaEdgeDescription {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1378,7 +1364,6 @@ impl ::std::cmp::Eq for MLOperatorSchemaEdgeDescription_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MLOperatorSchemaEdgeDescription_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1395,7 +1380,6 @@ impl ::std::convert::From<i32> for MLOperatorSchemaEdgeTypeFormat {
 }
 unsafe impl ::windows::runtime::Abi for MLOperatorSchemaEdgeTypeFormat {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1430,7 +1414,6 @@ impl ::std::cmp::Eq for MLOperatorSetId {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MLOperatorSetId {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1461,7 +1444,6 @@ impl ::std::convert::From<u32> for MLOperatorTensorDataType {
 }
 unsafe impl ::windows::runtime::Abi for MLOperatorTensorDataType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MLOperatorTensorDataType {
     type Output = Self;
@@ -1524,7 +1506,6 @@ impl ::std::cmp::Eq for WINML_BINDING_DESC {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 unsafe impl ::windows::runtime::Abi for WINML_BINDING_DESC {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 impl ::std::clone::Clone for WINML_BINDING_DESC_0 {
@@ -1561,7 +1542,6 @@ impl ::std::cmp::Eq for WINML_BINDING_DESC_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 unsafe impl ::windows::runtime::Abi for WINML_BINDING_DESC_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1580,7 +1560,6 @@ impl ::std::convert::From<i32> for WINML_BINDING_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WINML_BINDING_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1598,7 +1577,6 @@ impl ::std::convert::From<i32> for WINML_FEATURE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WINML_FEATURE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1629,7 +1607,6 @@ impl ::std::cmp::PartialEq for WINML_IMAGE_BINDING_DESC {
 impl ::std::cmp::Eq for WINML_IMAGE_BINDING_DESC {}
 unsafe impl ::windows::runtime::Abi for WINML_IMAGE_BINDING_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1658,7 +1635,6 @@ impl ::std::cmp::PartialEq for WINML_IMAGE_VARIABLE_DESC {
 impl ::std::cmp::Eq for WINML_IMAGE_VARIABLE_DESC {}
 unsafe impl ::windows::runtime::Abi for WINML_IMAGE_VARIABLE_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1690,7 +1666,6 @@ impl ::std::cmp::Eq for WINML_MAP_BINDING_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINML_MAP_BINDING_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1719,7 +1694,6 @@ impl ::std::cmp::Eq for WINML_MAP_BINDING_DESC_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINML_MAP_BINDING_DESC_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1750,7 +1724,6 @@ impl ::std::cmp::Eq for WINML_MAP_BINDING_DESC_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINML_MAP_BINDING_DESC_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1778,7 +1751,6 @@ impl ::std::cmp::PartialEq for WINML_MAP_VARIABLE_DESC {
 impl ::std::cmp::Eq for WINML_MAP_VARIABLE_DESC {}
 unsafe impl ::windows::runtime::Abi for WINML_MAP_VARIABLE_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1816,7 +1788,6 @@ impl ::std::cmp::Eq for WINML_MODEL_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINML_MODEL_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1853,7 +1824,6 @@ impl ::std::cmp::Eq for WINML_RESOURCE_BINDING_DESC {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::runtime::Abi for WINML_RESOURCE_BINDING_DESC {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1867,7 +1837,6 @@ impl ::std::convert::From<i32> for WINML_RUNTIME_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WINML_RUNTIME_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1897,7 +1866,6 @@ impl ::std::cmp::Eq for WINML_SEQUENCE_BINDING_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINML_SEQUENCE_BINDING_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1928,7 +1896,6 @@ impl ::std::cmp::Eq for WINML_SEQUENCE_BINDING_DESC_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINML_SEQUENCE_BINDING_DESC_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1955,7 +1922,6 @@ impl ::std::cmp::PartialEq for WINML_SEQUENCE_VARIABLE_DESC {
 impl ::std::cmp::Eq for WINML_SEQUENCE_VARIABLE_DESC {}
 unsafe impl ::windows::runtime::Abi for WINML_SEQUENCE_VARIABLE_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1986,7 +1952,6 @@ impl ::std::cmp::PartialEq for WINML_TENSOR_BINDING_DESC {
 impl ::std::cmp::Eq for WINML_TENSOR_BINDING_DESC {}
 unsafe impl ::windows::runtime::Abi for WINML_TENSOR_BINDING_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2015,7 +1980,6 @@ impl ::std::convert::From<i32> for WINML_TENSOR_DATA_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WINML_TENSOR_DATA_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 pub const WINML_TENSOR_DIMENSION_COUNT_MAX: u32 = 4u32;
@@ -2046,7 +2010,6 @@ impl ::std::cmp::PartialEq for WINML_TENSOR_VARIABLE_DESC {
 impl ::std::cmp::Eq for WINML_TENSOR_VARIABLE_DESC {}
 unsafe impl ::windows::runtime::Abi for WINML_TENSOR_VARIABLE_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2078,7 +2041,6 @@ impl ::std::cmp::Eq for WINML_VARIABLE_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINML_VARIABLE_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2103,7 +2065,6 @@ impl ::std::cmp::PartialEq for WINML_VARIABLE_DESC_0 {
 impl ::std::cmp::Eq for WINML_VARIABLE_DESC_0 {}
 unsafe impl ::windows::runtime::Abi for WINML_VARIABLE_DESC_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
 #[inline]

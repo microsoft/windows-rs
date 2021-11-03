@@ -237,10 +237,12 @@ impl ::std::convert::From<u32> for ArcadeStickButtons {
 }
 unsafe impl ::windows::runtime::Abi for ArcadeStickButtons {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ArcadeStickButtons {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ArcadeStickButtons;u4)");
+}
+impl ::windows::runtime::DefaultType for ArcadeStickButtons {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for ArcadeStickButtons {
     type Output = Self;
@@ -296,10 +298,12 @@ impl ::std::cmp::PartialEq for ArcadeStickReading {
 impl ::std::cmp::Eq for ArcadeStickReading {}
 unsafe impl ::windows::runtime::Abi for ArcadeStickReading {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ArcadeStickReading {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.ArcadeStickReading;u8;enum(Windows.Gaming.Input.ArcadeStickButtons;u4))");
+}
+impl ::windows::runtime::DefaultType for ArcadeStickReading {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Gaming_Input`*"]
 #[repr(transparent)]
@@ -527,10 +531,12 @@ impl ::std::convert::From<u32> for FlightStickButtons {
 }
 unsafe impl ::windows::runtime::Abi for FlightStickButtons {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for FlightStickButtons {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.FlightStickButtons;u4)");
+}
+impl ::windows::runtime::DefaultType for FlightStickButtons {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for FlightStickButtons {
     type Output = Self;
@@ -591,10 +597,12 @@ impl ::std::cmp::PartialEq for FlightStickReading {
 impl ::std::cmp::Eq for FlightStickReading {}
 unsafe impl ::windows::runtime::Abi for FlightStickReading {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for FlightStickReading {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.FlightStickReading;u8;enum(Windows.Gaming.Input.FlightStickButtons;u4);enum(Windows.Gaming.Input.GameControllerSwitchPosition;i4);f8;f8;f8;f8)");
+}
+impl ::windows::runtime::DefaultType for FlightStickReading {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Gaming_Input`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -678,10 +686,12 @@ impl ::std::convert::From<i32> for GameControllerButtonLabel {
 }
 unsafe impl ::windows::runtime::Abi for GameControllerButtonLabel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GameControllerButtonLabel {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerButtonLabel;i4)");
+}
+impl ::windows::runtime::DefaultType for GameControllerButtonLabel {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Gaming_Input`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -699,10 +709,12 @@ impl ::std::convert::From<i32> for GameControllerSwitchKind {
 }
 unsafe impl ::windows::runtime::Abi for GameControllerSwitchKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GameControllerSwitchKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerSwitchKind;i4)");
+}
+impl ::windows::runtime::DefaultType for GameControllerSwitchKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Gaming_Input`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -726,10 +738,12 @@ impl ::std::convert::From<i32> for GameControllerSwitchPosition {
 }
 unsafe impl ::windows::runtime::Abi for GameControllerSwitchPosition {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GameControllerSwitchPosition {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerSwitchPosition;i4)");
+}
+impl ::windows::runtime::DefaultType for GameControllerSwitchPosition {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Gaming_Input`*"]
 #[repr(transparent)]
@@ -982,10 +996,12 @@ impl ::std::convert::From<u32> for GamepadButtons {
 }
 unsafe impl ::windows::runtime::Abi for GamepadButtons {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GamepadButtons {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GamepadButtons;u4)");
+}
+impl ::windows::runtime::DefaultType for GamepadButtons {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for GamepadButtons {
     type Output = Self;
@@ -1056,10 +1072,12 @@ impl ::std::cmp::PartialEq for GamepadReading {
 impl ::std::cmp::Eq for GamepadReading {}
 unsafe impl ::windows::runtime::Abi for GamepadReading {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GamepadReading {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.GamepadReading;u8;enum(Windows.Gaming.Input.GamepadButtons;u4);f8;f8;f8;f8;f8;f8)");
+}
+impl ::windows::runtime::DefaultType for GamepadReading {
+    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1089,10 +1107,12 @@ impl ::std::cmp::PartialEq for GamepadVibration {
 impl ::std::cmp::Eq for GamepadVibration {}
 unsafe impl ::windows::runtime::Abi for GamepadVibration {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GamepadVibration {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.GamepadVibration;f8;f8;f8;f8)");
+}
+impl ::windows::runtime::DefaultType for GamepadVibration {
+    type DefaultType = Self;
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -1163,7 +1183,6 @@ impl<'a> ::windows::runtime::IntoParam<'a, IGameControllerBatteryInfo> for &Head
 unsafe impl ::std::marker::Send for Headset {}
 unsafe impl ::std::marker::Sync for Headset {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IArcadeStick(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IArcadeStick {
@@ -1183,7 +1202,6 @@ pub struct IArcadeStick_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ArcadeStickReading) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IArcadeStickStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IArcadeStickStatics {
@@ -1211,7 +1229,6 @@ pub struct IArcadeStickStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IArcadeStickStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IArcadeStickStatics2 {
@@ -1230,7 +1247,6 @@ pub struct IArcadeStickStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gamecontroller: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFlightStick(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFlightStick {
@@ -1251,7 +1267,6 @@ pub struct IFlightStick_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut FlightStickReading) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFlightStickStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFlightStickStatics {
@@ -1423,7 +1438,6 @@ pub struct IGameControllerBatteryInfo_abi(
     #[cfg(not(feature = "Devices_Power"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGamepad(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGamepad {
@@ -1444,7 +1458,6 @@ pub struct IGamepad_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut GamepadReading) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGamepad2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGamepad2 {
@@ -1463,7 +1476,6 @@ pub struct IGamepad2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, button: GamepadButtons, result__: *mut GameControllerButtonLabel) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGamepadStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGamepadStatics {
@@ -1491,7 +1503,6 @@ pub struct IGamepadStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGamepadStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGamepadStatics2 {
@@ -1510,7 +1521,6 @@ pub struct IGamepadStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gamecontroller: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHeadset(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHeadset {
@@ -1530,7 +1540,6 @@ pub struct IHeadset_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRacingWheel(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRacingWheel {
@@ -1557,7 +1566,6 @@ pub struct IRacingWheel_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut RacingWheelReading) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRacingWheelStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRacingWheelStatics {
@@ -1585,7 +1593,6 @@ pub struct IRacingWheelStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRacingWheelStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRacingWheelStatics2 {
@@ -1604,7 +1611,6 @@ pub struct IRacingWheelStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gamecontroller: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRawGameController(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRawGameController {
@@ -1632,7 +1638,6 @@ pub struct IRawGameController_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, switchindex: i32, result__: *mut GameControllerSwitchKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRawGameController2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRawGameController2 {
@@ -1654,7 +1659,6 @@ pub struct IRawGameController2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRawGameControllerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRawGameControllerStatics {
@@ -1683,7 +1687,6 @@ pub struct IRawGameControllerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, gamecontroller: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUINavigationController(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUINavigationController {
@@ -1704,7 +1707,6 @@ pub struct IUINavigationController_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, button: RequiredUINavigationButtons, result__: *mut GameControllerButtonLabel) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUINavigationControllerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUINavigationControllerStatics {
@@ -1732,7 +1734,6 @@ pub struct IUINavigationControllerStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUINavigationControllerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUINavigationControllerStatics2 {
@@ -1776,10 +1777,12 @@ impl ::std::convert::From<u32> for OptionalUINavigationButtons {
 }
 unsafe impl ::windows::runtime::Abi for OptionalUINavigationButtons {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for OptionalUINavigationButtons {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.OptionalUINavigationButtons;u4)");
+}
+impl ::windows::runtime::DefaultType for OptionalUINavigationButtons {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for OptionalUINavigationButtons {
     type Output = Self;
@@ -2100,10 +2103,12 @@ impl ::std::convert::From<u32> for RacingWheelButtons {
 }
 unsafe impl ::windows::runtime::Abi for RacingWheelButtons {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RacingWheelButtons {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.RacingWheelButtons;u4)");
+}
+impl ::windows::runtime::DefaultType for RacingWheelButtons {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for RacingWheelButtons {
     type Output = Self;
@@ -2174,10 +2179,12 @@ impl ::std::cmp::PartialEq for RacingWheelReading {
 impl ::std::cmp::Eq for RacingWheelReading {}
 unsafe impl ::windows::runtime::Abi for RacingWheelReading {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RacingWheelReading {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.RacingWheelReading;u8;enum(Windows.Gaming.Input.RacingWheelButtons;u4);i4;f8;f8;f8;f8;f8)");
+}
+impl ::windows::runtime::DefaultType for RacingWheelReading {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Gaming_Input`*"]
 #[repr(transparent)]
@@ -2312,7 +2319,7 @@ impl RawGameController {
         }
     }
     #[doc = "*Required features: `Gaming_Input`*"]
-    pub fn GetCurrentReading(&self, buttonarray: &mut [<bool as ::windows::runtime::Abi>::DefaultType], switcharray: &mut [<GameControllerSwitchPosition as ::windows::runtime::Abi>::DefaultType], axisarray: &mut [<f64 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<u64> {
+    pub fn GetCurrentReading(&self, buttonarray: &mut [<bool as ::windows::runtime::DefaultType>::DefaultType], switcharray: &mut [<GameControllerSwitchPosition as ::windows::runtime::DefaultType>::DefaultType], axisarray: &mut [<f64 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<u64> {
         let this = self;
         unsafe {
             let mut result__: u64 = ::std::mem::zeroed();
@@ -2485,10 +2492,12 @@ impl ::std::convert::From<u32> for RequiredUINavigationButtons {
 }
 unsafe impl ::windows::runtime::Abi for RequiredUINavigationButtons {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RequiredUINavigationButtons {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.RequiredUINavigationButtons;u4)");
+}
+impl ::windows::runtime::DefaultType for RequiredUINavigationButtons {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for RequiredUINavigationButtons {
     type Output = Self;
@@ -2759,8 +2768,10 @@ impl ::std::cmp::PartialEq for UINavigationReading {
 impl ::std::cmp::Eq for UINavigationReading {}
 unsafe impl ::windows::runtime::Abi for UINavigationReading {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UINavigationReading {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.UINavigationReading;u8;enum(Windows.Gaming.Input.RequiredUINavigationButtons;u4);enum(Windows.Gaming.Input.OptionalUINavigationButtons;u4))");
+}
+impl ::windows::runtime::DefaultType for UINavigationReading {
+    type DefaultType = Self;
 }

@@ -20,7 +20,6 @@ impl ::std::convert::From<i32> for DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION {
 }
 unsafe impl ::windows::runtime::Abi for DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -42,7 +41,6 @@ impl ::std::convert::From<i32> for DIRECTMANIPULATION_CONFIGURATION {
 }
 unsafe impl ::windows::runtime::Abi for DIRECTMANIPULATION_CONFIGURATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -60,7 +58,6 @@ impl ::std::convert::From<i32> for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
 }
 unsafe impl ::windows::runtime::Abi for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -79,7 +76,6 @@ impl ::std::convert::From<i32> for DIRECTMANIPULATION_DRAG_DROP_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for DIRECTMANIPULATION_DRAG_DROP_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -97,7 +93,6 @@ impl ::std::convert::From<i32> for DIRECTMANIPULATION_GESTURE_CONFIGURATION {
 }
 unsafe impl ::windows::runtime::Abi for DIRECTMANIPULATION_GESTURE_CONFIGURATION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -113,7 +108,6 @@ impl ::std::convert::From<i32> for DIRECTMANIPULATION_HITTEST_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DIRECTMANIPULATION_HITTEST_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -131,7 +125,6 @@ impl ::std::convert::From<i32> for DIRECTMANIPULATION_HORIZONTALALIGNMENT {
 }
 unsafe impl ::windows::runtime::Abi for DIRECTMANIPULATION_HORIZONTALALIGNMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -146,7 +139,6 @@ impl ::std::convert::From<i32> for DIRECTMANIPULATION_INPUT_MODE {
 }
 unsafe impl ::windows::runtime::Abi for DIRECTMANIPULATION_INPUT_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -166,7 +158,6 @@ impl ::std::convert::From<i32> for DIRECTMANIPULATION_INTERACTION_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DIRECTMANIPULATION_INTERACTION_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 pub const DIRECTMANIPULATION_KEYBOARDFOCUS: u32 = 4294967294u32;
@@ -188,7 +179,6 @@ impl ::std::convert::From<i32> for DIRECTMANIPULATION_MOTION_TYPES {
 }
 unsafe impl ::windows::runtime::Abi for DIRECTMANIPULATION_MOTION_TYPES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 pub const DIRECTMANIPULATION_MOUSEFOCUS: u32 = 4294967293u32;
@@ -206,7 +196,6 @@ impl ::std::convert::From<i32> for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
 }
 unsafe impl ::windows::runtime::Abi for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -223,7 +212,6 @@ impl ::std::convert::From<i32> for DIRECTMANIPULATION_SNAPPOINT_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DIRECTMANIPULATION_SNAPPOINT_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -243,7 +231,6 @@ impl ::std::convert::From<i32> for DIRECTMANIPULATION_STATUS {
 }
 unsafe impl ::windows::runtime::Abi for DIRECTMANIPULATION_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -261,7 +248,6 @@ impl ::std::convert::From<i32> for DIRECTMANIPULATION_VERTICALALIGNMENT {
 }
 unsafe impl ::windows::runtime::Abi for DIRECTMANIPULATION_VERTICALALIGNMENT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Graphics_DirectManipulation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -280,7 +266,6 @@ impl ::std::convert::From<i32> for DIRECTMANIPULATION_VIEWPORT_OPTIONS {
 }
 unsafe impl ::windows::runtime::Abi for DIRECTMANIPULATION_VIEWPORT_OPTIONS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const DirectManipulationManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1424101814, 13904, 20341, [131, 52, 250, 53, 149, 152, 225, 197]);
 pub const DirectManipulationPrimaryContent: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3399493217, 54686, 16839, [131, 147, 59, 163, 186, 203, 107, 87]);

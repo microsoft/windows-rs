@@ -56,7 +56,6 @@ unsafe impl ::std::marker::Sync for EnhancedWaypoint {}
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct GuidanceContract(pub u8);
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEnhancedWaypoint(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEnhancedWaypoint {
@@ -77,7 +76,6 @@ pub struct IEnhancedWaypoint_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut WaypointKind) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEnhancedWaypointFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEnhancedWaypointFactory {
@@ -97,7 +95,6 @@ pub struct IEnhancedWaypointFactory_abi(
     #[cfg(not(feature = "Devices_Geolocation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IManeuverWarning(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IManeuverWarning {
@@ -117,7 +114,6 @@ pub struct IManeuverWarning_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ManeuverWarningSeverity) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapAddress(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapAddress {
@@ -150,7 +146,6 @@ pub struct IMapAddress_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapAddress2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapAddress2 {
@@ -169,7 +164,6 @@ pub struct IMapAddress2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapLocation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapLocation {
@@ -192,7 +186,6 @@ pub struct IMapLocation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapLocationFinderResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapLocationFinderResult {
@@ -213,7 +206,6 @@ pub struct IMapLocationFinderResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut MapLocationFinderStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapLocationFinderStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapLocationFinderStatics {
@@ -237,7 +229,6 @@ pub struct IMapLocationFinderStatics_abi(
     #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapLocationFinderStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapLocationFinderStatics2 {
@@ -257,7 +248,6 @@ pub struct IMapLocationFinderStatics2_abi(
     #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapManagerStatics {
@@ -277,7 +267,6 @@ pub struct IMapManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapRoute(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRoute {
@@ -305,7 +294,6 @@ pub struct IMapRoute_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapRoute2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRoute2 {
@@ -325,7 +313,6 @@ pub struct IMapRoute2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapRoute3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRoute3 {
@@ -346,7 +333,6 @@ pub struct IMapRoute3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut TrafficCongestion) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapRoute4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRoute4 {
@@ -365,7 +351,6 @@ pub struct IMapRoute4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapRouteDrivingOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteDrivingOptions {
@@ -393,7 +378,6 @@ pub struct IMapRouteDrivingOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: MapRouteRestrictions) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapRouteDrivingOptions2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteDrivingOptions2 {
@@ -415,7 +399,6 @@ pub struct IMapRouteDrivingOptions2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapRouteFinderResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteFinderResult {
@@ -435,7 +418,6 @@ pub struct IMapRouteFinderResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut MapRouteFinderStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapRouteFinderResult2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteFinderResult2 {
@@ -455,7 +437,6 @@ pub struct IMapRouteFinderResult2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapRouteFinderStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteFinderStatics {
@@ -493,7 +474,6 @@ pub struct IMapRouteFinderStatics_abi(
     #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapRouteFinderStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteFinderStatics2 {
@@ -513,7 +493,6 @@ pub struct IMapRouteFinderStatics2_abi(
     #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapRouteFinderStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteFinderStatics3 {
@@ -535,7 +514,6 @@ pub struct IMapRouteFinderStatics3_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapRouteLeg(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteLeg {
@@ -562,7 +540,6 @@ pub struct IMapRouteLeg_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapRouteLeg2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteLeg2 {
@@ -583,7 +560,6 @@ pub struct IMapRouteLeg2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut TrafficCongestion) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapRouteManeuver(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteManeuver {
@@ -608,7 +584,6 @@ pub struct IMapRouteManeuver_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut MapManeuverNotices) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapRouteManeuver2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteManeuver2 {
@@ -629,7 +604,6 @@ pub struct IMapRouteManeuver2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapRouteManeuver3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapRouteManeuver3 {
@@ -649,7 +623,6 @@ pub struct IMapRouteManeuver3_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapServiceStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapServiceStatics {
@@ -669,7 +642,6 @@ pub struct IMapServiceStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapServiceStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapServiceStatics2 {
@@ -688,7 +660,6 @@ pub struct IMapServiceStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapServiceStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapServiceStatics3 {
@@ -707,7 +678,6 @@ pub struct IMapServiceStatics3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMapServiceStatics4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMapServiceStatics4 {
@@ -727,7 +697,6 @@ pub struct IMapServiceStatics4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut MapServiceDataUsagePreference) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlaceInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlaceInfo {
@@ -754,7 +723,6 @@ pub struct IPlaceInfo_abi(
     #[cfg(not(feature = "Devices_Geolocation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlaceInfoCreateOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlaceInfoCreateOptions {
@@ -776,7 +744,6 @@ pub struct IPlaceInfoCreateOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlaceInfoStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlaceInfoStatics {
@@ -803,7 +770,6 @@ pub struct IPlaceInfoStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPlaceInfoStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlaceInfoStatics2 {
@@ -908,10 +874,12 @@ impl ::std::convert::From<i32> for ManeuverWarningKind {
 }
 unsafe impl ::windows::runtime::Abi for ManeuverWarningKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ManeuverWarningKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.ManeuverWarningKind;i4)");
+}
+impl ::windows::runtime::DefaultType for ManeuverWarningKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_Maps`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -931,10 +899,12 @@ impl ::std::convert::From<i32> for ManeuverWarningSeverity {
 }
 unsafe impl ::windows::runtime::Abi for ManeuverWarningSeverity {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ManeuverWarningSeverity {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.ManeuverWarningSeverity;i4)");
+}
+impl ::windows::runtime::DefaultType for ManeuverWarningSeverity {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_Maps`*"]
 #[repr(transparent)]
@@ -1148,10 +1118,12 @@ impl ::std::convert::From<i32> for MapLocationDesiredAccuracy {
 }
 unsafe impl ::windows::runtime::Abi for MapLocationDesiredAccuracy {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MapLocationDesiredAccuracy {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapLocationDesiredAccuracy;i4)");
+}
+impl ::windows::runtime::DefaultType for MapLocationDesiredAccuracy {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_Maps`*"]
 pub struct MapLocationFinder {}
@@ -1255,10 +1227,12 @@ impl ::std::convert::From<i32> for MapLocationFinderStatus {
 }
 unsafe impl ::windows::runtime::Abi for MapLocationFinderStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MapLocationFinderStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapLocationFinderStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for MapLocationFinderStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_Maps`*"]
 pub struct MapManager {}
@@ -1295,10 +1269,12 @@ impl ::std::convert::From<u32> for MapManeuverNotices {
 }
 unsafe impl ::windows::runtime::Abi for MapManeuverNotices {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MapManeuverNotices {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapManeuverNotices;u4)");
+}
+impl ::windows::runtime::DefaultType for MapManeuverNotices {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MapManeuverNotices {
     type Output = Self;
@@ -1722,10 +1698,12 @@ impl ::std::convert::From<i32> for MapRouteFinderStatus {
 }
 unsafe impl ::windows::runtime::Abi for MapRouteFinderStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MapRouteFinderStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteFinderStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for MapRouteFinderStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_Maps`*"]
 #[repr(transparent)]
@@ -1944,10 +1922,12 @@ impl ::std::convert::From<i32> for MapRouteManeuverKind {
 }
 unsafe impl ::windows::runtime::Abi for MapRouteManeuverKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MapRouteManeuverKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteManeuverKind;i4)");
+}
+impl ::windows::runtime::DefaultType for MapRouteManeuverKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_Maps`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1966,10 +1946,12 @@ impl ::std::convert::From<i32> for MapRouteOptimization {
 }
 unsafe impl ::windows::runtime::Abi for MapRouteOptimization {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MapRouteOptimization {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteOptimization;i4)");
+}
+impl ::windows::runtime::DefaultType for MapRouteOptimization {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_Maps`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1991,10 +1973,12 @@ impl ::std::convert::From<u32> for MapRouteRestrictions {
 }
 unsafe impl ::windows::runtime::Abi for MapRouteRestrictions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MapRouteRestrictions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteRestrictions;u4)");
+}
+impl ::windows::runtime::DefaultType for MapRouteRestrictions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for MapRouteRestrictions {
     type Output = Self;
@@ -2098,10 +2082,12 @@ impl ::std::convert::From<i32> for MapServiceDataUsagePreference {
 }
 unsafe impl ::windows::runtime::Abi for MapServiceDataUsagePreference {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MapServiceDataUsagePreference {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapServiceDataUsagePreference;i4)");
+}
+impl ::windows::runtime::DefaultType for MapServiceDataUsagePreference {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_Maps`*"]
 #[repr(transparent)]
@@ -2302,10 +2288,12 @@ impl ::std::convert::From<i32> for TrafficCongestion {
 }
 unsafe impl ::windows::runtime::Abi for TrafficCongestion {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for TrafficCongestion {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.TrafficCongestion;i4)");
+}
+impl ::windows::runtime::DefaultType for TrafficCongestion {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Services_Maps`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -2322,8 +2310,10 @@ impl ::std::convert::From<i32> for WaypointKind {
 }
 unsafe impl ::windows::runtime::Abi for WaypointKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WaypointKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.WaypointKind;i4)");
+}
+impl ::windows::runtime::DefaultType for WaypointKind {
+    type DefaultType = Self;
 }

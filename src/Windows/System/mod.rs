@@ -306,10 +306,12 @@ impl ::std::convert::From<i32> for AppDiagnosticInfoWatcherStatus {
 }
 unsafe impl ::windows::runtime::Abi for AppDiagnosticInfoWatcherStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppDiagnosticInfoWatcherStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.AppDiagnosticInfoWatcherStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for AppDiagnosticInfoWatcherStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
@@ -412,10 +414,12 @@ impl ::std::convert::From<i32> for AppMemoryUsageLevel {
 }
 unsafe impl ::windows::runtime::Abi for AppMemoryUsageLevel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppMemoryUsageLevel {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.AppMemoryUsageLevel;i4)");
+}
+impl ::windows::runtime::DefaultType for AppMemoryUsageLevel {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
@@ -517,10 +521,12 @@ impl ::std::convert::From<i32> for AppResourceGroupEnergyQuotaState {
 }
 unsafe impl ::windows::runtime::Abi for AppResourceGroupEnergyQuotaState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppResourceGroupEnergyQuotaState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.AppResourceGroupEnergyQuotaState;i4)");
+}
+impl ::windows::runtime::DefaultType for AppResourceGroupEnergyQuotaState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -540,10 +546,12 @@ impl ::std::convert::From<i32> for AppResourceGroupExecutionState {
 }
 unsafe impl ::windows::runtime::Abi for AppResourceGroupExecutionState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppResourceGroupExecutionState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.AppResourceGroupExecutionState;i4)");
+}
+impl ::windows::runtime::DefaultType for AppResourceGroupExecutionState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
@@ -840,10 +848,12 @@ impl ::std::convert::From<i32> for AppResourceGroupInfoWatcherStatus {
 }
 unsafe impl ::windows::runtime::Abi for AppResourceGroupInfoWatcherStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AppResourceGroupInfoWatcherStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.AppResourceGroupInfoWatcherStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for AppResourceGroupInfoWatcherStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
@@ -1160,10 +1170,12 @@ impl ::std::convert::From<i32> for AutoUpdateTimeZoneStatus {
 }
 unsafe impl ::windows::runtime::Abi for AutoUpdateTimeZoneStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AutoUpdateTimeZoneStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.AutoUpdateTimeZoneStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for AutoUpdateTimeZoneStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
 pub struct DateTimeSettings {}
@@ -1198,10 +1210,12 @@ impl ::std::convert::From<i32> for DiagnosticAccessStatus {
 }
 unsafe impl ::windows::runtime::Abi for DiagnosticAccessStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DiagnosticAccessStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.DiagnosticAccessStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for DiagnosticAccessStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
@@ -1429,10 +1443,12 @@ impl ::std::convert::From<i32> for DispatcherQueuePriority {
 }
 unsafe impl ::windows::runtime::Abi for DispatcherQueuePriority {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DispatcherQueuePriority {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.DispatcherQueuePriority;i4)");
+}
+impl ::windows::runtime::DefaultType for DispatcherQueuePriority {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
@@ -1612,7 +1628,6 @@ impl<'a> ::windows::runtime::IntoParam<'a, ILauncherViewOptions> for &FolderLaun
 unsafe impl ::std::marker::Send for FolderLauncherOptions {}
 unsafe impl ::std::marker::Sync for FolderLauncherOptions {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppActivationResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppActivationResult {
@@ -1632,7 +1647,6 @@ pub struct IAppActivationResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppDiagnosticInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppDiagnosticInfo {
@@ -1652,7 +1666,6 @@ pub struct IAppDiagnosticInfo_abi(
     #[cfg(not(feature = "ApplicationModel"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppDiagnosticInfo2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppDiagnosticInfo2 {
@@ -1673,7 +1686,6 @@ pub struct IAppDiagnosticInfo2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppDiagnosticInfo3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppDiagnosticInfo3 {
@@ -1693,7 +1705,6 @@ pub struct IAppDiagnosticInfo3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppDiagnosticInfoStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppDiagnosticInfoStatics {
@@ -1713,7 +1724,6 @@ pub struct IAppDiagnosticInfoStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppDiagnosticInfoStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppDiagnosticInfoStatics2 {
@@ -1740,7 +1750,6 @@ pub struct IAppDiagnosticInfoStatics2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppDiagnosticInfoWatcher(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppDiagnosticInfoWatcher {
@@ -1777,7 +1786,6 @@ pub struct IAppDiagnosticInfoWatcher_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppDiagnosticInfoWatcherEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppDiagnosticInfoWatcherEventArgs {
@@ -1796,7 +1804,6 @@ pub struct IAppDiagnosticInfoWatcherEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppExecutionStateChangeResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppExecutionStateChangeResult {
@@ -1815,7 +1822,6 @@ pub struct IAppExecutionStateChangeResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppMemoryReport(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppMemoryReport {
@@ -1837,7 +1843,6 @@ pub struct IAppMemoryReport_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppMemoryReport2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppMemoryReport2 {
@@ -1856,7 +1861,6 @@ pub struct IAppMemoryReport2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppMemoryUsageLimitChangingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppMemoryUsageLimitChangingEventArgs {
@@ -1876,7 +1880,6 @@ pub struct IAppMemoryUsageLimitChangingEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppResourceGroupBackgroundTaskReport(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppResourceGroupBackgroundTaskReport {
@@ -1898,7 +1901,6 @@ pub struct IAppResourceGroupBackgroundTaskReport_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppResourceGroupInfo(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppResourceGroupInfo {
@@ -1924,7 +1926,6 @@ pub struct IAppResourceGroupInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppResourceGroupInfo2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppResourceGroupInfo2 {
@@ -1948,7 +1949,6 @@ pub struct IAppResourceGroupInfo2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppResourceGroupInfoWatcher(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppResourceGroupInfoWatcher {
@@ -1989,7 +1989,6 @@ pub struct IAppResourceGroupInfoWatcher_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppResourceGroupInfoWatcherEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppResourceGroupInfoWatcherEventArgs {
@@ -2010,7 +2009,6 @@ pub struct IAppResourceGroupInfoWatcherEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
@@ -2031,7 +2029,6 @@ pub struct IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppResourceGroupMemoryReport(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppResourceGroupMemoryReport {
@@ -2053,7 +2050,6 @@ pub struct IAppResourceGroupMemoryReport_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppResourceGroupStateReport(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppResourceGroupStateReport {
@@ -2073,7 +2069,6 @@ pub struct IAppResourceGroupStateReport_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut AppResourceGroupEnergyQuotaState) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppUriHandlerHost(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppUriHandlerHost {
@@ -2093,7 +2088,6 @@ pub struct IAppUriHandlerHost_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppUriHandlerHost2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppUriHandlerHost2 {
@@ -2113,7 +2107,6 @@ pub struct IAppUriHandlerHost2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppUriHandlerHostFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppUriHandlerHostFactory {
@@ -2132,7 +2125,6 @@ pub struct IAppUriHandlerHostFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppUriHandlerRegistration(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppUriHandlerRegistration {
@@ -2156,7 +2148,6 @@ pub struct IAppUriHandlerRegistration_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppUriHandlerRegistration2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppUriHandlerRegistration2 {
@@ -2179,7 +2170,6 @@ pub struct IAppUriHandlerRegistration2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppUriHandlerRegistrationManager(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppUriHandlerRegistrationManager {
@@ -2199,7 +2189,6 @@ pub struct IAppUriHandlerRegistrationManager_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppUriHandlerRegistrationManager2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppUriHandlerRegistrationManager2 {
@@ -2218,7 +2207,6 @@ pub struct IAppUriHandlerRegistrationManager2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppUriHandlerRegistrationManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppUriHandlerRegistrationManagerStatics {
@@ -2238,7 +2226,6 @@ pub struct IAppUriHandlerRegistrationManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, user: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAppUriHandlerRegistrationManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppUriHandlerRegistrationManagerStatics2 {
@@ -2258,7 +2245,6 @@ pub struct IAppUriHandlerRegistrationManagerStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, packagefamilyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, user: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDateTimeSettingsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDateTimeSettingsStatics {
@@ -2278,7 +2264,6 @@ pub struct IDateTimeSettingsStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDispatcherQueue(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDispatcherQueue {
@@ -2307,7 +2292,6 @@ pub struct IDispatcherQueue_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDispatcherQueue2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDispatcherQueue2 {
@@ -2326,7 +2310,6 @@ pub struct IDispatcherQueue2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDispatcherQueueController(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDispatcherQueueController {
@@ -2347,7 +2330,6 @@ pub struct IDispatcherQueueController_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDispatcherQueueControllerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDispatcherQueueControllerStatics {
@@ -2366,7 +2348,6 @@ pub struct IDispatcherQueueControllerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDispatcherQueueShutdownStartingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDispatcherQueueShutdownStartingEventArgs {
@@ -2386,7 +2367,6 @@ pub struct IDispatcherQueueShutdownStartingEventArgs_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDispatcherQueueStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDispatcherQueueStatics {
@@ -2405,7 +2385,6 @@ pub struct IDispatcherQueueStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDispatcherQueueTimer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDispatcherQueueTimer {
@@ -2436,7 +2415,6 @@ pub struct IDispatcherQueueTimer_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IFolderLauncherOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFolderLauncherOptions {
@@ -2456,7 +2434,6 @@ pub struct IFolderLauncherOptions_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKnownUserPropertiesStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownUserPropertiesStatics {
@@ -2483,7 +2460,6 @@ pub struct IKnownUserPropertiesStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IKnownUserPropertiesStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownUserPropertiesStatics2 {
@@ -2502,7 +2478,6 @@ pub struct IKnownUserPropertiesStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILaunchUriResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILaunchUriResult {
@@ -2523,7 +2498,6 @@ pub struct ILaunchUriResult_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILauncherOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILauncherOptions {
@@ -2556,7 +2530,6 @@ pub struct ILauncherOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILauncherOptions2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILauncherOptions2 {
@@ -2580,7 +2553,6 @@ pub struct ILauncherOptions2_abi(
     #[cfg(not(feature = "Storage_Search"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILauncherOptions3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILauncherOptions3 {
@@ -2600,7 +2572,6 @@ pub struct ILauncherOptions3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILauncherOptions4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILauncherOptions4 {
@@ -2620,7 +2591,6 @@ pub struct ILauncherOptions4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILauncherStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILauncherStatics {
@@ -2646,7 +2616,6 @@ pub struct ILauncherStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILauncherStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILauncherStatics2 {
@@ -2684,7 +2653,6 @@ pub struct ILauncherStatics2_abi(
     #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILauncherStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILauncherStatics3 {
@@ -2706,7 +2674,6 @@ pub struct ILauncherStatics3_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILauncherStatics4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILauncherStatics4 {
@@ -2740,7 +2707,6 @@ pub struct ILauncherStatics4_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILauncherStatics5(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILauncherStatics5 {
@@ -2766,7 +2732,6 @@ pub struct ILauncherStatics5_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ILauncherUIOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILauncherUIOptions {
@@ -2838,7 +2803,6 @@ pub struct ILauncherViewOptions_abi(
     #[cfg(not(feature = "UI_ViewManagement"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMemoryManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMemoryManagerStatics {
@@ -2871,7 +2835,6 @@ pub struct IMemoryManagerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMemoryManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMemoryManagerStatics2 {
@@ -2891,7 +2854,6 @@ pub struct IMemoryManagerStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMemoryManagerStatics3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMemoryManagerStatics3 {
@@ -2910,7 +2872,6 @@ pub struct IMemoryManagerStatics3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u64, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMemoryManagerStatics4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMemoryManagerStatics4 {
@@ -2929,7 +2890,6 @@ pub struct IMemoryManagerStatics4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProcessLauncherOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProcessLauncherOptions {
@@ -2961,7 +2921,6 @@ pub struct IProcessLauncherOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProcessLauncherResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProcessLauncherResult {
@@ -2980,7 +2939,6 @@ pub struct IProcessLauncherResult_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProcessLauncherStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProcessLauncherStatics {
@@ -3002,7 +2960,6 @@ pub struct IProcessLauncherStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProcessMemoryReport(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProcessMemoryReport {
@@ -3022,7 +2979,6 @@ pub struct IProcessMemoryReport_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut u64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IProtocolForResultsOperation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProtocolForResultsOperation {
@@ -3042,7 +2998,6 @@ pub struct IProtocolForResultsOperation_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteLauncherOptions(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteLauncherOptions {
@@ -3066,7 +3021,6 @@ pub struct IRemoteLauncherOptions_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IRemoteLauncherStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRemoteLauncherStatics {
@@ -3090,7 +3044,6 @@ pub struct IRemoteLauncherStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "System_RemoteSystems")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IShutdownManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShutdownManagerStatics {
@@ -3111,7 +3064,6 @@ pub struct IShutdownManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IShutdownManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IShutdownManagerStatics2 {
@@ -3133,7 +3085,6 @@ pub struct IShutdownManagerStatics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITimeZoneSettingsStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimeZoneSettingsStatics {
@@ -3156,7 +3107,6 @@ pub struct ITimeZoneSettingsStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, timezonedisplayname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ITimeZoneSettingsStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITimeZoneSettingsStatics2 {
@@ -3176,7 +3126,6 @@ pub struct ITimeZoneSettingsStatics2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUser(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUser {
@@ -3203,7 +3152,6 @@ pub struct IUser_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUser2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUser2 {
@@ -3223,7 +3171,6 @@ pub struct IUser2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserAuthenticationStatusChangeDeferral(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserAuthenticationStatusChangeDeferral {
@@ -3242,7 +3189,6 @@ pub struct IUserAuthenticationStatusChangeDeferral_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserAuthenticationStatusChangingEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserAuthenticationStatusChangingEventArgs {
@@ -3264,7 +3210,6 @@ pub struct IUserAuthenticationStatusChangingEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut UserAuthenticationStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserChangedEventArgs {
@@ -3283,7 +3228,6 @@ pub struct IUserChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserChangedEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserChangedEventArgs2 {
@@ -3303,7 +3247,6 @@ pub struct IUserChangedEventArgs2_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDeviceAssociationChangedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDeviceAssociationChangedEventArgs {
@@ -3324,7 +3267,6 @@ pub struct IUserDeviceAssociationChangedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserDeviceAssociationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDeviceAssociationStatics {
@@ -3347,7 +3289,6 @@ pub struct IUserDeviceAssociationStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserPicker(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserPicker {
@@ -3371,7 +3312,6 @@ pub struct IUserPicker_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserPickerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserPickerStatics {
@@ -3390,7 +3330,6 @@ pub struct IUserPickerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserStatics {
@@ -3416,7 +3355,6 @@ pub struct IUserStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nonroamableid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserStatics2 {
@@ -3435,7 +3373,6 @@ pub struct IUserStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IUserWatcher(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserWatcher {
@@ -3586,10 +3523,12 @@ impl ::std::convert::From<i32> for LaunchFileStatus {
 }
 unsafe impl ::windows::runtime::Abi for LaunchFileStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for LaunchFileStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.LaunchFileStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for LaunchFileStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3609,10 +3548,12 @@ impl ::std::convert::From<i32> for LaunchQuerySupportStatus {
 }
 unsafe impl ::windows::runtime::Abi for LaunchQuerySupportStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for LaunchQuerySupportStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.LaunchQuerySupportStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for LaunchQuerySupportStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3629,10 +3570,12 @@ impl ::std::convert::From<i32> for LaunchQuerySupportType {
 }
 unsafe impl ::windows::runtime::Abi for LaunchQuerySupportType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for LaunchQuerySupportType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.LaunchQuerySupportType;i4)");
+}
+impl ::windows::runtime::DefaultType for LaunchQuerySupportType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
@@ -3686,10 +3629,12 @@ impl ::std::convert::From<i32> for LaunchUriStatus {
 }
 unsafe impl ::windows::runtime::Abi for LaunchUriStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for LaunchUriStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.LaunchUriStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for LaunchUriStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
 pub struct Launcher {}
@@ -4335,10 +4280,12 @@ impl ::std::convert::From<i32> for PowerState {
 }
 unsafe impl ::windows::runtime::Abi for PowerState {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PowerState {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.PowerState;i4)");
+}
+impl ::windows::runtime::DefaultType for PowerState {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
 pub struct ProcessLauncher {}
@@ -4530,10 +4477,12 @@ impl ::std::convert::From<i32> for ProcessorArchitecture {
 }
 unsafe impl ::windows::runtime::Abi for ProcessorArchitecture {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ProcessorArchitecture {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.ProcessorArchitecture;i4)");
+}
+impl ::windows::runtime::DefaultType for ProcessorArchitecture {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
@@ -4580,10 +4529,12 @@ impl ::std::convert::From<i32> for RemoteLaunchUriStatus {
 }
 unsafe impl ::windows::runtime::Abi for RemoteLaunchUriStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RemoteLaunchUriStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.RemoteLaunchUriStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for RemoteLaunchUriStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
 pub struct RemoteLauncher {}
@@ -4689,10 +4640,12 @@ impl ::std::convert::From<i32> for ShutdownKind {
 }
 unsafe impl ::windows::runtime::Abi for ShutdownKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ShutdownKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.ShutdownKind;i4)");
+}
+impl ::windows::runtime::DefaultType for ShutdownKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
 pub struct ShutdownManager {}
@@ -4935,10 +4888,12 @@ impl ::std::convert::From<i32> for UserAgeConsentGroup {
 }
 unsafe impl ::windows::runtime::Abi for UserAgeConsentGroup {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserAgeConsentGroup {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.UserAgeConsentGroup;i4)");
+}
+impl ::windows::runtime::DefaultType for UserAgeConsentGroup {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4958,10 +4913,12 @@ impl ::std::convert::From<i32> for UserAgeConsentResult {
 }
 unsafe impl ::windows::runtime::Abi for UserAgeConsentResult {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserAgeConsentResult {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.UserAgeConsentResult;i4)");
+}
+impl ::windows::runtime::DefaultType for UserAgeConsentResult {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4979,10 +4936,12 @@ impl ::std::convert::From<i32> for UserAuthenticationStatus {
 }
 unsafe impl ::windows::runtime::Abi for UserAuthenticationStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserAuthenticationStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.UserAuthenticationStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for UserAuthenticationStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
@@ -5253,10 +5212,12 @@ impl ::std::convert::From<i32> for UserPictureSize {
 }
 unsafe impl ::windows::runtime::Abi for UserPictureSize {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserPictureSize {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.UserPictureSize;i4)");
+}
+impl ::windows::runtime::DefaultType for UserPictureSize {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5276,10 +5237,12 @@ impl ::std::convert::From<i32> for UserType {
 }
 unsafe impl ::windows::runtime::Abi for UserType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.UserType;i4)");
+}
+impl ::windows::runtime::DefaultType for UserType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
 #[repr(transparent)]
@@ -5441,10 +5404,12 @@ impl ::std::convert::From<i32> for UserWatcherStatus {
 }
 unsafe impl ::windows::runtime::Abi for UserWatcherStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserWatcherStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.UserWatcherStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for UserWatcherStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5461,10 +5426,12 @@ impl ::std::convert::From<i32> for UserWatcherUpdateKind {
 }
 unsafe impl ::windows::runtime::Abi for UserWatcherUpdateKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for UserWatcherUpdateKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.UserWatcherUpdateKind;i4)");
+}
+impl ::windows::runtime::DefaultType for UserWatcherUpdateKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5651,10 +5618,12 @@ impl ::std::convert::From<i32> for VirtualKey {
 }
 unsafe impl ::windows::runtime::Abi for VirtualKey {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VirtualKey {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.VirtualKey;i4)");
+}
+impl ::windows::runtime::DefaultType for VirtualKey {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5674,10 +5643,12 @@ impl ::std::convert::From<u32> for VirtualKeyModifiers {
 }
 unsafe impl ::windows::runtime::Abi for VirtualKeyModifiers {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for VirtualKeyModifiers {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.VirtualKeyModifiers;u4)");
+}
+impl ::windows::runtime::DefaultType for VirtualKeyModifiers {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for VirtualKeyModifiers {
     type Output = Self;

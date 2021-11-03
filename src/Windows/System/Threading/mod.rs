@@ -2,7 +2,6 @@
 #[cfg(feature = "System_Threading_Core")]
 pub mod Core;
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IThreadPoolStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IThreadPoolStatics {
@@ -26,7 +25,6 @@ pub struct IThreadPoolStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IThreadPoolTimer(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IThreadPoolTimer {
@@ -49,7 +47,6 @@ pub struct IThreadPoolTimer_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IThreadPoolTimerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IThreadPoolTimerStatics {
@@ -256,7 +253,7 @@ impl<F: FnMut(&::std::option::Option<ThreadPoolTimer>) -> ::windows::runtime::Re
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, timer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&timer as *const <ThreadPoolTimer as ::windows::runtime::Abi>::Abi as *const <ThreadPoolTimer as ::windows::runtime::Abi>::DefaultType)).into()
+        ((*this).invoke)(&*(&timer as *const <ThreadPoolTimer as ::windows::runtime::Abi>::Abi as *const <ThreadPoolTimer as ::windows::runtime::DefaultType>::DefaultType)).into()
     }
 }
 #[doc = "*Required features: `System_Threading`*"]
@@ -329,7 +326,7 @@ impl<F: FnMut(&::std::option::Option<ThreadPoolTimer>) -> ::windows::runtime::Re
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, timer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&timer as *const <ThreadPoolTimer as ::windows::runtime::Abi>::Abi as *const <ThreadPoolTimer as ::windows::runtime::Abi>::DefaultType)).into()
+        ((*this).invoke)(&*(&timer as *const <ThreadPoolTimer as ::windows::runtime::Abi>::Abi as *const <ThreadPoolTimer as ::windows::runtime::DefaultType>::DefaultType)).into()
     }
 }
 #[cfg(feature = "Foundation")]
@@ -410,7 +407,7 @@ impl<F: FnMut(&::std::option::Option<super::super::Foundation::IAsyncAction>) ->
     }
     unsafe extern "system" fn Invoke(this: ::windows::runtime::RawPtr, operation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT {
         let this = this as *mut ::windows::runtime::RawPtr as *mut Self;
-        ((*this).invoke)(&*(&operation as *const <super::super::Foundation::IAsyncAction as ::windows::runtime::Abi>::Abi as *const <super::super::Foundation::IAsyncAction as ::windows::runtime::Abi>::DefaultType)).into()
+        ((*this).invoke)(&*(&operation as *const <super::super::Foundation::IAsyncAction as ::windows::runtime::Abi>::Abi as *const <super::super::Foundation::IAsyncAction as ::windows::runtime::DefaultType>::DefaultType)).into()
     }
 }
 #[doc = "*Required features: `System_Threading`*"]
@@ -428,10 +425,12 @@ impl ::std::convert::From<u32> for WorkItemOptions {
 }
 unsafe impl ::windows::runtime::Abi for WorkItemOptions {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WorkItemOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.Threading.WorkItemOptions;u4)");
+}
+impl ::windows::runtime::DefaultType for WorkItemOptions {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for WorkItemOptions {
     type Output = Self;
@@ -477,8 +476,10 @@ impl ::std::convert::From<i32> for WorkItemPriority {
 }
 unsafe impl ::windows::runtime::Abi for WorkItemPriority {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WorkItemPriority {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.Threading.WorkItemPriority;i4)");
+}
+impl ::windows::runtime::DefaultType for WorkItemPriority {
+    type DefaultType = Self;
 }

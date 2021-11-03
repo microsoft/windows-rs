@@ -38,3 +38,11 @@ unsafe impl<T: Interface> Abi for T {
 unsafe impl<T: Interface> Abi for Option<T> {
     type Abi = RawPtr;
 }
+
+unsafe impl Abi for usize {
+    type Abi = Self;
+}
+
+unsafe impl Abi for isize {
+    type Abi = Self;
+}

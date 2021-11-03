@@ -26,7 +26,6 @@ impl ::std::cmp::Eq for CONVERT_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CONVERT_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -49,7 +48,6 @@ impl ::std::cmp::PartialEq for CONVERT_A_0 {
 impl ::std::cmp::Eq for CONVERT_A_0 {}
 unsafe impl ::windows::runtime::Abi for CONVERT_A_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -76,7 +74,6 @@ impl ::std::cmp::PartialEq for CONVERT_A_0_0 {
 impl ::std::cmp::Eq for CONVERT_A_0_0 {}
 unsafe impl ::windows::runtime::Abi for CONVERT_A_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -105,7 +102,6 @@ impl ::std::cmp::Eq for CONVERT_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CONVERT_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -128,7 +124,6 @@ impl ::std::cmp::PartialEq for CONVERT_W_0 {
 impl ::std::cmp::Eq for CONVERT_W_0 {}
 unsafe impl ::windows::runtime::Abi for CONVERT_W_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -155,7 +150,6 @@ impl ::std::cmp::PartialEq for CONVERT_W_0_0 {
 impl ::std::cmp::Eq for CONVERT_W_0_0 {}
 unsafe impl ::windows::runtime::Abi for CONVERT_W_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub const JET_BASE_NAME_LENGTH: u32 = 3u32;
@@ -188,7 +182,6 @@ impl ::std::cmp::Eq for JET_BKINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_BKINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -217,7 +210,6 @@ impl ::std::cmp::Eq for JET_BKINFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_BKINFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -252,7 +244,6 @@ impl ::std::cmp::Eq for JET_BKLOGTIME {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_BKLOGTIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -281,7 +272,6 @@ impl ::std::cmp::Eq for JET_BKLOGTIME_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_BKLOGTIME_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -308,7 +298,6 @@ impl ::std::cmp::PartialEq for JET_BKLOGTIME_0_0 {
 impl ::std::cmp::Eq for JET_BKLOGTIME_0_0 {}
 unsafe impl ::windows::runtime::Abi for JET_BKLOGTIME_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -337,7 +326,6 @@ impl ::std::cmp::Eq for JET_BKLOGTIME_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_BKLOGTIME_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -364,7 +352,6 @@ impl ::std::cmp::PartialEq for JET_BKLOGTIME_1_0 {
 impl ::std::cmp::Eq for JET_BKLOGTIME_1_0 {}
 unsafe impl ::windows::runtime::Abi for JET_BKLOGTIME_1_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub type JET_CALLBACK = unsafe extern "system" fn(sesid: super::StructuredStorage::JET_SESID, dbid: u32, tableid: super::StructuredStorage::JET_TABLEID, cbtyp: u32, pvarg1: *mut ::std::ffi::c_void, pvarg2: *mut ::std::ffi::c_void, pvcontext: *const ::std::ffi::c_void, ulunused: super::StructuredStorage::JET_API_PTR) -> i32;
@@ -422,7 +409,6 @@ impl ::std::cmp::Eq for JET_COLUMNBASE_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_COLUMNBASE_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -471,7 +457,6 @@ impl ::std::cmp::PartialEq for JET_COLUMNBASE_W {
 impl ::std::cmp::Eq for JET_COLUMNBASE_W {}
 unsafe impl ::windows::runtime::Abi for JET_COLUMNBASE_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -525,7 +510,6 @@ impl ::std::cmp::Eq for JET_COLUMNCREATE_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_COLUMNCREATE_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -579,7 +563,6 @@ impl ::std::cmp::Eq for JET_COLUMNCREATE_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_COLUMNCREATE_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -624,7 +607,6 @@ impl ::std::cmp::PartialEq for JET_COLUMNDEF {
 impl ::std::cmp::Eq for JET_COLUMNDEF {}
 unsafe impl ::windows::runtime::Abi for JET_COLUMNDEF {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -708,7 +690,6 @@ impl ::std::cmp::Eq for JET_COLUMNLIST {}
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 unsafe impl ::windows::runtime::Abi for JET_COLUMNLIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -738,7 +719,6 @@ impl ::std::cmp::Eq for JET_COMMIT_ID {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_COMMIT_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -774,7 +754,6 @@ impl ::std::cmp::Eq for JET_CONDITIONALCOLUMN_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_CONDITIONALCOLUMN_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -810,7 +789,6 @@ impl ::std::cmp::Eq for JET_CONDITIONALCOLUMN_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_CONDITIONALCOLUMN_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub const JET_ColInfoGrbitMinimalInfo: u32 = 1073741824u32;
@@ -864,7 +842,6 @@ impl ::std::cmp::Eq for JET_DBINFOMISC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_DBINFOMISC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -927,7 +904,6 @@ impl ::std::cmp::Eq for JET_DBINFOMISC2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_DBINFOMISC2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -991,7 +967,6 @@ impl ::std::cmp::Eq for JET_DBINFOMISC3 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_DBINFOMISC3 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1057,7 +1032,6 @@ impl ::std::cmp::Eq for JET_DBINFOMISC4 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_DBINFOMISC4 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1085,7 +1059,6 @@ impl ::std::cmp::PartialEq for JET_DBINFOUPGRADE {
 impl ::std::cmp::Eq for JET_DBINFOUPGRADE {}
 unsafe impl ::windows::runtime::Abi for JET_DBINFOUPGRADE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1108,7 +1081,6 @@ impl ::std::cmp::PartialEq for JET_DBINFOUPGRADE_0 {
 impl ::std::cmp::Eq for JET_DBINFOUPGRADE_0 {}
 unsafe impl ::windows::runtime::Abi for JET_DBINFOUPGRADE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1135,7 +1107,6 @@ impl ::std::cmp::PartialEq for JET_DBINFOUPGRADE_0_0 {
 impl ::std::cmp::Eq for JET_DBINFOUPGRADE_0_0 {}
 unsafe impl ::windows::runtime::Abi for JET_DBINFOUPGRADE_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub const JET_DbInfoCollate: u32 = 5u32;
@@ -1199,7 +1170,6 @@ impl ::std::cmp::PartialEq for JET_ENUMCOLUMN {
 impl ::std::cmp::Eq for JET_ENUMCOLUMN {}
 unsafe impl ::windows::runtime::Abi for JET_ENUMCOLUMN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1222,7 +1192,6 @@ impl ::std::cmp::PartialEq for JET_ENUMCOLUMN_0 {
 impl ::std::cmp::Eq for JET_ENUMCOLUMN_0 {}
 unsafe impl ::windows::runtime::Abi for JET_ENUMCOLUMN_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1250,7 +1219,6 @@ impl ::std::cmp::PartialEq for JET_ENUMCOLUMN_0_0 {
 impl ::std::cmp::Eq for JET_ENUMCOLUMN_0_0 {}
 unsafe impl ::windows::runtime::Abi for JET_ENUMCOLUMN_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1278,7 +1246,6 @@ impl ::std::cmp::PartialEq for JET_ENUMCOLUMN_0_1 {
 impl ::std::cmp::Eq for JET_ENUMCOLUMN_0_1 {}
 unsafe impl ::windows::runtime::Abi for JET_ENUMCOLUMN_0_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1307,7 +1274,6 @@ impl ::std::cmp::PartialEq for JET_ENUMCOLUMNID {
 impl ::std::cmp::Eq for JET_ENUMCOLUMNID {}
 unsafe impl ::windows::runtime::Abi for JET_ENUMCOLUMNID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1337,7 +1303,6 @@ impl ::std::cmp::PartialEq for JET_ENUMCOLUMNVALUE {
 impl ::std::cmp::Eq for JET_ENUMCOLUMNVALUE {}
 unsafe impl ::windows::runtime::Abi for JET_ENUMCOLUMNVALUE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1368,7 +1333,6 @@ impl ::std::convert::From<i32> for JET_ERRCAT {
 }
 unsafe impl ::windows::runtime::Abi for JET_ERRCAT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1407,7 +1371,6 @@ impl ::std::cmp::PartialEq for JET_ERRINFOBASIC_W {
 impl ::std::cmp::Eq for JET_ERRINFOBASIC_W {}
 unsafe impl ::windows::runtime::Abi for JET_ERRINFOBASIC_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub const JET_EventLoggingDisable: u32 = 0u32;
@@ -1442,7 +1405,6 @@ impl ::std::convert::From<i32> for JET_INDEXCHECKING {
 }
 unsafe impl ::windows::runtime::Abi for JET_INDEXCHECKING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1482,7 +1444,6 @@ impl ::std::cmp::Eq for JET_INDEXCREATE2_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE2_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1505,7 +1466,6 @@ impl ::std::cmp::PartialEq for JET_INDEXCREATE2_A_0 {
 impl ::std::cmp::Eq for JET_INDEXCREATE2_A_0 {}
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE2_A_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1528,7 +1488,6 @@ impl ::std::cmp::PartialEq for JET_INDEXCREATE2_A_1 {
 impl ::std::cmp::Eq for JET_INDEXCREATE2_A_1 {}
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE2_A_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1568,7 +1527,6 @@ impl ::std::cmp::Eq for JET_INDEXCREATE2_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE2_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1591,7 +1549,6 @@ impl ::std::cmp::PartialEq for JET_INDEXCREATE2_W_0 {
 impl ::std::cmp::Eq for JET_INDEXCREATE2_W_0 {}
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE2_W_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1614,7 +1571,6 @@ impl ::std::cmp::PartialEq for JET_INDEXCREATE2_W_1 {
 impl ::std::cmp::Eq for JET_INDEXCREATE2_W_1 {}
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE2_W_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1654,7 +1610,6 @@ impl ::std::cmp::Eq for JET_INDEXCREATE3_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE3_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1677,7 +1632,6 @@ impl ::std::cmp::PartialEq for JET_INDEXCREATE3_A_0 {
 impl ::std::cmp::Eq for JET_INDEXCREATE3_A_0 {}
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE3_A_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1717,7 +1671,6 @@ impl ::std::cmp::Eq for JET_INDEXCREATE3_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE3_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1740,7 +1693,6 @@ impl ::std::cmp::PartialEq for JET_INDEXCREATE3_W_0 {
 impl ::std::cmp::Eq for JET_INDEXCREATE3_W_0 {}
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE3_W_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1779,7 +1731,6 @@ impl ::std::cmp::Eq for JET_INDEXCREATE_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1802,7 +1753,6 @@ impl ::std::cmp::PartialEq for JET_INDEXCREATE_A_0 {
 impl ::std::cmp::Eq for JET_INDEXCREATE_A_0 {}
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE_A_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1825,7 +1775,6 @@ impl ::std::cmp::PartialEq for JET_INDEXCREATE_A_1 {
 impl ::std::cmp::Eq for JET_INDEXCREATE_A_1 {}
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE_A_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1864,7 +1813,6 @@ impl ::std::cmp::Eq for JET_INDEXCREATE_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1887,7 +1835,6 @@ impl ::std::cmp::PartialEq for JET_INDEXCREATE_W_0 {
 impl ::std::cmp::Eq for JET_INDEXCREATE_W_0 {}
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE_W_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1910,7 +1857,6 @@ impl ::std::cmp::PartialEq for JET_INDEXCREATE_W_1 {
 impl ::std::cmp::Eq for JET_INDEXCREATE_W_1 {}
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE_W_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1938,7 +1884,6 @@ impl ::std::cmp::PartialEq for JET_INDEXID {
 impl ::std::cmp::Eq for JET_INDEXID {}
 unsafe impl ::windows::runtime::Abi for JET_INDEXID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2028,7 +1973,6 @@ impl ::std::cmp::Eq for JET_INDEXLIST {}
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXLIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2064,7 +2008,6 @@ impl ::std::cmp::Eq for JET_INDEXRANGE {}
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXRANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2095,7 +2038,6 @@ impl ::std::cmp::PartialEq for JET_INDEX_COLUMN {
 impl ::std::cmp::Eq for JET_INDEX_COLUMN {}
 unsafe impl ::windows::runtime::Abi for JET_INDEX_COLUMN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2125,7 +2067,6 @@ impl ::std::cmp::PartialEq for JET_INDEX_RANGE {
 impl ::std::cmp::Eq for JET_INDEX_RANGE {}
 unsafe impl ::windows::runtime::Abi for JET_INDEX_RANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2171,7 +2112,6 @@ impl ::std::cmp::Eq for JET_INSTANCE_INFO_A {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_INSTANCE_INFO_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2217,7 +2157,6 @@ impl ::std::cmp::Eq for JET_INSTANCE_INFO_W {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_INSTANCE_INFO_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub const JET_IOPriorityLow: u32 = 1u32;
@@ -2245,7 +2184,6 @@ impl ::std::cmp::PartialEq for JET_LGPOS {
 impl ::std::cmp::Eq for JET_LGPOS {}
 unsafe impl ::windows::runtime::Abi for JET_LGPOS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2282,7 +2220,6 @@ impl ::std::cmp::Eq for JET_LOGINFO_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_LOGINFO_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2312,7 +2249,6 @@ impl ::std::cmp::PartialEq for JET_LOGINFO_W {
 impl ::std::cmp::Eq for JET_LOGINFO_W {}
 unsafe impl ::windows::runtime::Abi for JET_LOGINFO_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2347,7 +2283,6 @@ impl ::std::cmp::Eq for JET_LOGTIME {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_LOGTIME {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2376,7 +2311,6 @@ impl ::std::cmp::Eq for JET_LOGTIME_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_LOGTIME_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2403,7 +2337,6 @@ impl ::std::cmp::PartialEq for JET_LOGTIME_0_0 {
 impl ::std::cmp::Eq for JET_LOGTIME_0_0 {}
 unsafe impl ::windows::runtime::Abi for JET_LOGTIME_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2432,7 +2365,6 @@ impl ::std::cmp::Eq for JET_LOGTIME_1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_LOGTIME_1 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2459,7 +2391,6 @@ impl ::std::cmp::PartialEq for JET_LOGTIME_1_0 {
 impl ::std::cmp::Eq for JET_LOGTIME_1_0 {}
 unsafe impl ::windows::runtime::Abi for JET_LOGTIME_1_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -2472,7 +2403,6 @@ impl ::std::default::Default for JET_LS {
 unsafe impl ::windows::runtime::Handle for JET_LS {}
 unsafe impl ::windows::runtime::Abi for JET_LS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub const JET_MAX_COMPUTERNAME_LENGTH: u32 = 15u32;
@@ -2514,7 +2444,6 @@ impl ::std::cmp::PartialEq for JET_OBJECTINFO {
 impl ::std::cmp::Eq for JET_OBJECTINFO {}
 unsafe impl ::windows::runtime::Abi for JET_OBJECTINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2583,7 +2512,6 @@ impl ::std::cmp::Eq for JET_OBJECTLIST {}
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 unsafe impl ::windows::runtime::Abi for JET_OBJECTLIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2635,7 +2563,6 @@ impl ::std::cmp::Eq for JET_OPENTEMPORARYTABLE {}
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 unsafe impl ::windows::runtime::Abi for JET_OPENTEMPORARYTABLE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2687,7 +2614,6 @@ impl ::std::cmp::Eq for JET_OPENTEMPORARYTABLE2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_OPENTEMPORARYTABLE2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2718,7 +2644,6 @@ impl ::std::cmp::PartialEq for JET_OPERATIONCONTEXT {
 impl ::std::cmp::Eq for JET_OPERATIONCONTEXT {}
 unsafe impl ::windows::runtime::Abi for JET_OPERATIONCONTEXT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -2731,7 +2656,6 @@ impl ::std::default::Default for JET_OSSNAPID {
 unsafe impl ::windows::runtime::Handle for JET_OSSNAPID {}
 unsafe impl ::windows::runtime::Abi for JET_OSSNAPID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub const JET_OnlineDefragAll: u32 = 65535u32;
@@ -2779,7 +2703,6 @@ impl ::std::cmp::Eq for JET_RBSINFOMISC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_RBSINFOMISC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2813,7 +2736,6 @@ impl ::std::cmp::Eq for JET_RBSREVERTINFOMISC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_RBSREVERTINFOMISC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2850,7 +2772,6 @@ impl ::std::cmp::Eq for JET_RECORDLIST {}
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 unsafe impl ::windows::runtime::Abi for JET_RECORDLIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2880,7 +2801,6 @@ impl ::std::cmp::PartialEq for JET_RECPOS {
 impl ::std::cmp::Eq for JET_RECPOS {}
 unsafe impl ::windows::runtime::Abi for JET_RECPOS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2923,7 +2843,6 @@ impl ::std::cmp::PartialEq for JET_RECSIZE {
 impl ::std::cmp::Eq for JET_RECSIZE {}
 unsafe impl ::windows::runtime::Abi for JET_RECSIZE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2982,7 +2901,6 @@ impl ::std::cmp::PartialEq for JET_RECSIZE2 {
 impl ::std::cmp::Eq for JET_RECSIZE2 {}
 unsafe impl ::windows::runtime::Abi for JET_RECSIZE2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3004,7 +2922,6 @@ impl ::std::convert::From<i32> for JET_RELOP {
 }
 unsafe impl ::windows::runtime::Abi for JET_RELOP {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3034,7 +2951,6 @@ impl ::std::cmp::PartialEq for JET_RETINFO {
 impl ::std::cmp::Eq for JET_RETINFO {}
 unsafe impl ::windows::runtime::Abi for JET_RETINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3079,7 +2995,6 @@ impl ::std::cmp::PartialEq for JET_RETRIEVECOLUMN {
 impl ::std::cmp::Eq for JET_RETRIEVECOLUMN {}
 unsafe impl ::windows::runtime::Abi for JET_RETRIEVECOLUMN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl ::std::clone::Clone for JET_RSTINFO_A {
@@ -3117,7 +3032,6 @@ impl ::std::cmp::Eq for JET_RSTINFO_A {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_RSTINFO_A {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 impl ::std::clone::Clone for JET_RSTINFO_W {
@@ -3155,7 +3069,6 @@ impl ::std::cmp::Eq for JET_RSTINFO_W {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_RSTINFO_W {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3190,7 +3103,6 @@ impl ::std::cmp::Eq for JET_RSTMAP_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_RSTMAP_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3225,7 +3137,6 @@ impl ::std::cmp::Eq for JET_RSTMAP_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_RSTMAP_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3258,7 +3169,6 @@ impl ::std::cmp::PartialEq for JET_SETCOLUMN {
 impl ::std::cmp::Eq for JET_SETCOLUMN {}
 unsafe impl ::windows::runtime::Abi for JET_SETCOLUMN {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3287,7 +3197,6 @@ impl ::std::cmp::PartialEq for JET_SETINFO {
 impl ::std::cmp::Eq for JET_SETINFO {}
 unsafe impl ::windows::runtime::Abi for JET_SETINFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3324,7 +3233,6 @@ impl ::std::cmp::Eq for JET_SETSYSPARAM_A {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_SETSYSPARAM_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3361,7 +3269,6 @@ impl ::std::cmp::Eq for JET_SETSYSPARAM_W {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_SETSYSPARAM_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -3391,7 +3298,6 @@ impl ::std::cmp::Eq for JET_SIGNATURE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_SIGNATURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3420,7 +3326,6 @@ impl ::std::cmp::PartialEq for JET_SNPROG {
 impl ::std::cmp::Eq for JET_SNPROG {}
 unsafe impl ::windows::runtime::Abi for JET_SNPROG {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3463,7 +3368,6 @@ impl ::std::cmp::PartialEq for JET_SPACEHINTS {
 impl ::std::cmp::Eq for JET_SPACEHINTS {}
 unsafe impl ::windows::runtime::Abi for JET_SPACEHINTS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3538,7 +3442,6 @@ impl ::std::cmp::Eq for JET_TABLECREATE2_A {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_TABLECREATE2_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3613,7 +3516,6 @@ impl ::std::cmp::Eq for JET_TABLECREATE2_W {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_TABLECREATE2_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3697,7 +3599,6 @@ impl ::std::cmp::Eq for JET_TABLECREATE3_A {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_TABLECREATE3_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3781,7 +3682,6 @@ impl ::std::cmp::Eq for JET_TABLECREATE3_W {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_TABLECREATE3_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3865,7 +3765,6 @@ impl ::std::cmp::Eq for JET_TABLECREATE4_A {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_TABLECREATE4_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3949,7 +3848,6 @@ impl ::std::cmp::Eq for JET_TABLECREATE4_W {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_TABLECREATE4_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4007,7 +3905,6 @@ impl ::std::cmp::Eq for JET_TABLECREATE_A {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_TABLECREATE_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4065,7 +3962,6 @@ impl ::std::cmp::Eq for JET_TABLECREATE_W {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for JET_TABLECREATE_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4108,7 +4004,6 @@ impl ::std::cmp::PartialEq for JET_THREADSTATS {
 impl ::std::cmp::Eq for JET_THREADSTATS {}
 unsafe impl ::windows::runtime::Abi for JET_THREADSTATS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4155,7 +4050,6 @@ impl ::std::cmp::PartialEq for JET_THREADSTATS2 {
 impl ::std::cmp::Eq for JET_THREADSTATS2 {}
 unsafe impl ::windows::runtime::Abi for JET_THREADSTATS2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4186,7 +4080,6 @@ impl ::std::cmp::PartialEq for JET_TUPLELIMITS {
 impl ::std::cmp::Eq for JET_TUPLELIMITS {}
 unsafe impl ::windows::runtime::Abi for JET_TUPLELIMITS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4214,7 +4107,6 @@ impl ::std::cmp::PartialEq for JET_UNICODEINDEX {
 impl ::std::cmp::Eq for JET_UNICODEINDEX {}
 unsafe impl ::windows::runtime::Abi for JET_UNICODEINDEX {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4249,7 +4141,6 @@ impl ::std::cmp::Eq for JET_UNICODEINDEX2 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_UNICODEINDEX2 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4286,7 +4177,6 @@ impl ::std::cmp::Eq for JET_USERDEFINEDDEFAULT_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_USERDEFINEDDEFAULT_A {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4323,7 +4213,6 @@ impl ::std::cmp::Eq for JET_USERDEFINEDDEFAULT_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_USERDEFINEDDEFAULT_W {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub const JET_bitAbortSnapshot: u32 = 1u32;

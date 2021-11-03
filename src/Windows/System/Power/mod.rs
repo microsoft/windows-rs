@@ -123,10 +123,12 @@ impl ::std::convert::From<i32> for BatteryStatus {
 }
 unsafe impl ::windows::runtime::Abi for BatteryStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BatteryStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.Power.BatteryStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for BatteryStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System_Power`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -144,10 +146,12 @@ impl ::std::convert::From<i32> for EnergySaverStatus {
 }
 unsafe impl ::windows::runtime::Abi for EnergySaverStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for EnergySaverStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.Power.EnergySaverStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for EnergySaverStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `System_Power`*"]
 pub struct ForegroundEnergyManager {}
@@ -239,7 +243,6 @@ impl ::windows::runtime::RuntimeName for ForegroundEnergyManager {
     const NAME: &'static str = "Windows.System.Power.ForegroundEnergyManager";
 }
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IBackgroundEnergyManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBackgroundEnergyManagerStatics {
@@ -273,7 +276,6 @@ pub struct IBackgroundEnergyManagerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IForegroundEnergyManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IForegroundEnergyManagerStatics {
@@ -305,7 +307,6 @@ pub struct IForegroundEnergyManagerStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IPowerManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPowerManagerStatics {
@@ -476,8 +477,10 @@ impl ::std::convert::From<i32> for PowerSupplyStatus {
 }
 unsafe impl ::windows::runtime::Abi for PowerSupplyStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PowerSupplyStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.System.Power.PowerSupplyStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for PowerSupplyStatus {
+    type DefaultType = Self;
 }

@@ -158,7 +158,6 @@ impl ::std::default::Default for HRAWINPUT {
 unsafe impl ::windows::runtime::Handle for HRAWINPUT {}
 unsafe impl ::windows::runtime::Abi for HRAWINPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -177,7 +176,6 @@ impl ::std::convert::From<i32> for INPUT_MESSAGE_DEVICE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for INPUT_MESSAGE_DEVICE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -194,7 +192,6 @@ impl ::std::convert::From<i32> for INPUT_MESSAGE_ORIGIN_ID {
 }
 unsafe impl ::windows::runtime::Abi for INPUT_MESSAGE_ORIGIN_ID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -222,7 +219,6 @@ impl ::std::cmp::PartialEq for INPUT_MESSAGE_SOURCE {
 impl ::std::cmp::Eq for INPUT_MESSAGE_SOURCE {}
 unsafe impl ::windows::runtime::Abi for INPUT_MESSAGE_SOURCE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -251,7 +247,6 @@ impl ::std::cmp::PartialEq for RAWHID {
 impl ::std::cmp::Eq for RAWHID {}
 unsafe impl ::windows::runtime::Abi for RAWHID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -280,7 +275,6 @@ impl ::std::cmp::Eq for RAWINPUT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RAWINPUT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -304,7 +298,6 @@ impl ::std::cmp::PartialEq for RAWINPUT_0 {
 impl ::std::cmp::Eq for RAWINPUT_0 {}
 unsafe impl ::windows::runtime::Abi for RAWINPUT_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -341,7 +334,6 @@ impl ::std::cmp::Eq for RAWINPUTDEVICE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RAWINPUTDEVICE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -376,7 +368,6 @@ impl ::std::cmp::Eq for RAWINPUTDEVICELIST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RAWINPUTDEVICELIST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -399,7 +390,6 @@ impl ::std::convert::From<u32> for RAWINPUTDEVICE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for RAWINPUTDEVICE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for RAWINPUTDEVICE_FLAGS {
     type Output = Self;
@@ -464,7 +454,6 @@ impl ::std::cmp::Eq for RAWINPUTHEADER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RAWINPUTHEADER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -496,7 +485,6 @@ impl ::std::cmp::PartialEq for RAWKEYBOARD {
 impl ::std::cmp::Eq for RAWKEYBOARD {}
 unsafe impl ::windows::runtime::Abi for RAWKEYBOARD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -523,7 +511,6 @@ impl ::std::cmp::PartialEq for RAWMOUSE {
 impl ::std::cmp::Eq for RAWMOUSE {}
 unsafe impl ::windows::runtime::Abi for RAWMOUSE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -546,7 +533,6 @@ impl ::std::cmp::PartialEq for RAWMOUSE_0 {
 impl ::std::cmp::Eq for RAWMOUSE_0 {}
 unsafe impl ::windows::runtime::Abi for RAWMOUSE_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -574,7 +560,6 @@ impl ::std::cmp::PartialEq for RAWMOUSE_0_0 {
 impl ::std::cmp::Eq for RAWMOUSE_0_0 {}
 unsafe impl ::windows::runtime::Abi for RAWMOUSE_0_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -589,7 +574,6 @@ impl ::std::convert::From<u32> for RAW_INPUT_DATA_COMMAND_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for RAW_INPUT_DATA_COMMAND_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for RAW_INPUT_DATA_COMMAND_FLAGS {
     type Output = Self;
@@ -633,7 +617,6 @@ impl ::std::convert::From<u32> for RAW_INPUT_DEVICE_INFO_COMMAND {
 }
 unsafe impl ::windows::runtime::Abi for RAW_INPUT_DEVICE_INFO_COMMAND {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for RAW_INPUT_DEVICE_INFO_COMMAND {
     type Output = Self;
@@ -691,7 +674,6 @@ impl ::std::cmp::Eq for RID_DEVICE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RID_DEVICE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -721,7 +703,6 @@ impl ::std::cmp::Eq for RID_DEVICE_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RID_DEVICE_INFO_0 {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -752,7 +733,6 @@ impl ::std::cmp::PartialEq for RID_DEVICE_INFO_HID {
 impl ::std::cmp::Eq for RID_DEVICE_INFO_HID {}
 unsafe impl ::windows::runtime::Abi for RID_DEVICE_INFO_HID {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -791,7 +771,6 @@ impl ::std::cmp::PartialEq for RID_DEVICE_INFO_KEYBOARD {
 impl ::std::cmp::Eq for RID_DEVICE_INFO_KEYBOARD {}
 unsafe impl ::windows::runtime::Abi for RID_DEVICE_INFO_KEYBOARD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -828,7 +807,6 @@ impl ::std::cmp::Eq for RID_DEVICE_INFO_MOUSE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RID_DEVICE_INFO_MOUSE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_UI_Input`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -844,7 +822,6 @@ impl ::std::convert::From<u32> for RID_DEVICE_INFO_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for RID_DEVICE_INFO_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for RID_DEVICE_INFO_TYPE {
     type Output = Self;

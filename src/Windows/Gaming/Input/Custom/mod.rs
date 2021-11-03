@@ -61,10 +61,12 @@ impl ::std::cmp::PartialEq for GameControllerVersionInfo {
 impl ::std::cmp::Eq for GameControllerVersionInfo {}
 unsafe impl ::windows::runtime::Abi for GameControllerVersionInfo {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GameControllerVersionInfo {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.Custom.GameControllerVersionInfo;u2;u2;u2;u2)");
+}
+impl ::windows::runtime::DefaultType for GameControllerVersionInfo {
+    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -92,10 +94,12 @@ impl ::std::cmp::PartialEq for GipFirmwareUpdateProgress {
 impl ::std::cmp::Eq for GipFirmwareUpdateProgress {}
 unsafe impl ::windows::runtime::Abi for GipFirmwareUpdateProgress {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GipFirmwareUpdateProgress {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.Custom.GipFirmwareUpdateProgress;f8;u4)");
+}
+impl ::windows::runtime::DefaultType for GipFirmwareUpdateProgress {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Gaming_Input_Custom`*"]
 #[repr(transparent)]
@@ -155,10 +159,12 @@ impl ::std::convert::From<i32> for GipFirmwareUpdateStatus {
 }
 unsafe impl ::windows::runtime::Abi for GipFirmwareUpdateStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GipFirmwareUpdateStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.GipFirmwareUpdateStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for GipFirmwareUpdateStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Gaming_Input_Custom`*"]
 #[repr(transparent)]
@@ -166,12 +172,12 @@ unsafe impl ::windows::runtime::RuntimeType for GipFirmwareUpdateStatus {
 pub struct GipGameControllerProvider(::windows::runtime::IInspectable);
 impl GipGameControllerProvider {
     #[doc = "*Required features: `Gaming_Input_Custom`*"]
-    pub fn SendMessage(&self, messageclass: GipMessageClass, messageid: u8, messagebuffer: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn SendMessage(&self, messageclass: GipMessageClass, messageid: u8, messagebuffer: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), messageclass, messageid, messagebuffer.len() as u32, ::std::mem::transmute(messagebuffer.as_ptr())).ok() }
     }
     #[doc = "*Required features: `Gaming_Input_Custom`*"]
-    pub fn SendReceiveMessage(&self, messageclass: GipMessageClass, messageid: u8, requestmessagebuffer: &[<u8 as ::windows::runtime::Abi>::DefaultType], responsemessagebuffer: &mut [<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn SendReceiveMessage(&self, messageclass: GipMessageClass, messageid: u8, requestmessagebuffer: &[<u8 as ::windows::runtime::DefaultType>::DefaultType], responsemessagebuffer: &mut [<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), messageclass, messageid, requestmessagebuffer.len() as u32, ::std::mem::transmute(requestmessagebuffer.as_ptr()), responsemessagebuffer.len() as u32, ::std::mem::transmute_copy(&responsemessagebuffer)).ok() }
     }
@@ -275,10 +281,12 @@ impl ::std::convert::From<i32> for GipMessageClass {
 }
 unsafe impl ::windows::runtime::Abi for GipMessageClass {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GipMessageClass {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.GipMessageClass;i4)");
+}
+impl ::windows::runtime::DefaultType for GipMessageClass {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Gaming_Input_Custom`*"]
 #[repr(transparent)]
@@ -342,17 +350,17 @@ impl HidGameControllerProvider {
         }
     }
     #[doc = "*Required features: `Gaming_Input_Custom`*"]
-    pub fn GetFeatureReport(&self, reportid: u8, reportbuffer: &mut [<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn GetFeatureReport(&self, reportid: u8, reportbuffer: &mut [<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), reportid, reportbuffer.len() as u32, ::std::mem::transmute_copy(&reportbuffer)).ok() }
     }
     #[doc = "*Required features: `Gaming_Input_Custom`*"]
-    pub fn SendFeatureReport(&self, reportid: u8, reportbuffer: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn SendFeatureReport(&self, reportid: u8, reportbuffer: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), reportid, reportbuffer.len() as u32, ::std::mem::transmute(reportbuffer.as_ptr())).ok() }
     }
     #[doc = "*Required features: `Gaming_Input_Custom`*"]
-    pub fn SendOutputReport(&self, reportid: u8, reportbuffer: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn SendOutputReport(&self, reportid: u8, reportbuffer: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), reportid, reportbuffer.len() as u32, ::std::mem::transmute(reportbuffer.as_ptr())).ok() }
     }
@@ -436,7 +444,6 @@ pub struct ICustomGameControllerFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGameControllerFactoryManagerStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameControllerFactoryManagerStatics {
@@ -457,7 +464,6 @@ pub struct IGameControllerFactoryManagerStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, factory: ::windows::runtime::RawPtr, xusbtype: XusbDeviceType, xusbsubtype: XusbDeviceSubtype) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGameControllerFactoryManagerStatics2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGameControllerFactoryManagerStatics2 {
@@ -579,7 +585,6 @@ pub struct IGameControllerProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGipFirmwareUpdateResult(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGipFirmwareUpdateResult {
@@ -614,7 +619,7 @@ impl IGipGameControllerInputSink {
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), timestamp, keycode, ispressed).ok() }
     }
     #[doc = "*Required features: `Gaming_Input_Custom`*"]
-    pub fn OnMessageReceived(&self, timestamp: u64, messageclass: GipMessageClass, messageid: u8, sequenceid: u8, messagebuffer: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn OnMessageReceived(&self, timestamp: u64, messageclass: GipMessageClass, messageid: u8, sequenceid: u8, messagebuffer: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), timestamp, messageclass, messageid, sequenceid, messagebuffer.len() as u32, ::std::mem::transmute(messagebuffer.as_ptr())).ok() }
     }
@@ -667,7 +672,6 @@ pub struct IGipGameControllerInputSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, timestamp: u64, messageclass: GipMessageClass, messageid: u8, sequenceid: u8, messageBuffer_array_size: u32, messagebuffer: *const u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IGipGameControllerProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGipGameControllerProvider {
@@ -708,7 +712,7 @@ impl IHidGameControllerInputSink {
         unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), timestamp).ok() }
     }
     #[doc = "*Required features: `Gaming_Input_Custom`*"]
-    pub fn OnInputReportReceived(&self, timestamp: u64, reportid: u8, reportbuffer: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn OnInputReportReceived(&self, timestamp: u64, reportid: u8, reportbuffer: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), timestamp, reportid, reportbuffer.len() as u32, ::std::mem::transmute(reportbuffer.as_ptr())).ok() }
     }
@@ -750,7 +754,6 @@ pub struct IHidGameControllerInputSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, timestamp: u64, reportid: u8, reportBuffer_array_size: u32, reportbuffer: *const u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHidGameControllerProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHidGameControllerProvider {
@@ -782,7 +785,7 @@ unsafe impl ::windows::runtime::Interface for IXusbGameControllerInputSink {
 }
 impl IXusbGameControllerInputSink {
     #[doc = "*Required features: `Gaming_Input_Custom`*"]
-    pub fn OnInputReceived(&self, timestamp: u64, reportid: u8, inputbuffer: &[<u8 as ::windows::runtime::Abi>::DefaultType]) -> ::windows::runtime::Result<()> {
+    pub fn OnInputReceived(&self, timestamp: u64, reportid: u8, inputbuffer: &[<u8 as ::windows::runtime::DefaultType>::DefaultType]) -> ::windows::runtime::Result<()> {
         let this = self;
         unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), timestamp, reportid, inputbuffer.len() as u32, ::std::mem::transmute(inputbuffer.as_ptr())).ok() }
     }
@@ -834,7 +837,6 @@ pub struct IXusbGameControllerInputSink_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, timestamp: u64, reportid: u8, inputBuffer_array_size: u32, inputbuffer: *const u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXusbGameControllerProvider(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXusbGameControllerProvider {
@@ -876,10 +878,12 @@ impl ::std::convert::From<i32> for XusbDeviceSubtype {
 }
 unsafe impl ::windows::runtime::Abi for XusbDeviceSubtype {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for XusbDeviceSubtype {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.XusbDeviceSubtype;i4)");
+}
+impl ::windows::runtime::DefaultType for XusbDeviceSubtype {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Gaming_Input_Custom`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -896,10 +900,12 @@ impl ::std::convert::From<i32> for XusbDeviceType {
 }
 unsafe impl ::windows::runtime::Abi for XusbDeviceType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for XusbDeviceType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.XusbDeviceType;i4)");
+}
+impl ::windows::runtime::DefaultType for XusbDeviceType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Gaming_Input_Custom`*"]
 #[repr(transparent)]

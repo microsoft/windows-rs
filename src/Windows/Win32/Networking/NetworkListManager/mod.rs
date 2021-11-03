@@ -702,7 +702,6 @@ impl ::std::convert::From<i32> for NLM_CONNECTION_COST {
 }
 unsafe impl ::windows::runtime::Abi for NLM_CONNECTION_COST {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -716,7 +715,6 @@ impl ::std::convert::From<i32> for NLM_CONNECTION_PROPERTY_CHANGE {
 }
 unsafe impl ::windows::runtime::Abi for NLM_CONNECTION_PROPERTY_CHANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -738,7 +736,6 @@ impl ::std::convert::From<i32> for NLM_CONNECTIVITY {
 }
 unsafe impl ::windows::runtime::Abi for NLM_CONNECTIVITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -788,7 +785,6 @@ impl ::std::cmp::Eq for NLM_DATAPLAN_STATUS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NLM_DATAPLAN_STATUS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -804,7 +800,6 @@ impl ::std::convert::From<i32> for NLM_DOMAIN_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for NLM_DOMAIN_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -820,7 +815,6 @@ impl ::std::convert::From<i32> for NLM_ENUM_NETWORK {
 }
 unsafe impl ::windows::runtime::Abi for NLM_ENUM_NETWORK {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -836,7 +830,6 @@ impl ::std::convert::From<i32> for NLM_INTERNET_CONNECTIVITY {
 }
 unsafe impl ::windows::runtime::Abi for NLM_INTERNET_CONNECTIVITY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 pub const NLM_MAX_ADDRESS_LIST_SIZE: u32 = 10u32;
@@ -854,7 +847,6 @@ impl ::std::convert::From<i32> for NLM_NETWORK_CATEGORY {
 }
 unsafe impl ::windows::runtime::Abi for NLM_NETWORK_CATEGORY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -870,7 +862,6 @@ impl ::std::convert::From<i32> for NLM_NETWORK_CLASS {
 }
 unsafe impl ::windows::runtime::Abi for NLM_NETWORK_CLASS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -888,7 +879,6 @@ impl ::std::convert::From<i32> for NLM_NETWORK_PROPERTY_CHANGE {
 }
 unsafe impl ::windows::runtime::Abi for NLM_NETWORK_PROPERTY_CHANGE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -918,7 +908,6 @@ impl ::std::cmp::PartialEq for NLM_SIMULATED_PROFILE_INFO {
 impl ::std::cmp::Eq for NLM_SIMULATED_PROFILE_INFO {}
 unsafe impl ::windows::runtime::Abi for NLM_SIMULATED_PROFILE_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -945,7 +934,6 @@ impl ::std::cmp::PartialEq for NLM_SOCKADDR {
 impl ::std::cmp::Eq for NLM_SOCKADDR {}
 unsafe impl ::windows::runtime::Abi for NLM_SOCKADDR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_Networking_NetworkListManager`*"]
 pub const NLM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295u32;
@@ -982,6 +970,5 @@ impl ::std::cmp::Eq for NLM_USAGE_DATA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NLM_USAGE_DATA {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const NetworkListManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3702524929, 22287, 19099, [141, 105, 25, 159, 219, 165, 114, 59]);

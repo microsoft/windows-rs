@@ -56,7 +56,6 @@ impl ::std::cmp::PartialEq for DML_ACTIVATION_CELU_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ACTIVATION_CELU_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_CELU_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -85,7 +84,6 @@ impl ::std::cmp::PartialEq for DML_ACTIVATION_ELU_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ACTIVATION_ELU_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_ELU_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -113,7 +111,6 @@ impl ::std::cmp::PartialEq for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -143,7 +140,6 @@ impl ::std::cmp::PartialEq for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -171,7 +167,6 @@ impl ::std::cmp::PartialEq for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -200,7 +195,6 @@ impl ::std::cmp::PartialEq for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -230,7 +224,6 @@ impl ::std::cmp::PartialEq for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ACTIVATION_LINEAR_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -258,7 +251,6 @@ impl ::std::cmp::PartialEq for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -287,7 +279,6 @@ impl ::std::cmp::PartialEq for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -317,7 +308,6 @@ impl ::std::cmp::PartialEq for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC 
 impl ::std::cmp::Eq for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -346,7 +336,6 @@ impl ::std::cmp::PartialEq for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -374,7 +363,6 @@ impl ::std::cmp::PartialEq for DML_ACTIVATION_RELU_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ACTIVATION_RELU_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_RELU_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -404,7 +392,6 @@ impl ::std::cmp::PartialEq for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -434,7 +421,6 @@ impl ::std::cmp::PartialEq for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -464,7 +450,6 @@ impl ::std::cmp::PartialEq for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ACTIVATION_SHRINK_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -492,7 +477,6 @@ impl ::std::cmp::PartialEq for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -520,7 +504,6 @@ impl ::std::cmp::PartialEq for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -549,7 +532,6 @@ impl ::std::cmp::PartialEq for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -577,7 +559,6 @@ impl ::std::cmp::PartialEq for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -605,7 +586,6 @@ impl ::std::cmp::PartialEq for DML_ACTIVATION_TANH_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ACTIVATION_TANH_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_TANH_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -634,7 +614,6 @@ impl ::std::cmp::PartialEq for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -696,7 +675,6 @@ impl ::std::cmp::PartialEq for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ADAM_OPTIMIZER_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -727,7 +705,6 @@ impl ::std::cmp::PartialEq for DML_ARGMAX_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ARGMAX_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ARGMAX_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -758,7 +735,6 @@ impl ::std::cmp::PartialEq for DML_ARGMIN_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ARGMIN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ARGMIN_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -808,7 +784,6 @@ impl ::std::cmp::Eq for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -858,7 +833,6 @@ impl ::std::cmp::Eq for DML_AVERAGE_POOLING_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_AVERAGE_POOLING_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -873,7 +847,6 @@ impl ::std::convert::From<i32> for DML_AXIS_DIRECTION {
 }
 unsafe impl ::windows::runtime::Abi for DML_AXIS_DIRECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -918,7 +891,6 @@ impl ::std::cmp::PartialEq for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -970,7 +942,6 @@ impl ::std::cmp::Eq for DML_BATCH_NORMALIZATION_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -998,7 +969,6 @@ impl ::std::cmp::PartialEq for DML_BINDING_DESC {
 impl ::std::cmp::Eq for DML_BINDING_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_BINDING_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1027,7 +997,6 @@ impl ::std::cmp::PartialEq for DML_BINDING_PROPERTIES {
 impl ::std::cmp::Eq for DML_BINDING_PROPERTIES {}
 unsafe impl ::windows::runtime::Abi for DML_BINDING_PROPERTIES {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1064,7 +1033,6 @@ impl ::std::cmp::Eq for DML_BINDING_TABLE_DESC {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::runtime::Abi for DML_BINDING_TABLE_DESC {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1080,7 +1048,6 @@ impl ::std::convert::From<i32> for DML_BINDING_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DML_BINDING_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1115,7 +1082,6 @@ impl ::std::cmp::Eq for DML_BUFFER_ARRAY_BINDING {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::runtime::Abi for DML_BUFFER_ARRAY_BINDING {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1151,7 +1117,6 @@ impl ::std::cmp::Eq for DML_BUFFER_BINDING {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::runtime::Abi for DML_BUFFER_BINDING {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1192,7 +1157,6 @@ impl ::std::cmp::PartialEq for DML_BUFFER_TENSOR_DESC {
 impl ::std::cmp::Eq for DML_BUFFER_TENSOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_BUFFER_TENSOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1220,7 +1184,6 @@ impl ::std::cmp::PartialEq for DML_CAST_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_CAST_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_CAST_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1235,7 +1198,6 @@ impl ::std::convert::From<i32> for DML_CONVOLUTION_DIRECTION {
 }
 unsafe impl ::windows::runtime::Abi for DML_CONVOLUTION_DIRECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1284,7 +1246,6 @@ impl ::std::cmp::PartialEq for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1299,7 +1260,6 @@ impl ::std::convert::From<i32> for DML_CONVOLUTION_MODE {
 }
 unsafe impl ::windows::runtime::Abi for DML_CONVOLUTION_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1367,7 +1327,6 @@ impl ::std::cmp::PartialEq for DML_CONVOLUTION_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_CONVOLUTION_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_CONVOLUTION_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1382,7 +1341,6 @@ impl ::std::convert::From<u32> for DML_CREATE_DEVICE_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for DML_CREATE_DEVICE_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DML_CREATE_DEVICE_FLAGS {
     type Output = Self;
@@ -1448,7 +1406,6 @@ impl ::std::cmp::Eq for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1486,7 +1443,6 @@ impl ::std::cmp::Eq for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1501,7 +1457,6 @@ impl ::std::convert::From<i32> for DML_DEPTH_SPACE_ORDER {
 }
 unsafe impl ::windows::runtime::Abi for DML_DEPTH_SPACE_ORDER {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1531,7 +1486,6 @@ impl ::std::cmp::PartialEq for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1560,7 +1514,6 @@ impl ::std::cmp::PartialEq for DML_DEPTH_TO_SPACE_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_DEPTH_TO_SPACE_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_DEPTH_TO_SPACE_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1589,7 +1542,6 @@ impl ::std::cmp::PartialEq for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_DIAGONAL_MATRIX_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1619,7 +1571,6 @@ impl ::std::cmp::PartialEq for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1648,7 +1599,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1677,7 +1627,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1706,7 +1655,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1736,7 +1684,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1765,7 +1712,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1794,7 +1740,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1823,7 +1768,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1852,7 +1796,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1881,7 +1824,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1910,7 +1852,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1939,7 +1880,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1967,7 +1907,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1995,7 +1934,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2024,7 +1962,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2053,7 +1990,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2082,7 +2018,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2111,7 +2046,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2140,7 +2074,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2171,7 +2104,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2202,7 +2134,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2232,7 +2163,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2261,7 +2191,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2290,7 +2219,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_COS_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2320,7 +2248,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC 
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2349,7 +2276,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC 
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2378,7 +2304,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2407,7 +2332,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2436,7 +2360,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2465,7 +2388,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2494,7 +2416,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2524,7 +2445,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_IF_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2553,7 +2473,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2581,7 +2500,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2610,7 +2528,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2639,7 +2556,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2668,7 +2584,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DE
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2697,7 +2612,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OP
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2726,7 +2640,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC 
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2755,7 +2668,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERA
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2783,7 +2695,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2812,7 +2723,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2841,7 +2751,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2870,7 +2779,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2899,7 +2807,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2928,7 +2835,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2957,7 +2863,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2986,7 +2891,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3015,7 +2919,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3044,7 +2947,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3074,7 +2976,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_POW_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3119,7 +3020,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DE
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3149,7 +3049,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3178,7 +3077,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3207,7 +3105,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3235,7 +3132,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3264,7 +3160,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3293,7 +3188,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3322,7 +3216,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3351,7 +3244,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3380,7 +3272,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3409,7 +3300,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3439,7 +3329,6 @@ impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3456,7 +3345,6 @@ impl ::std::convert::From<u32> for DML_EXECUTION_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for DML_EXECUTION_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DML_EXECUTION_FLAGS {
     type Output = Self;
@@ -3499,7 +3387,6 @@ impl ::std::convert::From<i32> for DML_FEATURE {
 }
 unsafe impl ::windows::runtime::Abi for DML_FEATURE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3526,7 +3413,6 @@ impl ::std::cmp::PartialEq for DML_FEATURE_DATA_FEATURE_LEVELS {
 impl ::std::cmp::Eq for DML_FEATURE_DATA_FEATURE_LEVELS {}
 unsafe impl ::windows::runtime::Abi for DML_FEATURE_DATA_FEATURE_LEVELS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3560,7 +3446,6 @@ impl ::std::cmp::Eq for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3579,7 +3464,6 @@ impl ::std::convert::From<i32> for DML_FEATURE_LEVEL {
 }
 unsafe impl ::windows::runtime::Abi for DML_FEATURE_LEVEL {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3607,7 +3491,6 @@ impl ::std::cmp::PartialEq for DML_FEATURE_QUERY_FEATURE_LEVELS {
 impl ::std::cmp::Eq for DML_FEATURE_QUERY_FEATURE_LEVELS {}
 unsafe impl ::windows::runtime::Abi for DML_FEATURE_QUERY_FEATURE_LEVELS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3634,7 +3517,6 @@ impl ::std::cmp::PartialEq for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
 impl ::std::cmp::Eq for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {}
 unsafe impl ::windows::runtime::Abi for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3658,7 +3540,6 @@ impl ::std::cmp::PartialEq for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3683,7 +3564,6 @@ impl ::std::cmp::PartialEq for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3713,7 +3593,6 @@ impl ::std::cmp::PartialEq for DML_GATHER_ELEMENTS_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_GATHER_ELEMENTS_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_GATHER_ELEMENTS_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3752,7 +3631,6 @@ impl ::std::cmp::PartialEq for DML_GATHER_ND1_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_GATHER_ND1_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_GATHER_ND1_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3783,7 +3661,6 @@ impl ::std::cmp::PartialEq for DML_GATHER_ND_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_GATHER_ND_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_GATHER_ND_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3814,7 +3691,6 @@ impl ::std::cmp::PartialEq for DML_GATHER_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_GATHER_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_GATHER_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3859,7 +3735,6 @@ impl ::std::cmp::PartialEq for DML_GEMM_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_GEMM_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_GEMM_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3906,7 +3781,6 @@ impl ::std::cmp::PartialEq for DML_GRAPH_DESC {
 impl ::std::cmp::Eq for DML_GRAPH_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_GRAPH_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3934,7 +3808,6 @@ impl ::std::cmp::PartialEq for DML_GRAPH_EDGE_DESC {
 impl ::std::cmp::Eq for DML_GRAPH_EDGE_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_GRAPH_EDGE_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3951,7 +3824,6 @@ impl ::std::convert::From<i32> for DML_GRAPH_EDGE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DML_GRAPH_EDGE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3979,7 +3851,6 @@ impl ::std::cmp::PartialEq for DML_GRAPH_NODE_DESC {
 impl ::std::cmp::Eq for DML_GRAPH_NODE_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_GRAPH_NODE_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3994,7 +3865,6 @@ impl ::std::convert::From<i32> for DML_GRAPH_NODE_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DML_GRAPH_NODE_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4063,7 +3933,6 @@ impl ::std::cmp::Eq for DML_GRU_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_GRU_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4100,7 +3969,6 @@ impl ::std::cmp::Eq for DML_INPUT_GRAPH_EDGE_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_INPUT_GRAPH_EDGE_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4138,7 +4006,6 @@ impl ::std::cmp::Eq for DML_INTERMEDIATE_GRAPH_EDGE_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4153,7 +4020,6 @@ impl ::std::convert::From<i32> for DML_INTERPOLATION_MODE {
 }
 unsafe impl ::windows::runtime::Abi for DML_INTERPOLATION_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4169,7 +4035,6 @@ impl ::std::convert::From<i32> for DML_IS_INFINITY_MODE {
 }
 unsafe impl ::windows::runtime::Abi for DML_IS_INFINITY_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4199,7 +4064,6 @@ impl ::std::cmp::PartialEq for DML_JOIN_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_JOIN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_JOIN_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4249,7 +4113,6 @@ impl ::std::cmp::Eq for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4297,7 +4160,6 @@ impl ::std::cmp::Eq for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4328,7 +4190,6 @@ impl ::std::cmp::PartialEq for DML_LP_NORMALIZATION_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_LP_NORMALIZATION_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_LP_NORMALIZATION_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4371,7 +4232,6 @@ impl ::std::cmp::PartialEq for DML_LP_POOLING_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_LP_POOLING_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_LP_POOLING_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4455,7 +4315,6 @@ impl ::std::cmp::Eq for DML_LSTM_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_LSTM_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4486,7 +4345,6 @@ impl ::std::cmp::PartialEq for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4501,7 +4359,6 @@ impl ::std::convert::From<i32> for DML_MATRIX_TRANSFORM {
 }
 unsafe impl ::windows::runtime::Abi for DML_MATRIX_TRANSFORM {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4544,7 +4401,6 @@ impl ::std::cmp::PartialEq for DML_MAX_POOLING1_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_MAX_POOLING1_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_MAX_POOLING1_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4589,7 +4445,6 @@ impl ::std::cmp::PartialEq for DML_MAX_POOLING2_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_MAX_POOLING2_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_MAX_POOLING2_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4634,7 +4489,6 @@ impl ::std::cmp::PartialEq for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_MAX_POOLING_GRAD_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4675,7 +4529,6 @@ impl ::std::cmp::PartialEq for DML_MAX_POOLING_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_MAX_POOLING_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_MAX_POOLING_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4704,7 +4557,6 @@ impl ::std::cmp::PartialEq for DML_MAX_UNPOOLING_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_MAX_UNPOOLING_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_MAX_UNPOOLING_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4756,7 +4608,6 @@ impl ::std::cmp::Eq for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4806,7 +4657,6 @@ impl ::std::cmp::Eq for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub const DML_MINIMUM_BUFFER_TENSOR_ALIGNMENT: u32 = 16u32;
@@ -4837,7 +4687,6 @@ impl ::std::cmp::PartialEq for DML_NONZERO_COORDINATES_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_NONZERO_COORDINATES_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_NONZERO_COORDINATES_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4867,7 +4716,6 @@ impl ::std::cmp::PartialEq for DML_ONE_HOT_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ONE_HOT_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ONE_HOT_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4895,7 +4743,6 @@ impl ::std::cmp::PartialEq for DML_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -4930,7 +4777,6 @@ impl ::std::cmp::Eq for DML_OPERATOR_GRAPH_NODE_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_OPERATOR_GRAPH_NODE_DESC {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5094,7 +4940,6 @@ impl ::std::convert::From<i32> for DML_OPERATOR_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DML_OPERATOR_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5131,7 +4976,6 @@ impl ::std::cmp::Eq for DML_OUTPUT_GRAPH_EDGE_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_OUTPUT_GRAPH_EDGE_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5148,7 +4992,6 @@ impl ::std::convert::From<i32> for DML_PADDING_MODE {
 }
 unsafe impl ::windows::runtime::Abi for DML_PADDING_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5189,7 +5032,6 @@ impl ::std::cmp::PartialEq for DML_PADDING_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_PADDING_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_PADDING_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub const DML_PERSISTENT_BUFFER_ALIGNMENT: u32 = 256u32;
@@ -5265,7 +5107,6 @@ impl ::std::cmp::PartialEq for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5310,7 +5151,6 @@ impl ::std::cmp::PartialEq for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DES
 impl ::std::cmp::Eq for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5340,7 +5180,6 @@ impl ::std::cmp::PartialEq for DML_RANDOM_GENERATOR_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_RANDOM_GENERATOR_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_RANDOM_GENERATOR_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5354,7 +5193,6 @@ impl ::std::convert::From<i32> for DML_RANDOM_GENERATOR_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DML_RANDOM_GENERATOR_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5370,7 +5208,6 @@ impl ::std::convert::From<i32> for DML_RECURRENT_NETWORK_DIRECTION {
 }
 unsafe impl ::windows::runtime::Abi for DML_RECURRENT_NETWORK_DIRECTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5395,7 +5232,6 @@ impl ::std::convert::From<i32> for DML_REDUCE_FUNCTION {
 }
 unsafe impl ::windows::runtime::Abi for DML_REDUCE_FUNCTION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5426,7 +5262,6 @@ impl ::std::cmp::PartialEq for DML_REDUCE_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_REDUCE_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_REDUCE_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5467,7 +5302,6 @@ impl ::std::cmp::PartialEq for DML_RESAMPLE1_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_RESAMPLE1_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_RESAMPLE1_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5508,7 +5342,6 @@ impl ::std::cmp::PartialEq for DML_RESAMPLE_GRAD_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_RESAMPLE_GRAD_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_RESAMPLE_GRAD_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5539,7 +5372,6 @@ impl ::std::cmp::PartialEq for DML_RESAMPLE_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_RESAMPLE_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_RESAMPLE_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5569,7 +5401,6 @@ impl ::std::cmp::PartialEq for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5628,7 +5459,6 @@ impl ::std::cmp::PartialEq for DML_RNN_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_RNN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_RNN_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5703,7 +5533,6 @@ impl ::std::cmp::Eq for DML_ROI_ALIGN1_OPERATOR_DESC {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DML_ROI_ALIGN1_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5762,7 +5591,6 @@ impl ::std::cmp::PartialEq for DML_ROI_ALIGN_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ROI_ALIGN_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ROI_ALIGN_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5793,7 +5621,6 @@ impl ::std::cmp::PartialEq for DML_ROI_POOLING_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_ROI_POOLING_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_ROI_POOLING_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5809,7 +5636,6 @@ impl ::std::convert::From<i32> for DML_ROUNDING_MODE {
 }
 unsafe impl ::windows::runtime::Abi for DML_ROUNDING_MODE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5841,7 +5667,6 @@ impl ::std::cmp::PartialEq for DML_SCALAR_UNION {
 impl ::std::cmp::Eq for DML_SCALAR_UNION {}
 unsafe impl ::windows::runtime::Abi for DML_SCALAR_UNION {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5869,7 +5694,6 @@ impl ::std::cmp::PartialEq for DML_SCALE_BIAS {
 impl ::std::cmp::Eq for DML_SCALE_BIAS {}
 unsafe impl ::windows::runtime::Abi for DML_SCALE_BIAS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5908,7 +5732,6 @@ impl ::std::cmp::PartialEq for DML_SCATTER_ND_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_SCATTER_ND_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_SCATTER_ND_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5939,7 +5762,6 @@ impl ::std::cmp::PartialEq for DML_SCATTER_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_SCATTER_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_SCATTER_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5967,7 +5789,6 @@ impl ::std::cmp::PartialEq for DML_SIZE_2D {
 impl ::std::cmp::Eq for DML_SIZE_2D {}
 unsafe impl ::windows::runtime::Abi for DML_SIZE_2D {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6006,7 +5827,6 @@ impl ::std::cmp::PartialEq for DML_SLICE1_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_SLICE1_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_SLICE1_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6045,7 +5865,6 @@ impl ::std::cmp::PartialEq for DML_SLICE_GRAD_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_SLICE_GRAD_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_SLICE_GRAD_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6077,7 +5896,6 @@ impl ::std::cmp::PartialEq for DML_SLICE_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_SLICE_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_SLICE_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6107,7 +5925,6 @@ impl ::std::cmp::PartialEq for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6136,7 +5953,6 @@ impl ::std::cmp::PartialEq for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_SPACE_TO_DEPTH_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6166,7 +5982,6 @@ impl ::std::cmp::PartialEq for DML_SPLIT_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_SPLIT_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_SPLIT_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub const DML_TARGET_VERSION: u32 = 16384u32;
@@ -6195,7 +6010,6 @@ impl ::std::convert::From<i32> for DML_TENSOR_DATA_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DML_TENSOR_DATA_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6223,7 +6037,6 @@ impl ::std::cmp::PartialEq for DML_TENSOR_DESC {
 impl ::std::cmp::Eq for DML_TENSOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_TENSOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 pub const DML_TENSOR_DIMENSION_COUNT_MAX: u32 = 5u32;
@@ -6242,7 +6055,6 @@ impl ::std::convert::From<u32> for DML_TENSOR_FLAGS {
 }
 unsafe impl ::windows::runtime::Abi for DML_TENSOR_FLAGS {
     type Abi = Self;
-    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for DML_TENSOR_FLAGS {
     type Output = Self;
@@ -6285,7 +6097,6 @@ impl ::std::convert::From<i32> for DML_TENSOR_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for DML_TENSOR_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6315,7 +6126,6 @@ impl ::std::cmp::PartialEq for DML_TILE_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_TILE_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_TILE_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6347,7 +6157,6 @@ impl ::std::cmp::PartialEq for DML_TOP_K1_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_TOP_K1_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_TOP_K1_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6378,7 +6187,6 @@ impl ::std::cmp::PartialEq for DML_TOP_K_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_TOP_K_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_TOP_K_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6408,7 +6216,6 @@ impl ::std::cmp::PartialEq for DML_UPSAMPLE_2D_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_UPSAMPLE_2D_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_UPSAMPLE_2D_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6439,7 +6246,6 @@ impl ::std::cmp::PartialEq for DML_VALUE_SCALE_2D_OPERATOR_DESC {
 impl ::std::cmp::Eq for DML_VALUE_SCALE_2D_OPERATOR_DESC {}
 unsafe impl ::windows::runtime::Abi for DML_VALUE_SCALE_2D_OPERATOR_DESC {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`*"]
 #[repr(transparent)]

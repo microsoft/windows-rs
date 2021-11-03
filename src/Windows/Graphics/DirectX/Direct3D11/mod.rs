@@ -22,10 +22,12 @@ impl ::std::convert::From<u32> for Direct3DBindings {
 }
 unsafe impl ::windows::runtime::Abi for Direct3DBindings {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for Direct3DBindings {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.Direct3D11.Direct3DBindings;u4)");
+}
+impl ::windows::runtime::DefaultType for Direct3DBindings {
+    type DefaultType = Self;
 }
 impl ::std::ops::BitOr for Direct3DBindings {
     type Output = Self;
@@ -81,10 +83,12 @@ impl ::std::cmp::PartialEq for Direct3DMultisampleDescription {
 impl ::std::cmp::Eq for Direct3DMultisampleDescription {}
 unsafe impl ::windows::runtime::Abi for Direct3DMultisampleDescription {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for Direct3DMultisampleDescription {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Graphics.DirectX.Direct3D11.Direct3DMultisampleDescription;i4;i4)");
+}
+impl ::windows::runtime::DefaultType for Direct3DMultisampleDescription {
+    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -114,10 +118,12 @@ impl ::std::cmp::PartialEq for Direct3DSurfaceDescription {
 impl ::std::cmp::Eq for Direct3DSurfaceDescription {}
 unsafe impl ::windows::runtime::Abi for Direct3DSurfaceDescription {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for Direct3DSurfaceDescription {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Graphics.DirectX.Direct3D11.Direct3DSurfaceDescription;i4;i4;enum(Windows.Graphics.DirectX.DirectXPixelFormat;i4);struct(Windows.Graphics.DirectX.Direct3D11.Direct3DMultisampleDescription;i4;i4))");
+}
+impl ::windows::runtime::DefaultType for Direct3DSurfaceDescription {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Graphics_DirectX_Direct3D11`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -136,10 +142,12 @@ impl ::std::convert::From<i32> for Direct3DUsage {
 }
 unsafe impl ::windows::runtime::Abi for Direct3DUsage {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for Direct3DUsage {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.Direct3D11.Direct3DUsage;i4)");
+}
+impl ::windows::runtime::DefaultType for Direct3DUsage {
+    type DefaultType = Self;
 }
 #[repr(transparent)]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]

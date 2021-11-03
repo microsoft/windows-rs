@@ -36,10 +36,12 @@ impl ::std::cmp::PartialEq for BandwidthStatistics {
 impl ::std::cmp::Eq for BandwidthStatistics {}
 unsafe impl ::windows::runtime::Abi for BandwidthStatistics {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for BandwidthStatistics {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Networking.Sockets.BandwidthStatistics;u8;u8;u8;u8;b1;b1)");
+}
+impl ::windows::runtime::DefaultType for BandwidthStatistics {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
@@ -215,10 +217,12 @@ impl ::std::convert::From<i32> for ControlChannelTriggerResetReason {
 }
 unsafe impl ::windows::runtime::Abi for ControlChannelTriggerResetReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ControlChannelTriggerResetReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerResetReason;i4)");
+}
+impl ::windows::runtime::DefaultType for ControlChannelTriggerResetReason {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -235,10 +239,12 @@ impl ::std::convert::From<i32> for ControlChannelTriggerResourceType {
 }
 unsafe impl ::windows::runtime::Abi for ControlChannelTriggerResourceType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ControlChannelTriggerResourceType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerResourceType;i4)");
+}
+impl ::windows::runtime::DefaultType for ControlChannelTriggerResourceType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -260,10 +266,12 @@ impl ::std::convert::From<i32> for ControlChannelTriggerStatus {
 }
 unsafe impl ::windows::runtime::Abi for ControlChannelTriggerStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ControlChannelTriggerStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for ControlChannelTriggerStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
@@ -679,7 +687,6 @@ impl ::windows::runtime::RuntimeName for DatagramSocketMessageReceivedEventArgs 
 unsafe impl ::std::marker::Send for DatagramSocketMessageReceivedEventArgs {}
 unsafe impl ::std::marker::Sync for DatagramSocketMessageReceivedEventArgs {}
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IControlChannelTrigger(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IControlChannelTrigger {
@@ -710,7 +717,6 @@ pub struct IControlChannelTrigger_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IControlChannelTrigger2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IControlChannelTrigger2 {
@@ -761,7 +767,6 @@ pub struct IControlChannelTriggerEventDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IControlChannelTriggerFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IControlChannelTriggerFactory {
@@ -831,7 +836,6 @@ pub struct IControlChannelTriggerResetEventDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDatagramSocket(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDatagramSocket {
@@ -870,7 +874,6 @@ pub struct IDatagramSocket_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDatagramSocket2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDatagramSocket2 {
@@ -890,7 +893,6 @@ pub struct IDatagramSocket2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Networking_Connectivity")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDatagramSocket3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDatagramSocket3 {
@@ -916,7 +918,6 @@ pub struct IDatagramSocket3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDatagramSocketControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDatagramSocketControl {
@@ -938,7 +939,6 @@ pub struct IDatagramSocketControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDatagramSocketControl2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDatagramSocketControl2 {
@@ -960,7 +960,6 @@ pub struct IDatagramSocketControl2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDatagramSocketControl3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDatagramSocketControl3 {
@@ -980,7 +979,6 @@ pub struct IDatagramSocketControl3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDatagramSocketInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDatagramSocketInformation {
@@ -1002,7 +1000,6 @@ pub struct IDatagramSocketInformation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDatagramSocketMessageReceivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDatagramSocketMessageReceivedEventArgs {
@@ -1027,7 +1024,6 @@ pub struct IDatagramSocketMessageReceivedEventArgs_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDatagramSocketStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDatagramSocketStatics {
@@ -1049,7 +1045,6 @@ pub struct IDatagramSocketStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMessageWebSocket(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMessageWebSocket {
@@ -1073,7 +1068,6 @@ pub struct IMessageWebSocket_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMessageWebSocket2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMessageWebSocket2 {
@@ -1095,7 +1089,6 @@ pub struct IMessageWebSocket2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMessageWebSocket3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMessageWebSocket3 {
@@ -1117,7 +1110,6 @@ pub struct IMessageWebSocket3_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMessageWebSocketControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMessageWebSocketControl {
@@ -1139,7 +1131,6 @@ pub struct IMessageWebSocketControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: SocketMessageType) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMessageWebSocketControl2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMessageWebSocketControl2 {
@@ -1169,7 +1160,6 @@ pub struct IMessageWebSocketControl2_abi(
     #[cfg(not(feature = "Security_Cryptography_Certificates"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMessageWebSocketMessageReceivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMessageWebSocketMessageReceivedEventArgs {
@@ -1192,7 +1182,6 @@ pub struct IMessageWebSocketMessageReceivedEventArgs_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IMessageWebSocketMessageReceivedEventArgs2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMessageWebSocketMessageReceivedEventArgs2 {
@@ -1211,7 +1200,6 @@ pub struct IMessageWebSocketMessageReceivedEventArgs2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IServerMessageWebSocket(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IServerMessageWebSocket {
@@ -1242,7 +1230,6 @@ pub struct IServerMessageWebSocket_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, code: u16, reason: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IServerMessageWebSocketControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IServerMessageWebSocketControl {
@@ -1262,7 +1249,6 @@ pub struct IServerMessageWebSocketControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: SocketMessageType) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IServerMessageWebSocketInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IServerMessageWebSocketInformation {
@@ -1283,7 +1269,6 @@ pub struct IServerMessageWebSocketInformation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IServerStreamWebSocket(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IServerStreamWebSocket {
@@ -1311,7 +1296,6 @@ pub struct IServerStreamWebSocket_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, code: u16, reason: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IServerStreamWebSocketInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IServerStreamWebSocketInformation {
@@ -1332,7 +1316,6 @@ pub struct IServerStreamWebSocketInformation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISocketActivityContext(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocketActivityContext {
@@ -1352,7 +1335,6 @@ pub struct ISocketActivityContext_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISocketActivityContextFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocketActivityContextFactory {
@@ -1372,7 +1354,6 @@ pub struct ISocketActivityContextFactory_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISocketActivityInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocketActivityInformation {
@@ -1397,7 +1378,6 @@ pub struct ISocketActivityInformation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISocketActivityInformationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocketActivityInformationStatics {
@@ -1417,7 +1397,6 @@ pub struct ISocketActivityInformationStatics_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISocketActivityTriggerDetails(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocketActivityTriggerDetails {
@@ -1437,7 +1416,6 @@ pub struct ISocketActivityTriggerDetails_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ISocketErrorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISocketErrorStatics {
@@ -1456,7 +1434,6 @@ pub struct ISocketErrorStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hresult: i32, result__: *mut SocketErrorStatus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStreamSocket(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocket {
@@ -1490,7 +1467,6 @@ pub struct IStreamSocket_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStreamSocket2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocket2 {
@@ -1510,7 +1486,6 @@ pub struct IStreamSocket2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Networking_Connectivity")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStreamSocket3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocket3 {
@@ -1536,7 +1511,6 @@ pub struct IStreamSocket3_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStreamSocketControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketControl {
@@ -1564,7 +1538,6 @@ pub struct IStreamSocketControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStreamSocketControl2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketControl2 {
@@ -1584,7 +1557,6 @@ pub struct IStreamSocketControl2_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStreamSocketControl3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketControl3 {
@@ -1608,7 +1580,6 @@ pub struct IStreamSocketControl3_abi(
     #[cfg(not(feature = "Security_Cryptography_Certificates"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStreamSocketControl4(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketControl4 {
@@ -1628,7 +1599,6 @@ pub struct IStreamSocketControl4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: SocketProtectionLevel) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStreamSocketInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketInformation {
@@ -1657,7 +1627,6 @@ pub struct IStreamSocketInformation_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStreamSocketInformation2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketInformation2 {
@@ -1682,7 +1651,6 @@ pub struct IStreamSocketInformation2_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStreamSocketListener(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketListener {
@@ -1710,7 +1678,6 @@ pub struct IStreamSocketListener_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStreamSocketListener2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketListener2 {
@@ -1732,7 +1699,6 @@ pub struct IStreamSocketListener2_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Networking_Connectivity")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStreamSocketListener3(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketListener3 {
@@ -1756,7 +1722,6 @@ pub struct IStreamSocketListener3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, socketid: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStreamSocketListenerConnectionReceivedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketListenerConnectionReceivedEventArgs {
@@ -1775,7 +1740,6 @@ pub struct IStreamSocketListenerConnectionReceivedEventArgs_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStreamSocketListenerControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketListenerControl {
@@ -1795,7 +1759,6 @@ pub struct IStreamSocketListenerControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: SocketQualityOfService) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStreamSocketListenerControl2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketListenerControl2 {
@@ -1821,7 +1784,6 @@ pub struct IStreamSocketListenerControl2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStreamSocketListenerInformation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketListenerInformation {
@@ -1840,7 +1802,6 @@ pub struct IStreamSocketListenerInformation_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStreamSocketStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamSocketStatics {
@@ -1862,7 +1823,6 @@ pub struct IStreamSocketStatics_abi(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStreamWebSocket(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamWebSocket {
@@ -1884,7 +1844,6 @@ pub struct IStreamWebSocket_abi(
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStreamWebSocket2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamWebSocket2 {
@@ -1906,7 +1865,6 @@ pub struct IStreamWebSocket2_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStreamWebSocketControl(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamWebSocketControl {
@@ -1926,7 +1884,6 @@ pub struct IStreamWebSocketControl_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IStreamWebSocketControl2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStreamWebSocketControl2 {
@@ -2062,7 +2019,6 @@ pub struct IWebSocket_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, code: u16, reason: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebSocketClosedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebSocketClosedEventArgs {
@@ -2277,7 +2233,6 @@ pub struct IWebSocketControl2_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebSocketErrorStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebSocketErrorStatics {
@@ -2458,7 +2413,6 @@ pub struct IWebSocketInformation2_abi(
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWebSocketServerCustomValidationRequestedEventArgs(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebSocketServerCustomValidationRequestedEventArgs {
@@ -3058,10 +3012,12 @@ impl ::std::convert::From<i32> for MessageWebSocketReceiveMode {
 }
 unsafe impl ::windows::runtime::Abi for MessageWebSocketReceiveMode {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MessageWebSocketReceiveMode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.MessageWebSocketReceiveMode;i4)");
+}
+impl ::windows::runtime::DefaultType for MessageWebSocketReceiveMode {
+    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3091,10 +3047,12 @@ impl ::std::cmp::PartialEq for RoundTripTimeStatistics {
 impl ::std::cmp::Eq for RoundTripTimeStatistics {}
 unsafe impl ::windows::runtime::Abi for RoundTripTimeStatistics {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for RoundTripTimeStatistics {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Networking.Sockets.RoundTripTimeStatistics;u4;u4;u4;u4)");
+}
+impl ::windows::runtime::DefaultType for RoundTripTimeStatistics {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
@@ -3432,10 +3390,12 @@ impl ::std::convert::From<i32> for SocketActivityConnectedStandbyAction {
 }
 unsafe impl ::windows::runtime::Abi for SocketActivityConnectedStandbyAction {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SocketActivityConnectedStandbyAction {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityConnectedStandbyAction;i4)");
+}
+impl ::windows::runtime::DefaultType for SocketActivityConnectedStandbyAction {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
@@ -3579,10 +3539,12 @@ impl ::std::convert::From<i32> for SocketActivityKind {
 }
 unsafe impl ::windows::runtime::Abi for SocketActivityKind {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SocketActivityKind {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityKind;i4)");
+}
+impl ::windows::runtime::DefaultType for SocketActivityKind {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]
@@ -3636,10 +3598,12 @@ impl ::std::convert::From<i32> for SocketActivityTriggerReason {
 }
 unsafe impl ::windows::runtime::Abi for SocketActivityTriggerReason {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SocketActivityTriggerReason {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityTriggerReason;i4)");
+}
+impl ::windows::runtime::DefaultType for SocketActivityTriggerReason {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
 pub struct SocketError {}
@@ -3703,10 +3667,12 @@ impl ::std::convert::From<i32> for SocketErrorStatus {
 }
 unsafe impl ::windows::runtime::Abi for SocketErrorStatus {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SocketErrorStatus {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketErrorStatus;i4)");
+}
+impl ::windows::runtime::DefaultType for SocketErrorStatus {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3723,10 +3689,12 @@ impl ::std::convert::From<i32> for SocketMessageType {
 }
 unsafe impl ::windows::runtime::Abi for SocketMessageType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SocketMessageType {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketMessageType;i4)");
+}
+impl ::windows::runtime::DefaultType for SocketMessageType {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3751,10 +3719,12 @@ impl ::std::convert::From<i32> for SocketProtectionLevel {
 }
 unsafe impl ::windows::runtime::Abi for SocketProtectionLevel {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SocketProtectionLevel {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketProtectionLevel;i4)");
+}
+impl ::windows::runtime::DefaultType for SocketProtectionLevel {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3771,10 +3741,12 @@ impl ::std::convert::From<i32> for SocketQualityOfService {
 }
 unsafe impl ::windows::runtime::Abi for SocketQualityOfService {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SocketQualityOfService {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketQualityOfService;i4)");
+}
+impl ::windows::runtime::DefaultType for SocketQualityOfService {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3792,10 +3764,12 @@ impl ::std::convert::From<i32> for SocketSslErrorSeverity {
 }
 unsafe impl ::windows::runtime::Abi for SocketSslErrorSeverity {
     type Abi = Self;
-    type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for SocketSslErrorSeverity {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketSslErrorSeverity;i4)");
+}
+impl ::windows::runtime::DefaultType for SocketSslErrorSeverity {
+    type DefaultType = Self;
 }
 #[doc = "*Required features: `Networking_Sockets`*"]
 #[repr(transparent)]

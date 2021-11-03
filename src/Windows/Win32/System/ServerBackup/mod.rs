@@ -152,7 +152,6 @@ impl ::std::cmp::Eq for WSB_OB_REGISTRATION_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSB_OB_REGISTRATION_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -190,7 +189,6 @@ impl ::std::cmp::Eq for WSB_OB_STATUS_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSB_OB_STATUS_ENTRY {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_ServerBackup`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -210,7 +208,6 @@ impl ::std::convert::From<i32> for WSB_OB_STATUS_ENTRY_PAIR_TYPE {
 }
 unsafe impl ::windows::runtime::Abi for WSB_OB_STATUS_ENTRY_PAIR_TYPE {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -245,7 +242,6 @@ impl ::std::cmp::Eq for WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -281,5 +277,4 @@ impl ::std::cmp::Eq for WSB_OB_STATUS_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSB_OB_STATUS_INFO {
     type Abi = Self;
-    type DefaultType = Self;
 }

@@ -40,7 +40,6 @@ impl ::std::cmp::Eq for COMEVENTSYSCHANGEINFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for COMEVENTSYSCHANGEINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
 }
 #[doc = "*Required features: `Win32_System_Com_Events`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -56,7 +55,6 @@ impl ::std::convert::From<i32> for EOC_ChangeType {
 }
 unsafe impl ::windows::runtime::Abi for EOC_ChangeType {
     type Abi = Self;
-    type DefaultType = Self;
 }
 pub const EventObjectChange: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3495317504, 40436, 4561, [162, 129, 0, 192, 79, 202, 10, 167]);
 pub const EventObjectChange2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3137845965, 52566, 20067, [168, 255, 203, 240, 53, 95, 185, 244]);

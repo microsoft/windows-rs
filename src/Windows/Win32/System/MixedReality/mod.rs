@@ -27,7 +27,6 @@ impl ::std::cmp::PartialEq for PERCEPTION_PAYLOAD_FIELD {
 impl ::std::cmp::Eq for PERCEPTION_PAYLOAD_FIELD {}
 unsafe impl ::windows::runtime::Abi for PERCEPTION_PAYLOAD_FIELD {
     type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -55,5 +54,4 @@ impl ::std::cmp::PartialEq for PERCEPTION_STATE_STREAM_TIMESTAMPS {
 impl ::std::cmp::Eq for PERCEPTION_STATE_STREAM_TIMESTAMPS {}
 unsafe impl ::windows::runtime::Abi for PERCEPTION_STATE_STREAM_TIMESTAMPS {
     type Abi = Self;
-    type DefaultType = Self;
 }
