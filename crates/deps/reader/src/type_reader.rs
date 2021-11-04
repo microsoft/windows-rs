@@ -149,6 +149,10 @@ impl TypeReader {
         self.nested.get(&enclosing.row)
     }
 
+    pub fn get_type_entry<T: HasTypeName>(&'static self, type_name: T) -> Option<&TypeEntry> {
+        self.types.get_namespace(type_name.namespace()).and_then(|tree| tree.get_type(type_name.name()))
+    }
+
     pub fn get_type<T: HasTypeName>(&'static self, type_name: T) -> Option<&ElementType> {
         self.types.get_namespace(type_name.namespace()).and_then(|tree| tree.get_type(type_name.name())).and_then(|entry| entry.def.first())
     }

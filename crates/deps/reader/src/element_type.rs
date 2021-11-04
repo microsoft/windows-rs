@@ -154,10 +154,10 @@ impl ElementType {
         }
     }
 
-    pub fn struct_features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
+    pub fn features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
         match self {
-            Self::TypeDef(def) => def.struct_features(features, keys),
-            Self::Array((signature, _)) => signature.kind.struct_features(features, keys),
+            Self::TypeDef(def) => def.features(features, keys),
+            Self::Array((signature, _)) => signature.kind.features(features, keys),
             _ => {}
         }
     }

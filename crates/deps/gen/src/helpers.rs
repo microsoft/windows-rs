@@ -100,17 +100,17 @@ pub fn signature_features(sig: &Signature, gen: &Gen) -> BTreeSet<&'static str> 
 
     let mut features = BTreeSet::new();
     let mut keys = std::collections::HashSet::new();
-    sig.kind.struct_features(&mut features, &mut keys);
+    sig.kind.features(&mut features, &mut keys);
     features
 }
 
-pub fn struct_features(def: &TypeDef, gen: &Gen) -> BTreeSet<&'static str> {
+pub fn features(def: &TypeDef, gen: &Gen) -> BTreeSet<&'static str> {
     if gen.root.is_empty() {
         return BTreeSet::new();
     }
 
     let mut features = BTreeSet::new();
     let mut keys = std::collections::HashSet::new();
-    def.struct_features(&mut features, &mut keys);
+    def.features(&mut features, &mut keys);
     features
 }

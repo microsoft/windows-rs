@@ -56,7 +56,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
     }
 
     let (doc, cfg) = if cfg.is_empty() {
-        let features = struct_features(def, gen);
+        let features = features(def, gen);
         let cfg = gen.gen_struct_cfg(def, &features);
         let doc = gen.gen_cfg_doc(&features);
         (doc, cfg)
