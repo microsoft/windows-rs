@@ -2228,12 +2228,12 @@ pub mod Windows {
                 }
                 impl<'a> ::windows::runtime::IntoParam<'a, ILanguageExceptionErrorInfo> for ILanguageExceptionErrorInfo2 {
                     fn into_param(self) -> ::windows::runtime::Param<'a, ILanguageExceptionErrorInfo> {
-                        ::windows::runtime::Param::Owned(::std::convert::Into::<ILanguageExceptionErrorInfo>::into(self))
+                        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
                     }
                 }
                 impl<'a> ::windows::runtime::IntoParam<'a, ILanguageExceptionErrorInfo> for &ILanguageExceptionErrorInfo2 {
                     fn into_param(self) -> ::windows::runtime::Param<'a, ILanguageExceptionErrorInfo> {
-                        ::windows::runtime::Param::Owned(::std::convert::Into::<ILanguageExceptionErrorInfo>::into(::std::clone::Clone::clone(self)))
+                        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
                     }
                 }
                 #[repr(C)]

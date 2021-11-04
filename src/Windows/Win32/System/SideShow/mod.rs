@@ -151,12 +151,12 @@ impl ::std::convert::From<&ISideShowBulkCapabilities> for ISideShowCapabilities 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISideShowCapabilities> for ISideShowBulkCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISideShowCapabilities> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISideShowCapabilities>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISideShowCapabilities> for &ISideShowBulkCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISideShowCapabilities> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISideShowCapabilities>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

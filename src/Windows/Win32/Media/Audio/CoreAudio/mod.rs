@@ -2299,12 +2299,12 @@ impl ::std::convert::From<&IAudioBass> for IPerChannelDbLevel {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPerChannelDbLevel> for IAudioBass {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPerChannelDbLevel> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPerChannelDbLevel>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPerChannelDbLevel> for &IAudioBass {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPerChannelDbLevel> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPerChannelDbLevel>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2646,12 +2646,12 @@ impl ::std::convert::From<&IAudioClient2> for IAudioClient {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAudioClient> for IAudioClient2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAudioClient> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAudioClient>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAudioClient> for &IAudioClient2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAudioClient> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAudioClient>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2813,12 +2813,12 @@ impl ::std::convert::From<&IAudioClient3> for IAudioClient2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAudioClient2> for IAudioClient3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAudioClient2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAudioClient2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAudioClient2> for &IAudioClient3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAudioClient2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAudioClient2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IAudioClient3> for IAudioClient {
@@ -2833,12 +2833,12 @@ impl ::std::convert::From<&IAudioClient3> for IAudioClient {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAudioClient> for IAudioClient3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAudioClient> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAudioClient>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAudioClient> for &IAudioClient3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAudioClient> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAudioClient>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3710,12 +3710,12 @@ impl ::std::convert::From<&IAudioEndpointVolumeEx> for IAudioEndpointVolume {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAudioEndpointVolume> for IAudioEndpointVolumeEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAudioEndpointVolume> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAudioEndpointVolume>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAudioEndpointVolume> for &IAudioEndpointVolumeEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAudioEndpointVolume> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAudioEndpointVolume>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4077,12 +4077,12 @@ impl ::std::convert::From<&IAudioMidrange> for IPerChannelDbLevel {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPerChannelDbLevel> for IAudioMidrange {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPerChannelDbLevel> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPerChannelDbLevel>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPerChannelDbLevel> for &IAudioMidrange {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPerChannelDbLevel> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPerChannelDbLevel>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4637,12 +4637,12 @@ impl ::std::convert::From<&IAudioSessionControl2> for IAudioSessionControl {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAudioSessionControl> for IAudioSessionControl2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAudioSessionControl> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAudioSessionControl>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAudioSessionControl> for &IAudioSessionControl2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAudioSessionControl> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAudioSessionControl>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4923,12 +4923,12 @@ impl ::std::convert::From<&IAudioSessionManager2> for IAudioSessionManager {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAudioSessionManager> for IAudioSessionManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAudioSessionManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAudioSessionManager>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAudioSessionManager> for &IAudioSessionManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAudioSessionManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAudioSessionManager>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5164,13 +5164,13 @@ impl ::std::convert::From<&IAudioSystemEffects3> for super::DirectMusic::IAudioS
 #[cfg(feature = "Win32_Media_Audio_DirectMusic")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::DirectMusic::IAudioSystemEffects2> for IAudioSystemEffects3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::DirectMusic::IAudioSystemEffects2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::DirectMusic::IAudioSystemEffects2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Media_Audio_DirectMusic")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::DirectMusic::IAudioSystemEffects2> for &IAudioSystemEffects3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::DirectMusic::IAudioSystemEffects2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::DirectMusic::IAudioSystemEffects2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Media_Audio_DirectMusic")]
@@ -5188,13 +5188,13 @@ impl ::std::convert::From<&IAudioSystemEffects3> for super::DirectMusic::IAudioS
 #[cfg(feature = "Win32_Media_Audio_DirectMusic")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::DirectMusic::IAudioSystemEffects> for IAudioSystemEffects3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::DirectMusic::IAudioSystemEffects> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::DirectMusic::IAudioSystemEffects>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Media_Audio_DirectMusic")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::DirectMusic::IAudioSystemEffects> for &IAudioSystemEffects3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::DirectMusic::IAudioSystemEffects> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::DirectMusic::IAudioSystemEffects>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5402,12 +5402,12 @@ impl ::std::convert::From<&IAudioTreble> for IPerChannelDbLevel {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPerChannelDbLevel> for IAudioTreble {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPerChannelDbLevel> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPerChannelDbLevel>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPerChannelDbLevel> for &IAudioTreble {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPerChannelDbLevel> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPerChannelDbLevel>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5542,12 +5542,12 @@ impl ::std::convert::From<&IAudioVolumeLevel> for IPerChannelDbLevel {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPerChannelDbLevel> for IAudioVolumeLevel {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPerChannelDbLevel> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPerChannelDbLevel>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPerChannelDbLevel> for &IAudioVolumeLevel {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPerChannelDbLevel> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPerChannelDbLevel>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7195,12 +7195,12 @@ impl ::std::convert::From<&ISpatialAudioClient2> for ISpatialAudioClient {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpatialAudioClient> for ISpatialAudioClient2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpatialAudioClient> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpatialAudioClient>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpatialAudioClient> for &ISpatialAudioClient2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpatialAudioClient> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpatialAudioClient>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7647,12 +7647,12 @@ impl ::std::convert::From<&ISpatialAudioObject> for ISpatialAudioObjectBase {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpatialAudioObjectBase> for ISpatialAudioObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpatialAudioObjectBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpatialAudioObjectBase>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpatialAudioObjectBase> for &ISpatialAudioObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpatialAudioObjectBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpatialAudioObjectBase>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7815,12 +7815,12 @@ impl ::std::convert::From<&ISpatialAudioObjectForHrtf> for ISpatialAudioObjectBa
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpatialAudioObjectBase> for ISpatialAudioObjectForHrtf {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpatialAudioObjectBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpatialAudioObjectBase>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpatialAudioObjectBase> for &ISpatialAudioObjectForHrtf {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpatialAudioObjectBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpatialAudioObjectBase>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7906,12 +7906,12 @@ impl ::std::convert::From<&ISpatialAudioObjectForMetadataCommands> for ISpatialA
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpatialAudioObjectBase> for ISpatialAudioObjectForMetadataCommands {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpatialAudioObjectBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpatialAudioObjectBase>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpatialAudioObjectBase> for &ISpatialAudioObjectForMetadataCommands {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpatialAudioObjectBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpatialAudioObjectBase>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7993,12 +7993,12 @@ impl ::std::convert::From<&ISpatialAudioObjectForMetadataItems> for ISpatialAudi
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpatialAudioObjectBase> for ISpatialAudioObjectForMetadataItems {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpatialAudioObjectBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpatialAudioObjectBase>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpatialAudioObjectBase> for &ISpatialAudioObjectForMetadataItems {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpatialAudioObjectBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpatialAudioObjectBase>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8091,12 +8091,12 @@ impl ::std::convert::From<&ISpatialAudioObjectRenderStream> for ISpatialAudioObj
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpatialAudioObjectRenderStreamBase> for ISpatialAudioObjectRenderStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpatialAudioObjectRenderStreamBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpatialAudioObjectRenderStreamBase>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpatialAudioObjectRenderStreamBase> for &ISpatialAudioObjectRenderStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpatialAudioObjectRenderStreamBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpatialAudioObjectRenderStreamBase>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8265,12 +8265,12 @@ impl ::std::convert::From<&ISpatialAudioObjectRenderStreamForHrtf> for ISpatialA
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpatialAudioObjectRenderStreamBase> for ISpatialAudioObjectRenderStreamForHrtf {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpatialAudioObjectRenderStreamBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpatialAudioObjectRenderStreamBase>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpatialAudioObjectRenderStreamBase> for &ISpatialAudioObjectRenderStreamForHrtf {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpatialAudioObjectRenderStreamBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpatialAudioObjectRenderStreamBase>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8370,12 +8370,12 @@ impl ::std::convert::From<&ISpatialAudioObjectRenderStreamForMetadata> for ISpat
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpatialAudioObjectRenderStreamBase> for ISpatialAudioObjectRenderStreamForMetadata {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpatialAudioObjectRenderStreamBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpatialAudioObjectRenderStreamBase>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpatialAudioObjectRenderStreamBase> for &ISpatialAudioObjectRenderStreamForMetadata {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpatialAudioObjectRenderStreamBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpatialAudioObjectRenderStreamBase>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

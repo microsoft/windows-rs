@@ -433,12 +433,12 @@ impl ::std::convert::From<&IEnhancedStorageACT2> for IEnhancedStorageACT {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IEnhancedStorageACT> for IEnhancedStorageACT2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IEnhancedStorageACT> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IEnhancedStorageACT>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IEnhancedStorageACT> for &IEnhancedStorageACT2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IEnhancedStorageACT> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IEnhancedStorageACT>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -559,12 +559,12 @@ impl ::std::convert::From<&IEnhancedStorageACT3> for IEnhancedStorageACT2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IEnhancedStorageACT2> for IEnhancedStorageACT3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IEnhancedStorageACT2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IEnhancedStorageACT2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IEnhancedStorageACT2> for &IEnhancedStorageACT3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IEnhancedStorageACT2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IEnhancedStorageACT2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IEnhancedStorageACT3> for IEnhancedStorageACT {
@@ -579,12 +579,12 @@ impl ::std::convert::From<&IEnhancedStorageACT3> for IEnhancedStorageACT {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IEnhancedStorageACT> for IEnhancedStorageACT3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IEnhancedStorageACT> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IEnhancedStorageACT>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IEnhancedStorageACT> for &IEnhancedStorageACT3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IEnhancedStorageACT> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IEnhancedStorageACT>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

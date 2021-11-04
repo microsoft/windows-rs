@@ -935,12 +935,12 @@ impl ::std::convert::From<&IPortableDeviceContent2> for IPortableDeviceContent {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPortableDeviceContent> for IPortableDeviceContent2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPortableDeviceContent> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPortableDeviceContent>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPortableDeviceContent> for &IPortableDeviceContent2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPortableDeviceContent> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPortableDeviceContent>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1073,13 +1073,13 @@ impl ::std::convert::From<&IPortableDeviceDataStream> for super::super::System::
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream> for IPortableDeviceDataStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream> for &IPortableDeviceDataStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1097,13 +1097,13 @@ impl ::std::convert::From<&IPortableDeviceDataStream> for super::super::System::
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream> for IPortableDeviceDataStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::ISequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::ISequentialStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream> for &IPortableDeviceDataStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::ISequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::ISequentialStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2706,13 +2706,13 @@ impl ::std::convert::From<&IPortableDeviceWebControl> for super::super::System::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPortableDeviceWebControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPortableDeviceWebControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

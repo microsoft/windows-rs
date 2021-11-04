@@ -8699,12 +8699,12 @@ impl ::std::convert::From<&IDirectInput2A> for IDirectInputA {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputA> for IDirectInput2A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputA> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputA>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputA> for &IDirectInput2A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputA> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputA>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8794,12 +8794,12 @@ impl ::std::convert::From<&IDirectInput2W> for IDirectInputW {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputW> for IDirectInput2W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputW> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputW>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputW> for &IDirectInput2W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputW> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputW>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8893,12 +8893,12 @@ impl ::std::convert::From<&IDirectInput7A> for IDirectInput2A {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInput2A> for IDirectInput7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInput2A> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInput2A>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInput2A> for &IDirectInput7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInput2A> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInput2A>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDirectInput7A> for IDirectInputA {
@@ -8913,12 +8913,12 @@ impl ::std::convert::From<&IDirectInput7A> for IDirectInputA {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputA> for IDirectInput7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputA> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputA>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputA> for &IDirectInput7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputA> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputA>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9013,12 +9013,12 @@ impl ::std::convert::From<&IDirectInput7W> for IDirectInput2W {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInput2W> for IDirectInput7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInput2W> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInput2W>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInput2W> for &IDirectInput7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInput2W> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInput2W>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDirectInput7W> for IDirectInputW {
@@ -9033,12 +9033,12 @@ impl ::std::convert::From<&IDirectInput7W> for IDirectInputW {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputW> for IDirectInput7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputW> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputW>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputW> for &IDirectInput7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputW> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputW>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9453,12 +9453,12 @@ impl ::std::convert::From<&IDirectInputDevice2A> for IDirectInputDeviceA {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceA> for IDirectInputDevice2A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceA> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDeviceA>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceA> for &IDirectInputDevice2A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceA> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDeviceA>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9647,12 +9647,12 @@ impl ::std::convert::From<&IDirectInputDevice2W> for IDirectInputDeviceW {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceW> for IDirectInputDevice2W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceW> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDeviceW>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceW> for &IDirectInputDevice2W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceW> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDeviceW>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9851,12 +9851,12 @@ impl ::std::convert::From<&IDirectInputDevice7A> for IDirectInputDevice2A {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDevice2A> for IDirectInputDevice7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDevice2A> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDevice2A>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDevice2A> for &IDirectInputDevice7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDevice2A> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDevice2A>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDirectInputDevice7A> for IDirectInputDeviceA {
@@ -9871,12 +9871,12 @@ impl ::std::convert::From<&IDirectInputDevice7A> for IDirectInputDeviceA {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceA> for IDirectInputDevice7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceA> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDeviceA>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceA> for &IDirectInputDevice7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceA> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDeviceA>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10079,12 +10079,12 @@ impl ::std::convert::From<&IDirectInputDevice7W> for IDirectInputDevice2W {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDevice2W> for IDirectInputDevice7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDevice2W> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDevice2W>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDevice2W> for &IDirectInputDevice7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDevice2W> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDevice2W>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDirectInputDevice7W> for IDirectInputDeviceW {
@@ -10099,12 +10099,12 @@ impl ::std::convert::From<&IDirectInputDevice7W> for IDirectInputDeviceW {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceW> for IDirectInputDevice7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceW> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDeviceW>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceW> for &IDirectInputDevice7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceW> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDeviceW>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

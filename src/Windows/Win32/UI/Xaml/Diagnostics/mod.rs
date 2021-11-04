@@ -422,12 +422,12 @@ impl ::std::convert::From<&IVisualTreeService2> for IVisualTreeService {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVisualTreeService> for IVisualTreeService2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVisualTreeService> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVisualTreeService>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVisualTreeService> for &IVisualTreeService2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVisualTreeService> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVisualTreeService>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -593,12 +593,12 @@ impl ::std::convert::From<&IVisualTreeService3> for IVisualTreeService2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVisualTreeService2> for IVisualTreeService3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVisualTreeService2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVisualTreeService2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVisualTreeService2> for &IVisualTreeService3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVisualTreeService2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVisualTreeService2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IVisualTreeService3> for IVisualTreeService {
@@ -613,12 +613,12 @@ impl ::std::convert::From<&IVisualTreeService3> for IVisualTreeService {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVisualTreeService> for IVisualTreeService3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVisualTreeService> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVisualTreeService>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVisualTreeService> for &IVisualTreeService3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVisualTreeService> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVisualTreeService>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -751,12 +751,12 @@ impl ::std::convert::From<&IVisualTreeServiceCallback2> for IVisualTreeServiceCa
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVisualTreeServiceCallback> for IVisualTreeServiceCallback2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVisualTreeServiceCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVisualTreeServiceCallback>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVisualTreeServiceCallback> for &IVisualTreeServiceCallback2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVisualTreeServiceCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVisualTreeServiceCallback>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

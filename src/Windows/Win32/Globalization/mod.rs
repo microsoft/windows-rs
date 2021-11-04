@@ -3211,12 +3211,12 @@ impl ::std::convert::From<&IMLangFontLink> for IMLangCodePages {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMLangCodePages> for IMLangFontLink {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMLangCodePages> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMLangCodePages>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMLangCodePages> for &IMLangFontLink {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMLangCodePages> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMLangCodePages>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3336,12 +3336,12 @@ impl ::std::convert::From<&IMLangFontLink2> for IMLangCodePages {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMLangCodePages> for IMLangFontLink2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMLangCodePages> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMLangCodePages>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMLangCodePages> for &IMLangFontLink2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMLangCodePages> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMLangCodePages>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3602,12 +3602,12 @@ impl ::std::convert::From<&IMLangStringAStr> for IMLangString {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMLangString> for IMLangStringAStr {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMLangString> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMLangString>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMLangString> for &IMLangStringAStr {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMLangString> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMLangString>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3862,12 +3862,12 @@ impl ::std::convert::From<&IMLangStringWStr> for IMLangString {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMLangString> for IMLangStringWStr {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMLangString> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMLangString>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMLangString> for &IMLangStringWStr {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMLangString> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMLangString>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4439,12 +4439,12 @@ impl ::std::convert::From<&IMultiLanguage3> for IMultiLanguage2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMultiLanguage2> for IMultiLanguage3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMultiLanguage2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMultiLanguage2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMultiLanguage2> for &IMultiLanguage3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMultiLanguage2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMultiLanguage2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5106,12 +5106,12 @@ impl ::std::convert::From<&ISpellChecker2> for ISpellChecker {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpellChecker> for ISpellChecker2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpellChecker> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpellChecker>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpellChecker> for &ISpellChecker2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpellChecker> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpellChecker>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

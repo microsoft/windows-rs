@@ -959,12 +959,12 @@ impl ::std::convert::From<&IOpcPartUri> for IOpcUri {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOpcUri> for IOpcPartUri {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOpcUri> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOpcUri>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOpcUri> for &IOpcPartUri {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOpcUri> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOpcUri>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -982,13 +982,13 @@ impl ::std::convert::From<&IOpcPartUri> for super::super::super::System::Com::IU
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IUri> for IOpcPartUri {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::System::Com::IUri> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::System::Com::IUri>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IUri> for &IOpcPartUri {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::System::Com::IUri> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::System::Com::IUri>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2562,13 +2562,13 @@ impl ::std::convert::From<&IOpcUri> for super::super::super::System::Com::IUri {
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IUri> for IOpcUri {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::System::Com::IUri> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::System::Com::IUri>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IUri> for &IOpcUri {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::System::Com::IUri> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::System::Com::IUri>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

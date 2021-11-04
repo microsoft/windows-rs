@@ -1133,13 +1133,13 @@ impl ::std::convert::From<&IBITSExtensionSetup> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IBITSExtensionSetup {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IBITSExtensionSetup {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1213,13 +1213,13 @@ impl ::std::convert::From<&IBITSExtensionSetupFactory> for super::super::System:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IBITSExtensionSetupFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IBITSExtensionSetupFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1401,12 +1401,12 @@ impl ::std::convert::From<&IBackgroundCopyCallback2> for IBackgroundCopyCallback
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyCallback> for IBackgroundCopyCallback2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyCallback>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyCallback> for &IBackgroundCopyCallback2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyCallback>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1482,12 +1482,12 @@ impl ::std::convert::From<&IBackgroundCopyCallback3> for IBackgroundCopyCallback
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyCallback2> for IBackgroundCopyCallback3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyCallback2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyCallback2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyCallback2> for &IBackgroundCopyCallback3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyCallback2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyCallback2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IBackgroundCopyCallback3> for IBackgroundCopyCallback {
@@ -1502,12 +1502,12 @@ impl ::std::convert::From<&IBackgroundCopyCallback3> for IBackgroundCopyCallback
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyCallback> for IBackgroundCopyCallback3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyCallback>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyCallback> for &IBackgroundCopyCallback3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyCallback>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1724,12 +1724,12 @@ impl ::std::convert::From<&IBackgroundCopyFile2> for IBackgroundCopyFile {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile> for IBackgroundCopyFile2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile> for &IBackgroundCopyFile2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1840,12 +1840,12 @@ impl ::std::convert::From<&IBackgroundCopyFile3> for IBackgroundCopyFile2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile2> for IBackgroundCopyFile3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile2> for &IBackgroundCopyFile3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IBackgroundCopyFile3> for IBackgroundCopyFile {
@@ -1860,12 +1860,12 @@ impl ::std::convert::From<&IBackgroundCopyFile3> for IBackgroundCopyFile {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile> for IBackgroundCopyFile3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile> for &IBackgroundCopyFile3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1988,12 +1988,12 @@ impl ::std::convert::From<&IBackgroundCopyFile4> for IBackgroundCopyFile3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile3> for IBackgroundCopyFile4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile3> for &IBackgroundCopyFile4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IBackgroundCopyFile4> for IBackgroundCopyFile2 {
@@ -2008,12 +2008,12 @@ impl ::std::convert::From<&IBackgroundCopyFile4> for IBackgroundCopyFile2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile2> for IBackgroundCopyFile4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile2> for &IBackgroundCopyFile4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IBackgroundCopyFile4> for IBackgroundCopyFile {
@@ -2028,12 +2028,12 @@ impl ::std::convert::From<&IBackgroundCopyFile4> for IBackgroundCopyFile {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile> for IBackgroundCopyFile4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile> for &IBackgroundCopyFile4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2168,12 +2168,12 @@ impl ::std::convert::From<&IBackgroundCopyFile5> for IBackgroundCopyFile4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile4> for IBackgroundCopyFile5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile4> for &IBackgroundCopyFile5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IBackgroundCopyFile5> for IBackgroundCopyFile3 {
@@ -2188,12 +2188,12 @@ impl ::std::convert::From<&IBackgroundCopyFile5> for IBackgroundCopyFile3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile3> for IBackgroundCopyFile5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile3> for &IBackgroundCopyFile5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IBackgroundCopyFile5> for IBackgroundCopyFile2 {
@@ -2208,12 +2208,12 @@ impl ::std::convert::From<&IBackgroundCopyFile5> for IBackgroundCopyFile2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile2> for IBackgroundCopyFile5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile2> for &IBackgroundCopyFile5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IBackgroundCopyFile5> for IBackgroundCopyFile {
@@ -2228,12 +2228,12 @@ impl ::std::convert::From<&IBackgroundCopyFile5> for IBackgroundCopyFile {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile> for IBackgroundCopyFile5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile> for &IBackgroundCopyFile5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2384,12 +2384,12 @@ impl ::std::convert::From<&IBackgroundCopyFile6> for IBackgroundCopyFile5 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile5> for IBackgroundCopyFile6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile5>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile5> for &IBackgroundCopyFile6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile5>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IBackgroundCopyFile6> for IBackgroundCopyFile4 {
@@ -2404,12 +2404,12 @@ impl ::std::convert::From<&IBackgroundCopyFile6> for IBackgroundCopyFile4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile4> for IBackgroundCopyFile6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile4> for &IBackgroundCopyFile6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IBackgroundCopyFile6> for IBackgroundCopyFile3 {
@@ -2424,12 +2424,12 @@ impl ::std::convert::From<&IBackgroundCopyFile6> for IBackgroundCopyFile3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile3> for IBackgroundCopyFile6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile3> for &IBackgroundCopyFile6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IBackgroundCopyFile6> for IBackgroundCopyFile2 {
@@ -2444,12 +2444,12 @@ impl ::std::convert::From<&IBackgroundCopyFile6> for IBackgroundCopyFile2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile2> for IBackgroundCopyFile6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile2> for &IBackgroundCopyFile6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IBackgroundCopyFile6> for IBackgroundCopyFile {
@@ -2464,12 +2464,12 @@ impl ::std::convert::From<&IBackgroundCopyFile6> for IBackgroundCopyFile {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile> for IBackgroundCopyFile6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyFile> for &IBackgroundCopyFile6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyFile> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyFile>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3180,12 +3180,12 @@ impl ::std::convert::From<&IBackgroundCopyJob2> for IBackgroundCopyJob {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyJob> for IBackgroundCopyJob2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyJob> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyJob>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyJob> for &IBackgroundCopyJob2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyJob> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyJob>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3503,12 +3503,12 @@ impl ::std::convert::From<&IBackgroundCopyJob3> for IBackgroundCopyJob2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyJob2> for IBackgroundCopyJob3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyJob2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyJob2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyJob2> for &IBackgroundCopyJob3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyJob2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyJob2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IBackgroundCopyJob3> for IBackgroundCopyJob {
@@ -3523,12 +3523,12 @@ impl ::std::convert::From<&IBackgroundCopyJob3> for IBackgroundCopyJob {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyJob> for IBackgroundCopyJob3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyJob> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyJob>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyJob> for &IBackgroundCopyJob3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyJob> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyJob>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3881,12 +3881,12 @@ impl ::std::convert::From<&IBackgroundCopyJob4> for IBackgroundCopyJob3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyJob3> for IBackgroundCopyJob4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyJob3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyJob3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyJob3> for &IBackgroundCopyJob4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyJob3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyJob3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IBackgroundCopyJob4> for IBackgroundCopyJob2 {
@@ -3901,12 +3901,12 @@ impl ::std::convert::From<&IBackgroundCopyJob4> for IBackgroundCopyJob2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyJob2> for IBackgroundCopyJob4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyJob2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyJob2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyJob2> for &IBackgroundCopyJob4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyJob2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyJob2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IBackgroundCopyJob4> for IBackgroundCopyJob {
@@ -3921,12 +3921,12 @@ impl ::std::convert::From<&IBackgroundCopyJob4> for IBackgroundCopyJob {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyJob> for IBackgroundCopyJob4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyJob> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyJob>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyJob> for &IBackgroundCopyJob4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyJob> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyJob>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4297,12 +4297,12 @@ impl ::std::convert::From<&IBackgroundCopyJob5> for IBackgroundCopyJob4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyJob4> for IBackgroundCopyJob5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyJob4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyJob4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyJob4> for &IBackgroundCopyJob5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyJob4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyJob4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IBackgroundCopyJob5> for IBackgroundCopyJob3 {
@@ -4317,12 +4317,12 @@ impl ::std::convert::From<&IBackgroundCopyJob5> for IBackgroundCopyJob3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyJob3> for IBackgroundCopyJob5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyJob3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyJob3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyJob3> for &IBackgroundCopyJob5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyJob3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyJob3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IBackgroundCopyJob5> for IBackgroundCopyJob2 {
@@ -4337,12 +4337,12 @@ impl ::std::convert::From<&IBackgroundCopyJob5> for IBackgroundCopyJob2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyJob2> for IBackgroundCopyJob5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyJob2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyJob2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyJob2> for &IBackgroundCopyJob5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyJob2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyJob2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IBackgroundCopyJob5> for IBackgroundCopyJob {
@@ -4357,12 +4357,12 @@ impl ::std::convert::From<&IBackgroundCopyJob5> for IBackgroundCopyJob {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyJob> for IBackgroundCopyJob5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyJob> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyJob>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyJob> for &IBackgroundCopyJob5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyJob> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyJob>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4625,12 +4625,12 @@ impl ::std::convert::From<&IBackgroundCopyJobHttpOptions2> for IBackgroundCopyJo
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyJobHttpOptions> for IBackgroundCopyJobHttpOptions2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyJobHttpOptions> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyJobHttpOptions>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyJobHttpOptions> for &IBackgroundCopyJobHttpOptions2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyJobHttpOptions> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyJobHttpOptions>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4757,12 +4757,12 @@ impl ::std::convert::From<&IBackgroundCopyJobHttpOptions3> for IBackgroundCopyJo
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyJobHttpOptions2> for IBackgroundCopyJobHttpOptions3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyJobHttpOptions2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyJobHttpOptions2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyJobHttpOptions2> for &IBackgroundCopyJobHttpOptions3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyJobHttpOptions2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyJobHttpOptions2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IBackgroundCopyJobHttpOptions3> for IBackgroundCopyJobHttpOptions {
@@ -4777,12 +4777,12 @@ impl ::std::convert::From<&IBackgroundCopyJobHttpOptions3> for IBackgroundCopyJo
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyJobHttpOptions> for IBackgroundCopyJobHttpOptions3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyJobHttpOptions> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyJobHttpOptions>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundCopyJobHttpOptions> for &IBackgroundCopyJobHttpOptions3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundCopyJobHttpOptions> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundCopyJobHttpOptions>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

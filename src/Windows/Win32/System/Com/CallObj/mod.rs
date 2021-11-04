@@ -607,12 +607,12 @@ impl ::std::convert::From<&ICallInterceptor> for ICallIndirect {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICallIndirect> for ICallInterceptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICallIndirect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICallIndirect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICallIndirect> for &ICallInterceptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICallIndirect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICallIndirect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

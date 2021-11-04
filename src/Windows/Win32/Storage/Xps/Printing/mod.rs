@@ -51,13 +51,13 @@ impl ::std::convert::From<&IPrintDocumentPackageStatusEvent> for super::super::s
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::System::Ole::Automation::IDispatch> for IPrintDocumentPackageStatusEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::System::Ole::Automation::IDispatch> for &IPrintDocumentPackageStatusEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -286,13 +286,13 @@ impl ::std::convert::From<&IXpsPrintJobStream> for super::super::super::System::
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::System::Com::ISequentialStream> for IXpsPrintJobStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::System::Com::ISequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::System::Com::ISequentialStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::System::Com::ISequentialStream> for &IXpsPrintJobStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::System::Com::ISequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::System::Com::ISequentialStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

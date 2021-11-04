@@ -4627,12 +4627,12 @@ impl ::std::convert::From<&IAppxManifestPackageDependency2> for IAppxManifestPac
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestPackageDependency> for IAppxManifestPackageDependency2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestPackageDependency> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAppxManifestPackageDependency>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestPackageDependency> for &IAppxManifestPackageDependency2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestPackageDependency> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAppxManifestPackageDependency>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4883,12 +4883,12 @@ impl ::std::convert::From<&IAppxManifestPackageId2> for IAppxManifestPackageId {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestPackageId> for IAppxManifestPackageId2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestPackageId> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAppxManifestPackageId>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestPackageId> for &IAppxManifestPackageId2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestPackageId> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAppxManifestPackageId>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5271,12 +5271,12 @@ impl ::std::convert::From<&IAppxManifestReader2> for IAppxManifestReader {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestReader> for IAppxManifestReader2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAppxManifestReader>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestReader> for &IAppxManifestReader2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAppxManifestReader>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5402,12 +5402,12 @@ impl ::std::convert::From<&IAppxManifestReader3> for IAppxManifestReader2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestReader2> for IAppxManifestReader3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestReader2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAppxManifestReader2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestReader2> for &IAppxManifestReader3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestReader2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAppxManifestReader2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IAppxManifestReader3> for IAppxManifestReader {
@@ -5422,12 +5422,12 @@ impl ::std::convert::From<&IAppxManifestReader3> for IAppxManifestReader {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestReader> for IAppxManifestReader3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAppxManifestReader>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestReader> for &IAppxManifestReader3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAppxManifestReader>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5560,12 +5560,12 @@ impl ::std::convert::From<&IAppxManifestReader4> for IAppxManifestReader3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestReader3> for IAppxManifestReader4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestReader3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAppxManifestReader3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestReader3> for &IAppxManifestReader4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestReader3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAppxManifestReader3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IAppxManifestReader4> for IAppxManifestReader2 {
@@ -5580,12 +5580,12 @@ impl ::std::convert::From<&IAppxManifestReader4> for IAppxManifestReader2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestReader2> for IAppxManifestReader4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestReader2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAppxManifestReader2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestReader2> for &IAppxManifestReader4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestReader2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAppxManifestReader2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IAppxManifestReader4> for IAppxManifestReader {
@@ -5600,12 +5600,12 @@ impl ::std::convert::From<&IAppxManifestReader4> for IAppxManifestReader {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestReader> for IAppxManifestReader4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAppxManifestReader>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAppxManifestReader> for &IAppxManifestReader4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAppxManifestReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAppxManifestReader>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

@@ -2768,12 +2768,12 @@ impl ::std::convert::From<&IMSAdminBase2W> for IMSAdminBaseW {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMSAdminBaseW> for IMSAdminBase2W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMSAdminBaseW> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMSAdminBaseW>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMSAdminBaseW> for &IMSAdminBase2W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMSAdminBaseW> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMSAdminBaseW>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3108,12 +3108,12 @@ impl ::std::convert::From<&IMSAdminBase3W> for IMSAdminBase2W {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMSAdminBase2W> for IMSAdminBase3W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMSAdminBase2W> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMSAdminBase2W>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMSAdminBase2W> for &IMSAdminBase3W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMSAdminBase2W> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMSAdminBase2W>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IMSAdminBase3W> for IMSAdminBaseW {
@@ -3128,12 +3128,12 @@ impl ::std::convert::From<&IMSAdminBase3W> for IMSAdminBaseW {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMSAdminBaseW> for IMSAdminBase3W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMSAdminBaseW> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMSAdminBaseW>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMSAdminBaseW> for &IMSAdminBase3W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMSAdminBaseW> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMSAdminBaseW>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

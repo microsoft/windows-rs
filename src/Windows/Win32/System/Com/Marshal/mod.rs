@@ -1447,12 +1447,12 @@ impl ::std::convert::From<&IMarshal2> for IMarshal {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMarshal> for IMarshal2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMarshal> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMarshal>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMarshal> for &IMarshal2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMarshal> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMarshal>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1563,12 +1563,12 @@ impl ::std::convert::From<&IMarshalingStream> for super::IStream {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, super::IStream> for IMarshalingStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::IStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::IStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, super::IStream> for &IMarshalingStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::IStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::IStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IMarshalingStream> for super::ISequentialStream {
@@ -1583,12 +1583,12 @@ impl ::std::convert::From<&IMarshalingStream> for super::ISequentialStream {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, super::ISequentialStream> for IMarshalingStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::ISequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::ISequentialStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, super::ISequentialStream> for &IMarshalingStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::ISequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::ISequentialStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

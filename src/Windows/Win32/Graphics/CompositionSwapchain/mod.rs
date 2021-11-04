@@ -140,12 +140,12 @@ impl ::std::convert::From<&ICompositionFramePresentStatistics> for IPresentStati
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPresentStatistics> for ICompositionFramePresentStatistics {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPresentStatistics> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPresentStatistics>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPresentStatistics> for &ICompositionFramePresentStatistics {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPresentStatistics> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPresentStatistics>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -238,12 +238,12 @@ impl ::std::convert::From<&IIndependentFlipFramePresentStatistics> for IPresentS
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPresentStatistics> for IIndependentFlipFramePresentStatistics {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPresentStatistics> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPresentStatistics>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPresentStatistics> for &IIndependentFlipFramePresentStatistics {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPresentStatistics> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPresentStatistics>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -366,12 +366,12 @@ impl ::std::convert::From<&IPresentStatusPresentStatistics> for IPresentStatisti
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPresentStatistics> for IPresentStatusPresentStatistics {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPresentStatistics> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPresentStatistics>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPresentStatistics> for &IPresentStatusPresentStatistics {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPresentStatistics> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPresentStatistics>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -725,12 +725,12 @@ impl ::std::convert::From<&IPresentationSurface> for IPresentationContent {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPresentationContent> for IPresentationSurface {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPresentationContent> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPresentationContent>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPresentationContent> for &IPresentationSurface {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPresentationContent> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPresentationContent>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

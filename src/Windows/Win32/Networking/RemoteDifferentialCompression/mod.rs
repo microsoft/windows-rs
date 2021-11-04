@@ -259,12 +259,12 @@ impl ::std::convert::From<&IRdcFileWriter> for IRdcFileReader {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRdcFileReader> for IRdcFileWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRdcFileReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRdcFileReader>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRdcFileReader> for &IRdcFileWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRdcFileReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRdcFileReader>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

@@ -308,12 +308,12 @@ impl ::std::convert::From<&IChangeUnitListFilterInfo> for ISyncFilterInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncFilterInfo> for IChangeUnitListFilterInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncFilterInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncFilterInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncFilterInfo> for &IChangeUnitListFilterInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncFilterInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncFilterInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -480,12 +480,12 @@ impl ::std::convert::From<&ICombinedFilterInfo> for ISyncFilterInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncFilterInfo> for ICombinedFilterInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncFilterInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncFilterInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncFilterInfo> for &ICombinedFilterInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncFilterInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncFilterInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -804,12 +804,12 @@ impl ::std::convert::From<&ICustomFilterInfo> for ISyncFilterInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncFilterInfo> for ICustomFilterInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncFilterInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncFilterInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncFilterInfo> for &ICustomFilterInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncFilterInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncFilterInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1561,12 +1561,12 @@ impl ::std::convert::From<&IFeedClockVector> for IClockVector {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IClockVector> for IFeedClockVector {
     fn into_param(self) -> ::windows::runtime::Param<'a, IClockVector> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IClockVector>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IClockVector> for &IFeedClockVector {
     fn into_param(self) -> ::windows::runtime::Param<'a, IClockVector> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IClockVector>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1639,12 +1639,12 @@ impl ::std::convert::From<&IFeedClockVectorElement> for IClockVectorElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IClockVectorElement> for IFeedClockVectorElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, IClockVectorElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IClockVectorElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IClockVectorElement> for &IFeedClockVectorElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, IClockVectorElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IClockVectorElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2045,12 +2045,12 @@ impl ::std::convert::From<&IForgottenKnowledge> for ISyncKnowledge {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncKnowledge> for IForgottenKnowledge {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncKnowledge> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncKnowledge>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncKnowledge> for &IForgottenKnowledge {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncKnowledge> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncKnowledge>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2161,12 +2161,12 @@ impl ::std::convert::From<&IKnowledgeSyncProvider> for ISyncProvider {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncProvider> for IKnowledgeSyncProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncProvider>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncProvider> for &IKnowledgeSyncProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncProvider>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2870,12 +2870,12 @@ impl ::std::convert::From<&ISyncCallback2> for ISyncCallback {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncCallback> for ISyncCallback2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncCallback>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncCallback> for &ISyncCallback2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncCallback>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3111,12 +3111,12 @@ impl ::std::convert::From<&ISyncChangeBatch> for ISyncChangeBatchBase {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncChangeBatchBase> for ISyncChangeBatch {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncChangeBatchBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncChangeBatchBase>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncChangeBatchBase> for &ISyncChangeBatch {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncChangeBatchBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncChangeBatchBase>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3295,12 +3295,12 @@ impl ::std::convert::From<&ISyncChangeBatch2> for ISyncChangeBatch {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncChangeBatch> for ISyncChangeBatch2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncChangeBatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncChangeBatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncChangeBatch> for &ISyncChangeBatch2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncChangeBatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncChangeBatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ISyncChangeBatch2> for ISyncChangeBatchBase {
@@ -3315,12 +3315,12 @@ impl ::std::convert::From<&ISyncChangeBatch2> for ISyncChangeBatchBase {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncChangeBatchBase> for ISyncChangeBatch2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncChangeBatchBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncChangeBatchBase>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncChangeBatchBase> for &ISyncChangeBatch2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncChangeBatchBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncChangeBatchBase>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3634,12 +3634,12 @@ impl ::std::convert::From<&ISyncChangeBatchBase2> for ISyncChangeBatchBase {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncChangeBatchBase> for ISyncChangeBatchBase2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncChangeBatchBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncChangeBatchBase>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncChangeBatchBase> for &ISyncChangeBatchBase2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncChangeBatchBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncChangeBatchBase>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3866,12 +3866,12 @@ impl ::std::convert::From<&ISyncChangeBatchWithPrerequisite> for ISyncChangeBatc
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncChangeBatchBase> for ISyncChangeBatchWithPrerequisite {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncChangeBatchBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncChangeBatchBase>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncChangeBatchBase> for &ISyncChangeBatchWithPrerequisite {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncChangeBatchBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncChangeBatchBase>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4420,12 +4420,12 @@ impl ::std::convert::From<&ISyncFilterInfo2> for ISyncFilterInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncFilterInfo> for ISyncFilterInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncFilterInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncFilterInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncFilterInfo> for &ISyncFilterInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncFilterInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncFilterInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4603,12 +4603,12 @@ impl ::std::convert::From<&ISyncFullEnumerationChangeBatch> for ISyncChangeBatch
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncChangeBatchBase> for ISyncFullEnumerationChangeBatch {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncChangeBatchBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncChangeBatchBase>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncChangeBatchBase> for &ISyncFullEnumerationChangeBatch {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncChangeBatchBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncChangeBatchBase>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4758,12 +4758,12 @@ impl ::std::convert::From<&ISyncFullEnumerationChangeBatch2> for ISyncFullEnumer
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncFullEnumerationChangeBatch> for ISyncFullEnumerationChangeBatch2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncFullEnumerationChangeBatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncFullEnumerationChangeBatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncFullEnumerationChangeBatch> for &ISyncFullEnumerationChangeBatch2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncFullEnumerationChangeBatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncFullEnumerationChangeBatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ISyncFullEnumerationChangeBatch2> for ISyncChangeBatchBase {
@@ -4778,12 +4778,12 @@ impl ::std::convert::From<&ISyncFullEnumerationChangeBatch2> for ISyncChangeBatc
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncChangeBatchBase> for ISyncFullEnumerationChangeBatch2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncChangeBatchBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncChangeBatchBase>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncChangeBatchBase> for &ISyncFullEnumerationChangeBatch2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncChangeBatchBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncChangeBatchBase>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5183,12 +5183,12 @@ impl ::std::convert::From<&ISyncKnowledge2> for ISyncKnowledge {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncKnowledge> for ISyncKnowledge2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncKnowledge> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncKnowledge>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncKnowledge> for &ISyncKnowledge2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncKnowledge> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncKnowledge>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5467,13 +5467,13 @@ impl ::std::convert::From<&ISyncProviderConfigUIInfo> for super::PropertiesSyste
 #[cfg(feature = "Win32_System_PropertiesSystem")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::PropertiesSystem::IPropertyStore> for ISyncProviderConfigUIInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::PropertiesSystem::IPropertyStore> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::PropertiesSystem::IPropertyStore>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_PropertiesSystem")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::PropertiesSystem::IPropertyStore> for &ISyncProviderConfigUIInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::PropertiesSystem::IPropertyStore> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::PropertiesSystem::IPropertyStore>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5568,13 +5568,13 @@ impl ::std::convert::From<&ISyncProviderInfo> for super::PropertiesSystem::IProp
 #[cfg(feature = "Win32_System_PropertiesSystem")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::PropertiesSystem::IPropertyStore> for ISyncProviderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::PropertiesSystem::IPropertyStore> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::PropertiesSystem::IPropertyStore>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_PropertiesSystem")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::PropertiesSystem::IPropertyStore> for &ISyncProviderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::PropertiesSystem::IPropertyStore> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::PropertiesSystem::IPropertyStore>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5975,12 +5975,12 @@ impl ::std::convert::From<&ISyncSessionState2> for ISyncSessionState {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncSessionState> for ISyncSessionState2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncSessionState> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncSessionState>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISyncSessionState> for &ISyncSessionState2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISyncSessionState> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISyncSessionState>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

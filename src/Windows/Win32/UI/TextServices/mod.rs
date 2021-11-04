@@ -2551,12 +2551,12 @@ impl ::std::convert::From<&ITextStoreACPSinkEx> for ITextStoreACPSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITextStoreACPSink> for ITextStoreACPSinkEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITextStoreACPSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITextStoreACPSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITextStoreACPSink> for &ITextStoreACPSinkEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITextStoreACPSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITextStoreACPSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2987,12 +2987,12 @@ impl ::std::convert::From<&ITextStoreSinkAnchorEx> for ITextStoreAnchorSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITextStoreAnchorSink> for ITextStoreSinkAnchorEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITextStoreAnchorSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITextStoreAnchorSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITextStoreAnchorSink> for &ITextStoreSinkAnchorEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITextStoreAnchorSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITextStoreAnchorSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3218,12 +3218,12 @@ impl ::std::convert::From<&ITfCandidateListUIElement> for ITfUIElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfUIElement> for ITfCandidateListUIElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfUIElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfUIElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfUIElement> for &ITfCandidateListUIElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfUIElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfUIElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3364,12 +3364,12 @@ impl ::std::convert::From<&ITfCandidateListUIElementBehavior> for ITfCandidateLi
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfCandidateListUIElement> for ITfCandidateListUIElementBehavior {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfCandidateListUIElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfCandidateListUIElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfCandidateListUIElement> for &ITfCandidateListUIElementBehavior {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfCandidateListUIElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfCandidateListUIElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ITfCandidateListUIElementBehavior> for ITfUIElement {
@@ -3384,12 +3384,12 @@ impl ::std::convert::From<&ITfCandidateListUIElementBehavior> for ITfUIElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfUIElement> for ITfCandidateListUIElementBehavior {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfUIElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfUIElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfUIElement> for &ITfCandidateListUIElementBehavior {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfUIElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfUIElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4480,12 +4480,12 @@ impl ::std::convert::From<&ITfContextOwnerCompositionServices> for ITfContextCom
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfContextComposition> for ITfContextOwnerCompositionServices {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfContextComposition> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfContextComposition>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfContextComposition> for &ITfContextOwnerCompositionServices {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfContextComposition> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfContextComposition>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5235,12 +5235,12 @@ impl ::std::convert::From<&ITfFnAdviseText> for ITfFunction {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for ITfFnAdviseText {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for &ITfFnAdviseText {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5352,12 +5352,12 @@ impl ::std::convert::From<&ITfFnConfigure> for ITfFunction {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for ITfFnConfigure {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for &ITfFnConfigure {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5424,12 +5424,12 @@ impl ::std::convert::From<&ITfFnConfigureRegisterEudc> for ITfFunction {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for ITfFnConfigureRegisterEudc {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for &ITfFnConfigureRegisterEudc {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5496,12 +5496,12 @@ impl ::std::convert::From<&ITfFnConfigureRegisterWord> for ITfFunction {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for ITfFnConfigureRegisterWord {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for &ITfFnConfigureRegisterWord {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5567,12 +5567,12 @@ impl ::std::convert::From<&ITfFnCustomSpeechCommand> for ITfFunction {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for ITfFnCustomSpeechCommand {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for &ITfFnCustomSpeechCommand {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5638,12 +5638,12 @@ impl ::std::convert::From<&ITfFnGetLinguisticAlternates> for ITfFunction {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for ITfFnGetLinguisticAlternates {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for &ITfFnGetLinguisticAlternates {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5708,12 +5708,12 @@ impl ::std::convert::From<&ITfFnGetPreferredTouchKeyboardLayout> for ITfFunction
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for ITfFnGetPreferredTouchKeyboardLayout {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for &ITfFnGetPreferredTouchKeyboardLayout {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5779,12 +5779,12 @@ impl ::std::convert::From<&ITfFnGetSAPIObject> for ITfFunction {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for ITfFnGetSAPIObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for &ITfFnGetSAPIObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5884,12 +5884,12 @@ impl ::std::convert::From<&ITfFnLMInternal> for ITfFnLMProcessor {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFnLMProcessor> for ITfFnLMInternal {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFnLMProcessor> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFnLMProcessor>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFnLMProcessor> for &ITfFnLMInternal {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFnLMProcessor> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFnLMProcessor>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ITfFnLMInternal> for ITfFunction {
@@ -5904,12 +5904,12 @@ impl ::std::convert::From<&ITfFnLMInternal> for ITfFunction {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for ITfFnLMInternal {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for &ITfFnLMInternal {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6016,12 +6016,12 @@ impl ::std::convert::From<&ITfFnLMProcessor> for ITfFunction {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for ITfFnLMProcessor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for &ITfFnLMProcessor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6102,12 +6102,12 @@ impl ::std::convert::From<&ITfFnLangProfileUtil> for ITfFunction {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for ITfFnLangProfileUtil {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for &ITfFnLangProfileUtil {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6179,12 +6179,12 @@ impl ::std::convert::From<&ITfFnPlayBack> for ITfFunction {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for ITfFnPlayBack {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for &ITfFnPlayBack {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6256,12 +6256,12 @@ impl ::std::convert::From<&ITfFnPropertyUIStatus> for ITfFunction {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for ITfFnPropertyUIStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for &ITfFnPropertyUIStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6337,12 +6337,12 @@ impl ::std::convert::From<&ITfFnReconversion> for ITfFunction {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for ITfFnReconversion {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for &ITfFnReconversion {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6417,12 +6417,12 @@ impl ::std::convert::From<&ITfFnSearchCandidateProvider> for ITfFunction {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for ITfFnSearchCandidateProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for &ITfFnSearchCandidateProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6491,12 +6491,12 @@ impl ::std::convert::From<&ITfFnShowHelp> for ITfFunction {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for ITfFnShowHelp {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfFunction> for &ITfFnShowHelp {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfFunction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfFunction>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7082,12 +7082,12 @@ impl ::std::convert::From<&ITfInputProcessorProfilesEx> for ITfInputProcessorPro
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfInputProcessorProfiles> for ITfInputProcessorProfilesEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfInputProcessorProfiles> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfInputProcessorProfiles>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfInputProcessorProfiles> for &ITfInputProcessorProfilesEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfInputProcessorProfiles> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfInputProcessorProfiles>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7271,12 +7271,12 @@ impl ::std::convert::From<&ITfInputScope2> for ITfInputScope {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfInputScope> for ITfInputScope2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfInputScope> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfInputScope>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfInputScope> for &ITfInputScope2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfInputScope> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfInputScope>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7957,12 +7957,12 @@ impl ::std::convert::From<&ITfLangBarItemBalloon> for ITfLangBarItem {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfLangBarItem> for ITfLangBarItemBalloon {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfLangBarItem> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfLangBarItem>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfLangBarItem> for &ITfLangBarItemBalloon {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfLangBarItem> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfLangBarItem>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8063,12 +8063,12 @@ impl ::std::convert::From<&ITfLangBarItemBitmap> for ITfLangBarItem {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfLangBarItem> for ITfLangBarItemBitmap {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfLangBarItem> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfLangBarItem>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfLangBarItem> for &ITfLangBarItemBitmap {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfLangBarItem> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfLangBarItem>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8183,12 +8183,12 @@ impl ::std::convert::From<&ITfLangBarItemBitmapButton> for ITfLangBarItem {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfLangBarItem> for ITfLangBarItemBitmapButton {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfLangBarItem> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfLangBarItem>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfLangBarItem> for &ITfLangBarItemBitmapButton {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfLangBarItem> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfLangBarItem>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8302,12 +8302,12 @@ impl ::std::convert::From<&ITfLangBarItemButton> for ITfLangBarItem {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfLangBarItem> for ITfLangBarItemButton {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfLangBarItem> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfLangBarItem>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfLangBarItem> for &ITfLangBarItemButton {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfLangBarItem> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfLangBarItem>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9077,12 +9077,12 @@ impl ::std::convert::From<&ITfProperty> for ITfReadOnlyProperty {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfReadOnlyProperty> for ITfProperty {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfReadOnlyProperty> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfReadOnlyProperty>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfReadOnlyProperty> for &ITfProperty {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfReadOnlyProperty> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfReadOnlyProperty>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9585,12 +9585,12 @@ impl ::std::convert::From<&ITfRangeACP> for ITfRange {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfRange> for ITfRangeACP {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfRange> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfRange>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfRange> for &ITfRangeACP {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfRange> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfRange>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9834,12 +9834,12 @@ impl ::std::convert::From<&ITfReadingInformationUIElement> for ITfUIElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfUIElement> for ITfReadingInformationUIElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfUIElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfUIElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfUIElement> for &ITfReadingInformationUIElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfUIElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfUIElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10537,12 +10537,12 @@ impl ::std::convert::From<&ITfTextInputProcessorEx> for ITfTextInputProcessor {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfTextInputProcessor> for ITfTextInputProcessorEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfTextInputProcessor> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfTextInputProcessor>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfTextInputProcessor> for &ITfTextInputProcessorEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfTextInputProcessor> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfTextInputProcessor>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11035,12 +11035,12 @@ impl ::std::convert::From<&ITfThreadMgrEx> for ITfThreadMgr {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfThreadMgr> for ITfThreadMgrEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfThreadMgr> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfThreadMgr>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfThreadMgr> for &ITfThreadMgrEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfThreadMgr> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfThreadMgr>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11135,12 +11135,12 @@ impl ::std::convert::From<&ITfToolTipUIElement> for ITfUIElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfUIElement> for ITfToolTipUIElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfUIElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfUIElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfUIElement> for &ITfToolTipUIElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfUIElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfUIElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11273,12 +11273,12 @@ impl ::std::convert::From<&ITfTransitoryExtensionUIElement> for ITfUIElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfUIElement> for ITfTransitoryExtensionUIElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfUIElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfUIElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITfUIElement> for &ITfTransitoryExtensionUIElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITfUIElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITfUIElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

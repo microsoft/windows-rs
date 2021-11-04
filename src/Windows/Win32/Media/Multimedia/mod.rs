@@ -4439,13 +4439,13 @@ impl ::std::convert::From<&IAVIPersistFile> for super::super::System::Com::IPers
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersistFile> for IAVIPersistFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IPersistFile> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IPersistFile>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersistFile> for &IAVIPersistFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IPersistFile> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IPersistFile>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4463,13 +4463,13 @@ impl ::std::convert::From<&IAVIPersistFile> for super::super::System::Com::IPers
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersist> for IAVIPersistFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IPersist> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IPersist>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersist> for &IAVIPersistFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IPersist> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IPersist>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

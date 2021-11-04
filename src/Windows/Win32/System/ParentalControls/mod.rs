@@ -67,12 +67,12 @@ impl ::std::convert::From<&IWPCGamesSettings> for IWPCSettings {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWPCSettings> for IWPCGamesSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWPCSettings> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWPCSettings>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWPCSettings> for &IWPCGamesSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWPCSettings> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWPCSettings>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -366,12 +366,12 @@ impl ::std::convert::From<&IWPCWebSettings> for IWPCSettings {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWPCSettings> for IWPCWebSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWPCSettings> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWPCSettings>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWPCSettings> for &IWPCWebSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWPCSettings> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWPCSettings>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -459,12 +459,12 @@ impl ::std::convert::From<&IWindowsParentalControls> for IWindowsParentalControl
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWindowsParentalControlsCore> for IWindowsParentalControls {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWindowsParentalControlsCore> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWindowsParentalControlsCore>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWindowsParentalControlsCore> for &IWindowsParentalControls {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWindowsParentalControlsCore> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWindowsParentalControlsCore>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

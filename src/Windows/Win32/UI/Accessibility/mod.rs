@@ -1504,13 +1504,13 @@ impl ::std::convert::From<&IAccessible> for super::super::System::Ole::Automatio
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAccessible {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAccessible {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3154,12 +3154,12 @@ impl ::std::convert::From<&IRawElementProviderSimple2> for IRawElementProviderSi
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRawElementProviderSimple> for IRawElementProviderSimple2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRawElementProviderSimple> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRawElementProviderSimple>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRawElementProviderSimple> for &IRawElementProviderSimple2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRawElementProviderSimple> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRawElementProviderSimple>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3248,12 +3248,12 @@ impl ::std::convert::From<&IRawElementProviderSimple3> for IRawElementProviderSi
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRawElementProviderSimple2> for IRawElementProviderSimple3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRawElementProviderSimple2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRawElementProviderSimple2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRawElementProviderSimple2> for &IRawElementProviderSimple3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRawElementProviderSimple2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRawElementProviderSimple2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IRawElementProviderSimple3> for IRawElementProviderSimple {
@@ -3268,12 +3268,12 @@ impl ::std::convert::From<&IRawElementProviderSimple3> for IRawElementProviderSi
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRawElementProviderSimple> for IRawElementProviderSimple3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRawElementProviderSimple> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRawElementProviderSimple>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRawElementProviderSimple> for &IRawElementProviderSimple3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRawElementProviderSimple> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRawElementProviderSimple>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3768,12 +3768,12 @@ impl ::std::convert::From<&ISelectionProvider2> for ISelectionProvider {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISelectionProvider> for ISelectionProvider2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISelectionProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISelectionProvider>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISelectionProvider> for &ISelectionProvider2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISelectionProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISelectionProvider>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4278,12 +4278,12 @@ impl ::std::convert::From<&ITextEditProvider> for ITextProvider {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITextProvider> for ITextEditProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITextProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITextProvider>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITextProvider> for &ITextEditProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITextProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITextProvider>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4464,12 +4464,12 @@ impl ::std::convert::From<&ITextProvider2> for ITextProvider {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITextProvider> for ITextProvider2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITextProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITextProvider>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITextProvider> for &ITextProvider2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITextProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITextProvider>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4783,12 +4783,12 @@ impl ::std::convert::From<&ITextRangeProvider2> for ITextRangeProvider {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITextRangeProvider> for ITextRangeProvider2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITextRangeProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITextRangeProvider>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITextRangeProvider> for &ITextRangeProvider2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITextRangeProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITextRangeProvider>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5050,12 +5050,12 @@ impl ::std::convert::From<&ITransformProvider2> for ITransformProvider {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITransformProvider> for ITransformProvider2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITransformProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITransformProvider>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITransformProvider> for &ITransformProvider2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITransformProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITransformProvider>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5829,12 +5829,12 @@ impl ::std::convert::From<&IUIAutomation2> for IUIAutomation {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation> for IUIAutomation2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation> for &IUIAutomation2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6289,12 +6289,12 @@ impl ::std::convert::From<&IUIAutomation3> for IUIAutomation2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation2> for IUIAutomation3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation2> for &IUIAutomation3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomation3> for IUIAutomation {
@@ -6309,12 +6309,12 @@ impl ::std::convert::From<&IUIAutomation3> for IUIAutomation {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation> for IUIAutomation3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation> for &IUIAutomation3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6779,12 +6779,12 @@ impl ::std::convert::From<&IUIAutomation4> for IUIAutomation3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation3> for IUIAutomation4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation3> for &IUIAutomation4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomation4> for IUIAutomation2 {
@@ -6799,12 +6799,12 @@ impl ::std::convert::From<&IUIAutomation4> for IUIAutomation2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation2> for IUIAutomation4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation2> for &IUIAutomation4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomation4> for IUIAutomation {
@@ -6819,12 +6819,12 @@ impl ::std::convert::From<&IUIAutomation4> for IUIAutomation {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation> for IUIAutomation4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation> for &IUIAutomation4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7299,12 +7299,12 @@ impl ::std::convert::From<&IUIAutomation5> for IUIAutomation4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation4> for IUIAutomation5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation4> for &IUIAutomation5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomation5> for IUIAutomation3 {
@@ -7319,12 +7319,12 @@ impl ::std::convert::From<&IUIAutomation5> for IUIAutomation3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation3> for IUIAutomation5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation3> for &IUIAutomation5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomation5> for IUIAutomation2 {
@@ -7339,12 +7339,12 @@ impl ::std::convert::From<&IUIAutomation5> for IUIAutomation2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation2> for IUIAutomation5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation2> for &IUIAutomation5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomation5> for IUIAutomation {
@@ -7359,12 +7359,12 @@ impl ::std::convert::From<&IUIAutomation5> for IUIAutomation {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation> for IUIAutomation5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation> for &IUIAutomation5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7880,12 +7880,12 @@ impl ::std::convert::From<&IUIAutomation6> for IUIAutomation5 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation5> for IUIAutomation6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation5>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation5> for &IUIAutomation6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation5>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomation6> for IUIAutomation4 {
@@ -7900,12 +7900,12 @@ impl ::std::convert::From<&IUIAutomation6> for IUIAutomation4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation4> for IUIAutomation6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation4> for &IUIAutomation6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomation6> for IUIAutomation3 {
@@ -7920,12 +7920,12 @@ impl ::std::convert::From<&IUIAutomation6> for IUIAutomation3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation3> for IUIAutomation6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation3> for &IUIAutomation6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomation6> for IUIAutomation2 {
@@ -7940,12 +7940,12 @@ impl ::std::convert::From<&IUIAutomation6> for IUIAutomation2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation2> for IUIAutomation6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation2> for &IUIAutomation6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomation6> for IUIAutomation {
@@ -7960,12 +7960,12 @@ impl ::std::convert::From<&IUIAutomation6> for IUIAutomation {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation> for IUIAutomation6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomation> for &IUIAutomation6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomation>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8173,12 +8173,12 @@ impl ::std::convert::From<&IUIAutomationAndCondition> for IUIAutomationCondition
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationCondition> for IUIAutomationAndCondition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationCondition> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationCondition>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationCondition> for &IUIAutomationAndCondition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationCondition> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationCondition>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8349,12 +8349,12 @@ impl ::std::convert::From<&IUIAutomationBoolCondition> for IUIAutomationConditio
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationCondition> for IUIAutomationBoolCondition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationCondition> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationCondition>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationCondition> for &IUIAutomationBoolCondition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationCondition> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationCondition>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9962,12 +9962,12 @@ impl ::std::convert::From<&IUIAutomationElement2> for IUIAutomationElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement> for IUIAutomationElement2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement> for &IUIAutomationElement2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10671,12 +10671,12 @@ impl ::std::convert::From<&IUIAutomationElement3> for IUIAutomationElement2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement2> for IUIAutomationElement3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement2> for &IUIAutomationElement3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement3> for IUIAutomationElement {
@@ -10691,12 +10691,12 @@ impl ::std::convert::From<&IUIAutomationElement3> for IUIAutomationElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement> for IUIAutomationElement3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement> for &IUIAutomationElement3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11457,12 +11457,12 @@ impl ::std::convert::From<&IUIAutomationElement4> for IUIAutomationElement3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement3> for IUIAutomationElement4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement3> for &IUIAutomationElement4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement4> for IUIAutomationElement2 {
@@ -11477,12 +11477,12 @@ impl ::std::convert::From<&IUIAutomationElement4> for IUIAutomationElement2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement2> for IUIAutomationElement4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement2> for &IUIAutomationElement4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement4> for IUIAutomationElement {
@@ -11497,12 +11497,12 @@ impl ::std::convert::From<&IUIAutomationElement4> for IUIAutomationElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement> for IUIAutomationElement4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement> for &IUIAutomationElement4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12297,12 +12297,12 @@ impl ::std::convert::From<&IUIAutomationElement5> for IUIAutomationElement4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement4> for IUIAutomationElement5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement4> for &IUIAutomationElement5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement5> for IUIAutomationElement3 {
@@ -12317,12 +12317,12 @@ impl ::std::convert::From<&IUIAutomationElement5> for IUIAutomationElement3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement3> for IUIAutomationElement5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement3> for &IUIAutomationElement5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement5> for IUIAutomationElement2 {
@@ -12337,12 +12337,12 @@ impl ::std::convert::From<&IUIAutomationElement5> for IUIAutomationElement2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement2> for IUIAutomationElement5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement2> for &IUIAutomationElement5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement5> for IUIAutomationElement {
@@ -12357,12 +12357,12 @@ impl ::std::convert::From<&IUIAutomationElement5> for IUIAutomationElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement> for IUIAutomationElement5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement> for &IUIAutomationElement5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13175,12 +13175,12 @@ impl ::std::convert::From<&IUIAutomationElement6> for IUIAutomationElement5 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement5> for IUIAutomationElement6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement5>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement5> for &IUIAutomationElement6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement5>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement6> for IUIAutomationElement4 {
@@ -13195,12 +13195,12 @@ impl ::std::convert::From<&IUIAutomationElement6> for IUIAutomationElement4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement4> for IUIAutomationElement6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement4> for &IUIAutomationElement6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement6> for IUIAutomationElement3 {
@@ -13215,12 +13215,12 @@ impl ::std::convert::From<&IUIAutomationElement6> for IUIAutomationElement3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement3> for IUIAutomationElement6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement3> for &IUIAutomationElement6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement6> for IUIAutomationElement2 {
@@ -13235,12 +13235,12 @@ impl ::std::convert::From<&IUIAutomationElement6> for IUIAutomationElement2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement2> for IUIAutomationElement6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement2> for &IUIAutomationElement6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement6> for IUIAutomationElement {
@@ -13255,12 +13255,12 @@ impl ::std::convert::From<&IUIAutomationElement6> for IUIAutomationElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement> for IUIAutomationElement6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement> for &IUIAutomationElement6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14103,12 +14103,12 @@ impl ::std::convert::From<&IUIAutomationElement7> for IUIAutomationElement6 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement6> for IUIAutomationElement7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement6> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement6>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement6> for &IUIAutomationElement7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement6> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement6>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement7> for IUIAutomationElement5 {
@@ -14123,12 +14123,12 @@ impl ::std::convert::From<&IUIAutomationElement7> for IUIAutomationElement5 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement5> for IUIAutomationElement7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement5>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement5> for &IUIAutomationElement7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement5>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement7> for IUIAutomationElement4 {
@@ -14143,12 +14143,12 @@ impl ::std::convert::From<&IUIAutomationElement7> for IUIAutomationElement4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement4> for IUIAutomationElement7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement4> for &IUIAutomationElement7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement7> for IUIAutomationElement3 {
@@ -14163,12 +14163,12 @@ impl ::std::convert::From<&IUIAutomationElement7> for IUIAutomationElement3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement3> for IUIAutomationElement7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement3> for &IUIAutomationElement7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement7> for IUIAutomationElement2 {
@@ -14183,12 +14183,12 @@ impl ::std::convert::From<&IUIAutomationElement7> for IUIAutomationElement2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement2> for IUIAutomationElement7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement2> for &IUIAutomationElement7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement7> for IUIAutomationElement {
@@ -14203,12 +14203,12 @@ impl ::std::convert::From<&IUIAutomationElement7> for IUIAutomationElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement> for IUIAutomationElement7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement> for &IUIAutomationElement7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15067,12 +15067,12 @@ impl ::std::convert::From<&IUIAutomationElement8> for IUIAutomationElement7 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement7> for IUIAutomationElement8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement7> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement7>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement7> for &IUIAutomationElement8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement7> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement7>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement8> for IUIAutomationElement6 {
@@ -15087,12 +15087,12 @@ impl ::std::convert::From<&IUIAutomationElement8> for IUIAutomationElement6 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement6> for IUIAutomationElement8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement6> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement6>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement6> for &IUIAutomationElement8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement6> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement6>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement8> for IUIAutomationElement5 {
@@ -15107,12 +15107,12 @@ impl ::std::convert::From<&IUIAutomationElement8> for IUIAutomationElement5 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement5> for IUIAutomationElement8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement5>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement5> for &IUIAutomationElement8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement5>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement8> for IUIAutomationElement4 {
@@ -15127,12 +15127,12 @@ impl ::std::convert::From<&IUIAutomationElement8> for IUIAutomationElement4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement4> for IUIAutomationElement8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement4> for &IUIAutomationElement8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement8> for IUIAutomationElement3 {
@@ -15147,12 +15147,12 @@ impl ::std::convert::From<&IUIAutomationElement8> for IUIAutomationElement3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement3> for IUIAutomationElement8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement3> for &IUIAutomationElement8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement8> for IUIAutomationElement2 {
@@ -15167,12 +15167,12 @@ impl ::std::convert::From<&IUIAutomationElement8> for IUIAutomationElement2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement2> for IUIAutomationElement8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement2> for &IUIAutomationElement8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement8> for IUIAutomationElement {
@@ -15187,12 +15187,12 @@ impl ::std::convert::From<&IUIAutomationElement8> for IUIAutomationElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement> for IUIAutomationElement8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement> for &IUIAutomationElement8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -16065,12 +16065,12 @@ impl ::std::convert::From<&IUIAutomationElement9> for IUIAutomationElement8 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement8> for IUIAutomationElement9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement8> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement8>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement8> for &IUIAutomationElement9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement8> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement8>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement9> for IUIAutomationElement7 {
@@ -16085,12 +16085,12 @@ impl ::std::convert::From<&IUIAutomationElement9> for IUIAutomationElement7 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement7> for IUIAutomationElement9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement7> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement7>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement7> for &IUIAutomationElement9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement7> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement7>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement9> for IUIAutomationElement6 {
@@ -16105,12 +16105,12 @@ impl ::std::convert::From<&IUIAutomationElement9> for IUIAutomationElement6 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement6> for IUIAutomationElement9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement6> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement6>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement6> for &IUIAutomationElement9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement6> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement6>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement9> for IUIAutomationElement5 {
@@ -16125,12 +16125,12 @@ impl ::std::convert::From<&IUIAutomationElement9> for IUIAutomationElement5 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement5> for IUIAutomationElement9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement5>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement5> for &IUIAutomationElement9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement5>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement9> for IUIAutomationElement4 {
@@ -16145,12 +16145,12 @@ impl ::std::convert::From<&IUIAutomationElement9> for IUIAutomationElement4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement4> for IUIAutomationElement9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement4> for &IUIAutomationElement9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement9> for IUIAutomationElement3 {
@@ -16165,12 +16165,12 @@ impl ::std::convert::From<&IUIAutomationElement9> for IUIAutomationElement3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement3> for IUIAutomationElement9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement3> for &IUIAutomationElement9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement9> for IUIAutomationElement2 {
@@ -16185,12 +16185,12 @@ impl ::std::convert::From<&IUIAutomationElement9> for IUIAutomationElement2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement2> for IUIAutomationElement9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement2> for &IUIAutomationElement9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationElement9> for IUIAutomationElement {
@@ -16205,12 +16205,12 @@ impl ::std::convert::From<&IUIAutomationElement9> for IUIAutomationElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement> for IUIAutomationElement9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationElement> for &IUIAutomationElement9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -17247,12 +17247,12 @@ impl ::std::convert::From<&IUIAutomationNotCondition> for IUIAutomationCondition
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationCondition> for IUIAutomationNotCondition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationCondition> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationCondition>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationCondition> for &IUIAutomationNotCondition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationCondition> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationCondition>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -17407,12 +17407,12 @@ impl ::std::convert::From<&IUIAutomationOrCondition> for IUIAutomationCondition 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationCondition> for IUIAutomationOrCondition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationCondition> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationCondition>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationCondition> for &IUIAutomationOrCondition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationCondition> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationCondition>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -17625,12 +17625,12 @@ impl ::std::convert::From<&IUIAutomationPropertyCondition> for IUIAutomationCond
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationCondition> for IUIAutomationPropertyCondition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationCondition> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationCondition>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationCondition> for &IUIAutomationPropertyCondition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationCondition> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationCondition>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -18545,12 +18545,12 @@ impl ::std::convert::From<&IUIAutomationSelectionPattern2> for IUIAutomationSele
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationSelectionPattern> for IUIAutomationSelectionPattern2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationSelectionPattern> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationSelectionPattern>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationSelectionPattern> for &IUIAutomationSelectionPattern2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationSelectionPattern> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationSelectionPattern>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -19212,12 +19212,12 @@ impl ::std::convert::From<&IUIAutomationTextEditPattern> for IUIAutomationTextPa
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationTextPattern> for IUIAutomationTextEditPattern {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationTextPattern> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationTextPattern>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationTextPattern> for &IUIAutomationTextEditPattern {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationTextPattern> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationTextPattern>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -19438,12 +19438,12 @@ impl ::std::convert::From<&IUIAutomationTextPattern2> for IUIAutomationTextPatte
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationTextPattern> for IUIAutomationTextPattern2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationTextPattern> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationTextPattern>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationTextPattern> for &IUIAutomationTextPattern2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationTextPattern> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationTextPattern>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -19753,12 +19753,12 @@ impl ::std::convert::From<&IUIAutomationTextRange2> for IUIAutomationTextRange {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationTextRange> for IUIAutomationTextRange2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationTextRange> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationTextRange>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationTextRange> for &IUIAutomationTextRange2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationTextRange> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationTextRange>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -19947,12 +19947,12 @@ impl ::std::convert::From<&IUIAutomationTextRange3> for IUIAutomationTextRange2 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationTextRange2> for IUIAutomationTextRange3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationTextRange2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationTextRange2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationTextRange2> for &IUIAutomationTextRange3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationTextRange2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationTextRange2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IUIAutomationTextRange3> for IUIAutomationTextRange {
@@ -19967,12 +19967,12 @@ impl ::std::convert::From<&IUIAutomationTextRange3> for IUIAutomationTextRange {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationTextRange> for IUIAutomationTextRange3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationTextRange> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationTextRange>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationTextRange> for &IUIAutomationTextRange3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationTextRange> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationTextRange>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -20355,12 +20355,12 @@ impl ::std::convert::From<&IUIAutomationTransformPattern2> for IUIAutomationTran
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationTransformPattern> for IUIAutomationTransformPattern2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationTransformPattern> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationTransformPattern>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUIAutomationTransformPattern> for &IUIAutomationTransformPattern2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUIAutomationTransformPattern> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUIAutomationTransformPattern>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

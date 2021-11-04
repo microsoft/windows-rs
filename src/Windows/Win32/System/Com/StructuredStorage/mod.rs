@@ -1351,12 +1351,12 @@ impl ::std::convert::From<&IPersistStorage> for super::IPersist {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, super::IPersist> for IPersistStorage {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::IPersist> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::IPersist>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, super::IPersist> for &IPersistStorage {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::IPersist> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::IPersist>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

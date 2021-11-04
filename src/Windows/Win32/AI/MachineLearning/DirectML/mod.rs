@@ -6332,12 +6332,12 @@ impl ::std::convert::From<&IDMLBindingTable> for IDMLDeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for IDMLBindingTable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for &IDMLBindingTable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDMLBindingTable> for IDMLObject {
@@ -6352,12 +6352,12 @@ impl ::std::convert::From<&IDMLBindingTable> for IDMLObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLBindingTable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLBindingTable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6448,12 +6448,12 @@ impl ::std::convert::From<&IDMLCommandRecorder> for IDMLDeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for IDMLCommandRecorder {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for &IDMLCommandRecorder {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDMLCommandRecorder> for IDMLObject {
@@ -6468,12 +6468,12 @@ impl ::std::convert::From<&IDMLCommandRecorder> for IDMLObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLCommandRecorder {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLCommandRecorder {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6561,12 +6561,12 @@ impl ::std::convert::From<&IDMLCompiledOperator> for IDMLDispatchable {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDispatchable> for IDMLCompiledOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDispatchable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDispatchable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDispatchable> for &IDMLCompiledOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDispatchable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDispatchable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDMLCompiledOperator> for IDMLPageable {
@@ -6581,12 +6581,12 @@ impl ::std::convert::From<&IDMLCompiledOperator> for IDMLPageable {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLPageable> for IDMLCompiledOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLPageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLPageable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLPageable> for &IDMLCompiledOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLPageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLPageable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDMLCompiledOperator> for IDMLDeviceChild {
@@ -6601,12 +6601,12 @@ impl ::std::convert::From<&IDMLCompiledOperator> for IDMLDeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for IDMLCompiledOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for &IDMLCompiledOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDMLCompiledOperator> for IDMLObject {
@@ -6621,12 +6621,12 @@ impl ::std::convert::From<&IDMLCompiledOperator> for IDMLObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLCompiledOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLCompiledOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6791,12 +6791,12 @@ impl ::std::convert::From<&IDMLDevice> for IDMLObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6930,12 +6930,12 @@ impl ::std::convert::From<&IDMLDevice1> for IDMLDevice {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDevice> for IDMLDevice1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDevice>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDevice> for &IDMLDevice1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDevice>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDMLDevice1> for IDMLObject {
@@ -6950,12 +6950,12 @@ impl ::std::convert::From<&IDMLDevice1> for IDMLObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLDevice1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLDevice1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7046,12 +7046,12 @@ impl ::std::convert::From<&IDMLDeviceChild> for IDMLObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLDeviceChild {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLDeviceChild {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7137,12 +7137,12 @@ impl ::std::convert::From<&IDMLDispatchable> for IDMLPageable {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLPageable> for IDMLDispatchable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLPageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLPageable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLPageable> for &IDMLDispatchable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLPageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLPageable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDMLDispatchable> for IDMLDeviceChild {
@@ -7157,12 +7157,12 @@ impl ::std::convert::From<&IDMLDispatchable> for IDMLDeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for IDMLDispatchable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for &IDMLDispatchable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDMLDispatchable> for IDMLObject {
@@ -7177,12 +7177,12 @@ impl ::std::convert::From<&IDMLDispatchable> for IDMLObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLDispatchable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLDispatchable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7322,12 +7322,12 @@ impl ::std::convert::From<&IDMLOperator> for IDMLDeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for IDMLOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for &IDMLOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDMLOperator> for IDMLObject {
@@ -7342,12 +7342,12 @@ impl ::std::convert::From<&IDMLOperator> for IDMLObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7437,12 +7437,12 @@ impl ::std::convert::From<&IDMLOperatorInitializer> for IDMLDispatchable {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDispatchable> for IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDispatchable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDispatchable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDispatchable> for &IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDispatchable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDispatchable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDMLOperatorInitializer> for IDMLPageable {
@@ -7457,12 +7457,12 @@ impl ::std::convert::From<&IDMLOperatorInitializer> for IDMLPageable {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLPageable> for IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLPageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLPageable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLPageable> for &IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLPageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLPageable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDMLOperatorInitializer> for IDMLDeviceChild {
@@ -7477,12 +7477,12 @@ impl ::std::convert::From<&IDMLOperatorInitializer> for IDMLDeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for &IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDMLOperatorInitializer> for IDMLObject {
@@ -7497,12 +7497,12 @@ impl ::std::convert::From<&IDMLOperatorInitializer> for IDMLObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7584,12 +7584,12 @@ impl ::std::convert::From<&IDMLPageable> for IDMLDeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for IDMLPageable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for &IDMLPageable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDMLPageable> for IDMLObject {
@@ -7604,12 +7604,12 @@ impl ::std::convert::From<&IDMLPageable> for IDMLObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLPageable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLPageable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

@@ -1286,12 +1286,12 @@ impl ::std::convert::From<&IDtcNetworkAccessConfig2> for IDtcNetworkAccessConfig
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDtcNetworkAccessConfig> for IDtcNetworkAccessConfig2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDtcNetworkAccessConfig> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDtcNetworkAccessConfig>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDtcNetworkAccessConfig> for &IDtcNetworkAccessConfig2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDtcNetworkAccessConfig> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDtcNetworkAccessConfig>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1490,12 +1490,12 @@ impl ::std::convert::From<&IDtcNetworkAccessConfig3> for IDtcNetworkAccessConfig
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDtcNetworkAccessConfig2> for IDtcNetworkAccessConfig3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDtcNetworkAccessConfig2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDtcNetworkAccessConfig2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDtcNetworkAccessConfig2> for &IDtcNetworkAccessConfig3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDtcNetworkAccessConfig2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDtcNetworkAccessConfig2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDtcNetworkAccessConfig3> for IDtcNetworkAccessConfig {
@@ -1510,12 +1510,12 @@ impl ::std::convert::From<&IDtcNetworkAccessConfig3> for IDtcNetworkAccessConfig
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDtcNetworkAccessConfig> for IDtcNetworkAccessConfig3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDtcNetworkAccessConfig> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDtcNetworkAccessConfig>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDtcNetworkAccessConfig> for &IDtcNetworkAccessConfig3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDtcNetworkAccessConfig> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDtcNetworkAccessConfig>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2191,12 +2191,12 @@ impl ::std::convert::From<&IResourceManager2> for IResourceManager {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IResourceManager> for IResourceManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IResourceManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IResourceManager>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IResourceManager> for &IResourceManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IResourceManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IResourceManager>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2312,12 +2312,12 @@ impl ::std::convert::From<&IResourceManagerFactory2> for IResourceManagerFactory
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IResourceManagerFactory> for IResourceManagerFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IResourceManagerFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IResourceManagerFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IResourceManagerFactory> for &IResourceManagerFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IResourceManagerFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IResourceManagerFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2406,12 +2406,12 @@ impl ::std::convert::From<&IResourceManagerRejoinable> for IResourceManager2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IResourceManager2> for IResourceManagerRejoinable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IResourceManager2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IResourceManager2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IResourceManager2> for &IResourceManagerRejoinable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IResourceManager2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IResourceManager2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IResourceManagerRejoinable> for IResourceManager {
@@ -2426,12 +2426,12 @@ impl ::std::convert::From<&IResourceManagerRejoinable> for IResourceManager {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IResourceManager> for IResourceManagerRejoinable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IResourceManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IResourceManager>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IResourceManager> for &IResourceManagerRejoinable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IResourceManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IResourceManager>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2860,12 +2860,12 @@ impl ::std::convert::From<&ITransaction2> for ITransactionCloner {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITransactionCloner> for ITransaction2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITransactionCloner> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITransactionCloner>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITransactionCloner> for &ITransaction2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITransactionCloner> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITransactionCloner>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ITransaction2> for ITransaction {
@@ -2880,12 +2880,12 @@ impl ::std::convert::From<&ITransaction2> for ITransaction {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITransaction> for ITransaction2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITransaction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITransaction>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITransaction> for &ITransaction2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITransaction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITransaction>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2964,12 +2964,12 @@ impl ::std::convert::From<&ITransactionCloner> for ITransaction {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITransaction> for ITransactionCloner {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITransaction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITransaction>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITransaction> for &ITransactionCloner {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITransaction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITransaction>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4107,12 +4107,12 @@ impl ::std::convert::From<&ITransactionVoterNotifyAsync2> for ITransactionOutcom
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITransactionOutcomeEvents> for ITransactionVoterNotifyAsync2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITransactionOutcomeEvents> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITransactionOutcomeEvents>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITransactionOutcomeEvents> for &ITransactionVoterNotifyAsync2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITransactionOutcomeEvents> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITransactionOutcomeEvents>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

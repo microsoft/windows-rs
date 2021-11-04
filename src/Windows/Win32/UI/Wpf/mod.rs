@@ -245,12 +245,12 @@ impl ::std::convert::From<&IMILBitmapEffectConnector> for IMILBitmapEffectConnec
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMILBitmapEffectConnectorInfo> for IMILBitmapEffectConnector {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMILBitmapEffectConnectorInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMILBitmapEffectConnectorInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMILBitmapEffectConnectorInfo> for &IMILBitmapEffectConnector {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMILBitmapEffectConnectorInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMILBitmapEffectConnectorInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -701,12 +701,12 @@ impl ::std::convert::From<&IMILBitmapEffectInputConnector> for IMILBitmapEffectC
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMILBitmapEffectConnector> for IMILBitmapEffectInputConnector {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMILBitmapEffectConnector> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMILBitmapEffectConnector>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMILBitmapEffectConnector> for &IMILBitmapEffectInputConnector {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMILBitmapEffectConnector> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMILBitmapEffectConnector>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IMILBitmapEffectInputConnector> for IMILBitmapEffectConnectorInfo {
@@ -721,12 +721,12 @@ impl ::std::convert::From<&IMILBitmapEffectInputConnector> for IMILBitmapEffectC
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMILBitmapEffectConnectorInfo> for IMILBitmapEffectInputConnector {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMILBitmapEffectConnectorInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMILBitmapEffectConnectorInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMILBitmapEffectConnectorInfo> for &IMILBitmapEffectInputConnector {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMILBitmapEffectConnectorInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMILBitmapEffectConnectorInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -912,12 +912,12 @@ impl ::std::convert::From<&IMILBitmapEffectOutputConnector> for IMILBitmapEffect
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMILBitmapEffectConnector> for IMILBitmapEffectOutputConnector {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMILBitmapEffectConnector> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMILBitmapEffectConnector>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMILBitmapEffectConnector> for &IMILBitmapEffectOutputConnector {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMILBitmapEffectConnector> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMILBitmapEffectConnector>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IMILBitmapEffectOutputConnector> for IMILBitmapEffectConnectorInfo {
@@ -932,12 +932,12 @@ impl ::std::convert::From<&IMILBitmapEffectOutputConnector> for IMILBitmapEffect
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMILBitmapEffectConnectorInfo> for IMILBitmapEffectOutputConnector {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMILBitmapEffectConnectorInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMILBitmapEffectConnectorInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMILBitmapEffectConnectorInfo> for &IMILBitmapEffectOutputConnector {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMILBitmapEffectConnectorInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMILBitmapEffectConnectorInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

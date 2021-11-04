@@ -548,12 +548,12 @@ impl ::std::convert::From<&INSSBuffer2> for INSSBuffer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INSSBuffer> for INSSBuffer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INSSBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INSSBuffer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INSSBuffer> for &INSSBuffer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INSSBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INSSBuffer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -652,12 +652,12 @@ impl ::std::convert::From<&INSSBuffer3> for INSSBuffer2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INSSBuffer2> for INSSBuffer3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INSSBuffer2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INSSBuffer2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INSSBuffer2> for &INSSBuffer3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INSSBuffer2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INSSBuffer2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<INSSBuffer3> for INSSBuffer {
@@ -672,12 +672,12 @@ impl ::std::convert::From<&INSSBuffer3> for INSSBuffer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INSSBuffer> for INSSBuffer3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INSSBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INSSBuffer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INSSBuffer> for &INSSBuffer3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INSSBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INSSBuffer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -787,12 +787,12 @@ impl ::std::convert::From<&INSSBuffer4> for INSSBuffer3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INSSBuffer3> for INSSBuffer4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INSSBuffer3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INSSBuffer3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INSSBuffer3> for &INSSBuffer4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INSSBuffer3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INSSBuffer3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<INSSBuffer4> for INSSBuffer2 {
@@ -807,12 +807,12 @@ impl ::std::convert::From<&INSSBuffer4> for INSSBuffer2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INSSBuffer2> for INSSBuffer4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INSSBuffer2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INSSBuffer2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INSSBuffer2> for &INSSBuffer4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INSSBuffer2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INSSBuffer2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<INSSBuffer4> for INSSBuffer {
@@ -827,12 +827,12 @@ impl ::std::convert::From<&INSSBuffer4> for INSSBuffer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INSSBuffer> for INSSBuffer4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INSSBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INSSBuffer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INSSBuffer> for &INSSBuffer4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INSSBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INSSBuffer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -982,12 +982,12 @@ impl ::std::convert::From<&IWMAddressAccess2> for IWMAddressAccess {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMAddressAccess> for IWMAddressAccess2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMAddressAccess> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMAddressAccess>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMAddressAccess> for &IWMAddressAccess2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMAddressAccess> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMAddressAccess>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1207,12 +1207,12 @@ impl ::std::convert::From<&IWMBandwidthSharing> for IWMStreamList {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStreamList> for IWMBandwidthSharing {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStreamList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStreamList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStreamList> for &IWMBandwidthSharing {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStreamList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStreamList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1335,12 +1335,12 @@ impl ::std::convert::From<&IWMClientConnections2> for IWMClientConnections {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMClientConnections> for IWMClientConnections2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMClientConnections> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMClientConnections>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMClientConnections> for &IWMClientConnections2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMClientConnections> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMClientConnections>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1532,12 +1532,12 @@ impl ::std::convert::From<&IWMCodecInfo2> for IWMCodecInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMCodecInfo> for IWMCodecInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMCodecInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMCodecInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMCodecInfo> for &IWMCodecInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMCodecInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMCodecInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1641,12 +1641,12 @@ impl ::std::convert::From<&IWMCodecInfo3> for IWMCodecInfo2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMCodecInfo2> for IWMCodecInfo3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMCodecInfo2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMCodecInfo2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMCodecInfo2> for &IWMCodecInfo3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMCodecInfo2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMCodecInfo2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMCodecInfo3> for IWMCodecInfo {
@@ -1661,12 +1661,12 @@ impl ::std::convert::From<&IWMCodecInfo3> for IWMCodecInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMCodecInfo> for IWMCodecInfo3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMCodecInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMCodecInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMCodecInfo> for &IWMCodecInfo3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMCodecInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMCodecInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2051,12 +2051,12 @@ impl ::std::convert::From<&IWMDRMReader2> for IWMDRMReader {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMReader> for IWMDRMReader2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMReader>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMReader> for &IWMDRMReader2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMReader>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2178,12 +2178,12 @@ impl ::std::convert::From<&IWMDRMReader3> for IWMDRMReader2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMReader2> for IWMDRMReader3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMReader2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMReader2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMReader2> for &IWMDRMReader3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMReader2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMReader2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMDRMReader3> for IWMDRMReader {
@@ -2198,12 +2198,12 @@ impl ::std::convert::From<&IWMDRMReader3> for IWMDRMReader {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMReader> for IWMDRMReader3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMReader>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMReader> for &IWMDRMReader3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMReader>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2410,12 +2410,12 @@ impl ::std::convert::From<&IWMDRMTranscryptor2> for IWMDRMTranscryptor {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMTranscryptor> for IWMDRMTranscryptor2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMTranscryptor> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMTranscryptor>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMTranscryptor> for &IWMDRMTranscryptor2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMTranscryptor> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMTranscryptor>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2568,12 +2568,12 @@ impl ::std::convert::From<&IWMDRMWriter2> for IWMDRMWriter {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMWriter> for IWMDRMWriter2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMWriter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMWriter>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMWriter> for &IWMDRMWriter2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMWriter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMWriter>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2664,12 +2664,12 @@ impl ::std::convert::From<&IWMDRMWriter3> for IWMDRMWriter2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMWriter2> for IWMDRMWriter3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMWriter2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMWriter2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMWriter2> for &IWMDRMWriter3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMWriter2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMWriter2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMDRMWriter3> for IWMDRMWriter {
@@ -2684,12 +2684,12 @@ impl ::std::convert::From<&IWMDRMWriter3> for IWMDRMWriter {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMWriter> for IWMDRMWriter3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMWriter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMWriter>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDRMWriter> for &IWMDRMWriter3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDRMWriter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDRMWriter>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3060,12 +3060,12 @@ impl ::std::convert::From<&IWMHeaderInfo2> for IWMHeaderInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMHeaderInfo> for IWMHeaderInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMHeaderInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMHeaderInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMHeaderInfo> for &IWMHeaderInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMHeaderInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMHeaderInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3251,12 +3251,12 @@ impl ::std::convert::From<&IWMHeaderInfo3> for IWMHeaderInfo2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMHeaderInfo2> for IWMHeaderInfo3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMHeaderInfo2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMHeaderInfo2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMHeaderInfo2> for &IWMHeaderInfo3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMHeaderInfo2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMHeaderInfo2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMHeaderInfo3> for IWMHeaderInfo {
@@ -3271,12 +3271,12 @@ impl ::std::convert::From<&IWMHeaderInfo3> for IWMHeaderInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMHeaderInfo> for IWMHeaderInfo3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMHeaderInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMHeaderInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMHeaderInfo> for &IWMHeaderInfo3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMHeaderInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMHeaderInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3528,12 +3528,12 @@ impl ::std::convert::From<&IWMIndexer2> for IWMIndexer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMIndexer> for IWMIndexer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMIndexer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMIndexer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMIndexer> for &IWMIndexer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMIndexer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMIndexer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3614,12 +3614,12 @@ impl ::std::convert::From<&IWMInputMediaProps> for IWMMediaProps {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMMediaProps> for IWMInputMediaProps {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMMediaProps> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMMediaProps>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMMediaProps> for &IWMInputMediaProps {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMMediaProps> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMMediaProps>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4008,12 +4008,12 @@ impl ::std::convert::From<&IWMMetadataEditor2> for IWMMetadataEditor {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMMetadataEditor> for IWMMetadataEditor2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMMetadataEditor> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMMetadataEditor>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMMetadataEditor> for &IWMMetadataEditor2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMMetadataEditor> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMMetadataEditor>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4092,12 +4092,12 @@ impl ::std::convert::From<&IWMMutualExclusion> for IWMStreamList {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStreamList> for IWMMutualExclusion {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStreamList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStreamList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStreamList> for &IWMMutualExclusion {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStreamList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStreamList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4220,12 +4220,12 @@ impl ::std::convert::From<&IWMMutualExclusion2> for IWMMutualExclusion {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMMutualExclusion> for IWMMutualExclusion2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMMutualExclusion> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMMutualExclusion>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMMutualExclusion> for &IWMMutualExclusion2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMMutualExclusion> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMMutualExclusion>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMMutualExclusion2> for IWMStreamList {
@@ -4240,12 +4240,12 @@ impl ::std::convert::From<&IWMMutualExclusion2> for IWMStreamList {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStreamList> for IWMMutualExclusion2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStreamList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStreamList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStreamList> for &IWMMutualExclusion2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStreamList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStreamList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4341,12 +4341,12 @@ impl ::std::convert::From<&IWMOutputMediaProps> for IWMMediaProps {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMMediaProps> for IWMOutputMediaProps {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMMediaProps> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMMediaProps>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMMediaProps> for &IWMOutputMediaProps {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMMediaProps> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMMediaProps>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4473,12 +4473,12 @@ impl ::std::convert::From<&IWMPacketSize2> for IWMPacketSize {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMPacketSize> for IWMPacketSize2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMPacketSize> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMPacketSize>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMPacketSize> for &IWMPacketSize2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMPacketSize> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMPacketSize>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4851,12 +4851,12 @@ impl ::std::convert::From<&IWMProfile2> for IWMProfile {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMProfile> for IWMProfile2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMProfile> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMProfile>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMProfile> for &IWMProfile2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMProfile> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMProfile>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5075,12 +5075,12 @@ impl ::std::convert::From<&IWMProfile3> for IWMProfile2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMProfile2> for IWMProfile3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMProfile2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMProfile2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMProfile2> for &IWMProfile3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMProfile2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMProfile2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMProfile3> for IWMProfile {
@@ -5095,12 +5095,12 @@ impl ::std::convert::From<&IWMProfile3> for IWMProfile {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMProfile> for IWMProfile3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMProfile> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMProfile>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMProfile> for &IWMProfile3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMProfile> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMProfile>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5302,12 +5302,12 @@ impl ::std::convert::From<&IWMProfileManager2> for IWMProfileManager {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMProfileManager> for IWMProfileManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMProfileManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMProfileManager>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMProfileManager> for &IWMProfileManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMProfileManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMProfileManager>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6033,12 +6033,12 @@ impl ::std::convert::From<&IWMReaderAdvanced2> for IWMReaderAdvanced {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced> for IWMReaderAdvanced2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced> for &IWMReaderAdvanced2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6325,12 +6325,12 @@ impl ::std::convert::From<&IWMReaderAdvanced3> for IWMReaderAdvanced2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced2> for IWMReaderAdvanced3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced2> for &IWMReaderAdvanced3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMReaderAdvanced3> for IWMReaderAdvanced {
@@ -6345,12 +6345,12 @@ impl ::std::convert::From<&IWMReaderAdvanced3> for IWMReaderAdvanced {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced> for IWMReaderAdvanced3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced> for &IWMReaderAdvanced3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6684,12 +6684,12 @@ impl ::std::convert::From<&IWMReaderAdvanced4> for IWMReaderAdvanced3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced3> for IWMReaderAdvanced4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced3> for &IWMReaderAdvanced4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMReaderAdvanced4> for IWMReaderAdvanced2 {
@@ -6704,12 +6704,12 @@ impl ::std::convert::From<&IWMReaderAdvanced4> for IWMReaderAdvanced2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced2> for IWMReaderAdvanced4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced2> for &IWMReaderAdvanced4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMReaderAdvanced4> for IWMReaderAdvanced {
@@ -6724,12 +6724,12 @@ impl ::std::convert::From<&IWMReaderAdvanced4> for IWMReaderAdvanced {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced> for IWMReaderAdvanced4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced> for &IWMReaderAdvanced4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7081,12 +7081,12 @@ impl ::std::convert::From<&IWMReaderAdvanced5> for IWMReaderAdvanced4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced4> for IWMReaderAdvanced5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced4> for &IWMReaderAdvanced5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMReaderAdvanced5> for IWMReaderAdvanced3 {
@@ -7101,12 +7101,12 @@ impl ::std::convert::From<&IWMReaderAdvanced5> for IWMReaderAdvanced3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced3> for IWMReaderAdvanced5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced3> for &IWMReaderAdvanced5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMReaderAdvanced5> for IWMReaderAdvanced2 {
@@ -7121,12 +7121,12 @@ impl ::std::convert::From<&IWMReaderAdvanced5> for IWMReaderAdvanced2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced2> for IWMReaderAdvanced5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced2> for &IWMReaderAdvanced5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMReaderAdvanced5> for IWMReaderAdvanced {
@@ -7141,12 +7141,12 @@ impl ::std::convert::From<&IWMReaderAdvanced5> for IWMReaderAdvanced {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced> for IWMReaderAdvanced5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced> for &IWMReaderAdvanced5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7503,12 +7503,12 @@ impl ::std::convert::From<&IWMReaderAdvanced6> for IWMReaderAdvanced5 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced5> for IWMReaderAdvanced6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced5>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced5> for &IWMReaderAdvanced6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced5>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMReaderAdvanced6> for IWMReaderAdvanced4 {
@@ -7523,12 +7523,12 @@ impl ::std::convert::From<&IWMReaderAdvanced6> for IWMReaderAdvanced4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced4> for IWMReaderAdvanced6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced4> for &IWMReaderAdvanced6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMReaderAdvanced6> for IWMReaderAdvanced3 {
@@ -7543,12 +7543,12 @@ impl ::std::convert::From<&IWMReaderAdvanced6> for IWMReaderAdvanced3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced3> for IWMReaderAdvanced6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced3> for &IWMReaderAdvanced6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMReaderAdvanced6> for IWMReaderAdvanced2 {
@@ -7563,12 +7563,12 @@ impl ::std::convert::From<&IWMReaderAdvanced6> for IWMReaderAdvanced2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced2> for IWMReaderAdvanced6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced2> for &IWMReaderAdvanced6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMReaderAdvanced6> for IWMReaderAdvanced {
@@ -7583,12 +7583,12 @@ impl ::std::convert::From<&IWMReaderAdvanced6> for IWMReaderAdvanced {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced> for IWMReaderAdvanced6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderAdvanced> for &IWMReaderAdvanced6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderAdvanced>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7768,12 +7768,12 @@ impl ::std::convert::From<&IWMReaderCallback> for IWMStatusCallback {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStatusCallback> for IWMReaderCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStatusCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStatusCallback>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStatusCallback> for &IWMReaderCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStatusCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStatusCallback>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8390,12 +8390,12 @@ impl ::std::convert::From<&IWMReaderNetworkConfig2> for IWMReaderNetworkConfig {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderNetworkConfig> for IWMReaderNetworkConfig2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderNetworkConfig> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderNetworkConfig>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMReaderNetworkConfig> for &IWMReaderNetworkConfig2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMReaderNetworkConfig> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMReaderNetworkConfig>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9331,12 +9331,12 @@ impl ::std::convert::From<&IWMSInternalAdminNetSource3> for IWMSInternalAdminNet
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMSInternalAdminNetSource2> for IWMSInternalAdminNetSource3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMSInternalAdminNetSource2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMSInternalAdminNetSource2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMSInternalAdminNetSource2> for &IWMSInternalAdminNetSource3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMSInternalAdminNetSource2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMSInternalAdminNetSource2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9512,12 +9512,12 @@ impl ::std::convert::From<&IWMSecureChannel> for IWMAuthorizer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMAuthorizer> for IWMSecureChannel {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMAuthorizer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMAuthorizer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMAuthorizer> for &IWMSecureChannel {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMAuthorizer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMAuthorizer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9808,12 +9808,12 @@ impl ::std::convert::From<&IWMStreamConfig2> for IWMStreamConfig {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStreamConfig> for IWMStreamConfig2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStreamConfig> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStreamConfig>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStreamConfig> for &IWMStreamConfig2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStreamConfig> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStreamConfig>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9974,12 +9974,12 @@ impl ::std::convert::From<&IWMStreamConfig3> for IWMStreamConfig2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStreamConfig2> for IWMStreamConfig3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStreamConfig2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStreamConfig2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStreamConfig2> for &IWMStreamConfig3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStreamConfig2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStreamConfig2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMStreamConfig3> for IWMStreamConfig {
@@ -9994,12 +9994,12 @@ impl ::std::convert::From<&IWMStreamConfig3> for IWMStreamConfig {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStreamConfig> for IWMStreamConfig3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStreamConfig> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStreamConfig>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStreamConfig> for &IWMStreamConfig3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStreamConfig> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStreamConfig>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10470,12 +10470,12 @@ impl ::std::convert::From<&IWMSyncReader2> for IWMSyncReader {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMSyncReader> for IWMSyncReader2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMSyncReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMSyncReader>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMSyncReader> for &IWMSyncReader2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMSyncReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMSyncReader>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10593,12 +10593,12 @@ impl ::std::convert::From<&IWMVideoMediaProps> for IWMMediaProps {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMMediaProps> for IWMVideoMediaProps {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMMediaProps> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMMediaProps>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMMediaProps> for &IWMVideoMediaProps {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMMediaProps> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMMediaProps>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10983,12 +10983,12 @@ impl ::std::convert::From<&IWMWriterAdvanced2> for IWMWriterAdvanced {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterAdvanced> for IWMWriterAdvanced2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterAdvanced>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterAdvanced> for &IWMWriterAdvanced2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterAdvanced>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11128,12 +11128,12 @@ impl ::std::convert::From<&IWMWriterAdvanced3> for IWMWriterAdvanced2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterAdvanced2> for IWMWriterAdvanced3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterAdvanced2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterAdvanced2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterAdvanced2> for &IWMWriterAdvanced3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterAdvanced2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterAdvanced2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMWriterAdvanced3> for IWMWriterAdvanced {
@@ -11148,12 +11148,12 @@ impl ::std::convert::From<&IWMWriterAdvanced3> for IWMWriterAdvanced {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterAdvanced> for IWMWriterAdvanced3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterAdvanced>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterAdvanced> for &IWMWriterAdvanced3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterAdvanced> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterAdvanced>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11252,12 +11252,12 @@ impl ::std::convert::From<&IWMWriterFileSink> for IWMWriterSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterSink> for IWMWriterFileSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterSink> for &IWMWriterFileSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11379,12 +11379,12 @@ impl ::std::convert::From<&IWMWriterFileSink2> for IWMWriterFileSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterFileSink> for IWMWriterFileSink2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterFileSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterFileSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterFileSink> for &IWMWriterFileSink2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterFileSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterFileSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMWriterFileSink2> for IWMWriterSink {
@@ -11399,12 +11399,12 @@ impl ::std::convert::From<&IWMWriterFileSink2> for IWMWriterSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterSink> for IWMWriterFileSink2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterSink> for &IWMWriterFileSink2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11575,12 +11575,12 @@ impl ::std::convert::From<&IWMWriterFileSink3> for IWMWriterFileSink2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterFileSink2> for IWMWriterFileSink3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterFileSink2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterFileSink2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterFileSink2> for &IWMWriterFileSink3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterFileSink2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterFileSink2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMWriterFileSink3> for IWMWriterFileSink {
@@ -11595,12 +11595,12 @@ impl ::std::convert::From<&IWMWriterFileSink3> for IWMWriterFileSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterFileSink> for IWMWriterFileSink3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterFileSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterFileSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterFileSink> for &IWMWriterFileSink3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterFileSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterFileSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMWriterFileSink3> for IWMWriterSink {
@@ -11615,12 +11615,12 @@ impl ::std::convert::From<&IWMWriterFileSink3> for IWMWriterSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterSink> for IWMWriterFileSink3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterSink> for &IWMWriterFileSink3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11760,12 +11760,12 @@ impl ::std::convert::From<&IWMWriterNetworkSink> for IWMWriterSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterSink> for IWMWriterNetworkSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterSink> for &IWMWriterNetworkSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11939,12 +11939,12 @@ impl ::std::convert::From<&IWMWriterPostViewCallback> for IWMStatusCallback {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStatusCallback> for IWMWriterPostViewCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStatusCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStatusCallback>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMStatusCallback> for &IWMWriterPostViewCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMStatusCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMStatusCallback>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12098,12 +12098,12 @@ impl ::std::convert::From<&IWMWriterPushSink> for IWMWriterSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterSink> for IWMWriterPushSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMWriterSink> for &IWMWriterPushSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMWriterSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMWriterSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

@@ -975,13 +975,13 @@ impl ::std::convert::From<&IAdviseSinkEx> for super::Com::IAdviseSink {
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Com::IAdviseSink> for IAdviseSinkEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Com::IAdviseSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Com::IAdviseSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Com::IAdviseSink> for &IAdviseSinkEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Com::IAdviseSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Com::IAdviseSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1070,13 +1070,13 @@ impl ::std::convert::From<&IClassFactory2> for super::Com::IClassFactory {
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Com::IClassFactory> for IClassFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Com::IClassFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Com::IClassFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Com::IClassFactory> for &IClassFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Com::IClassFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Com::IClassFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2087,13 +2087,13 @@ impl ::std::convert::From<&IFontDisp> for Automation::IDispatch {
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, Automation::IDispatch> for IFontDisp {
     fn into_param(self) -> ::windows::runtime::Param<'a, Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, Automation::IDispatch> for &IFontDisp {
     fn into_param(self) -> ::windows::runtime::Param<'a, Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2154,13 +2154,13 @@ impl ::std::convert::From<&IFontEventsDisp> for Automation::IDispatch {
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, Automation::IDispatch> for IFontEventsDisp {
     fn into_param(self) -> ::windows::runtime::Param<'a, Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, Automation::IDispatch> for &IFontEventsDisp {
     fn into_param(self) -> ::windows::runtime::Param<'a, Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2581,12 +2581,12 @@ impl ::std::convert::From<&IOleCache2> for IOleCache {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleCache> for IOleCache2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleCache> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleCache>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleCache> for &IOleCache2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleCache> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleCache>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2837,12 +2837,12 @@ impl ::std::convert::From<&IOleContainer> for IParseDisplayName {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IParseDisplayName> for IOleContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IParseDisplayName> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IParseDisplayName>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IParseDisplayName> for &IOleContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IParseDisplayName> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IParseDisplayName>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3300,12 +3300,12 @@ impl ::std::convert::From<&IOleInPlaceActiveObject> for IOleWindow {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleWindow> for IOleInPlaceActiveObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleWindow> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleWindow>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleWindow> for &IOleInPlaceActiveObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleWindow> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleWindow>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3433,12 +3433,12 @@ impl ::std::convert::From<&IOleInPlaceFrame> for IOleInPlaceUIWindow {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleInPlaceUIWindow> for IOleInPlaceFrame {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleInPlaceUIWindow> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleInPlaceUIWindow>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleInPlaceUIWindow> for &IOleInPlaceFrame {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleInPlaceUIWindow> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleInPlaceUIWindow>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IOleInPlaceFrame> for IOleWindow {
@@ -3453,12 +3453,12 @@ impl ::std::convert::From<&IOleInPlaceFrame> for IOleWindow {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleWindow> for IOleInPlaceFrame {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleWindow> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleWindow>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleWindow> for &IOleInPlaceFrame {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleWindow> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleWindow>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3562,12 +3562,12 @@ impl ::std::convert::From<&IOleInPlaceObject> for IOleWindow {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleWindow> for IOleInPlaceObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleWindow> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleWindow>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleWindow> for &IOleInPlaceObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleWindow> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleWindow>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3667,12 +3667,12 @@ impl ::std::convert::From<&IOleInPlaceObjectWindowless> for IOleInPlaceObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleInPlaceObject> for IOleInPlaceObjectWindowless {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleInPlaceObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleInPlaceObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleInPlaceObject> for &IOleInPlaceObjectWindowless {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleInPlaceObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleInPlaceObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IOleInPlaceObjectWindowless> for IOleWindow {
@@ -3687,12 +3687,12 @@ impl ::std::convert::From<&IOleInPlaceObjectWindowless> for IOleWindow {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleWindow> for IOleInPlaceObjectWindowless {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleWindow> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleWindow>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleWindow> for &IOleInPlaceObjectWindowless {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleWindow> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleWindow>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3811,12 +3811,12 @@ impl ::std::convert::From<&IOleInPlaceSite> for IOleWindow {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleWindow> for IOleInPlaceSite {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleWindow> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleWindow>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleWindow> for &IOleInPlaceSite {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleWindow> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleWindow>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3955,12 +3955,12 @@ impl ::std::convert::From<&IOleInPlaceSiteEx> for IOleInPlaceSite {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleInPlaceSite> for IOleInPlaceSiteEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleInPlaceSite> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleInPlaceSite>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleInPlaceSite> for &IOleInPlaceSiteEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleInPlaceSite> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleInPlaceSite>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IOleInPlaceSiteEx> for IOleWindow {
@@ -3975,12 +3975,12 @@ impl ::std::convert::From<&IOleInPlaceSiteEx> for IOleWindow {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleWindow> for IOleInPlaceSiteEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleWindow> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleWindow>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleWindow> for &IOleInPlaceSiteEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleWindow> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleWindow>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4183,12 +4183,12 @@ impl ::std::convert::From<&IOleInPlaceSiteWindowless> for IOleInPlaceSiteEx {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleInPlaceSiteEx> for IOleInPlaceSiteWindowless {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleInPlaceSiteEx> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleInPlaceSiteEx>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleInPlaceSiteEx> for &IOleInPlaceSiteWindowless {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleInPlaceSiteEx> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleInPlaceSiteEx>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IOleInPlaceSiteWindowless> for IOleInPlaceSite {
@@ -4203,12 +4203,12 @@ impl ::std::convert::From<&IOleInPlaceSiteWindowless> for IOleInPlaceSite {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleInPlaceSite> for IOleInPlaceSiteWindowless {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleInPlaceSite> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleInPlaceSite>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleInPlaceSite> for &IOleInPlaceSiteWindowless {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleInPlaceSite> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleInPlaceSite>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IOleInPlaceSiteWindowless> for IOleWindow {
@@ -4223,12 +4223,12 @@ impl ::std::convert::From<&IOleInPlaceSiteWindowless> for IOleWindow {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleWindow> for IOleInPlaceSiteWindowless {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleWindow> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleWindow>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleWindow> for &IOleInPlaceSiteWindowless {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleWindow> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleWindow>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4356,12 +4356,12 @@ impl ::std::convert::From<&IOleInPlaceUIWindow> for IOleWindow {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleWindow> for IOleInPlaceUIWindow {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleWindow> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleWindow>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleWindow> for &IOleInPlaceUIWindow {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleWindow> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleWindow>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4458,12 +4458,12 @@ impl ::std::convert::From<&IOleItemContainer> for IOleContainer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleContainer> for IOleItemContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleContainer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleContainer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleContainer> for &IOleItemContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleContainer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleContainer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IOleItemContainer> for IParseDisplayName {
@@ -4478,12 +4478,12 @@ impl ::std::convert::From<&IOleItemContainer> for IParseDisplayName {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IParseDisplayName> for IOleItemContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IParseDisplayName> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IParseDisplayName>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IParseDisplayName> for &IOleItemContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IParseDisplayName> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IParseDisplayName>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4871,12 +4871,12 @@ impl ::std::convert::From<&IOleParentUndoUnit> for IOleUndoUnit {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleUndoUnit> for IOleParentUndoUnit {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleUndoUnit> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleUndoUnit>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleUndoUnit> for &IOleParentUndoUnit {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleUndoUnit> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleUndoUnit>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5179,12 +5179,12 @@ impl ::std::convert::From<&IOleUILinkInfoA> for IOleUILinkContainerA {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleUILinkContainerA> for IOleUILinkInfoA {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleUILinkContainerA> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleUILinkContainerA>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleUILinkContainerA> for &IOleUILinkInfoA {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleUILinkContainerA> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleUILinkContainerA>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5301,12 +5301,12 @@ impl ::std::convert::From<&IOleUILinkInfoW> for IOleUILinkContainerW {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleUILinkContainerW> for IOleUILinkInfoW {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleUILinkContainerW> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleUILinkContainerW>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOleUILinkContainerW> for &IOleUILinkInfoW {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOleUILinkContainerW> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOleUILinkContainerW>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5865,13 +5865,13 @@ impl ::std::convert::From<&IPersistMemory> for super::Com::IPersist {
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Com::IPersist> for IPersistMemory {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Com::IPersist> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Com::IPersist>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Com::IPersist> for &IPersistMemory {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Com::IPersist> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Com::IPersist>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5952,13 +5952,13 @@ impl ::std::convert::From<&IPersistPropertyBag> for super::Com::IPersist {
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Com::IPersist> for IPersistPropertyBag {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Com::IPersist> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Com::IPersist>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Com::IPersist> for &IPersistPropertyBag {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Com::IPersist> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Com::IPersist>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6042,13 +6042,13 @@ impl ::std::convert::From<&IPersistPropertyBag2> for super::Com::IPersist {
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Com::IPersist> for IPersistPropertyBag2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Com::IPersist> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Com::IPersist>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Com::IPersist> for &IPersistPropertyBag2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Com::IPersist> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Com::IPersist>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6138,13 +6138,13 @@ impl ::std::convert::From<&IPersistStreamInit> for super::Com::IPersist {
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Com::IPersist> for IPersistStreamInit {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Com::IPersist> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Com::IPersist>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Com::IPersist> for &IPersistStreamInit {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Com::IPersist> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Com::IPersist>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6488,13 +6488,13 @@ impl ::std::convert::From<&IPictureDisp> for Automation::IDispatch {
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, Automation::IDispatch> for IPictureDisp {
     fn into_param(self) -> ::windows::runtime::Param<'a, Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, Automation::IDispatch> for &IPictureDisp {
     fn into_param(self) -> ::windows::runtime::Param<'a, Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6951,12 +6951,12 @@ impl ::std::convert::From<&IPropertyPage2> for IPropertyPage {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertyPage> for IPropertyPage2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyPage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPropertyPage>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertyPage> for &IPropertyPage2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyPage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPropertyPage>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7248,12 +7248,12 @@ impl ::std::convert::From<&IProvideClassInfo2> for IProvideClassInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IProvideClassInfo> for IProvideClassInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IProvideClassInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IProvideClassInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IProvideClassInfo> for &IProvideClassInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IProvideClassInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IProvideClassInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7329,12 +7329,12 @@ impl ::std::convert::From<&IProvideMultipleClassInfo> for IProvideClassInfo2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IProvideClassInfo2> for IProvideMultipleClassInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IProvideClassInfo2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IProvideClassInfo2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IProvideClassInfo2> for &IProvideMultipleClassInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IProvideClassInfo2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IProvideClassInfo2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IProvideMultipleClassInfo> for IProvideClassInfo {
@@ -7349,12 +7349,12 @@ impl ::std::convert::From<&IProvideMultipleClassInfo> for IProvideClassInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IProvideClassInfo> for IProvideMultipleClassInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IProvideClassInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IProvideClassInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IProvideClassInfo> for &IProvideMultipleClassInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IProvideClassInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IProvideClassInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7814,12 +7814,12 @@ impl ::std::convert::From<&IViewObject2> for IViewObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IViewObject> for IViewObject2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IViewObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IViewObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IViewObject> for &IViewObject2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IViewObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IViewObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7972,12 +7972,12 @@ impl ::std::convert::From<&IViewObjectEx> for IViewObject2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IViewObject2> for IViewObjectEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IViewObject2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IViewObject2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IViewObject2> for &IViewObjectEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IViewObject2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IViewObject2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IViewObjectEx> for IViewObject {
@@ -7992,12 +7992,12 @@ impl ::std::convert::From<&IViewObjectEx> for IViewObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IViewObject> for IViewObjectEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IViewObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IViewObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IViewObject> for &IViewObjectEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IViewObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IViewObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

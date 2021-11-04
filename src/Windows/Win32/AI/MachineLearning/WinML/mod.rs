@@ -277,12 +277,12 @@ impl ::std::convert::From<&IMLOperatorKernelCreationContext> for IMLOperatorAttr
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMLOperatorAttributes> for IMLOperatorKernelCreationContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMLOperatorAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMLOperatorAttributes>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMLOperatorAttributes> for &IMLOperatorKernelCreationContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMLOperatorAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMLOperatorAttributes>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -501,12 +501,12 @@ impl ::std::convert::From<&IMLOperatorShapeInferenceContext> for IMLOperatorAttr
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMLOperatorAttributes> for IMLOperatorShapeInferenceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMLOperatorAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMLOperatorAttributes>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMLOperatorAttributes> for &IMLOperatorShapeInferenceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMLOperatorAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMLOperatorAttributes>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -799,12 +799,12 @@ impl ::std::convert::From<&IMLOperatorTypeInferenceContext> for IMLOperatorAttri
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMLOperatorAttributes> for IMLOperatorTypeInferenceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMLOperatorAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMLOperatorAttributes>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMLOperatorAttributes> for &IMLOperatorTypeInferenceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMLOperatorAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMLOperatorAttributes>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

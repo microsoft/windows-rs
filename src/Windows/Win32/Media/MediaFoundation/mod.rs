@@ -12332,13 +12332,13 @@ impl ::std::convert::From<&ID3D12VideoDecodeCommandList> for super::super::Graph
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for ID3D12VideoDecodeCommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12CommandList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for &ID3D12VideoDecodeCommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12CommandList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -12356,13 +12356,13 @@ impl ::std::convert::From<&ID3D12VideoDecodeCommandList> for super::super::Graph
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for ID3D12VideoDecodeCommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoDecodeCommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -12380,13 +12380,13 @@ impl ::std::convert::From<&ID3D12VideoDecodeCommandList> for super::super::Graph
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for ID3D12VideoDecodeCommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoDecodeCommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12573,12 +12573,12 @@ impl ::std::convert::From<&ID3D12VideoDecodeCommandList1> for ID3D12VideoDecodeC
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoDecodeCommandList> for ID3D12VideoDecodeCommandList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoDecodeCommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoDecodeCommandList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoDecodeCommandList> for &ID3D12VideoDecodeCommandList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoDecodeCommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoDecodeCommandList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -12596,13 +12596,13 @@ impl ::std::convert::From<&ID3D12VideoDecodeCommandList1> for super::super::Grap
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for ID3D12VideoDecodeCommandList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12CommandList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for &ID3D12VideoDecodeCommandList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12CommandList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -12620,13 +12620,13 @@ impl ::std::convert::From<&ID3D12VideoDecodeCommandList1> for super::super::Grap
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for ID3D12VideoDecodeCommandList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoDecodeCommandList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -12644,13 +12644,13 @@ impl ::std::convert::From<&ID3D12VideoDecodeCommandList1> for super::super::Grap
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for ID3D12VideoDecodeCommandList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoDecodeCommandList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12852,12 +12852,12 @@ impl ::std::convert::From<&ID3D12VideoDecodeCommandList2> for ID3D12VideoDecodeC
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoDecodeCommandList1> for ID3D12VideoDecodeCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoDecodeCommandList1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoDecodeCommandList1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoDecodeCommandList1> for &ID3D12VideoDecodeCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoDecodeCommandList1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoDecodeCommandList1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D12VideoDecodeCommandList2> for ID3D12VideoDecodeCommandList {
@@ -12872,12 +12872,12 @@ impl ::std::convert::From<&ID3D12VideoDecodeCommandList2> for ID3D12VideoDecodeC
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoDecodeCommandList> for ID3D12VideoDecodeCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoDecodeCommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoDecodeCommandList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoDecodeCommandList> for &ID3D12VideoDecodeCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoDecodeCommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoDecodeCommandList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -12895,13 +12895,13 @@ impl ::std::convert::From<&ID3D12VideoDecodeCommandList2> for super::super::Grap
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for ID3D12VideoDecodeCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12CommandList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for &ID3D12VideoDecodeCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12CommandList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -12919,13 +12919,13 @@ impl ::std::convert::From<&ID3D12VideoDecodeCommandList2> for super::super::Grap
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for ID3D12VideoDecodeCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoDecodeCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -12943,13 +12943,13 @@ impl ::std::convert::From<&ID3D12VideoDecodeCommandList2> for super::super::Grap
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for ID3D12VideoDecodeCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoDecodeCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13068,13 +13068,13 @@ impl ::std::convert::From<&ID3D12VideoDecoder> for super::super::Graphics::Direc
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for ID3D12VideoDecoder {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Pageable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &ID3D12VideoDecoder {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Pageable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -13092,13 +13092,13 @@ impl ::std::convert::From<&ID3D12VideoDecoder> for super::super::Graphics::Direc
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for ID3D12VideoDecoder {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoDecoder {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -13116,13 +13116,13 @@ impl ::std::convert::From<&ID3D12VideoDecoder> for super::super::Graphics::Direc
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for ID3D12VideoDecoder {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoDecoder {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13212,12 +13212,12 @@ impl ::std::convert::From<&ID3D12VideoDecoder1> for ID3D12VideoDecoder {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoDecoder> for ID3D12VideoDecoder1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoDecoder> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoDecoder>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoDecoder> for &ID3D12VideoDecoder1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoDecoder> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoDecoder>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -13235,13 +13235,13 @@ impl ::std::convert::From<&ID3D12VideoDecoder1> for super::super::Graphics::Dire
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for ID3D12VideoDecoder1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Pageable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &ID3D12VideoDecoder1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Pageable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -13259,13 +13259,13 @@ impl ::std::convert::From<&ID3D12VideoDecoder1> for super::super::Graphics::Dire
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for ID3D12VideoDecoder1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoDecoder1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -13283,13 +13283,13 @@ impl ::std::convert::From<&ID3D12VideoDecoder1> for super::super::Graphics::Dire
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for ID3D12VideoDecoder1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoDecoder1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13380,13 +13380,13 @@ impl ::std::convert::From<&ID3D12VideoDecoderHeap> for super::super::Graphics::D
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for ID3D12VideoDecoderHeap {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Pageable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &ID3D12VideoDecoderHeap {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Pageable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -13404,13 +13404,13 @@ impl ::std::convert::From<&ID3D12VideoDecoderHeap> for super::super::Graphics::D
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for ID3D12VideoDecoderHeap {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoDecoderHeap {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -13428,13 +13428,13 @@ impl ::std::convert::From<&ID3D12VideoDecoderHeap> for super::super::Graphics::D
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for ID3D12VideoDecoderHeap {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoDecoderHeap {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13526,12 +13526,12 @@ impl ::std::convert::From<&ID3D12VideoDecoderHeap1> for ID3D12VideoDecoderHeap {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoDecoderHeap> for ID3D12VideoDecoderHeap1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoDecoderHeap> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoDecoderHeap>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoDecoderHeap> for &ID3D12VideoDecoderHeap1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoDecoderHeap> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoDecoderHeap>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -13549,13 +13549,13 @@ impl ::std::convert::From<&ID3D12VideoDecoderHeap1> for super::super::Graphics::
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for ID3D12VideoDecoderHeap1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Pageable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &ID3D12VideoDecoderHeap1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Pageable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -13573,13 +13573,13 @@ impl ::std::convert::From<&ID3D12VideoDecoderHeap1> for super::super::Graphics::
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for ID3D12VideoDecoderHeap1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoDecoderHeap1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -13597,13 +13597,13 @@ impl ::std::convert::From<&ID3D12VideoDecoderHeap1> for super::super::Graphics::
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for ID3D12VideoDecoderHeap1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoDecoderHeap1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13761,12 +13761,12 @@ impl ::std::convert::From<&ID3D12VideoDevice1> for ID3D12VideoDevice {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoDevice> for ID3D12VideoDevice1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoDevice>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoDevice> for &ID3D12VideoDevice1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoDevice>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13899,12 +13899,12 @@ impl ::std::convert::From<&ID3D12VideoDevice2> for ID3D12VideoDevice1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoDevice1> for ID3D12VideoDevice2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoDevice1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoDevice1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoDevice1> for &ID3D12VideoDevice2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoDevice1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoDevice1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D12VideoDevice2> for ID3D12VideoDevice {
@@ -13919,12 +13919,12 @@ impl ::std::convert::From<&ID3D12VideoDevice2> for ID3D12VideoDevice {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoDevice> for ID3D12VideoDevice2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoDevice>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoDevice> for &ID3D12VideoDevice2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoDevice>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14078,12 +14078,12 @@ impl ::std::convert::From<&ID3D12VideoDevice3> for ID3D12VideoDevice2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoDevice2> for ID3D12VideoDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoDevice2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoDevice2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoDevice2> for &ID3D12VideoDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoDevice2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoDevice2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D12VideoDevice3> for ID3D12VideoDevice1 {
@@ -14098,12 +14098,12 @@ impl ::std::convert::From<&ID3D12VideoDevice3> for ID3D12VideoDevice1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoDevice1> for ID3D12VideoDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoDevice1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoDevice1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoDevice1> for &ID3D12VideoDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoDevice1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoDevice1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D12VideoDevice3> for ID3D12VideoDevice {
@@ -14118,12 +14118,12 @@ impl ::std::convert::From<&ID3D12VideoDevice3> for ID3D12VideoDevice {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoDevice> for ID3D12VideoDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoDevice>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoDevice> for &ID3D12VideoDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoDevice>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14310,13 +14310,13 @@ impl ::std::convert::From<&ID3D12VideoEncodeCommandList> for super::super::Graph
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for ID3D12VideoEncodeCommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12CommandList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for &ID3D12VideoEncodeCommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12CommandList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -14334,13 +14334,13 @@ impl ::std::convert::From<&ID3D12VideoEncodeCommandList> for super::super::Graph
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for ID3D12VideoEncodeCommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoEncodeCommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -14358,13 +14358,13 @@ impl ::std::convert::From<&ID3D12VideoEncodeCommandList> for super::super::Graph
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for ID3D12VideoEncodeCommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoEncodeCommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14568,12 +14568,12 @@ impl ::std::convert::From<&ID3D12VideoEncodeCommandList1> for ID3D12VideoEncodeC
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoEncodeCommandList> for ID3D12VideoEncodeCommandList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoEncodeCommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoEncodeCommandList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoEncodeCommandList> for &ID3D12VideoEncodeCommandList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoEncodeCommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoEncodeCommandList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -14591,13 +14591,13 @@ impl ::std::convert::From<&ID3D12VideoEncodeCommandList1> for super::super::Grap
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for ID3D12VideoEncodeCommandList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12CommandList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for &ID3D12VideoEncodeCommandList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12CommandList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -14615,13 +14615,13 @@ impl ::std::convert::From<&ID3D12VideoEncodeCommandList1> for super::super::Grap
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for ID3D12VideoEncodeCommandList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoEncodeCommandList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -14639,13 +14639,13 @@ impl ::std::convert::From<&ID3D12VideoEncodeCommandList1> for super::super::Grap
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for ID3D12VideoEncodeCommandList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoEncodeCommandList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14861,12 +14861,12 @@ impl ::std::convert::From<&ID3D12VideoEncodeCommandList2> for ID3D12VideoEncodeC
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoEncodeCommandList1> for ID3D12VideoEncodeCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoEncodeCommandList1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoEncodeCommandList1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoEncodeCommandList1> for &ID3D12VideoEncodeCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoEncodeCommandList1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoEncodeCommandList1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D12VideoEncodeCommandList2> for ID3D12VideoEncodeCommandList {
@@ -14881,12 +14881,12 @@ impl ::std::convert::From<&ID3D12VideoEncodeCommandList2> for ID3D12VideoEncodeC
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoEncodeCommandList> for ID3D12VideoEncodeCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoEncodeCommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoEncodeCommandList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoEncodeCommandList> for &ID3D12VideoEncodeCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoEncodeCommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoEncodeCommandList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -14904,13 +14904,13 @@ impl ::std::convert::From<&ID3D12VideoEncodeCommandList2> for super::super::Grap
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for ID3D12VideoEncodeCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12CommandList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for &ID3D12VideoEncodeCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12CommandList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -14928,13 +14928,13 @@ impl ::std::convert::From<&ID3D12VideoEncodeCommandList2> for super::super::Grap
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for ID3D12VideoEncodeCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoEncodeCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -14952,13 +14952,13 @@ impl ::std::convert::From<&ID3D12VideoEncodeCommandList2> for super::super::Grap
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for ID3D12VideoEncodeCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoEncodeCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15104,13 +15104,13 @@ impl ::std::convert::From<&ID3D12VideoEncoder> for super::super::Graphics::Direc
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for ID3D12VideoEncoder {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Pageable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &ID3D12VideoEncoder {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Pageable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -15128,13 +15128,13 @@ impl ::std::convert::From<&ID3D12VideoEncoder> for super::super::Graphics::Direc
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for ID3D12VideoEncoder {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoEncoder {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -15152,13 +15152,13 @@ impl ::std::convert::From<&ID3D12VideoEncoder> for super::super::Graphics::Direc
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for ID3D12VideoEncoder {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoEncoder {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15276,13 +15276,13 @@ impl ::std::convert::From<&ID3D12VideoEncoderHeap> for super::super::Graphics::D
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for ID3D12VideoEncoderHeap {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Pageable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &ID3D12VideoEncoderHeap {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Pageable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -15300,13 +15300,13 @@ impl ::std::convert::From<&ID3D12VideoEncoderHeap> for super::super::Graphics::D
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for ID3D12VideoEncoderHeap {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoEncoderHeap {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -15324,13 +15324,13 @@ impl ::std::convert::From<&ID3D12VideoEncoderHeap> for super::super::Graphics::D
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for ID3D12VideoEncoderHeap {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoEncoderHeap {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15429,13 +15429,13 @@ impl ::std::convert::From<&ID3D12VideoExtensionCommand> for super::super::Graphi
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for ID3D12VideoExtensionCommand {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Pageable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &ID3D12VideoExtensionCommand {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Pageable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -15453,13 +15453,13 @@ impl ::std::convert::From<&ID3D12VideoExtensionCommand> for super::super::Graphi
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for ID3D12VideoExtensionCommand {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoExtensionCommand {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -15477,13 +15477,13 @@ impl ::std::convert::From<&ID3D12VideoExtensionCommand> for super::super::Graphi
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for ID3D12VideoExtensionCommand {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoExtensionCommand {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15578,13 +15578,13 @@ impl ::std::convert::From<&ID3D12VideoMotionEstimator> for super::super::Graphic
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for ID3D12VideoMotionEstimator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Pageable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &ID3D12VideoMotionEstimator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Pageable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -15602,13 +15602,13 @@ impl ::std::convert::From<&ID3D12VideoMotionEstimator> for super::super::Graphic
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for ID3D12VideoMotionEstimator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoMotionEstimator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -15626,13 +15626,13 @@ impl ::std::convert::From<&ID3D12VideoMotionEstimator> for super::super::Graphic
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for ID3D12VideoMotionEstimator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoMotionEstimator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15728,13 +15728,13 @@ impl ::std::convert::From<&ID3D12VideoMotionVectorHeap> for super::super::Graphi
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for ID3D12VideoMotionVectorHeap {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Pageable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &ID3D12VideoMotionVectorHeap {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Pageable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -15752,13 +15752,13 @@ impl ::std::convert::From<&ID3D12VideoMotionVectorHeap> for super::super::Graphi
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for ID3D12VideoMotionVectorHeap {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoMotionVectorHeap {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -15776,13 +15776,13 @@ impl ::std::convert::From<&ID3D12VideoMotionVectorHeap> for super::super::Graphi
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for ID3D12VideoMotionVectorHeap {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoMotionVectorHeap {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15945,13 +15945,13 @@ impl ::std::convert::From<&ID3D12VideoProcessCommandList> for super::super::Grap
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for ID3D12VideoProcessCommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12CommandList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for &ID3D12VideoProcessCommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12CommandList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -15969,13 +15969,13 @@ impl ::std::convert::From<&ID3D12VideoProcessCommandList> for super::super::Grap
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for ID3D12VideoProcessCommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoProcessCommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -15993,13 +15993,13 @@ impl ::std::convert::From<&ID3D12VideoProcessCommandList> for super::super::Grap
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for ID3D12VideoProcessCommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoProcessCommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -16186,12 +16186,12 @@ impl ::std::convert::From<&ID3D12VideoProcessCommandList1> for ID3D12VideoProces
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoProcessCommandList> for ID3D12VideoProcessCommandList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoProcessCommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoProcessCommandList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoProcessCommandList> for &ID3D12VideoProcessCommandList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoProcessCommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoProcessCommandList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -16209,13 +16209,13 @@ impl ::std::convert::From<&ID3D12VideoProcessCommandList1> for super::super::Gra
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for ID3D12VideoProcessCommandList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12CommandList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for &ID3D12VideoProcessCommandList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12CommandList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -16233,13 +16233,13 @@ impl ::std::convert::From<&ID3D12VideoProcessCommandList1> for super::super::Gra
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for ID3D12VideoProcessCommandList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoProcessCommandList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -16257,13 +16257,13 @@ impl ::std::convert::From<&ID3D12VideoProcessCommandList1> for super::super::Gra
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for ID3D12VideoProcessCommandList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoProcessCommandList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -16465,12 +16465,12 @@ impl ::std::convert::From<&ID3D12VideoProcessCommandList2> for ID3D12VideoProces
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoProcessCommandList1> for ID3D12VideoProcessCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoProcessCommandList1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoProcessCommandList1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoProcessCommandList1> for &ID3D12VideoProcessCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoProcessCommandList1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoProcessCommandList1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D12VideoProcessCommandList2> for ID3D12VideoProcessCommandList {
@@ -16485,12 +16485,12 @@ impl ::std::convert::From<&ID3D12VideoProcessCommandList2> for ID3D12VideoProces
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoProcessCommandList> for ID3D12VideoProcessCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoProcessCommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoProcessCommandList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoProcessCommandList> for &ID3D12VideoProcessCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoProcessCommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoProcessCommandList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -16508,13 +16508,13 @@ impl ::std::convert::From<&ID3D12VideoProcessCommandList2> for super::super::Gra
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for ID3D12VideoProcessCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12CommandList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> for &ID3D12VideoProcessCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12CommandList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12CommandList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -16532,13 +16532,13 @@ impl ::std::convert::From<&ID3D12VideoProcessCommandList2> for super::super::Gra
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for ID3D12VideoProcessCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoProcessCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -16556,13 +16556,13 @@ impl ::std::convert::From<&ID3D12VideoProcessCommandList2> for super::super::Gra
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for ID3D12VideoProcessCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoProcessCommandList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -16695,13 +16695,13 @@ impl ::std::convert::From<&ID3D12VideoProcessor> for super::super::Graphics::Dir
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for ID3D12VideoProcessor {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Pageable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &ID3D12VideoProcessor {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Pageable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -16719,13 +16719,13 @@ impl ::std::convert::From<&ID3D12VideoProcessor> for super::super::Graphics::Dir
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for ID3D12VideoProcessor {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoProcessor {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -16743,13 +16743,13 @@ impl ::std::convert::From<&ID3D12VideoProcessor> for super::super::Graphics::Dir
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for ID3D12VideoProcessor {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoProcessor {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -16858,12 +16858,12 @@ impl ::std::convert::From<&ID3D12VideoProcessor1> for ID3D12VideoProcessor {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoProcessor> for ID3D12VideoProcessor1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoProcessor> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoProcessor>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D12VideoProcessor> for &ID3D12VideoProcessor1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D12VideoProcessor> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D12VideoProcessor>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -16881,13 +16881,13 @@ impl ::std::convert::From<&ID3D12VideoProcessor1> for super::super::Graphics::Di
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for ID3D12VideoProcessor1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Pageable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> for &ID3D12VideoProcessor1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Pageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Pageable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -16905,13 +16905,13 @@ impl ::std::convert::From<&ID3D12VideoProcessor1> for super::super::Graphics::Di
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for ID3D12VideoProcessor1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> for &ID3D12VideoProcessor1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -16929,13 +16929,13 @@ impl ::std::convert::From<&ID3D12VideoProcessor1> for super::super::Graphics::Di
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for ID3D12VideoProcessor1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Object> for &ID3D12VideoProcessor1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Graphics::Direct3D12::ID3D12Object> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Graphics::Direct3D12::ID3D12Object>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -17688,12 +17688,12 @@ impl ::std::convert::From<&IDirectXVideoDecoderService> for IDirectXVideoAcceler
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectXVideoAccelerationService> for IDirectXVideoDecoderService {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectXVideoAccelerationService> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectXVideoAccelerationService>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectXVideoAccelerationService> for &IDirectXVideoDecoderService {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectXVideoAccelerationService> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectXVideoAccelerationService>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -17939,12 +17939,12 @@ impl ::std::convert::From<&IDirectXVideoProcessorService> for IDirectXVideoAccel
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectXVideoAccelerationService> for IDirectXVideoProcessorService {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectXVideoAccelerationService> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectXVideoAccelerationService>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectXVideoAccelerationService> for &IDirectXVideoProcessorService {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectXVideoAccelerationService> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectXVideoAccelerationService>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -18079,12 +18079,12 @@ impl ::std::convert::From<&IEVRFilterConfigEx> for IEVRFilterConfig {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IEVRFilterConfig> for IEVRFilterConfigEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IEVRFilterConfig> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IEVRFilterConfig>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IEVRFilterConfig> for &IEVRFilterConfigEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IEVRFilterConfig> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IEVRFilterConfig>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -18515,12 +18515,12 @@ impl ::std::convert::From<&IMF2DBuffer2> for IMF2DBuffer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMF2DBuffer> for IMF2DBuffer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMF2DBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMF2DBuffer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMF2DBuffer> for &IMF2DBuffer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMF2DBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMF2DBuffer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -19155,12 +19155,12 @@ impl ::std::convert::From<&IMFASFProfile> for IMFAttributes {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for IMFASFProfile {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for &IMFASFProfile {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -19533,12 +19533,12 @@ impl ::std::convert::From<&IMFASFStreamConfig> for IMFAttributes {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for IMFASFStreamConfig {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for &IMFASFStreamConfig {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -19971,12 +19971,12 @@ impl ::std::convert::From<&IMFActivate> for IMFAttributes {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for IMFActivate {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for &IMFActivate {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -20132,12 +20132,12 @@ impl ::std::convert::From<&IMFAsyncCallbackLogging> for IMFAsyncCallback {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAsyncCallback> for IMFAsyncCallbackLogging {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAsyncCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAsyncCallback>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAsyncCallback> for &IMFAsyncCallbackLogging {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAsyncCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAsyncCallback>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -20639,12 +20639,12 @@ impl ::std::convert::From<&IMFAudioMediaType> for IMFMediaType {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaType> for IMFAudioMediaType {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaType> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaType>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaType> for &IMFAudioMediaType {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaType> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaType>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IMFAudioMediaType> for IMFAttributes {
@@ -20659,12 +20659,12 @@ impl ::std::convert::From<&IMFAudioMediaType> for IMFAttributes {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for IMFAudioMediaType {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for &IMFAudioMediaType {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -21187,12 +21187,12 @@ impl ::std::convert::From<&IMFByteStreamCacheControl2> for IMFByteStreamCacheCon
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFByteStreamCacheControl> for IMFByteStreamCacheControl2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFByteStreamCacheControl> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFByteStreamCacheControl>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFByteStreamCacheControl> for &IMFByteStreamCacheControl2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFByteStreamCacheControl> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFByteStreamCacheControl>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -21815,12 +21815,12 @@ impl ::std::convert::From<&IMFCaptureEngineOnSampleCallback2> for IMFCaptureEngi
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFCaptureEngineOnSampleCallback> for IMFCaptureEngineOnSampleCallback2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFCaptureEngineOnSampleCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFCaptureEngineOnSampleCallback>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFCaptureEngineOnSampleCallback> for &IMFCaptureEngineOnSampleCallback2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFCaptureEngineOnSampleCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFCaptureEngineOnSampleCallback>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -21963,12 +21963,12 @@ impl ::std::convert::From<&IMFCapturePhotoSink> for IMFCaptureSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFCaptureSink> for IMFCapturePhotoSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFCaptureSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFCaptureSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFCaptureSink> for &IMFCapturePhotoSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFCaptureSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFCaptureSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -22094,12 +22094,12 @@ impl ::std::convert::From<&IMFCapturePreviewSink> for IMFCaptureSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFCaptureSink> for IMFCapturePreviewSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFCaptureSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFCaptureSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFCaptureSink> for &IMFCapturePreviewSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFCaptureSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFCaptureSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -22218,12 +22218,12 @@ impl ::std::convert::From<&IMFCaptureRecordSink> for IMFCaptureSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFCaptureSink> for IMFCaptureRecordSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFCaptureSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFCaptureSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFCaptureSink> for &IMFCaptureRecordSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFCaptureSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFCaptureSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -22379,12 +22379,12 @@ impl ::std::convert::From<&IMFCaptureSink2> for IMFCaptureSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFCaptureSink> for IMFCaptureSink2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFCaptureSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFCaptureSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFCaptureSink> for &IMFCaptureSink2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFCaptureSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFCaptureSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -24191,12 +24191,12 @@ impl ::std::convert::From<&IMFFinalizableMediaSink> for IMFMediaSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaSink> for IMFFinalizableMediaSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaSink> for &IMFFinalizableMediaSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -25428,12 +25428,12 @@ impl ::std::convert::From<&IMFMediaEngineClassFactoryEx> for IMFMediaEngineClass
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaEngineClassFactory> for IMFMediaEngineClassFactoryEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaEngineClassFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaEngineClassFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaEngineClassFactory> for &IMFMediaEngineClassFactoryEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaEngineClassFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaEngineClassFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -25961,12 +25961,12 @@ impl ::std::convert::From<&IMFMediaEngineEx> for IMFMediaEngine {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaEngine> for IMFMediaEngineEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaEngine> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaEngine>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaEngine> for &IMFMediaEngineEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaEngine> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaEngine>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -26523,12 +26523,12 @@ impl ::std::convert::From<&IMFMediaEngineSrcElementsEx> for IMFMediaEngineSrcEle
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaEngineSrcElements> for IMFMediaEngineSrcElementsEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaEngineSrcElements> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaEngineSrcElements>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaEngineSrcElements> for &IMFMediaEngineSrcElementsEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaEngineSrcElements> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaEngineSrcElements>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -26963,12 +26963,12 @@ impl ::std::convert::From<&IMFMediaEvent> for IMFAttributes {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for IMFMediaEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for &IMFMediaEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -27320,12 +27320,12 @@ impl ::std::convert::From<&IMFMediaKeySession2> for IMFMediaKeySession {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaKeySession> for IMFMediaKeySession2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaKeySession> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaKeySession>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaKeySession> for &IMFMediaKeySession2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaKeySession> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaKeySession>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -27468,12 +27468,12 @@ impl ::std::convert::From<&IMFMediaKeySessionNotify2> for IMFMediaKeySessionNoti
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaKeySessionNotify> for IMFMediaKeySessionNotify2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaKeySessionNotify> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaKeySessionNotify>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaKeySessionNotify> for &IMFMediaKeySessionNotify2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaKeySessionNotify> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaKeySessionNotify>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -27692,12 +27692,12 @@ impl ::std::convert::From<&IMFMediaKeys2> for IMFMediaKeys {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaKeys> for IMFMediaKeys2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaKeys> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaKeys>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaKeys> for &IMFMediaKeys2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaKeys> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaKeys>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -27821,12 +27821,12 @@ impl ::std::convert::From<&IMFMediaSession> for IMFMediaEventGenerator {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaEventGenerator> for IMFMediaSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaEventGenerator> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaEventGenerator>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaEventGenerator> for &IMFMediaSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaEventGenerator> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaEventGenerator>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -28090,12 +28090,12 @@ impl ::std::convert::From<&IMFMediaSharingEngine> for IMFMediaEngine {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaEngine> for IMFMediaSharingEngine {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaEngine> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaEngine>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaEngine> for &IMFMediaSharingEngine {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaEngine> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaEngine>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -28425,12 +28425,12 @@ impl ::std::convert::From<&IMFMediaSource> for IMFMediaEventGenerator {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaEventGenerator> for IMFMediaSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaEventGenerator> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaEventGenerator>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaEventGenerator> for &IMFMediaSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaEventGenerator> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaEventGenerator>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -28558,12 +28558,12 @@ impl ::std::convert::From<&IMFMediaSource2> for IMFMediaSourceEx {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaSourceEx> for IMFMediaSource2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaSourceEx> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaSourceEx>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaSourceEx> for &IMFMediaSource2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaSourceEx> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaSourceEx>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IMFMediaSource2> for IMFMediaSource {
@@ -28578,12 +28578,12 @@ impl ::std::convert::From<&IMFMediaSource2> for IMFMediaSource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaSource> for IMFMediaSource2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaSource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaSource> for &IMFMediaSource2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaSource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IMFMediaSource2> for IMFMediaEventGenerator {
@@ -28598,12 +28598,12 @@ impl ::std::convert::From<&IMFMediaSource2> for IMFMediaEventGenerator {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaEventGenerator> for IMFMediaSource2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaEventGenerator> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaEventGenerator>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaEventGenerator> for &IMFMediaSource2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaEventGenerator> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaEventGenerator>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -28731,12 +28731,12 @@ impl ::std::convert::From<&IMFMediaSourceEx> for IMFMediaSource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaSource> for IMFMediaSourceEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaSource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaSource> for &IMFMediaSourceEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaSource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IMFMediaSourceEx> for IMFMediaEventGenerator {
@@ -28751,12 +28751,12 @@ impl ::std::convert::From<&IMFMediaSourceEx> for IMFMediaEventGenerator {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaEventGenerator> for IMFMediaSourceEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaEventGenerator> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaEventGenerator>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaEventGenerator> for &IMFMediaSourceEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaEventGenerator> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaEventGenerator>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -29132,12 +29132,12 @@ impl ::std::convert::From<&IMFMediaStream> for IMFMediaEventGenerator {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaEventGenerator> for IMFMediaStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaEventGenerator> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaEventGenerator>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaEventGenerator> for &IMFMediaStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaEventGenerator> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaEventGenerator>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -29239,12 +29239,12 @@ impl ::std::convert::From<&IMFMediaStream2> for IMFMediaStream {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaStream> for IMFMediaStream2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaStream> for &IMFMediaStream2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IMFMediaStream2> for IMFMediaEventGenerator {
@@ -29259,12 +29259,12 @@ impl ::std::convert::From<&IMFMediaStream2> for IMFMediaEventGenerator {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaEventGenerator> for IMFMediaStream2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaEventGenerator> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaEventGenerator>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaEventGenerator> for &IMFMediaStream2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaEventGenerator> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaEventGenerator>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -29602,12 +29602,12 @@ impl ::std::convert::From<&IMFMediaType> for IMFAttributes {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for IMFMediaType {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for &IMFMediaType {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -30746,12 +30746,12 @@ impl ::std::convert::From<&IMFOutputPolicy> for IMFAttributes {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for IMFOutputPolicy {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for &IMFOutputPolicy {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -30998,12 +30998,12 @@ impl ::std::convert::From<&IMFOutputSchema> for IMFAttributes {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for IMFOutputSchema {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for &IMFOutputSchema {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -31971,12 +31971,12 @@ impl ::std::convert::From<&IMFPluginControl2> for IMFPluginControl {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFPluginControl> for IMFPluginControl2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFPluginControl> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFPluginControl>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFPluginControl> for &IMFPluginControl2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFPluginControl> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFPluginControl>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -32097,12 +32097,12 @@ impl ::std::convert::From<&IMFPresentationClock> for IMFClock {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFClock> for IMFPresentationClock {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFClock> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFClock>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFClock> for &IMFPresentationClock {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFClock> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFClock>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -32329,12 +32329,12 @@ impl ::std::convert::From<&IMFPresentationDescriptor> for IMFAttributes {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for IMFPresentationDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for &IMFPresentationDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -32459,12 +32459,12 @@ impl ::std::convert::From<&IMFPresentationTimeSource> for IMFClock {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFClock> for IMFPresentationTimeSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFClock> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFClock>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFClock> for &IMFPresentationTimeSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFClock> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFClock>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -32661,12 +32661,12 @@ impl ::std::convert::From<&IMFQualityAdvise2> for IMFQualityAdvise {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFQualityAdvise> for IMFQualityAdvise2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFQualityAdvise> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFQualityAdvise>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFQualityAdvise> for &IMFQualityAdvise2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFQualityAdvise> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFQualityAdvise>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -33174,12 +33174,12 @@ impl ::std::convert::From<&IMFRelativePanelWatcher> for IMFShutdown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFShutdown> for IMFRelativePanelWatcher {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFShutdown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFShutdown>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFShutdown> for &IMFRelativePanelWatcher {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFShutdown> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFShutdown>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -33706,12 +33706,12 @@ impl ::std::convert::From<&IMFSample> for IMFAttributes {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for IMFSample {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for &IMFSample {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -33894,12 +33894,12 @@ impl ::std::convert::From<&IMFSampleGrabberSinkCallback> for IMFClockStateSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFClockStateSink> for IMFSampleGrabberSinkCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFClockStateSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFClockStateSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFClockStateSink> for &IMFSampleGrabberSinkCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFClockStateSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFClockStateSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -33995,12 +33995,12 @@ impl ::std::convert::From<&IMFSampleGrabberSinkCallback2> for IMFSampleGrabberSi
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFSampleGrabberSinkCallback> for IMFSampleGrabberSinkCallback2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFSampleGrabberSinkCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFSampleGrabberSinkCallback>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFSampleGrabberSinkCallback> for &IMFSampleGrabberSinkCallback2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFSampleGrabberSinkCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFSampleGrabberSinkCallback>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IMFSampleGrabberSinkCallback2> for IMFClockStateSink {
@@ -34015,12 +34015,12 @@ impl ::std::convert::From<&IMFSampleGrabberSinkCallback2> for IMFClockStateSink 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFClockStateSink> for IMFSampleGrabberSinkCallback2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFClockStateSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFClockStateSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFClockStateSink> for &IMFSampleGrabberSinkCallback2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFClockStateSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFClockStateSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -35190,12 +35190,12 @@ impl ::std::convert::From<&IMFSensorStream> for IMFAttributes {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for IMFSensorStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for &IMFSensorStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -35773,12 +35773,12 @@ impl ::std::convert::From<&IMFSinkWriterCallback2> for IMFSinkWriterCallback {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFSinkWriterCallback> for IMFSinkWriterCallback2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFSinkWriterCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFSinkWriterCallback>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFSinkWriterCallback> for &IMFSinkWriterCallback2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFSinkWriterCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFSinkWriterCallback>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -35931,12 +35931,12 @@ impl ::std::convert::From<&IMFSinkWriterEx> for IMFSinkWriter {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFSinkWriter> for IMFSinkWriterEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFSinkWriter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFSinkWriter>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFSinkWriter> for &IMFSinkWriterEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFSinkWriter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFSinkWriter>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -36469,12 +36469,12 @@ impl ::std::convert::From<&IMFSourceReaderCallback2> for IMFSourceReaderCallback
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFSourceReaderCallback> for IMFSourceReaderCallback2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFSourceReaderCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFSourceReaderCallback>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFSourceReaderCallback> for &IMFSourceReaderCallback2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFSourceReaderCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFSourceReaderCallback>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -36596,12 +36596,12 @@ impl ::std::convert::From<&IMFSourceReaderEx> for IMFSourceReader {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFSourceReader> for IMFSourceReaderEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFSourceReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFSourceReader>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFSourceReader> for &IMFSourceReaderEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFSourceReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFSourceReader>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -36816,12 +36816,12 @@ impl ::std::convert::From<&IMFSpatialAudioObjectBuffer> for IMFMediaBuffer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaBuffer> for IMFSpatialAudioObjectBuffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaBuffer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaBuffer> for &IMFSpatialAudioObjectBuffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaBuffer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -37102,12 +37102,12 @@ impl ::std::convert::From<&IMFSpatialAudioSample> for IMFSample {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFSample> for IMFSpatialAudioSample {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFSample> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFSample>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFSample> for &IMFSpatialAudioSample {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFSample> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFSample>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IMFSpatialAudioSample> for IMFAttributes {
@@ -37122,12 +37122,12 @@ impl ::std::convert::From<&IMFSpatialAudioSample> for IMFAttributes {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for IMFSpatialAudioSample {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for &IMFSpatialAudioSample {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -37383,12 +37383,12 @@ impl ::std::convert::From<&IMFStreamDescriptor> for IMFAttributes {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for IMFStreamDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for &IMFStreamDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -37527,12 +37527,12 @@ impl ::std::convert::From<&IMFStreamSink> for IMFMediaEventGenerator {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaEventGenerator> for IMFStreamSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaEventGenerator> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaEventGenerator>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaEventGenerator> for &IMFStreamSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaEventGenerator> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaEventGenerator>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -39093,12 +39093,12 @@ impl ::std::convert::From<&IMFTopology> for IMFAttributes {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for IMFTopology {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for &IMFTopology {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -39408,12 +39408,12 @@ impl ::std::convert::From<&IMFTopologyNode> for IMFAttributes {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for IMFTopologyNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for &IMFTopologyNode {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -40106,12 +40106,12 @@ impl ::std::convert::From<&IMFVideoCaptureSampleAllocator> for IMFVideoSampleAll
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFVideoSampleAllocator> for IMFVideoCaptureSampleAllocator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFVideoSampleAllocator> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFVideoSampleAllocator>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFVideoSampleAllocator> for &IMFVideoCaptureSampleAllocator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFVideoSampleAllocator> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFVideoSampleAllocator>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -40523,12 +40523,12 @@ impl ::std::convert::From<&IMFVideoMediaType> for IMFMediaType {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaType> for IMFVideoMediaType {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaType> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaType>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFMediaType> for &IMFVideoMediaType {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFMediaType> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFMediaType>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IMFVideoMediaType> for IMFAttributes {
@@ -40543,12 +40543,12 @@ impl ::std::convert::From<&IMFVideoMediaType> for IMFAttributes {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for IMFVideoMediaType {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for &IMFVideoMediaType {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -40797,12 +40797,12 @@ impl ::std::convert::From<&IMFVideoMixerControl2> for IMFVideoMixerControl {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFVideoMixerControl> for IMFVideoMixerControl2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFVideoMixerControl> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFVideoMixerControl>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFVideoMixerControl> for &IMFVideoMixerControl2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFVideoMixerControl> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFVideoMixerControl>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -40931,12 +40931,12 @@ impl ::std::convert::From<&IMFVideoPresenter> for IMFClockStateSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFClockStateSink> for IMFVideoPresenter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFClockStateSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFClockStateSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFClockStateSink> for &IMFVideoPresenter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFClockStateSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFClockStateSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -41215,12 +41215,12 @@ impl ::std::convert::From<&IMFVideoProcessorControl2> for IMFVideoProcessorContr
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFVideoProcessorControl> for IMFVideoProcessorControl2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFVideoProcessorControl> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFVideoProcessorControl>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFVideoProcessorControl> for &IMFVideoProcessorControl2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFVideoProcessorControl> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFVideoProcessorControl>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -41344,12 +41344,12 @@ impl ::std::convert::From<&IMFVideoProcessorControl3> for IMFVideoProcessorContr
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFVideoProcessorControl2> for IMFVideoProcessorControl3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFVideoProcessorControl2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFVideoProcessorControl2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFVideoProcessorControl2> for &IMFVideoProcessorControl3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFVideoProcessorControl2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFVideoProcessorControl2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IMFVideoProcessorControl3> for IMFVideoProcessorControl {
@@ -41364,12 +41364,12 @@ impl ::std::convert::From<&IMFVideoProcessorControl3> for IMFVideoProcessorContr
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFVideoProcessorControl> for IMFVideoProcessorControl3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFVideoProcessorControl> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFVideoProcessorControl>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFVideoProcessorControl> for &IMFVideoProcessorControl3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFVideoProcessorControl> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFVideoProcessorControl>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -41650,12 +41650,12 @@ impl ::std::convert::From<&IMFVideoSampleAllocatorEx> for IMFVideoSampleAllocato
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFVideoSampleAllocator> for IMFVideoSampleAllocatorEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFVideoSampleAllocator> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFVideoSampleAllocator>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFVideoSampleAllocator> for &IMFVideoSampleAllocatorEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFVideoSampleAllocator> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFVideoSampleAllocator>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -41762,12 +41762,12 @@ impl ::std::convert::From<&IMFVideoSampleAllocatorNotifyEx> for IMFVideoSampleAl
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFVideoSampleAllocatorNotify> for IMFVideoSampleAllocatorNotifyEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFVideoSampleAllocatorNotify> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFVideoSampleAllocatorNotify>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFVideoSampleAllocatorNotify> for &IMFVideoSampleAllocatorNotifyEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFVideoSampleAllocatorNotify> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFVideoSampleAllocatorNotify>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -42023,12 +42023,12 @@ impl ::std::convert::From<&IMFVirtualCamera> for IMFAttributes {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for IMFVirtualCamera {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAttributes> for &IMFVirtualCamera {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAttributes>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -42309,12 +42309,12 @@ impl ::std::convert::From<&IMFWorkQueueServicesEx> for IMFWorkQueueServices {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFWorkQueueServices> for IMFWorkQueueServicesEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFWorkQueueServices> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFWorkQueueServices>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFWorkQueueServices> for &IMFWorkQueueServicesEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFWorkQueueServices> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFWorkQueueServices>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -42509,12 +42509,12 @@ impl ::std::convert::From<&IPlayToControlWithCapabilities> for IPlayToControl {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayToControl> for IPlayToControlWithCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayToControl> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPlayToControl>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayToControl> for &IPlayToControlWithCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayToControl> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPlayToControl>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -44201,12 +44201,12 @@ impl ::std::convert::From<&MFASYNCRESULT> for IMFAsyncResult {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAsyncResult> for MFASYNCRESULT {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAsyncResult> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAsyncResult>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMFAsyncResult> for &MFASYNCRESULT {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMFAsyncResult> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMFAsyncResult>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

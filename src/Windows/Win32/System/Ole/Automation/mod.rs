@@ -1252,12 +1252,12 @@ impl ::std::convert::From<&ICreateTypeInfo2> for ICreateTypeInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICreateTypeInfo> for ICreateTypeInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICreateTypeInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICreateTypeInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICreateTypeInfo> for &ICreateTypeInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICreateTypeInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICreateTypeInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1524,12 +1524,12 @@ impl ::std::convert::From<&ICreateTypeLib2> for ICreateTypeLib {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICreateTypeLib> for ICreateTypeLib2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICreateTypeLib> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICreateTypeLib>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICreateTypeLib> for &ICreateTypeLib2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICreateTypeLib> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICreateTypeLib>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1823,12 +1823,12 @@ impl ::std::convert::From<&IDispatchEx> for IDispatch {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDispatch> for IDispatchEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDispatch> for &IDispatchEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2939,12 +2939,12 @@ impl ::std::convert::From<&ITypeInfo2> for ITypeInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITypeInfo> for ITypeInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITypeInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITypeInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITypeInfo> for &ITypeInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITypeInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITypeInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3220,12 +3220,12 @@ impl ::std::convert::From<&ITypeLib2> for ITypeLib {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITypeLib> for ITypeLib2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITypeLib> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITypeLib>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITypeLib> for &ITypeLib2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITypeLib> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITypeLib>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

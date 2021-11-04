@@ -1292,13 +1292,13 @@ impl ::std::convert::From<&IITPropList> for super::super::System::Ole::IPersistS
 #[cfg(feature = "Win32_System_Ole")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::IPersistStreamInit> for IITPropList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::IPersistStreamInit> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::IPersistStreamInit>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::IPersistStreamInit> for &IITPropList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::IPersistStreamInit> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::IPersistStreamInit>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1316,13 +1316,13 @@ impl ::std::convert::From<&IITPropList> for super::super::System::Com::IPersist 
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersist> for IITPropList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IPersist> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IPersist>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersist> for &IITPropList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IPersist> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IPersist>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

@@ -213,12 +213,12 @@ impl ::std::convert::From<&ITpmVirtualSmartCardManager2> for ITpmVirtualSmartCar
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITpmVirtualSmartCardManager> for ITpmVirtualSmartCardManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITpmVirtualSmartCardManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITpmVirtualSmartCardManager>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITpmVirtualSmartCardManager> for &ITpmVirtualSmartCardManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITpmVirtualSmartCardManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITpmVirtualSmartCardManager>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -424,12 +424,12 @@ impl ::std::convert::From<&ITpmVirtualSmartCardManager3> for ITpmVirtualSmartCar
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITpmVirtualSmartCardManager2> for ITpmVirtualSmartCardManager3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITpmVirtualSmartCardManager2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITpmVirtualSmartCardManager2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITpmVirtualSmartCardManager2> for &ITpmVirtualSmartCardManager3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITpmVirtualSmartCardManager2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITpmVirtualSmartCardManager2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ITpmVirtualSmartCardManager3> for ITpmVirtualSmartCardManager {
@@ -444,12 +444,12 @@ impl ::std::convert::From<&ITpmVirtualSmartCardManager3> for ITpmVirtualSmartCar
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITpmVirtualSmartCardManager> for ITpmVirtualSmartCardManager3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITpmVirtualSmartCardManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITpmVirtualSmartCardManager>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ITpmVirtualSmartCardManager> for &ITpmVirtualSmartCardManager3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ITpmVirtualSmartCardManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ITpmVirtualSmartCardManager>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

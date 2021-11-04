@@ -10774,12 +10774,12 @@ impl ::std::convert::From<&ID2D1Bitmap> for ID2D1Image {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Image> for ID2D1Bitmap {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Image> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Image>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Image> for &ID2D1Bitmap {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Image> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Image>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Bitmap> for ID2D1Resource {
@@ -10794,12 +10794,12 @@ impl ::std::convert::From<&ID2D1Bitmap> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1Bitmap {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1Bitmap {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10922,12 +10922,12 @@ impl ::std::convert::From<&ID2D1Bitmap1> for ID2D1Bitmap {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Bitmap> for ID2D1Bitmap1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Bitmap> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Bitmap>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Bitmap> for &ID2D1Bitmap1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Bitmap> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Bitmap>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Bitmap1> for ID2D1Image {
@@ -10942,12 +10942,12 @@ impl ::std::convert::From<&ID2D1Bitmap1> for ID2D1Image {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Image> for ID2D1Bitmap1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Image> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Image>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Image> for &ID2D1Bitmap1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Image> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Image>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Bitmap1> for ID2D1Resource {
@@ -10962,12 +10962,12 @@ impl ::std::convert::From<&ID2D1Bitmap1> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1Bitmap1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1Bitmap1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11088,12 +11088,12 @@ impl ::std::convert::From<&ID2D1BitmapBrush> for ID2D1Brush {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Brush> for ID2D1BitmapBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Brush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Brush>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Brush> for &ID2D1BitmapBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Brush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Brush>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1BitmapBrush> for ID2D1Resource {
@@ -11108,12 +11108,12 @@ impl ::std::convert::From<&ID2D1BitmapBrush> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1BitmapBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1BitmapBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11242,12 +11242,12 @@ impl ::std::convert::From<&ID2D1BitmapBrush1> for ID2D1BitmapBrush {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1BitmapBrush> for ID2D1BitmapBrush1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1BitmapBrush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1BitmapBrush>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1BitmapBrush> for &ID2D1BitmapBrush1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1BitmapBrush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1BitmapBrush>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1BitmapBrush1> for ID2D1Brush {
@@ -11262,12 +11262,12 @@ impl ::std::convert::From<&ID2D1BitmapBrush1> for ID2D1Brush {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Brush> for ID2D1BitmapBrush1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Brush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Brush>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Brush> for &ID2D1BitmapBrush1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Brush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Brush>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1BitmapBrush1> for ID2D1Resource {
@@ -11282,12 +11282,12 @@ impl ::std::convert::From<&ID2D1BitmapBrush1> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1BitmapBrush1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1BitmapBrush1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11620,12 +11620,12 @@ impl ::std::convert::From<&ID2D1BitmapRenderTarget> for ID2D1RenderTarget {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1RenderTarget> for ID2D1BitmapRenderTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1RenderTarget> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1RenderTarget>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1RenderTarget> for &ID2D1BitmapRenderTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1RenderTarget> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1RenderTarget>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1BitmapRenderTarget> for ID2D1Resource {
@@ -11640,12 +11640,12 @@ impl ::std::convert::From<&ID2D1BitmapRenderTarget> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1BitmapRenderTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1BitmapRenderTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11791,12 +11791,12 @@ impl ::std::convert::From<&ID2D1BlendTransform> for ID2D1ConcreteTransform {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1ConcreteTransform> for ID2D1BlendTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1ConcreteTransform> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1ConcreteTransform>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1ConcreteTransform> for &ID2D1BlendTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1ConcreteTransform> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1ConcreteTransform>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1BlendTransform> for ID2D1TransformNode {
@@ -11811,12 +11811,12 @@ impl ::std::convert::From<&ID2D1BlendTransform> for ID2D1TransformNode {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1TransformNode> for ID2D1BlendTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1TransformNode> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1TransformNode>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1TransformNode> for &ID2D1BlendTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1TransformNode> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1TransformNode>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11903,12 +11903,12 @@ impl ::std::convert::From<&ID2D1BorderTransform> for ID2D1ConcreteTransform {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1ConcreteTransform> for ID2D1BorderTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1ConcreteTransform> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1ConcreteTransform>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1ConcreteTransform> for &ID2D1BorderTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1ConcreteTransform> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1ConcreteTransform>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1BorderTransform> for ID2D1TransformNode {
@@ -11923,12 +11923,12 @@ impl ::std::convert::From<&ID2D1BorderTransform> for ID2D1TransformNode {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1TransformNode> for ID2D1BorderTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1TransformNode> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1TransformNode>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1TransformNode> for &ID2D1BorderTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1TransformNode> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1TransformNode>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12002,12 +12002,12 @@ impl ::std::convert::From<&ID2D1BoundsAdjustmentTransform> for ID2D1TransformNod
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1TransformNode> for ID2D1BoundsAdjustmentTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1TransformNode> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1TransformNode>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1TransformNode> for &ID2D1BoundsAdjustmentTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1TransformNode> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1TransformNode>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12086,12 +12086,12 @@ impl ::std::convert::From<&ID2D1Brush> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1Brush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1Brush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12166,12 +12166,12 @@ impl ::std::convert::From<&ID2D1ColorContext> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1ColorContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1ColorContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12257,12 +12257,12 @@ impl ::std::convert::From<&ID2D1ColorContext1> for ID2D1ColorContext {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1ColorContext> for ID2D1ColorContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1ColorContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1ColorContext>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1ColorContext> for &ID2D1ColorContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1ColorContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1ColorContext>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1ColorContext1> for ID2D1Resource {
@@ -12277,12 +12277,12 @@ impl ::std::convert::From<&ID2D1ColorContext1> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1ColorContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1ColorContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12354,12 +12354,12 @@ impl ::std::convert::From<&ID2D1CommandList> for ID2D1Image {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Image> for ID2D1CommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Image> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Image>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Image> for &ID2D1CommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Image> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Image>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1CommandList> for ID2D1Resource {
@@ -12374,12 +12374,12 @@ impl ::std::convert::From<&ID2D1CommandList> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1CommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1CommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12712,12 +12712,12 @@ impl ::std::convert::From<&ID2D1CommandSink1> for ID2D1CommandSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink> for ID2D1CommandSink1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink> for &ID2D1CommandSink1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12919,12 +12919,12 @@ impl ::std::convert::From<&ID2D1CommandSink2> for ID2D1CommandSink1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink1> for ID2D1CommandSink2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink1> for &ID2D1CommandSink2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1CommandSink2> for ID2D1CommandSink {
@@ -12939,12 +12939,12 @@ impl ::std::convert::From<&ID2D1CommandSink2> for ID2D1CommandSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink> for ID2D1CommandSink2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink> for &ID2D1CommandSink2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13153,12 +13153,12 @@ impl ::std::convert::From<&ID2D1CommandSink3> for ID2D1CommandSink2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink2> for ID2D1CommandSink3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink2> for &ID2D1CommandSink3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1CommandSink3> for ID2D1CommandSink1 {
@@ -13173,12 +13173,12 @@ impl ::std::convert::From<&ID2D1CommandSink3> for ID2D1CommandSink1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink1> for ID2D1CommandSink3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink1> for &ID2D1CommandSink3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1CommandSink3> for ID2D1CommandSink {
@@ -13193,12 +13193,12 @@ impl ::std::convert::From<&ID2D1CommandSink3> for ID2D1CommandSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink> for ID2D1CommandSink3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink> for &ID2D1CommandSink3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13412,12 +13412,12 @@ impl ::std::convert::From<&ID2D1CommandSink4> for ID2D1CommandSink3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink3> for ID2D1CommandSink4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink3> for &ID2D1CommandSink4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1CommandSink4> for ID2D1CommandSink2 {
@@ -13432,12 +13432,12 @@ impl ::std::convert::From<&ID2D1CommandSink4> for ID2D1CommandSink2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink2> for ID2D1CommandSink4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink2> for &ID2D1CommandSink4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1CommandSink4> for ID2D1CommandSink1 {
@@ -13452,12 +13452,12 @@ impl ::std::convert::From<&ID2D1CommandSink4> for ID2D1CommandSink1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink1> for ID2D1CommandSink4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink1> for &ID2D1CommandSink4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1CommandSink4> for ID2D1CommandSink {
@@ -13472,12 +13472,12 @@ impl ::std::convert::From<&ID2D1CommandSink4> for ID2D1CommandSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink> for ID2D1CommandSink4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink> for &ID2D1CommandSink4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13696,12 +13696,12 @@ impl ::std::convert::From<&ID2D1CommandSink5> for ID2D1CommandSink4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink4> for ID2D1CommandSink5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink4> for &ID2D1CommandSink5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1CommandSink5> for ID2D1CommandSink3 {
@@ -13716,12 +13716,12 @@ impl ::std::convert::From<&ID2D1CommandSink5> for ID2D1CommandSink3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink3> for ID2D1CommandSink5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink3> for &ID2D1CommandSink5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1CommandSink5> for ID2D1CommandSink2 {
@@ -13736,12 +13736,12 @@ impl ::std::convert::From<&ID2D1CommandSink5> for ID2D1CommandSink2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink2> for ID2D1CommandSink5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink2> for &ID2D1CommandSink5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1CommandSink5> for ID2D1CommandSink1 {
@@ -13756,12 +13756,12 @@ impl ::std::convert::From<&ID2D1CommandSink5> for ID2D1CommandSink1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink1> for ID2D1CommandSink5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink1> for &ID2D1CommandSink5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1CommandSink5> for ID2D1CommandSink {
@@ -13776,12 +13776,12 @@ impl ::std::convert::From<&ID2D1CommandSink5> for ID2D1CommandSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink> for ID2D1CommandSink5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1CommandSink> for &ID2D1CommandSink5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1CommandSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1CommandSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13898,12 +13898,12 @@ impl ::std::convert::From<&ID2D1ComputeInfo> for ID2D1RenderInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1RenderInfo> for ID2D1ComputeInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1RenderInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1RenderInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1RenderInfo> for &ID2D1ComputeInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1RenderInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1RenderInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13992,12 +13992,12 @@ impl ::std::convert::From<&ID2D1ComputeTransform> for ID2D1Transform {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Transform> for ID2D1ComputeTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Transform> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Transform>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Transform> for &ID2D1ComputeTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Transform> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Transform>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1ComputeTransform> for ID2D1TransformNode {
@@ -14012,12 +14012,12 @@ impl ::std::convert::From<&ID2D1ComputeTransform> for ID2D1TransformNode {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1TransformNode> for ID2D1ComputeTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1TransformNode> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1TransformNode>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1TransformNode> for &ID2D1ComputeTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1TransformNode> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1TransformNode>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14092,12 +14092,12 @@ impl ::std::convert::From<&ID2D1ConcreteTransform> for ID2D1TransformNode {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1TransformNode> for ID2D1ConcreteTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1TransformNode> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1TransformNode>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1TransformNode> for &ID2D1ConcreteTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1TransformNode> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1TransformNode>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14417,12 +14417,12 @@ impl ::std::convert::From<&ID2D1DCRenderTarget> for ID2D1RenderTarget {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1RenderTarget> for ID2D1DCRenderTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1RenderTarget> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1RenderTarget>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1RenderTarget> for &ID2D1DCRenderTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1RenderTarget> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1RenderTarget>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DCRenderTarget> for ID2D1Resource {
@@ -14437,12 +14437,12 @@ impl ::std::convert::From<&ID2D1DCRenderTarget> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1DCRenderTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1DCRenderTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14595,12 +14595,12 @@ impl ::std::convert::From<&ID2D1Device> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1Device {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1Device {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14699,12 +14699,12 @@ impl ::std::convert::From<&ID2D1Device1> for ID2D1Device {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device> for ID2D1Device1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device> for &ID2D1Device1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Device1> for ID2D1Resource {
@@ -14719,12 +14719,12 @@ impl ::std::convert::From<&ID2D1Device1> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1Device1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1Device1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14841,12 +14841,12 @@ impl ::std::convert::From<&ID2D1Device2> for ID2D1Device1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device1> for ID2D1Device2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device1> for &ID2D1Device2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Device2> for ID2D1Device {
@@ -14861,12 +14861,12 @@ impl ::std::convert::From<&ID2D1Device2> for ID2D1Device {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device> for ID2D1Device2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device> for &ID2D1Device2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Device2> for ID2D1Resource {
@@ -14881,12 +14881,12 @@ impl ::std::convert::From<&ID2D1Device2> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1Device2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1Device2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15012,12 +15012,12 @@ impl ::std::convert::From<&ID2D1Device3> for ID2D1Device2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device2> for ID2D1Device3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device2> for &ID2D1Device3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Device3> for ID2D1Device1 {
@@ -15032,12 +15032,12 @@ impl ::std::convert::From<&ID2D1Device3> for ID2D1Device1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device1> for ID2D1Device3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device1> for &ID2D1Device3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Device3> for ID2D1Device {
@@ -15052,12 +15052,12 @@ impl ::std::convert::From<&ID2D1Device3> for ID2D1Device {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device> for ID2D1Device3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device> for &ID2D1Device3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Device3> for ID2D1Resource {
@@ -15072,12 +15072,12 @@ impl ::std::convert::From<&ID2D1Device3> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1Device3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1Device3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15217,12 +15217,12 @@ impl ::std::convert::From<&ID2D1Device4> for ID2D1Device3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device3> for ID2D1Device4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device3> for &ID2D1Device4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Device4> for ID2D1Device2 {
@@ -15237,12 +15237,12 @@ impl ::std::convert::From<&ID2D1Device4> for ID2D1Device2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device2> for ID2D1Device4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device2> for &ID2D1Device4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Device4> for ID2D1Device1 {
@@ -15257,12 +15257,12 @@ impl ::std::convert::From<&ID2D1Device4> for ID2D1Device1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device1> for ID2D1Device4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device1> for &ID2D1Device4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Device4> for ID2D1Device {
@@ -15277,12 +15277,12 @@ impl ::std::convert::From<&ID2D1Device4> for ID2D1Device {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device> for ID2D1Device4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device> for &ID2D1Device4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Device4> for ID2D1Resource {
@@ -15297,12 +15297,12 @@ impl ::std::convert::From<&ID2D1Device4> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1Device4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1Device4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15450,12 +15450,12 @@ impl ::std::convert::From<&ID2D1Device5> for ID2D1Device4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device4> for ID2D1Device5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device4> for &ID2D1Device5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Device5> for ID2D1Device3 {
@@ -15470,12 +15470,12 @@ impl ::std::convert::From<&ID2D1Device5> for ID2D1Device3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device3> for ID2D1Device5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device3> for &ID2D1Device5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Device5> for ID2D1Device2 {
@@ -15490,12 +15490,12 @@ impl ::std::convert::From<&ID2D1Device5> for ID2D1Device2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device2> for ID2D1Device5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device2> for &ID2D1Device5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Device5> for ID2D1Device1 {
@@ -15510,12 +15510,12 @@ impl ::std::convert::From<&ID2D1Device5> for ID2D1Device1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device1> for ID2D1Device5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device1> for &ID2D1Device5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Device5> for ID2D1Device {
@@ -15530,12 +15530,12 @@ impl ::std::convert::From<&ID2D1Device5> for ID2D1Device {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device> for ID2D1Device5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device> for &ID2D1Device5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Device5> for ID2D1Resource {
@@ -15550,12 +15550,12 @@ impl ::std::convert::From<&ID2D1Device5> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1Device5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1Device5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15709,12 +15709,12 @@ impl ::std::convert::From<&ID2D1Device6> for ID2D1Device5 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device5> for ID2D1Device6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device5>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device5> for &ID2D1Device6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device5>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Device6> for ID2D1Device4 {
@@ -15729,12 +15729,12 @@ impl ::std::convert::From<&ID2D1Device6> for ID2D1Device4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device4> for ID2D1Device6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device4> for &ID2D1Device6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Device6> for ID2D1Device3 {
@@ -15749,12 +15749,12 @@ impl ::std::convert::From<&ID2D1Device6> for ID2D1Device3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device3> for ID2D1Device6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device3> for &ID2D1Device6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Device6> for ID2D1Device2 {
@@ -15769,12 +15769,12 @@ impl ::std::convert::From<&ID2D1Device6> for ID2D1Device2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device2> for ID2D1Device6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device2> for &ID2D1Device6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Device6> for ID2D1Device1 {
@@ -15789,12 +15789,12 @@ impl ::std::convert::From<&ID2D1Device6> for ID2D1Device1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device1> for ID2D1Device6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device1> for &ID2D1Device6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Device6> for ID2D1Device {
@@ -15809,12 +15809,12 @@ impl ::std::convert::From<&ID2D1Device6> for ID2D1Device {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device> for ID2D1Device6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Device> for &ID2D1Device6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Device> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Device>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Device6> for ID2D1Resource {
@@ -15829,12 +15829,12 @@ impl ::std::convert::From<&ID2D1Device6> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1Device6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1Device6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -16351,12 +16351,12 @@ impl ::std::convert::From<&ID2D1DeviceContext> for ID2D1RenderTarget {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1RenderTarget> for ID2D1DeviceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1RenderTarget> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1RenderTarget>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1RenderTarget> for &ID2D1DeviceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1RenderTarget> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1RenderTarget>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext> for ID2D1Resource {
@@ -16371,12 +16371,12 @@ impl ::std::convert::From<&ID2D1DeviceContext> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1DeviceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1DeviceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -17006,12 +17006,12 @@ impl ::std::convert::From<&ID2D1DeviceContext1> for ID2D1DeviceContext {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext> for ID2D1DeviceContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext> for &ID2D1DeviceContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext1> for ID2D1RenderTarget {
@@ -17026,12 +17026,12 @@ impl ::std::convert::From<&ID2D1DeviceContext1> for ID2D1RenderTarget {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1RenderTarget> for ID2D1DeviceContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1RenderTarget> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1RenderTarget>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1RenderTarget> for &ID2D1DeviceContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1RenderTarget> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1RenderTarget>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext1> for ID2D1Resource {
@@ -17046,12 +17046,12 @@ impl ::std::convert::From<&ID2D1DeviceContext1> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1DeviceContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1DeviceContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -17739,12 +17739,12 @@ impl ::std::convert::From<&ID2D1DeviceContext2> for ID2D1DeviceContext1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext1> for ID2D1DeviceContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext1> for &ID2D1DeviceContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext2> for ID2D1DeviceContext {
@@ -17759,12 +17759,12 @@ impl ::std::convert::From<&ID2D1DeviceContext2> for ID2D1DeviceContext {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext> for ID2D1DeviceContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext> for &ID2D1DeviceContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext2> for ID2D1RenderTarget {
@@ -17779,12 +17779,12 @@ impl ::std::convert::From<&ID2D1DeviceContext2> for ID2D1RenderTarget {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1RenderTarget> for ID2D1DeviceContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1RenderTarget> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1RenderTarget>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1RenderTarget> for &ID2D1DeviceContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1RenderTarget> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1RenderTarget>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext2> for ID2D1Resource {
@@ -17799,12 +17799,12 @@ impl ::std::convert::From<&ID2D1DeviceContext2> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1DeviceContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1DeviceContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -18515,12 +18515,12 @@ impl ::std::convert::From<&ID2D1DeviceContext3> for ID2D1DeviceContext2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext2> for ID2D1DeviceContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext2> for &ID2D1DeviceContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext3> for ID2D1DeviceContext1 {
@@ -18535,12 +18535,12 @@ impl ::std::convert::From<&ID2D1DeviceContext3> for ID2D1DeviceContext1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext1> for ID2D1DeviceContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext1> for &ID2D1DeviceContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext3> for ID2D1DeviceContext {
@@ -18555,12 +18555,12 @@ impl ::std::convert::From<&ID2D1DeviceContext3> for ID2D1DeviceContext {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext> for ID2D1DeviceContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext> for &ID2D1DeviceContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext3> for ID2D1RenderTarget {
@@ -18575,12 +18575,12 @@ impl ::std::convert::From<&ID2D1DeviceContext3> for ID2D1RenderTarget {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1RenderTarget> for ID2D1DeviceContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1RenderTarget> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1RenderTarget>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1RenderTarget> for &ID2D1DeviceContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1RenderTarget> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1RenderTarget>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext3> for ID2D1Resource {
@@ -18595,12 +18595,12 @@ impl ::std::convert::From<&ID2D1DeviceContext3> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1DeviceContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1DeviceContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -19432,12 +19432,12 @@ impl ::std::convert::From<&ID2D1DeviceContext4> for ID2D1DeviceContext3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext3> for ID2D1DeviceContext4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext3> for &ID2D1DeviceContext4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext4> for ID2D1DeviceContext2 {
@@ -19452,12 +19452,12 @@ impl ::std::convert::From<&ID2D1DeviceContext4> for ID2D1DeviceContext2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext2> for ID2D1DeviceContext4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext2> for &ID2D1DeviceContext4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext4> for ID2D1DeviceContext1 {
@@ -19472,12 +19472,12 @@ impl ::std::convert::From<&ID2D1DeviceContext4> for ID2D1DeviceContext1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext1> for ID2D1DeviceContext4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext1> for &ID2D1DeviceContext4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext4> for ID2D1DeviceContext {
@@ -19492,12 +19492,12 @@ impl ::std::convert::From<&ID2D1DeviceContext4> for ID2D1DeviceContext {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext> for ID2D1DeviceContext4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext> for &ID2D1DeviceContext4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext4> for ID2D1RenderTarget {
@@ -19512,12 +19512,12 @@ impl ::std::convert::From<&ID2D1DeviceContext4> for ID2D1RenderTarget {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1RenderTarget> for ID2D1DeviceContext4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1RenderTarget> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1RenderTarget>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1RenderTarget> for &ID2D1DeviceContext4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1RenderTarget> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1RenderTarget>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext4> for ID2D1Resource {
@@ -19532,12 +19532,12 @@ impl ::std::convert::From<&ID2D1DeviceContext4> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1DeviceContext4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1DeviceContext4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -20431,12 +20431,12 @@ impl ::std::convert::From<&ID2D1DeviceContext5> for ID2D1DeviceContext4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext4> for ID2D1DeviceContext5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext4> for &ID2D1DeviceContext5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext5> for ID2D1DeviceContext3 {
@@ -20451,12 +20451,12 @@ impl ::std::convert::From<&ID2D1DeviceContext5> for ID2D1DeviceContext3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext3> for ID2D1DeviceContext5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext3> for &ID2D1DeviceContext5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext5> for ID2D1DeviceContext2 {
@@ -20471,12 +20471,12 @@ impl ::std::convert::From<&ID2D1DeviceContext5> for ID2D1DeviceContext2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext2> for ID2D1DeviceContext5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext2> for &ID2D1DeviceContext5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext5> for ID2D1DeviceContext1 {
@@ -20491,12 +20491,12 @@ impl ::std::convert::From<&ID2D1DeviceContext5> for ID2D1DeviceContext1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext1> for ID2D1DeviceContext5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext1> for &ID2D1DeviceContext5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext5> for ID2D1DeviceContext {
@@ -20511,12 +20511,12 @@ impl ::std::convert::From<&ID2D1DeviceContext5> for ID2D1DeviceContext {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext> for ID2D1DeviceContext5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext> for &ID2D1DeviceContext5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext5> for ID2D1RenderTarget {
@@ -20531,12 +20531,12 @@ impl ::std::convert::From<&ID2D1DeviceContext5> for ID2D1RenderTarget {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1RenderTarget> for ID2D1DeviceContext5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1RenderTarget> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1RenderTarget>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1RenderTarget> for &ID2D1DeviceContext5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1RenderTarget> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1RenderTarget>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext5> for ID2D1Resource {
@@ -20551,12 +20551,12 @@ impl ::std::convert::From<&ID2D1DeviceContext5> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1DeviceContext5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1DeviceContext5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -21460,12 +21460,12 @@ impl ::std::convert::From<&ID2D1DeviceContext6> for ID2D1DeviceContext5 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext5> for ID2D1DeviceContext6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext5>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext5> for &ID2D1DeviceContext6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext5>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext6> for ID2D1DeviceContext4 {
@@ -21480,12 +21480,12 @@ impl ::std::convert::From<&ID2D1DeviceContext6> for ID2D1DeviceContext4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext4> for ID2D1DeviceContext6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext4> for &ID2D1DeviceContext6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext6> for ID2D1DeviceContext3 {
@@ -21500,12 +21500,12 @@ impl ::std::convert::From<&ID2D1DeviceContext6> for ID2D1DeviceContext3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext3> for ID2D1DeviceContext6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext3> for &ID2D1DeviceContext6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext6> for ID2D1DeviceContext2 {
@@ -21520,12 +21520,12 @@ impl ::std::convert::From<&ID2D1DeviceContext6> for ID2D1DeviceContext2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext2> for ID2D1DeviceContext6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext2> for &ID2D1DeviceContext6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext6> for ID2D1DeviceContext1 {
@@ -21540,12 +21540,12 @@ impl ::std::convert::From<&ID2D1DeviceContext6> for ID2D1DeviceContext1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext1> for ID2D1DeviceContext6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext1> for &ID2D1DeviceContext6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext6> for ID2D1DeviceContext {
@@ -21560,12 +21560,12 @@ impl ::std::convert::From<&ID2D1DeviceContext6> for ID2D1DeviceContext {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext> for ID2D1DeviceContext6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DeviceContext> for &ID2D1DeviceContext6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DeviceContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DeviceContext>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext6> for ID2D1RenderTarget {
@@ -21580,12 +21580,12 @@ impl ::std::convert::From<&ID2D1DeviceContext6> for ID2D1RenderTarget {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1RenderTarget> for ID2D1DeviceContext6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1RenderTarget> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1RenderTarget>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1RenderTarget> for &ID2D1DeviceContext6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1RenderTarget> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1RenderTarget>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DeviceContext6> for ID2D1Resource {
@@ -21600,12 +21600,12 @@ impl ::std::convert::From<&ID2D1DeviceContext6> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1DeviceContext6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1DeviceContext6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -21880,12 +21880,12 @@ impl ::std::convert::From<&ID2D1DrawInfo> for ID2D1RenderInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1RenderInfo> for ID2D1DrawInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1RenderInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1RenderInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1RenderInfo> for &ID2D1DrawInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1RenderInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1RenderInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -21971,12 +21971,12 @@ impl ::std::convert::From<&ID2D1DrawTransform> for ID2D1Transform {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Transform> for ID2D1DrawTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Transform> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Transform>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Transform> for &ID2D1DrawTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Transform> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Transform>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DrawTransform> for ID2D1TransformNode {
@@ -21991,12 +21991,12 @@ impl ::std::convert::From<&ID2D1DrawTransform> for ID2D1TransformNode {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1TransformNode> for ID2D1DrawTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1TransformNode> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1TransformNode>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1TransformNode> for &ID2D1DrawTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1TransformNode> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1TransformNode>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -22080,12 +22080,12 @@ impl ::std::convert::From<&ID2D1DrawingStateBlock> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1DrawingStateBlock {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1DrawingStateBlock {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -22180,12 +22180,12 @@ impl ::std::convert::From<&ID2D1DrawingStateBlock1> for ID2D1DrawingStateBlock {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DrawingStateBlock> for ID2D1DrawingStateBlock1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DrawingStateBlock> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DrawingStateBlock>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1DrawingStateBlock> for &ID2D1DrawingStateBlock1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1DrawingStateBlock> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1DrawingStateBlock>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1DrawingStateBlock1> for ID2D1Resource {
@@ -22200,12 +22200,12 @@ impl ::std::convert::From<&ID2D1DrawingStateBlock1> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1DrawingStateBlock1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1DrawingStateBlock1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -22340,12 +22340,12 @@ impl ::std::convert::From<&ID2D1Effect> for ID2D1Properties {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Properties> for ID2D1Effect {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Properties> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Properties>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Properties> for &ID2D1Effect {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Properties> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Properties>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -22701,12 +22701,12 @@ impl ::std::convert::From<&ID2D1EffectContext1> for ID2D1EffectContext {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1EffectContext> for ID2D1EffectContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1EffectContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1EffectContext>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1EffectContext> for &ID2D1EffectContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1EffectContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1EffectContext>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -22910,12 +22910,12 @@ impl ::std::convert::From<&ID2D1EffectContext2> for ID2D1EffectContext1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1EffectContext1> for ID2D1EffectContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1EffectContext1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1EffectContext1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1EffectContext1> for &ID2D1EffectContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1EffectContext1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1EffectContext1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1EffectContext2> for ID2D1EffectContext {
@@ -22930,12 +22930,12 @@ impl ::std::convert::From<&ID2D1EffectContext2> for ID2D1EffectContext {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1EffectContext> for ID2D1EffectContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1EffectContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1EffectContext>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1EffectContext> for &ID2D1EffectContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1EffectContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1EffectContext>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -23152,12 +23152,12 @@ impl ::std::convert::From<&ID2D1EllipseGeometry> for ID2D1Geometry {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Geometry> for ID2D1EllipseGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Geometry> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Geometry>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Geometry> for &ID2D1EllipseGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Geometry> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Geometry>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1EllipseGeometry> for ID2D1Resource {
@@ -23172,12 +23172,12 @@ impl ::std::convert::From<&ID2D1EllipseGeometry> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1EllipseGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1EllipseGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -23513,12 +23513,12 @@ impl ::std::convert::From<&ID2D1Factory1> for ID2D1Factory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory> for ID2D1Factory1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory> for &ID2D1Factory1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -23736,12 +23736,12 @@ impl ::std::convert::From<&ID2D1Factory2> for ID2D1Factory1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory1> for ID2D1Factory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory1> for &ID2D1Factory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Factory2> for ID2D1Factory {
@@ -23756,12 +23756,12 @@ impl ::std::convert::From<&ID2D1Factory2> for ID2D1Factory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory> for ID2D1Factory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory> for &ID2D1Factory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -23987,12 +23987,12 @@ impl ::std::convert::From<&ID2D1Factory3> for ID2D1Factory2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory2> for ID2D1Factory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory2> for &ID2D1Factory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Factory3> for ID2D1Factory1 {
@@ -24007,12 +24007,12 @@ impl ::std::convert::From<&ID2D1Factory3> for ID2D1Factory1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory1> for ID2D1Factory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory1> for &ID2D1Factory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Factory3> for ID2D1Factory {
@@ -24027,12 +24027,12 @@ impl ::std::convert::From<&ID2D1Factory3> for ID2D1Factory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory> for ID2D1Factory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory> for &ID2D1Factory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -24266,12 +24266,12 @@ impl ::std::convert::From<&ID2D1Factory4> for ID2D1Factory3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory3> for ID2D1Factory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory3> for &ID2D1Factory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Factory4> for ID2D1Factory2 {
@@ -24286,12 +24286,12 @@ impl ::std::convert::From<&ID2D1Factory4> for ID2D1Factory2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory2> for ID2D1Factory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory2> for &ID2D1Factory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Factory4> for ID2D1Factory1 {
@@ -24306,12 +24306,12 @@ impl ::std::convert::From<&ID2D1Factory4> for ID2D1Factory1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory1> for ID2D1Factory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory1> for &ID2D1Factory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Factory4> for ID2D1Factory {
@@ -24326,12 +24326,12 @@ impl ::std::convert::From<&ID2D1Factory4> for ID2D1Factory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory> for ID2D1Factory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory> for &ID2D1Factory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -24573,12 +24573,12 @@ impl ::std::convert::From<&ID2D1Factory5> for ID2D1Factory4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory4> for ID2D1Factory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory4> for &ID2D1Factory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Factory5> for ID2D1Factory3 {
@@ -24593,12 +24593,12 @@ impl ::std::convert::From<&ID2D1Factory5> for ID2D1Factory3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory3> for ID2D1Factory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory3> for &ID2D1Factory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Factory5> for ID2D1Factory2 {
@@ -24613,12 +24613,12 @@ impl ::std::convert::From<&ID2D1Factory5> for ID2D1Factory2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory2> for ID2D1Factory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory2> for &ID2D1Factory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Factory5> for ID2D1Factory1 {
@@ -24633,12 +24633,12 @@ impl ::std::convert::From<&ID2D1Factory5> for ID2D1Factory1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory1> for ID2D1Factory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory1> for &ID2D1Factory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Factory5> for ID2D1Factory {
@@ -24653,12 +24653,12 @@ impl ::std::convert::From<&ID2D1Factory5> for ID2D1Factory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory> for ID2D1Factory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory> for &ID2D1Factory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -24908,12 +24908,12 @@ impl ::std::convert::From<&ID2D1Factory6> for ID2D1Factory5 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory5> for ID2D1Factory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory5>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory5> for &ID2D1Factory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory5>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Factory6> for ID2D1Factory4 {
@@ -24928,12 +24928,12 @@ impl ::std::convert::From<&ID2D1Factory6> for ID2D1Factory4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory4> for ID2D1Factory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory4> for &ID2D1Factory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Factory6> for ID2D1Factory3 {
@@ -24948,12 +24948,12 @@ impl ::std::convert::From<&ID2D1Factory6> for ID2D1Factory3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory3> for ID2D1Factory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory3> for &ID2D1Factory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Factory6> for ID2D1Factory2 {
@@ -24968,12 +24968,12 @@ impl ::std::convert::From<&ID2D1Factory6> for ID2D1Factory2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory2> for ID2D1Factory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory2> for &ID2D1Factory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Factory6> for ID2D1Factory1 {
@@ -24988,12 +24988,12 @@ impl ::std::convert::From<&ID2D1Factory6> for ID2D1Factory1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory1> for ID2D1Factory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory1> for &ID2D1Factory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Factory6> for ID2D1Factory {
@@ -25008,12 +25008,12 @@ impl ::std::convert::From<&ID2D1Factory6> for ID2D1Factory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory> for ID2D1Factory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory> for &ID2D1Factory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -25271,12 +25271,12 @@ impl ::std::convert::From<&ID2D1Factory7> for ID2D1Factory6 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory6> for ID2D1Factory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory6> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory6>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory6> for &ID2D1Factory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory6> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory6>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Factory7> for ID2D1Factory5 {
@@ -25291,12 +25291,12 @@ impl ::std::convert::From<&ID2D1Factory7> for ID2D1Factory5 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory5> for ID2D1Factory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory5>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory5> for &ID2D1Factory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory5>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Factory7> for ID2D1Factory4 {
@@ -25311,12 +25311,12 @@ impl ::std::convert::From<&ID2D1Factory7> for ID2D1Factory4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory4> for ID2D1Factory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory4> for &ID2D1Factory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Factory7> for ID2D1Factory3 {
@@ -25331,12 +25331,12 @@ impl ::std::convert::From<&ID2D1Factory7> for ID2D1Factory3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory3> for ID2D1Factory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory3> for &ID2D1Factory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Factory7> for ID2D1Factory2 {
@@ -25351,12 +25351,12 @@ impl ::std::convert::From<&ID2D1Factory7> for ID2D1Factory2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory2> for ID2D1Factory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory2> for &ID2D1Factory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Factory7> for ID2D1Factory1 {
@@ -25371,12 +25371,12 @@ impl ::std::convert::From<&ID2D1Factory7> for ID2D1Factory1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory1> for ID2D1Factory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory1> for &ID2D1Factory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1Factory7> for ID2D1Factory {
@@ -25391,12 +25391,12 @@ impl ::std::convert::From<&ID2D1Factory7> for ID2D1Factory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory> for ID2D1Factory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Factory> for &ID2D1Factory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Factory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Factory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -25560,12 +25560,12 @@ impl ::std::convert::From<&ID2D1GdiMetafile> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1GdiMetafile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1GdiMetafile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -25642,12 +25642,12 @@ impl ::std::convert::From<&ID2D1GdiMetafile1> for ID2D1GdiMetafile {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1GdiMetafile> for ID2D1GdiMetafile1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1GdiMetafile> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1GdiMetafile>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1GdiMetafile> for &ID2D1GdiMetafile1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1GdiMetafile> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1GdiMetafile>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1GdiMetafile1> for ID2D1Resource {
@@ -25662,12 +25662,12 @@ impl ::std::convert::From<&ID2D1GdiMetafile1> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1GdiMetafile1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1GdiMetafile1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -25774,12 +25774,12 @@ impl ::std::convert::From<&ID2D1GdiMetafileSink1> for ID2D1GdiMetafileSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1GdiMetafileSink> for ID2D1GdiMetafileSink1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1GdiMetafileSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1GdiMetafileSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1GdiMetafileSink> for &ID2D1GdiMetafileSink1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1GdiMetafileSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1GdiMetafileSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -25909,12 +25909,12 @@ impl ::std::convert::From<&ID2D1Geometry> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1Geometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1Geometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -26081,12 +26081,12 @@ impl ::std::convert::From<&ID2D1GeometryGroup> for ID2D1Geometry {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Geometry> for ID2D1GeometryGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Geometry> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Geometry>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Geometry> for &ID2D1GeometryGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Geometry> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Geometry>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1GeometryGroup> for ID2D1Resource {
@@ -26101,12 +26101,12 @@ impl ::std::convert::From<&ID2D1GeometryGroup> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1GeometryGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1GeometryGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -26192,12 +26192,12 @@ impl ::std::convert::From<&ID2D1GeometryRealization> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1GeometryRealization {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1GeometryRealization {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -26298,12 +26298,12 @@ impl ::std::convert::From<&ID2D1GeometrySink> for ID2D1SimplifiedGeometrySink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1SimplifiedGeometrySink> for ID2D1GeometrySink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1SimplifiedGeometrySink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1SimplifiedGeometrySink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1SimplifiedGeometrySink> for &ID2D1GeometrySink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1SimplifiedGeometrySink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1SimplifiedGeometrySink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -26379,12 +26379,12 @@ impl ::std::convert::From<&ID2D1GradientMesh> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1GradientMesh {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1GradientMesh {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -26459,12 +26459,12 @@ impl ::std::convert::From<&ID2D1GradientStopCollection> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1GradientStopCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1GradientStopCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -26561,12 +26561,12 @@ impl ::std::convert::From<&ID2D1GradientStopCollection1> for ID2D1GradientStopCo
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1GradientStopCollection> for ID2D1GradientStopCollection1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1GradientStopCollection> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1GradientStopCollection>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1GradientStopCollection> for &ID2D1GradientStopCollection1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1GradientStopCollection> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1GradientStopCollection>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1GradientStopCollection1> for ID2D1Resource {
@@ -26581,12 +26581,12 @@ impl ::std::convert::From<&ID2D1GradientStopCollection1> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1GradientStopCollection1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1GradientStopCollection1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -26920,12 +26920,12 @@ impl ::std::convert::From<&ID2D1HwndRenderTarget> for ID2D1RenderTarget {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1RenderTarget> for ID2D1HwndRenderTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1RenderTarget> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1RenderTarget>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1RenderTarget> for &ID2D1HwndRenderTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1RenderTarget> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1RenderTarget>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1HwndRenderTarget> for ID2D1Resource {
@@ -26940,12 +26940,12 @@ impl ::std::convert::From<&ID2D1HwndRenderTarget> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1HwndRenderTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1HwndRenderTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -27077,12 +27077,12 @@ impl ::std::convert::From<&ID2D1Image> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1Image {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1Image {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -27197,12 +27197,12 @@ impl ::std::convert::From<&ID2D1ImageBrush> for ID2D1Brush {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Brush> for ID2D1ImageBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Brush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Brush>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Brush> for &ID2D1ImageBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Brush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Brush>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1ImageBrush> for ID2D1Resource {
@@ -27217,12 +27217,12 @@ impl ::std::convert::From<&ID2D1ImageBrush> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1ImageBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1ImageBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -27305,12 +27305,12 @@ impl ::std::convert::From<&ID2D1ImageSource> for ID2D1Image {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Image> for ID2D1ImageSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Image> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Image>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Image> for &ID2D1ImageSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Image> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Image>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1ImageSource> for ID2D1Resource {
@@ -27325,12 +27325,12 @@ impl ::std::convert::From<&ID2D1ImageSource> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1ImageSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1ImageSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -27413,12 +27413,12 @@ impl ::std::convert::From<&ID2D1ImageSourceFromWic> for ID2D1ImageSource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1ImageSource> for ID2D1ImageSourceFromWic {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1ImageSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1ImageSource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1ImageSource> for &ID2D1ImageSourceFromWic {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1ImageSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1ImageSource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1ImageSourceFromWic> for ID2D1Image {
@@ -27433,12 +27433,12 @@ impl ::std::convert::From<&ID2D1ImageSourceFromWic> for ID2D1Image {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Image> for ID2D1ImageSourceFromWic {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Image> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Image>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Image> for &ID2D1ImageSourceFromWic {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Image> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Image>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1ImageSourceFromWic> for ID2D1Resource {
@@ -27453,12 +27453,12 @@ impl ::std::convert::From<&ID2D1ImageSourceFromWic> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1ImageSourceFromWic {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1ImageSourceFromWic {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -27567,12 +27567,12 @@ impl ::std::convert::From<&ID2D1Ink> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1Ink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1Ink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -27659,12 +27659,12 @@ impl ::std::convert::From<&ID2D1InkStyle> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1InkStyle {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1InkStyle {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -27733,12 +27733,12 @@ impl ::std::convert::From<&ID2D1Layer> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1Layer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1Layer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -27838,12 +27838,12 @@ impl ::std::convert::From<&ID2D1LinearGradientBrush> for ID2D1Brush {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Brush> for ID2D1LinearGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Brush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Brush>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Brush> for &ID2D1LinearGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Brush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Brush>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1LinearGradientBrush> for ID2D1Resource {
@@ -27858,12 +27858,12 @@ impl ::std::convert::From<&ID2D1LinearGradientBrush> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1LinearGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1LinearGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -27931,12 +27931,12 @@ impl ::std::convert::From<&ID2D1LookupTable3D> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1LookupTable3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1LookupTable3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -27998,12 +27998,12 @@ impl ::std::convert::From<&ID2D1Mesh> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1Mesh {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1Mesh {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -28127,12 +28127,12 @@ impl ::std::convert::From<&ID2D1OffsetTransform> for ID2D1TransformNode {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1TransformNode> for ID2D1OffsetTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1TransformNode> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1TransformNode>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1TransformNode> for &ID2D1OffsetTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1TransformNode> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1TransformNode>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -28284,12 +28284,12 @@ impl ::std::convert::From<&ID2D1PathGeometry> for ID2D1Geometry {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Geometry> for ID2D1PathGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Geometry> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Geometry>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Geometry> for &ID2D1PathGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Geometry> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Geometry>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1PathGeometry> for ID2D1Resource {
@@ -28304,12 +28304,12 @@ impl ::std::convert::From<&ID2D1PathGeometry> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1PathGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1PathGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -28493,12 +28493,12 @@ impl ::std::convert::From<&ID2D1PathGeometry1> for ID2D1PathGeometry {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1PathGeometry> for ID2D1PathGeometry1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1PathGeometry> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1PathGeometry>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1PathGeometry> for &ID2D1PathGeometry1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1PathGeometry> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1PathGeometry>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1PathGeometry1> for ID2D1Geometry {
@@ -28513,12 +28513,12 @@ impl ::std::convert::From<&ID2D1PathGeometry1> for ID2D1Geometry {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Geometry> for ID2D1PathGeometry1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Geometry> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Geometry>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Geometry> for &ID2D1PathGeometry1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Geometry> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Geometry>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1PathGeometry1> for ID2D1Resource {
@@ -28533,12 +28533,12 @@ impl ::std::convert::From<&ID2D1PathGeometry1> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1PathGeometry1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1PathGeometry1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -28835,12 +28835,12 @@ impl ::std::convert::From<&ID2D1RadialGradientBrush> for ID2D1Brush {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Brush> for ID2D1RadialGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Brush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Brush>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Brush> for &ID2D1RadialGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Brush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Brush>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1RadialGradientBrush> for ID2D1Resource {
@@ -28855,12 +28855,12 @@ impl ::std::convert::From<&ID2D1RadialGradientBrush> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1RadialGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1RadialGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -29008,12 +29008,12 @@ impl ::std::convert::From<&ID2D1RectangleGeometry> for ID2D1Geometry {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Geometry> for ID2D1RectangleGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Geometry> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Geometry>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Geometry> for &ID2D1RectangleGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Geometry> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Geometry>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1RectangleGeometry> for ID2D1Resource {
@@ -29028,12 +29028,12 @@ impl ::std::convert::From<&ID2D1RectangleGeometry> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1RectangleGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1RectangleGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -29431,12 +29431,12 @@ impl ::std::convert::From<&ID2D1RenderTarget> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1RenderTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1RenderTarget {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -29724,12 +29724,12 @@ impl ::std::convert::From<&ID2D1RoundedRectangleGeometry> for ID2D1Geometry {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Geometry> for ID2D1RoundedRectangleGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Geometry> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Geometry>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Geometry> for &ID2D1RoundedRectangleGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Geometry> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Geometry>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1RoundedRectangleGeometry> for ID2D1Resource {
@@ -29744,12 +29744,12 @@ impl ::std::convert::From<&ID2D1RoundedRectangleGeometry> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1RoundedRectangleGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1RoundedRectangleGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -29933,12 +29933,12 @@ impl ::std::convert::From<&ID2D1SolidColorBrush> for ID2D1Brush {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Brush> for ID2D1SolidColorBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Brush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Brush>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Brush> for &ID2D1SolidColorBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Brush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Brush>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1SolidColorBrush> for ID2D1Resource {
@@ -29953,12 +29953,12 @@ impl ::std::convert::From<&ID2D1SolidColorBrush> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1SolidColorBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1SolidColorBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -30048,12 +30048,12 @@ impl ::std::convert::From<&ID2D1SourceTransform> for ID2D1Transform {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Transform> for ID2D1SourceTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Transform> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Transform>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Transform> for &ID2D1SourceTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Transform> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Transform>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1SourceTransform> for ID2D1TransformNode {
@@ -30068,12 +30068,12 @@ impl ::std::convert::From<&ID2D1SourceTransform> for ID2D1TransformNode {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1TransformNode> for ID2D1SourceTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1TransformNode> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1TransformNode>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1TransformNode> for &ID2D1SourceTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1TransformNode> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1TransformNode>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -30187,12 +30187,12 @@ impl ::std::convert::From<&ID2D1SpriteBatch> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1SpriteBatch {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1SpriteBatch {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -30293,12 +30293,12 @@ impl ::std::convert::From<&ID2D1StrokeStyle> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1StrokeStyle {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1StrokeStyle {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -30404,12 +30404,12 @@ impl ::std::convert::From<&ID2D1StrokeStyle1> for ID2D1StrokeStyle {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle> for ID2D1StrokeStyle1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1StrokeStyle> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1StrokeStyle>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1StrokeStyle> for &ID2D1StrokeStyle1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1StrokeStyle> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1StrokeStyle>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1StrokeStyle1> for ID2D1Resource {
@@ -30424,12 +30424,12 @@ impl ::std::convert::From<&ID2D1StrokeStyle1> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1StrokeStyle1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1StrokeStyle1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -30505,12 +30505,12 @@ impl ::std::convert::From<&ID2D1SvgAttribute> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1SvgAttribute {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1SvgAttribute {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -30625,12 +30625,12 @@ impl ::std::convert::From<&ID2D1SvgDocument> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1SvgDocument {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1SvgDocument {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -30843,12 +30843,12 @@ impl ::std::convert::From<&ID2D1SvgElement> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1SvgElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1SvgElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -30972,12 +30972,12 @@ impl ::std::convert::From<&ID2D1SvgGlyphStyle> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1SvgGlyphStyle {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1SvgGlyphStyle {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -31078,12 +31078,12 @@ impl ::std::convert::From<&ID2D1SvgPaint> for ID2D1SvgAttribute {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1SvgAttribute> for ID2D1SvgPaint {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1SvgAttribute> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1SvgAttribute>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1SvgAttribute> for &ID2D1SvgPaint {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1SvgAttribute> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1SvgAttribute>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1SvgPaint> for ID2D1Resource {
@@ -31098,12 +31098,12 @@ impl ::std::convert::From<&ID2D1SvgPaint> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1SvgPaint {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1SvgPaint {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -31217,12 +31217,12 @@ impl ::std::convert::From<&ID2D1SvgPathData> for ID2D1SvgAttribute {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1SvgAttribute> for ID2D1SvgPathData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1SvgAttribute> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1SvgAttribute>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1SvgAttribute> for &ID2D1SvgPathData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1SvgAttribute> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1SvgAttribute>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1SvgPathData> for ID2D1Resource {
@@ -31237,12 +31237,12 @@ impl ::std::convert::From<&ID2D1SvgPathData> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1SvgPathData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1SvgPathData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -31335,12 +31335,12 @@ impl ::std::convert::From<&ID2D1SvgPointCollection> for ID2D1SvgAttribute {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1SvgAttribute> for ID2D1SvgPointCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1SvgAttribute> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1SvgAttribute>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1SvgAttribute> for &ID2D1SvgPointCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1SvgAttribute> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1SvgAttribute>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1SvgPointCollection> for ID2D1Resource {
@@ -31355,12 +31355,12 @@ impl ::std::convert::From<&ID2D1SvgPointCollection> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1SvgPointCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1SvgPointCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -31456,12 +31456,12 @@ impl ::std::convert::From<&ID2D1SvgStrokeDashArray> for ID2D1SvgAttribute {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1SvgAttribute> for ID2D1SvgStrokeDashArray {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1SvgAttribute> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1SvgAttribute>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1SvgAttribute> for &ID2D1SvgStrokeDashArray {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1SvgAttribute> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1SvgAttribute>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1SvgStrokeDashArray> for ID2D1Resource {
@@ -31476,12 +31476,12 @@ impl ::std::convert::From<&ID2D1SvgStrokeDashArray> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1SvgStrokeDashArray {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1SvgStrokeDashArray {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -31609,12 +31609,12 @@ impl ::std::convert::From<&ID2D1Transform> for ID2D1TransformNode {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1TransformNode> for ID2D1Transform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1TransformNode> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1TransformNode>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1TransformNode> for &ID2D1Transform {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1TransformNode> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1TransformNode>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -31882,12 +31882,12 @@ impl ::std::convert::From<&ID2D1TransformedGeometry> for ID2D1Geometry {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Geometry> for ID2D1TransformedGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Geometry> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Geometry>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Geometry> for &ID2D1TransformedGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Geometry> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Geometry>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1TransformedGeometry> for ID2D1Resource {
@@ -31902,12 +31902,12 @@ impl ::std::convert::From<&ID2D1TransformedGeometry> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1TransformedGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1TransformedGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -32001,12 +32001,12 @@ impl ::std::convert::From<&ID2D1TransformedImageSource> for ID2D1Image {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Image> for ID2D1TransformedImageSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Image> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Image>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Image> for &ID2D1TransformedImageSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Image> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Image>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID2D1TransformedImageSource> for ID2D1Resource {
@@ -32021,12 +32021,12 @@ impl ::std::convert::From<&ID2D1TransformedImageSource> for ID2D1Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for ID2D1TransformedImageSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID2D1Resource> for &ID2D1TransformedImageSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID2D1Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID2D1Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

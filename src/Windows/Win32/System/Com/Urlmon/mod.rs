@@ -1320,12 +1320,12 @@ impl ::std::convert::From<&IAuthenticateEx> for IAuthenticate {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAuthenticate> for IAuthenticateEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAuthenticate> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAuthenticate>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAuthenticate> for &IAuthenticateEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAuthenticate> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAuthenticate>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1575,12 +1575,12 @@ impl ::std::convert::From<&ICodeInstall> for IWindowForBindingUI {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWindowForBindingUI> for ICodeInstall {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWindowForBindingUI> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWindowForBindingUI>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWindowForBindingUI> for &ICodeInstall {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWindowForBindingUI> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWindowForBindingUI>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1929,12 +1929,12 @@ impl ::std::convert::From<&IHttpNegotiate2> for IHttpNegotiate {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IHttpNegotiate> for IHttpNegotiate2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IHttpNegotiate> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IHttpNegotiate>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IHttpNegotiate> for &IHttpNegotiate2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IHttpNegotiate> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IHttpNegotiate>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2011,12 +2011,12 @@ impl ::std::convert::From<&IHttpNegotiate3> for IHttpNegotiate2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IHttpNegotiate2> for IHttpNegotiate3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IHttpNegotiate2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IHttpNegotiate2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IHttpNegotiate2> for &IHttpNegotiate3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IHttpNegotiate2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IHttpNegotiate2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IHttpNegotiate3> for IHttpNegotiate {
@@ -2031,12 +2031,12 @@ impl ::std::convert::From<&IHttpNegotiate3> for IHttpNegotiate {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IHttpNegotiate> for IHttpNegotiate3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IHttpNegotiate> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IHttpNegotiate>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IHttpNegotiate> for &IHttpNegotiate3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IHttpNegotiate> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IHttpNegotiate>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2104,12 +2104,12 @@ impl ::std::convert::From<&IHttpSecurity> for IWindowForBindingUI {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWindowForBindingUI> for IHttpSecurity {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWindowForBindingUI> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWindowForBindingUI>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWindowForBindingUI> for &IHttpSecurity {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWindowForBindingUI> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWindowForBindingUI>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2266,12 +2266,12 @@ impl ::std::convert::From<&IInternetBindInfoEx> for IInternetBindInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetBindInfo> for IInternetBindInfoEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetBindInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetBindInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetBindInfo> for &IInternetBindInfoEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetBindInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetBindInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2471,12 +2471,12 @@ impl ::std::convert::From<&IInternetProtocol> for IInternetProtocolRoot {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetProtocolRoot> for IInternetProtocol {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetProtocolRoot> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetProtocolRoot>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetProtocolRoot> for &IInternetProtocol {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetProtocolRoot> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetProtocolRoot>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2586,12 +2586,12 @@ impl ::std::convert::From<&IInternetProtocolEx> for IInternetProtocol {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetProtocol> for IInternetProtocolEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetProtocol> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetProtocol>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetProtocol> for &IInternetProtocolEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetProtocol> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetProtocol>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IInternetProtocolEx> for IInternetProtocolRoot {
@@ -2606,12 +2606,12 @@ impl ::std::convert::From<&IInternetProtocolEx> for IInternetProtocolRoot {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetProtocolRoot> for IInternetProtocolEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetProtocolRoot> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetProtocolRoot>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetProtocolRoot> for &IInternetProtocolEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetProtocolRoot> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetProtocolRoot>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3066,12 +3066,12 @@ impl ::std::convert::From<&IInternetSecurityManagerEx> for IInternetSecurityMana
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetSecurityManager> for IInternetSecurityManagerEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetSecurityManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetSecurityManager>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetSecurityManager> for &IInternetSecurityManagerEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetSecurityManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetSecurityManager>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3222,12 +3222,12 @@ impl ::std::convert::From<&IInternetSecurityManagerEx2> for IInternetSecurityMan
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetSecurityManagerEx> for IInternetSecurityManagerEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetSecurityManagerEx> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetSecurityManagerEx>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetSecurityManagerEx> for &IInternetSecurityManagerEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetSecurityManagerEx> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetSecurityManagerEx>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IInternetSecurityManagerEx2> for IInternetSecurityManager {
@@ -3242,12 +3242,12 @@ impl ::std::convert::From<&IInternetSecurityManagerEx2> for IInternetSecurityMan
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetSecurityManager> for IInternetSecurityManagerEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetSecurityManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetSecurityManager>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetSecurityManager> for &IInternetSecurityManagerEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetSecurityManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetSecurityManager>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3661,12 +3661,12 @@ impl ::std::convert::From<&IInternetZoneManagerEx> for IInternetZoneManager {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetZoneManager> for IInternetZoneManagerEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetZoneManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetZoneManager>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetZoneManager> for &IInternetZoneManagerEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetZoneManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetZoneManager>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3811,12 +3811,12 @@ impl ::std::convert::From<&IInternetZoneManagerEx2> for IInternetZoneManagerEx {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetZoneManagerEx> for IInternetZoneManagerEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetZoneManagerEx> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetZoneManagerEx>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetZoneManagerEx> for &IInternetZoneManagerEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetZoneManagerEx> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetZoneManagerEx>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IInternetZoneManagerEx2> for IInternetZoneManager {
@@ -3831,12 +3831,12 @@ impl ::std::convert::From<&IInternetZoneManagerEx2> for IInternetZoneManager {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetZoneManager> for IInternetZoneManagerEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetZoneManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetZoneManager>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInternetZoneManager> for &IInternetZoneManagerEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInternetZoneManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInternetZoneManager>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4393,12 +4393,12 @@ impl ::std::convert::From<&IWinInetCacheHints2> for IWinInetCacheHints {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWinInetCacheHints> for IWinInetCacheHints2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWinInetCacheHints> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWinInetCacheHints>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWinInetCacheHints> for &IWinInetCacheHints2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWinInetCacheHints> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWinInetCacheHints>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4509,12 +4509,12 @@ impl ::std::convert::From<&IWinInetHttpInfo> for IWinInetInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWinInetInfo> for IWinInetHttpInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWinInetInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWinInetInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWinInetInfo> for &IWinInetHttpInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWinInetInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWinInetInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4833,12 +4833,12 @@ impl ::std::convert::From<&IZoneIdentifier2> for IZoneIdentifier {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IZoneIdentifier> for IZoneIdentifier2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IZoneIdentifier> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IZoneIdentifier>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IZoneIdentifier> for &IZoneIdentifier2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IZoneIdentifier> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IZoneIdentifier>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

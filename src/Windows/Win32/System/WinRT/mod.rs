@@ -1415,12 +1415,12 @@ impl ::std::convert::From<&ICompositionDrawingSurfaceInterop2> for ICompositionD
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICompositionDrawingSurfaceInterop> for ICompositionDrawingSurfaceInterop2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICompositionDrawingSurfaceInterop> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICompositionDrawingSurfaceInterop>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICompositionDrawingSurfaceInterop> for &ICompositionDrawingSurfaceInterop2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICompositionDrawingSurfaceInterop> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICompositionDrawingSurfaceInterop>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1981,12 +1981,12 @@ impl ::std::convert::From<&IDesktopWindowXamlSourceNative2> for IDesktopWindowXa
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDesktopWindowXamlSourceNative> for IDesktopWindowXamlSourceNative2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDesktopWindowXamlSourceNative> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDesktopWindowXamlSourceNative>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDesktopWindowXamlSourceNative> for &IDesktopWindowXamlSourceNative2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDesktopWindowXamlSourceNative> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDesktopWindowXamlSourceNative>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2944,12 +2944,12 @@ impl ::std::convert::From<&ILanguageExceptionErrorInfo2> for ILanguageExceptionE
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ILanguageExceptionErrorInfo> for ILanguageExceptionErrorInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ILanguageExceptionErrorInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ILanguageExceptionErrorInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ILanguageExceptionErrorInfo> for &ILanguageExceptionErrorInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ILanguageExceptionErrorInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ILanguageExceptionErrorInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3767,12 +3767,12 @@ impl ::std::convert::From<&IPrintWorkflowXpsReceiver2> for IPrintWorkflowXpsRece
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintWorkflowXpsReceiver> for IPrintWorkflowXpsReceiver2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintWorkflowXpsReceiver> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintWorkflowXpsReceiver>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintWorkflowXpsReceiver> for &IPrintWorkflowXpsReceiver2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintWorkflowXpsReceiver> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintWorkflowXpsReceiver>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5064,12 +5064,12 @@ impl ::std::convert::From<&ISwapChainPanelNative2> for ISwapChainPanelNative {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISwapChainPanelNative> for ISwapChainPanelNative2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISwapChainPanelNative> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISwapChainPanelNative>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISwapChainPanelNative> for &ISwapChainPanelNative2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISwapChainPanelNative> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISwapChainPanelNative>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5817,12 +5817,12 @@ impl ::std::convert::From<&IVirtualSurfaceImageSourceNative> for ISurfaceImageSo
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISurfaceImageSourceNative> for IVirtualSurfaceImageSourceNative {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISurfaceImageSourceNative> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISurfaceImageSourceNative>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISurfaceImageSourceNative> for &IVirtualSurfaceImageSourceNative {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISurfaceImageSourceNative> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISurfaceImageSourceNative>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

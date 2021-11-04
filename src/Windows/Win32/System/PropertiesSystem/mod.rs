@@ -174,12 +174,12 @@ impl ::std::convert::From<&IDelayedPropertyStoreFactory> for IPropertyStoreFacto
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertyStoreFactory> for IDelayedPropertyStoreFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyStoreFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPropertyStoreFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertyStoreFactory> for &IDelayedPropertyStoreFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyStoreFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPropertyStoreFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -509,12 +509,12 @@ impl ::std::convert::From<&IPersistSerializedPropStorage2> for IPersistSerialize
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPersistSerializedPropStorage> for IPersistSerializedPropStorage2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPersistSerializedPropStorage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPersistSerializedPropStorage>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPersistSerializedPropStorage> for &IPersistSerializedPropStorage2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPersistSerializedPropStorage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPersistSerializedPropStorage>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -586,12 +586,12 @@ impl ::std::convert::From<&IPropertyChange> for IObjectWithPropertyKey {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IObjectWithPropertyKey> for IPropertyChange {
     fn into_param(self) -> ::windows::runtime::Param<'a, IObjectWithPropertyKey> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IObjectWithPropertyKey>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IObjectWithPropertyKey> for &IPropertyChange {
     fn into_param(self) -> ::windows::runtime::Param<'a, IObjectWithPropertyKey> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IObjectWithPropertyKey>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1015,12 +1015,12 @@ impl ::std::convert::From<&IPropertyDescription2> for IPropertyDescription {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertyDescription> for IPropertyDescription2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyDescription> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPropertyDescription>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertyDescription> for &IPropertyDescription2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyDescription> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPropertyDescription>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1225,12 +1225,12 @@ impl ::std::convert::From<&IPropertyDescriptionAliasInfo> for IPropertyDescripti
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertyDescription> for IPropertyDescriptionAliasInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyDescription> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPropertyDescription>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertyDescription> for &IPropertyDescriptionAliasInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyDescription> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPropertyDescription>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1480,12 +1480,12 @@ impl ::std::convert::From<&IPropertyDescriptionRelatedPropertyInfo> for IPropert
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertyDescription> for IPropertyDescriptionRelatedPropertyInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyDescription> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPropertyDescription>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertyDescription> for &IPropertyDescriptionRelatedPropertyInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyDescription> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPropertyDescription>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1701,12 +1701,12 @@ impl ::std::convert::From<&IPropertyDescriptionSearchInfo> for IPropertyDescript
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertyDescription> for IPropertyDescriptionSearchInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyDescription> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPropertyDescription>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertyDescription> for &IPropertyDescriptionSearchInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyDescription> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPropertyDescription>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1904,12 +1904,12 @@ impl ::std::convert::From<&IPropertyEnumType2> for IPropertyEnumType {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertyEnumType> for IPropertyEnumType2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyEnumType> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPropertyEnumType>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertyEnumType> for &IPropertyEnumType2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyEnumType> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPropertyEnumType>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2148,12 +2148,12 @@ impl ::std::convert::From<&IPropertyStoreCache> for IPropertyStore {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertyStore> for IPropertyStoreCache {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyStore> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPropertyStore>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertyStore> for &IPropertyStoreCache {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyStore> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPropertyStore>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

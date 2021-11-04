@@ -279,12 +279,12 @@ impl ::std::convert::From<&IMDSPDevice2> for IMDSPDevice {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPDevice> for IMDSPDevice2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPDevice>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPDevice> for &IMDSPDevice2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPDevice>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -468,12 +468,12 @@ impl ::std::convert::From<&IMDSPDevice3> for IMDSPDevice2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPDevice2> for IMDSPDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPDevice2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPDevice2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPDevice2> for &IMDSPDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPDevice2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPDevice2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IMDSPDevice3> for IMDSPDevice {
@@ -488,12 +488,12 @@ impl ::std::convert::From<&IMDSPDevice3> for IMDSPDevice {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPDevice> for IMDSPDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPDevice>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPDevice> for &IMDSPDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPDevice>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -946,12 +946,12 @@ impl ::std::convert::From<&IMDSPObject2> for IMDSPObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPObject> for IMDSPObject2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPObject> for &IMDSPObject2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1298,12 +1298,12 @@ impl ::std::convert::From<&IMDSPStorage2> for IMDSPStorage {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPStorage> for IMDSPStorage2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPStorage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPStorage>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPStorage> for &IMDSPStorage2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPStorage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPStorage>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1451,12 +1451,12 @@ impl ::std::convert::From<&IMDSPStorage3> for IMDSPStorage2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPStorage2> for IMDSPStorage3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPStorage2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPStorage2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPStorage2> for &IMDSPStorage3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPStorage2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPStorage2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IMDSPStorage3> for IMDSPStorage {
@@ -1471,12 +1471,12 @@ impl ::std::convert::From<&IMDSPStorage3> for IMDSPStorage {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPStorage> for IMDSPStorage3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPStorage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPStorage>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPStorage> for &IMDSPStorage3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPStorage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPStorage>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1656,12 +1656,12 @@ impl ::std::convert::From<&IMDSPStorage4> for IMDSPStorage3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPStorage3> for IMDSPStorage4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPStorage3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPStorage3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPStorage3> for &IMDSPStorage4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPStorage3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPStorage3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IMDSPStorage4> for IMDSPStorage2 {
@@ -1676,12 +1676,12 @@ impl ::std::convert::From<&IMDSPStorage4> for IMDSPStorage2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPStorage2> for IMDSPStorage4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPStorage2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPStorage2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPStorage2> for &IMDSPStorage4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPStorage2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPStorage2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IMDSPStorage4> for IMDSPStorage {
@@ -1696,12 +1696,12 @@ impl ::std::convert::From<&IMDSPStorage4> for IMDSPStorage {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPStorage> for IMDSPStorage4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPStorage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPStorage>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPStorage> for &IMDSPStorage4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPStorage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPStorage>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1934,12 +1934,12 @@ impl ::std::convert::From<&IMDServiceProvider2> for IMDServiceProvider {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDServiceProvider> for IMDServiceProvider2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDServiceProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDServiceProvider>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDServiceProvider> for &IMDServiceProvider2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDServiceProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDServiceProvider>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2014,12 +2014,12 @@ impl ::std::convert::From<&IMDServiceProvider3> for IMDServiceProvider2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDServiceProvider2> for IMDServiceProvider3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDServiceProvider2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDServiceProvider2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDServiceProvider2> for &IMDServiceProvider3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDServiceProvider2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDServiceProvider2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IMDServiceProvider3> for IMDServiceProvider {
@@ -2034,12 +2034,12 @@ impl ::std::convert::From<&IMDServiceProvider3> for IMDServiceProvider {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDServiceProvider> for IMDServiceProvider3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDServiceProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDServiceProvider>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDServiceProvider> for &IMDServiceProvider3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDServiceProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDServiceProvider>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2151,12 +2151,12 @@ impl ::std::convert::From<&ISCPSecureAuthenticate2> for ISCPSecureAuthenticate {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureAuthenticate> for ISCPSecureAuthenticate2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISCPSecureAuthenticate> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureAuthenticate>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureAuthenticate> for &ISCPSecureAuthenticate2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISCPSecureAuthenticate> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureAuthenticate>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2278,12 +2278,12 @@ impl ::std::convert::From<&ISCPSecureExchange2> for ISCPSecureExchange {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureExchange> for ISCPSecureExchange2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISCPSecureExchange> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureExchange>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureExchange> for &ISCPSecureExchange2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISCPSecureExchange> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureExchange>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2368,12 +2368,12 @@ impl ::std::convert::From<&ISCPSecureExchange3> for ISCPSecureExchange2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureExchange2> for ISCPSecureExchange3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISCPSecureExchange2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureExchange2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureExchange2> for &ISCPSecureExchange3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISCPSecureExchange2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureExchange2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ISCPSecureExchange3> for ISCPSecureExchange {
@@ -2388,12 +2388,12 @@ impl ::std::convert::From<&ISCPSecureExchange3> for ISCPSecureExchange {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureExchange> for ISCPSecureExchange3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISCPSecureExchange> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureExchange>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureExchange> for &ISCPSecureExchange3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISCPSecureExchange> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureExchange>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2620,12 +2620,12 @@ impl ::std::convert::From<&ISCPSecureQuery2> for ISCPSecureQuery {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureQuery> for ISCPSecureQuery2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISCPSecureQuery> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureQuery>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureQuery> for &ISCPSecureQuery2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISCPSecureQuery> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureQuery>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2852,12 +2852,12 @@ impl ::std::convert::From<&ISCPSecureQuery3> for ISCPSecureQuery2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureQuery2> for ISCPSecureQuery3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISCPSecureQuery2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureQuery2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureQuery2> for &ISCPSecureQuery3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISCPSecureQuery2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureQuery2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ISCPSecureQuery3> for ISCPSecureQuery {
@@ -2872,12 +2872,12 @@ impl ::std::convert::From<&ISCPSecureQuery3> for ISCPSecureQuery {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureQuery> for ISCPSecureQuery3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISCPSecureQuery> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureQuery>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureQuery> for &ISCPSecureQuery3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISCPSecureQuery> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureQuery>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3220,12 +3220,12 @@ impl ::std::convert::From<&IWMDMDevice2> for IWMDMDevice {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMDevice> for IWMDMDevice2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMDevice>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMDevice> for &IWMDMDevice2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMDevice>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3409,12 +3409,12 @@ impl ::std::convert::From<&IWMDMDevice3> for IWMDMDevice2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMDevice2> for IWMDMDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMDevice2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMDevice2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMDevice2> for &IWMDMDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMDevice2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMDevice2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMDMDevice3> for IWMDMDevice {
@@ -3429,12 +3429,12 @@ impl ::std::convert::From<&IWMDMDevice3> for IWMDMDevice {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMDevice> for IWMDMDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMDevice>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMDevice> for &IWMDMDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMDevice>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4182,12 +4182,12 @@ impl ::std::convert::From<&IWMDMOperation2> for IWMDMOperation {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMOperation> for IWMDMOperation2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMOperation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMOperation>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMOperation> for &IWMDMOperation2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMOperation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMOperation>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4301,12 +4301,12 @@ impl ::std::convert::From<&IWMDMOperation3> for IWMDMOperation {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMOperation> for IWMDMOperation3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMOperation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMOperation>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMOperation> for &IWMDMOperation3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMOperation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMOperation>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4439,12 +4439,12 @@ impl ::std::convert::From<&IWMDMProgress2> for IWMDMProgress {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMProgress> for IWMDMProgress2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMProgress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMProgress>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMProgress> for &IWMDMProgress2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMProgress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMProgress>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4528,12 +4528,12 @@ impl ::std::convert::From<&IWMDMProgress3> for IWMDMProgress2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMProgress2> for IWMDMProgress3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMProgress2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMProgress2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMProgress2> for &IWMDMProgress3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMProgress2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMProgress2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMDMProgress3> for IWMDMProgress {
@@ -4548,12 +4548,12 @@ impl ::std::convert::From<&IWMDMProgress3> for IWMDMProgress {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMProgress> for IWMDMProgress3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMProgress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMProgress>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMProgress> for &IWMDMProgress3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMProgress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMProgress>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4799,12 +4799,12 @@ impl ::std::convert::From<&IWMDMStorage2> for IWMDMStorage {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorage> for IWMDMStorage2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMStorage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorage>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorage> for &IWMDMStorage2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMStorage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorage>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4947,12 +4947,12 @@ impl ::std::convert::From<&IWMDMStorage3> for IWMDMStorage2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorage2> for IWMDMStorage3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMStorage2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorage2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorage2> for &IWMDMStorage3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMStorage2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorage2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMDMStorage3> for IWMDMStorage {
@@ -4967,12 +4967,12 @@ impl ::std::convert::From<&IWMDMStorage3> for IWMDMStorage {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorage> for IWMDMStorage3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMStorage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorage>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorage> for &IWMDMStorage3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMStorage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorage>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5149,12 +5149,12 @@ impl ::std::convert::From<&IWMDMStorage4> for IWMDMStorage3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorage3> for IWMDMStorage4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMStorage3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorage3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorage3> for &IWMDMStorage4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMStorage3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorage3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMDMStorage4> for IWMDMStorage2 {
@@ -5169,12 +5169,12 @@ impl ::std::convert::From<&IWMDMStorage4> for IWMDMStorage2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorage2> for IWMDMStorage4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMStorage2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorage2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorage2> for &IWMDMStorage4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMStorage2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorage2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMDMStorage4> for IWMDMStorage {
@@ -5189,12 +5189,12 @@ impl ::std::convert::From<&IWMDMStorage4> for IWMDMStorage {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorage> for IWMDMStorage4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMStorage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorage>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorage> for &IWMDMStorage4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMStorage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorage>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5382,12 +5382,12 @@ impl ::std::convert::From<&IWMDMStorageControl2> for IWMDMStorageControl {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorageControl> for IWMDMStorageControl2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMStorageControl> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorageControl>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorageControl> for &IWMDMStorageControl2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMStorageControl> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorageControl>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5515,12 +5515,12 @@ impl ::std::convert::From<&IWMDMStorageControl3> for IWMDMStorageControl2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorageControl2> for IWMDMStorageControl3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMStorageControl2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorageControl2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorageControl2> for &IWMDMStorageControl3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMStorageControl2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorageControl2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMDMStorageControl3> for IWMDMStorageControl {
@@ -5535,12 +5535,12 @@ impl ::std::convert::From<&IWMDMStorageControl3> for IWMDMStorageControl {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorageControl> for IWMDMStorageControl3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMStorageControl> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorageControl>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorageControl> for &IWMDMStorageControl3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMStorageControl> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorageControl>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5763,12 +5763,12 @@ impl ::std::convert::From<&IWMDeviceManager2> for IWMDeviceManager {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDeviceManager> for IWMDeviceManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDeviceManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDeviceManager>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDeviceManager> for &IWMDeviceManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDeviceManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDeviceManager>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5861,12 +5861,12 @@ impl ::std::convert::From<&IWMDeviceManager3> for IWMDeviceManager2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDeviceManager2> for IWMDeviceManager3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDeviceManager2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDeviceManager2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDeviceManager2> for &IWMDeviceManager3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDeviceManager2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDeviceManager2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWMDeviceManager3> for IWMDeviceManager {
@@ -5881,12 +5881,12 @@ impl ::std::convert::From<&IWMDeviceManager3> for IWMDeviceManager {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDeviceManager> for IWMDeviceManager3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDeviceManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDeviceManager>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDeviceManager> for &IWMDeviceManager3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDeviceManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDeviceManager>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

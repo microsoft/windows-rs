@@ -297,12 +297,12 @@ impl ::std::convert::From<&AsyncIAdviseSink2> for AsyncIAdviseSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, AsyncIAdviseSink> for AsyncIAdviseSink2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, AsyncIAdviseSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<AsyncIAdviseSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, AsyncIAdviseSink> for &AsyncIAdviseSink2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, AsyncIAdviseSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<AsyncIAdviseSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3609,12 +3609,12 @@ impl ::std::convert::From<&IAdviseSink2> for IAdviseSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAdviseSink> for IAdviseSink2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAdviseSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAdviseSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAdviseSink> for &IAdviseSink2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAdviseSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAdviseSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3799,12 +3799,12 @@ impl ::std::convert::From<&IAsyncRpcChannelBuffer> for IRpcChannelBuffer2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRpcChannelBuffer2> for IAsyncRpcChannelBuffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRpcChannelBuffer2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRpcChannelBuffer2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRpcChannelBuffer2> for &IAsyncRpcChannelBuffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRpcChannelBuffer2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRpcChannelBuffer2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IAsyncRpcChannelBuffer> for IRpcChannelBuffer {
@@ -3819,12 +3819,12 @@ impl ::std::convert::From<&IAsyncRpcChannelBuffer> for IRpcChannelBuffer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRpcChannelBuffer> for IAsyncRpcChannelBuffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRpcChannelBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRpcChannelBuffer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRpcChannelBuffer> for &IAsyncRpcChannelBuffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRpcChannelBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRpcChannelBuffer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4163,12 +4163,12 @@ impl ::std::convert::From<&IBindStatusCallbackEx> for IBindStatusCallback {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBindStatusCallback> for IBindStatusCallbackEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBindStatusCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBindStatusCallback>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBindStatusCallback> for &IBindStatusCallbackEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBindStatusCallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBindStatusCallback>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6396,12 +6396,12 @@ impl ::std::convert::From<&IMoniker> for IPersistStream {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPersistStream> for IMoniker {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPersistStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPersistStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPersistStream> for &IMoniker {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPersistStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPersistStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IMoniker> for IPersist {
@@ -6416,12 +6416,12 @@ impl ::std::convert::From<&IMoniker> for IPersist {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPersist> for IMoniker {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPersist> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPersist>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPersist> for &IMoniker {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPersist> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPersist>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6779,12 +6779,12 @@ impl ::std::convert::From<&IPersistFile> for IPersist {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPersist> for IPersistFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPersist> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPersist>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPersist> for &IPersistFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPersist> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPersist>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6869,12 +6869,12 @@ impl ::std::convert::From<&IPersistStream> for IPersist {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPersist> for IPersistStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPersist> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPersist>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPersist> for &IPersistStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPersist> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPersist>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7377,12 +7377,12 @@ impl ::std::convert::From<&IRpcChannelBuffer2> for IRpcChannelBuffer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRpcChannelBuffer> for IRpcChannelBuffer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRpcChannelBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRpcChannelBuffer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRpcChannelBuffer> for &IRpcChannelBuffer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRpcChannelBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRpcChannelBuffer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7494,12 +7494,12 @@ impl ::std::convert::From<&IRpcChannelBuffer3> for IRpcChannelBuffer2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRpcChannelBuffer2> for IRpcChannelBuffer3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRpcChannelBuffer2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRpcChannelBuffer2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRpcChannelBuffer2> for &IRpcChannelBuffer3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRpcChannelBuffer2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRpcChannelBuffer2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IRpcChannelBuffer3> for IRpcChannelBuffer {
@@ -7514,12 +7514,12 @@ impl ::std::convert::From<&IRpcChannelBuffer3> for IRpcChannelBuffer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRpcChannelBuffer> for IRpcChannelBuffer3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRpcChannelBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRpcChannelBuffer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRpcChannelBuffer> for &IRpcChannelBuffer3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRpcChannelBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRpcChannelBuffer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8230,12 +8230,12 @@ impl ::std::convert::From<&IStream> for ISequentialStream {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISequentialStream> for IStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISequentialStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISequentialStream> for &IStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISequentialStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8522,12 +8522,12 @@ impl ::std::convert::From<&ISynchronizeEvent> for ISynchronizeHandle {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISynchronizeHandle> for ISynchronizeEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISynchronizeHandle> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISynchronizeHandle>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISynchronizeHandle> for &ISynchronizeEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISynchronizeHandle> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISynchronizeHandle>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8644,12 +8644,12 @@ impl ::std::convert::From<&ISynchronizeMutex> for ISynchronize {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISynchronize> for ISynchronizeMutex {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISynchronize> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISynchronize>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISynchronize> for &ISynchronizeMutex {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISynchronize> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISynchronize>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

@@ -6542,12 +6542,12 @@ impl ::std::convert::From<&IAsyncGetSendNotificationCookie> for IPrintAsyncCooki
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintAsyncCookie> for IAsyncGetSendNotificationCookie {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintAsyncCookie> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintAsyncCookie>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintAsyncCookie> for &IAsyncGetSendNotificationCookie {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintAsyncCookie> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintAsyncCookie>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6685,12 +6685,12 @@ impl ::std::convert::From<&IBidiAsyncNotifyChannel> for IPrintAsyncNotifyChannel
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintAsyncNotifyChannel> for IBidiAsyncNotifyChannel {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintAsyncNotifyChannel> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintAsyncNotifyChannel>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintAsyncNotifyChannel> for &IBidiAsyncNotifyChannel {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintAsyncNotifyChannel> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintAsyncNotifyChannel>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8809,12 +8809,12 @@ impl ::std::convert::From<&IPrintAsyncNewChannelCookie> for IPrintAsyncCookie {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintAsyncCookie> for IPrintAsyncNewChannelCookie {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintAsyncCookie> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintAsyncCookie>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintAsyncCookie> for &IPrintAsyncNewChannelCookie {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintAsyncCookie> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintAsyncCookie>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9175,12 +9175,12 @@ impl ::std::convert::From<&IPrintBidiAsyncNotifyRegistration> for IPrintAsyncNot
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintAsyncNotifyRegistration> for IPrintBidiAsyncNotifyRegistration {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintAsyncNotifyRegistration> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintAsyncNotifyRegistration>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintAsyncNotifyRegistration> for &IPrintBidiAsyncNotifyRegistration {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintAsyncNotifyRegistration> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintAsyncNotifyRegistration>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9449,12 +9449,12 @@ impl ::std::convert::From<&IPrintCoreHelperPS> for IPrintCoreHelper {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintCoreHelper> for IPrintCoreHelperPS {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintCoreHelper> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintCoreHelper>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintCoreHelper> for &IPrintCoreHelperPS {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintCoreHelper> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintCoreHelper>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9585,12 +9585,12 @@ impl ::std::convert::From<&IPrintCoreHelperUni> for IPrintCoreHelper {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintCoreHelper> for IPrintCoreHelperUni {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintCoreHelper> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintCoreHelper>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintCoreHelper> for &IPrintCoreHelperUni {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintCoreHelper> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintCoreHelper>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9724,12 +9724,12 @@ impl ::std::convert::From<&IPrintCoreHelperUni2> for IPrintCoreHelperUni {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintCoreHelperUni> for IPrintCoreHelperUni2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintCoreHelperUni> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintCoreHelperUni>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintCoreHelperUni> for &IPrintCoreHelperUni2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintCoreHelperUni> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintCoreHelperUni>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IPrintCoreHelperUni2> for IPrintCoreHelper {
@@ -9744,12 +9744,12 @@ impl ::std::convert::From<&IPrintCoreHelperUni2> for IPrintCoreHelper {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintCoreHelper> for IPrintCoreHelperUni2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintCoreHelper> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintCoreHelper>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintCoreHelper> for &IPrintCoreHelperUni2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintCoreHelper> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintCoreHelper>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9912,12 +9912,12 @@ impl ::std::convert::From<&IPrintCoreUI2> for IPrintOemDriverUI {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOemDriverUI> for IPrintCoreUI2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOemDriverUI> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOemDriverUI>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOemDriverUI> for &IPrintCoreUI2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOemDriverUI> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOemDriverUI>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10092,13 +10092,13 @@ impl ::std::convert::From<&IPrintJobCollection> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintJobCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintJobCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10356,12 +10356,12 @@ impl ::std::convert::From<&IPrintOemUI> for IPrintOemCommon {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOemCommon> for IPrintOemUI {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOemCommon> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOemCommon>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOemCommon> for &IPrintOemUI {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOemCommon> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOemCommon>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10542,12 +10542,12 @@ impl ::std::convert::From<&IPrintOemUI2> for IPrintOemUI {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOemUI> for IPrintOemUI2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOemUI> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOemUI>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOemUI> for &IPrintOemUI2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOemUI> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOemUI>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IPrintOemUI2> for IPrintOemCommon {
@@ -10562,12 +10562,12 @@ impl ::std::convert::From<&IPrintOemUI2> for IPrintOemCommon {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOemCommon> for IPrintOemUI2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOemCommon> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOemCommon>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOemCommon> for &IPrintOemUI2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOemCommon> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOemCommon>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11115,13 +11115,13 @@ impl ::std::convert::From<&IPrintSchemaAsyncOperation> for super::super::System:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaAsyncOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaAsyncOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11190,13 +11190,13 @@ impl ::std::convert::From<&IPrintSchemaAsyncOperationEvent> for super::super::Sy
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaAsyncOperationEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaAsyncOperationEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11332,12 +11332,12 @@ impl ::std::convert::From<&IPrintSchemaCapabilities> for IPrintSchemaElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -11355,13 +11355,13 @@ impl ::std::convert::From<&IPrintSchemaCapabilities> for super::super::System::O
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaCapabilities {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11516,12 +11516,12 @@ impl ::std::convert::From<&IPrintSchemaCapabilities2> for IPrintSchemaCapabiliti
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaCapabilities> for IPrintSchemaCapabilities2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaCapabilities> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaCapabilities>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaCapabilities> for &IPrintSchemaCapabilities2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaCapabilities> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaCapabilities>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IPrintSchemaCapabilities2> for IPrintSchemaElement {
@@ -11536,12 +11536,12 @@ impl ::std::convert::From<&IPrintSchemaCapabilities2> for IPrintSchemaElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaCapabilities2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaCapabilities2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -11559,13 +11559,13 @@ impl ::std::convert::From<&IPrintSchemaCapabilities2> for super::super::System::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaCapabilities2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaCapabilities2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11685,12 +11685,12 @@ impl ::std::convert::From<&IPrintSchemaDisplayableElement> for IPrintSchemaEleme
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaDisplayableElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaDisplayableElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -11708,13 +11708,13 @@ impl ::std::convert::From<&IPrintSchemaDisplayableElement> for super::super::Sys
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaDisplayableElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaDisplayableElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11801,13 +11801,13 @@ impl ::std::convert::From<&IPrintSchemaElement> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11942,12 +11942,12 @@ impl ::std::convert::From<&IPrintSchemaFeature> for IPrintSchemaDisplayableEleme
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaDisplayableElement> for IPrintSchemaFeature {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaDisplayableElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaDisplayableElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaDisplayableElement> for &IPrintSchemaFeature {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaDisplayableElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaDisplayableElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IPrintSchemaFeature> for IPrintSchemaElement {
@@ -11962,12 +11962,12 @@ impl ::std::convert::From<&IPrintSchemaFeature> for IPrintSchemaElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaFeature {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaFeature {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -11985,13 +11985,13 @@ impl ::std::convert::From<&IPrintSchemaFeature> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaFeature {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaFeature {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12131,12 +12131,12 @@ impl ::std::convert::From<&IPrintSchemaNUpOption> for IPrintSchemaOption {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaOption> for IPrintSchemaNUpOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaOption> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaOption>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaOption> for &IPrintSchemaNUpOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaOption> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaOption>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IPrintSchemaNUpOption> for IPrintSchemaDisplayableElement {
@@ -12151,12 +12151,12 @@ impl ::std::convert::From<&IPrintSchemaNUpOption> for IPrintSchemaDisplayableEle
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaDisplayableElement> for IPrintSchemaNUpOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaDisplayableElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaDisplayableElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaDisplayableElement> for &IPrintSchemaNUpOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaDisplayableElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaDisplayableElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IPrintSchemaNUpOption> for IPrintSchemaElement {
@@ -12171,12 +12171,12 @@ impl ::std::convert::From<&IPrintSchemaNUpOption> for IPrintSchemaElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaNUpOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaNUpOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12194,13 +12194,13 @@ impl ::std::convert::From<&IPrintSchemaNUpOption> for super::super::System::Ole:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaNUpOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaNUpOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12334,12 +12334,12 @@ impl ::std::convert::From<&IPrintSchemaOption> for IPrintSchemaDisplayableElemen
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaDisplayableElement> for IPrintSchemaOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaDisplayableElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaDisplayableElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaDisplayableElement> for &IPrintSchemaOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaDisplayableElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaDisplayableElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IPrintSchemaOption> for IPrintSchemaElement {
@@ -12354,12 +12354,12 @@ impl ::std::convert::From<&IPrintSchemaOption> for IPrintSchemaElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12377,13 +12377,13 @@ impl ::std::convert::From<&IPrintSchemaOption> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12473,13 +12473,13 @@ impl ::std::convert::From<&IPrintSchemaOptionCollection> for super::super::Syste
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaOptionCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaOptionCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12610,12 +12610,12 @@ impl ::std::convert::From<&IPrintSchemaPageImageableSize> for IPrintSchemaElemen
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaPageImageableSize {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaPageImageableSize {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12633,13 +12633,13 @@ impl ::std::convert::From<&IPrintSchemaPageImageableSize> for super::super::Syst
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaPageImageableSize {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaPageImageableSize {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12781,12 +12781,12 @@ impl ::std::convert::From<&IPrintSchemaPageMediaSizeOption> for IPrintSchemaOpti
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaOption> for IPrintSchemaPageMediaSizeOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaOption> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaOption>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaOption> for &IPrintSchemaPageMediaSizeOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaOption> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaOption>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IPrintSchemaPageMediaSizeOption> for IPrintSchemaDisplayableElement {
@@ -12801,12 +12801,12 @@ impl ::std::convert::From<&IPrintSchemaPageMediaSizeOption> for IPrintSchemaDisp
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaDisplayableElement> for IPrintSchemaPageMediaSizeOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaDisplayableElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaDisplayableElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaDisplayableElement> for &IPrintSchemaPageMediaSizeOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaDisplayableElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaDisplayableElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IPrintSchemaPageMediaSizeOption> for IPrintSchemaElement {
@@ -12821,12 +12821,12 @@ impl ::std::convert::From<&IPrintSchemaPageMediaSizeOption> for IPrintSchemaElem
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaPageMediaSizeOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaPageMediaSizeOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -12844,13 +12844,13 @@ impl ::std::convert::From<&IPrintSchemaPageMediaSizeOption> for super::super::Sy
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaPageMediaSizeOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaPageMediaSizeOption {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12995,12 +12995,12 @@ impl ::std::convert::From<&IPrintSchemaParameterDefinition> for IPrintSchemaDisp
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaDisplayableElement> for IPrintSchemaParameterDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaDisplayableElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaDisplayableElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaDisplayableElement> for &IPrintSchemaParameterDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaDisplayableElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaDisplayableElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IPrintSchemaParameterDefinition> for IPrintSchemaElement {
@@ -13015,12 +13015,12 @@ impl ::std::convert::From<&IPrintSchemaParameterDefinition> for IPrintSchemaElem
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaParameterDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaParameterDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -13038,13 +13038,13 @@ impl ::std::convert::From<&IPrintSchemaParameterDefinition> for super::super::Sy
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaParameterDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaParameterDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13167,12 +13167,12 @@ impl ::std::convert::From<&IPrintSchemaParameterInitializer> for IPrintSchemaEle
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaParameterInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaParameterInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -13190,13 +13190,13 @@ impl ::std::convert::From<&IPrintSchemaParameterInitializer> for super::super::S
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaParameterInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaParameterInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13343,12 +13343,12 @@ impl ::std::convert::From<&IPrintSchemaTicket> for IPrintSchemaElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaTicket {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaTicket {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -13366,13 +13366,13 @@ impl ::std::convert::From<&IPrintSchemaTicket> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaTicket {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaTicket {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13531,12 +13531,12 @@ impl ::std::convert::From<&IPrintSchemaTicket2> for IPrintSchemaTicket {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaTicket> for IPrintSchemaTicket2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaTicket> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaTicket>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaTicket> for &IPrintSchemaTicket2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaTicket> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaTicket>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IPrintSchemaTicket2> for IPrintSchemaElement {
@@ -13551,12 +13551,12 @@ impl ::std::convert::From<&IPrintSchemaTicket2> for IPrintSchemaElement {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for IPrintSchemaTicket2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintSchemaElement> for &IPrintSchemaTicket2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintSchemaElement> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintSchemaElement>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -13574,13 +13574,13 @@ impl ::std::convert::From<&IPrintSchemaTicket2> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrintSchemaTicket2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrintSchemaTicket2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13792,12 +13792,12 @@ impl ::std::convert::From<&IPrintTicketProvider2> for IPrintTicketProvider {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintTicketProvider> for IPrintTicketProvider2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintTicketProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintTicketProvider>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintTicketProvider> for &IPrintTicketProvider2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintTicketProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintTicketProvider>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13879,12 +13879,12 @@ impl ::std::convert::From<&IPrintUnidiAsyncNotifyRegistration> for IPrintAsyncNo
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintAsyncNotifyRegistration> for IPrintUnidiAsyncNotifyRegistration {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintAsyncNotifyRegistration> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintAsyncNotifyRegistration>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintAsyncNotifyRegistration> for &IPrintUnidiAsyncNotifyRegistration {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintAsyncNotifyRegistration> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintAsyncNotifyRegistration>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14159,13 +14159,13 @@ impl ::std::convert::From<&IPrinterExtensionContext> for super::super::System::O
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterExtensionContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterExtensionContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14247,13 +14247,13 @@ impl ::std::convert::From<&IPrinterExtensionContextCollection> for super::super:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterExtensionContextCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterExtensionContextCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14327,13 +14327,13 @@ impl ::std::convert::From<&IPrinterExtensionEvent> for super::super::System::Ole
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterExtensionEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterExtensionEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14475,12 +14475,12 @@ impl ::std::convert::From<&IPrinterExtensionEventArgs> for IPrinterExtensionCont
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrinterExtensionContext> for IPrinterExtensionEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrinterExtensionContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrinterExtensionContext>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrinterExtensionContext> for &IPrinterExtensionEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrinterExtensionContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrinterExtensionContext>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -14498,13 +14498,13 @@ impl ::std::convert::From<&IPrinterExtensionEventArgs> for super::super::System:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterExtensionEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterExtensionEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14638,13 +14638,13 @@ impl ::std::convert::From<&IPrinterExtensionRequest> for super::super::System::O
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterExtensionRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterExtensionRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14765,13 +14765,13 @@ impl ::std::convert::From<&IPrinterPropertyBag> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterPropertyBag {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterPropertyBag {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14876,13 +14876,13 @@ impl ::std::convert::From<&IPrinterQueue> for super::super::System::Ole::Automat
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterQueue {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterQueue {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15003,12 +15003,12 @@ impl ::std::convert::From<&IPrinterQueue2> for IPrinterQueue {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrinterQueue> for IPrinterQueue2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrinterQueue> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrinterQueue>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrinterQueue> for &IPrinterQueue2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrinterQueue> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrinterQueue>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -15026,13 +15026,13 @@ impl ::std::convert::From<&IPrinterQueue2> for super::super::System::Ole::Automa
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterQueue2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterQueue2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15110,13 +15110,13 @@ impl ::std::convert::From<&IPrinterQueueEvent> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterQueueEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterQueueEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15185,13 +15185,13 @@ impl ::std::convert::From<&IPrinterQueueView> for super::super::System::Ole::Aut
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterQueueView {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterQueueView {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15259,13 +15259,13 @@ impl ::std::convert::From<&IPrinterQueueViewEvent> for super::super::System::Ole
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterQueueViewEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterQueueViewEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15344,13 +15344,13 @@ impl ::std::convert::From<&IPrinterScriptContext> for super::super::System::Ole:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterScriptContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterScriptContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15472,13 +15472,13 @@ impl ::std::convert::From<&IPrinterScriptablePropertyBag> for super::super::Syst
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterScriptablePropertyBag {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterScriptablePropertyBag {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15641,12 +15641,12 @@ impl ::std::convert::From<&IPrinterScriptablePropertyBag2> for IPrinterScriptabl
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrinterScriptablePropertyBag> for IPrinterScriptablePropertyBag2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrinterScriptablePropertyBag> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrinterScriptablePropertyBag>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrinterScriptablePropertyBag> for &IPrinterScriptablePropertyBag2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrinterScriptablePropertyBag> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrinterScriptablePropertyBag>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -15664,13 +15664,13 @@ impl ::std::convert::From<&IPrinterScriptablePropertyBag2> for super::super::Sys
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterScriptablePropertyBag2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterScriptablePropertyBag2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15767,13 +15767,13 @@ impl ::std::convert::From<&IPrinterScriptableSequentialStream> for super::super:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterScriptableSequentialStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterScriptableSequentialStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15884,12 +15884,12 @@ impl ::std::convert::From<&IPrinterScriptableStream> for IPrinterScriptableSeque
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrinterScriptableSequentialStream> for IPrinterScriptableStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrinterScriptableSequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrinterScriptableSequentialStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrinterScriptableSequentialStream> for &IPrinterScriptableStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrinterScriptableSequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrinterScriptableSequentialStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -15907,13 +15907,13 @@ impl ::std::convert::From<&IPrinterScriptableStream> for super::super::System::O
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IPrinterScriptableStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IPrinterScriptableStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

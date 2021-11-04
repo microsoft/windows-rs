@@ -72,13 +72,13 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
                 #cfg
                 impl<'a> ::windows::runtime::IntoParam<'a, #into> for #name {
                     fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
-                        ::windows::runtime::Param::Owned(::std::convert::Into::<#into>::into(self))
+                        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
                     }
                 }
                 #cfg
                 impl<'a> ::windows::runtime::IntoParam<'a, #into> for &#name {
                     fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
-                        ::windows::runtime::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
+                        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
                     }
                 }
             });

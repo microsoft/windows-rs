@@ -1039,12 +1039,12 @@ impl ::std::convert::From<&IDxcBlobEncoding> for IDxcBlob {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDxcBlob> for IDxcBlobEncoding {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDxcBlob> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDxcBlob>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDxcBlob> for &IDxcBlobEncoding {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDxcBlob> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDxcBlob>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1122,12 +1122,12 @@ impl ::std::convert::From<&IDxcBlobUtf16> for IDxcBlobEncoding {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDxcBlobEncoding> for IDxcBlobUtf16 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDxcBlobEncoding> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDxcBlobEncoding>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDxcBlobEncoding> for &IDxcBlobUtf16 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDxcBlobEncoding> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDxcBlobEncoding>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDxcBlobUtf16> for IDxcBlob {
@@ -1142,12 +1142,12 @@ impl ::std::convert::From<&IDxcBlobUtf16> for IDxcBlob {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDxcBlob> for IDxcBlobUtf16 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDxcBlob> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDxcBlob>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDxcBlob> for &IDxcBlobUtf16 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDxcBlob> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDxcBlob>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1228,12 +1228,12 @@ impl ::std::convert::From<&IDxcBlobUtf8> for IDxcBlobEncoding {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDxcBlobEncoding> for IDxcBlobUtf8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDxcBlobEncoding> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDxcBlobEncoding>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDxcBlobEncoding> for &IDxcBlobUtf8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDxcBlobEncoding> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDxcBlobEncoding>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDxcBlobUtf8> for IDxcBlob {
@@ -1248,12 +1248,12 @@ impl ::std::convert::From<&IDxcBlobUtf8> for IDxcBlob {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDxcBlob> for IDxcBlobUtf8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDxcBlob> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDxcBlob>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDxcBlob> for &IDxcBlobUtf8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDxcBlob> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDxcBlob>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1471,12 +1471,12 @@ impl ::std::convert::From<&IDxcCompiler2> for IDxcCompiler {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDxcCompiler> for IDxcCompiler2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDxcCompiler> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDxcCompiler>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDxcCompiler> for &IDxcCompiler2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDxcCompiler> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDxcCompiler>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2468,12 +2468,12 @@ impl ::std::convert::From<&IDxcResult> for IDxcOperationResult {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDxcOperationResult> for IDxcResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDxcOperationResult> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDxcOperationResult>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDxcOperationResult> for &IDxcResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDxcOperationResult> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDxcOperationResult>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2707,12 +2707,12 @@ impl ::std::convert::From<&IDxcValidator2> for IDxcValidator {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDxcValidator> for IDxcValidator2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDxcValidator> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDxcValidator>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDxcValidator> for &IDxcValidator2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDxcValidator> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDxcValidator>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2827,12 +2827,12 @@ impl ::std::convert::From<&IDxcVersionInfo2> for IDxcVersionInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDxcVersionInfo> for IDxcVersionInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDxcVersionInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDxcVersionInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDxcVersionInfo> for &IDxcVersionInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDxcVersionInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDxcVersionInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

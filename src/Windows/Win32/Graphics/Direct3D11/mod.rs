@@ -12716,12 +12716,12 @@ impl ::std::convert::From<&ID3D11Asynchronous> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11Asynchronous {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Asynchronous {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12809,12 +12809,12 @@ impl ::std::convert::From<&ID3D11AuthenticatedChannel> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11AuthenticatedChannel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11AuthenticatedChannel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12895,12 +12895,12 @@ impl ::std::convert::From<&ID3D11BlendState> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11BlendState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11BlendState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12984,12 +12984,12 @@ impl ::std::convert::From<&ID3D11BlendState1> for ID3D11BlendState {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11BlendState> for ID3D11BlendState1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11BlendState> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11BlendState>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11BlendState> for &ID3D11BlendState1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11BlendState> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11BlendState>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11BlendState1> for ID3D11DeviceChild {
@@ -13004,12 +13004,12 @@ impl ::std::convert::From<&ID3D11BlendState1> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11BlendState1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11BlendState1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13101,12 +13101,12 @@ impl ::std::convert::From<&ID3D11Buffer> for ID3D11Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Resource> for ID3D11Buffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Resource> for &ID3D11Buffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11Buffer> for ID3D11DeviceChild {
@@ -13121,12 +13121,12 @@ impl ::std::convert::From<&ID3D11Buffer> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11Buffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Buffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13221,12 +13221,12 @@ impl ::std::convert::From<&ID3D11ClassInstance> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11ClassInstance {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11ClassInstance {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13317,12 +13317,12 @@ impl ::std::convert::From<&ID3D11ClassLinkage> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11ClassLinkage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11ClassLinkage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13402,12 +13402,12 @@ impl ::std::convert::From<&ID3D11CommandList> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11CommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11CommandList {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13480,12 +13480,12 @@ impl ::std::convert::From<&ID3D11ComputeShader> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11ComputeShader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11ComputeShader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13565,12 +13565,12 @@ impl ::std::convert::From<&ID3D11Counter> for ID3D11Asynchronous {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Asynchronous> for ID3D11Counter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Asynchronous> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Asynchronous>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Asynchronous> for &ID3D11Counter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Asynchronous> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Asynchronous>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11Counter> for ID3D11DeviceChild {
@@ -13585,12 +13585,12 @@ impl ::std::convert::From<&ID3D11Counter> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11Counter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Counter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13687,12 +13687,12 @@ impl ::std::convert::From<&ID3D11CryptoSession> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11CryptoSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11CryptoSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13862,12 +13862,12 @@ impl ::std::convert::From<&ID3D11DepthStencilState> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11DepthStencilState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11DepthStencilState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13950,12 +13950,12 @@ impl ::std::convert::From<&ID3D11DepthStencilView> for ID3D11View {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11View> for ID3D11DepthStencilView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11View> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11View>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11View> for &ID3D11DepthStencilView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11View> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11View>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11DepthStencilView> for ID3D11DeviceChild {
@@ -13970,12 +13970,12 @@ impl ::std::convert::From<&ID3D11DepthStencilView> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11DepthStencilView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11DepthStencilView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14618,12 +14618,12 @@ impl ::std::convert::From<&ID3D11Device1> for ID3D11Device {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device> for ID3D11Device1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device> for &ID3D11Device1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15034,12 +15034,12 @@ impl ::std::convert::From<&ID3D11Device2> for ID3D11Device1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device1> for ID3D11Device2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device1> for &ID3D11Device2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11Device2> for ID3D11Device {
@@ -15054,12 +15054,12 @@ impl ::std::convert::From<&ID3D11Device2> for ID3D11Device {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device> for ID3D11Device2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device> for &ID3D11Device2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15533,12 +15533,12 @@ impl ::std::convert::From<&ID3D11Device3> for ID3D11Device2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device2> for ID3D11Device3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device2> for &ID3D11Device3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11Device3> for ID3D11Device1 {
@@ -15553,12 +15553,12 @@ impl ::std::convert::From<&ID3D11Device3> for ID3D11Device1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device1> for ID3D11Device3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device1> for &ID3D11Device3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11Device3> for ID3D11Device {
@@ -15573,12 +15573,12 @@ impl ::std::convert::From<&ID3D11Device3> for ID3D11Device {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device> for ID3D11Device3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device> for &ID3D11Device3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -16079,12 +16079,12 @@ impl ::std::convert::From<&ID3D11Device4> for ID3D11Device3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device3> for ID3D11Device4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device3> for &ID3D11Device4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11Device4> for ID3D11Device2 {
@@ -16099,12 +16099,12 @@ impl ::std::convert::From<&ID3D11Device4> for ID3D11Device2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device2> for ID3D11Device4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device2> for &ID3D11Device4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11Device4> for ID3D11Device1 {
@@ -16119,12 +16119,12 @@ impl ::std::convert::From<&ID3D11Device4> for ID3D11Device1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device1> for ID3D11Device4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device1> for &ID3D11Device4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11Device4> for ID3D11Device {
@@ -16139,12 +16139,12 @@ impl ::std::convert::From<&ID3D11Device4> for ID3D11Device {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device> for ID3D11Device4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device> for &ID3D11Device4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -16657,12 +16657,12 @@ impl ::std::convert::From<&ID3D11Device5> for ID3D11Device4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device4> for ID3D11Device5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device4> for &ID3D11Device5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11Device5> for ID3D11Device3 {
@@ -16677,12 +16677,12 @@ impl ::std::convert::From<&ID3D11Device5> for ID3D11Device3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device3> for ID3D11Device5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device3> for &ID3D11Device5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11Device5> for ID3D11Device2 {
@@ -16697,12 +16697,12 @@ impl ::std::convert::From<&ID3D11Device5> for ID3D11Device2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device2> for ID3D11Device5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device2> for &ID3D11Device5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11Device5> for ID3D11Device1 {
@@ -16717,12 +16717,12 @@ impl ::std::convert::From<&ID3D11Device5> for ID3D11Device1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device1> for ID3D11Device5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device1> for &ID3D11Device5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11Device5> for ID3D11Device {
@@ -16737,12 +16737,12 @@ impl ::std::convert::From<&ID3D11Device5> for ID3D11Device {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device> for ID3D11Device5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Device> for &ID3D11Device5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Device> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Device>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -17432,12 +17432,12 @@ impl ::std::convert::From<&ID3D11DeviceContext> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11DeviceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11DeviceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -18194,12 +18194,12 @@ impl ::std::convert::From<&ID3D11DeviceContext1> for ID3D11DeviceContext {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceContext> for ID3D11DeviceContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceContext>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceContext> for &ID3D11DeviceContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceContext>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11DeviceContext1> for ID3D11DeviceChild {
@@ -18214,12 +18214,12 @@ impl ::std::convert::From<&ID3D11DeviceContext1> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11DeviceContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11DeviceContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -19077,12 +19077,12 @@ impl ::std::convert::From<&ID3D11DeviceContext2> for ID3D11DeviceContext1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceContext1> for ID3D11DeviceContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceContext1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceContext1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceContext1> for &ID3D11DeviceContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceContext1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceContext1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11DeviceContext2> for ID3D11DeviceContext {
@@ -19097,12 +19097,12 @@ impl ::std::convert::From<&ID3D11DeviceContext2> for ID3D11DeviceContext {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceContext> for ID3D11DeviceContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceContext>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceContext> for &ID3D11DeviceContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceContext>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11DeviceContext2> for ID3D11DeviceChild {
@@ -19117,12 +19117,12 @@ impl ::std::convert::From<&ID3D11DeviceContext2> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11DeviceContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11DeviceContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -20013,12 +20013,12 @@ impl ::std::convert::From<&ID3D11DeviceContext3> for ID3D11DeviceContext2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceContext2> for ID3D11DeviceContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceContext2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceContext2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceContext2> for &ID3D11DeviceContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceContext2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceContext2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11DeviceContext3> for ID3D11DeviceContext1 {
@@ -20033,12 +20033,12 @@ impl ::std::convert::From<&ID3D11DeviceContext3> for ID3D11DeviceContext1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceContext1> for ID3D11DeviceContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceContext1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceContext1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceContext1> for &ID3D11DeviceContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceContext1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceContext1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11DeviceContext3> for ID3D11DeviceContext {
@@ -20053,12 +20053,12 @@ impl ::std::convert::From<&ID3D11DeviceContext3> for ID3D11DeviceContext {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceContext> for ID3D11DeviceContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceContext>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceContext> for &ID3D11DeviceContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceContext>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11DeviceContext3> for ID3D11DeviceChild {
@@ -20073,12 +20073,12 @@ impl ::std::convert::From<&ID3D11DeviceContext3> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11DeviceContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11DeviceContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -20983,12 +20983,12 @@ impl ::std::convert::From<&ID3D11DeviceContext4> for ID3D11DeviceContext3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceContext3> for ID3D11DeviceContext4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceContext3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceContext3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceContext3> for &ID3D11DeviceContext4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceContext3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceContext3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11DeviceContext4> for ID3D11DeviceContext2 {
@@ -21003,12 +21003,12 @@ impl ::std::convert::From<&ID3D11DeviceContext4> for ID3D11DeviceContext2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceContext2> for ID3D11DeviceContext4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceContext2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceContext2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceContext2> for &ID3D11DeviceContext4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceContext2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceContext2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11DeviceContext4> for ID3D11DeviceContext1 {
@@ -21023,12 +21023,12 @@ impl ::std::convert::From<&ID3D11DeviceContext4> for ID3D11DeviceContext1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceContext1> for ID3D11DeviceContext4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceContext1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceContext1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceContext1> for &ID3D11DeviceContext4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceContext1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceContext1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11DeviceContext4> for ID3D11DeviceContext {
@@ -21043,12 +21043,12 @@ impl ::std::convert::From<&ID3D11DeviceContext4> for ID3D11DeviceContext {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceContext> for ID3D11DeviceContext4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceContext>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceContext> for &ID3D11DeviceContext4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceContext>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11DeviceContext4> for ID3D11DeviceChild {
@@ -21063,12 +21063,12 @@ impl ::std::convert::From<&ID3D11DeviceContext4> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11DeviceContext4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11DeviceContext4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -21304,12 +21304,12 @@ impl ::std::convert::From<&ID3D11DomainShader> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11DomainShader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11DomainShader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -21396,12 +21396,12 @@ impl ::std::convert::From<&ID3D11Fence> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11Fence {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Fence {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -21698,12 +21698,12 @@ impl ::std::convert::From<&ID3D11GeometryShader> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11GeometryShader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11GeometryShader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -21775,12 +21775,12 @@ impl ::std::convert::From<&ID3D11HullShader> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11HullShader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11HullShader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -22084,12 +22084,12 @@ impl ::std::convert::From<&ID3D11InputLayout> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11InputLayout {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11InputLayout {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -22504,12 +22504,12 @@ impl ::std::convert::From<&ID3D11PixelShader> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11PixelShader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11PixelShader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -22589,12 +22589,12 @@ impl ::std::convert::From<&ID3D11Predicate> for ID3D11Query {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Query> for ID3D11Predicate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Query> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Query>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Query> for &ID3D11Predicate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Query> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Query>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11Predicate> for ID3D11Asynchronous {
@@ -22609,12 +22609,12 @@ impl ::std::convert::From<&ID3D11Predicate> for ID3D11Asynchronous {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Asynchronous> for ID3D11Predicate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Asynchronous> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Asynchronous>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Asynchronous> for &ID3D11Predicate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Asynchronous> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Asynchronous>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11Predicate> for ID3D11DeviceChild {
@@ -22629,12 +22629,12 @@ impl ::std::convert::From<&ID3D11Predicate> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11Predicate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Predicate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -22716,12 +22716,12 @@ impl ::std::convert::From<&ID3D11Query> for ID3D11Asynchronous {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Asynchronous> for ID3D11Query {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Asynchronous> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Asynchronous>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Asynchronous> for &ID3D11Query {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Asynchronous> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Asynchronous>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11Query> for ID3D11DeviceChild {
@@ -22736,12 +22736,12 @@ impl ::std::convert::From<&ID3D11Query> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11Query {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Query {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -22827,12 +22827,12 @@ impl ::std::convert::From<&ID3D11Query1> for ID3D11Query {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Query> for ID3D11Query1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Query> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Query>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Query> for &ID3D11Query1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Query> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Query>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11Query1> for ID3D11Asynchronous {
@@ -22847,12 +22847,12 @@ impl ::std::convert::From<&ID3D11Query1> for ID3D11Asynchronous {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Asynchronous> for ID3D11Query1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Asynchronous> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Asynchronous>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Asynchronous> for &ID3D11Query1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Asynchronous> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Asynchronous>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11Query1> for ID3D11DeviceChild {
@@ -22867,12 +22867,12 @@ impl ::std::convert::From<&ID3D11Query1> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11Query1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Query1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -22952,12 +22952,12 @@ impl ::std::convert::From<&ID3D11RasterizerState> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11RasterizerState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11RasterizerState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -23041,12 +23041,12 @@ impl ::std::convert::From<&ID3D11RasterizerState1> for ID3D11RasterizerState {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11RasterizerState> for ID3D11RasterizerState1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11RasterizerState> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11RasterizerState>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11RasterizerState> for &ID3D11RasterizerState1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11RasterizerState> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11RasterizerState>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11RasterizerState1> for ID3D11DeviceChild {
@@ -23061,12 +23061,12 @@ impl ::std::convert::From<&ID3D11RasterizerState1> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11RasterizerState1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11RasterizerState1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -23157,12 +23157,12 @@ impl ::std::convert::From<&ID3D11RasterizerState2> for ID3D11RasterizerState1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11RasterizerState1> for ID3D11RasterizerState2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11RasterizerState1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11RasterizerState1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11RasterizerState1> for &ID3D11RasterizerState2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11RasterizerState1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11RasterizerState1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11RasterizerState2> for ID3D11RasterizerState {
@@ -23177,12 +23177,12 @@ impl ::std::convert::From<&ID3D11RasterizerState2> for ID3D11RasterizerState {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11RasterizerState> for ID3D11RasterizerState2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11RasterizerState> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11RasterizerState>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11RasterizerState> for &ID3D11RasterizerState2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11RasterizerState> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11RasterizerState>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11RasterizerState2> for ID3D11DeviceChild {
@@ -23197,12 +23197,12 @@ impl ::std::convert::From<&ID3D11RasterizerState2> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11RasterizerState2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11RasterizerState2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -23373,12 +23373,12 @@ impl ::std::convert::From<&ID3D11RenderTargetView> for ID3D11View {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11View> for ID3D11RenderTargetView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11View> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11View>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11View> for &ID3D11RenderTargetView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11View> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11View>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11RenderTargetView> for ID3D11DeviceChild {
@@ -23393,12 +23393,12 @@ impl ::std::convert::From<&ID3D11RenderTargetView> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11RenderTargetView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11RenderTargetView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -23487,12 +23487,12 @@ impl ::std::convert::From<&ID3D11RenderTargetView1> for ID3D11RenderTargetView {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11RenderTargetView> for ID3D11RenderTargetView1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11RenderTargetView> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11RenderTargetView>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11RenderTargetView> for &ID3D11RenderTargetView1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11RenderTargetView> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11RenderTargetView>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11RenderTargetView1> for ID3D11View {
@@ -23507,12 +23507,12 @@ impl ::std::convert::From<&ID3D11RenderTargetView1> for ID3D11View {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11View> for ID3D11RenderTargetView1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11View> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11View>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11View> for &ID3D11RenderTargetView1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11View> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11View>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11RenderTargetView1> for ID3D11DeviceChild {
@@ -23527,12 +23527,12 @@ impl ::std::convert::From<&ID3D11RenderTargetView1> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11RenderTargetView1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11RenderTargetView1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -23621,12 +23621,12 @@ impl ::std::convert::From<&ID3D11Resource> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11Resource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Resource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -23705,12 +23705,12 @@ impl ::std::convert::From<&ID3D11SamplerState> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11SamplerState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11SamplerState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -24164,12 +24164,12 @@ impl ::std::convert::From<&ID3D11ShaderResourceView> for ID3D11View {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11View> for ID3D11ShaderResourceView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11View> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11View>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11View> for &ID3D11ShaderResourceView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11View> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11View>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11ShaderResourceView> for ID3D11DeviceChild {
@@ -24184,12 +24184,12 @@ impl ::std::convert::From<&ID3D11ShaderResourceView> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11ShaderResourceView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11ShaderResourceView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -24278,12 +24278,12 @@ impl ::std::convert::From<&ID3D11ShaderResourceView1> for ID3D11ShaderResourceVi
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11ShaderResourceView> for ID3D11ShaderResourceView1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11ShaderResourceView> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11ShaderResourceView>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11ShaderResourceView> for &ID3D11ShaderResourceView1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11ShaderResourceView> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11ShaderResourceView>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11ShaderResourceView1> for ID3D11View {
@@ -24298,12 +24298,12 @@ impl ::std::convert::From<&ID3D11ShaderResourceView1> for ID3D11View {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11View> for ID3D11ShaderResourceView1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11View> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11View>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11View> for &ID3D11ShaderResourceView1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11View> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11View>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11ShaderResourceView1> for ID3D11DeviceChild {
@@ -24318,12 +24318,12 @@ impl ::std::convert::From<&ID3D11ShaderResourceView1> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11ShaderResourceView1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11ShaderResourceView1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -24596,12 +24596,12 @@ impl ::std::convert::From<&ID3D11Texture1D> for ID3D11Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Resource> for ID3D11Texture1D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Resource> for &ID3D11Texture1D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11Texture1D> for ID3D11DeviceChild {
@@ -24616,12 +24616,12 @@ impl ::std::convert::From<&ID3D11Texture1D> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11Texture1D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Texture1D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -24715,12 +24715,12 @@ impl ::std::convert::From<&ID3D11Texture2D> for ID3D11Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Resource> for ID3D11Texture2D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Resource> for &ID3D11Texture2D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11Texture2D> for ID3D11DeviceChild {
@@ -24735,12 +24735,12 @@ impl ::std::convert::From<&ID3D11Texture2D> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11Texture2D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Texture2D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -24839,12 +24839,12 @@ impl ::std::convert::From<&ID3D11Texture2D1> for ID3D11Texture2D {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Texture2D> for ID3D11Texture2D1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Texture2D> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Texture2D>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Texture2D> for &ID3D11Texture2D1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Texture2D> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Texture2D>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11Texture2D1> for ID3D11Resource {
@@ -24859,12 +24859,12 @@ impl ::std::convert::From<&ID3D11Texture2D1> for ID3D11Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Resource> for ID3D11Texture2D1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Resource> for &ID3D11Texture2D1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11Texture2D1> for ID3D11DeviceChild {
@@ -24879,12 +24879,12 @@ impl ::std::convert::From<&ID3D11Texture2D1> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11Texture2D1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Texture2D1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -24980,12 +24980,12 @@ impl ::std::convert::From<&ID3D11Texture3D> for ID3D11Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Resource> for ID3D11Texture3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Resource> for &ID3D11Texture3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11Texture3D> for ID3D11DeviceChild {
@@ -25000,12 +25000,12 @@ impl ::std::convert::From<&ID3D11Texture3D> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11Texture3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Texture3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -25104,12 +25104,12 @@ impl ::std::convert::From<&ID3D11Texture3D1> for ID3D11Texture3D {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Texture3D> for ID3D11Texture3D1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Texture3D> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Texture3D>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Texture3D> for &ID3D11Texture3D1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Texture3D> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Texture3D>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11Texture3D1> for ID3D11Resource {
@@ -25124,12 +25124,12 @@ impl ::std::convert::From<&ID3D11Texture3D1> for ID3D11Resource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Resource> for ID3D11Texture3D1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Resource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11Resource> for &ID3D11Texture3D1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11Resource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11Resource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11Texture3D1> for ID3D11DeviceChild {
@@ -25144,12 +25144,12 @@ impl ::std::convert::From<&ID3D11Texture3D1> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11Texture3D1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Texture3D1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -25284,12 +25284,12 @@ impl ::std::convert::From<&ID3D11UnorderedAccessView> for ID3D11View {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11View> for ID3D11UnorderedAccessView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11View> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11View>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11View> for &ID3D11UnorderedAccessView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11View> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11View>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11UnorderedAccessView> for ID3D11DeviceChild {
@@ -25304,12 +25304,12 @@ impl ::std::convert::From<&ID3D11UnorderedAccessView> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11UnorderedAccessView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11UnorderedAccessView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -25398,12 +25398,12 @@ impl ::std::convert::From<&ID3D11UnorderedAccessView1> for ID3D11UnorderedAccess
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11UnorderedAccessView> for ID3D11UnorderedAccessView1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11UnorderedAccessView> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11UnorderedAccessView>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11UnorderedAccessView> for &ID3D11UnorderedAccessView1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11UnorderedAccessView> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11UnorderedAccessView>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11UnorderedAccessView1> for ID3D11View {
@@ -25418,12 +25418,12 @@ impl ::std::convert::From<&ID3D11UnorderedAccessView1> for ID3D11View {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11View> for ID3D11UnorderedAccessView1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11View> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11View>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11View> for &ID3D11UnorderedAccessView1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11View> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11View>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11UnorderedAccessView1> for ID3D11DeviceChild {
@@ -25438,12 +25438,12 @@ impl ::std::convert::From<&ID3D11UnorderedAccessView1> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11UnorderedAccessView1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11UnorderedAccessView1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -25520,12 +25520,12 @@ impl ::std::convert::From<&ID3D11VertexShader> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11VertexShader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11VertexShader {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -25901,12 +25901,12 @@ impl ::std::convert::From<&ID3D11VideoContext> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11VideoContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11VideoContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -26441,12 +26441,12 @@ impl ::std::convert::From<&ID3D11VideoContext1> for ID3D11VideoContext {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11VideoContext> for ID3D11VideoContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11VideoContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11VideoContext>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11VideoContext> for &ID3D11VideoContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11VideoContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11VideoContext>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11VideoContext1> for ID3D11DeviceChild {
@@ -26461,12 +26461,12 @@ impl ::std::convert::From<&ID3D11VideoContext1> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11VideoContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11VideoContext1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -27046,12 +27046,12 @@ impl ::std::convert::From<&ID3D11VideoContext2> for ID3D11VideoContext1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11VideoContext1> for ID3D11VideoContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11VideoContext1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11VideoContext1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11VideoContext1> for &ID3D11VideoContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11VideoContext1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11VideoContext1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11VideoContext2> for ID3D11VideoContext {
@@ -27066,12 +27066,12 @@ impl ::std::convert::From<&ID3D11VideoContext2> for ID3D11VideoContext {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11VideoContext> for ID3D11VideoContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11VideoContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11VideoContext>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11VideoContext> for &ID3D11VideoContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11VideoContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11VideoContext>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11VideoContext2> for ID3D11DeviceChild {
@@ -27086,12 +27086,12 @@ impl ::std::convert::From<&ID3D11VideoContext2> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11VideoContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11VideoContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -27687,12 +27687,12 @@ impl ::std::convert::From<&ID3D11VideoContext3> for ID3D11VideoContext2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11VideoContext2> for ID3D11VideoContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11VideoContext2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11VideoContext2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11VideoContext2> for &ID3D11VideoContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11VideoContext2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11VideoContext2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11VideoContext3> for ID3D11VideoContext1 {
@@ -27707,12 +27707,12 @@ impl ::std::convert::From<&ID3D11VideoContext3> for ID3D11VideoContext1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11VideoContext1> for ID3D11VideoContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11VideoContext1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11VideoContext1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11VideoContext1> for &ID3D11VideoContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11VideoContext1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11VideoContext1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11VideoContext3> for ID3D11VideoContext {
@@ -27727,12 +27727,12 @@ impl ::std::convert::From<&ID3D11VideoContext3> for ID3D11VideoContext {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11VideoContext> for ID3D11VideoContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11VideoContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11VideoContext>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11VideoContext> for &ID3D11VideoContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11VideoContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11VideoContext>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11VideoContext3> for ID3D11DeviceChild {
@@ -27747,12 +27747,12 @@ impl ::std::convert::From<&ID3D11VideoContext3> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11VideoContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11VideoContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -27959,12 +27959,12 @@ impl ::std::convert::From<&ID3D11VideoDecoder> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11VideoDecoder {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11VideoDecoder {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -28048,12 +28048,12 @@ impl ::std::convert::From<&ID3D11VideoDecoderOutputView> for ID3D11View {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11View> for ID3D11VideoDecoderOutputView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11View> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11View>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11View> for &ID3D11VideoDecoderOutputView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11View> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11View>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11VideoDecoderOutputView> for ID3D11DeviceChild {
@@ -28068,12 +28068,12 @@ impl ::std::convert::From<&ID3D11VideoDecoderOutputView> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11VideoDecoderOutputView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11VideoDecoderOutputView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -28385,12 +28385,12 @@ impl ::std::convert::From<&ID3D11VideoDevice1> for ID3D11VideoDevice {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11VideoDevice> for ID3D11VideoDevice1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11VideoDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11VideoDevice>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11VideoDevice> for &ID3D11VideoDevice1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11VideoDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11VideoDevice>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -28588,12 +28588,12 @@ impl ::std::convert::From<&ID3D11VideoDevice2> for ID3D11VideoDevice1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11VideoDevice1> for ID3D11VideoDevice2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11VideoDevice1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11VideoDevice1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11VideoDevice1> for &ID3D11VideoDevice2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11VideoDevice1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11VideoDevice1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11VideoDevice2> for ID3D11VideoDevice {
@@ -28608,12 +28608,12 @@ impl ::std::convert::From<&ID3D11VideoDevice2> for ID3D11VideoDevice {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11VideoDevice> for ID3D11VideoDevice2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11VideoDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11VideoDevice>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11VideoDevice> for &ID3D11VideoDevice2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11VideoDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11VideoDevice>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -28722,12 +28722,12 @@ impl ::std::convert::From<&ID3D11VideoProcessor> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11VideoProcessor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11VideoProcessor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -28835,12 +28835,12 @@ impl ::std::convert::From<&ID3D11VideoProcessorEnumerator> for ID3D11DeviceChild
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11VideoProcessorEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11VideoProcessorEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -28960,12 +28960,12 @@ impl ::std::convert::From<&ID3D11VideoProcessorEnumerator1> for ID3D11VideoProce
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11VideoProcessorEnumerator> for ID3D11VideoProcessorEnumerator1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11VideoProcessorEnumerator> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11VideoProcessorEnumerator>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11VideoProcessorEnumerator> for &ID3D11VideoProcessorEnumerator1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11VideoProcessorEnumerator> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11VideoProcessorEnumerator>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11VideoProcessorEnumerator1> for ID3D11DeviceChild {
@@ -28980,12 +28980,12 @@ impl ::std::convert::From<&ID3D11VideoProcessorEnumerator1> for ID3D11DeviceChil
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11VideoProcessorEnumerator1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11VideoProcessorEnumerator1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -29076,12 +29076,12 @@ impl ::std::convert::From<&ID3D11VideoProcessorInputView> for ID3D11View {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11View> for ID3D11VideoProcessorInputView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11View> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11View>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11View> for &ID3D11VideoProcessorInputView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11View> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11View>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11VideoProcessorInputView> for ID3D11DeviceChild {
@@ -29096,12 +29096,12 @@ impl ::std::convert::From<&ID3D11VideoProcessorInputView> for ID3D11DeviceChild 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11VideoProcessorInputView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11VideoProcessorInputView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -29183,12 +29183,12 @@ impl ::std::convert::From<&ID3D11VideoProcessorOutputView> for ID3D11View {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11View> for ID3D11VideoProcessorOutputView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11View> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11View>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11View> for &ID3D11VideoProcessorOutputView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11View> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11View>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ID3D11VideoProcessorOutputView> for ID3D11DeviceChild {
@@ -29203,12 +29203,12 @@ impl ::std::convert::From<&ID3D11VideoProcessorOutputView> for ID3D11DeviceChild
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11VideoProcessorOutputView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11VideoProcessorOutputView {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -29286,12 +29286,12 @@ impl ::std::convert::From<&ID3D11View> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3D11View {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3D11View {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -29459,12 +29459,12 @@ impl ::std::convert::From<&ID3DDeviceContextState> for ID3D11DeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for ID3DDeviceContextState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ID3D11DeviceChild> for &ID3DDeviceContextState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ID3D11DeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ID3D11DeviceChild>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

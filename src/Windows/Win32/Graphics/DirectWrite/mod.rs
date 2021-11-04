@@ -3359,12 +3359,12 @@ impl ::std::convert::From<&IDWriteBitmapRenderTarget1> for IDWriteBitmapRenderTa
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteBitmapRenderTarget> for IDWriteBitmapRenderTarget1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteBitmapRenderTarget> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteBitmapRenderTarget>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteBitmapRenderTarget> for &IDWriteBitmapRenderTarget1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteBitmapRenderTarget> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteBitmapRenderTarget>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3500,12 +3500,12 @@ impl ::std::convert::From<&IDWriteColorGlyphRunEnumerator1> for IDWriteColorGlyp
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteColorGlyphRunEnumerator> for IDWriteColorGlyphRunEnumerator1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteColorGlyphRunEnumerator> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteColorGlyphRunEnumerator>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteColorGlyphRunEnumerator> for &IDWriteColorGlyphRunEnumerator1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteColorGlyphRunEnumerator> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteColorGlyphRunEnumerator>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3901,12 +3901,12 @@ impl ::std::convert::From<&IDWriteFactory1> for IDWriteFactory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for IDWriteFactory1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for &IDWriteFactory1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4192,12 +4192,12 @@ impl ::std::convert::From<&IDWriteFactory2> for IDWriteFactory1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory1> for IDWriteFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory1> for &IDWriteFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory2> for IDWriteFactory {
@@ -4212,12 +4212,12 @@ impl ::std::convert::From<&IDWriteFactory2> for IDWriteFactory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for IDWriteFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for &IDWriteFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4580,12 +4580,12 @@ impl ::std::convert::From<&IDWriteFactory3> for IDWriteFactory2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory2> for IDWriteFactory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory2> for &IDWriteFactory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory3> for IDWriteFactory1 {
@@ -4600,12 +4600,12 @@ impl ::std::convert::From<&IDWriteFactory3> for IDWriteFactory1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory1> for IDWriteFactory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory1> for &IDWriteFactory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory3> for IDWriteFactory {
@@ -4620,12 +4620,12 @@ impl ::std::convert::From<&IDWriteFactory3> for IDWriteFactory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for IDWriteFactory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for &IDWriteFactory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5029,12 +5029,12 @@ impl ::std::convert::From<&IDWriteFactory4> for IDWriteFactory3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory3> for IDWriteFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory3> for &IDWriteFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory4> for IDWriteFactory2 {
@@ -5049,12 +5049,12 @@ impl ::std::convert::From<&IDWriteFactory4> for IDWriteFactory2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory2> for IDWriteFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory2> for &IDWriteFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory4> for IDWriteFactory1 {
@@ -5069,12 +5069,12 @@ impl ::std::convert::From<&IDWriteFactory4> for IDWriteFactory1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory1> for IDWriteFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory1> for &IDWriteFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory4> for IDWriteFactory {
@@ -5089,12 +5089,12 @@ impl ::std::convert::From<&IDWriteFactory4> for IDWriteFactory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for IDWriteFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for &IDWriteFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5530,12 +5530,12 @@ impl ::std::convert::From<&IDWriteFactory5> for IDWriteFactory4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory4> for IDWriteFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory4> for &IDWriteFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory5> for IDWriteFactory3 {
@@ -5550,12 +5550,12 @@ impl ::std::convert::From<&IDWriteFactory5> for IDWriteFactory3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory3> for IDWriteFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory3> for &IDWriteFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory5> for IDWriteFactory2 {
@@ -5570,12 +5570,12 @@ impl ::std::convert::From<&IDWriteFactory5> for IDWriteFactory2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory2> for IDWriteFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory2> for &IDWriteFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory5> for IDWriteFactory1 {
@@ -5590,12 +5590,12 @@ impl ::std::convert::From<&IDWriteFactory5> for IDWriteFactory1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory1> for IDWriteFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory1> for &IDWriteFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory5> for IDWriteFactory {
@@ -5610,12 +5610,12 @@ impl ::std::convert::From<&IDWriteFactory5> for IDWriteFactory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for IDWriteFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for &IDWriteFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6095,12 +6095,12 @@ impl ::std::convert::From<&IDWriteFactory6> for IDWriteFactory5 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory5> for IDWriteFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory5>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory5> for &IDWriteFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory5>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory6> for IDWriteFactory4 {
@@ -6115,12 +6115,12 @@ impl ::std::convert::From<&IDWriteFactory6> for IDWriteFactory4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory4> for IDWriteFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory4> for &IDWriteFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory6> for IDWriteFactory3 {
@@ -6135,12 +6135,12 @@ impl ::std::convert::From<&IDWriteFactory6> for IDWriteFactory3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory3> for IDWriteFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory3> for &IDWriteFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory6> for IDWriteFactory2 {
@@ -6155,12 +6155,12 @@ impl ::std::convert::From<&IDWriteFactory6> for IDWriteFactory2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory2> for IDWriteFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory2> for &IDWriteFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory6> for IDWriteFactory1 {
@@ -6175,12 +6175,12 @@ impl ::std::convert::From<&IDWriteFactory6> for IDWriteFactory1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory1> for IDWriteFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory1> for &IDWriteFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory6> for IDWriteFactory {
@@ -6195,12 +6195,12 @@ impl ::std::convert::From<&IDWriteFactory6> for IDWriteFactory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for IDWriteFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for &IDWriteFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6702,12 +6702,12 @@ impl ::std::convert::From<&IDWriteFactory7> for IDWriteFactory6 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory6> for IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory6> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory6>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory6> for &IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory6> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory6>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory7> for IDWriteFactory5 {
@@ -6722,12 +6722,12 @@ impl ::std::convert::From<&IDWriteFactory7> for IDWriteFactory5 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory5> for IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory5>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory5> for &IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory5>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory7> for IDWriteFactory4 {
@@ -6742,12 +6742,12 @@ impl ::std::convert::From<&IDWriteFactory7> for IDWriteFactory4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory4> for IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory4> for &IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory7> for IDWriteFactory3 {
@@ -6762,12 +6762,12 @@ impl ::std::convert::From<&IDWriteFactory7> for IDWriteFactory3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory3> for IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory3> for &IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory7> for IDWriteFactory2 {
@@ -6782,12 +6782,12 @@ impl ::std::convert::From<&IDWriteFactory7> for IDWriteFactory2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory2> for IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory2> for &IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory7> for IDWriteFactory1 {
@@ -6802,12 +6802,12 @@ impl ::std::convert::From<&IDWriteFactory7> for IDWriteFactory1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory1> for IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory1> for &IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFactory7> for IDWriteFactory {
@@ -6822,12 +6822,12 @@ impl ::std::convert::From<&IDWriteFactory7> for IDWriteFactory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFactory> for &IDWriteFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7128,12 +7128,12 @@ impl ::std::convert::From<&IDWriteFont1> for IDWriteFont {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFont> for IDWriteFont1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFont> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFont>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFont> for &IDWriteFont1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFont> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFont>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7279,12 +7279,12 @@ impl ::std::convert::From<&IDWriteFont2> for IDWriteFont1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFont1> for IDWriteFont2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFont1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFont1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFont1> for &IDWriteFont2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFont1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFont1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFont2> for IDWriteFont {
@@ -7299,12 +7299,12 @@ impl ::std::convert::From<&IDWriteFont2> for IDWriteFont {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFont> for IDWriteFont2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFont> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFont>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFont> for &IDWriteFont2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFont> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFont>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7476,12 +7476,12 @@ impl ::std::convert::From<&IDWriteFont3> for IDWriteFont2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFont2> for IDWriteFont3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFont2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFont2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFont2> for &IDWriteFont3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFont2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFont2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFont3> for IDWriteFont1 {
@@ -7496,12 +7496,12 @@ impl ::std::convert::From<&IDWriteFont3> for IDWriteFont1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFont1> for IDWriteFont3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFont1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFont1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFont1> for &IDWriteFont3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFont1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFont1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFont3> for IDWriteFont {
@@ -7516,12 +7516,12 @@ impl ::std::convert::From<&IDWriteFont3> for IDWriteFont {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFont> for IDWriteFont3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFont> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFont>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFont> for &IDWriteFont3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFont> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFont>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7692,12 +7692,12 @@ impl ::std::convert::From<&IDWriteFontCollection1> for IDWriteFontCollection {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontCollection> for IDWriteFontCollection1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontCollection> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontCollection>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontCollection> for &IDWriteFontCollection1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontCollection> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontCollection>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7805,12 +7805,12 @@ impl ::std::convert::From<&IDWriteFontCollection2> for IDWriteFontCollection1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontCollection1> for IDWriteFontCollection2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontCollection1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontCollection1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontCollection1> for &IDWriteFontCollection2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontCollection1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontCollection1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontCollection2> for IDWriteFontCollection {
@@ -7825,12 +7825,12 @@ impl ::std::convert::From<&IDWriteFontCollection2> for IDWriteFontCollection {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontCollection> for IDWriteFontCollection2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontCollection> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontCollection>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontCollection> for &IDWriteFontCollection2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontCollection> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontCollection>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7948,12 +7948,12 @@ impl ::std::convert::From<&IDWriteFontCollection3> for IDWriteFontCollection2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontCollection2> for IDWriteFontCollection3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontCollection2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontCollection2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontCollection2> for &IDWriteFontCollection3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontCollection2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontCollection2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontCollection3> for IDWriteFontCollection1 {
@@ -7968,12 +7968,12 @@ impl ::std::convert::From<&IDWriteFontCollection3> for IDWriteFontCollection1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontCollection1> for IDWriteFontCollection3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontCollection1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontCollection1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontCollection1> for &IDWriteFontCollection3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontCollection1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontCollection1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontCollection3> for IDWriteFontCollection {
@@ -7988,12 +7988,12 @@ impl ::std::convert::From<&IDWriteFontCollection3> for IDWriteFontCollection {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontCollection> for IDWriteFontCollection3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontCollection> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontCollection>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontCollection> for &IDWriteFontCollection3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontCollection> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontCollection>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8538,12 +8538,12 @@ impl ::std::convert::From<&IDWriteFontFace1> for IDWriteFontFace {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace> for IDWriteFontFace1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace> for &IDWriteFontFace1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8850,12 +8850,12 @@ impl ::std::convert::From<&IDWriteFontFace2> for IDWriteFontFace1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace1> for IDWriteFontFace2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace1> for &IDWriteFontFace2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace2> for IDWriteFontFace {
@@ -8870,12 +8870,12 @@ impl ::std::convert::From<&IDWriteFontFace2> for IDWriteFontFace {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace> for IDWriteFontFace2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace> for &IDWriteFontFace2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9282,12 +9282,12 @@ impl ::std::convert::From<&IDWriteFontFace3> for IDWriteFontFace2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace2> for IDWriteFontFace3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace2> for &IDWriteFontFace3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace3> for IDWriteFontFace1 {
@@ -9302,12 +9302,12 @@ impl ::std::convert::From<&IDWriteFontFace3> for IDWriteFontFace1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace1> for IDWriteFontFace3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace1> for &IDWriteFontFace3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace3> for IDWriteFontFace {
@@ -9322,12 +9322,12 @@ impl ::std::convert::From<&IDWriteFontFace3> for IDWriteFontFace {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace> for IDWriteFontFace3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace> for &IDWriteFontFace3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9773,12 +9773,12 @@ impl ::std::convert::From<&IDWriteFontFace4> for IDWriteFontFace3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace3> for IDWriteFontFace4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace3> for &IDWriteFontFace4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace4> for IDWriteFontFace2 {
@@ -9793,12 +9793,12 @@ impl ::std::convert::From<&IDWriteFontFace4> for IDWriteFontFace2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace2> for IDWriteFontFace4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace2> for &IDWriteFontFace4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace4> for IDWriteFontFace1 {
@@ -9813,12 +9813,12 @@ impl ::std::convert::From<&IDWriteFontFace4> for IDWriteFontFace1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace1> for IDWriteFontFace4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace1> for &IDWriteFontFace4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace4> for IDWriteFontFace {
@@ -9833,12 +9833,12 @@ impl ::std::convert::From<&IDWriteFontFace4> for IDWriteFontFace {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace> for IDWriteFontFace4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace> for &IDWriteFontFace4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10312,12 +10312,12 @@ impl ::std::convert::From<&IDWriteFontFace5> for IDWriteFontFace4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace4> for IDWriteFontFace5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace4> for &IDWriteFontFace5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace5> for IDWriteFontFace3 {
@@ -10332,12 +10332,12 @@ impl ::std::convert::From<&IDWriteFontFace5> for IDWriteFontFace3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace3> for IDWriteFontFace5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace3> for &IDWriteFontFace5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace5> for IDWriteFontFace2 {
@@ -10352,12 +10352,12 @@ impl ::std::convert::From<&IDWriteFontFace5> for IDWriteFontFace2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace2> for IDWriteFontFace5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace2> for &IDWriteFontFace5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace5> for IDWriteFontFace1 {
@@ -10372,12 +10372,12 @@ impl ::std::convert::From<&IDWriteFontFace5> for IDWriteFontFace1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace1> for IDWriteFontFace5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace1> for &IDWriteFontFace5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace5> for IDWriteFontFace {
@@ -10392,12 +10392,12 @@ impl ::std::convert::From<&IDWriteFontFace5> for IDWriteFontFace {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace> for IDWriteFontFace5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace> for &IDWriteFontFace5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10888,12 +10888,12 @@ impl ::std::convert::From<&IDWriteFontFace6> for IDWriteFontFace5 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace5> for IDWriteFontFace6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace5>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace5> for &IDWriteFontFace6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace5>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace6> for IDWriteFontFace4 {
@@ -10908,12 +10908,12 @@ impl ::std::convert::From<&IDWriteFontFace6> for IDWriteFontFace4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace4> for IDWriteFontFace6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace4> for &IDWriteFontFace6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace6> for IDWriteFontFace3 {
@@ -10928,12 +10928,12 @@ impl ::std::convert::From<&IDWriteFontFace6> for IDWriteFontFace3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace3> for IDWriteFontFace6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace3> for &IDWriteFontFace6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace6> for IDWriteFontFace2 {
@@ -10948,12 +10948,12 @@ impl ::std::convert::From<&IDWriteFontFace6> for IDWriteFontFace2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace2> for IDWriteFontFace6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace2> for &IDWriteFontFace6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace6> for IDWriteFontFace1 {
@@ -10968,12 +10968,12 @@ impl ::std::convert::From<&IDWriteFontFace6> for IDWriteFontFace1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace1> for IDWriteFontFace6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace1> for &IDWriteFontFace6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFace6> for IDWriteFontFace {
@@ -10988,12 +10988,12 @@ impl ::std::convert::From<&IDWriteFontFace6> for IDWriteFontFace {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace> for IDWriteFontFace6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFace> for &IDWriteFontFace6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFace> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFace>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11320,12 +11320,12 @@ impl ::std::convert::From<&IDWriteFontFaceReference1> for IDWriteFontFaceReferen
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFaceReference> for IDWriteFontFaceReference1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFaceReference> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFaceReference>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFaceReference> for &IDWriteFontFaceReference1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFaceReference> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFaceReference>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11530,12 +11530,12 @@ impl ::std::convert::From<&IDWriteFontFallback1> for IDWriteFontFallback {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFallback> for IDWriteFontFallback1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFallback>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFallback> for &IDWriteFontFallback1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFallback> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFallback>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11686,12 +11686,12 @@ impl ::std::convert::From<&IDWriteFontFamily> for IDWriteFontList {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontList> for IDWriteFontFamily {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontList> for &IDWriteFontFamily {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11792,12 +11792,12 @@ impl ::std::convert::From<&IDWriteFontFamily1> for IDWriteFontFamily {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFamily> for IDWriteFontFamily1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFamily> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFamily>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFamily> for &IDWriteFontFamily1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFamily> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFamily>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFamily1> for IDWriteFontList {
@@ -11812,12 +11812,12 @@ impl ::std::convert::From<&IDWriteFontFamily1> for IDWriteFontList {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontList> for IDWriteFontFamily1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontList> for &IDWriteFontFamily1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11931,12 +11931,12 @@ impl ::std::convert::From<&IDWriteFontFamily2> for IDWriteFontFamily1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFamily1> for IDWriteFontFamily2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFamily1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFamily1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFamily1> for &IDWriteFontFamily2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFamily1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFamily1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFamily2> for IDWriteFontFamily {
@@ -11951,12 +11951,12 @@ impl ::std::convert::From<&IDWriteFontFamily2> for IDWriteFontFamily {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFamily> for IDWriteFontFamily2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFamily> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFamily>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFamily> for &IDWriteFontFamily2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFamily> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFamily>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontFamily2> for IDWriteFontList {
@@ -11971,12 +11971,12 @@ impl ::std::convert::From<&IDWriteFontFamily2> for IDWriteFontList {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontList> for IDWriteFontFamily2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontList> for &IDWriteFontFamily2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12329,12 +12329,12 @@ impl ::std::convert::From<&IDWriteFontList1> for IDWriteFontList {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontList> for IDWriteFontList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontList> for &IDWriteFontList1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12425,12 +12425,12 @@ impl ::std::convert::From<&IDWriteFontList2> for IDWriteFontList1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontList1> for IDWriteFontList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontList1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontList1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontList1> for &IDWriteFontList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontList1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontList1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontList2> for IDWriteFontList {
@@ -12445,12 +12445,12 @@ impl ::std::convert::From<&IDWriteFontList2> for IDWriteFontList {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontList> for IDWriteFontList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontList> for &IDWriteFontList2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12837,12 +12837,12 @@ impl ::std::convert::From<&IDWriteFontSet1> for IDWriteFontSet {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSet> for IDWriteFontSet1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSet>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSet> for &IDWriteFontSet1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSet>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13052,12 +13052,12 @@ impl ::std::convert::From<&IDWriteFontSet2> for IDWriteFontSet1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSet1> for IDWriteFontSet2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSet1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSet1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSet1> for &IDWriteFontSet2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSet1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSet1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontSet2> for IDWriteFontSet {
@@ -13072,12 +13072,12 @@ impl ::std::convert::From<&IDWriteFontSet2> for IDWriteFontSet {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSet> for IDWriteFontSet2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSet>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSet> for &IDWriteFontSet2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSet>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13302,12 +13302,12 @@ impl ::std::convert::From<&IDWriteFontSet3> for IDWriteFontSet2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSet2> for IDWriteFontSet3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSet2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSet2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSet2> for &IDWriteFontSet3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSet2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSet2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontSet3> for IDWriteFontSet1 {
@@ -13322,12 +13322,12 @@ impl ::std::convert::From<&IDWriteFontSet3> for IDWriteFontSet1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSet1> for IDWriteFontSet3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSet1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSet1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSet1> for &IDWriteFontSet3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSet1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSet1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontSet3> for IDWriteFontSet {
@@ -13342,12 +13342,12 @@ impl ::std::convert::From<&IDWriteFontSet3> for IDWriteFontSet {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSet> for IDWriteFontSet3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSet>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSet> for &IDWriteFontSet3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSet>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13522,12 +13522,12 @@ impl ::std::convert::From<&IDWriteFontSetBuilder1> for IDWriteFontSetBuilder {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSetBuilder> for IDWriteFontSetBuilder1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSetBuilder> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSetBuilder>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSetBuilder> for &IDWriteFontSetBuilder1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSetBuilder> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSetBuilder>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13629,12 +13629,12 @@ impl ::std::convert::From<&IDWriteFontSetBuilder2> for IDWriteFontSetBuilder1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSetBuilder1> for IDWriteFontSetBuilder2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSetBuilder1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSetBuilder1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSetBuilder1> for &IDWriteFontSetBuilder2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSetBuilder1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSetBuilder1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteFontSetBuilder2> for IDWriteFontSetBuilder {
@@ -13649,12 +13649,12 @@ impl ::std::convert::From<&IDWriteFontSetBuilder2> for IDWriteFontSetBuilder {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSetBuilder> for IDWriteFontSetBuilder2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSetBuilder> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSetBuilder>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontSetBuilder> for &IDWriteFontSetBuilder2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontSetBuilder> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontSetBuilder>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13845,12 +13845,12 @@ impl ::std::convert::From<&IDWriteGdiInterop1> for IDWriteGdiInterop {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteGdiInterop> for IDWriteGdiInterop1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteGdiInterop> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteGdiInterop>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteGdiInterop> for &IDWriteGdiInterop1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteGdiInterop> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteGdiInterop>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -13991,12 +13991,12 @@ impl ::std::convert::From<&IDWriteInMemoryFontFileLoader> for IDWriteFontFileLoa
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFileLoader> for IDWriteInMemoryFontFileLoader {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFileLoader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFileLoader>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFileLoader> for &IDWriteInMemoryFontFileLoader {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFileLoader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFileLoader>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14144,12 +14144,12 @@ impl ::std::convert::From<&IDWriteLocalFontFileLoader> for IDWriteFontFileLoader
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFileLoader> for IDWriteLocalFontFileLoader {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFileLoader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFileLoader>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFileLoader> for &IDWriteLocalFontFileLoader {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFileLoader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFileLoader>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14396,12 +14396,12 @@ impl ::std::convert::From<&IDWriteRemoteFontFileLoader> for IDWriteFontFileLoade
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFileLoader> for IDWriteRemoteFontFileLoader {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFileLoader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFileLoader>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFileLoader> for &IDWriteRemoteFontFileLoader {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFileLoader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFileLoader>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14495,12 +14495,12 @@ impl ::std::convert::From<&IDWriteRemoteFontFileStream> for IDWriteFontFileStrea
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFileStream> for IDWriteRemoteFontFileStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFileStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFileStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteFontFileStream> for &IDWriteRemoteFontFileStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteFontFileStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteFontFileStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14647,12 +14647,12 @@ impl ::std::convert::From<&IDWriteRenderingParams1> for IDWriteRenderingParams {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteRenderingParams> for IDWriteRenderingParams1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteRenderingParams> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteRenderingParams>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteRenderingParams> for &IDWriteRenderingParams1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteRenderingParams> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteRenderingParams>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14738,12 +14738,12 @@ impl ::std::convert::From<&IDWriteRenderingParams2> for IDWriteRenderingParams1 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteRenderingParams1> for IDWriteRenderingParams2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteRenderingParams1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteRenderingParams1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteRenderingParams1> for &IDWriteRenderingParams2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteRenderingParams1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteRenderingParams1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteRenderingParams2> for IDWriteRenderingParams {
@@ -14758,12 +14758,12 @@ impl ::std::convert::From<&IDWriteRenderingParams2> for IDWriteRenderingParams {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteRenderingParams> for IDWriteRenderingParams2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteRenderingParams> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteRenderingParams>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteRenderingParams> for &IDWriteRenderingParams2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteRenderingParams> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteRenderingParams>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14854,12 +14854,12 @@ impl ::std::convert::From<&IDWriteRenderingParams3> for IDWriteRenderingParams2 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteRenderingParams2> for IDWriteRenderingParams3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteRenderingParams2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteRenderingParams2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteRenderingParams2> for &IDWriteRenderingParams3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteRenderingParams2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteRenderingParams2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteRenderingParams3> for IDWriteRenderingParams1 {
@@ -14874,12 +14874,12 @@ impl ::std::convert::From<&IDWriteRenderingParams3> for IDWriteRenderingParams1 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteRenderingParams1> for IDWriteRenderingParams3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteRenderingParams1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteRenderingParams1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteRenderingParams1> for &IDWriteRenderingParams3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteRenderingParams1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteRenderingParams1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteRenderingParams3> for IDWriteRenderingParams {
@@ -14894,12 +14894,12 @@ impl ::std::convert::From<&IDWriteRenderingParams3> for IDWriteRenderingParams {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteRenderingParams> for IDWriteRenderingParams3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteRenderingParams> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteRenderingParams>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteRenderingParams> for &IDWriteRenderingParams3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteRenderingParams> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteRenderingParams>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15105,12 +15105,12 @@ impl ::std::convert::From<&IDWriteTextAnalysisSink1> for IDWriteTextAnalysisSink
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextAnalysisSink> for IDWriteTextAnalysisSink1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextAnalysisSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextAnalysisSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextAnalysisSink> for &IDWriteTextAnalysisSink1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextAnalysisSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextAnalysisSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15254,12 +15254,12 @@ impl ::std::convert::From<&IDWriteTextAnalysisSource1> for IDWriteTextAnalysisSo
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextAnalysisSource> for IDWriteTextAnalysisSource1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextAnalysisSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextAnalysisSource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextAnalysisSource> for &IDWriteTextAnalysisSource1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextAnalysisSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextAnalysisSource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -15894,12 +15894,12 @@ impl ::std::convert::From<&IDWriteTextAnalyzer1> for IDWriteTextAnalyzer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextAnalyzer> for IDWriteTextAnalyzer1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextAnalyzer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextAnalyzer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextAnalyzer> for &IDWriteTextAnalyzer1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextAnalyzer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextAnalyzer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -16381,12 +16381,12 @@ impl ::std::convert::From<&IDWriteTextAnalyzer2> for IDWriteTextAnalyzer1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextAnalyzer1> for IDWriteTextAnalyzer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextAnalyzer1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextAnalyzer1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextAnalyzer1> for &IDWriteTextAnalyzer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextAnalyzer1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextAnalyzer1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextAnalyzer2> for IDWriteTextAnalyzer {
@@ -16401,12 +16401,12 @@ impl ::std::convert::From<&IDWriteTextAnalyzer2> for IDWriteTextAnalyzer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextAnalyzer> for IDWriteTextAnalyzer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextAnalyzer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextAnalyzer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextAnalyzer> for &IDWriteTextAnalyzer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextAnalyzer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextAnalyzer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -16876,12 +16876,12 @@ impl ::std::convert::From<&IDWriteTextFormat1> for IDWriteTextFormat {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for IDWriteTextFormat1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for &IDWriteTextFormat1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -17117,12 +17117,12 @@ impl ::std::convert::From<&IDWriteTextFormat2> for IDWriteTextFormat1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat1> for IDWriteTextFormat2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat1> for &IDWriteTextFormat2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextFormat2> for IDWriteTextFormat {
@@ -17137,12 +17137,12 @@ impl ::std::convert::From<&IDWriteTextFormat2> for IDWriteTextFormat {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for IDWriteTextFormat2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for &IDWriteTextFormat2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -17400,12 +17400,12 @@ impl ::std::convert::From<&IDWriteTextFormat3> for IDWriteTextFormat2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat2> for IDWriteTextFormat3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat2> for &IDWriteTextFormat3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextFormat3> for IDWriteTextFormat1 {
@@ -17420,12 +17420,12 @@ impl ::std::convert::From<&IDWriteTextFormat3> for IDWriteTextFormat1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat1> for IDWriteTextFormat3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat1> for &IDWriteTextFormat3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextFormat3> for IDWriteTextFormat {
@@ -17440,12 +17440,12 @@ impl ::std::convert::From<&IDWriteTextFormat3> for IDWriteTextFormat {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for IDWriteTextFormat3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for &IDWriteTextFormat3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -17825,12 +17825,12 @@ impl ::std::convert::From<&IDWriteTextLayout> for IDWriteTextFormat {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for IDWriteTextLayout {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for &IDWriteTextLayout {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -18262,12 +18262,12 @@ impl ::std::convert::From<&IDWriteTextLayout1> for IDWriteTextLayout {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout> for IDWriteTextLayout1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout> for &IDWriteTextLayout1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextLayout1> for IDWriteTextFormat {
@@ -18282,12 +18282,12 @@ impl ::std::convert::From<&IDWriteTextLayout1> for IDWriteTextFormat {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for IDWriteTextLayout1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for &IDWriteTextLayout1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -18765,12 +18765,12 @@ impl ::std::convert::From<&IDWriteTextLayout2> for IDWriteTextLayout1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout1> for IDWriteTextLayout2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout1> for &IDWriteTextLayout2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextLayout2> for IDWriteTextLayout {
@@ -18785,12 +18785,12 @@ impl ::std::convert::From<&IDWriteTextLayout2> for IDWriteTextLayout {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout> for IDWriteTextLayout2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout> for &IDWriteTextLayout2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextLayout2> for IDWriteTextFormat {
@@ -18805,12 +18805,12 @@ impl ::std::convert::From<&IDWriteTextLayout2> for IDWriteTextFormat {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for IDWriteTextLayout2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for &IDWriteTextLayout2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -19317,12 +19317,12 @@ impl ::std::convert::From<&IDWriteTextLayout3> for IDWriteTextLayout2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout2> for IDWriteTextLayout3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout2> for &IDWriteTextLayout3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextLayout3> for IDWriteTextLayout1 {
@@ -19337,12 +19337,12 @@ impl ::std::convert::From<&IDWriteTextLayout3> for IDWriteTextLayout1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout1> for IDWriteTextLayout3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout1> for &IDWriteTextLayout3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextLayout3> for IDWriteTextLayout {
@@ -19357,12 +19357,12 @@ impl ::std::convert::From<&IDWriteTextLayout3> for IDWriteTextLayout {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout> for IDWriteTextLayout3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout> for &IDWriteTextLayout3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextLayout3> for IDWriteTextFormat {
@@ -19377,12 +19377,12 @@ impl ::std::convert::From<&IDWriteTextLayout3> for IDWriteTextFormat {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for IDWriteTextLayout3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for &IDWriteTextLayout3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -19914,12 +19914,12 @@ impl ::std::convert::From<&IDWriteTextLayout4> for IDWriteTextLayout3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout3> for IDWriteTextLayout4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout3> for &IDWriteTextLayout4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextLayout4> for IDWriteTextLayout2 {
@@ -19934,12 +19934,12 @@ impl ::std::convert::From<&IDWriteTextLayout4> for IDWriteTextLayout2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout2> for IDWriteTextLayout4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout2> for &IDWriteTextLayout4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextLayout4> for IDWriteTextLayout1 {
@@ -19954,12 +19954,12 @@ impl ::std::convert::From<&IDWriteTextLayout4> for IDWriteTextLayout1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout1> for IDWriteTextLayout4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout1> for &IDWriteTextLayout4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextLayout4> for IDWriteTextLayout {
@@ -19974,12 +19974,12 @@ impl ::std::convert::From<&IDWriteTextLayout4> for IDWriteTextLayout {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout> for IDWriteTextLayout4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextLayout> for &IDWriteTextLayout4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextLayout> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextLayout>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextLayout4> for IDWriteTextFormat {
@@ -19994,12 +19994,12 @@ impl ::std::convert::From<&IDWriteTextLayout4> for IDWriteTextFormat {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for IDWriteTextLayout4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextFormat> for &IDWriteTextLayout4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextFormat>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -20211,12 +20211,12 @@ impl ::std::convert::From<&IDWriteTextRenderer> for IDWritePixelSnapping {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWritePixelSnapping> for IDWriteTextRenderer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWritePixelSnapping> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWritePixelSnapping>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWritePixelSnapping> for &IDWriteTextRenderer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWritePixelSnapping> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWritePixelSnapping>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -20387,12 +20387,12 @@ impl ::std::convert::From<&IDWriteTextRenderer1> for IDWriteTextRenderer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextRenderer> for IDWriteTextRenderer1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextRenderer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextRenderer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWriteTextRenderer> for &IDWriteTextRenderer1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWriteTextRenderer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWriteTextRenderer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDWriteTextRenderer1> for IDWritePixelSnapping {
@@ -20407,12 +20407,12 @@ impl ::std::convert::From<&IDWriteTextRenderer1> for IDWritePixelSnapping {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWritePixelSnapping> for IDWriteTextRenderer1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWritePixelSnapping> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWritePixelSnapping>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDWritePixelSnapping> for &IDWriteTextRenderer1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDWritePixelSnapping> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDWritePixelSnapping>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

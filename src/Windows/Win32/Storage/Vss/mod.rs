@@ -145,12 +145,12 @@ impl ::std::convert::From<&IVssAdminEx> for IVssAdmin {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssAdmin> for IVssAdminEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssAdmin> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssAdmin>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssAdmin> for &IVssAdminEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssAdmin> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssAdmin>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -797,12 +797,12 @@ impl ::std::convert::From<&IVssComponentEx> for IVssComponent {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssComponent> for IVssComponentEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssComponent> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssComponent>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssComponent> for &IVssComponentEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssComponent> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssComponent>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1181,12 +1181,12 @@ impl ::std::convert::From<&IVssComponentEx2> for IVssComponentEx {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssComponentEx> for IVssComponentEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssComponentEx> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssComponentEx>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssComponentEx> for &IVssComponentEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssComponentEx> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssComponentEx>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IVssComponentEx2> for IVssComponent {
@@ -1201,12 +1201,12 @@ impl ::std::convert::From<&IVssComponentEx2> for IVssComponent {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssComponent> for IVssComponentEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssComponent> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssComponent>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssComponent> for &IVssComponentEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssComponent> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssComponent>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1754,12 +1754,12 @@ impl ::std::convert::From<&IVssDifferentialSoftwareSnapshotMgmt2> for IVssDiffer
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssDifferentialSoftwareSnapshotMgmt> for IVssDifferentialSoftwareSnapshotMgmt2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssDifferentialSoftwareSnapshotMgmt> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssDifferentialSoftwareSnapshotMgmt>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssDifferentialSoftwareSnapshotMgmt> for &IVssDifferentialSoftwareSnapshotMgmt2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssDifferentialSoftwareSnapshotMgmt> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssDifferentialSoftwareSnapshotMgmt>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1890,12 +1890,12 @@ impl ::std::convert::From<&IVssDifferentialSoftwareSnapshotMgmt3> for IVssDiffer
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssDifferentialSoftwareSnapshotMgmt2> for IVssDifferentialSoftwareSnapshotMgmt3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssDifferentialSoftwareSnapshotMgmt2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssDifferentialSoftwareSnapshotMgmt2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssDifferentialSoftwareSnapshotMgmt2> for &IVssDifferentialSoftwareSnapshotMgmt3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssDifferentialSoftwareSnapshotMgmt2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssDifferentialSoftwareSnapshotMgmt2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IVssDifferentialSoftwareSnapshotMgmt3> for IVssDifferentialSoftwareSnapshotMgmt {
@@ -1910,12 +1910,12 @@ impl ::std::convert::From<&IVssDifferentialSoftwareSnapshotMgmt3> for IVssDiffer
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssDifferentialSoftwareSnapshotMgmt> for IVssDifferentialSoftwareSnapshotMgmt3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssDifferentialSoftwareSnapshotMgmt> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssDifferentialSoftwareSnapshotMgmt>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssDifferentialSoftwareSnapshotMgmt> for &IVssDifferentialSoftwareSnapshotMgmt3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssDifferentialSoftwareSnapshotMgmt> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssDifferentialSoftwareSnapshotMgmt>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2381,12 +2381,12 @@ impl ::std::convert::From<&IVssHardwareSnapshotProviderEx> for IVssHardwareSnaps
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssHardwareSnapshotProvider> for IVssHardwareSnapshotProviderEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssHardwareSnapshotProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssHardwareSnapshotProvider>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssHardwareSnapshotProvider> for &IVssHardwareSnapshotProviderEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssHardwareSnapshotProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssHardwareSnapshotProvider>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

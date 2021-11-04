@@ -937,12 +937,12 @@ impl ::std::convert::From<&IActiveIME2> for IActiveIME {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IActiveIME> for IActiveIME2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActiveIME> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IActiveIME>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IActiveIME> for &IActiveIME2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActiveIME> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IActiveIME>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2530,13 +2530,13 @@ impl ::std::convert::From<&IFEClassFactory> for super::super::super::System::Com
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IClassFactory> for IFEClassFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::System::Com::IClassFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::System::Com::IClassFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IClassFactory> for &IFEClassFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::System::Com::IClassFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::System::Com::IClassFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

@@ -2896,12 +2896,12 @@ impl ::std::convert::From<&IEAPProviderConfig2> for IEAPProviderConfig {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IEAPProviderConfig> for IEAPProviderConfig2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IEAPProviderConfig> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IEAPProviderConfig>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IEAPProviderConfig> for &IEAPProviderConfig2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IEAPProviderConfig> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IEAPProviderConfig>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3049,12 +3049,12 @@ impl ::std::convert::From<&IEAPProviderConfig3> for IEAPProviderConfig2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IEAPProviderConfig2> for IEAPProviderConfig3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IEAPProviderConfig2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IEAPProviderConfig2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IEAPProviderConfig2> for &IEAPProviderConfig3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IEAPProviderConfig2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IEAPProviderConfig2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IEAPProviderConfig3> for IEAPProviderConfig {
@@ -3069,12 +3069,12 @@ impl ::std::convert::From<&IEAPProviderConfig3> for IEAPProviderConfig {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IEAPProviderConfig> for IEAPProviderConfig3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IEAPProviderConfig> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IEAPProviderConfig>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IEAPProviderConfig> for &IEAPProviderConfig3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IEAPProviderConfig> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IEAPProviderConfig>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

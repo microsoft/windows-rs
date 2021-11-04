@@ -2981,12 +2981,12 @@ impl ::std::convert::From<&IDXGIAdapter> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIAdapter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIAdapter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3085,12 +3085,12 @@ impl ::std::convert::From<&IDXGIAdapter1> for IDXGIAdapter {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIAdapter> for IDXGIAdapter1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIAdapter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIAdapter>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIAdapter> for &IDXGIAdapter1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIAdapter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIAdapter>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIAdapter1> for IDXGIObject {
@@ -3105,12 +3105,12 @@ impl ::std::convert::From<&IDXGIAdapter1> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIAdapter1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIAdapter1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3217,12 +3217,12 @@ impl ::std::convert::From<&IDXGIAdapter2> for IDXGIAdapter1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIAdapter1> for IDXGIAdapter2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIAdapter1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIAdapter1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIAdapter1> for &IDXGIAdapter2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIAdapter1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIAdapter1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIAdapter2> for IDXGIAdapter {
@@ -3237,12 +3237,12 @@ impl ::std::convert::From<&IDXGIAdapter2> for IDXGIAdapter {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIAdapter> for IDXGIAdapter2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIAdapter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIAdapter>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIAdapter> for &IDXGIAdapter2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIAdapter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIAdapter>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIAdapter2> for IDXGIObject {
@@ -3257,12 +3257,12 @@ impl ::std::convert::From<&IDXGIAdapter2> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIAdapter2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIAdapter2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3400,12 +3400,12 @@ impl ::std::convert::From<&IDXGIAdapter3> for IDXGIAdapter2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIAdapter2> for IDXGIAdapter3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIAdapter2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIAdapter2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIAdapter2> for &IDXGIAdapter3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIAdapter2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIAdapter2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIAdapter3> for IDXGIAdapter1 {
@@ -3420,12 +3420,12 @@ impl ::std::convert::From<&IDXGIAdapter3> for IDXGIAdapter1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIAdapter1> for IDXGIAdapter3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIAdapter1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIAdapter1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIAdapter1> for &IDXGIAdapter3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIAdapter1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIAdapter1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIAdapter3> for IDXGIAdapter {
@@ -3440,12 +3440,12 @@ impl ::std::convert::From<&IDXGIAdapter3> for IDXGIAdapter {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIAdapter> for IDXGIAdapter3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIAdapter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIAdapter>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIAdapter> for &IDXGIAdapter3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIAdapter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIAdapter>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIAdapter3> for IDXGIObject {
@@ -3460,12 +3460,12 @@ impl ::std::convert::From<&IDXGIAdapter3> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIAdapter3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIAdapter3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3617,12 +3617,12 @@ impl ::std::convert::From<&IDXGIAdapter4> for IDXGIAdapter3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIAdapter3> for IDXGIAdapter4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIAdapter3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIAdapter3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIAdapter3> for &IDXGIAdapter4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIAdapter3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIAdapter3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIAdapter4> for IDXGIAdapter2 {
@@ -3637,12 +3637,12 @@ impl ::std::convert::From<&IDXGIAdapter4> for IDXGIAdapter2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIAdapter2> for IDXGIAdapter4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIAdapter2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIAdapter2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIAdapter2> for &IDXGIAdapter4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIAdapter2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIAdapter2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIAdapter4> for IDXGIAdapter1 {
@@ -3657,12 +3657,12 @@ impl ::std::convert::From<&IDXGIAdapter4> for IDXGIAdapter1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIAdapter1> for IDXGIAdapter4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIAdapter1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIAdapter1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIAdapter1> for &IDXGIAdapter4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIAdapter1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIAdapter1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIAdapter4> for IDXGIAdapter {
@@ -3677,12 +3677,12 @@ impl ::std::convert::From<&IDXGIAdapter4> for IDXGIAdapter {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIAdapter> for IDXGIAdapter4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIAdapter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIAdapter>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIAdapter> for &IDXGIAdapter4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIAdapter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIAdapter>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIAdapter4> for IDXGIObject {
@@ -3697,12 +3697,12 @@ impl ::std::convert::From<&IDXGIAdapter4> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIAdapter4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIAdapter4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3835,12 +3835,12 @@ impl ::std::convert::From<&IDXGIDebug1> for IDXGIDebug {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDebug> for IDXGIDebug1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDebug> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDebug>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDebug> for &IDXGIDebug1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDebug> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDebug>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4029,12 +4029,12 @@ impl ::std::convert::From<&IDXGIDevice> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4145,12 +4145,12 @@ impl ::std::convert::From<&IDXGIDevice1> for IDXGIDevice {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDevice> for IDXGIDevice1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDevice>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDevice> for &IDXGIDevice1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDevice>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIDevice1> for IDXGIObject {
@@ -4165,12 +4165,12 @@ impl ::std::convert::From<&IDXGIDevice1> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIDevice1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIDevice1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4298,12 +4298,12 @@ impl ::std::convert::From<&IDXGIDevice2> for IDXGIDevice1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDevice1> for IDXGIDevice2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDevice1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDevice1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDevice1> for &IDXGIDevice2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDevice1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDevice1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIDevice2> for IDXGIDevice {
@@ -4318,12 +4318,12 @@ impl ::std::convert::From<&IDXGIDevice2> for IDXGIDevice {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDevice> for IDXGIDevice2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDevice>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDevice> for &IDXGIDevice2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDevice>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIDevice2> for IDXGIObject {
@@ -4338,12 +4338,12 @@ impl ::std::convert::From<&IDXGIDevice2> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIDevice2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIDevice2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4480,12 +4480,12 @@ impl ::std::convert::From<&IDXGIDevice3> for IDXGIDevice2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDevice2> for IDXGIDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDevice2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDevice2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDevice2> for &IDXGIDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDevice2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDevice2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIDevice3> for IDXGIDevice1 {
@@ -4500,12 +4500,12 @@ impl ::std::convert::From<&IDXGIDevice3> for IDXGIDevice1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDevice1> for IDXGIDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDevice1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDevice1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDevice1> for &IDXGIDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDevice1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDevice1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIDevice3> for IDXGIDevice {
@@ -4520,12 +4520,12 @@ impl ::std::convert::From<&IDXGIDevice3> for IDXGIDevice {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDevice> for IDXGIDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDevice>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDevice> for &IDXGIDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDevice>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIDevice3> for IDXGIObject {
@@ -4540,12 +4540,12 @@ impl ::std::convert::From<&IDXGIDevice3> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4692,12 +4692,12 @@ impl ::std::convert::From<&IDXGIDevice4> for IDXGIDevice3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDevice3> for IDXGIDevice4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDevice3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDevice3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDevice3> for &IDXGIDevice4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDevice3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDevice3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIDevice4> for IDXGIDevice2 {
@@ -4712,12 +4712,12 @@ impl ::std::convert::From<&IDXGIDevice4> for IDXGIDevice2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDevice2> for IDXGIDevice4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDevice2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDevice2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDevice2> for &IDXGIDevice4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDevice2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDevice2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIDevice4> for IDXGIDevice1 {
@@ -4732,12 +4732,12 @@ impl ::std::convert::From<&IDXGIDevice4> for IDXGIDevice1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDevice1> for IDXGIDevice4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDevice1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDevice1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDevice1> for &IDXGIDevice4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDevice1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDevice1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIDevice4> for IDXGIDevice {
@@ -4752,12 +4752,12 @@ impl ::std::convert::From<&IDXGIDevice4> for IDXGIDevice {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDevice> for IDXGIDevice4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDevice>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDevice> for &IDXGIDevice4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDevice>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIDevice4> for IDXGIObject {
@@ -4772,12 +4772,12 @@ impl ::std::convert::From<&IDXGIDevice4> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIDevice4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIDevice4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4871,12 +4871,12 @@ impl ::std::convert::From<&IDXGIDeviceSubObject> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIDeviceSubObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIDeviceSubObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5029,12 +5029,12 @@ impl ::std::convert::From<&IDXGIFactory> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5154,12 +5154,12 @@ impl ::std::convert::From<&IDXGIFactory1> for IDXGIFactory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory> for IDXGIFactory1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory> for &IDXGIFactory1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory1> for IDXGIObject {
@@ -5174,12 +5174,12 @@ impl ::std::convert::From<&IDXGIFactory1> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIFactory1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIFactory1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5363,12 +5363,12 @@ impl ::std::convert::From<&IDXGIFactory2> for IDXGIFactory1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory1> for IDXGIFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory1> for &IDXGIFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory2> for IDXGIFactory {
@@ -5383,12 +5383,12 @@ impl ::std::convert::From<&IDXGIFactory2> for IDXGIFactory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory> for IDXGIFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory> for &IDXGIFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory2> for IDXGIObject {
@@ -5403,12 +5403,12 @@ impl ::std::convert::From<&IDXGIFactory2> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5616,12 +5616,12 @@ impl ::std::convert::From<&IDXGIFactory3> for IDXGIFactory2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory2> for IDXGIFactory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory2> for &IDXGIFactory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory3> for IDXGIFactory1 {
@@ -5636,12 +5636,12 @@ impl ::std::convert::From<&IDXGIFactory3> for IDXGIFactory1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory1> for IDXGIFactory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory1> for &IDXGIFactory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory3> for IDXGIFactory {
@@ -5656,12 +5656,12 @@ impl ::std::convert::From<&IDXGIFactory3> for IDXGIFactory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory> for IDXGIFactory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory> for &IDXGIFactory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory3> for IDXGIObject {
@@ -5676,12 +5676,12 @@ impl ::std::convert::From<&IDXGIFactory3> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIFactory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIFactory3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5901,12 +5901,12 @@ impl ::std::convert::From<&IDXGIFactory4> for IDXGIFactory3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory3> for IDXGIFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory3> for &IDXGIFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory4> for IDXGIFactory2 {
@@ -5921,12 +5921,12 @@ impl ::std::convert::From<&IDXGIFactory4> for IDXGIFactory2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory2> for IDXGIFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory2> for &IDXGIFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory4> for IDXGIFactory1 {
@@ -5941,12 +5941,12 @@ impl ::std::convert::From<&IDXGIFactory4> for IDXGIFactory1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory1> for IDXGIFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory1> for &IDXGIFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory4> for IDXGIFactory {
@@ -5961,12 +5961,12 @@ impl ::std::convert::From<&IDXGIFactory4> for IDXGIFactory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory> for IDXGIFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory> for &IDXGIFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory4> for IDXGIObject {
@@ -5981,12 +5981,12 @@ impl ::std::convert::From<&IDXGIFactory4> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIFactory4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6213,12 +6213,12 @@ impl ::std::convert::From<&IDXGIFactory5> for IDXGIFactory4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory4> for IDXGIFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory4> for &IDXGIFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory5> for IDXGIFactory3 {
@@ -6233,12 +6233,12 @@ impl ::std::convert::From<&IDXGIFactory5> for IDXGIFactory3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory3> for IDXGIFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory3> for &IDXGIFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory5> for IDXGIFactory2 {
@@ -6253,12 +6253,12 @@ impl ::std::convert::From<&IDXGIFactory5> for IDXGIFactory2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory2> for IDXGIFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory2> for &IDXGIFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory5> for IDXGIFactory1 {
@@ -6273,12 +6273,12 @@ impl ::std::convert::From<&IDXGIFactory5> for IDXGIFactory1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory1> for IDXGIFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory1> for &IDXGIFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory5> for IDXGIFactory {
@@ -6293,12 +6293,12 @@ impl ::std::convert::From<&IDXGIFactory5> for IDXGIFactory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory> for IDXGIFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory> for &IDXGIFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory5> for IDXGIObject {
@@ -6313,12 +6313,12 @@ impl ::std::convert::From<&IDXGIFactory5> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIFactory5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6551,12 +6551,12 @@ impl ::std::convert::From<&IDXGIFactory6> for IDXGIFactory5 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory5> for IDXGIFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory5>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory5> for &IDXGIFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory5>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory6> for IDXGIFactory4 {
@@ -6571,12 +6571,12 @@ impl ::std::convert::From<&IDXGIFactory6> for IDXGIFactory4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory4> for IDXGIFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory4> for &IDXGIFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory6> for IDXGIFactory3 {
@@ -6591,12 +6591,12 @@ impl ::std::convert::From<&IDXGIFactory6> for IDXGIFactory3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory3> for IDXGIFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory3> for &IDXGIFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory6> for IDXGIFactory2 {
@@ -6611,12 +6611,12 @@ impl ::std::convert::From<&IDXGIFactory6> for IDXGIFactory2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory2> for IDXGIFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory2> for &IDXGIFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory6> for IDXGIFactory1 {
@@ -6631,12 +6631,12 @@ impl ::std::convert::From<&IDXGIFactory6> for IDXGIFactory1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory1> for IDXGIFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory1> for &IDXGIFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory6> for IDXGIFactory {
@@ -6651,12 +6651,12 @@ impl ::std::convert::From<&IDXGIFactory6> for IDXGIFactory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory> for IDXGIFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory> for &IDXGIFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory6> for IDXGIObject {
@@ -6671,12 +6671,12 @@ impl ::std::convert::From<&IDXGIFactory6> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIFactory6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6920,12 +6920,12 @@ impl ::std::convert::From<&IDXGIFactory7> for IDXGIFactory6 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory6> for IDXGIFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory6> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory6>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory6> for &IDXGIFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory6> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory6>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory7> for IDXGIFactory5 {
@@ -6940,12 +6940,12 @@ impl ::std::convert::From<&IDXGIFactory7> for IDXGIFactory5 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory5> for IDXGIFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory5>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory5> for &IDXGIFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory5>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory7> for IDXGIFactory4 {
@@ -6960,12 +6960,12 @@ impl ::std::convert::From<&IDXGIFactory7> for IDXGIFactory4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory4> for IDXGIFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory4> for &IDXGIFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory7> for IDXGIFactory3 {
@@ -6980,12 +6980,12 @@ impl ::std::convert::From<&IDXGIFactory7> for IDXGIFactory3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory3> for IDXGIFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory3> for &IDXGIFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory7> for IDXGIFactory2 {
@@ -7000,12 +7000,12 @@ impl ::std::convert::From<&IDXGIFactory7> for IDXGIFactory2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory2> for IDXGIFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory2> for &IDXGIFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory7> for IDXGIFactory1 {
@@ -7020,12 +7020,12 @@ impl ::std::convert::From<&IDXGIFactory7> for IDXGIFactory1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory1> for IDXGIFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory1> for &IDXGIFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory7> for IDXGIFactory {
@@ -7040,12 +7040,12 @@ impl ::std::convert::From<&IDXGIFactory7> for IDXGIFactory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory> for IDXGIFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIFactory> for &IDXGIFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIFactory7> for IDXGIObject {
@@ -7060,12 +7060,12 @@ impl ::std::convert::From<&IDXGIFactory7> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIFactory7 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7494,12 +7494,12 @@ impl ::std::convert::From<&IDXGIKeyedMutex> for IDXGIDeviceSubObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDeviceSubObject> for IDXGIKeyedMutex {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDeviceSubObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDeviceSubObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDeviceSubObject> for &IDXGIKeyedMutex {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDeviceSubObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDeviceSubObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIKeyedMutex> for IDXGIObject {
@@ -7514,12 +7514,12 @@ impl ::std::convert::From<&IDXGIKeyedMutex> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIKeyedMutex {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIKeyedMutex {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7708,12 +7708,12 @@ impl ::std::convert::From<&IDXGIOutput> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIOutput {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIOutput {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7875,12 +7875,12 @@ impl ::std::convert::From<&IDXGIOutput1> for IDXGIOutput {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput> for IDXGIOutput1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput> for &IDXGIOutput1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIOutput1> for IDXGIObject {
@@ -7895,12 +7895,12 @@ impl ::std::convert::From<&IDXGIOutput1> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIOutput1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIOutput1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8073,12 +8073,12 @@ impl ::std::convert::From<&IDXGIOutput2> for IDXGIOutput1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput1> for IDXGIOutput2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput1> for &IDXGIOutput2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIOutput2> for IDXGIOutput {
@@ -8093,12 +8093,12 @@ impl ::std::convert::From<&IDXGIOutput2> for IDXGIOutput {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput> for IDXGIOutput2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput> for &IDXGIOutput2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIOutput2> for IDXGIObject {
@@ -8113,12 +8113,12 @@ impl ::std::convert::From<&IDXGIOutput2> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIOutput2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIOutput2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8298,12 +8298,12 @@ impl ::std::convert::From<&IDXGIOutput3> for IDXGIOutput2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput2> for IDXGIOutput3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput2> for &IDXGIOutput3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIOutput3> for IDXGIOutput1 {
@@ -8318,12 +8318,12 @@ impl ::std::convert::From<&IDXGIOutput3> for IDXGIOutput1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput1> for IDXGIOutput3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput1> for &IDXGIOutput3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIOutput3> for IDXGIOutput {
@@ -8338,12 +8338,12 @@ impl ::std::convert::From<&IDXGIOutput3> for IDXGIOutput {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput> for IDXGIOutput3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput> for &IDXGIOutput3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIOutput3> for IDXGIObject {
@@ -8358,12 +8358,12 @@ impl ::std::convert::From<&IDXGIOutput3> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIOutput3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIOutput3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8549,12 +8549,12 @@ impl ::std::convert::From<&IDXGIOutput4> for IDXGIOutput3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput3> for IDXGIOutput4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput3> for &IDXGIOutput4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIOutput4> for IDXGIOutput2 {
@@ -8569,12 +8569,12 @@ impl ::std::convert::From<&IDXGIOutput4> for IDXGIOutput2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput2> for IDXGIOutput4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput2> for &IDXGIOutput4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIOutput4> for IDXGIOutput1 {
@@ -8589,12 +8589,12 @@ impl ::std::convert::From<&IDXGIOutput4> for IDXGIOutput1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput1> for IDXGIOutput4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput1> for &IDXGIOutput4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIOutput4> for IDXGIOutput {
@@ -8609,12 +8609,12 @@ impl ::std::convert::From<&IDXGIOutput4> for IDXGIOutput {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput> for IDXGIOutput4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput> for &IDXGIOutput4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIOutput4> for IDXGIObject {
@@ -8629,12 +8629,12 @@ impl ::std::convert::From<&IDXGIOutput4> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIOutput4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIOutput4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8826,12 +8826,12 @@ impl ::std::convert::From<&IDXGIOutput5> for IDXGIOutput4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput4> for IDXGIOutput5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput4> for &IDXGIOutput5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIOutput5> for IDXGIOutput3 {
@@ -8846,12 +8846,12 @@ impl ::std::convert::From<&IDXGIOutput5> for IDXGIOutput3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput3> for IDXGIOutput5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput3> for &IDXGIOutput5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIOutput5> for IDXGIOutput2 {
@@ -8866,12 +8866,12 @@ impl ::std::convert::From<&IDXGIOutput5> for IDXGIOutput2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput2> for IDXGIOutput5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput2> for &IDXGIOutput5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIOutput5> for IDXGIOutput1 {
@@ -8886,12 +8886,12 @@ impl ::std::convert::From<&IDXGIOutput5> for IDXGIOutput1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput1> for IDXGIOutput5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput1> for &IDXGIOutput5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIOutput5> for IDXGIOutput {
@@ -8906,12 +8906,12 @@ impl ::std::convert::From<&IDXGIOutput5> for IDXGIOutput {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput> for IDXGIOutput5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput> for &IDXGIOutput5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIOutput5> for IDXGIObject {
@@ -8926,12 +8926,12 @@ impl ::std::convert::From<&IDXGIOutput5> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIOutput5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIOutput5 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9135,12 +9135,12 @@ impl ::std::convert::From<&IDXGIOutput6> for IDXGIOutput5 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput5> for IDXGIOutput6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput5>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput5> for &IDXGIOutput6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput5> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput5>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIOutput6> for IDXGIOutput4 {
@@ -9155,12 +9155,12 @@ impl ::std::convert::From<&IDXGIOutput6> for IDXGIOutput4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput4> for IDXGIOutput6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput4>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput4> for &IDXGIOutput6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput4> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput4>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIOutput6> for IDXGIOutput3 {
@@ -9175,12 +9175,12 @@ impl ::std::convert::From<&IDXGIOutput6> for IDXGIOutput3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput3> for IDXGIOutput6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput3> for &IDXGIOutput6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIOutput6> for IDXGIOutput2 {
@@ -9195,12 +9195,12 @@ impl ::std::convert::From<&IDXGIOutput6> for IDXGIOutput2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput2> for IDXGIOutput6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput2> for &IDXGIOutput6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIOutput6> for IDXGIOutput1 {
@@ -9215,12 +9215,12 @@ impl ::std::convert::From<&IDXGIOutput6> for IDXGIOutput1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput1> for IDXGIOutput6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput1> for &IDXGIOutput6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIOutput6> for IDXGIOutput {
@@ -9235,12 +9235,12 @@ impl ::std::convert::From<&IDXGIOutput6> for IDXGIOutput {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput> for IDXGIOutput6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIOutput> for &IDXGIOutput6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIOutput> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIOutput>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIOutput6> for IDXGIObject {
@@ -9255,12 +9255,12 @@ impl ::std::convert::From<&IDXGIOutput6> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIOutput6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIOutput6 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9400,12 +9400,12 @@ impl ::std::convert::From<&IDXGIOutputDuplication> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIOutputDuplication {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIOutputDuplication {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9516,12 +9516,12 @@ impl ::std::convert::From<&IDXGIResource> for IDXGIDeviceSubObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDeviceSubObject> for IDXGIResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDeviceSubObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDeviceSubObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDeviceSubObject> for &IDXGIResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDeviceSubObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDeviceSubObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIResource> for IDXGIObject {
@@ -9536,12 +9536,12 @@ impl ::std::convert::From<&IDXGIResource> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9656,12 +9656,12 @@ impl ::std::convert::From<&IDXGIResource1> for IDXGIResource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIResource> for IDXGIResource1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIResource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIResource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIResource> for &IDXGIResource1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIResource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIResource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIResource1> for IDXGIDeviceSubObject {
@@ -9676,12 +9676,12 @@ impl ::std::convert::From<&IDXGIResource1> for IDXGIDeviceSubObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDeviceSubObject> for IDXGIResource1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDeviceSubObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDeviceSubObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDeviceSubObject> for &IDXGIResource1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDeviceSubObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDeviceSubObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGIResource1> for IDXGIObject {
@@ -9696,12 +9696,12 @@ impl ::std::convert::From<&IDXGIResource1> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGIResource1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGIResource1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9801,12 +9801,12 @@ impl ::std::convert::From<&IDXGISurface> for IDXGIDeviceSubObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDeviceSubObject> for IDXGISurface {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDeviceSubObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDeviceSubObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDeviceSubObject> for &IDXGISurface {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDeviceSubObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDeviceSubObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGISurface> for IDXGIObject {
@@ -9821,12 +9821,12 @@ impl ::std::convert::From<&IDXGISurface> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGISurface {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGISurface {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9932,12 +9932,12 @@ impl ::std::convert::From<&IDXGISurface1> for IDXGISurface {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGISurface> for IDXGISurface1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGISurface> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGISurface>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGISurface> for &IDXGISurface1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGISurface> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGISurface>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGISurface1> for IDXGIDeviceSubObject {
@@ -9952,12 +9952,12 @@ impl ::std::convert::From<&IDXGISurface1> for IDXGIDeviceSubObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDeviceSubObject> for IDXGISurface1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDeviceSubObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDeviceSubObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDeviceSubObject> for &IDXGISurface1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDeviceSubObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDeviceSubObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGISurface1> for IDXGIObject {
@@ -9972,12 +9972,12 @@ impl ::std::convert::From<&IDXGISurface1> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGISurface1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGISurface1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10091,12 +10091,12 @@ impl ::std::convert::From<&IDXGISurface2> for IDXGISurface1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGISurface1> for IDXGISurface2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGISurface1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGISurface1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGISurface1> for &IDXGISurface2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGISurface1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGISurface1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGISurface2> for IDXGISurface {
@@ -10111,12 +10111,12 @@ impl ::std::convert::From<&IDXGISurface2> for IDXGISurface {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGISurface> for IDXGISurface2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGISurface> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGISurface>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGISurface> for &IDXGISurface2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGISurface> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGISurface>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGISurface2> for IDXGIDeviceSubObject {
@@ -10131,12 +10131,12 @@ impl ::std::convert::From<&IDXGISurface2> for IDXGIDeviceSubObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDeviceSubObject> for IDXGISurface2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDeviceSubObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDeviceSubObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDeviceSubObject> for &IDXGISurface2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDeviceSubObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDeviceSubObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGISurface2> for IDXGIObject {
@@ -10151,12 +10151,12 @@ impl ::std::convert::From<&IDXGISurface2> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGISurface2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGISurface2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10291,12 +10291,12 @@ impl ::std::convert::From<&IDXGISwapChain> for IDXGIDeviceSubObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDeviceSubObject> for IDXGISwapChain {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDeviceSubObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDeviceSubObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDeviceSubObject> for &IDXGISwapChain {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDeviceSubObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDeviceSubObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGISwapChain> for IDXGIObject {
@@ -10311,12 +10311,12 @@ impl ::std::convert::From<&IDXGISwapChain> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGISwapChain {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGISwapChain {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10512,12 +10512,12 @@ impl ::std::convert::From<&IDXGISwapChain1> for IDXGISwapChain {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGISwapChain> for IDXGISwapChain1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGISwapChain> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGISwapChain>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGISwapChain> for &IDXGISwapChain1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGISwapChain> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGISwapChain>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGISwapChain1> for IDXGIDeviceSubObject {
@@ -10532,12 +10532,12 @@ impl ::std::convert::From<&IDXGISwapChain1> for IDXGIDeviceSubObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDeviceSubObject> for IDXGISwapChain1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDeviceSubObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDeviceSubObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDeviceSubObject> for &IDXGISwapChain1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDeviceSubObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDeviceSubObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGISwapChain1> for IDXGIObject {
@@ -10552,12 +10552,12 @@ impl ::std::convert::From<&IDXGISwapChain1> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGISwapChain1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGISwapChain1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10800,12 +10800,12 @@ impl ::std::convert::From<&IDXGISwapChain2> for IDXGISwapChain1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGISwapChain1> for IDXGISwapChain2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGISwapChain1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGISwapChain1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGISwapChain1> for &IDXGISwapChain2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGISwapChain1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGISwapChain1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGISwapChain2> for IDXGISwapChain {
@@ -10820,12 +10820,12 @@ impl ::std::convert::From<&IDXGISwapChain2> for IDXGISwapChain {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGISwapChain> for IDXGISwapChain2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGISwapChain> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGISwapChain>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGISwapChain> for &IDXGISwapChain2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGISwapChain> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGISwapChain>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGISwapChain2> for IDXGIDeviceSubObject {
@@ -10840,12 +10840,12 @@ impl ::std::convert::From<&IDXGISwapChain2> for IDXGIDeviceSubObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDeviceSubObject> for IDXGISwapChain2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDeviceSubObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDeviceSubObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDeviceSubObject> for &IDXGISwapChain2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDeviceSubObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDeviceSubObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGISwapChain2> for IDXGIObject {
@@ -10860,12 +10860,12 @@ impl ::std::convert::From<&IDXGISwapChain2> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGISwapChain2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGISwapChain2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11133,12 +11133,12 @@ impl ::std::convert::From<&IDXGISwapChain3> for IDXGISwapChain2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGISwapChain2> for IDXGISwapChain3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGISwapChain2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGISwapChain2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGISwapChain2> for &IDXGISwapChain3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGISwapChain2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGISwapChain2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGISwapChain3> for IDXGISwapChain1 {
@@ -11153,12 +11153,12 @@ impl ::std::convert::From<&IDXGISwapChain3> for IDXGISwapChain1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGISwapChain1> for IDXGISwapChain3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGISwapChain1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGISwapChain1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGISwapChain1> for &IDXGISwapChain3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGISwapChain1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGISwapChain1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGISwapChain3> for IDXGISwapChain {
@@ -11173,12 +11173,12 @@ impl ::std::convert::From<&IDXGISwapChain3> for IDXGISwapChain {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGISwapChain> for IDXGISwapChain3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGISwapChain> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGISwapChain>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGISwapChain> for &IDXGISwapChain3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGISwapChain> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGISwapChain>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGISwapChain3> for IDXGIDeviceSubObject {
@@ -11193,12 +11193,12 @@ impl ::std::convert::From<&IDXGISwapChain3> for IDXGIDeviceSubObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDeviceSubObject> for IDXGISwapChain3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDeviceSubObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDeviceSubObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDeviceSubObject> for &IDXGISwapChain3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDeviceSubObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDeviceSubObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGISwapChain3> for IDXGIObject {
@@ -11213,12 +11213,12 @@ impl ::std::convert::From<&IDXGISwapChain3> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGISwapChain3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGISwapChain3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11494,12 +11494,12 @@ impl ::std::convert::From<&IDXGISwapChain4> for IDXGISwapChain3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGISwapChain3> for IDXGISwapChain4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGISwapChain3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGISwapChain3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGISwapChain3> for &IDXGISwapChain4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGISwapChain3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGISwapChain3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGISwapChain4> for IDXGISwapChain2 {
@@ -11514,12 +11514,12 @@ impl ::std::convert::From<&IDXGISwapChain4> for IDXGISwapChain2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGISwapChain2> for IDXGISwapChain4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGISwapChain2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGISwapChain2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGISwapChain2> for &IDXGISwapChain4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGISwapChain2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGISwapChain2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGISwapChain4> for IDXGISwapChain1 {
@@ -11534,12 +11534,12 @@ impl ::std::convert::From<&IDXGISwapChain4> for IDXGISwapChain1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGISwapChain1> for IDXGISwapChain4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGISwapChain1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGISwapChain1>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGISwapChain1> for &IDXGISwapChain4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGISwapChain1> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGISwapChain1>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGISwapChain4> for IDXGISwapChain {
@@ -11554,12 +11554,12 @@ impl ::std::convert::From<&IDXGISwapChain4> for IDXGISwapChain {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGISwapChain> for IDXGISwapChain4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGISwapChain> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGISwapChain>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGISwapChain> for &IDXGISwapChain4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGISwapChain> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGISwapChain>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGISwapChain4> for IDXGIDeviceSubObject {
@@ -11574,12 +11574,12 @@ impl ::std::convert::From<&IDXGISwapChain4> for IDXGIDeviceSubObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDeviceSubObject> for IDXGISwapChain4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDeviceSubObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDeviceSubObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIDeviceSubObject> for &IDXGISwapChain4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIDeviceSubObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIDeviceSubObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDXGISwapChain4> for IDXGIObject {
@@ -11594,12 +11594,12 @@ impl ::std::convert::From<&IDXGISwapChain4> for IDXGIObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for IDXGISwapChain4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDXGIObject> for &IDXGISwapChain4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDXGIObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDXGIObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

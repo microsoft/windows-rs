@@ -433,12 +433,12 @@ impl ::std::convert::From<&IDirectManipulationCompositor2> for IDirectManipulati
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectManipulationCompositor> for IDirectManipulationCompositor2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectManipulationCompositor> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectManipulationCompositor>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectManipulationCompositor> for &IDirectManipulationCompositor2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectManipulationCompositor> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectManipulationCompositor>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -932,12 +932,12 @@ impl ::std::convert::From<&IDirectManipulationManager2> for IDirectManipulationM
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectManipulationManager> for IDirectManipulationManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectManipulationManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectManipulationManager>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectManipulationManager> for &IDirectManipulationManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectManipulationManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectManipulationManager>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1049,12 +1049,12 @@ impl ::std::convert::From<&IDirectManipulationManager3> for IDirectManipulationM
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectManipulationManager2> for IDirectManipulationManager3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectManipulationManager2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectManipulationManager2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectManipulationManager2> for &IDirectManipulationManager3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectManipulationManager2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectManipulationManager2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDirectManipulationManager3> for IDirectManipulationManager {
@@ -1069,12 +1069,12 @@ impl ::std::convert::From<&IDirectManipulationManager3> for IDirectManipulationM
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectManipulationManager> for IDirectManipulationManager3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectManipulationManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectManipulationManager>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectManipulationManager> for &IDirectManipulationManager3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectManipulationManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectManipulationManager>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1641,12 +1641,12 @@ impl ::std::convert::From<&IDirectManipulationViewport2> for IDirectManipulation
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectManipulationViewport> for IDirectManipulationViewport2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectManipulationViewport> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectManipulationViewport>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectManipulationViewport> for &IDirectManipulationViewport2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectManipulationViewport> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectManipulationViewport>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

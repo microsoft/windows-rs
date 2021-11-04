@@ -1036,12 +1036,12 @@ impl ::std::convert::From<&IXAudio2MasteringVoice> for IXAudio2Voice {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXAudio2Voice> for IXAudio2MasteringVoice {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXAudio2Voice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXAudio2Voice>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXAudio2Voice> for &IXAudio2MasteringVoice {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXAudio2Voice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXAudio2Voice>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1233,12 +1233,12 @@ impl ::std::convert::From<&IXAudio2SourceVoice> for IXAudio2Voice {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXAudio2Voice> for IXAudio2SourceVoice {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXAudio2Voice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXAudio2Voice>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXAudio2Voice> for &IXAudio2SourceVoice {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXAudio2Voice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXAudio2Voice>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1399,12 +1399,12 @@ impl ::std::convert::From<&IXAudio2SubmixVoice> for IXAudio2Voice {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXAudio2Voice> for IXAudio2SubmixVoice {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXAudio2Voice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXAudio2Voice>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXAudio2Voice> for &IXAudio2SubmixVoice {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXAudio2Voice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXAudio2Voice>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

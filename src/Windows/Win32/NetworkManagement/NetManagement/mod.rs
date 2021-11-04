@@ -3028,12 +3028,12 @@ impl ::std::convert::From<&INetCfgClassSetup2> for INetCfgClassSetup {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INetCfgClassSetup> for INetCfgClassSetup2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INetCfgClassSetup> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INetCfgClassSetup>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INetCfgClassSetup> for &INetCfgClassSetup2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INetCfgClassSetup> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INetCfgClassSetup>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

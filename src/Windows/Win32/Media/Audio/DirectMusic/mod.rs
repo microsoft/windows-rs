@@ -4441,12 +4441,12 @@ impl ::std::convert::From<&IAudioSystemEffects2> for IAudioSystemEffects {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAudioSystemEffects> for IAudioSystemEffects2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAudioSystemEffects> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAudioSystemEffects>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAudioSystemEffects> for &IAudioSystemEffects2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAudioSystemEffects> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAudioSystemEffects>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4692,12 +4692,12 @@ impl ::std::convert::From<&IDirectMusic8> for IDirectMusic {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectMusic> for IDirectMusic8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectMusic> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectMusic>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectMusic> for &IDirectMusic8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectMusic> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectMusic>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5490,12 +5490,12 @@ impl ::std::convert::From<&IDirectMusicSynth8> for IDirectMusicSynth {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectMusicSynth> for IDirectMusicSynth8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectMusicSynth> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectMusicSynth>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectMusicSynth> for &IDirectMusicSynth8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectMusicSynth> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectMusicSynth>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6102,12 +6102,12 @@ impl ::std::convert::From<&IDirectSound8> for IDirectSound {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectSound> for IDirectSound8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectSound> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectSound>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectSound> for &IDirectSound8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectSound> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectSound>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6400,12 +6400,12 @@ impl ::std::convert::From<&IDirectSoundBuffer8> for IDirectSoundBuffer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectSoundBuffer> for IDirectSoundBuffer8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectSoundBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectSoundBuffer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectSoundBuffer> for &IDirectSoundBuffer8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectSoundBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectSoundBuffer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6672,12 +6672,12 @@ impl ::std::convert::From<&IDirectSoundCaptureBuffer8> for IDirectSoundCaptureBu
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectSoundCaptureBuffer> for IDirectSoundCaptureBuffer8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectSoundCaptureBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectSoundCaptureBuffer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectSoundCaptureBuffer> for &IDirectSoundCaptureBuffer8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectSoundCaptureBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectSoundCaptureBuffer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

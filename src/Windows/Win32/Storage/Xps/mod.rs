@@ -475,12 +475,12 @@ impl ::std::convert::From<&IXpsOMBrush> for IXpsOMShareable {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for IXpsOMBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for &IXpsOMBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -740,12 +740,12 @@ impl ::std::convert::From<&IXpsOMCanvas> for IXpsOMVisual {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMVisual> for IXpsOMCanvas {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMVisual> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMVisual>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMVisual> for &IXpsOMCanvas {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMVisual> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMVisual>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IXpsOMCanvas> for IXpsOMShareable {
@@ -760,12 +760,12 @@ impl ::std::convert::From<&IXpsOMCanvas> for IXpsOMShareable {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for IXpsOMCanvas {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for &IXpsOMCanvas {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -899,12 +899,12 @@ impl ::std::convert::From<&IXpsOMColorProfileResource> for IXpsOMResource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMResource> for IXpsOMColorProfileResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMResource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMResource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMResource> for &IXpsOMColorProfileResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMResource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMResource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IXpsOMColorProfileResource> for IXpsOMPart {
@@ -919,12 +919,12 @@ impl ::std::convert::From<&IXpsOMColorProfileResource> for IXpsOMPart {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for IXpsOMColorProfileResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for &IXpsOMColorProfileResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1258,12 +1258,12 @@ impl ::std::convert::From<&IXpsOMCoreProperties> for IXpsOMPart {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for IXpsOMCoreProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for &IXpsOMCoreProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1605,12 +1605,12 @@ impl ::std::convert::From<&IXpsOMDocument> for IXpsOMPart {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for IXpsOMDocument {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for &IXpsOMDocument {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1773,12 +1773,12 @@ impl ::std::convert::From<&IXpsOMDocumentSequence> for IXpsOMPart {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for IXpsOMDocumentSequence {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for &IXpsOMDocumentSequence {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1865,12 +1865,12 @@ impl ::std::convert::From<&IXpsOMDocumentStructureResource> for IXpsOMResource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMResource> for IXpsOMDocumentStructureResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMResource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMResource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMResource> for &IXpsOMDocumentStructureResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMResource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMResource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IXpsOMDocumentStructureResource> for IXpsOMPart {
@@ -1885,12 +1885,12 @@ impl ::std::convert::From<&IXpsOMDocumentStructureResource> for IXpsOMPart {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for IXpsOMDocumentStructureResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for &IXpsOMDocumentStructureResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1978,12 +1978,12 @@ impl ::std::convert::From<&IXpsOMFontResource> for IXpsOMResource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMResource> for IXpsOMFontResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMResource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMResource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMResource> for &IXpsOMFontResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMResource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMResource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IXpsOMFontResource> for IXpsOMPart {
@@ -1998,12 +1998,12 @@ impl ::std::convert::From<&IXpsOMFontResource> for IXpsOMPart {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for IXpsOMFontResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for &IXpsOMFontResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2195,12 +2195,12 @@ impl ::std::convert::From<&IXpsOMGeometry> for IXpsOMShareable {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for IXpsOMGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for &IXpsOMGeometry {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2734,12 +2734,12 @@ impl ::std::convert::From<&IXpsOMGlyphs> for IXpsOMVisual {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMVisual> for IXpsOMGlyphs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMVisual> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMVisual>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMVisual> for &IXpsOMGlyphs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMVisual> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMVisual>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IXpsOMGlyphs> for IXpsOMShareable {
@@ -2754,12 +2754,12 @@ impl ::std::convert::From<&IXpsOMGlyphs> for IXpsOMShareable {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for IXpsOMGlyphs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for &IXpsOMGlyphs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3097,12 +3097,12 @@ impl ::std::convert::From<&IXpsOMGradientBrush> for IXpsOMBrush {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMBrush> for IXpsOMGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMBrush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMBrush>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMBrush> for &IXpsOMGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMBrush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMBrush>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IXpsOMGradientBrush> for IXpsOMShareable {
@@ -3117,12 +3117,12 @@ impl ::std::convert::From<&IXpsOMGradientBrush> for IXpsOMShareable {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for IXpsOMGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for &IXpsOMGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3423,12 +3423,12 @@ impl ::std::convert::From<&IXpsOMImageBrush> for IXpsOMTileBrush {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMTileBrush> for IXpsOMImageBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMTileBrush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMTileBrush>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMTileBrush> for &IXpsOMImageBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMTileBrush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMTileBrush>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IXpsOMImageBrush> for IXpsOMBrush {
@@ -3443,12 +3443,12 @@ impl ::std::convert::From<&IXpsOMImageBrush> for IXpsOMBrush {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMBrush> for IXpsOMImageBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMBrush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMBrush>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMBrush> for &IXpsOMImageBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMBrush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMBrush>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IXpsOMImageBrush> for IXpsOMShareable {
@@ -3463,12 +3463,12 @@ impl ::std::convert::From<&IXpsOMImageBrush> for IXpsOMShareable {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for IXpsOMImageBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for &IXpsOMImageBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3569,12 +3569,12 @@ impl ::std::convert::From<&IXpsOMImageResource> for IXpsOMResource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMResource> for IXpsOMImageResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMResource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMResource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMResource> for &IXpsOMImageResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMResource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMResource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IXpsOMImageResource> for IXpsOMPart {
@@ -3589,12 +3589,12 @@ impl ::std::convert::From<&IXpsOMImageResource> for IXpsOMPart {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for IXpsOMImageResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for &IXpsOMImageResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3822,12 +3822,12 @@ impl ::std::convert::From<&IXpsOMLinearGradientBrush> for IXpsOMGradientBrush {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMGradientBrush> for IXpsOMLinearGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMGradientBrush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMGradientBrush>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMGradientBrush> for &IXpsOMLinearGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMGradientBrush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMGradientBrush>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IXpsOMLinearGradientBrush> for IXpsOMBrush {
@@ -3842,12 +3842,12 @@ impl ::std::convert::From<&IXpsOMLinearGradientBrush> for IXpsOMBrush {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMBrush> for IXpsOMLinearGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMBrush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMBrush>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMBrush> for &IXpsOMLinearGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMBrush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMBrush>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IXpsOMLinearGradientBrush> for IXpsOMShareable {
@@ -3862,12 +3862,12 @@ impl ::std::convert::From<&IXpsOMLinearGradientBrush> for IXpsOMShareable {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for IXpsOMLinearGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for &IXpsOMLinearGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3964,12 +3964,12 @@ impl ::std::convert::From<&IXpsOMMatrixTransform> for IXpsOMShareable {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for IXpsOMMatrixTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for &IXpsOMMatrixTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4876,12 +4876,12 @@ impl ::std::convert::From<&IXpsOMObjectFactory1> for IXpsOMObjectFactory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMObjectFactory> for IXpsOMObjectFactory1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMObjectFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMObjectFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMObjectFactory> for &IXpsOMObjectFactory1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMObjectFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMObjectFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5227,12 +5227,12 @@ impl ::std::convert::From<&IXpsOMPackage1> for IXpsOMPackage {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPackage> for IXpsOMPackage1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPackage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPackage>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPackage> for &IXpsOMPackage1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPackage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPackage>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5478,12 +5478,12 @@ impl ::std::convert::From<&IXpsOMPackageWriter3D> for IXpsOMPackageWriter {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPackageWriter> for IXpsOMPackageWriter3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPackageWriter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPackageWriter>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPackageWriter> for &IXpsOMPackageWriter3D {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPackageWriter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPackageWriter>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5666,12 +5666,12 @@ impl ::std::convert::From<&IXpsOMPage> for IXpsOMPart {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for IXpsOMPage {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for &IXpsOMPage {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5887,12 +5887,12 @@ impl ::std::convert::From<&IXpsOMPage1> for IXpsOMPage {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPage> for IXpsOMPage1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPage>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPage> for &IXpsOMPage1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPage>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IXpsOMPage1> for IXpsOMPart {
@@ -5907,12 +5907,12 @@ impl ::std::convert::From<&IXpsOMPage1> for IXpsOMPart {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for IXpsOMPage1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for &IXpsOMPage1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6716,12 +6716,12 @@ impl ::std::convert::From<&IXpsOMPath> for IXpsOMVisual {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMVisual> for IXpsOMPath {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMVisual> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMVisual>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMVisual> for &IXpsOMPath {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMVisual> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMVisual>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IXpsOMPath> for IXpsOMShareable {
@@ -6736,12 +6736,12 @@ impl ::std::convert::From<&IXpsOMPath> for IXpsOMShareable {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for IXpsOMPath {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for &IXpsOMPath {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6905,12 +6905,12 @@ impl ::std::convert::From<&IXpsOMPrintTicketResource> for IXpsOMResource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMResource> for IXpsOMPrintTicketResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMResource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMResource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMResource> for &IXpsOMPrintTicketResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMResource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMResource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IXpsOMPrintTicketResource> for IXpsOMPart {
@@ -6925,12 +6925,12 @@ impl ::std::convert::From<&IXpsOMPrintTicketResource> for IXpsOMPart {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for IXpsOMPrintTicketResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for &IXpsOMPrintTicketResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7089,12 +7089,12 @@ impl ::std::convert::From<&IXpsOMRadialGradientBrush> for IXpsOMGradientBrush {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMGradientBrush> for IXpsOMRadialGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMGradientBrush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMGradientBrush>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMGradientBrush> for &IXpsOMRadialGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMGradientBrush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMGradientBrush>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IXpsOMRadialGradientBrush> for IXpsOMBrush {
@@ -7109,12 +7109,12 @@ impl ::std::convert::From<&IXpsOMRadialGradientBrush> for IXpsOMBrush {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMBrush> for IXpsOMRadialGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMBrush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMBrush>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMBrush> for &IXpsOMRadialGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMBrush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMBrush>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IXpsOMRadialGradientBrush> for IXpsOMShareable {
@@ -7129,12 +7129,12 @@ impl ::std::convert::From<&IXpsOMRadialGradientBrush> for IXpsOMShareable {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for IXpsOMRadialGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for &IXpsOMRadialGradientBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7229,12 +7229,12 @@ impl ::std::convert::From<&IXpsOMRemoteDictionaryResource> for IXpsOMResource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMResource> for IXpsOMRemoteDictionaryResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMResource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMResource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMResource> for &IXpsOMRemoteDictionaryResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMResource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMResource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IXpsOMRemoteDictionaryResource> for IXpsOMPart {
@@ -7249,12 +7249,12 @@ impl ::std::convert::From<&IXpsOMRemoteDictionaryResource> for IXpsOMPart {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for IXpsOMRemoteDictionaryResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for &IXpsOMRemoteDictionaryResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7342,12 +7342,12 @@ impl ::std::convert::From<&IXpsOMRemoteDictionaryResource1> for IXpsOMRemoteDict
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMRemoteDictionaryResource> for IXpsOMRemoteDictionaryResource1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMRemoteDictionaryResource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMRemoteDictionaryResource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMRemoteDictionaryResource> for &IXpsOMRemoteDictionaryResource1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMRemoteDictionaryResource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMRemoteDictionaryResource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IXpsOMRemoteDictionaryResource1> for IXpsOMResource {
@@ -7362,12 +7362,12 @@ impl ::std::convert::From<&IXpsOMRemoteDictionaryResource1> for IXpsOMResource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMResource> for IXpsOMRemoteDictionaryResource1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMResource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMResource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMResource> for &IXpsOMRemoteDictionaryResource1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMResource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMResource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IXpsOMRemoteDictionaryResource1> for IXpsOMPart {
@@ -7382,12 +7382,12 @@ impl ::std::convert::From<&IXpsOMRemoteDictionaryResource1> for IXpsOMPart {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for IXpsOMRemoteDictionaryResource1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for &IXpsOMRemoteDictionaryResource1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7536,12 +7536,12 @@ impl ::std::convert::From<&IXpsOMResource> for IXpsOMPart {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for IXpsOMResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for &IXpsOMResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7673,12 +7673,12 @@ impl ::std::convert::From<&IXpsOMSignatureBlockResource> for IXpsOMResource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMResource> for IXpsOMSignatureBlockResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMResource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMResource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMResource> for &IXpsOMSignatureBlockResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMResource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMResource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IXpsOMSignatureBlockResource> for IXpsOMPart {
@@ -7693,12 +7693,12 @@ impl ::std::convert::From<&IXpsOMSignatureBlockResource> for IXpsOMPart {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for IXpsOMSignatureBlockResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for &IXpsOMSignatureBlockResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7868,12 +7868,12 @@ impl ::std::convert::From<&IXpsOMSolidColorBrush> for IXpsOMBrush {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMBrush> for IXpsOMSolidColorBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMBrush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMBrush>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMBrush> for &IXpsOMSolidColorBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMBrush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMBrush>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IXpsOMSolidColorBrush> for IXpsOMShareable {
@@ -7888,12 +7888,12 @@ impl ::std::convert::From<&IXpsOMSolidColorBrush> for IXpsOMShareable {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for IXpsOMSolidColorBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for &IXpsOMSolidColorBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7979,12 +7979,12 @@ impl ::std::convert::From<&IXpsOMStoryFragmentsResource> for IXpsOMResource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMResource> for IXpsOMStoryFragmentsResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMResource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMResource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMResource> for &IXpsOMStoryFragmentsResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMResource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMResource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IXpsOMStoryFragmentsResource> for IXpsOMPart {
@@ -7999,12 +7999,12 @@ impl ::std::convert::From<&IXpsOMStoryFragmentsResource> for IXpsOMPart {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for IXpsOMStoryFragmentsResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMPart> for &IXpsOMStoryFragmentsResource {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMPart> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMPart>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8181,12 +8181,12 @@ impl ::std::convert::From<&IXpsOMTileBrush> for IXpsOMBrush {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMBrush> for IXpsOMTileBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMBrush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMBrush>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMBrush> for &IXpsOMTileBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMBrush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMBrush>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IXpsOMTileBrush> for IXpsOMShareable {
@@ -8201,12 +8201,12 @@ impl ::std::convert::From<&IXpsOMTileBrush> for IXpsOMShareable {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for IXpsOMTileBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for &IXpsOMTileBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8413,12 +8413,12 @@ impl ::std::convert::From<&IXpsOMVisual> for IXpsOMShareable {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for IXpsOMVisual {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for &IXpsOMVisual {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8612,12 +8612,12 @@ impl ::std::convert::From<&IXpsOMVisualBrush> for IXpsOMTileBrush {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMTileBrush> for IXpsOMVisualBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMTileBrush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMTileBrush>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMTileBrush> for &IXpsOMVisualBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMTileBrush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMTileBrush>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IXpsOMVisualBrush> for IXpsOMBrush {
@@ -8632,12 +8632,12 @@ impl ::std::convert::From<&IXpsOMVisualBrush> for IXpsOMBrush {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMBrush> for IXpsOMVisualBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMBrush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMBrush>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMBrush> for &IXpsOMVisualBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMBrush> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMBrush>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IXpsOMVisualBrush> for IXpsOMShareable {
@@ -8652,12 +8652,12 @@ impl ::std::convert::From<&IXpsOMVisualBrush> for IXpsOMShareable {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for IXpsOMVisualBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXpsOMShareable> for &IXpsOMVisualBrush {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXpsOMShareable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXpsOMShareable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

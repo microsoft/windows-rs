@@ -736,12 +736,12 @@ impl ::std::convert::From<&IWSDHttpAddress> for IWSDTransportAddress {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDTransportAddress> for IWSDHttpAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDTransportAddress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDTransportAddress>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDTransportAddress> for &IWSDHttpAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDTransportAddress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDTransportAddress>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWSDHttpAddress> for IWSDAddress {
@@ -756,12 +756,12 @@ impl ::std::convert::From<&IWSDHttpAddress> for IWSDAddress {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDAddress> for IWSDHttpAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDAddress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDAddress>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDAddress> for &IWSDHttpAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDAddress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDAddress>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -952,12 +952,12 @@ impl ::std::convert::From<&IWSDHttpMessageParameters> for IWSDMessageParameters 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDMessageParameters> for IWSDHttpMessageParameters {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDMessageParameters> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDMessageParameters>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDMessageParameters> for &IWSDHttpMessageParameters {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDMessageParameters> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDMessageParameters>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1037,12 +1037,12 @@ impl ::std::convert::From<&IWSDInboundAttachment> for IWSDAttachment {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDAttachment> for IWSDInboundAttachment {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDAttachment> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDAttachment>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDAttachment> for &IWSDInboundAttachment {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDAttachment> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDAttachment>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1219,12 +1219,12 @@ impl ::std::convert::From<&IWSDOutboundAttachment> for IWSDAttachment {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDAttachment> for IWSDOutboundAttachment {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDAttachment> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDAttachment>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDAttachment> for &IWSDOutboundAttachment {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDAttachment> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDAttachment>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1479,12 +1479,12 @@ impl ::std::convert::From<&IWSDServiceProxy> for IWSDMetadataExchange {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDMetadataExchange> for IWSDServiceProxy {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDMetadataExchange> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDMetadataExchange>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDMetadataExchange> for &IWSDServiceProxy {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDMetadataExchange> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDMetadataExchange>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1665,12 +1665,12 @@ impl ::std::convert::From<&IWSDServiceProxyEventing> for IWSDServiceProxy {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDServiceProxy> for IWSDServiceProxyEventing {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDServiceProxy> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDServiceProxy>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDServiceProxy> for &IWSDServiceProxyEventing {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDServiceProxy> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDServiceProxy>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWSDServiceProxyEventing> for IWSDMetadataExchange {
@@ -1685,12 +1685,12 @@ impl ::std::convert::From<&IWSDServiceProxyEventing> for IWSDMetadataExchange {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDMetadataExchange> for IWSDServiceProxyEventing {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDMetadataExchange> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDMetadataExchange>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDMetadataExchange> for &IWSDServiceProxyEventing {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDMetadataExchange> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDMetadataExchange>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1883,12 +1883,12 @@ impl ::std::convert::From<&IWSDTransportAddress> for IWSDAddress {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDAddress> for IWSDTransportAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDAddress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDAddress>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDAddress> for &IWSDTransportAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDAddress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDAddress>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2035,12 +2035,12 @@ impl ::std::convert::From<&IWSDUdpAddress> for IWSDTransportAddress {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDTransportAddress> for IWSDUdpAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDTransportAddress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDTransportAddress>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDTransportAddress> for &IWSDUdpAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDTransportAddress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDTransportAddress>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWSDUdpAddress> for IWSDAddress {
@@ -2055,12 +2055,12 @@ impl ::std::convert::From<&IWSDUdpAddress> for IWSDAddress {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDAddress> for IWSDUdpAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDAddress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDAddress>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDAddress> for &IWSDUdpAddress {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDAddress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDAddress>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2169,12 +2169,12 @@ impl ::std::convert::From<&IWSDUdpMessageParameters> for IWSDMessageParameters {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDMessageParameters> for IWSDUdpMessageParameters {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDMessageParameters> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDMessageParameters>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSDMessageParameters> for &IWSDUdpMessageParameters {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSDMessageParameters> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSDMessageParameters>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

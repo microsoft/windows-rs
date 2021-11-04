@@ -342,12 +342,12 @@ impl ::std::convert::From<&IWICBitmap> for IWICBitmapSource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for IWICBitmap {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for &IWICBitmap {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -432,12 +432,12 @@ impl ::std::convert::From<&IWICBitmapClipper> for IWICBitmapSource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for IWICBitmapClipper {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for &IWICBitmapClipper {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -599,12 +599,12 @@ impl ::std::convert::From<&IWICBitmapCodecInfo> for IWICComponentInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for IWICBitmapCodecInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for &IWICBitmapCodecInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -956,12 +956,12 @@ impl ::std::convert::From<&IWICBitmapDecoderInfo> for IWICBitmapCodecInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapCodecInfo> for IWICBitmapDecoderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapCodecInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapCodecInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapCodecInfo> for &IWICBitmapDecoderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapCodecInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapCodecInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWICBitmapDecoderInfo> for IWICComponentInfo {
@@ -976,12 +976,12 @@ impl ::std::convert::From<&IWICBitmapDecoderInfo> for IWICComponentInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for IWICBitmapDecoderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for &IWICBitmapDecoderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1275,12 +1275,12 @@ impl ::std::convert::From<&IWICBitmapEncoderInfo> for IWICBitmapCodecInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapCodecInfo> for IWICBitmapEncoderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapCodecInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapCodecInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapCodecInfo> for &IWICBitmapEncoderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapCodecInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapCodecInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWICBitmapEncoderInfo> for IWICComponentInfo {
@@ -1295,12 +1295,12 @@ impl ::std::convert::From<&IWICBitmapEncoderInfo> for IWICComponentInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for IWICBitmapEncoderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for &IWICBitmapEncoderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1412,12 +1412,12 @@ impl ::std::convert::From<&IWICBitmapFlipRotator> for IWICBitmapSource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for IWICBitmapFlipRotator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for &IWICBitmapFlipRotator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1510,12 +1510,12 @@ impl ::std::convert::From<&IWICBitmapFrameDecode> for IWICBitmapSource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for IWICBitmapFrameDecode {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for &IWICBitmapFrameDecode {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1754,12 +1754,12 @@ impl ::std::convert::From<&IWICBitmapScaler> for IWICBitmapSource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for IWICBitmapScaler {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for &IWICBitmapScaler {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2047,12 +2047,12 @@ impl ::std::convert::From<&IWICColorTransform> for IWICBitmapSource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for IWICColorTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for &IWICColorTransform {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2278,12 +2278,12 @@ impl ::std::convert::From<&IWICComponentFactory> for IWICImagingFactory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICImagingFactory> for IWICComponentFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICImagingFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICImagingFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICImagingFactory> for &IWICComponentFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICImagingFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICImagingFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2803,12 +2803,12 @@ impl ::std::convert::From<&IWICDevelopRaw> for IWICBitmapFrameDecode {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapFrameDecode> for IWICDevelopRaw {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapFrameDecode> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapFrameDecode>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapFrameDecode> for &IWICDevelopRaw {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapFrameDecode> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapFrameDecode>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWICDevelopRaw> for IWICBitmapSource {
@@ -2823,12 +2823,12 @@ impl ::std::convert::From<&IWICDevelopRaw> for IWICBitmapSource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for IWICDevelopRaw {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for &IWICDevelopRaw {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3103,12 +3103,12 @@ impl ::std::convert::From<&IWICFormatConverter> for IWICBitmapSource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for IWICFormatConverter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for &IWICFormatConverter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3217,12 +3217,12 @@ impl ::std::convert::From<&IWICFormatConverterInfo> for IWICComponentInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for IWICFormatConverterInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for &IWICFormatConverterInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3679,12 +3679,12 @@ impl ::std::convert::From<&IWICImagingFactory2> for IWICImagingFactory {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICImagingFactory> for IWICImagingFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICImagingFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICImagingFactory>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICImagingFactory> for &IWICImagingFactory2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICImagingFactory> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICImagingFactory>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4040,12 +4040,12 @@ impl ::std::convert::From<&IWICMetadataBlockWriter> for IWICMetadataBlockReader 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICMetadataBlockReader> for IWICMetadataBlockWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICMetadataBlockReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICMetadataBlockReader>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICMetadataBlockReader> for &IWICMetadataBlockWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICMetadataBlockReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICMetadataBlockReader>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4184,12 +4184,12 @@ impl ::std::convert::From<&IWICMetadataHandlerInfo> for IWICComponentInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for IWICMetadataHandlerInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for &IWICMetadataHandlerInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4361,12 +4361,12 @@ impl ::std::convert::From<&IWICMetadataQueryWriter> for IWICMetadataQueryReader 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICMetadataQueryReader> for IWICMetadataQueryWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICMetadataQueryReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICMetadataQueryReader>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICMetadataQueryReader> for &IWICMetadataQueryWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICMetadataQueryReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICMetadataQueryReader>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4598,12 +4598,12 @@ impl ::std::convert::From<&IWICMetadataReaderInfo> for IWICMetadataHandlerInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICMetadataHandlerInfo> for IWICMetadataReaderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICMetadataHandlerInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICMetadataHandlerInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICMetadataHandlerInfo> for &IWICMetadataReaderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICMetadataHandlerInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICMetadataHandlerInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWICMetadataReaderInfo> for IWICComponentInfo {
@@ -4618,12 +4618,12 @@ impl ::std::convert::From<&IWICMetadataReaderInfo> for IWICComponentInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for IWICMetadataReaderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for &IWICMetadataReaderInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4752,12 +4752,12 @@ impl ::std::convert::From<&IWICMetadataWriter> for IWICMetadataReader {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICMetadataReader> for IWICMetadataWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICMetadataReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICMetadataReader>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICMetadataReader> for &IWICMetadataWriter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICMetadataReader> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICMetadataReader>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4914,12 +4914,12 @@ impl ::std::convert::From<&IWICMetadataWriterInfo> for IWICMetadataHandlerInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICMetadataHandlerInfo> for IWICMetadataWriterInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICMetadataHandlerInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICMetadataHandlerInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICMetadataHandlerInfo> for &IWICMetadataWriterInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICMetadataHandlerInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICMetadataHandlerInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWICMetadataWriterInfo> for IWICComponentInfo {
@@ -4934,12 +4934,12 @@ impl ::std::convert::From<&IWICMetadataWriterInfo> for IWICComponentInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for IWICMetadataWriterInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for &IWICMetadataWriterInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5156,13 +5156,13 @@ impl ::std::convert::From<&IWICPersistStream> for super::super::System::Com::IPe
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersistStream> for IWICPersistStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IPersistStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IPersistStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersistStream> for &IWICPersistStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IPersistStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IPersistStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5180,13 +5180,13 @@ impl ::std::convert::From<&IWICPersistStream> for super::super::System::Com::IPe
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersist> for IWICPersistStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IPersist> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IPersist>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersist> for &IWICPersistStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IPersist> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IPersist>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5313,12 +5313,12 @@ impl ::std::convert::From<&IWICPixelFormatInfo> for IWICComponentInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for IWICPixelFormatInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for &IWICPixelFormatInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5462,12 +5462,12 @@ impl ::std::convert::From<&IWICPixelFormatInfo2> for IWICPixelFormatInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICPixelFormatInfo> for IWICPixelFormatInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICPixelFormatInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICPixelFormatInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICPixelFormatInfo> for &IWICPixelFormatInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICPixelFormatInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICPixelFormatInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWICPixelFormatInfo2> for IWICComponentInfo {
@@ -5482,12 +5482,12 @@ impl ::std::convert::From<&IWICPixelFormatInfo2> for IWICComponentInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for IWICPixelFormatInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICComponentInfo> for &IWICPixelFormatInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICComponentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICComponentInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5697,12 +5697,12 @@ impl ::std::convert::From<&IWICPlanarFormatConverter> for IWICBitmapSource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for IWICPlanarFormatConverter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWICBitmapSource> for &IWICPlanarFormatConverter {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWICBitmapSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWICBitmapSource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5931,13 +5931,13 @@ impl ::std::convert::From<&IWICStream> for super::super::System::Com::IStream {
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream> for IWICStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream> for &IWICStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5955,13 +5955,13 @@ impl ::std::convert::From<&IWICStream> for super::super::System::Com::ISequentia
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream> for IWICStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::ISequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::ISequentialStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream> for &IWICStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::ISequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::ISequentialStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

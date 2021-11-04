@@ -1544,12 +1544,12 @@ impl ::std::convert::From<&IABContainer> for IMAPIContainer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIContainer> for IABContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIContainer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIContainer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIContainer> for &IABContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIContainer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIContainer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IABContainer> for IMAPIProp {
@@ -1564,12 +1564,12 @@ impl ::std::convert::From<&IABContainer> for IMAPIProp {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for IABContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for &IABContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1810,12 +1810,12 @@ impl ::std::convert::From<&IAddrBook> for IMAPIProp {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for IAddrBook {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for &IAddrBook {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1967,12 +1967,12 @@ impl ::std::convert::From<&IAttach> for IMAPIProp {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for IAttach {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for &IAttach {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2142,12 +2142,12 @@ impl ::std::convert::From<&IDistList> for IMAPIContainer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIContainer> for IDistList {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIContainer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIContainer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIContainer> for &IDistList {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIContainer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIContainer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDistList> for IMAPIProp {
@@ -2162,12 +2162,12 @@ impl ::std::convert::From<&IDistList> for IMAPIProp {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for IDistList {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for &IDistList {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2374,12 +2374,12 @@ impl ::std::convert::From<&IMAPIContainer> for IMAPIProp {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for IMAPIContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for &IMAPIContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2648,12 +2648,12 @@ impl ::std::convert::From<&IMAPIFolder> for IMAPIContainer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIContainer> for IMAPIFolder {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIContainer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIContainer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIContainer> for &IMAPIFolder {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIContainer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIContainer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IMAPIFolder> for IMAPIProp {
@@ -2668,12 +2668,12 @@ impl ::std::convert::From<&IMAPIFolder> for IMAPIProp {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for IMAPIFolder {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for &IMAPIFolder {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3008,12 +3008,12 @@ impl ::std::convert::From<&IMAPIStatus> for IMAPIProp {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for IMAPIStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for &IMAPIStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3428,12 +3428,12 @@ impl ::std::convert::From<&IMailUser> for IMAPIProp {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for IMailUser {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for &IMailUser {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3596,12 +3596,12 @@ impl ::std::convert::From<&IMessage> for IMAPIProp {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for IMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for &IMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3794,12 +3794,12 @@ impl ::std::convert::From<&IMsgStore> for IMAPIProp {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for IMsgStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for &IMsgStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3940,12 +3940,12 @@ impl ::std::convert::From<&IProfSect> for IMAPIProp {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for IProfSect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for &IProfSect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4088,12 +4088,12 @@ impl ::std::convert::From<&IPropData> for IMAPIProp {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for IPropData {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMAPIProp> for &IPropData {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMAPIProp> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMAPIProp>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

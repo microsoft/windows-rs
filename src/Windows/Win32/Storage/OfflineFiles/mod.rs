@@ -473,12 +473,12 @@ impl ::std::convert::From<&IOfflineFilesCache2> for IOfflineFilesCache {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesCache> for IOfflineFilesCache2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesCache> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesCache>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesCache> for &IOfflineFilesCache2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesCache> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesCache>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -737,12 +737,12 @@ impl ::std::convert::From<&IOfflineFilesDirectoryItem> for IOfflineFilesItem {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesItem> for IOfflineFilesDirectoryItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesItem> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesItem>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesItem> for &IOfflineFilesDirectoryItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesItem> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesItem>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1252,12 +1252,12 @@ impl ::std::convert::From<&IOfflineFilesEvents2> for IOfflineFilesEvents {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesEvents> for IOfflineFilesEvents2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesEvents> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesEvents>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesEvents> for &IOfflineFilesEvents2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesEvents> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesEvents>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1536,12 +1536,12 @@ impl ::std::convert::From<&IOfflineFilesEvents3> for IOfflineFilesEvents2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesEvents2> for IOfflineFilesEvents3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesEvents2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesEvents2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesEvents2> for &IOfflineFilesEvents3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesEvents2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesEvents2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IOfflineFilesEvents3> for IOfflineFilesEvents {
@@ -1556,12 +1556,12 @@ impl ::std::convert::From<&IOfflineFilesEvents3> for IOfflineFilesEvents {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesEvents> for IOfflineFilesEvents3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesEvents> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesEvents>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesEvents> for &IOfflineFilesEvents3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesEvents> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesEvents>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1854,12 +1854,12 @@ impl ::std::convert::From<&IOfflineFilesEvents4> for IOfflineFilesEvents3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesEvents3> for IOfflineFilesEvents4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesEvents3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesEvents3>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesEvents3> for &IOfflineFilesEvents4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesEvents3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesEvents3>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IOfflineFilesEvents4> for IOfflineFilesEvents2 {
@@ -1874,12 +1874,12 @@ impl ::std::convert::From<&IOfflineFilesEvents4> for IOfflineFilesEvents2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesEvents2> for IOfflineFilesEvents4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesEvents2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesEvents2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesEvents2> for &IOfflineFilesEvents4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesEvents2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesEvents2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IOfflineFilesEvents4> for IOfflineFilesEvents {
@@ -1894,12 +1894,12 @@ impl ::std::convert::From<&IOfflineFilesEvents4> for IOfflineFilesEvents {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesEvents> for IOfflineFilesEvents4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesEvents> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesEvents>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesEvents> for &IOfflineFilesEvents4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesEvents> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesEvents>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2102,12 +2102,12 @@ impl ::std::convert::From<&IOfflineFilesFileItem> for IOfflineFilesItem {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesItem> for IOfflineFilesFileItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesItem> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesItem>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesItem> for &IOfflineFilesFileItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesItem> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesItem>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2559,12 +2559,12 @@ impl ::std::convert::From<&IOfflineFilesPinInfo2> for IOfflineFilesPinInfo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesPinInfo> for IOfflineFilesPinInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesPinInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesPinInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesPinInfo> for &IOfflineFilesPinInfo2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesPinInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesPinInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2712,12 +2712,12 @@ impl ::std::convert::From<&IOfflineFilesServerItem> for IOfflineFilesItem {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesItem> for IOfflineFilesServerItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesItem> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesItem>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesItem> for &IOfflineFilesServerItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesItem> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesItem>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2955,12 +2955,12 @@ impl ::std::convert::From<&IOfflineFilesShareItem> for IOfflineFilesItem {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesItem> for IOfflineFilesShareItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesItem> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesItem>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesItem> for &IOfflineFilesShareItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesItem> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesItem>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3047,12 +3047,12 @@ impl ::std::convert::From<&IOfflineFilesSimpleProgress> for IOfflineFilesProgres
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesProgress> for IOfflineFilesSimpleProgress {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesProgress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesProgress>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesProgress> for &IOfflineFilesSimpleProgress {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesProgress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesProgress>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3292,12 +3292,12 @@ impl ::std::convert::From<&IOfflineFilesSyncErrorInfo> for IOfflineFilesErrorInf
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesErrorInfo> for IOfflineFilesSyncErrorInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesErrorInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesErrorInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesErrorInfo> for &IOfflineFilesSyncErrorInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesErrorInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesErrorInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3446,12 +3446,12 @@ impl ::std::convert::From<&IOfflineFilesSyncProgress> for IOfflineFilesProgress 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesProgress> for IOfflineFilesSyncProgress {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesProgress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesProgress>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IOfflineFilesProgress> for &IOfflineFilesSyncProgress {
     fn into_param(self) -> ::windows::runtime::Param<'a, IOfflineFilesProgress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IOfflineFilesProgress>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

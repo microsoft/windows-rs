@@ -5328,12 +5328,12 @@ impl ::std::convert::From<&IDirect3D9Ex> for IDirect3D9 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3D9> for IDirect3D9Ex {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3D9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3D9>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3D9> for &IDirect3D9Ex {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3D9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3D9>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5468,12 +5468,12 @@ impl ::std::convert::From<&IDirect3DBaseTexture9> for IDirect3DResource9 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for IDirect3DBaseTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for &IDirect3DBaseTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5619,12 +5619,12 @@ impl ::std::convert::From<&IDirect3DCubeTexture9> for IDirect3DBaseTexture9 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DBaseTexture9> for IDirect3DCubeTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DBaseTexture9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DBaseTexture9>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DBaseTexture9> for &IDirect3DCubeTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DBaseTexture9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DBaseTexture9>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDirect3DCubeTexture9> for IDirect3DResource9 {
@@ -5639,12 +5639,12 @@ impl ::std::convert::From<&IDirect3DCubeTexture9> for IDirect3DResource9 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for IDirect3DCubeTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for &IDirect3DCubeTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7100,12 +7100,12 @@ impl ::std::convert::From<&IDirect3DDevice9Ex> for IDirect3DDevice9 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DDevice9> for IDirect3DDevice9Ex {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DDevice9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DDevice9>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DDevice9> for &IDirect3DDevice9Ex {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DDevice9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DDevice9>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7369,12 +7369,12 @@ impl ::std::convert::From<&IDirect3DIndexBuffer9> for IDirect3DResource9 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for IDirect3DIndexBuffer9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for &IDirect3DIndexBuffer9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7739,12 +7739,12 @@ impl ::std::convert::From<&IDirect3DSurface9> for IDirect3DResource9 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for IDirect3DSurface9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for &IDirect3DSurface9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7938,12 +7938,12 @@ impl ::std::convert::From<&IDirect3DSwapChain9Ex> for IDirect3DSwapChain9 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DSwapChain9> for IDirect3DSwapChain9Ex {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DSwapChain9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DSwapChain9>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DSwapChain9> for &IDirect3DSwapChain9Ex {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DSwapChain9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DSwapChain9>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8088,12 +8088,12 @@ impl ::std::convert::From<&IDirect3DTexture9> for IDirect3DBaseTexture9 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DBaseTexture9> for IDirect3DTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DBaseTexture9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DBaseTexture9>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DBaseTexture9> for &IDirect3DTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DBaseTexture9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DBaseTexture9>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDirect3DTexture9> for IDirect3DResource9 {
@@ -8108,12 +8108,12 @@ impl ::std::convert::From<&IDirect3DTexture9> for IDirect3DResource9 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for IDirect3DTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for &IDirect3DTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8231,12 +8231,12 @@ impl ::std::convert::From<&IDirect3DVertexBuffer9> for IDirect3DResource9 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for IDirect3DVertexBuffer9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for &IDirect3DVertexBuffer9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8551,12 +8551,12 @@ impl ::std::convert::From<&IDirect3DVolumeTexture9> for IDirect3DBaseTexture9 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DBaseTexture9> for IDirect3DVolumeTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DBaseTexture9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DBaseTexture9>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DBaseTexture9> for &IDirect3DVolumeTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DBaseTexture9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DBaseTexture9>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDirect3DVolumeTexture9> for IDirect3DResource9 {
@@ -8571,12 +8571,12 @@ impl ::std::convert::From<&IDirect3DVolumeTexture9> for IDirect3DResource9 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for IDirect3DVolumeTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for &IDirect3DVolumeTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

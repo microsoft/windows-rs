@@ -514,13 +514,13 @@ impl ::std::convert::From<&IFunctionInstance> for super::super::System::Com::ISe
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IServiceProvider> for IFunctionInstance {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IServiceProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IServiceProvider>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IServiceProvider> for &IFunctionInstance {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IServiceProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IServiceProvider>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
