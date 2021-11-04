@@ -9962,6 +9962,7 @@ pub const MP_STATUS_SUCCESS: u32 = 0u32;
 pub const MSDiscMasterObj: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1376569955, 20901, 4563, [145, 68, 0, 16, 75, 161, 28, 94]);
 pub const MSDiscRecorderObj: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1376569953, 20901, 4563, [145, 68, 0, 16, 75, 161, 28, 94]);
 pub const MSEnumDiscRecordersObj: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2315474554, 25547, 19368, [186, 246, 82, 17, 152, 22, 209, 239]);
+#[doc = "*Required features: `Win32_Storage_Imapi`, `Win32_System_AddressBook`*"]
 #[cfg(feature = "Win32_System_AddressBook")]
 pub type MSGCALLRELEASE = unsafe extern "system" fn(ulcallerdata: u32, lpmessage: ::windows::runtime::RawPtr);
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]

@@ -723,6 +723,7 @@ impl ::std::convert::From<i32> for EFFECTIVE_POWER_MODE {
 unsafe impl ::windows::runtime::Abi for EFFECTIVE_POWER_MODE {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_Power`*"]
 pub type EFFECTIVE_POWER_MODE_CALLBACK = unsafe extern "system" fn(mode: EFFECTIVE_POWER_MODE, context: *const ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const EFFECTIVE_POWER_MODE_V1: u32 = 1u32;
@@ -1514,6 +1515,7 @@ pub const PDCAP_WAKE_FROM_S1_SUPPORTED: u32 = 2097152u32;
 pub const PDCAP_WAKE_FROM_S2_SUPPORTED: u32 = 4194304u32;
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const PDCAP_WAKE_FROM_S3_SUPPORTED: u32 = 8388608u32;
+#[doc = "*Required features: `Win32_System_Power`*"]
 pub type PDEVICE_NOTIFY_CALLBACK_ROUTINE = unsafe extern "system" fn(context: *const ::std::ffi::c_void, r#type: u32, setting: *const ::std::ffi::c_void) -> u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -1957,8 +1959,10 @@ impl ::std::cmp::Eq for PROCESSOR_POWER_POLICY_INFO {}
 unsafe impl ::windows::runtime::Abi for PROCESSOR_POWER_POLICY_INFO {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWRSCHEMESENUMPROC = unsafe extern "system" fn(index: u32, namesize: u32, name: super::super::Foundation::PWSTR, descriptionsize: u32, description: super::super::Foundation::PWSTR, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN;
+#[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWRSCHEMESENUMPROC_V1 = unsafe extern "system" fn(index: u32, namesize: u32, name: *const i8, descriptionsize: u32, description: *const i8, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN;
 #[doc = "*Required features: `Win32_System_Power`*"]

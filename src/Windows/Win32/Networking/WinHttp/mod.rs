@@ -289,6 +289,7 @@ impl ::std::ops::Not for INTERNET_PORT {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub type LPWINHTTP_STATUS_CALLBACK = unsafe extern "system" fn();
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const NETWORKING_KEY_BUFSIZE: u32 = 128u32;
@@ -2420,6 +2421,7 @@ impl ::std::convert::From<i32> for WINHTTP_SECURE_DNS_SETTING {
 unsafe impl ::windows::runtime::Abi for WINHTTP_SECURE_DNS_SETTING {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub type WINHTTP_STATUS_CALLBACK = unsafe extern "system" fn(hinternet: *mut ::std::ffi::c_void, dwcontext: usize, dwinternetstatus: u32, lpvstatusinformation: *mut ::std::ffi::c_void, dwstatusinformationlength: u32);
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_TIME_FORMAT_BUFSIZE: u32 = 62u32;

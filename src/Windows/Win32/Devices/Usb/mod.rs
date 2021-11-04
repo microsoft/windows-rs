@@ -4287,6 +4287,7 @@ impl ::std::cmp::Eq for USB_HUB_STATUS_AND_CHANGE_0 {}
 unsafe impl ::windows::runtime::Abi for USB_HUB_STATUS_AND_CHANGE_0 {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Usb`*"]
 pub type USB_IDLE_CALLBACK = unsafe extern "system" fn(context: *const ::std::ffi::c_void);
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]

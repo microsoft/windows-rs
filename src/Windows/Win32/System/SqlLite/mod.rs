@@ -912,6 +912,7 @@ impl ::std::cmp::Eq for fts5_api {}
 unsafe impl ::windows::runtime::Abi for fts5_api {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_SqlLite`*"]
 pub type fts5_extension_function = unsafe extern "system" fn(papi: *const Fts5ExtensionApi, pfts: *mut Fts5Context, pctx: *mut sqlite3_context, nval: i32, apval: *mut *mut sqlite3_value);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3001,6 +3002,7 @@ pub unsafe fn sqlite3_busy_timeout(param0: *mut sqlite3, ms: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_SqlLite`*"]
 pub type sqlite3_callback = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: i32, param2: *mut *mut i8, param3: *mut *mut i8) -> i32;
 #[doc = "*Required features: `Win32_System_SqlLite`*"]
 #[inline]
@@ -3845,6 +3847,7 @@ pub unsafe fn sqlite3_deserialize<'a, Param1: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_SqlLite`*"]
 pub type sqlite3_destructor_type = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_System_SqlLite`*"]
 #[inline]
@@ -4629,6 +4632,7 @@ pub unsafe fn sqlite3_load_extension<'a, Param1: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type sqlite3_loadext_entry = unsafe extern "system" fn(db: *mut sqlite3, pzerrmsg: *mut *mut i8, pthunk: *const sqlite3_api_routines) -> i32;
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
@@ -6385,6 +6389,7 @@ pub unsafe fn sqlite3_strnicmp<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_SqlLite`*"]
 pub type sqlite3_syscall_ptr = unsafe extern "system" fn();
 #[doc = "*Required features: `Win32_System_SqlLite`*"]
 #[inline]

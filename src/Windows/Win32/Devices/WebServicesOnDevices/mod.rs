@@ -2898,6 +2898,7 @@ pub struct IWSDiscoveryPublisherNotify_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psoap: *const WSD_SOAP_MESSAGE, pmessageparameters: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWSD_SOAP_MESSAGE_HANDLER = unsafe extern "system" fn(thisunknown: ::windows::runtime::RawPtr, event: *mut ::std::mem::ManuallyDrop<WSD_EVENT>) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -5900,6 +5901,7 @@ impl ::std::cmp::Eq for WSD_SOAP_MESSAGE {}
 unsafe impl ::windows::runtime::Abi for WSD_SOAP_MESSAGE {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Devices_WebServicesOnDevices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WSD_STUB_FUNCTION = unsafe extern "system" fn(server: ::windows::runtime::RawPtr, session: ::windows::runtime::RawPtr, event: *mut ::std::mem::ManuallyDrop<WSD_EVENT>) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone)]

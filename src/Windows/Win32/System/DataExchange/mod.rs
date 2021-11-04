@@ -2162,6 +2162,7 @@ pub unsafe fn OpenClipboard<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_DataExchange`*"]
 pub type PFNCALLBACK = unsafe extern "system" fn(wtype: u32, wfmt: u32, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: usize, dwdata2: usize) -> HDDEDATA;
 #[doc = "*Required features: `Win32_System_DataExchange`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]

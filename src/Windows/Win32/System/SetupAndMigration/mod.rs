@@ -14,6 +14,7 @@ pub unsafe fn OOBEComplete(isoobecomplete: *mut super::super::Foundation::BOOL) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_SetupAndMigration`*"]
 pub type OOBE_COMPLETED_CALLBACK = unsafe extern "system" fn(callbackcontext: *const ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_System_SetupAndMigration`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]

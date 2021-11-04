@@ -814,8 +814,10 @@ pub unsafe fn DxcCreateInstance2<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_System_Com`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub type DxcCreateInstance2Proc = unsafe extern "system" fn(pmalloc: ::windows::runtime::RawPtr, rclsid: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub type DxcCreateInstanceProc = unsafe extern "system" fn(rclsid: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2888,9 +2890,12 @@ pub struct IDxcVersionInfo3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pversionstring: *mut *mut i8) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 pub type pD3DCompile = unsafe extern "system" fn(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize, pfilename: super::super::Foundation::PSTR, pdefines: *const super::Direct3D11::D3D_SHADER_MACRO, pinclude: ::windows::runtime::RawPtr, pentrypoint: super::super::Foundation::PSTR, ptarget: super::super::Foundation::PSTR, flags1: u32, flags2: u32, ppcode: *mut ::windows::runtime::RawPtr, pperrormsgs: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 pub type pD3DDisassemble = unsafe extern "system" fn(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: super::super::Foundation::PSTR, ppdisassembly: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 pub type pD3DPreprocess = unsafe extern "system" fn(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize, pfilename: super::super::Foundation::PSTR, pdefines: *const super::Direct3D11::D3D_SHADER_MACRO, pinclude: ::windows::runtime::RawPtr, ppcodetext: *mut ::windows::runtime::RawPtr, pperrormsgs: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;

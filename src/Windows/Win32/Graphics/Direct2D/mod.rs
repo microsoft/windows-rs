@@ -32149,6 +32149,9 @@ impl ::std::cmp::Eq for Matrix5x4F {}
 unsafe impl ::windows::runtime::Abi for Matrix5x4F {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 pub type PD2D1_EFFECT_FACTORY = unsafe extern "system" fn(effectimpl: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 pub type PD2D1_PROPERTY_GET_FUNCTION = unsafe extern "system" fn(effect: ::windows::runtime::RawPtr, data: *mut u8, datasize: u32, actualsize: *mut u32) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 pub type PD2D1_PROPERTY_SET_FUNCTION = unsafe extern "system" fn(effect: ::windows::runtime::RawPtr, data: *const u8, datasize: u32) -> ::windows::runtime::HRESULT;

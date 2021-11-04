@@ -193,6 +193,7 @@ unsafe impl ::windows::runtime::Abi for DRMBOUNDLICENSEPARAMS {
 }
 #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
 pub const DRMBOUNDLICENSEPARAMSVERSION: u32 = 1u32;
+#[doc = "*Required features: `Win32_Data_RightsManagement`*"]
 pub type DRMCALLBACK = unsafe extern "system" fn(param0: DRM_STATUS_MSG, param1: ::windows::runtime::HRESULT, param2: *mut ::std::ffi::c_void, param3: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Data_RightsManagement`*"]
 pub const DRMCALLBACKVERSION: u32 = 1u32;

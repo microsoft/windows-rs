@@ -6335,10 +6335,14 @@ impl ::std::cmp::Eq for PDF_RENDER_PARAMS {}
 unsafe impl ::windows::runtime::Abi for PDF_RENDER_PARAMS {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Dxgi`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 pub type PFN_PDF_CREATE_RENDERER = unsafe extern "system" fn(param0: ::windows::runtime::RawPtr, param1: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 pub type PINSPECT_HSTRING_CALLBACK = unsafe extern "system" fn(context: *const ::std::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 pub type PINSPECT_HSTRING_CALLBACK2 = unsafe extern "system" fn(context: *const ::std::ffi::c_void, readaddress: u64, length: u32, buffer: *mut u8) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_WinRT`*"]
 pub type PINSPECT_MEMORY_CALLBACK = unsafe extern "system" fn(context: *const ::std::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_System_WinRT`, `Win32_Graphics_Dxgi`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]

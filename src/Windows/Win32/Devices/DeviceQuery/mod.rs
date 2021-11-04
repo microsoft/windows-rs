@@ -745,5 +745,6 @@ impl ::std::cmp::Eq for HDEVQUERY__ {}
 unsafe impl ::windows::runtime::Abi for HDEVQUERY__ {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 pub type PDEV_QUERY_RESULT_CALLBACK = unsafe extern "system" fn(hdevquery: *const HDEVQUERY__, pcontext: *const ::std::ffi::c_void, pactiondata: *const DEV_QUERY_RESULT_ACTION_DATA);

@@ -628,8 +628,10 @@ impl ::std::cmp::Eq for INTERACTION_CONTEXT_OUTPUT2_0 {}
 unsafe impl ::windows::runtime::Abi for INTERACTION_CONTEXT_OUTPUT2_0 {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_UI_InteractionContext`, `Win32_UI_WindowsAndMessaging`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK = unsafe extern "system" fn(clientdata: *const ::std::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT);
+#[doc = "*Required features: `Win32_UI_InteractionContext`, `Win32_UI_WindowsAndMessaging`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK2 = unsafe extern "system" fn(clientdata: *const ::std::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT2);
 #[doc = "*Required features: `Win32_UI_InteractionContext`*"]

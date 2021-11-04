@@ -1651,11 +1651,17 @@ impl ::std::convert::From<i32> for POLICYPROPERTIES {
 unsafe impl ::windows::runtime::Abi for POLICYPROPERTIES {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 pub type PRADIUS_EXTENSION_FREE_ATTRIBUTES = unsafe extern "system" fn(pattrs: *mut RADIUS_ATTRIBUTE);
+#[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 pub type PRADIUS_EXTENSION_INIT = unsafe extern "system" fn() -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 pub type PRADIUS_EXTENSION_PROCESS = unsafe extern "system" fn(pattrs: *const RADIUS_ATTRIBUTE, pfaction: *mut RADIUS_ACTION) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 pub type PRADIUS_EXTENSION_PROCESS_2 = unsafe extern "system" fn(pecb: *mut RADIUS_EXTENSION_CONTROL_BLOCK) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 pub type PRADIUS_EXTENSION_PROCESS_EX = unsafe extern "system" fn(pinattrs: *const RADIUS_ATTRIBUTE, poutattrs: *mut *mut RADIUS_ATTRIBUTE, pfaction: *mut RADIUS_ACTION) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 pub type PRADIUS_EXTENSION_TERM = unsafe extern "system" fn();
 #[doc = "*Required features: `Win32_NetworkManagement_NetworkPolicyServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]

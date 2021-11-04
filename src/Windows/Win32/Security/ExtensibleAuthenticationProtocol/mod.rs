@@ -3299,6 +3299,7 @@ impl ::std::cmp::Eq for NgcTicketContext {}
 unsafe impl ::windows::runtime::Abi for NgcTicketContext {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 pub type NotificationHandler = unsafe extern "system" fn(connectionid: ::windows::runtime::GUID, pcontextdata: *mut ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_Security_ExtensibleAuthenticationProtocol`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]

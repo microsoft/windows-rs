@@ -1488,6 +1488,7 @@ pub const NLS_KATAKANA: u32 = 131072u32;
 pub const NLS_ROMAN: u32 = 4194304u32;
 #[doc = "*Required features: `Win32_System_Console`*"]
 pub const NUMLOCK_ON: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_Console`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PHANDLER_ROUTINE = unsafe extern "system" fn(ctrltype: u32) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_System_Console`*"]

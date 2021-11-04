@@ -3448,6 +3448,7 @@ impl ::std::cmp::Eq for PEB_LDR_DATA {}
 unsafe impl ::windows::runtime::Abi for PEB_LDR_DATA {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 pub type PINIT_ONCE_FN = unsafe extern "system" fn(initonce: *mut super::SystemServices::RTL_RUN_ONCE, parameter: *mut ::std::ffi::c_void, context: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_System_Threading`*"]
@@ -4112,6 +4113,7 @@ unsafe impl ::windows::runtime::Abi for PROCESS_PROTECTION_LEVEL_INFORMATION {
 }
 #[doc = "*Required features: `Win32_System_Threading`*"]
 pub const PROC_THREAD_ATTRIBUTE_REPLACE_VALUE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_Threading`*"]
 pub type PTIMERAPCROUTINE = unsafe extern "system" fn(lpargtocompletionroutine: *const ::std::ffi::c_void, dwtimerlowvalue: u32, dwtimerhighvalue: u32);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -4125,6 +4127,7 @@ unsafe impl ::windows::runtime::Handle for PTP_POOL {}
 unsafe impl ::windows::runtime::Abi for PTP_POOL {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_Threading`, `Win32_System_SystemServices`*"]
 #[cfg(feature = "Win32_System_SystemServices")]
 pub type PTP_WIN32_IO_CALLBACK = unsafe extern "system" fn(instance: *mut super::SystemServices::TP_CALLBACK_INSTANCE, context: *mut ::std::ffi::c_void, overlapped: *mut ::std::ffi::c_void, ioresult: u32, numberofbytestransferred: usize, io: *mut super::SystemServices::TP_IO);
 #[doc = "*Required features: `Win32_System_Threading`, `Win32_Foundation`*"]

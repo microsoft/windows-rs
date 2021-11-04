@@ -750,6 +750,7 @@ impl ::std::cmp::Eq for FWPM_CALLOUT_CHANGE0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_CALLOUT_CHANGE0 {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub type FWPM_CALLOUT_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, change: *const FWPM_CALLOUT_CHANGE0);
 pub const FWPM_CALLOUT_EDGE_TRAVERSAL_ALE_LISTEN_V4: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(860383925, 27998, 20069, [160, 11, 167, 175, 237, 11, 169, 161]);
 pub const FWPM_CALLOUT_EDGE_TRAVERSAL_ALE_RESOURCE_ASSIGNMENT_V4: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(127602704, 61893, 20429, [174, 5, 218, 65, 16, 122, 189, 11]);
@@ -1164,6 +1165,7 @@ impl ::std::cmp::Eq for FWPM_CONNECTION0_1 {}
 unsafe impl ::windows::runtime::Abi for FWPM_CONNECTION0_1 {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FWPM_CONNECTION_CALLBACK0 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, eventtype: FWPM_CONNECTION_EVENT_TYPE, connection: *const FWPM_CONNECTION0);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
@@ -1272,6 +1274,7 @@ impl ::std::cmp::Eq for FWPM_DISPLAY_DATA0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_DISPLAY_DATA0 {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub type FWPM_DYNAMIC_KEYWORD_CALLBACK0 = unsafe extern "system" fn(notification: *mut ::std::ffi::c_void, context: *mut ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1440,6 +1443,7 @@ impl ::std::cmp::Eq for FWPM_FILTER_CHANGE0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_FILTER_CHANGE0 {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub type FWPM_FILTER_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, change: *const FWPM_FILTER_CHANGE0);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2196,14 +2200,19 @@ impl ::std::cmp::Eq for FWPM_NET_EVENT5__0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT5__0 {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub type FWPM_NET_EVENT_CALLBACK0 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, event: *const FWPM_NET_EVENT1);
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub type FWPM_NET_EVENT_CALLBACK1 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, event: *const FWPM_NET_EVENT2);
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub type FWPM_NET_EVENT_CALLBACK2 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, event: *const FWPM_NET_EVENT3);
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub type FWPM_NET_EVENT_CALLBACK3 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, event: *const FWPM_NET_EVENT4_);
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub type FWPM_NET_EVENT_CALLBACK4 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, event: *const FWPM_NET_EVENT5_);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -3881,6 +3890,7 @@ impl ::std::cmp::Eq for FWPM_PROVIDER_CHANGE0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_PROVIDER_CHANGE0 {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub type FWPM_PROVIDER_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, change: *const FWPM_PROVIDER_CHANGE0);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4193,6 +4203,7 @@ impl ::std::cmp::Eq for FWPM_PROVIDER_CONTEXT_CHANGE0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_PROVIDER_CONTEXT_CHANGE0 {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub type FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, change: *const FWPM_PROVIDER_CONTEXT_CHANGE0);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4641,6 +4652,7 @@ impl ::std::cmp::Eq for FWPM_SUBLAYER_CHANGE0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_SUBLAYER_CHANGE0 {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub type FWPM_SUBLAYER_CHANGE_CALLBACK0 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, change: *const FWPM_SUBLAYER_CHANGE0);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4812,6 +4824,7 @@ impl ::std::cmp::Eq for FWPM_SYSTEM_PORTS_BY_TYPE0 {}
 unsafe impl ::windows::runtime::Abi for FWPM_SYSTEM_PORTS_BY_TYPE0 {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub type FWPM_SYSTEM_PORTS_CALLBACK0 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, sysports: *const FWPM_SYSTEM_PORTS0);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -4961,6 +4974,7 @@ impl ::std::cmp::Eq for FWPM_VSWITCH_EVENT0_0_1 {}
 unsafe impl ::windows::runtime::Abi for FWPM_VSWITCH_EVENT0_0_1 {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FWPM_VSWITCH_EVENT_CALLBACK0 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, vswitchevent: *const FWPM_VSWITCH_EVENT0) -> u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -12653,12 +12667,15 @@ impl ::std::cmp::Eq for IPSEC_KEY_MANAGER_CALLBACKS0 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_KEY_MANAGER_CALLBACKS0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub type IPSEC_KEY_MANAGER_DICTATE_KEY0 = unsafe extern "system" fn(inboundsadetails: *mut IPSEC_SA_DETAILS1, outboundsadetails: *mut IPSEC_SA_DETAILS1, keyingmodulegenkey: *mut super::super::Foundation::BOOL) -> u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IPSEC_KEY_MANAGER_FLAG_DICTATE_KEY: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK0 = unsafe extern "system" fn(iketraffic: *const IKEEXT_TRAFFIC0, willdictatekey: *mut super::super::Foundation::BOOL, weight: *mut u32);
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub type IPSEC_KEY_MANAGER_NOTIFY_KEY0 = unsafe extern "system" fn(inboundsa: *const IPSEC_SA_DETAILS1, outboundsa: *const IPSEC_SA_DETAILS1);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
@@ -13180,6 +13197,7 @@ impl ::std::cmp::Eq for IPSEC_SA_CONTEXT1 {}
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_CONTEXT1 {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub type IPSEC_SA_CONTEXT_CALLBACK0 = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, change: *const IPSEC_SA_CONTEXT_CHANGE0);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]

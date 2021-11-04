@@ -78,6 +78,7 @@ impl ::std::convert::From<i32> for EXCEPTION_DISPOSITION {
 unsafe impl ::windows::runtime::Abi for EXCEPTION_DISPOSITION {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_Kernel`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_SystemServices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
 pub type EXCEPTION_ROUTINE = unsafe extern "system" fn(exceptionrecord: *mut super::Diagnostics::Debug::EXCEPTION_RECORD, establisherframe: *const ::std::ffi::c_void, contextrecord: *mut super::Diagnostics::Debug::CONTEXT, dispatchercontext: *const ::std::ffi::c_void) -> EXCEPTION_DISPOSITION;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]

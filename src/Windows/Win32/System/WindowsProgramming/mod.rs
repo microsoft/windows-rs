@@ -210,6 +210,7 @@ pub const ALINF_ROLLBACK: u32 = 64u32;
 pub const ALINF_ROLLBKDOALL: u32 = 256u32;
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const ALINF_UPDHLPDLLS: u32 = 16u32;
+#[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub type APPLICATION_RECOVERY_CALLBACK = unsafe extern "system" fn(pvparameter: *mut ::std::ffi::c_void) -> u32;
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const ARSR_NOMESSAGES: u32 = 8u32;
@@ -2094,6 +2095,7 @@ pub const EFS_USE_RECOVERY_KEYS: u32 = 1u32;
 pub const ENTITY_LIST_ID: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const ENTITY_TYPE_ID: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub type ENUM_CALLBACK = unsafe extern "system" fn(lpsurfaceinfo: *mut DCISURFACEINFO, lpcontext: *mut ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const ER_ICMP: u32 = 896u32;
@@ -11615,6 +11617,7 @@ pub const LOGON32_PROVIDER_VIRTUAL: u32 = 4u32;
 pub const LOGON32_PROVIDER_WINNT35: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const LOGON_ZERO_PASSWORD_BUFFER: u32 = 2147483648u32;
+#[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub type LPFIBER_START_ROUTINE = unsafe extern "system" fn(lpfiberparameter: *mut ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const LPTx: u32 = 128u32;
@@ -12238,6 +12241,7 @@ pub unsafe fn OpenWaitableTimerA<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_WindowsProgramming`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 pub type PDELAYLOAD_FAILURE_DLL_CALLBACK = unsafe extern "system" fn(notificationreason: u32, delayloadinfo: *const DELAYLOAD_INFO) -> *mut ::std::ffi::c_void;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -12338,11 +12342,16 @@ impl ::std::cmp::Eq for PERUSERSECTIONW {}
 unsafe impl ::windows::runtime::Abi for PERUSERSECTIONW {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub type PFEATURE_STATE_CHANGE_CALLBACK = unsafe extern "system" fn(context: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub type PFIBER_CALLOUT_ROUTINE = unsafe extern "system" fn(lpparameter: *mut ::std::ffi::c_void) -> *mut ::std::ffi::c_void;
+#[doc = "*Required features: `Win32_System_WindowsProgramming`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PIO_APC_ROUTINE = unsafe extern "system" fn(apccontext: *mut ::std::ffi::c_void, iostatusblock: *mut IO_STATUS_BLOCK, reserved: u32);
+#[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub type PPS_POST_PROCESS_INIT_ROUTINE = unsafe extern "system" fn();
+#[doc = "*Required features: `Win32_System_WindowsProgramming`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PQUERYACTCTXW_FUNC = unsafe extern "system" fn(dwflags: u32, hactctx: super::super::Foundation::HANDLE, pvsubinstance: *const ::std::ffi::c_void, ulinfoclass: u32, pvbuffer: *mut ::std::ffi::c_void, cbbuffer: usize, pcbwrittenorrequired: *mut usize) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
@@ -12479,30 +12488,45 @@ impl ::std::cmp::Eq for PUBLIC_OBJECT_TYPE_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for PUBLIC_OBJECT_TYPE_INFORMATION {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_WindowsProgramming`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWINSTATIONQUERYINFORMATIONW = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: WINSTATIONINFOCLASS, param3: *mut ::std::ffi::c_void, param4: u32, param5: *mut u32) -> super::super::Foundation::BOOLEAN;
+#[doc = "*Required features: `Win32_System_WindowsProgramming`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLDP_ISAPPAPPROVEDBYPOLICY_API = unsafe extern "system" fn(packagefamilyname: super::super::Foundation::PWSTR, packageversion: u64) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_WindowsProgramming`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLDP_ISDYNAMICCODEPOLICYENABLED_API = unsafe extern "system" fn(pbenabled: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_WindowsProgramming`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLDP_ISPRODUCTIONCONFIGURATION_API = unsafe extern "system" fn(isproductionconfiguration: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_WindowsProgramming`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLDP_ISWCOSPRODUCTIONCONFIGURATION_API = unsafe extern "system" fn(isproductionconfiguration: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_WindowsProgramming`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLDP_QUERYDEVICESECURITYINFORMATION_API = unsafe extern "system" fn(information: *mut WLDP_DEVICE_SECURITY_INFORMATION, informationlength: u32, returnlength: *mut u32) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_WindowsProgramming`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLDP_QUERYDYNAMICODETRUST_API = unsafe extern "system" fn(filehandle: super::super::Foundation::HANDLE, baseimage: *const ::std::ffi::c_void, imagesize: u32) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_WindowsProgramming`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLDP_QUERYPOLICYSETTINGENABLED2_API = unsafe extern "system" fn(setting: super::super::Foundation::PWSTR, enabled: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_WindowsProgramming`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLDP_QUERYPOLICYSETTINGENABLED_API = unsafe extern "system" fn(setting: WLDP_POLICY_SETTING, enabled: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub type PWLDP_QUERYWINDOWSLOCKDOWNMODE_API = unsafe extern "system" fn(lockdownmode: *mut WLDP_WINDOWS_LOCKDOWN_MODE) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub type PWLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_API = unsafe extern "system" fn(lockdownrestriction: *mut WLDP_WINDOWS_LOCKDOWN_RESTRICTION) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub type PWLDP_RESETPRODUCTIONCONFIGURATION_API = unsafe extern "system" fn() -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub type PWLDP_RESETWCOSPRODUCTIONCONFIGURATION_API = unsafe extern "system" fn() -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_WindowsProgramming`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLDP_SETDYNAMICCODETRUST_API = unsafe extern "system" fn(hfilehandle: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub type PWLDP_SETWINDOWSLOCKDOWNRESTRICTION_API = unsafe extern "system" fn(lockdownrestriction: WLDP_WINDOWS_LOCKDOWN_RESTRICTION) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const QUERY_ACTCTX_FLAG_ACTCTX_IS_ADDRESS: u32 = 16u32;
@@ -12646,6 +12670,7 @@ pub unsafe fn QueryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise: 
 }
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub const RECOVERY_DEFAULT_PING_INTERVAL: u32 = 5000u32;
+#[doc = "*Required features: `Win32_System_WindowsProgramming`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type REGINSTALLA = unsafe extern "system" fn(hm: super::super::Foundation::HINSTANCE, pszsection: super::super::Foundation::PSTR, psttable: *mut STRTABLEA) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
@@ -14786,6 +14811,7 @@ impl ::std::cmp::Eq for WINSTATIONINFORMATIONW {}
 unsafe impl ::windows::runtime::Abi for WINSTATIONINFORMATIONW {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_WindowsProgramming`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WINWATCHNOTIFYPROC = unsafe extern "system" fn(hww: HWINWATCH, hwnd: super::super::Foundation::HWND, code: u32, lparam: super::super::Foundation::LPARAM);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]

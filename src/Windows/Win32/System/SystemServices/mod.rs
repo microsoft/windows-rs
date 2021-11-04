@@ -369,6 +369,7 @@ unsafe impl ::windows::runtime::Abi for ANON_OBJECT_HEADER_V2 {
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ANYSIZE_ARRAY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type APC_CALLBACK_FUNCTION = unsafe extern "system" fn(param0: u32, param1: *mut ::std::ffi::c_void, param2: *mut ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10786,6 +10787,7 @@ pub const FRAME_NONFPO: u32 = 3u32;
 pub const FRAME_TRAP: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FRAME_TSS: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type FREEOBJPROC = unsafe extern "system" fn(pdriverobj: *mut ::std::mem::ManuallyDrop<super::super::UI::DisplayDevices::DRIVEROBJ>) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -18229,34 +18231,53 @@ pub const LOCKP_FAIL_WRITES: u32 = 0u32;
 pub const LOCKP_LOCK_FOR_FORMAT: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LOCKP_USER_MASK: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPD3DENUMDEVICESCALLBACK = unsafe extern "system" fn(lpguid: *mut ::windows::runtime::GUID, lpdevicedescription: super::super::Foundation::PSTR, lpdevicename: super::super::Foundation::PSTR, param3: *mut _D3DDeviceDesc, param4: *mut _D3DDeviceDesc, param5: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPD3DENUMDEVICESCALLBACK7 = unsafe extern "system" fn(lpdevicedescription: super::super::Foundation::PSTR, lpdevicename: super::super::Foundation::PSTR, param2: *mut _D3DDeviceDesc7, param3: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_DirectDraw`*"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub type LPD3DENUMPIXELFORMATSCALLBACK = unsafe extern "system" fn(lpddpixfmt: *mut super::super::Graphics::DirectDraw::DDPIXELFORMAT, lpcontext: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_DirectDraw`*"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub type LPD3DENUMTEXTUREFORMATSCALLBACK = unsafe extern "system" fn(lpddsd: *mut super::super::Graphics::DirectDraw::DDSURFACEDESC, lpcontext: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub type LPD3DNTHAL_CLEAR2CB = unsafe extern "system" fn(param0: *mut D3DNTHAL_CLEAR2DATA) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 pub type LPD3DNTHAL_CONTEXTCREATECB = unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTCREATEDATA) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type LPD3DNTHAL_CONTEXTDESTROYALLCB = unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTDESTROYALLDATA) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type LPD3DNTHAL_CONTEXTDESTROYCB = unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTDESTROYDATA) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 pub type LPD3DNTHAL_DRAWPRIMITIVES2CB = unsafe extern "system" fn(param0: *mut D3DNTHAL_DRAWPRIMITIVES2DATA) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type LPD3DNTHAL_SCENECAPTURECB = unsafe extern "system" fn(param0: *mut D3DNTHAL_SCENECAPTUREDATA) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 pub type LPD3DNTHAL_SETRENDERTARGETCB = unsafe extern "system" fn(param0: *mut D3DNTHAL_SETRENDERTARGETDATA) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPD3DNTHAL_TEXTURECREATECB = unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTURECREATEDATA) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type LPD3DNTHAL_TEXTUREDESTROYCB = unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTUREDESTROYDATA) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPD3DNTHAL_TEXTUREGETSURFCB = unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTUREGETSURFDATA) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type LPD3DNTHAL_TEXTURESWAPCB = unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTURESWAPDATA) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type LPD3DNTHAL_VALIDATETEXTURESTAGESTATECB = unsafe extern "system" fn(param0: *mut D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type LPD3DVALIDATECALLBACK = unsafe extern "system" fn(lpuserarg: *mut ::std::ffi::c_void, dwoffset: u32) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type LPTHREAD_START_ROUTINE = unsafe extern "system" fn(lpthreadparameter: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type LPTIMECALLBACK = unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LTP_PC_SMT: u32 = 1u32;
@@ -19220,6 +19241,7 @@ pub const PAL_CMYK: u32 = 16u32;
 pub const PAL_INDEXED: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PAL_RGB: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PAPCFUNC = unsafe extern "system" fn(parameter: usize);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PDCAP_D0_SUPPORTED: u32 = 1u32;
@@ -19263,19 +19285,28 @@ pub const PERFSTATE_POLICY_CHANGE_INCREASE_MAX: u32 = 3u32;
 pub const PERFSTATE_POLICY_CHANGE_ROCKET: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PERFSTATE_POLICY_CHANGE_SINGLE: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub type PEXCEPTION_FILTER = unsafe extern "system" fn(exceptionpointers: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS, establisherframe: *const ::std::ffi::c_void) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFLS_CALLBACK_FUNCTION = unsafe extern "system" fn(lpflsdata: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN = unsafe extern "system" fn() -> isize;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFND3DNTPARSEUNKNOWNCOMMAND = unsafe extern "system" fn(lpvcommands: *mut ::std::ffi::c_void, lplpvreturnedcommand: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvAccumulateD3DDirtyRect = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut CDDDXGK_REDIRBITMAPPRESENTINFO) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvAlphaBlend = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::SURFOBJ, param2: *mut super::super::UI::DisplayDevices::CLIPOBJ, param3: *mut super::super::UI::DisplayDevices::XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::RECTL, param6: *mut super::super::UI::DisplayDevices::BLENDOBJ) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvAssertMode = unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvAssociateSharedSurface = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: super::super::Foundation::HANDLE, param2: super::super::Foundation::HANDLE, param3: super::super::Foundation::SIZE) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvBitBlt = unsafe extern "system" fn(
     param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
@@ -19290,78 +19321,120 @@ pub type PFN_DrvBitBlt = unsafe extern "system" fn(
     param9: *mut super::super::Foundation::POINTL,
     param10: u32,
 ) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvCompletePDEV = unsafe extern "system" fn(param0: DHPDEV, param1: HDEV);
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvCopyBits = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::SURFOBJ, param2: *mut super::super::UI::DisplayDevices::CLIPOBJ, param3: *mut super::super::UI::DisplayDevices::XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type PFN_DrvCreateDeviceBitmap = unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::SIZE, param2: u32) -> super::super::Graphics::Gdi::HBITMAP;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type PFN_DrvCreateDeviceBitmapEx = unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::SIZE, param2: u32, param3: u32, param4: DHSURF, param5: u32, param6: u32, param7: *mut super::super::Foundation::HANDLE) -> super::super::Graphics::Gdi::HBITMAP;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvDeleteDeviceBitmap = unsafe extern "system" fn(param0: DHSURF);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvDeleteDeviceBitmapEx = unsafe extern "system" fn(param0: DHSURF);
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvDeriveSurface = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::DD_DIRECTDRAW_GLOBAL, param1: *mut super::super::UI::DisplayDevices::DD_SURFACE_LOCAL) -> super::super::Graphics::Gdi::HBITMAP;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_OpenGL`*"]
 #[cfg(feature = "Win32_Graphics_OpenGL")]
 pub type PFN_DrvDescribePixelFormat = unsafe extern "system" fn(param0: DHPDEV, param1: i32, param2: u32, param3: *mut super::super::Graphics::OpenGL::PIXELFORMATDESCRIPTOR) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvDestroyFont = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::FONTOBJ);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvDisableDirectDraw = unsafe extern "system" fn(param0: DHPDEV);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvDisableDriver = unsafe extern "system" fn();
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvDisablePDEV = unsafe extern "system" fn(param0: DHPDEV);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvDisableSurface = unsafe extern "system" fn(param0: DHPDEV);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvDitherColor = unsafe extern "system" fn(param0: DHPDEV, param1: u32, param2: u32, param3: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvDrawEscape = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: u32, param2: *mut super::super::UI::DisplayDevices::CLIPOBJ, param3: *mut super::super::Foundation::RECTL, param4: u32, param5: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvEnableDirectDraw = unsafe extern "system" fn(param0: DHPDEV, param1: *mut ::std::mem::ManuallyDrop<super::super::UI::DisplayDevices::DD_CALLBACKS>, param2: *mut ::std::mem::ManuallyDrop<super::super::UI::DisplayDevices::DD_SURFACECALLBACKS>, param3: *mut ::std::mem::ManuallyDrop<super::super::UI::DisplayDevices::DD_PALETTECALLBACKS>) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvEnableDriver = unsafe extern "system" fn(param0: u32, param1: u32, param2: *mut super::super::UI::DisplayDevices::DRVENABLEDATA) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvEnablePDEV = unsafe extern "system" fn(param0: *mut super::super::Graphics::Gdi::DEVMODEW, param1: super::super::Foundation::PWSTR, param2: u32, param3: *mut super::super::UI::DisplayDevices::HSURF, param4: u32, param5: *mut super::super::UI::DisplayDevices::GDIINFO, param6: u32, param7: *mut super::super::UI::DisplayDevices::DEVINFO, param8: HDEV, param9: super::super::Foundation::PWSTR, param10: super::super::Foundation::HANDLE) -> DHPDEV;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_UI_DisplayDevices`*"]
 #[cfg(feature = "Win32_UI_DisplayDevices")]
 pub type PFN_DrvEnableSurface = unsafe extern "system" fn(param0: DHPDEV) -> super::super::UI::DisplayDevices::HSURF;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvEndDoc = unsafe extern "system" fn(pso: *mut super::super::UI::DisplayDevices::SURFOBJ, fl: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvEndDxInterop = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: super::super::Foundation::BOOL, param2: *mut super::super::Foundation::BOOL, kernelmodedevicehandle: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvEscape = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: u32, param2: u32, param3: *mut ::std::ffi::c_void, param4: u32, param5: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvFillPath = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::PATHOBJ, param2: *mut super::super::UI::DisplayDevices::CLIPOBJ, param3: *mut super::super::UI::DisplayDevices::BRUSHOBJ, param4: *mut super::super::Foundation::POINTL, param5: u32, param6: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvFontManagement = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::FONTOBJ, param2: u32, param3: u32, param4: *mut ::std::ffi::c_void, param5: u32, param6: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvFree = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: usize);
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvGetDirectDrawInfo = unsafe extern "system" fn(param0: DHPDEV, param1: *mut ::std::mem::ManuallyDrop<super::super::UI::DisplayDevices::DD_HALINFO>, param2: *mut u32, param3: *mut super::super::UI::DisplayDevices::VIDEOMEMORY, param4: *mut u32, param5: *mut u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvGetGlyphMode = unsafe extern "system" fn(dhpdev: DHPDEV, pfo: *mut super::super::UI::DisplayDevices::FONTOBJ) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type PFN_DrvGetModes = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: *mut super::super::Graphics::Gdi::DEVMODEW) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvGetTrueTypeFile = unsafe extern "system" fn(param0: usize, param1: *mut u32) -> *mut ::std::ffi::c_void;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvGradientFill = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::CLIPOBJ, param2: *mut super::super::UI::DisplayDevices::XLATEOBJ, param3: *mut super::super::Graphics::Gdi::TRIVERTEX, param4: u32, param5: *mut ::std::ffi::c_void, param6: u32, param7: *mut super::super::Foundation::RECTL, param8: *mut super::super::Foundation::POINTL, param9: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvIcmCheckBitmapBits = unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::HANDLE, param2: *mut super::super::UI::DisplayDevices::SURFOBJ, param3: *mut u8) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_ColorSystem`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_ColorSystem"))]
 pub type PFN_DrvIcmCreateColorTransform = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::UI::ColorSystem::LOGCOLORSPACEW, param2: *mut ::std::ffi::c_void, param3: u32, param4: *mut ::std::ffi::c_void, param5: u32, param6: *mut ::std::ffi::c_void, param7: u32, param8: u32) -> super::super::Foundation::HANDLE;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvIcmDeleteColorTransform = unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvIcmSetDeviceGammaRamp = unsafe extern "system" fn(param0: DHPDEV, param1: u32, param2: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvLineTo = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::CLIPOBJ, param2: *mut super::super::UI::DisplayDevices::BRUSHOBJ, param3: i32, param4: i32, param5: i32, param6: i32, param7: *mut super::super::Foundation::RECTL, param8: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Gdi`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type PFN_DrvLoadFontFile = unsafe extern "system" fn(param0: u32, param1: *mut usize, param2: *mut *mut ::std::ffi::c_void, param3: *mut u32, param4: *mut super::super::Graphics::Gdi::DESIGNVECTOR, param5: u32, param6: u32) -> usize;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvLockDisplayArea = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL);
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvMovePointer = unsafe extern "system" fn(pso: *mut super::super::UI::DisplayDevices::SURFOBJ, x: i32, y: i32, prcl: *mut super::super::Foundation::RECTL);
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvNextBand = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, ppointl: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvNotify = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: u32, param2: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvPaint = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::CLIPOBJ, param2: *mut super::super::UI::DisplayDevices::BRUSHOBJ, param3: *mut super::super::Foundation::POINTL, param4: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvPlgBlt = unsafe extern "system" fn(
     param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
@@ -19376,50 +19449,76 @@ pub type PFN_DrvPlgBlt = unsafe extern "system" fn(
     param9: *mut super::super::Foundation::POINTL,
     param10: u32,
 ) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvQueryAdvanceWidths = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::UI::DisplayDevices::FONTOBJ, param2: u32, param3: *mut u32, param4: *mut ::std::ffi::c_void, param5: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvQueryDeviceSupport = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::XLATEOBJ, param2: *mut XFORMOBJ, param3: u32, param4: u32, param5: *mut ::std::ffi::c_void, param6: u32, param7: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvQueryFont = unsafe extern "system" fn(param0: DHPDEV, param1: usize, param2: u32, param3: *mut usize) -> *mut super::super::UI::DisplayDevices::IFIMETRICS;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvQueryFontCaps = unsafe extern "system" fn(param0: u32, param1: *mut u32) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvQueryFontData = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::UI::DisplayDevices::FONTOBJ, param2: u32, param3: u32, param4: *mut super::super::UI::DisplayDevices::GLYPHDATA, param5: *mut ::std::ffi::c_void, param6: u32) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvQueryFontFile = unsafe extern "system" fn(param0: usize, param1: u32, param2: u32, param3: *mut u32) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvQueryFontTree = unsafe extern "system" fn(param0: DHPDEV, param1: usize, param2: u32, param3: u32, param4: *mut usize) -> *mut ::std::ffi::c_void;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvQueryPerBandInfo = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::PERBANDINFO) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvQuerySpoolType = unsafe extern "system" fn(dhpdev: DHPDEV, pwchtype: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvQueryTrueTypeOutline = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::UI::DisplayDevices::FONTOBJ, param2: u32, param3: super::super::Foundation::BOOL, param4: *mut super::super::UI::DisplayDevices::GLYPHDATA, param5: u32, param6: *mut super::super::Graphics::Gdi::TTPOLYGONHEADER) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvQueryTrueTypeSection = unsafe extern "system" fn(param0: u32, param1: u32, param2: u32, param3: *mut super::super::Foundation::HANDLE, param4: *mut i32) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvQueryTrueTypeTable = unsafe extern "system" fn(param0: usize, param1: u32, param2: u32, param3: i32, param4: u32, param5: *mut u8, param6: *mut *mut u8, param7: *mut u32) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvRealizeBrush = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::BRUSHOBJ, param1: *mut super::super::UI::DisplayDevices::SURFOBJ, param2: *mut super::super::UI::DisplayDevices::SURFOBJ, param3: *mut super::super::UI::DisplayDevices::SURFOBJ, param4: *mut super::super::UI::DisplayDevices::XLATEOBJ, param5: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvRenderHint = unsafe extern "system" fn(dhpdev: DHPDEV, notifycode: u32, length: usize, data: *const ::std::ffi::c_void) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvResetDevice = unsafe extern "system" fn(param0: DHPDEV, param1: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvResetPDEV = unsafe extern "system" fn(dhpdevold: DHPDEV, dhpdevnew: DHPDEV) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvSaveScreenBits = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: u32, param2: usize, param3: *mut super::super::Foundation::RECTL) -> usize;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvSendPage = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvSetPalette = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::UI::DisplayDevices::PALOBJ, param2: u32, param3: u32, param4: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvSetPixelFormat = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: i32, param2: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvSetPointerShape = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::SURFOBJ, param2: *mut super::super::UI::DisplayDevices::SURFOBJ, param3: *mut super::super::UI::DisplayDevices::XLATEOBJ, param4: i32, param5: i32, param6: i32, param7: i32, param8: *mut super::super::Foundation::RECTL, param9: u32) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvStartBanding = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, ppointl: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvStartDoc = unsafe extern "system" fn(pso: *mut super::super::UI::DisplayDevices::SURFOBJ, pwszdocname: super::super::Foundation::PWSTR, dwjobid: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvStartDxInterop = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: super::super::Foundation::BOOL, kernelmodedevicehandle: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvStartPage = unsafe extern "system" fn(pso: *mut super::super::UI::DisplayDevices::SURFOBJ) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvStretchBlt = unsafe extern "system" fn(
     param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
@@ -19434,6 +19533,7 @@ pub type PFN_DrvStretchBlt = unsafe extern "system" fn(
     param9: *mut super::super::Foundation::POINTL,
     param10: u32,
 ) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvStretchBltROP = unsafe extern "system" fn(
     param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
@@ -19450,21 +19550,29 @@ pub type PFN_DrvStretchBltROP = unsafe extern "system" fn(
     param11: *mut super::super::UI::DisplayDevices::BRUSHOBJ,
     param12: u32,
 ) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvStrokeAndFillPath =
     unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::PATHOBJ, param2: *mut super::super::UI::DisplayDevices::CLIPOBJ, param3: *mut XFORMOBJ, param4: *mut super::super::UI::DisplayDevices::BRUSHOBJ, param5: *mut super::super::UI::DisplayDevices::LINEATTRS, param6: *mut super::super::UI::DisplayDevices::BRUSHOBJ, param7: *mut super::super::Foundation::POINTL, param8: u32, param9: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvStrokePath = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::PATHOBJ, param2: *mut super::super::UI::DisplayDevices::CLIPOBJ, param3: *mut XFORMOBJ, param4: *mut super::super::UI::DisplayDevices::BRUSHOBJ, param5: *mut super::super::Foundation::POINTL, param6: *mut super::super::UI::DisplayDevices::LINEATTRS, param7: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvSurfaceComplete = unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvSwapBuffers = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::WNDOBJ) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvSynchronize = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL);
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvSynchronizeRedirectionBitmaps = unsafe extern "system" fn(param0: DHPDEV, param1: *mut u64) -> super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvSynchronizeSurface = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::Foundation::RECTL, param2: u32);
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvTextOut = unsafe extern "system" fn(
     param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
@@ -19478,26 +19586,37 @@ pub type PFN_DrvTextOut = unsafe extern "system" fn(
     param8: *mut super::super::Foundation::POINTL,
     param9: u32,
 ) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvTransparentBlt = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::SURFOBJ, param2: *mut super::super::UI::DisplayDevices::CLIPOBJ, param3: *mut super::super::UI::DisplayDevices::XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::RECTL, param6: u32, param7: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvUnloadFontFile = unsafe extern "system" fn(param0: usize) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvUnlockDisplayArea = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL);
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_EngCombineRgn = unsafe extern "system" fn(hrgntrg: super::super::Foundation::HANDLE, hrgnsrc1: super::super::Foundation::HANDLE, hrgnsrc2: super::super::Foundation::HANDLE, imode: i32) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_EngCopyRgn = unsafe extern "system" fn(hrgndst: super::super::Foundation::HANDLE, hrgnsrc: super::super::Foundation::HANDLE) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_EngCreateRectRgn = unsafe extern "system" fn(left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::HANDLE;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_EngDeleteRgn = unsafe extern "system" fn(hrgn: super::super::Foundation::HANDLE);
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_EngIntersectRgn = unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_EngSubtractRgn = unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_EngUnionRgn = unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_EngXorRgn = unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -19542,8 +19661,11 @@ pub const PF_TEMPORAL_LEVEL_1: u32 = 1u32;
 pub const PF_TEMPORAL_LEVEL_2: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PF_TEMPORAL_LEVEL_3: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PGET_RUNTIME_FUNCTION_CALLBACK = unsafe extern "system" fn(controlpc: u64, context: *const ::std::ffi::c_void) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PGET_RUNTIME_FUNCTION_CALLBACK = unsafe extern "system" fn(controlpc: u64, context: *const ::std::ffi::c_void) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PIMAGE_TLS_CALLBACK = unsafe extern "system" fn(dllhandle: *mut ::std::ffi::c_void, reason: u32, reserved: *mut ::std::ffi::c_void);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19628,8 +19750,10 @@ unsafe impl ::windows::runtime::Abi for POINTQF {
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POLICY_AUDIT_SUBCATEGORY_COUNT: u32 = 59u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const ::std::ffi::c_void, entries: *mut u32, functions: *mut *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const ::std::ffi::c_void, entries: *mut u32, functions: *mut *mut IMAGE_RUNTIME_FUNCTION_ENTRY) -> u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -22953,16 +23077,25 @@ pub const PRODUCT_XBOX_NATIVEOS: u32 = 193u32;
 pub const PRODUCT_XBOX_SCARLETTHOSTOS: u32 = 197u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_XBOX_SYSTEMOS: u32 = 192u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PRTL_UMS_SCHEDULER_ENTRY_POINT = unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PTERMINATION_HANDLER = unsafe extern "system" fn(_abnormal_termination: super::super::Foundation::BOOLEAN, establisherframe: u64);
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PTERMINATION_HANDLER = unsafe extern "system" fn(_abnormal_termination: super::super::Foundation::BOOLEAN, establisherframe: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PTP_CLEANUP_GROUP_CANCEL_CALLBACK = unsafe extern "system" fn(objectcontext: *mut ::std::ffi::c_void, cleanupcontext: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PTP_SIMPLE_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PTP_TIMER_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::std::ffi::c_void, timer: *mut TP_TIMER);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PTP_WAIT_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::std::ffi::c_void, wait: *mut TP_WAIT, waitresult: u32);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PTP_WORK_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::std::ffi::c_void, work: *mut TP_WORK);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PUMS_SCHEDULER_ENTRY_POINT = unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PcTeb: u32 = 24u32;
@@ -25958,6 +26091,7 @@ unsafe impl ::windows::runtime::Abi for SILOOBJECT_BASIC_INFORMATION {
 pub const SIZEOF_RFPO_DATA: u32 = 16u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SIZE_OF_80387_REGISTERS: u32 = 80u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type SORTCOMP = unsafe extern "system" fn(pv1: *const ::std::ffi::c_void, pv2: *const ::std::ffi::c_void) -> i32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SORT_CHINESE_BIG5: u32 = 0u32;
@@ -28331,6 +28465,7 @@ impl ::std::cmp::Eq for VolLockBroadcast {}
 unsafe impl ::windows::runtime::Abi for VolLockBroadcast {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WAITORTIMERCALLBACK = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: super::super::Foundation::BOOLEAN);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -28345,6 +28480,7 @@ pub const WINDDI_MAXSETPALETTECOLORINDEX: u32 = 255u32;
 pub const WINDDI_MAXSETPALETTECOLORS: u32 = 256u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WINDDI_MAX_BROADCAST_CONTEXT: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type WNDOBJCHANGEPROC = unsafe extern "system" fn(pwo: *mut super::super::UI::DisplayDevices::WNDOBJ, fl: u32);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -28369,6 +28505,7 @@ pub const WOC_RGN_SURFACE_DELTA: u32 = 4u32;
 pub const WOC_SPRITE_NO_OVERLAP: u32 = 256u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WOC_SPRITE_OVERLAP: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type WORKERCALLBACKFUNC = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WO_DRAW_NOTIFY: u32 = 64u32;

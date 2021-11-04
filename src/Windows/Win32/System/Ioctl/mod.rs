@@ -10425,6 +10425,7 @@ impl ::std::cmp::Eq for PHYSICAL_ELEMENT_STATUS_REQUEST {}
 unsafe impl ::windows::runtime::Abi for PHYSICAL_ELEMENT_STATUS_REQUEST {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub type PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK = unsafe extern "system" fn(sourcecontext: *const ::std::mem::ManuallyDrop<IO_IRP_EXT_TRACK_OFFSET_HEADER>, targetcontext: *mut ::std::mem::ManuallyDrop<IO_IRP_EXT_TRACK_OFFSET_HEADER>, relativeoffset: i64);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]

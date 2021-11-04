@@ -1865,6 +1865,7 @@ impl ::std::convert::From<i32> for SW_DEVICE_CAPABILITIES {
 unsafe impl ::windows::runtime::Abi for SW_DEVICE_CAPABILITIES {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SW_DEVICE_CREATE_CALLBACK = unsafe extern "system" fn(hswdevice: HSWDEVICE, createresult: ::windows::runtime::HRESULT, pcontext: *const ::std::ffi::c_void, pszdeviceinstanceid: super::super::super::Foundation::PWSTR);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]

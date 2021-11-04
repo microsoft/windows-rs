@@ -61,16 +61,22 @@ pub unsafe fn DisableThreadLibraryCalls<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ENUMRESLANGPROCA = unsafe extern "system" fn(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PSTR, lpname: super::super::Foundation::PSTR, wlanguage: u16, lparam: isize) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ENUMRESLANGPROCW = unsafe extern "system" fn(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PWSTR, lpname: super::super::Foundation::PWSTR, wlanguage: u16, lparam: isize) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ENUMRESNAMEPROCA = unsafe extern "system" fn(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PSTR, lpname: super::super::Foundation::PSTR, lparam: isize) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ENUMRESNAMEPROCW = unsafe extern "system" fn(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PWSTR, lpname: super::super::Foundation::PWSTR, lparam: isize) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ENUMRESTYPEPROCA = unsafe extern "system" fn(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PSTR, lparam: isize) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ENUMRESTYPEPROCW = unsafe extern "system" fn(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PWSTR, lparam: isize) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -750,8 +756,10 @@ pub unsafe fn LockResource(hresdata: isize) -> *mut ::std::ffi::c_void {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PGET_MODULE_HANDLE_EXA = unsafe extern "system" fn(dwflags: u32, lpmodulename: super::super::Foundation::PSTR, phmodule: *mut super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_LibraryLoader`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PGET_MODULE_HANDLE_EXW = unsafe extern "system" fn(dwflags: u32, lpmodulename: super::super::Foundation::PWSTR, phmodule: *mut super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]

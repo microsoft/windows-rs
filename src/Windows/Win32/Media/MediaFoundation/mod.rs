@@ -48579,6 +48579,7 @@ pub unsafe fn MFPCreateMediaPlayer<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub type MFPERIODICCALLBACK = unsafe extern "system" fn(pcontext: ::windows::runtime::RawPtr);
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -55867,39 +55868,57 @@ impl ::std::convert::From<i32> for OPM_VIDEO_OUTPUT_SEMANTICS {
 unsafe impl ::windows::runtime::Abi for OPM_VIDEO_OUTPUT_SEMANTICS {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`, `Win32_Graphics_Direct3D9`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PDXVAHDSW_CreateDevice = unsafe extern "system" fn(pd3ddevice: ::windows::runtime::RawPtr, phdevice: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_CreateVideoProcessor = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pvpguid: *const ::windows::runtime::GUID, phvideoprocessor: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_DestroyDevice = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_DestroyVideoProcessor = unsafe extern "system" fn(hvideoprocessor: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_GetVideoProcessBltStatePrivate = unsafe extern "system" fn(hvideoprocessor: super::super::Foundation::HANDLE, pdata: *mut DXVAHD_BLT_STATE_PRIVATE_DATA) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_GetVideoProcessStreamStatePrivate = unsafe extern "system" fn(hvideoprocessor: super::super::Foundation::HANDLE, streamnumber: u32, pdata: *mut DXVAHD_STREAM_STATE_PRIVATE_DATA) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_GetVideoProcessorCaps = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, count: u32, pcaps: *mut DXVAHD_VPCAPS) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_GetVideoProcessorCustomRates = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pvpguid: *const ::windows::runtime::GUID, count: u32, prates: *mut DXVAHD_CUSTOM_RATE_DATA) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`, `Win32_Graphics_Direct3D9`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PDXVAHDSW_GetVideoProcessorDeviceCaps = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pcaps: *mut DXVAHD_VPDEVCAPS) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_GetVideoProcessorFilterRange = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, filter: DXVAHD_FILTER, prange: *mut DXVAHD_FILTER_RANGE_DATA) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`, `Win32_Graphics_Direct3D9`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PDXVAHDSW_GetVideoProcessorInputFormats = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, count: u32, pformats: *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`, `Win32_Graphics_Direct3D9`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PDXVAHDSW_GetVideoProcessorOutputFormats = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, count: u32, pformats: *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub type PDXVAHDSW_Plugin = unsafe extern "system" fn(size: u32, pcallbacks: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`, `Win32_Graphics_Direct3D9`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PDXVAHDSW_ProposeVideoPrivateFormat = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pformat: *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_SetVideoProcessBltState = unsafe extern "system" fn(hvideoprocessor: super::super::Foundation::HANDLE, state: DXVAHD_BLT_STATE, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_SetVideoProcessStreamState = unsafe extern "system" fn(hvideoprocessor: super::super::Foundation::HANDLE, streamnumber: u32, state: DXVAHD_STREAM_STATE, datasize: u32, pdata: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`, `Win32_Graphics_Direct3D9`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PDXVAHDSW_VideoProcessBltHD = unsafe extern "system" fn(hvideoprocessor: super::super::Foundation::HANDLE, poutputsurface: ::windows::runtime::RawPtr, outputframe: u32, streamcount: u32, pstreams: *const ::std::mem::ManuallyDrop<DXVAHD_STREAM_DATA>) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Graphics_Direct3D9`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub type PDXVAHD_CreateDevice = unsafe extern "system" fn(pd3ddevice: ::windows::runtime::RawPtr, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pplugin: ::windows::runtime::RawPtr, ppdevice: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]

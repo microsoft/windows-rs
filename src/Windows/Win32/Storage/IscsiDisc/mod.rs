@@ -501,6 +501,7 @@ impl ::std::cmp::Eq for DSM_NOTIFICATION_REQUEST_BLOCK {}
 unsafe impl ::windows::runtime::Abi for DSM_NOTIFICATION_REQUEST_BLOCK {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub type DUMP_DEVICE_POWERON_ROUTINE = unsafe extern "system" fn(context: *const ::std::ffi::c_void) -> i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3374,6 +3375,7 @@ impl ::std::convert::From<i32> for NV_SEP_WRITE_CACHE_TYPE {
 unsafe impl ::windows::runtime::Abi for NV_SEP_WRITE_CACHE_TYPE {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub type PDUMP_DEVICE_POWERON_ROUTINE = unsafe extern "system" fn() -> i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]

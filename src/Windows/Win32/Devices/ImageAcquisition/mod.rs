@@ -236,6 +236,7 @@ pub const DUP: u32 = 4u32;
 pub const DUPLEX: u32 = 4u32;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
 pub const DUP_READY: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DeviceDialogFunction = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DEVICEDIALOGDATA>) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]

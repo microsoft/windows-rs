@@ -26,7 +26,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
         }
     };
 
-    let cfg = gen.gen_function_cfg(def, &signature);
+    let cfg = gen.gen_function_cfg(def.attributes(), &signature);
 
     match signature.kind() {
         SignatureKind::Query => {

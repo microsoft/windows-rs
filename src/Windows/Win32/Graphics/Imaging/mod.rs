@@ -6055,6 +6055,7 @@ pub struct IWICStreamProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguidpreferredvendor: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 pub type PFNProgressNotification = unsafe extern "system" fn(pvdata: *const ::std::ffi::c_void, uframenum: u32, operation: WICProgressOperation, dblprogress: f64) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Graphics_Imaging`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]

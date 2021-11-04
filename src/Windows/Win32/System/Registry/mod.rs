@@ -336,6 +336,7 @@ pub const PIR_STATUS_TABLE_REALMODE: u32 = 2u32;
 pub const PIR_STATUS_TABLE_REGISTRY: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_Registry`*"]
 pub const PIR_STATUS_TABLE_SUCCESS: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_Registry`*"]
 pub type PQUERYHANDLER = unsafe extern "system" fn(keycontext: *mut ::std::ffi::c_void, val_list: *mut val_context, num_vals: u32, outputbuffer: *mut ::std::ffi::c_void, total_outlen: *mut u32, input_blen: u32) -> u32;
 #[doc = "*Required features: `Win32_System_Registry`*"]
 pub const PROVIDER_KEEPS_VALUE_LENGTH: u32 = 1u32;

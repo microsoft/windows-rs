@@ -3507,8 +3507,10 @@ impl ::std::convert::From<i32> for INSTALLUILEVEL {
 unsafe impl ::windows::runtime::Abi for INSTALLUILEVEL {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type INSTALLUI_HANDLERA = unsafe extern "system" fn(pvcontext: *mut ::std::ffi::c_void, imessagetype: u32, szmessage: super::super::Foundation::PSTR) -> i32;
+#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type INSTALLUI_HANDLERW = unsafe extern "system" fn(pvcontext: *mut ::std::ffi::c_void, imessagetype: u32, szmessage: super::super::Foundation::PWSTR) -> i32;
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
@@ -6122,8 +6124,10 @@ pub const LOGTOKEN_TYPE_MASK: u32 = 3u32;
 pub const LOGTOKEN_UNSPECIFIED: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const LOGWARN: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDISPLAYVAL = unsafe extern "system" fn(pcontext: *mut ::std::ffi::c_void, uitype: RESULTTYPES, szwval: super::super::Foundation::PWSTR, szwdescription: super::super::Foundation::PWSTR, szwlocation: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPEVALCOMCALLBACK = unsafe extern "system" fn(istatus: STATUSTYPES, szdata: super::super::Foundation::PWSTR, pcontext: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
@@ -11247,6 +11251,7 @@ pub const PID_THUMBNAIL: u32 = 17u32;
 pub const PID_TITLE: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub const PID_WORDCOUNT: u32 = 15u32;
+#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
 pub type PINSTALLUI_HANDLER_RECORD = unsafe extern "system" fn(pvcontext: *mut ::std::ffi::c_void, imessagetype: u32, hrecord: MSIHANDLE) -> i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12084,8 +12089,10 @@ impl ::std::cmp::Eq for PM_UPDATEINFO_LEGACY {}
 unsafe impl ::windows::runtime::Abi for PM_UPDATEINFO_LEGACY {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PPATCH_PROGRESS_CALLBACK = unsafe extern "system" fn(callbackcontext: *mut ::std::ffi::c_void, currentposition: u32, maximumposition: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PPATCH_SYMLOAD_CALLBACK = unsafe extern "system" fn(whichfile: u32, symbolfilename: super::super::Foundation::PSTR, symtype: u32, symbolfilechecksum: u32, symbolfiletimedate: u32, imagefilechecksum: u32, imagefiletimedate: u32, callbackcontext: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]

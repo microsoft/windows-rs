@@ -151,6 +151,7 @@ pub const ACMDRIVERDETAILS_SUPPORTF_FILTER: i32 = 4i32;
 pub const ACMDRIVERDETAILS_SUPPORTF_HARDWARE: i32 = 8i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ACMDRIVERDETAILS_SUPPORTF_LOCAL: i32 = 1073741824i32;
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMDRIVERENUMCB = unsafe extern "system" fn(hadid: HACMDRIVERID, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
@@ -210,8 +211,10 @@ impl ::std::cmp::Eq for ACMFILTERCHOOSEA {}
 unsafe impl ::windows::runtime::Abi for ACMFILTERCHOOSEA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFILTERCHOOSEHOOKPROCA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFILTERCHOOSEHOOKPROCW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
 #[cfg(feature = "Win32_Foundation")]
@@ -335,8 +338,10 @@ unsafe impl ::windows::runtime::Abi for ACMFILTERDETAILSW {
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ACMFILTERDETAILS_FILTER_CHARS: u32 = 128u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFILTERENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFILTERENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -401,8 +406,10 @@ unsafe impl ::windows::runtime::Abi for ACMFILTERTAGDETAILSW {
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ACMFILTERTAGDETAILS_FILTERTAG_CHARS: u32 = 48u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFILTERTAGENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFILTERTAGENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
@@ -452,8 +459,10 @@ impl ::std::cmp::Eq for ACMFORMATCHOOSEA {}
 unsafe impl ::windows::runtime::Abi for ACMFORMATCHOOSEA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFORMATCHOOSEHOOKPROCA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFORMATCHOOSEHOOKPROCW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
 #[cfg(feature = "Win32_Foundation")]
@@ -550,8 +559,10 @@ unsafe impl ::windows::runtime::Abi for ACMFORMATDETAILSA {
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ACMFORMATDETAILS_FORMAT_CHARS: u32 = 128u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFORMATENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFORMATDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFORMATENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut tACMFORMATDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -616,8 +627,10 @@ unsafe impl ::windows::runtime::Abi for ACMFORMATTAGDETAILSW {
 }
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ACMFORMATTAGDETAILS_FORMATTAG_CHARS: u32 = 48u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFORMATTAGENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFORMATTAGENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -1654,6 +1667,7 @@ pub unsafe fn AVIPutFileOnClipboard<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type AVISAVECALLBACK = unsafe extern "system" fn(param0: i32) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -2256,6 +2270,7 @@ pub const AVSTREAMMASTER_AUDIO: u32 = 0u32;
 pub const AVSTREAMMASTER_NONE: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const BI_1632: u32 = 842217009u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPCONTROLCALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nstate: i32) -> super::super::Foundation::LRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -2323,8 +2338,10 @@ impl ::std::cmp::Eq for CAPDRIVERCAPS {}
 unsafe impl ::windows::runtime::Abi for CAPDRIVERCAPS {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPERRORCALLBACKA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PSTR) -> super::super::Foundation::LRESULT;
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPERRORCALLBACKW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PWSTR) -> super::super::Foundation::LRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -2441,8 +2458,10 @@ impl ::std::cmp::Eq for CAPSTATUS {}
 unsafe impl ::windows::runtime::Abi for CAPSTATUS {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPSTATUSCALLBACKA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PSTR) -> super::super::Foundation::LRESULT;
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPSTATUSCALLBACKW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PWSTR) -> super::super::Foundation::LRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -2549,10 +2568,13 @@ impl ::std::cmp::Eq for CAPTUREPARMS {}
 unsafe impl ::windows::runtime::Abi for CAPTUREPARMS {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPVIDEOCALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpvhdr: *const VIDEOHDR) -> super::super::Foundation::LRESULT;
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPWAVECALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpwhdr: *const WAVEHDR) -> super::super::Foundation::LRESULT;
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPYIELDCALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::LRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -3068,7 +3090,9 @@ impl ::std::cmp::Eq for DRAWDIBTIME {}
 unsafe impl ::windows::runtime::Abi for DRAWDIBTIME {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub type DRIVERMSGPROC = unsafe extern "system" fn(param0: u32, param1: u32, param2: usize, param3: usize, param4: usize) -> u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DRIVERPROC = unsafe extern "system" fn(param0: usize, param1: HDRVR, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -6774,16 +6798,24 @@ pub const JPEG_YCbCr: u32 = 2u32;
 pub const KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
 pub const KSDATAFORMAT_SUBTYPE_PCM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
 pub const KSDATAFORMAT_SUBTYPE_WAVEFORMATEX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(0, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPACMDRIVERPROC = unsafe extern "system" fn(param0: usize, param1: HACMDRIVERID, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub type LPDRVCALLBACK = unsafe extern "system" fn(hdrvr: HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_System_IO`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type LPFNEXTDEVIO = unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, dwflags: u32, dwiocontrolcode: u32, lpinbuffer: *mut ::std::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::std::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub type LPJOYDEVMSGPROC = unsafe extern "system" fn(param0: u32, param1: u32, param2: i32, param3: i32) -> u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub type LPMIDICALLBACK = unsafe extern "system" fn(hdrvr: HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPMMIOPROC = unsafe extern "system" fn(lpmmioinfo: super::super::Foundation::PSTR, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub type LPTASKCALLBACK = unsafe extern "system" fn(dwinst: usize);
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub type LPWAVECALLBACK = unsafe extern "system" fn(hdrvr: HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const MAXERRORLENGTH: u32 = 256u32;
@@ -16967,6 +16999,7 @@ pub const VCAPS_DST_CAN_CLIP: u32 = 4u32;
 pub const VCAPS_OVERLAY: u32 = 1u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const VCAPS_SRC_CAN_CLIP: u32 = 2u32;
+#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`, `Win32_UI_Controls`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub type VFWWDMExtensionProc = unsafe extern "system" fn(pfndeviceiocontrol: *mut ::std::ffi::c_void, pfnaddpropertypage: ::windows::runtime::RawPtr, lparam: super::super::Foundation::LPARAM) -> u32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]

@@ -103,6 +103,7 @@ unsafe impl ::windows::runtime::Abi for NET_INTERFACE_CONTEXT_TABLE {
 pub const NET_INTERFACE_FLAG_CONNECT_IF_NEEDED: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 pub const NET_INTERFACE_FLAG_NONE: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 pub type ONDEMAND_NOTIFICATION_CALLBACK = unsafe extern "system" fn(param0: *const ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]

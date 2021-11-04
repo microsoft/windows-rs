@@ -11932,163 +11932,247 @@ impl ::std::cmp::Eq for IUNKNOWN_LIST {}
 unsafe impl ::windows::runtime::Abi for IUNKNOWN_LIST {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPCLIPPERCALLBACK = unsafe extern "system" fn(lpddclipper: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, code: u32, lpcontext: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub type LPDD32BITDRIVERINIT = unsafe extern "system" fn(dwcontext: u32) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDDENUMCALLBACKA = unsafe extern "system" fn(param0: *mut ::windows::runtime::GUID, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::PSTR, param3: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDENUMCALLBACKEXA = unsafe extern "system" fn(param0: *mut ::windows::runtime::GUID, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::PSTR, param3: *mut ::std::ffi::c_void, param4: super::Gdi::HMONITOR) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDENUMCALLBACKEXW = unsafe extern "system" fn(param0: *mut ::windows::runtime::GUID, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR, param3: *mut ::std::ffi::c_void, param4: super::Gdi::HMONITOR) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDDENUMCALLBACKW = unsafe extern "system" fn(param0: *mut ::windows::runtime::GUID, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR, param3: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub type LPDDENUMMODESCALLBACK = unsafe extern "system" fn(param0: *mut DDSURFACEDESC, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub type LPDDENUMMODESCALLBACK2 = unsafe extern "system" fn(param0: *mut DDSURFACEDESC2, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub type LPDDENUMSURFACESCALLBACK = unsafe extern "system" fn(param0: ::windows::runtime::RawPtr, param1: *mut DDSURFACEDESC, param2: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub type LPDDENUMSURFACESCALLBACK2 = unsafe extern "system" fn(param0: ::windows::runtime::RawPtr, param1: *mut DDSURFACEDESC2, param2: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub type LPDDENUMSURFACESCALLBACK7 = unsafe extern "system" fn(param0: ::windows::runtime::RawPtr, param1: *mut DDSURFACEDESC2, param2: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_UI_DisplayDevices`*"]
 #[cfg(feature = "Win32_UI_DisplayDevices")]
 pub type LPDDENUMVIDEOCALLBACK = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::DDVIDEOPORTCAPS, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub type LPDDGAMMACALIBRATORPROC = unsafe extern "system" fn(param0: *mut DDGAMMARAMP, param1: *mut u8) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALCOLORCB_COLORCONTROL = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_COLORCONTROLDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALEXEBUFCB_CANCREATEEXEBUF = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_CANCREATESURFACEDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALEXEBUFCB_CREATEEXEBUF = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_CREATESURFACEDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALEXEBUFCB_DESTROYEXEBUF = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_DESTROYSURFACEDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALEXEBUFCB_LOCKEXEBUF = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_LOCKDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALEXEBUFCB_UNLOCKEXEBUF = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_UNLOCKDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALKERNELCB_SYNCSURFACE = unsafe extern "system" fn(param0: *mut DDHAL_SYNCSURFACEDATA) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALKERNELCB_SYNCVIDEOPORT = unsafe extern "system" fn(param0: *mut DDHAL_SYNCVIDEOPORTDATA) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALMOCOMPCB_BEGINFRAME = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_BEGINMOCOMPFRAMEDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALMOCOMPCB_CREATE = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_CREATEMOCOMPDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALMOCOMPCB_DESTROY = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_DESTROYMOCOMPDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALMOCOMPCB_ENDFRAME = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_ENDMOCOMPFRAMEDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALMOCOMPCB_GETCOMPBUFFINFO = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_GETMOCOMPCOMPBUFFDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALMOCOMPCB_GETFORMATS = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_GETMOCOMPFORMATSDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALMOCOMPCB_GETGUIDS = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_GETMOCOMPGUIDSDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALMOCOMPCB_GETINTERNALINFO = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_GETINTERNALMOCOMPDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALMOCOMPCB_QUERYSTATUS = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_QUERYMOCOMPSTATUSDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALMOCOMPCB_RENDER = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_RENDERMOCOMPDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALPALCB_DESTROYPALETTE = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_DESTROYPALETTEDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALPALCB_SETENTRIES = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_SETENTRIESDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALSURFCB_ADDATTACHEDSURFACE = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_ADDATTACHEDSURFACEDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALSURFCB_BLT = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_BLTDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALSURFCB_DESTROYSURFACE = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_DESTROYSURFACEDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALSURFCB_FLIP = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_FLIPDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALSURFCB_GETBLTSTATUS = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_GETBLTSTATUSDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALSURFCB_GETFLIPSTATUS = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_GETFLIPSTATUSDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALSURFCB_LOCK = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_LOCKDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALSURFCB_SETCLIPLIST = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_SETCLIPLISTDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALSURFCB_SETCOLORKEY = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_SETCOLORKEYDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALSURFCB_SETOVERLAYPOSITION = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_SETOVERLAYPOSITIONDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALSURFCB_SETPALETTE = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_SETPALETTEDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALSURFCB_UNLOCK = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_UNLOCKDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALSURFCB_UPDATEOVERLAY = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_UPDATEOVERLAYDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALVPORTCB_CANCREATEVIDEOPORT = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_CANCREATEVPORTDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALVPORTCB_COLORCONTROL = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_VPORTCOLORDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALVPORTCB_CREATEVIDEOPORT = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_CREATEVPORTDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALVPORTCB_DESTROYVPORT = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_DESTROYVPORTDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALVPORTCB_FLIP = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_FLIPVPORTDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALVPORTCB_GETBANDWIDTH = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_GETVPORTBANDWIDTHDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALVPORTCB_GETFIELD = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_GETVPORTFIELDDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALVPORTCB_GETFLIPSTATUS = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_GETVPORTFLIPSTATUSDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALVPORTCB_GETINPUTFORMATS = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_GETVPORTINPUTFORMATDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALVPORTCB_GETLINE = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_GETVPORTLINEDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALVPORTCB_GETOUTPUTFORMATS = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_GETVPORTOUTPUTFORMATDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALVPORTCB_GETSIGNALSTATUS = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_GETVPORTSIGNALDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALVPORTCB_GETVPORTCONNECT = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_GETVPORTCONNECTDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALVPORTCB_UPDATE = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_UPDATEVPORTDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHALVPORTCB_WAITFORSYNC = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_WAITFORVPORTSYNCDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHAL_CANCREATESURFACE = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_CANCREATESURFACEDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHAL_CREATEPALETTE = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_CREATEPALETTEDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHAL_CREATESURFACE = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_CREATESURFACEDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHAL_CREATESURFACEEX = unsafe extern "system" fn(param0: *mut DDHAL_CREATESURFACEEXDATA) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHAL_DESTROYDDLOCAL = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::DDHAL_DESTROYDDLOCALDATA) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHAL_DESTROYDRIVER = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_DESTROYDRIVERDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHAL_FLIPTOGDISURFACE = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_FLIPTOGDISURFACEDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHAL_GETAVAILDRIVERMEMORY = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_GETAVAILDRIVERMEMORYDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub type LPDDHAL_GETDRIVERINFO = unsafe extern "system" fn(param0: *mut DDHAL_GETDRIVERINFODATA) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub type LPDDHAL_GETDRIVERSTATE = unsafe extern "system" fn(param0: *mut DDHAL_GETDRIVERSTATEDATA) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`*"]
 #[cfg(feature = "Win32_Devices_Display")]
 pub type LPDDHAL_GETHEAPALIGNMENT = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_GETHEAPALIGNMENTDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHAL_GETSCANLINE = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_GETSCANLINEDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHAL_SETCOLORKEY = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_DRVSETCOLORKEYDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHAL_SETEXCLUSIVEMODE = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_SETEXCLUSIVEMODEDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHAL_SETINFO = unsafe extern "system" fn(lpddhalinfo: *mut ::std::mem::ManuallyDrop<DDHALINFO>, reset: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHAL_SETMODE = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_SETMODEDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHAL_UPDATENONLOCALHEAP = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DDHAL_UPDATENONLOCALHEAPDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHAL_VIDMEMALLOC = unsafe extern "system" fn(lpdd: *mut DDRAWI_DIRECTDRAW_GBL, heap: i32, dwwidth: u32, dwheight: u32) -> usize;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHAL_VIDMEMFREE = unsafe extern "system" fn(lpdd: *mut DDRAWI_DIRECTDRAW_GBL, heap: i32, fpmem: usize);
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHAL_WAITFORVERTICALBLANK = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<super::super::UI::DisplayDevices::DDHAL_WAITFORVERTICALBLANKDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type LPDDHEL_INIT = unsafe extern "system" fn(param0: *mut DDRAWI_DIRECTDRAW_GBL, param1: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDIRECTDRAWENUMERATEEXA = unsafe extern "system" fn(lpcallback: ::windows::runtime::RawPtr, lpcontext: *mut ::std::ffi::c_void, dwflags: u32) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDIRECTDRAWENUMERATEEXW = unsafe extern "system" fn(lpcallback: ::windows::runtime::RawPtr, lpcontext: *mut ::std::ffi::c_void, dwflags: u32) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
@@ -12178,29 +12262,49 @@ pub const MDL_SOURCE_IS_NONPAGED_POOL: u32 = 4u32;
 pub const MDL_WRITE_OPERATION: u32 = 128u32;
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const OBJECT_ISROOT: i32 = -2147483648i32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PDD_ALPHABLT = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<super::super::UI::DisplayDevices::DD_BLTDATA>) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub type PDD_DESTROYDRIVER = unsafe extern "system" fn(param0: *mut _DD_DESTROYDRIVERDATA) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PDD_SETCOLORKEY = unsafe extern "system" fn(param0: *mut DD_DRVSETCOLORKEYDATA) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub type PDD_SETMODE = unsafe extern "system" fn(param0: *mut _DD_SETMODEDATA) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PDD_SURFCB_SETCLIPLIST = unsafe extern "system" fn(param0: *mut DD_SETCLIPLISTDATA) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub type PDD_VPORTCB_GETAUTOFLIPSURF = unsafe extern "system" fn(param0: *mut _DD_GETVPORTAUTOFLIPSURFACEDATA) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub type PDX_BOBNEXTFIELD = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: *mut DDBOBNEXTFIELDINFO, param2: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub type PDX_ENABLEIRQ = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: *mut ::std::mem::ManuallyDrop<DDENABLEIRQINFO>, param2: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub type PDX_FLIPOVERLAY = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: *mut DDFLIPOVERLAYINFO, param2: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub type PDX_FLIPVIDEOPORT = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: *mut DDFLIPVIDEOPORTINFO, param2: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub type PDX_GETCURRENTAUTOFLIP = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: *mut DDGETCURRENTAUTOFLIPININFO, param2: *mut DDGETCURRENTAUTOFLIPOUTINFO) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub type PDX_GETIRQINFO = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: *mut ::std::ffi::c_void, param2: *mut DDGETIRQINFO) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub type PDX_GETPOLARITY = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: *mut DDGETPOLARITYININFO, param2: *mut DDGETPOLARITYOUTINFO) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub type PDX_GETPREVIOUSAUTOFLIP = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: *mut DDGETPREVIOUSAUTOFLIPININFO, param2: *mut DDGETPREVIOUSAUTOFLIPOUTINFO) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub type PDX_GETTRANSFERSTATUS = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: *mut ::std::ffi::c_void, param2: *mut DDGETTRANSFERSTATUSOUTINFO) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub type PDX_IRQCALLBACK = unsafe extern "system" fn(pirqdata: *mut DX_IRQDATA);
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub type PDX_LOCK = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: *mut DDLOCKININFO, param2: *mut DDLOCKOUTINFO) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDX_SETSTATE = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: *mut DDSETSTATEININFO, param2: *mut DDSETSTATEOUTINFO) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub type PDX_SKIPNEXTFIELD = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: *mut DDSKIPNEXTFIELDINFO, param2: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub type PDX_TRANSFER = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: *mut DDTRANSFERININFO, param2: *mut DDTRANSFEROUTINFO) -> u32;
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
 pub const PFINDEX_UNINITIALIZED: u32 = 0u32;

@@ -4732,18 +4732,25 @@ pub unsafe fn MprInfoRemoveAll(lpheader: *const ::std::ffi::c_void, lplpnewheade
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ORASADFUNC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PSTR, param2: u32, param3: *mut u32) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PENDING: u32 = 600u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub type PFNRASFREEBUFFER = unsafe extern "system" fn(pbufer: *mut u8) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub type PFNRASGETBUFFER = unsafe extern "system" fn(ppbuffer: *mut *mut u8, pdwsize: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNRASRECEIVEBUFFER = unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, pbuffer: *mut u8, pdwsize: *mut u32, dwtimeout: u32, hevent: super::super::Foundation::HANDLE) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNRASRETRIEVEBUFFER = unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, pbuffer: *mut u8, pdwsize: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNRASSENDBUFFER = unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, pbuffer: *mut u8, dwsize: u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNRASSETCOMMSETTINGS = unsafe extern "system" fn(hport: super::super::Foundation::HANDLE, prascommsettings: *mut RASCOMMSETTINGS, pvreserved: *mut ::std::ffi::c_void) -> u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
@@ -4756,54 +4763,82 @@ pub const PID_IPV6: u32 = 87u32;
 pub const PID_IPX: u32 = 43u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const PID_NBF: u32 = 63u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PMGM_CREATION_ALERT_CALLBACK = unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwinifindex: u32, dwinifnexthopaddr: u32, dwifcount: u32, pmieoutiflist: *mut MGM_IF_ENTRY) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub type PMGM_DISABLE_IGMP_CALLBACK = unsafe extern "system" fn(dwifindex: u32, dwifnexthopaddr: u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub type PMGM_ENABLE_IGMP_CALLBACK = unsafe extern "system" fn(dwifindex: u32, dwifnexthopaddr: u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PMGM_JOIN_ALERT_CALLBACK = unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, bmemberupdate: super::super::Foundation::BOOL) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub type PMGM_LOCAL_JOIN_CALLBACK = unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopaddr: u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub type PMGM_LOCAL_LEAVE_CALLBACK = unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopaddr: u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PMGM_PRUNE_ALERT_CALLBACK = unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopaddr: u32, bmemberdelete: super::super::Foundation::BOOL, pdwtimeout: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub type PMGM_RPF_CALLBACK = unsafe extern "system" fn(dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, pdwinifindex: *mut u32, pdwinifnexthopaddr: *mut u32, pdwupstreamnbr: *mut u32, dwhdrsize: u32, pbpackethdr: *mut u8, pbroute: *mut u8) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub type PMGM_WRONG_IF_CALLBACK = unsafe extern "system" fn(dwsourceaddr: u32, dwgroupaddr: u32, dwifindex: u32, dwifnexthopaddr: u32, dwhdrsize: u32, pbpackethdr: *mut u8) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PMPRADMINACCEPTNEWCONNECTION = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PMPRADMINACCEPTNEWCONNECTION2 = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PMPRADMINACCEPTNEWCONNECTION3 = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2, param3: *mut RAS_CONNECTION_3) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PMPRADMINACCEPTNEWCONNECTIONEX = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_EX) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PMPRADMINACCEPTNEWLINK = unsafe extern "system" fn(param0: *mut RAS_PORT_0, param1: *mut RAS_PORT_1) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PMPRADMINACCEPTREAUTHENTICATION = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2, param3: *mut RAS_CONNECTION_3) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PMPRADMINACCEPTREAUTHENTICATIONEX = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_EX) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PMPRADMINACCEPTTUNNELENDPOINTCHANGEEX = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_EX) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PMPRADMINCONNECTIONHANGUPNOTIFICATION = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1);
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PMPRADMINCONNECTIONHANGUPNOTIFICATION2 = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2);
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PMPRADMINCONNECTIONHANGUPNOTIFICATION3 = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2, param3: RAS_CONNECTION_3);
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PMPRADMINCONNECTIONHANGUPNOTIFICATIONEX = unsafe extern "system" fn(param0: *mut RAS_CONNECTION_EX);
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PMPRADMINGETIPADDRESSFORUSER = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: *mut u32, param3: *mut super::super::Foundation::BOOL) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub type PMPRADMINGETIPV6ADDRESSFORUSER = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: *mut super::super::Networking::WinSock::IN6_ADDR, param3: *mut super::super::Foundation::BOOL) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PMPRADMINLINKHANGUPNOTIFICATION = unsafe extern "system" fn(param0: *mut RAS_PORT_0, param1: *mut RAS_PORT_1);
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PMPRADMINRASVALIDATEPREAUTHENTICATEDCONNECTIONEX = unsafe extern "system" fn(param0: *mut AUTH_VALIDATION_EX) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PMPRADMINRELEASEIPADRESS = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: *mut u32);
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub type PMPRADMINRELEASEIPV6ADDRESSFORUSER = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: *mut super::super::Networking::WinSock::IN6_ADDR);
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub type PMPRADMINTERMINATEDLL = unsafe extern "system" fn() -> u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5629,8 +5664,10 @@ unsafe impl ::windows::runtime::Abi for PROJECTION_INFO2_0 {
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RASADFLG_PositionDlg: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type RASADFUNCA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: *mut RASADPARAMS, param3: *mut u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type RASADFUNCW = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: *mut RASADPARAMS, param3: *mut u32) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -6406,8 +6443,11 @@ impl ::std::cmp::Eq for RASDIALEXTENSIONS {}
 unsafe impl ::windows::runtime::Abi for RASDIALEXTENSIONS {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub type RASDIALFUNC = unsafe extern "system" fn(param0: u32, param1: RASCONNSTATE, param2: u32);
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub type RASDIALFUNC1 = unsafe extern "system" fn(param0: HRASCONN, param1: u32, param2: RASCONNSTATE, param3: u32, param4: u32);
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub type RASDIALFUNC2 = unsafe extern "system" fn(param0: usize, param1: u32, param2: HRASCONN, param3: u32, param4: RASCONNSTATE, param5: u32, param6: u32) -> u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
@@ -7410,8 +7450,10 @@ impl ::std::cmp::Eq for RASPBDLGA {}
 unsafe impl ::windows::runtime::Abi for RASPBDLGA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type RASPBDLGFUNCA = unsafe extern "system" fn(param0: usize, param1: u32, param2: super::super::Foundation::PSTR, param3: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type RASPBDLGFUNCW = unsafe extern "system" fn(param0: usize, param1: u32, param2: super::super::Foundation::PWSTR, param3: *mut ::std::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
@@ -8037,6 +8079,7 @@ impl ::std::convert::From<i32> for RASPROJECTION_INFO_TYPE {
 unsafe impl ::windows::runtime::Abi for RASPROJECTION_INFO_TYPE {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub type RASSECURITYPROC = unsafe extern "system" fn() -> u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9522,6 +9565,7 @@ impl ::std::cmp::Eq for RTM_DEST_INFO_0 {}
 unsafe impl ::windows::runtime::Abi for RTM_DEST_INFO_0 {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub type RTM_ENTITY_EXPORT_METHOD = unsafe extern "system" fn(callerhandle: isize, calleehandle: isize, input: *mut RTM_ENTITY_METHOD_INPUT, output: *mut RTM_ENTITY_METHOD_OUTPUT);
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -9709,6 +9753,7 @@ pub const RTM_ENUM_OWN_ROUTES: u32 = 65536u32;
 pub const RTM_ENUM_RANGE: u32 = 2u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub const RTM_ENUM_START: u32 = 0u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub type RTM_EVENT_CALLBACK = unsafe extern "system" fn(rtmreghandle: isize, eventtype: RTM_EVENT_TYPE, context1: *mut ::std::ffi::c_void, context2: *mut ::std::ffi::c_void) -> u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10103,15 +10148,21 @@ pub unsafe fn RasCreatePhonebookEntryW<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type RasCustomDeleteEntryNotifyFn = unsafe extern "system" fn(lpszphonebook: super::super::Foundation::PWSTR, lpszentry: super::super::Foundation::PWSTR, dwflags: u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type RasCustomDialDlgFn = unsafe extern "system" fn(hinstdll: super::super::Foundation::HINSTANCE, dwflags: u32, lpszphonebook: super::super::Foundation::PWSTR, lpszentry: super::super::Foundation::PWSTR, lpszphonenumber: super::super::Foundation::PWSTR, lpinfo: *mut RASDIALDLG, pvinfo: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type RasCustomDialFn = unsafe extern "system" fn(hinstdll: super::super::Foundation::HINSTANCE, lprasdialextensions: *mut RASDIALEXTENSIONS, lpszphonebook: super::super::Foundation::PWSTR, lprasdialparams: *mut RASDIALPARAMSA, dwnotifiertype: u32, lpvnotifier: *mut ::std::ffi::c_void, lphrasconn: *mut HRASCONN, dwflags: u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type RasCustomEntryDlgFn = unsafe extern "system" fn(hinstdll: super::super::Foundation::HINSTANCE, lpszphonebook: super::super::Foundation::PWSTR, lpszentry: super::super::Foundation::PWSTR, lpinfo: *mut RASENTRYDLGA, dwflags: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
 pub type RasCustomHangUpFn = unsafe extern "system" fn(hrasconn: HRASCONN) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type RasCustomScriptExecuteFn = unsafe extern "system" fn(
     hport: super::super::Foundation::HANDLE,

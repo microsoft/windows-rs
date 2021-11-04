@@ -9259,7 +9259,9 @@ impl ::std::cmp::Eq for LONG_SIZEDARR {}
 unsafe impl ::windows::runtime::Abi for LONG_SIZEDARR {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_Com`*"]
 pub type LPFNCANUNLOADNOW = unsafe extern "system" fn() -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_Com`*"]
 pub type LPFNGETCLASSOBJECT = unsafe extern "system" fn(param0: *const ::windows::runtime::GUID, param1: *const ::windows::runtime::GUID, param2: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_System_Com`*"]
 pub const MARSHALINTERFACE_MIN: u32 = 500u32;
@@ -9486,6 +9488,7 @@ impl ::std::convert::From<i32> for PENDINGTYPE {
 unsafe impl ::windows::runtime::Abi for PENDINGTYPE {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_Com`*"]
 pub type PFNCONTEXTCALL = unsafe extern "system" fn(pparam: *mut ComCallData) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -192,6 +192,7 @@ pub unsafe fn D3D12GetInterface<T: ::windows::runtime::Interface>(rclsid: *const
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type D3D12MessageFunc = unsafe extern "system" fn(category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: super::super::Foundation::PSTR, pcontext: *mut ::std::ffi::c_void);
 pub const D3D12MetaCommand: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3342125438, 32887, 18632, [159, 220, 217, 209, 221, 49, 221, 119]);
@@ -30835,20 +30836,30 @@ pub struct OpenGLOn12CreatorID_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
 pub type PFN_D3D11ON12_CREATE_DEVICE = unsafe extern "system" fn(param0: ::windows::runtime::RawPtr, param1: u32, param2: *const super::Direct3D11::D3D_FEATURE_LEVEL, featurelevels: u32, param4: *const ::windows::runtime::RawPtr, numqueues: u32, param6: u32, param7: *mut ::windows::runtime::RawPtr, param8: *mut ::windows::runtime::RawPtr, param9: *mut super::Direct3D11::D3D_FEATURE_LEVEL) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
 pub type PFN_D3D12_CREATE_DEVICE = unsafe extern "system" fn(param0: ::windows::runtime::RawPtr, param1: super::Direct3D11::D3D_FEATURE_LEVEL, param2: *const ::windows::runtime::GUID, param3: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub type PFN_D3D12_CREATE_ROOT_SIGNATURE_DESERIALIZER = unsafe extern "system" fn(psrcdata: *const ::std::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const ::windows::runtime::GUID, pprootsignaturedeserializer: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub type PFN_D3D12_CREATE_VERSIONED_ROOT_SIGNATURE_DESERIALIZER = unsafe extern "system" fn(psrcdata: *const ::std::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const ::windows::runtime::GUID, pprootsignaturedeserializer: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub type PFN_D3D12_GET_DEBUG_INTERFACE = unsafe extern "system" fn(param0: *const ::windows::runtime::GUID, param1: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub type PFN_D3D12_GET_INTERFACE = unsafe extern "system" fn(param0: *const ::windows::runtime::GUID, param1: *const ::windows::runtime::GUID, param2: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
 pub type PFN_D3D12_SERIALIZE_ROOT_SIGNATURE = unsafe extern "system" fn(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: *mut ::windows::runtime::RawPtr, pperrorblob: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
 pub type PFN_D3D12_SERIALIZE_VERSIONED_ROOT_SIGNATURE = unsafe extern "system" fn(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut ::windows::runtime::RawPtr, pperrorblob: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D9`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PFN_Direct3DCreate9On12 = unsafe extern "system" fn(sdkversion: u32, poverridelist: *mut ::std::mem::ManuallyDrop<D3D9ON12_ARGS>, numoverrideentries: u32) -> ::std::option::Option<super::Direct3D9::IDirect3D9>;
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D9`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PFN_Direct3DCreate9On12Ex = unsafe extern "system" fn(sdkversion: u32, poverridelist: *mut ::std::mem::ManuallyDrop<D3D9ON12_ARGS>, numoverrideentries: u32, ppoutputinterface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
 pub const WKPDID_D3DAutoDebugObjectNameW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3566218806, 30074, 18754, [149, 148, 182, 118, 154, 250, 67, 205]);

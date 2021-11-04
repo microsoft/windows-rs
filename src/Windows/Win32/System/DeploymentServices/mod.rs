@@ -3992,20 +3992,28 @@ impl ::std::ops::Not for PFN_WDS_CLI_CALLBACK_MESSAGE_ID {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_WdsCliCallback = unsafe extern "system" fn(dwmessageid: PFN_WDS_CLI_CALLBACK_MESSAGE_ID, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, pvuserdata: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_WdsCliTraceFunction = unsafe extern "system" fn(pwszformat: super::super::Foundation::PWSTR, params: *const i8);
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_WdsTransportClientReceiveContents = unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const ::std::ffi::c_void, pcontents: *const ::std::ffi::c_void, ulsize: u32, pullcontentoffset: *const u64);
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_WdsTransportClientReceiveMetadata = unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const ::std::ffi::c_void, pmetadata: *const ::std::ffi::c_void, ulsize: u32);
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_WdsTransportClientSessionComplete = unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const ::std::ffi::c_void, dwerror: u32);
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_WdsTransportClientSessionNegotiate = unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const ::std::ffi::c_void, pinfo: *const TRANSPORTCLIENT_SESSION_INFO, hnegotiatekey: super::super::Foundation::HANDLE);
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_WdsTransportClientSessionStart = unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const ::std::ffi::c_void, ullfilesize: *const u64);
+#[doc = "*Required features: `Win32_System_DeploymentServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_WdsTransportClientSessionStartEx = unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const ::std::ffi::c_void, info: *const TRANSPORTCLIENT_SESSION_INFO);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]

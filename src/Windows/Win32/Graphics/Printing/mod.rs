@@ -4484,6 +4484,7 @@ pub const ECBF_OVERLAY_NO_ICON: u32 = 64u32;
 pub const ECBF_OVERLAY_STOP_ICON: u32 = 32u32;
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub const ECBF_OVERLAY_WARNING_ICON: u32 = 8u32;
+#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type EMFPLAYPROC = unsafe extern "system" fn(param0: super::Gdi::HDC, param1: i32, param2: super::super::Foundation::HANDLE) -> i32;
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -18081,6 +18082,7 @@ pub const NO_BORDER_PRINT: u32 = 1u32;
 pub const NO_COLOR_OPTIMIZATION: u32 = 0u32;
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub const NO_PRIORITY: u32 = 0u32;
+#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_WindowsAndMessaging`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type OEMCUIPCALLBACK = unsafe extern "system" fn(param0: *mut CPSUICBPARAM, param1: *mut ::std::mem::ManuallyDrop<OEMCUIPPARAM>) -> i32;
 #[derive(:: std :: clone :: Clone)]
@@ -18879,14 +18881,19 @@ pub const PDEV_ADJUST_PAPER_MARGIN_TYPE: u32 = 1u32;
 pub const PDEV_HOSTFONT_ENABLED_TYPE: u32 = 2u32;
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub const PDEV_USE_TRUE_COLOR_TYPE: u32 = 3u32;
+#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNCOMPROPSHEET = unsafe extern "system" fn(hcompropsheet: super::super::Foundation::HANDLE, function: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> isize;
+#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNPROPSHEETUI = unsafe extern "system" fn(ppsuiinfo: *mut ::std::mem::ManuallyDrop<PROPSHEETUI_INFO>, lparam: super::super::Foundation::LPARAM) -> i32;
+#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvGetDriverSetting = unsafe extern "system" fn(pdriverobj: *mut ::std::ffi::c_void, feature: super::super::Foundation::PSTR, poutput: *mut ::std::ffi::c_void, cbsize: u32, pcbneeded: *mut u32, pdwoptionsreturned: *mut u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvUpdateUISetting = unsafe extern "system" fn(pdriverobj: *mut ::std::ffi::c_void, poptitem: *mut ::std::ffi::c_void, dwpreviousselection: u32, dwmode: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvUpgradeRegistrySetting = unsafe extern "system" fn(hprinter: super::super::Foundation::HANDLE, pfeature: super::super::Foundation::PSTR, poption: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -22506,6 +22513,7 @@ pub const REVERSE_PAGES_FOR_REVERSE_DUPLEX: u32 = 1u32;
 pub const REVERSE_PRINT: u32 = 1u32;
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub const RIGHT_THEN_DOWN: u32 = 1u32;
+#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ROUTER_NOTIFY_CALLBACK = unsafe extern "system" fn(dwcommand: u32, pcontext: *const ::std::ffi::c_void, dwcolor: u32, pnofityinfo: *const PRINTER_NOTIFY_INFO, fdwflags: u32, pdwresult: *mut u32) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
@@ -24125,6 +24133,7 @@ pub unsafe fn XcvDataW<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type _CPSUICALLBACK = unsafe extern "system" fn(pcpsuicbparam: *mut CPSUICBPARAM) -> i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]

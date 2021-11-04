@@ -2724,29 +2724,47 @@ impl ::std::convert::From<i32> for EnrollmentTemplateProperty {
 unsafe impl ::windows::runtime::Abi for EnrollmentTemplateProperty {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub type FNCERTSRVBACKUPCLOSE = unsafe extern "system" fn(hbc: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub type FNCERTSRVBACKUPEND = unsafe extern "system" fn(hbc: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub type FNCERTSRVBACKUPFREE = unsafe extern "system" fn(pv: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub type FNCERTSRVBACKUPGETBACKUPLOGSW = unsafe extern "system" fn(hbc: *mut ::std::ffi::c_void, ppwszzbackuplogfiles: *mut *mut u16, pcbsize: *mut u32) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub type FNCERTSRVBACKUPGETDATABASENAMESW = unsafe extern "system" fn(hbc: *mut ::std::ffi::c_void, ppwszzattachmentinformation: *mut *mut u16, pcbsize: *mut u32) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub type FNCERTSRVBACKUPGETDYNAMICFILELISTW = unsafe extern "system" fn(hbc: *mut ::std::ffi::c_void, ppwszzfilelist: *mut *mut u16, pcbsize: *mut u32) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FNCERTSRVBACKUPOPENFILEW = unsafe extern "system" fn(hbc: *mut ::std::ffi::c_void, pwszattachmentname: super::super::super::Foundation::PWSTR, cbreadhintsize: u32, plifilesize: *mut i64) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FNCERTSRVBACKUPPREPAREW = unsafe extern "system" fn(pwszservername: super::super::super::Foundation::PWSTR, grbitjet: u32, dwbackupflags: u32, phbc: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub type FNCERTSRVBACKUPREAD = unsafe extern "system" fn(hbc: *mut ::std::ffi::c_void, pvbuffer: *mut ::std::ffi::c_void, cbbuffer: u32, pcbread: *mut u32) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub type FNCERTSRVBACKUPTRUNCATELOGS = unsafe extern "system" fn(hbc: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FNCERTSRVISSERVERONLINEW = unsafe extern "system" fn(pwszservername: super::super::super::Foundation::PWSTR, pfserveronline: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub type FNCERTSRVRESTOREEND = unsafe extern "system" fn(hbc: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub type FNCERTSRVRESTOREGETDATABASELOCATIONSW = unsafe extern "system" fn(hbc: *mut ::std::ffi::c_void, ppwszzdatabaselocationlist: *mut *mut u16, pcbsize: *mut u32) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FNCERTSRVRESTOREPREPAREW = unsafe extern "system" fn(pwszservername: super::super::super::Foundation::PWSTR, dwrestoreflags: u32, phbc: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]
 pub type FNCERTSRVRESTOREREGISTERCOMPLETE = unsafe extern "system" fn(hbc: *mut ::std::ffi::c_void, hrrestorestate: ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FNCERTSRVRESTOREREGISTERW = unsafe extern "system" fn(hbc: *mut ::std::ffi::c_void, pwszcheckpointfilepath: super::super::super::Foundation::PWSTR, pwszlogpath: super::super::super::Foundation::PWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: super::super::super::Foundation::PWSTR, genlow: u32, genhigh: u32) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FNCERTSRVSERVERCONTROLW = unsafe extern "system" fn(pwszservername: super::super::super::Foundation::PWSTR, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FNIMPORTPFXTOPROVIDER = unsafe extern "system" fn(
     hwndparent: super::super::super::Foundation::HWND,
@@ -2762,6 +2780,7 @@ pub type FNIMPORTPFXTOPROVIDER = unsafe extern "system" fn(
     pccertout: *mut u32,
     prgpcertout: *mut *mut *mut super::CERT_CONTEXT,
 ) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Security_Cryptography_Certificates`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FNIMPORTPFXTOPROVIDERFREEDATA = unsafe extern "system" fn(ccert: u32, rgpcert: *const *const super::CERT_CONTEXT);
 #[doc = "*Required features: `Win32_Security_Cryptography_Certificates`*"]

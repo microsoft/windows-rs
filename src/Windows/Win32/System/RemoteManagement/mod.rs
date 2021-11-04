@@ -3754,15 +3754,21 @@ impl ::std::cmp::Eq for WSMAN_OPTION_SETEX {}
 unsafe impl ::windows::runtime::Abi for WSMAN_OPTION_SETEX {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WSMAN_PLUGIN_AUTHORIZE_OPERATION = unsafe extern "system" fn(plugincontext: *const ::std::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, operation: u32, action: super::super::Foundation::PWSTR, resourceuri: super::super::Foundation::PWSTR);
+#[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WSMAN_PLUGIN_AUTHORIZE_QUERY_QUOTA = unsafe extern "system" fn(plugincontext: *const ::std::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32);
+#[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 pub type WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT = unsafe extern "system" fn(userauthorizationcontext: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WSMAN_PLUGIN_AUTHORIZE_USER = unsafe extern "system" fn(plugincontext: *const ::std::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32);
+#[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WSMAN_PLUGIN_COMMAND = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::std::ffi::c_void, commandline: super::super::Foundation::PWSTR, arguments: *const WSMAN_COMMAND_ARG_SET);
+#[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WSMAN_PLUGIN_CONNECT = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::std::ffi::c_void, commandcontext: *const ::std::ffi::c_void, inboundconnectinformation: *const WSMAN_DATA);
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
@@ -3787,9 +3793,12 @@ pub const WSMAN_PLUGIN_PARAMS_RUNAS_USER: u32 = 2u32;
 pub const WSMAN_PLUGIN_PARAMS_SHAREDHOST: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 pub const WSMAN_PLUGIN_PARAMS_TIMEOUT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WSMAN_PLUGIN_RECEIVE = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::std::ffi::c_void, commandcontext: *const ::std::ffi::c_void, streamset: *const WSMAN_STREAM_ID_SET);
+#[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 pub type WSMAN_PLUGIN_RELEASE_COMMAND_CONTEXT = unsafe extern "system" fn(shellcontext: *const ::std::ffi::c_void, commandcontext: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 pub type WSMAN_PLUGIN_RELEASE_SHELL_CONTEXT = unsafe extern "system" fn(shellcontext: *const ::std::ffi::c_void);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3838,10 +3847,13 @@ impl ::std::cmp::Eq for WSMAN_PLUGIN_REQUEST {}
 unsafe impl ::windows::runtime::Abi for WSMAN_PLUGIN_REQUEST {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WSMAN_PLUGIN_SEND = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::std::ffi::c_void, commandcontext: *const ::std::ffi::c_void, stream: super::super::Foundation::PWSTR, inbounddata: *const WSMAN_DATA);
+#[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WSMAN_PLUGIN_SHELL = unsafe extern "system" fn(plugincontext: *const ::std::ffi::c_void, requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, inboundshellinformation: *const WSMAN_DATA);
+#[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 pub type WSMAN_PLUGIN_SHUTDOWN = unsafe extern "system" fn(plugincontext: *const ::std::ffi::c_void, flags: u32, reason: u32) -> u32;
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 pub const WSMAN_PLUGIN_SHUTDOWN_IDLETIMEOUT_ELAPSED: u32 = 4u32;
@@ -3851,8 +3863,10 @@ pub const WSMAN_PLUGIN_SHUTDOWN_IISHOST: u32 = 3u32;
 pub const WSMAN_PLUGIN_SHUTDOWN_SERVICE: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 pub const WSMAN_PLUGIN_SHUTDOWN_SYSTEM: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WSMAN_PLUGIN_SIGNAL = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::std::ffi::c_void, commandcontext: *const ::std::ffi::c_void, code: super::super::Foundation::PWSTR);
+#[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WSMAN_PLUGIN_STARTUP = unsafe extern "system" fn(flags: u32, applicationidentification: super::super::Foundation::PWSTR, extrainfo: super::super::Foundation::PWSTR, plugincontext: *mut *mut ::std::ffi::c_void) -> u32;
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
@@ -4059,6 +4073,7 @@ impl ::std::cmp::Eq for WSMAN_SHELL_ASYNC {}
 unsafe impl ::windows::runtime::Abi for WSMAN_SHELL_ASYNC {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WSMAN_SHELL_COMPLETION_FUNCTION = unsafe extern "system" fn(operationcontext: *const ::std::ffi::c_void, flags: u32, error: *const WSMAN_ERROR, shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, operationhandle: *const WSMAN_OPERATION, data: *const WSMAN_RESPONSE_DATA);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]

@@ -11351,6 +11351,7 @@ impl ::std::cmp::Eq for WFD_GROUP_ID {}
 unsafe impl ::windows::runtime::Abi for WFD_GROUP_ID {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WFD_OPEN_SESSION_COMPLETE_CALLBACK = unsafe extern "system" fn(hsessionhandle: super::super::Foundation::HANDLE, pvcontext: *const ::std::ffi::c_void, guidsessioninterface: ::windows::runtime::GUID, dwerror: u32, dwreasoncode: u32);
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
@@ -12863,6 +12864,7 @@ impl ::std::convert::From<i32> for WLAN_NOTIFICATION_ACM {
 unsafe impl ::windows::runtime::Abi for WLAN_NOTIFICATION_ACM {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 pub type WLAN_NOTIFICATION_CALLBACK = unsafe extern "system" fn(param0: *mut L2_NOTIFICATION_DATA, param1: *mut ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]

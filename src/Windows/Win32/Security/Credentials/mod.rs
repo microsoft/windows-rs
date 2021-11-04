@@ -1951,12 +1951,16 @@ pub unsafe fn KeyCredentialManagerShowUIOperation<'a, Param0: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPOCNCHKPROC = unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPOCNCONNPROCA = unsafe extern "system" fn(param0: usize, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::PSTR, param3: *const ::std::ffi::c_void) -> usize;
+#[doc = "*Required features: `Win32_Security_Credentials`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPOCNCONNPROCW = unsafe extern "system" fn(param0: usize, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR, param3: *const ::std::ffi::c_void) -> usize;
+#[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub type LPOCNDSCPROC = unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_Security_Credentials`*"]
 pub const MAXIMUM_ATTR_STRING_LENGTH: u32 = 32u32;

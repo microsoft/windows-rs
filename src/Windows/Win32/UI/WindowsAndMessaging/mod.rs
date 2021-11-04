@@ -2377,6 +2377,7 @@ impl ::std::cmp::Eq for DLGITEMTEMPLATE {}
 unsafe impl ::windows::runtime::Abi for DLGITEMTEMPLATE {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DLGPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> isize;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -5604,6 +5605,7 @@ unsafe impl ::windows::runtime::Handle for HMENU {}
 unsafe impl ::windows::runtime::Abi for HMENU {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type HOOKPROC = unsafe extern "system" fn(code: i32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
@@ -8464,6 +8466,7 @@ impl ::std::cmp::Eq for MSG {}
 unsafe impl ::windows::runtime::Abi for MSG {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`, `Win32_UI_Shell`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 pub type MSGBOXCALLBACK = unsafe extern "system" fn(lphelpinfo: *mut super::Shell::HELPINFO);
 #[derive(:: std :: clone :: Clone)]
@@ -9324,8 +9327,10 @@ impl ::std::convert::From<i32> for MrmResourceIndexerMessageSeverity {
 unsafe impl ::windows::runtime::Abi for MrmResourceIndexerMessageSeverity {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type NAMEENUMPROCA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type NAMEENUMPROCW = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -9957,6 +9962,7 @@ pub const POINTER_MESSAGE_FLAG_THIRDBUTTON: u32 = 64u32;
 pub const POINTER_MOD_CTRL: u32 = 8u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const POINTER_MOD_SHIFT: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PREGISTERCLASSNAMEW = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOLEAN;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
@@ -9971,12 +9977,16 @@ pub const PRF_ERASEBKGND: i32 = 8i32;
 pub const PRF_NONCLIENT: i32 = 2i32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const PRF_OWNED: i32 = 32i32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PROPENUMPROCA = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PROPENUMPROCEXA = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::HANDLE, param3: usize) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PROPENUMPROCEXW = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::HANDLE, param3: usize) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PROPENUMPROCW = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
@@ -10799,6 +10809,7 @@ pub const SC_TASKLIST: u32 = 61744u32;
 pub const SC_VSCROLL: u32 = 61552u32;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
 pub const SC_ZOOM: u32 = 61488u32;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SENDASYNCPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: super::super::Foundation::LRESULT);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
@@ -12924,6 +12935,7 @@ impl ::std::ops::Not for TILE_WINDOWS_HOW {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type TIMERPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: u32);
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]
@@ -14774,8 +14786,10 @@ impl ::std::ops::Not for WNDCLASS_STYLES {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WNDENUMPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_UI_WindowsAndMessaging`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WNDPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
 #[doc = "*Required features: `Win32_UI_WindowsAndMessaging`*"]

@@ -13544,8 +13544,10 @@ pub struct ID3D10View_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, pdata: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppresource: *mut ::windows::runtime::RawPtr),
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 pub type PFN_D3D10_CREATE_DEVICE1 = unsafe extern "system" fn(param0: ::windows::runtime::RawPtr, param1: D3D10_DRIVER_TYPE, param2: super::super::Foundation::HINSTANCE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Direct3D10`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 pub type PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1 = unsafe extern "system" fn(param0: ::windows::runtime::RawPtr, param1: D3D10_DRIVER_TYPE, param2: super::super::Foundation::HINSTANCE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut super::Dxgi::DXGI_SWAP_CHAIN_DESC, param7: *mut ::windows::runtime::RawPtr, param8: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Graphics_Direct3D10`*"]

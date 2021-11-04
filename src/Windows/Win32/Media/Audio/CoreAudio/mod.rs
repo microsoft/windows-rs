@@ -24752,6 +24752,7 @@ pub const NABTS_LINES_PER_BUNDLE: u32 = 16u32;
 pub const NABTS_PAYLOAD_PER_LINE: u32 = 28u32;
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const NANOSECONDS: u32 = 10000000u32;
+#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub type PAudioStateMonitorCallback = unsafe extern "system" fn(audiostatemonitor: ::windows::runtime::RawPtr, context: *const ::std::ffi::c_void);
 pub const PINNAME_DISPLAYPORT_OUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(570143529, 6730, 18650, [160, 118, 35, 24, 163, 197, 155, 38]);
 pub const PINNAME_HDMI_OUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(947649539, 59375, 18689, [134, 224, 53, 183, 195, 43, 0, 239]);
@@ -26482,6 +26483,7 @@ pub const WST_BYTES_PER_LINE: u32 = 42u32;
 pub const WST_TVTUNER_CHANGE_BEGIN_TUNE: i32 = 4096i32;
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const WST_TVTUNER_CHANGE_END_TUNE: i32 = 8192i32;
+#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub type YIELDPROC = unsafe extern "system" fn(mciid: u32, dwyielddata: u32) -> u32;
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]

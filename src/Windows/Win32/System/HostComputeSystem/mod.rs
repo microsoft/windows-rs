@@ -85,6 +85,7 @@ impl ::std::cmp::Eq for HCS_EVENT {}
 unsafe impl ::windows::runtime::Abi for HCS_EVENT {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type HCS_EVENT_CALLBACK = unsafe extern "system" fn(event: *const HCS_EVENT, context: *const ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_System_HostComputeSystem`*"]
@@ -184,6 +185,7 @@ impl ::std::convert::From<i32> for HCS_NOTIFICATIONS {
 unsafe impl ::windows::runtime::Abi for HCS_NOTIFICATIONS {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type HCS_NOTIFICATION_CALLBACK = unsafe extern "system" fn(notificationtype: u32, context: *const ::std::ffi::c_void, notificationstatus: ::windows::runtime::HRESULT, notificationdata: super::super::Foundation::PWSTR);
 #[doc = "*Required features: `Win32_System_HostComputeSystem`*"]
@@ -212,6 +214,7 @@ unsafe impl ::windows::runtime::Handle for HCS_OPERATION {}
 unsafe impl ::windows::runtime::Abi for HCS_OPERATION {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_HostComputeSystem`*"]
 pub type HCS_OPERATION_COMPLETION = unsafe extern "system" fn(operation: HCS_OPERATION, context: *const ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_System_HostComputeSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]

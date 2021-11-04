@@ -788,6 +788,7 @@ pub const CACHE_NOTIFY_UPDATE_URL: u32 = 4u32;
 pub const CACHE_NOTIFY_URL_SET_STICKY: u32 = 16u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const CACHE_NOTIFY_URL_UNSET_STICKY: u32 = 32u32;
+#[doc = "*Required features: `Win32_Networking_WinInet`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CACHE_OPERATOR = unsafe extern "system" fn(pcei: *mut INTERNET_CACHE_ENTRY_INFOA, pcbcei: *mut u32, popdata: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
@@ -2375,6 +2376,7 @@ impl ::std::cmp::Eq for GOPHER_ASK_ATTRIBUTE_TYPE {}
 unsafe impl ::windows::runtime::Abi for GOPHER_ASK_ATTRIBUTE_TYPE {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WinInet`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type GOPHER_ATTRIBUTE_ENUMERATOR = unsafe extern "system" fn(lpattributeinfo: *const GOPHER_ATTRIBUTE_TYPE, dwerror: u32) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
@@ -3452,7 +3454,9 @@ pub const HTTP_COOKIES_SAME_SITE_LEVEL_UNKNOWN: u32 = 0u32;
 pub const HTTP_MAJOR_VERSION: u32 = 1u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const HTTP_MINOR_VERSION: u32 = 0u32;
+#[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub type HTTP_POLICY_EXTENSION_INIT = unsafe extern "system" fn(version: HTTP_POLICY_EXTENSION_VERSION, r#type: HTTP_POLICY_EXTENSION_TYPE, pvdata: *const ::std::ffi::c_void, cbdata: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub type HTTP_POLICY_EXTENSION_SHUTDOWN = unsafe extern "system" fn(r#type: HTTP_POLICY_EXTENSION_TYPE) -> u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9059,6 +9063,7 @@ pub unsafe fn IsUrlCacheEntryExpiredW<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub type LPINTERNET_STATUS_CALLBACK = unsafe extern "system" fn(hinternet: *const ::std::ffi::c_void, dwcontext: usize, dwinternetstatus: u32, lpvstatusinformation: *const ::std::ffi::c_void, dwstatusinformationlength: u32);
 #[doc = "*Required features: `Win32_Networking_WinInet`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9134,7 +9139,9 @@ unsafe impl ::windows::runtime::Abi for OutgoingCookieState {
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const PENDING_DELETE_CACHE_ENTRY: u32 = 4194304u32;
+#[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub type PFN_AUTH_NOTIFY = unsafe extern "system" fn(param0: usize, param1: u32, param2: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_Networking_WinInet`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DIAL_HANDLER = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PSTR, param2: u32, param3: *mut u32) -> u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
@@ -10449,9 +10456,12 @@ unsafe impl ::windows::runtime::Abi for WPAD_CACHE_DELETE {
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 pub const XDR_CACHE_ENTRY: u32 = 262144u32;
+#[doc = "*Required features: `Win32_Networking_WinInet`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type pfnInternetDeInitializeAutoProxyDll = unsafe extern "system" fn(lpszmime: super::super::Foundation::PSTR, dwreserved: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Networking_WinInet`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type pfnInternetGetProxyInfo = unsafe extern "system" fn(lpszurl: super::super::Foundation::PSTR, dwurllength: u32, lpszurlhostname: super::super::Foundation::PSTR, dwurlhostnamelength: u32, lplpszproxyhostname: *mut super::super::Foundation::PSTR, lpdwproxyhostnamelength: *mut u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Networking_WinInet`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type pfnInternetInitializeAutoProxyDll = unsafe extern "system" fn(dwversion: u32, lpszdownloadedtempfile: super::super::Foundation::PSTR, lpszmime: super::super::Foundation::PSTR, lpautoproxycallbacks: *mut AutoProxyHelperFunctions, lpautoproxyscriptbuffer: *mut AUTO_PROXY_SCRIPT_BUFFER) -> super::super::Foundation::BOOL;

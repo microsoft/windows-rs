@@ -3137,6 +3137,7 @@ unsafe impl ::windows::runtime::Abi for PHYSICAL_MONITOR {
 pub const PHYSICAL_MONITOR_DESCRIPTION_SIZE: u32 = 128u32;
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 pub const PLANAR_HC: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_Display`*"]
 pub type PVIDEO_WIN32K_CALLOUT = unsafe extern "system" fn(params: *mut ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]

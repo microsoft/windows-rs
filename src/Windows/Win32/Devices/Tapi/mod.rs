@@ -226,6 +226,7 @@ impl ::std::convert::From<i32> for AGENT_STATE {
 unsafe impl ::windows::runtime::Abi for AGENT_STATE {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub type ASYNC_COMPLETION = unsafe extern "system" fn(dwrequestid: u32, lresult: i32);
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13937,6 +13938,7 @@ pub const LINEBUSYMODE_TRUNK: u32 = 2u32;
 pub const LINEBUSYMODE_UNAVAIL: u32 = 8u32;
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub const LINEBUSYMODE_UNKNOWN: u32 = 4u32;
+#[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub type LINECALLBACK = unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize);
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub const LINECALLCOMPLCOND_BUSY: u32 = 1u32;
@@ -15068,6 +15070,7 @@ pub const LINEERR_UNINITIALIZED: u32 = 2147483728u32;
 pub const LINEERR_USERCANCELLED: u32 = 2147483741u32;
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub const LINEERR_USERUSERINFOTOOBIG: u32 = 2147483729u32;
+#[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub type LINEEVENT = unsafe extern "system" fn(htline: *mut HTAPILINE__, htcall: *mut HTAPICALL__, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -16726,10 +16729,13 @@ pub const LINE_REMOVE: i32 = 25i32;
 pub const LINE_REPLY: i32 = 12i32;
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub const LINE_REQUEST: i32 = 13i32;
+#[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub type LPGETTNEFSTREAMCODEPAGE = unsafe extern "system" fn(lpstream: ::windows::runtime::RawPtr, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_AddressBook`, `Win32_System_Com`*"]
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 pub type LPOPENTNEFSTREAM = unsafe extern "system" fn(lpvsupport: *mut ::std::ffi::c_void, lpstream: ::windows::runtime::RawPtr, lpszstreamname: *const i8, ulflags: u32, lpmessage: ::windows::runtime::RawPtr, wkeyval: u16, lpptnef: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_AddressBook`, `Win32_System_Com`*"]
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 pub type LPOPENTNEFSTREAMEX = unsafe extern "system" fn(lpvsupport: *mut ::std::ffi::c_void, lpstream: ::windows::runtime::RawPtr, lpszstreamname: *const i8, ulflags: u32, lpmessage: ::windows::runtime::RawPtr, wkeyval: u16, lpadressbook: ::windows::runtime::RawPtr, lpptnef: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
@@ -17397,6 +17403,7 @@ pub const PHONEBUTTONSTATE_UNAVAIL: u32 = 8u32;
 pub const PHONEBUTTONSTATE_UNKNOWN: u32 = 4u32;
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub const PHONEBUTTONSTATE_UP: u32 = 1u32;
+#[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub type PHONECALLBACK = unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -17585,6 +17592,7 @@ pub const PHONEERR_SERVICE_NOT_RUNNING: u32 = 2415919141u32;
 pub const PHONEERR_STRUCTURETOOSMALL: u32 = 2415919137u32;
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub const PHONEERR_UNINITIALIZED: u32 = 2415919138u32;
+#[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub type PHONEEVENT = unsafe extern "system" fn(htphone: *mut HTAPIPHONE__, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
@@ -19019,6 +19027,7 @@ impl ::std::cmp::Eq for TUISPICREATEDIALOGINSTANCEPARAMS {}
 unsafe impl ::windows::runtime::Abi for TUISPICREATEDIALOGINSTANCEPARAMS {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub type TUISPIDLLCALLBACK = unsafe extern "system" fn(dwobjectid: usize, dwobjecttype: u32, lpparams: *mut ::std::ffi::c_void, dwsize: u32) -> i32;
 #[doc = "*Required features: `Win32_Devices_Tapi`*"]
 pub const TUISPIDLL_OBJECT_DIALOGINSTANCE: i32 = 4i32;

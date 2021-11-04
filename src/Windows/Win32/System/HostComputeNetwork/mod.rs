@@ -26,6 +26,7 @@ impl ::std::convert::From<i32> for HCN_NOTIFICATIONS {
 unsafe impl ::windows::runtime::Abi for HCN_NOTIFICATIONS {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_HostComputeNetwork`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type HCN_NOTIFICATION_CALLBACK = unsafe extern "system" fn(notificationtype: u32, context: *const ::std::ffi::c_void, notificationstatus: ::windows::runtime::HRESULT, notificationdata: super::super::Foundation::PWSTR);
 #[doc = "*Required features: `Win32_System_HostComputeNetwork`*"]

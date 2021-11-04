@@ -3548,6 +3548,7 @@ pub const LOAD_TLB_AS_32BIT: u32 = 32u32;
 pub const LOAD_TLB_AS_64BIT: u32 = 64u32;
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]
 pub const LOCALE_USE_NLS: u32 = 268435456u32;
+#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPEXCEPFINO_DEFERRED_FILLIN = unsafe extern "system" fn(pexcepinfo: *mut ::std::mem::ManuallyDrop<EXCEPINFO>) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_System_Ole_Automation`*"]

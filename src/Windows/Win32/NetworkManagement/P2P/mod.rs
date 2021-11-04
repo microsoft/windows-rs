@@ -131,6 +131,7 @@ impl ::std::cmp::Eq for DRT_BOOTSTRAP_PROVIDER {}
 unsafe impl ::windows::runtime::Abi for DRT_BOOTSTRAP_PROVIDER {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub type DRT_BOOTSTRAP_RESOLVE_CALLBACK = unsafe extern "system" fn(hr: ::windows::runtime::HRESULT, pvcontext: *mut ::std::ffi::c_void, paddresses: *mut super::super::Networking::WinSock::SOCKET_ADDRESS_LIST, ffatalerror: super::super::Foundation::BOOL);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -3594,10 +3595,14 @@ impl ::std::convert::From<i32> for PEER_WATCH_PERMISSION {
 unsafe impl ::windows::runtime::Abi for PEER_WATCH_PERMISSION {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub type PFNPEER_FREE_SECURITY_DATA = unsafe extern "system" fn(hgraph: *const ::std::ffi::c_void, pvcontext: *const ::std::ffi::c_void, psecuritydata: *const PEER_DATA) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
 pub type PFNPEER_ON_PASSWORD_AUTH_FAILED = unsafe extern "system" fn(hgraph: *const ::std::ffi::c_void, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNPEER_SECURE_RECORD = unsafe extern "system" fn(hgraph: *const ::std::ffi::c_void, pvcontext: *const ::std::ffi::c_void, precord: *const PEER_RECORD, changetype: PEER_RECORD_CHANGE_TYPE, ppsecuritydata: *mut *mut PEER_DATA) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNPEER_VALIDATE_RECORD = unsafe extern "system" fn(hgraph: *const ::std::ffi::c_void, pvcontext: *const ::std::ffi::c_void, precord: *const PEER_RECORD, changetype: PEER_RECORD_CHANGE_TYPE) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]

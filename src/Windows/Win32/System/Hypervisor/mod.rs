@@ -79,6 +79,7 @@ impl ::std::cmp::Eq for DOS_IMAGE_INFO {}
 unsafe impl ::windows::runtime::Abi for DOS_IMAGE_INFO {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FOUND_IMAGE_CALLBACK = unsafe extern "system" fn(context: *const ::std::ffi::c_void, imageinfo: *const DOS_IMAGE_INFO) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
@@ -306,6 +307,7 @@ impl ::std::convert::From<i32> for GUEST_OS_VENDOR {
 unsafe impl ::windows::runtime::Abi for GUEST_OS_VENDOR {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK = unsafe extern "system" fn(infomessage: super::super::Foundation::PSTR);
 pub const GUID_DEVINTERFACE_VM_GENCOUNTER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1072875819, 26008, 20064, [142, 28, 12, 207, 73, 39, 227, 25]);
@@ -646,7 +648,9 @@ impl ::std::convert::From<i32> for HDV_PCI_BAR_SELECTOR {
 unsafe impl ::windows::runtime::Abi for HDV_PCI_BAR_SELECTOR {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type HDV_PCI_DEVICE_GET_DETAILS = unsafe extern "system" fn(devicecontext: *const ::std::ffi::c_void, pnpid: *mut HDV_PCI_PNP_ID, probedbarscount: u32, probedbars: *mut u32) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type HDV_PCI_DEVICE_INITIALIZE = unsafe extern "system" fn(devicecontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -701,10 +705,14 @@ impl ::std::cmp::Eq for HDV_PCI_DEVICE_INTERFACE {}
 unsafe impl ::windows::runtime::Abi for HDV_PCI_DEVICE_INTERFACE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type HDV_PCI_DEVICE_SET_CONFIGURATION = unsafe extern "system" fn(devicecontext: *const ::std::ffi::c_void, configurationvaluecount: u32, configurationvalues: *const super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type HDV_PCI_DEVICE_START = unsafe extern "system" fn(devicecontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type HDV_PCI_DEVICE_STOP = unsafe extern "system" fn(devicecontext: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type HDV_PCI_DEVICE_TEARDOWN = unsafe extern "system" fn(devicecontext: *const ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -762,9 +770,13 @@ impl ::std::cmp::Eq for HDV_PCI_PNP_ID {}
 unsafe impl ::windows::runtime::Abi for HDV_PCI_PNP_ID {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type HDV_PCI_READ_CONFIG_SPACE = unsafe extern "system" fn(devicecontext: *const ::std::ffi::c_void, offset: u32, value: *mut u32) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type HDV_PCI_READ_INTERCEPTED_MEMORY = unsafe extern "system" fn(devicecontext: *const ::std::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offset: u64, length: u64, value: *mut u8) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type HDV_PCI_WRITE_CONFIG_SPACE = unsafe extern "system" fn(devicecontext: *const ::std::ffi::c_void, offset: u32, value: u32) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type HDV_PCI_WRITE_INTERCEPTED_MEMORY = unsafe extern "system" fn(devicecontext: *const ::std::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offset: u64, length: u64, value: *const u8) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub const HVSOCKET_ADDRESS_FLAG_PASSTHRU: u32 = 1u32;
@@ -2409,6 +2421,7 @@ impl ::std::cmp::Eq for WHV_EMULATOR_CALLBACKS {}
 unsafe impl ::windows::runtime::Abi for WHV_EMULATOR_CALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = unsafe extern "system" fn(context: *const ::std::ffi::c_void, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *mut WHV_REGISTER_VALUE) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2439,6 +2452,7 @@ impl ::std::cmp::Eq for WHV_EMULATOR_IO_ACCESS_INFO {}
 unsafe impl ::windows::runtime::Abi for WHV_EMULATOR_IO_ACCESS_INFO {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type WHV_EMULATOR_IO_PORT_CALLBACK = unsafe extern "system" fn(context: *const ::std::ffi::c_void, ioaccess: *mut WHV_EMULATOR_IO_ACCESS_INFO) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2469,7 +2483,9 @@ impl ::std::cmp::Eq for WHV_EMULATOR_MEMORY_ACCESS_INFO {}
 unsafe impl ::windows::runtime::Abi for WHV_EMULATOR_MEMORY_ACCESS_INFO {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type WHV_EMULATOR_MEMORY_CALLBACK = unsafe extern "system" fn(context: *const ::std::ffi::c_void, memoryaccess: *mut WHV_EMULATOR_MEMORY_ACCESS_INFO) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = unsafe extern "system" fn(context: *const ::std::ffi::c_void, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *const WHV_REGISTER_VALUE) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2519,6 +2535,7 @@ impl ::std::cmp::Eq for WHV_EMULATOR_STATUS_0 {}
 unsafe impl ::windows::runtime::Abi for WHV_EMULATOR_STATUS_0 {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub type WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACK = unsafe extern "system" fn(context: *const ::std::ffi::c_void, gva: u64, translateflags: WHV_TRANSLATE_GVA_FLAGS, translationresult: *mut WHV_TRANSLATE_GVA_RESULT_CODE, gpa: *mut u64) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_System_Hypervisor`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]

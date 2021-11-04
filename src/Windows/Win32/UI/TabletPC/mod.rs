@@ -11238,6 +11238,7 @@ unsafe impl ::windows::runtime::Abi for PanelType {
 }
 pub const PenInputPanel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4148487318, 7002, 18590, [129, 220, 251, 215, 172, 98, 152, 168]);
 pub const PenInputPanel_Internal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2150309817, 1387, 18208, [176, 204, 128, 210, 59, 113, 23, 30]);
+#[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub type PfnRecoCallback = unsafe extern "system" fn(param0: u32, param1: *mut u8, param2: HRECOCONTEXT) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -190,6 +190,7 @@ pub unsafe fn BuildDisplayTable<'a, Param3: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type CALLERRELEASE = unsafe extern "system" fn(ulcallerdata: u32, lptbldata: ::windows::runtime::RawPtr, lpvue: ::windows::runtime::RawPtr);
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1085,6 +1086,7 @@ impl ::std::cmp::Eq for FLATMTSIDLIST {}
 unsafe impl ::windows::runtime::Abi for FLATMTSIDLIST {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FNIDLE = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -4469,29 +4471,45 @@ pub struct IWABOBJECT__abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpiab: ::windows::runtime::RawPtr, ulflags: u32, sbeid: SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type IWABOBJECT_AddRef_METHOD = unsafe extern "system" fn() -> u32;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type IWABOBJECT_AllocateBuffer_METHOD = unsafe extern "system" fn(cbsize: u32, lppbuffer: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type IWABOBJECT_AllocateMore_METHOD = unsafe extern "system" fn(cbsize: u32, lpobject: *const ::std::ffi::c_void, lppbuffer: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type IWABOBJECT_Backup_METHOD = unsafe extern "system" fn(lpfilename: super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type IWABOBJECT_Find_METHOD = unsafe extern "system" fn(lpiab: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type IWABOBJECT_FreeBuffer_METHOD = unsafe extern "system" fn(lpbuffer: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type IWABOBJECT_GetLastError_METHOD = unsafe extern "system" fn(hresult: ::windows::runtime::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type IWABOBJECT_GetMe_METHOD = unsafe extern "system" fn(lpiab: ::windows::runtime::RawPtr, ulflags: u32, lpdwaction: *mut u32, lpsbeid: *mut SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type IWABOBJECT_Import_METHOD = unsafe extern "system" fn(lpwip: super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type IWABOBJECT_LDAPUrl_METHOD = unsafe extern "system" fn(lpiab: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, ulflags: u32, lpszurl: super::super::Foundation::PSTR, lppmailuser: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type IWABOBJECT_QueryInterface_METHOD = unsafe extern "system" fn(riid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type IWABOBJECT_Release_METHOD = unsafe extern "system" fn() -> u32;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type IWABOBJECT_SetMe_METHOD = unsafe extern "system" fn(lpiab: ::windows::runtime::RawPtr, ulflags: u32, sbeid: SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type IWABOBJECT_VCardCreate_METHOD = unsafe extern "system" fn(lpiab: ::windows::runtime::RawPtr, ulflags: u32, lpszvcard: super::super::Foundation::PSTR, lpmailuser: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type IWABOBJECT_VCardDisplay_METHOD = unsafe extern "system" fn(lpiab: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, lpszfilename: super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type IWABOBJECT_VCardRetrieve_METHOD = unsafe extern "system" fn(lpiab: ::windows::runtime::RawPtr, ulflags: u32, lpszvcard: super::super::Foundation::PSTR, lppmailuser: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_System_AddressBook`*"]
@@ -4616,24 +4634,39 @@ pub struct IWABObject_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpiab: ::windows::runtime::RawPtr, ulflags: u32, sbeid: SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type LPALLOCATEBUFFER = unsafe extern "system" fn(cbsize: u32, lppbuffer: *mut *mut ::std::ffi::c_void) -> i32;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type LPALLOCATEMORE = unsafe extern "system" fn(cbsize: u32, lpobject: *mut ::std::ffi::c_void, lppbuffer: *mut *mut ::std::ffi::c_void) -> i32;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type LPCREATECONVERSATIONINDEX = unsafe extern "system" fn(cbparent: u32, lpbparent: *mut u8, lpcbconvindex: *mut u32, lppbconvindex: *mut *mut u8) -> i32;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type LPDISPATCHNOTIFICATIONS = unsafe extern "system" fn(ulflags: u32) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNABSDI = unsafe extern "system" fn(uluiparam: usize, lpvmsg: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type LPFNBUTTON = unsafe extern "system" fn(uluiparam: usize, lpvcontext: *mut ::std::ffi::c_void, cbentryid: u32, lpselection: *mut ENTRYID, ulflags: u32) -> i32;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type LPFNDISMISS = unsafe extern "system" fn(uluiparam: usize, lpvcontext: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type LPFREEBUFFER = unsafe extern "system" fn(lpbuffer: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub type LPNOTIFCALLBACK = unsafe extern "system" fn(lpvcontext: *mut ::std::ffi::c_void, cnotification: u32, lpnotifications: *mut NOTIFICATION) -> i32;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_System_Com`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub type LPOPENSTREAMONFILE = unsafe extern "system" fn(lpallocatebuffer: ::windows::runtime::RawPtr, lpfreebuffer: ::windows::runtime::RawPtr, ulflags: u32, lpszfilename: *const i8, lpszprefix: *const i8, lppstream: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type LPWABALLOCATEBUFFER = unsafe extern "system" fn(lpwabobject: ::windows::runtime::RawPtr, cbsize: u32, lppbuffer: *mut *mut ::std::ffi::c_void) -> i32;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type LPWABALLOCATEMORE = unsafe extern "system" fn(lpwabobject: ::windows::runtime::RawPtr, cbsize: u32, lpobject: *mut ::std::ffi::c_void, lppbuffer: *mut *mut ::std::ffi::c_void) -> i32;
+#[doc = "*Required features: `Win32_System_AddressBook`*"]
 pub type LPWABFREEBUFFER = unsafe extern "system" fn(lpwabobject: ::windows::runtime::RawPtr, lpbuffer: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPWABOPEN = unsafe extern "system" fn(lppadrbook: *mut ::windows::runtime::RawPtr, lppwabobject: *mut ::windows::runtime::RawPtr, lpwp: *mut WAB_PARAM, reserved2: u32) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPWABOPENEX = unsafe extern "system" fn(lppadrbook: *mut ::windows::runtime::RawPtr, lppwabobject: *mut ::windows::runtime::RawPtr, lpwp: *mut WAB_PARAM, reserved: u32, fnallocatebuffer: ::windows::runtime::RawPtr, fnallocatemore: ::windows::runtime::RawPtr, fnfreebuffer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
@@ -5079,6 +5112,7 @@ pub unsafe fn OpenStreamOnFile(lpallocatebuffer: ::std::option::Option<LPALLOCAT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNIDLE = unsafe extern "system" fn() -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_System_AddressBook`*"]

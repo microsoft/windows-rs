@@ -2709,6 +2709,7 @@ impl ::std::cmp::Eq for DTTOPTS {}
 unsafe impl ::windows::runtime::Abi for DTTOPTS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type DTT_CALLBACK_PROC = unsafe extern "system" fn(hdc: super::super::Graphics::Gdi::HDC, psztext: super::super::Foundation::PWSTR, cchtext: i32, prc: *mut super::super::Foundation::RECT, dwflags: u32, lparam: super::super::Foundation::LPARAM) -> i32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
@@ -3160,8 +3161,10 @@ impl ::std::ops::Not for EDITBALLOONTIP_ICON {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type EDITWORDBREAKPROCA = unsafe extern "system" fn(lpch: super::super::Foundation::PSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32;
+#[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type EDITWORDBREAKPROCW = unsafe extern "system" fn(lpch: super::super::Foundation::PWSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
@@ -7159,24 +7162,34 @@ impl ::std::convert::From<i32> for LOGOFFBUTTONSSTATES {
 unsafe impl ::windows::runtime::Abi for LOGOFFBUTTONSSTATES {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNADDPROPSHEETPAGES = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: ::windows::runtime::RawPtr, param2: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPFNCCINFOA = unsafe extern "system" fn(acci: *mut ::std::mem::ManuallyDrop<CCINFOA>) -> u32;
+#[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPFNCCINFOW = unsafe extern "system" fn(acci: *mut ::std::mem::ManuallyDrop<CCINFOW>) -> u32;
+#[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPFNCCSIZETOTEXTA = unsafe extern "system" fn(flstyle: u32, flextstyle: u32, hfont: super::super::Graphics::Gdi::HFONT, psztext: super::super::Foundation::PSTR) -> i32;
+#[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPFNCCSIZETOTEXTW = unsafe extern "system" fn(flstyle: u32, flextstyle: u32, hfont: super::super::Graphics::Gdi::HFONT, psztext: super::super::Foundation::PWSTR) -> i32;
+#[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNCCSTYLEA = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pccs: *mut CCSTYLEA) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNCCSTYLEW = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pccs: *mut CCSTYLEW) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_WindowsAndMessaging`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type LPFNPSPCALLBACKA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: PSPCB_MESSAGE, ppsp: *mut ::std::mem::ManuallyDrop<PROPSHEETPAGEA>) -> u32;
+#[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_WindowsAndMessaging`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type LPFNPSPCALLBACKW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: PSPCB_MESSAGE, ppsp: *mut ::std::mem::ManuallyDrop<PROPSHEETPAGEW>) -> u32;
+#[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNSVADDPROPSHEETPAGE = unsafe extern "system" fn(param0: HPROPSHEETPAGE, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
@@ -13663,25 +13676,37 @@ pub const PBS_SMOOTH: u32 = 1u32;
 pub const PBS_SMOOTHREVERSE: u32 = 16u32;
 #[doc = "*Required features: `Win32_UI_Controls`*"]
 pub const PBS_VERTICAL: u32 = 4u32;
+#[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNDACOMPARE = unsafe extern "system" fn(p1: *const ::std::ffi::c_void, p2: *const ::std::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> i32;
+#[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNDACOMPARECONST = unsafe extern "system" fn(p1: *const ::std::ffi::c_void, p2: *const ::std::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> i32;
+#[doc = "*Required features: `Win32_UI_Controls`*"]
 pub type PFNDAENUMCALLBACK = unsafe extern "system" fn(p: *const ::std::ffi::c_void, pdata: *const ::std::ffi::c_void) -> i32;
+#[doc = "*Required features: `Win32_UI_Controls`*"]
 pub type PFNDAENUMCALLBACKCONST = unsafe extern "system" fn(p: *const ::std::ffi::c_void, pdata: *const ::std::ffi::c_void) -> i32;
+#[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNDPAMERGE = unsafe extern "system" fn(umsg: DPAMM_MESSAGE, pvdest: *const ::std::ffi::c_void, pvsrc: *const ::std::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> *mut ::std::ffi::c_void;
+#[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNDPAMERGECONST = unsafe extern "system" fn(umsg: DPAMM_MESSAGE, pvdest: *const ::std::ffi::c_void, pvsrc: *const ::std::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> *mut ::std::ffi::c_void;
+#[doc = "*Required features: `Win32_UI_Controls`, `Win32_System_Com`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub type PFNDPASTREAM = unsafe extern "system" fn(pinfo: *const DPASTREAMINFO, pstream: ::windows::runtime::RawPtr, pvinstdata: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNLVCOMPARE = unsafe extern "system" fn(param0: super::super::Foundation::LPARAM, param1: super::super::Foundation::LPARAM, param2: super::super::Foundation::LPARAM) -> i32;
+#[doc = "*Required features: `Win32_UI_Controls`*"]
 pub type PFNLVGROUPCOMPARE = unsafe extern "system" fn(param0: i32, param1: i32, param2: *mut ::std::ffi::c_void) -> i32;
+#[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNPROPSHEETCALLBACK = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::LPARAM) -> i32;
+#[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNTVCOMPARE = unsafe extern "system" fn(lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM, lparamsort: super::super::Foundation::LPARAM) -> i32;
+#[doc = "*Required features: `Win32_UI_Controls`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFTASKDIALOGCALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lprefdata: isize) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_UI_Controls`*"]

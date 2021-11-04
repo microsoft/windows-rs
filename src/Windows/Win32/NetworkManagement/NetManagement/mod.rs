@@ -19816,6 +19816,7 @@ pub const WKSTA_VER_MAJOR_PARMNUM: u32 = 4u32;
 pub const WKSTA_VER_MINOR_PARMNUM: u32 = 5u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const WKSTA_WRKHEURISTICS_PARMNUM: u32 = 32u32;
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub type WORKERFUNCTION = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const WZC_PROFILE_API_ERROR_FAILED_TO_LOAD_SCHEMA: u32 = 34u32;

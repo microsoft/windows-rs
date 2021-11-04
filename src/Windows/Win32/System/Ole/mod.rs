@@ -8121,6 +8121,7 @@ impl ::std::cmp::Eq for LICINFO {}
 unsafe impl ::windows::runtime::Abi for LICINFO {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNOLEUIHOOK = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> u32;
 #[doc = "*Required features: `Win32_System_Ole`*"]

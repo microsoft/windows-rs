@@ -77,14 +77,19 @@ pub const C3_NOTAPPLICABLE: u32 = 0u32;
 pub const C3_SYMBOL: u32 = 8u32;
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const C3_VOWELMARK: u32 = 4u32;
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CALINFO_ENUMPROCA = unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CALINFO_ENUMPROCEXA = unsafe extern "system" fn(param0: super::Foundation::PSTR, param1: u32) -> super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CALINFO_ENUMPROCEXEX = unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: u32, param2: super::Foundation::PWSTR, param3: super::Foundation::LPARAM) -> super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CALINFO_ENUMPROCEXW = unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: u32) -> super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CALINFO_ENUMPROCW = unsafe extern "system" fn(param0: super::Foundation::PWSTR) -> super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Globalization`*"]
@@ -278,8 +283,10 @@ unsafe impl ::windows::runtime::Abi for CHARSETINFO {
 pub const CMLangConvertCharset: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3597496217, 52650, 4560, [184, 34, 0, 192, 79, 201, 179, 31]);
 pub const CMLangString: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3226297807, 46861, 4560, [177, 136, 0, 170, 0, 56, 201, 105]);
 pub const CMultiLanguage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(660349922, 14151, 4560, [159, 234, 0, 170, 0, 63, 134, 70]);
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CODEPAGE_ENUMPROCA = unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CODEPAGE_ENUMPROCW = unsafe extern "system" fn(param0: super::Foundation::PWSTR) -> super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Globalization`*"]
@@ -890,14 +897,19 @@ pub unsafe fn ConvertDefaultLocale(locale: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DATEFMT_ENUMPROCA = unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DATEFMT_ENUMPROCEXA = unsafe extern "system" fn(param0: super::Foundation::PSTR, param1: u32) -> super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DATEFMT_ENUMPROCEXEX = unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: u32, param2: super::Foundation::LPARAM) -> super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DATEFMT_ENUMPROCEXW = unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: u32) -> super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DATEFMT_ENUMPROCW = unsafe extern "system" fn(param0: super::Foundation::PWSTR) -> super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -1773,8 +1785,10 @@ pub unsafe fn FoldStringW<'a, Param1: ::windows::runtime::IntoParam<'a, super::F
 }
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const GEOID_NOT_AVAILABLE: i32 = -1i32;
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type GEO_ENUMNAMEPROC = unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: super::Foundation::LPARAM) -> super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type GEO_ENUMPROC = unsafe extern "system" fn(param0: i32) -> super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -5576,12 +5590,16 @@ pub unsafe fn IsWellFormedTag<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LANGGROUPLOCALE_ENUMPROCA = unsafe extern "system" fn(param0: u32, param1: u32, param2: super::Foundation::PSTR, param3: isize) -> super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LANGGROUPLOCALE_ENUMPROCW = unsafe extern "system" fn(param0: u32, param1: u32, param2: super::Foundation::PWSTR, param3: isize) -> super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LANGUAGEGROUP_ENUMPROCA = unsafe extern "system" fn(param0: u32, param1: super::Foundation::PSTR, param2: super::Foundation::PSTR, param3: u32, param4: isize) -> super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LANGUAGEGROUP_ENUMPROCW = unsafe extern "system" fn(param0: u32, param1: super::Foundation::PWSTR, param2: super::Foundation::PWSTR, param3: u32, param4: isize) -> super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
@@ -5754,10 +5772,13 @@ pub const LOCALE_ALL: u32 = 0u32;
 pub const LOCALE_ALLOW_NEUTRAL_NAMES: u32 = 134217728u32;
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const LOCALE_ALTERNATE_SORTS: u32 = 4u32;
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LOCALE_ENUMPROCA = unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LOCALE_ENUMPROCEX = unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: u32, param2: super::Foundation::LPARAM) -> super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LOCALE_ENUMPROCW = unsafe extern "system" fn(param0: super::Foundation::PWSTR) -> super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Globalization`*"]
@@ -7067,6 +7088,7 @@ pub unsafe fn NotifyUILanguageChange<'a, Param1: ::windows::runtime::IntoParam<'
 pub const OFFLINE_SERVICES: u32 = 2u32;
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const ONLINE_SERVICES: u32 = 1u32;
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_MAPPINGCALLBACKPROC = unsafe extern "system" fn(pbag: *mut MAPPING_PROPERTY_BAG, data: *mut ::std::ffi::c_void, dwdatasize: u32, result: ::windows::runtime::HRESULT);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -8607,10 +8629,13 @@ pub unsafe fn SetUserGeoName<'a, Param0: ::windows::runtime::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 pub const SpellCheckerFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2058577491, 6038, 18507, [189, 250, 231, 79, 29, 183, 193, 220]);
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type TIMEFMT_ENUMPROCA = unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type TIMEFMT_ENUMPROCEX = unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: super::Foundation::LPARAM) -> super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type TIMEFMT_ENUMPROCW = unsafe extern "system" fn(param0: super::Foundation::PWSTR) -> super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Globalization`*"]
@@ -8774,6 +8799,7 @@ pub const UBIDI_REMOVE_BIDI_CONTROLS: u32 = 8u32;
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct UBiDi(pub u8);
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UBiDiClassCallback = unsafe extern "system" fn(context: *const ::std::ffi::c_void, c: i32) -> UCharDirection;
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9367,6 +9393,7 @@ impl ::std::convert::From<i32> for UCPMapRangeOption {
 unsafe impl ::windows::runtime::Abi for UCPMapRangeOption {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UCPMapValueFilter = unsafe extern "system" fn(context: *const ::std::ffi::c_void, value: u32) -> u32;
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const UCPTRIE_ERROR_VALUE_NEG_DATA_OFFSET: i32 = 1i32;
@@ -9742,6 +9769,7 @@ impl ::std::convert::From<i32> for UCharDirection {
 unsafe impl ::windows::runtime::Abi for UCharDirection {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UCharEnumTypeRange = unsafe extern "system" fn(context: *const ::std::ffi::c_void, start: i32, limit: i32, r#type: UCharCategory) -> i8;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -9799,12 +9827,19 @@ impl ::std::cmp::Eq for UCharIterator {}
 unsafe impl ::windows::runtime::Abi for UCharIterator {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UCharIteratorCurrent = unsafe extern "system" fn(iter: *mut ::std::mem::ManuallyDrop<UCharIterator>) -> i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UCharIteratorGetIndex = unsafe extern "system" fn(iter: *mut ::std::mem::ManuallyDrop<UCharIterator>, origin: UCharIteratorOrigin) -> i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UCharIteratorGetState = unsafe extern "system" fn(iter: *const ::std::mem::ManuallyDrop<UCharIterator>) -> u32;
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UCharIteratorHasNext = unsafe extern "system" fn(iter: *mut ::std::mem::ManuallyDrop<UCharIterator>) -> i8;
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UCharIteratorHasPrevious = unsafe extern "system" fn(iter: *mut ::std::mem::ManuallyDrop<UCharIterator>) -> i8;
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UCharIteratorMove = unsafe extern "system" fn(iter: *mut ::std::mem::ManuallyDrop<UCharIterator>, delta: i32, origin: UCharIteratorOrigin) -> i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UCharIteratorNext = unsafe extern "system" fn(iter: *mut ::std::mem::ManuallyDrop<UCharIterator>) -> i32;
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9823,8 +9858,11 @@ impl ::std::convert::From<i32> for UCharIteratorOrigin {
 unsafe impl ::windows::runtime::Abi for UCharIteratorOrigin {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UCharIteratorPrevious = unsafe extern "system" fn(iter: *mut ::std::mem::ManuallyDrop<UCharIterator>) -> i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UCharIteratorReserved = unsafe extern "system" fn(iter: *mut ::std::mem::ManuallyDrop<UCharIterator>, something: i32) -> i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UCharIteratorSetState = unsafe extern "system" fn(iter: *mut ::std::mem::ManuallyDrop<UCharIterator>, state: u32, perrorcode: *mut UErrorCode);
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9990,6 +10028,7 @@ impl ::std::convert::From<i32> for UConverterCallbackReason {
 unsafe impl ::windows::runtime::Abi for UConverterCallbackReason {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type UConverterFromUCallback = unsafe extern "system" fn(context: *const ::std::ffi::c_void, args: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -10058,6 +10097,7 @@ unsafe impl ::windows::runtime::Abi for UConverterPlatform {
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct UConverterSelector(pub u8);
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type UConverterToUCallback = unsafe extern "system" fn(context: *const ::std::ffi::c_void, args: *mut UConverterToUnicodeArgs, codeunits: super::Foundation::PSTR, length: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -10645,6 +10685,7 @@ impl ::std::convert::From<i32> for UEastAsianWidth {
 unsafe impl ::windows::runtime::Abi for UEastAsianWidth {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type UEnumCharNamesFn = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, code: i32, namechoice: UCharNameChoice, name: super::Foundation::PSTR, length: i32) -> i8;
 #[repr(C)]
@@ -11049,8 +11090,10 @@ pub const UIDNA_NONTRANSITIONAL_TO_ASCII: i32 = 16i32;
 pub const UIDNA_NONTRANSITIONAL_TO_UNICODE: i32 = 32i32;
 #[doc = "*Required features: `Win32_Globalization`*"]
 pub const UIDNA_USE_STD3_RULES: i32 = 2i32;
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type UILANGUAGE_ENUMPROCA = unsafe extern "system" fn(param0: super::Foundation::PSTR, param1: isize) -> super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type UILANGUAGE_ENUMPROCW = unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: isize) -> super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Globalization`*"]
@@ -11521,8 +11564,11 @@ impl ::std::convert::From<i32> for UMeasurementSystem {
 unsafe impl ::windows::runtime::Abi for UMeasurementSystem {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UMemAllocFn = unsafe extern "system" fn(context: *const ::std::ffi::c_void, size: usize) -> *mut ::std::ffi::c_void;
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UMemFreeFn = unsafe extern "system" fn(context: *const ::std::ffi::c_void, mem: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UMemReallocFn = unsafe extern "system" fn(context: *const ::std::ffi::c_void, mem: *mut ::std::ffi::c_void, size: usize) -> *mut ::std::ffi::c_void;
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11585,6 +11631,7 @@ unsafe impl ::windows::runtime::Abi for UMessagePatternPartType {
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct UMutableCPTrie(pub u8);
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UNESCAPE_CHAR_AT = unsafe extern "system" fn(offset: i32, context: *mut ::std::ffi::c_void) -> u16;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12214,7 +12261,9 @@ impl ::std::convert::From<i32> for UPropertyNameChoice {
 unsafe impl ::windows::runtime::Abi for UPropertyNameChoice {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type URegexFindProgressCallback = unsafe extern "system" fn(context: *const ::std::ffi::c_void, matchindex: i64) -> i8;
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type URegexMatchCallback = unsafe extern "system" fn(context: *const ::std::ffi::c_void, steps: i32) -> i8;
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -12777,6 +12826,7 @@ impl ::std::convert::From<i32> for USpoofChecks {
 unsafe impl ::windows::runtime::Abi for USpoofChecks {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UStringCaseMapper = unsafe extern "system" fn(csm: *const UCaseMap, dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> i32;
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -12980,10 +13030,15 @@ impl ::std::cmp::Eq for UText {}
 unsafe impl ::windows::runtime::Abi for UText {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UTextAccess = unsafe extern "system" fn(ut: *mut UText, nativeindex: i64, forward: i8) -> i8;
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UTextClone = unsafe extern "system" fn(dest: *mut UText, src: *const UText, deep: i8, status: *mut UErrorCode) -> *mut UText;
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UTextClose = unsafe extern "system" fn(ut: *mut UText);
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UTextCopy = unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, nativedest: i64, r#move: i8, status: *mut UErrorCode);
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UTextExtract = unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -13041,9 +13096,13 @@ impl ::std::cmp::Eq for UTextFuncs {}
 unsafe impl ::windows::runtime::Abi for UTextFuncs {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UTextMapNativeIndexToUTF16 = unsafe extern "system" fn(ut: *const UText, nativeindex: i64) -> i32;
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UTextMapOffsetToNative = unsafe extern "system" fn(ut: *const UText) -> i64;
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UTextNativeLength = unsafe extern "system" fn(ut: *mut UText) -> i64;
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UTextReplace = unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, replacementtext: *const u16, replacmentlength: i32, status: *mut UErrorCode) -> i32;
 #[doc = "*Required features: `Win32_Globalization`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -13180,9 +13239,12 @@ impl ::std::convert::From<i32> for UTimeZoneTransitionType {
 unsafe impl ::windows::runtime::Abi for UTimeZoneTransitionType {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type UTraceData = unsafe extern "system" fn(context: *const ::std::ffi::c_void, fnnumber: i32, level: i32, fmt: super::Foundation::PSTR, args: *mut i8);
+#[doc = "*Required features: `Win32_Globalization`*"]
 pub type UTraceEntry = unsafe extern "system" fn(context: *const ::std::ffi::c_void, fnnumber: i32);
+#[doc = "*Required features: `Win32_Globalization`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type UTraceExit = unsafe extern "system" fn(context: *const ::std::ffi::c_void, fnnumber: i32, fmt: super::Foundation::PSTR, args: *mut i8);
 #[doc = "*Required features: `Win32_Globalization`*"]

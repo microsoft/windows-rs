@@ -3519,6 +3519,7 @@ pub unsafe fn ObjectPrivilegeAuditAlarmW<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_AP_CALL_PACKAGE_UNTRUSTED = unsafe extern "system" fn(clientrequest: *const *const ::std::ffi::c_void, protocolsubmitbuffer: *const ::std::ffi::c_void, clientbufferbase: *const ::std::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::std::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::Foundation::NTSTATUS;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -3920,6 +3921,7 @@ impl ::std::cmp::Eq for SECURITY_QUALITY_OF_SERVICE {}
 unsafe impl ::windows::runtime::Abi for SECURITY_QUALITY_OF_SERVICE {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Security`*"]
 pub type SEC_THREAD_START = unsafe extern "system" fn(lpthreadparameter: *mut ::std::ffi::c_void) -> u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]

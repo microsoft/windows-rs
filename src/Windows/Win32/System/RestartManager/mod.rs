@@ -251,6 +251,7 @@ impl ::std::cmp::Eq for RM_UNIQUE_PROCESS {}
 unsafe impl ::windows::runtime::Abi for RM_UNIQUE_PROCESS {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_RestartManager`*"]
 pub type RM_WRITE_STATUS_CALLBACK = unsafe extern "system" fn(npercentcomplete: u32);
 #[doc = "*Required features: `Win32_System_RestartManager`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]

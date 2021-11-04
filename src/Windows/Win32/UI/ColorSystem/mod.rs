@@ -2154,8 +2154,10 @@ impl ::std::cmp::Eq for HiFiCOLOR {}
 unsafe impl ::windows::runtime::Abi for HiFiCOLOR {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ICMENUMPROCA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::LPARAM) -> i32;
+#[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ICMENUMPROCW = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::LPARAM) -> i32;
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
@@ -2587,6 +2589,7 @@ impl ::std::cmp::Eq for LOGCOLORSPACEW {}
 unsafe impl ::windows::runtime::Abi for LOGCOLORSPACEW {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPBMCALLBACKFN = unsafe extern "system" fn(param0: u32, param1: u32, param2: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -2705,8 +2708,10 @@ pub unsafe fn OpenColorProfileW(pprofile: *const PROFILE, dwdesiredaccess: u32, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type PCMSCALLBACKA = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<COLORMATCHSETUPA>, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type PCMSCALLBACKW = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<COLORMATCHSETUPW>, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]

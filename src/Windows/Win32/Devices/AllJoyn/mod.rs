@@ -624,6 +624,7 @@ pub struct _alljoyn_abouticonobj_handle(pub u8);
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct _alljoyn_abouticonproxy_handle(pub u8);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_about_announced_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, busname: super::super::Foundation::PSTR, version: u16, port: u16, objectdescriptionarg: alljoyn_msgarg, aboutdataarg: alljoyn_msgarg);
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
@@ -1372,8 +1373,10 @@ pub unsafe fn alljoyn_aboutdatalistener_destroy<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_aboutdatalistener_getaboutdata_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, msgarg: alljoyn_msgarg, language: super::super::Foundation::PSTR) -> QStatus;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub type alljoyn_aboutdatalistener_getannouncedaboutdata_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, msgarg: alljoyn_msgarg) -> QStatus;
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
@@ -2081,6 +2084,7 @@ pub unsafe fn alljoyn_applicationstatelistener_destroy<'a, Param0: ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub type alljoyn_applicationstatelistener_state_ptr = unsafe extern "system" fn(busname: *mut i8, publickey: *mut i8, applicationstate: alljoyn_applicationstate, context: *mut ::std::ffi::c_void);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -2094,6 +2098,7 @@ unsafe impl ::windows::runtime::Handle for alljoyn_authlistener {}
 unsafe impl ::windows::runtime::Abi for alljoyn_authlistener {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_authlistener_authenticationcomplete_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, success: i32);
 #[derive(:: std :: clone :: Clone)]
@@ -2161,8 +2166,10 @@ pub unsafe fn alljoyn_authlistener_destroy<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_authlistener_requestcredentials_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, authcount: u16, username: super::super::Foundation::PSTR, credmask: u16, credentials: alljoyn_credentials) -> i32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_authlistener_requestcredentialsasync_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, listener: alljoyn_authlistener, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, authcount: u16, username: super::super::Foundation::PSTR, credmask: u16, authcontext: *mut ::std::ffi::c_void) -> QStatus;
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
@@ -2179,6 +2186,7 @@ pub unsafe fn alljoyn_authlistener_requestcredentialsresponse<'a, Param0: ::wind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub type alljoyn_authlistener_securityviolation_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, status: QStatus, msg: alljoyn_message);
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
@@ -2194,8 +2202,10 @@ pub unsafe fn alljoyn_authlistener_setsharedsecret<'a, Param0: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_authlistener_verifycredentials_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, credentials: alljoyn_credentials) -> i32;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_authlistener_verifycredentialsasync_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, listener: alljoyn_authlistener, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, credentials: alljoyn_credentials, authcontext: *mut ::std::ffi::c_void) -> QStatus;
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
@@ -2333,8 +2343,10 @@ pub unsafe fn alljoyn_autopinger_create<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_autopinger_destination_found_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, group: super::super::Foundation::PSTR, destination: super::super::Foundation::PSTR);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_autopinger_destination_lost_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, group: super::super::Foundation::PSTR, destination: super::super::Foundation::PSTR);
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
@@ -3123,6 +3135,7 @@ pub unsafe fn alljoyn_busattachment_joinsessionasync<'a, Param0: ::windows::runt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub type alljoyn_busattachment_joinsessioncb_ptr = unsafe extern "system" fn(status: QStatus, sessionid: u32, opts: alljoyn_sessionopts, context: *mut ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
@@ -3444,6 +3457,7 @@ pub unsafe fn alljoyn_busattachment_setlinktimeoutasync<'a, Param0: ::windows::r
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub type alljoyn_busattachment_setlinktimeoutcb_ptr = unsafe extern "system" fn(status: QStatus, timeout: u32, context: *mut ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
@@ -3656,9 +3670,12 @@ unsafe impl ::windows::runtime::Handle for alljoyn_buslistener {}
 unsafe impl ::windows::runtime::Abi for alljoyn_buslistener {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub type alljoyn_buslistener_bus_disconnected_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_buslistener_bus_prop_changed_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, prop_name: super::super::Foundation::PSTR, prop_value: alljoyn_msgarg);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub type alljoyn_buslistener_bus_stopping_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void);
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -3736,12 +3753,17 @@ pub unsafe fn alljoyn_buslistener_destroy<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_buslistener_found_advertised_name_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, name: super::super::Foundation::PSTR, transport: u16, nameprefix: super::super::Foundation::PSTR);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub type alljoyn_buslistener_listener_registered_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, bus: alljoyn_busattachment);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub type alljoyn_buslistener_listener_unregistered_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_buslistener_lost_advertised_name_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, name: super::super::Foundation::PSTR, transport: u16, nameprefix: super::super::Foundation::PSTR);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_buslistener_name_owner_changed_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, busname: super::super::Foundation::PSTR, previousowner: super::super::Foundation::PSTR, newowner: super::super::Foundation::PSTR);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
@@ -4086,9 +4108,12 @@ pub unsafe fn alljoyn_busobject_methodreply_status<'a, Param0: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub type alljoyn_busobject_object_registration_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_busobject_prop_get_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, ifcname: super::super::Foundation::PSTR, propname: super::super::Foundation::PSTR, val: alljoyn_msgarg) -> QStatus;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_busobject_prop_set_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, ifcname: super::super::Foundation::PSTR, propname: super::super::Foundation::PSTR, val: alljoyn_msgarg) -> QStatus;
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
@@ -5557,6 +5582,7 @@ pub unsafe fn alljoyn_interfacedescription_setpropertydescriptionforlanguage<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_interfacedescription_translation_callback_ptr = unsafe extern "system" fn(sourcelanguage: super::super::Foundation::PSTR, targetlanguage: super::super::Foundation::PSTR, sourcetext: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
@@ -5583,6 +5609,7 @@ unsafe impl ::windows::runtime::Handle for alljoyn_keystorelistener {}
 unsafe impl ::windows::runtime::Abi for alljoyn_keystorelistener {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub type alljoyn_keystorelistener_acquireexclusivelock_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, listener: alljoyn_keystorelistener) -> QStatus;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -5654,6 +5681,7 @@ pub unsafe fn alljoyn_keystorelistener_getkeys<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub type alljoyn_keystorelistener_loadrequest_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, listener: alljoyn_keystorelistener, keystore: alljoyn_keystore) -> QStatus;
 #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5670,7 +5698,9 @@ pub unsafe fn alljoyn_keystorelistener_putkeys<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub type alljoyn_keystorelistener_releaseexclusivelock_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, listener: alljoyn_keystorelistener);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub type alljoyn_keystorelistener_storerequest_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, listener: alljoyn_keystorelistener, keystore: alljoyn_keystore) -> QStatus;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -6200,9 +6230,12 @@ pub unsafe fn alljoyn_message_tostring<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_messagereceiver_methodhandler_ptr = unsafe extern "system" fn(bus: alljoyn_busobject, member: *const alljoyn_interfacedescription_member, message: alljoyn_message);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub type alljoyn_messagereceiver_replyhandler_ptr = unsafe extern "system" fn(message: alljoyn_message, context: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_messagereceiver_signalhandler_ptr = unsafe extern "system" fn(member: *const alljoyn_interfacedescription_member, srcpath: super::super::Foundation::PSTR, message: alljoyn_message);
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
@@ -7441,7 +7474,9 @@ pub unsafe fn alljoyn_observer_getnext<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub type alljoyn_observer_object_discovered_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, proxyref: alljoyn_proxybusobject_ref);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub type alljoyn_observer_object_lost_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, proxyref: alljoyn_proxybusobject_ref);
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 #[inline]
@@ -7636,9 +7671,13 @@ pub unsafe fn alljoyn_permissionconfigurationlistener_destroy<'a, Param0: ::wind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub type alljoyn_permissionconfigurationlistener_endmanagement_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub type alljoyn_permissionconfigurationlistener_factoryreset_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void) -> QStatus;
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub type alljoyn_permissionconfigurationlistener_policychanged_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub type alljoyn_permissionconfigurationlistener_startmanagement_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
@@ -8573,11 +8612,16 @@ pub unsafe fn alljoyn_proxybusobject_isvalid<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub type alljoyn_proxybusobject_listener_getallpropertiescb_ptr = unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, values: alljoyn_msgarg, context: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub type alljoyn_proxybusobject_listener_getpropertycb_ptr = unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, value: alljoyn_msgarg, context: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub type alljoyn_proxybusobject_listener_introspectcb_ptr = unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, context: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_proxybusobject_listener_propertieschanged_ptr = unsafe extern "system" fn(obj: alljoyn_proxybusobject, ifacename: super::super::Foundation::PSTR, changed: alljoyn_msgarg, invalidated: alljoyn_msgarg, context: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub type alljoyn_proxybusobject_listener_setpropertycb_ptr = unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, context: *mut ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9395,9 +9439,12 @@ pub unsafe fn alljoyn_sessionlistener_destroy<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
 pub type alljoyn_sessionlistener_sessionlost_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, sessionid: u32, reason: alljoyn_sessionlostreason);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_sessionlistener_sessionmemberadded_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, sessionid: u32, uniquename: super::super::Foundation::PSTR);
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_sessionlistener_sessionmemberremoved_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, sessionid: u32, uniquename: super::super::Foundation::PSTR);
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]
@@ -9610,6 +9657,7 @@ unsafe impl ::windows::runtime::Handle for alljoyn_sessionportlistener {}
 unsafe impl ::windows::runtime::Abi for alljoyn_sessionportlistener {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_sessionportlistener_acceptsessionjoiner_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, sessionport: u16, joiner: super::super::Foundation::PSTR, opts: alljoyn_sessionopts) -> i32;
 #[derive(:: std :: clone :: Clone)]
@@ -9675,6 +9723,7 @@ pub unsafe fn alljoyn_sessionportlistener_destroy<'a, Param0: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Devices_AllJoyn`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_sessionportlistener_sessionjoined_ptr = unsafe extern "system" fn(context: *const ::std::ffi::c_void, sessionport: u16, id: u32, joiner: super::super::Foundation::PSTR);
 #[doc = "*Required features: `Win32_Devices_AllJoyn`*"]

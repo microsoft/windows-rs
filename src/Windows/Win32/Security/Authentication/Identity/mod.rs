@@ -48,6 +48,7 @@ impl ::std::ops::Not for ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type ACCEPT_SECURITY_CONTEXT_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut super::super::Credentials::SecHandle, param2: *mut SecBufferDesc, param3: u32, param4: u32, param5: *mut super::super::Credentials::SecHandle, param6: *mut SecBufferDesc, param7: *mut u32, param8: *mut i64) -> i32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
@@ -58,14 +59,19 @@ pub const ACCOUNT_ADJUST_QUOTAS: i32 = 4i32;
 pub const ACCOUNT_ADJUST_SYSTEM_ACCESS: i32 = 8i32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const ACCOUNT_VIEW: i32 = 1i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type ACQUIRE_CREDENTIALS_HANDLE_FN_A = unsafe extern "system" fn(param0: *mut i8, param1: *mut i8, param2: u32, param3: *mut ::std::ffi::c_void, param4: *mut ::std::ffi::c_void, param5: ::windows::runtime::RawPtr, param6: *mut ::std::ffi::c_void, param7: *mut super::super::Credentials::SecHandle, param8: *mut i64) -> i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type ACQUIRE_CREDENTIALS_HANDLE_FN_W = unsafe extern "system" fn(param0: *mut u16, param1: *mut u16, param2: u32, param3: *mut ::std::ffi::c_void, param4: *mut ::std::ffi::c_void, param5: ::windows::runtime::RawPtr, param6: *mut ::std::ffi::c_void, param7: *mut super::super::Credentials::SecHandle, param8: *mut i64) -> i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type ADD_CREDENTIALS_FN_A = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut i8, param2: *mut i8, param3: u32, param4: *mut ::std::ffi::c_void, param5: ::windows::runtime::RawPtr, param6: *mut ::std::ffi::c_void, param7: *mut i64) -> i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type ADD_CREDENTIALS_FN_W = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut u16, param2: *mut u16, param3: u32, param4: *mut ::std::ffi::c_void, param5: ::windows::runtime::RawPtr, param6: *mut ::std::ffi::c_void, param7: *mut i64) -> i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type APPLY_CONTROL_TOKEN_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut SecBufferDesc) -> i32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
@@ -887,8 +893,10 @@ pub const CENTRAL_ACCESS_POLICY_OWNER_RIGHTS_PRESENT_FLAG: u32 = 1u32;
 pub const CENTRAL_ACCESS_POLICY_STAGED_FLAG: u32 = 65536u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const CENTRAL_ACCESS_POLICY_STAGED_OWNER_RIGHTS_PRESENT_FLAG: u32 = 256u32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CHANGE_PASSWORD_FN_A = unsafe extern "system" fn(param0: *mut i8, param1: *mut i8, param2: *mut i8, param3: *mut i8, param4: *mut i8, param5: super::super::super::Foundation::BOOLEAN, param6: u32, param7: *mut SecBufferDesc) -> i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CHANGE_PASSWORD_FN_W = unsafe extern "system" fn(param0: *mut u16, param1: *mut u16, param2: *mut u16, param3: *mut u16, param4: *mut u16, param5: super::super::super::Foundation::BOOLEAN, param6: u32, param7: *mut SecBufferDesc) -> i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -926,6 +934,7 @@ unsafe impl ::windows::runtime::Abi for CLEAR_BLOCK {
 }
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const CLEAR_BLOCK_LENGTH: u32 = 8u32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type COMPLETE_AUTH_TOKEN_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut SecBufferDesc) -> i32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
@@ -1024,6 +1033,7 @@ pub unsafe fn CompleteAuthToken(phcontext: *const super::super::Credentials::Sec
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`, `Win32_Security_Credentials`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 pub type CredFreeCredentialsFn = unsafe extern "system" fn(count: u32, credentials: *mut *mut ENCRYPTED_CREDENTIALW);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`, `Win32_Security_Credentials`*"]
@@ -1041,8 +1051,10 @@ pub unsafe fn CredMarshalTargetInfo(intargetinfo: *const super::super::Credentia
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`, `Win32_Security_Credentials`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 pub type CredReadDomainCredentialsFn = unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, credflags: u32, targetinfo: *const super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW, flags: u32, count: *mut u32, credential: *mut *mut *mut ENCRYPTED_CREDENTIALW) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`, `Win32_Security_Credentials`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 pub type CredReadFn = unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, credflags: u32, targetname: super::super::super::Foundation::PWSTR, r#type: u32, flags: u32, credential: *mut *mut ENCRYPTED_CREDENTIALW) -> super::super::super::Foundation::NTSTATUS;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`, `Win32_Security_Credentials`*"]
@@ -1060,12 +1072,16 @@ pub unsafe fn CredUnmarshalTargetInfo(buffer: *const u16, buffersize: u32, retta
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`, `Win32_Security_Credentials`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 pub type CredWriteFn = unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, credflags: u32, credential: *const ENCRYPTED_CREDENTIALW, flags: u32) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CrediUnmarshalandDecodeStringFn = unsafe extern "system" fn(marshaledstring: super::super::super::Foundation::PWSTR, blob: *mut *mut u8, blobsize: *mut u32, isfailurefatal: *mut u8) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type DECRYPT_MESSAGE_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut SecBufferDesc, param2: u32, param3: *mut u32) -> i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type DELETE_SECURITY_CONTEXT_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle) -> i32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
@@ -1250,9 +1266,12 @@ impl ::std::cmp::Eq for ENCRYPTED_CREDENTIALW {}
 unsafe impl ::windows::runtime::Abi for ENCRYPTED_CREDENTIALW {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type ENCRYPT_MESSAGE_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut SecBufferDesc, param3: u32) -> i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub type ENUMERATE_SECURITY_PACKAGES_FN_A = unsafe extern "system" fn(param0: *mut u32, param1: *mut *mut SecPkgInfoA) -> i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub type ENUMERATE_SECURITY_PACKAGES_FN_W = unsafe extern "system" fn(param0: *mut u32, param1: *mut *mut SecPkgInfoW) -> i32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1297,6 +1316,7 @@ impl ::std::ops::Not for EXPORT_SECURITY_CONTEXT_FLAGS {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type EXPORT_SECURITY_CONTEXT_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut SecBuffer, param3: *mut *mut ::std::ffi::c_void) -> i32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
@@ -1385,7 +1405,9 @@ pub unsafe fn ExportSecurityContext(phcontext: *const super::super::Credentials:
 }
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const FACILITY_SL_ITF: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub type FREE_CONTEXT_BUFFER_FN = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void) -> i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type FREE_CREDENTIALS_HANDLE_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle) -> i32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
@@ -1521,18 +1543,25 @@ pub struct ICcgDomainAuthCredentials_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plugininput: super::super::super::Foundation::PWSTR, domainname: *mut super::super::super::Foundation::PWSTR, username: *mut super::super::super::Foundation::PWSTR, password: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type IMPERSONATE_SECURITY_CONTEXT_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle) -> i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type IMPORT_SECURITY_CONTEXT_FN_A = unsafe extern "system" fn(param0: *mut i8, param1: *mut SecBuffer, param2: *mut ::std::ffi::c_void, param3: *mut super::super::Credentials::SecHandle) -> i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type IMPORT_SECURITY_CONTEXT_FN_W = unsafe extern "system" fn(param0: *mut u16, param1: *mut SecBuffer, param2: *mut ::std::ffi::c_void, param3: *mut super::super::Credentials::SecHandle) -> i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type INITIALIZE_SECURITY_CONTEXT_FN_A = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut super::super::Credentials::SecHandle, param2: *mut i8, param3: u32, param4: u32, param5: u32, param6: *mut SecBufferDesc, param7: u32, param8: *mut super::super::Credentials::SecHandle, param9: *mut SecBufferDesc, param10: *mut u32, param11: *mut i64) -> i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type INITIALIZE_SECURITY_CONTEXT_FN_W = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut super::super::Credentials::SecHandle, param2: *mut u16, param3: u32, param4: u32, param5: u32, param6: *mut SecBufferDesc, param7: u32, param8: *mut super::super::Credentials::SecHandle, param9: *mut SecBufferDesc, param10: *mut u32, param11: *mut i64) -> i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`, `Win32_Security_Credentials`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 pub type INIT_SECURITY_INTERFACE_A = unsafe extern "system" fn() -> *mut SecurityFunctionTableA;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`, `Win32_Security_Credentials`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 pub type INIT_SECURITY_INTERFACE_W = unsafe extern "system" fn() -> *mut SecurityFunctionTableW;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
@@ -4952,30 +4981,43 @@ impl ::std::cmp::Eq for KSEC_LIST_ENTRY {}
 unsafe impl ::windows::runtime::Abi for KSEC_LIST_ENTRY {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type KspCompleteTokenFn = unsafe extern "system" fn(contextid: usize, token: *const SecBufferDesc) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type KspDeleteContextFn = unsafe extern "system" fn(contextid: usize, lsacontextid: *mut usize) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type KspGetTokenFn = unsafe extern "system" fn(contextid: usize, impersonationtoken: *mut super::super::super::Foundation::HANDLE, rawtoken: *mut *mut ::std::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type KspInitContextFn = unsafe extern "system" fn(contextid: usize, contextdata: *const SecBuffer, newcontextid: *mut usize) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`, `Win32_System_Kernel`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub type KspInitPackageFn = unsafe extern "system" fn(functiontable: *const ::std::mem::ManuallyDrop<SECPKG_KERNEL_FUNCTIONS>) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type KspMakeSignatureFn = unsafe extern "system" fn(contextid: usize, fqop: u32, message: *const SecBufferDesc, messageseqno: u32) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type KspMapHandleFn = unsafe extern "system" fn(contextid: usize, lsacontextid: *mut usize) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type KspQueryAttributesFn = unsafe extern "system" fn(contextid: usize, attribute: u32, buffer: *mut ::std::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type KspSealMessageFn = unsafe extern "system" fn(contextid: usize, fqop: u32, message: *const SecBufferDesc, messageseqno: u32) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type KspSerializeAuthDataFn = unsafe extern "system" fn(pvauthdata: *const ::std::ffi::c_void, size: *mut u32, serializeddata: *mut *mut ::std::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type KspSetPagingModeFn = unsafe extern "system" fn(pagingmode: super::super::super::Foundation::BOOLEAN) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type KspUnsealMessageFn = unsafe extern "system" fn(contextid: usize, message: *const SecBufferDesc, messageseqno: u32, pfqop: *mut u32) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type KspVerifySignatureFn = unsafe extern "system" fn(contextid: usize, message: *const SecBufferDesc, messageseqno: u32, pfqop: *mut u32) -> super::super::super::Foundation::NTSTATUS;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
@@ -5041,6 +5083,7 @@ pub const LOOKUP_VIEW_LOCAL_INFORMATION: u32 = 1u32;
 pub const LSASETCAPS_RELOAD_FLAG: u32 = 1u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const LSASETCAPS_VALID_FLAG_MASK: u32 = 1u32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LSA_AP_POST_LOGON_USER = unsafe extern "system" fn(postlogonuserinfo: *const SECPKG_POST_LOGON_USER_INFO) -> super::super::super::Foundation::NTSTATUS;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -6724,6 +6767,7 @@ pub unsafe fn LsaUnregisterPolicyChangeNotification<'a, Param1: ::windows::runti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type MAKE_SIGNATURE_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut SecBufferDesc, param3: u32) -> i32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
@@ -8343,16 +8387,23 @@ pub const PER_USER_AUDIT_SUCCESS_EXCLUDE: u32 = 2u32;
 pub const PER_USER_AUDIT_SUCCESS_INCLUDE: u32 = 1u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const PER_USER_POLICY_UNCHANGED: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub type PKSEC_CREATE_CONTEXT_LIST = unsafe extern "system" fn(r#type: KSEC_CONTEXT_TYPE) -> *mut ::std::ffi::c_void;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_System_Kernel`*"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub type PKSEC_DEREFERENCE_LIST_ENTRY = unsafe extern "system" fn(entry: *const KSEC_LIST_ENTRY, delete: *mut u8);
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_System_Kernel`*"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub type PKSEC_INSERT_LIST_ENTRY = unsafe extern "system" fn(list: *const ::std::ffi::c_void, entry: *const KSEC_LIST_ENTRY);
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub type PKSEC_LOCATE_PKG_BY_ID = unsafe extern "system" fn(packageid: u32) -> *mut ::std::ffi::c_void;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`, `Win32_System_Kernel`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub type PKSEC_REFERENCE_LIST_ENTRY = unsafe extern "system" fn(entry: *const KSEC_LIST_ENTRY, signature: u32, removenoref: super::super::super::Foundation::BOOLEAN) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PKSEC_SERIALIZE_SCHANNEL_AUTH_DATA = unsafe extern "system" fn(pvauthdata: *const ::std::ffi::c_void, size: *mut u32, serializeddata: *mut *mut ::std::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PKSEC_SERIALIZE_WINNT_AUTH_DATA = unsafe extern "system" fn(pvauthdata: *const ::std::ffi::c_void, size: *mut u32, serializeddata: *mut *mut ::std::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -8470,21 +8521,31 @@ impl ::std::convert::From<i32> for PKU2U_LOGON_SUBMIT_TYPE {
 unsafe impl ::windows::runtime::Abi for PKU2U_LOGON_SUBMIT_TYPE {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`, `Win32_System_Kernel`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub type PLSA_ADD_CREDENTIAL = unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, authenticationpackage: u32, primarykeyvalue: *const super::super::super::System::Kernel::STRING, credentials: *const super::super::super::System::Kernel::STRING) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_ALLOCATE_CLIENT_BUFFER = unsafe extern "system" fn(clientrequest: *const *const ::std::ffi::c_void, lengthrequired: u32, clientbaseaddress: *mut *mut ::std::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub type PLSA_ALLOCATE_LSA_HEAP = unsafe extern "system" fn(length: u32) -> *mut ::std::ffi::c_void;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub type PLSA_ALLOCATE_PRIVATE_HEAP = unsafe extern "system" fn(length: usize) -> *mut ::std::ffi::c_void;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub type PLSA_ALLOCATE_SHARED_MEMORY = unsafe extern "system" fn(sharedmem: *const ::std::ffi::c_void, size: u32) -> *mut ::std::ffi::c_void;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_AP_CALL_PACKAGE = unsafe extern "system" fn(clientrequest: *const *const ::std::ffi::c_void, protocolsubmitbuffer: *const ::std::ffi::c_void, clientbufferbase: *const ::std::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::std::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_AP_CALL_PACKAGE_PASSTHROUGH = unsafe extern "system" fn(clientrequest: *const *const ::std::ffi::c_void, protocolsubmitbuffer: *const ::std::ffi::c_void, clientbufferbase: *const ::std::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::std::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`, `Win32_System_Kernel`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub type PLSA_AP_INITIALIZE_PACKAGE = unsafe extern "system" fn(authenticationpackageid: u32, lsadispatchtable: *const ::std::mem::ManuallyDrop<LSA_DISPATCH_TABLE>, database: *const super::super::super::System::Kernel::STRING, confidentiality: *const super::super::super::System::Kernel::STRING, authenticationpackagename: *mut *mut super::super::super::System::Kernel::STRING) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_AP_LOGON_TERMINATED = unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID);
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_AP_LOGON_USER = unsafe extern "system" fn(
     clientrequest: *const *const ::std::ffi::c_void,
@@ -8501,6 +8562,7 @@ pub type PLSA_AP_LOGON_USER = unsafe extern "system" fn(
     accountname: *mut *mut super::super::super::Foundation::UNICODE_STRING,
     authenticatingauthority: *mut *mut super::super::super::Foundation::UNICODE_STRING,
 ) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_AP_LOGON_USER_EX = unsafe extern "system" fn(
     clientrequest: *const *const ::std::ffi::c_void,
@@ -8518,6 +8580,7 @@ pub type PLSA_AP_LOGON_USER_EX = unsafe extern "system" fn(
     authenticatingauthority: *mut *mut super::super::super::Foundation::UNICODE_STRING,
     machinename: *mut *mut super::super::super::Foundation::UNICODE_STRING,
 ) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_AP_LOGON_USER_EX2 = unsafe extern "system" fn(
     clientrequest: *const *const ::std::ffi::c_void,
@@ -8537,6 +8600,7 @@ pub type PLSA_AP_LOGON_USER_EX2 = unsafe extern "system" fn(
     primarycredentials: *mut SECPKG_PRIMARY_CRED,
     supplementalcredentials: *mut *mut SECPKG_SUPPLEMENTAL_CRED_ARRAY,
 ) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_AP_LOGON_USER_EX3 = unsafe extern "system" fn(
     clientrequest: *const *const ::std::ffi::c_void,
@@ -8557,6 +8621,7 @@ pub type PLSA_AP_LOGON_USER_EX3 = unsafe extern "system" fn(
     primarycredentials: *mut SECPKG_PRIMARY_CRED,
     supplementalcredentials: *mut *mut SECPKG_SUPPLEMENTAL_CRED_ARRAY,
 ) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_AP_POST_LOGON_USER_SURROGATE = unsafe extern "system" fn(
     clientrequest: *const *const ::std::ffi::c_void,
@@ -8578,10 +8643,13 @@ pub type PLSA_AP_POST_LOGON_USER_SURROGATE = unsafe extern "system" fn(
     primarycredentials: *const SECPKG_PRIMARY_CRED,
     supplementalcredentials: *const SECPKG_SUPPLEMENTAL_CRED_ARRAY,
 ) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_AP_PRE_LOGON_USER_SURROGATE = unsafe extern "system" fn(clientrequest: *const *const ::std::ffi::c_void, logontype: SECURITY_LOGON_TYPE, protocolsubmitbuffer: *const ::std::ffi::c_void, clientbufferbase: *const ::std::ffi::c_void, submitbuffersize: u32, surrogatelogon: *mut SECPKG_SURROGATE_LOGON, substatus: *mut i32) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_AUDIT_ACCOUNT_LOGON = unsafe extern "system" fn(auditid: u32, success: super::super::super::Foundation::BOOLEAN, source: *const super::super::super::Foundation::UNICODE_STRING, clientname: *const super::super::super::Foundation::UNICODE_STRING, mappedname: *const super::super::super::Foundation::UNICODE_STRING, status: super::super::super::Foundation::NTSTATUS) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_AUDIT_LOGON = unsafe extern "system" fn(
     status: super::super::super::Foundation::NTSTATUS,
@@ -8594,6 +8662,7 @@ pub type PLSA_AUDIT_LOGON = unsafe extern "system" fn(
     tokensource: *const super::super::TOKEN_SOURCE,
     logonid: *const super::super::super::Foundation::LUID,
 );
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_AUDIT_LOGON_EX = unsafe extern "system" fn(
     status: super::super::super::Foundation::NTSTATUS,
@@ -8607,22 +8676,31 @@ pub type PLSA_AUDIT_LOGON_EX = unsafe extern "system" fn(
     tokensource: *const super::super::TOKEN_SOURCE,
     logonid: *const super::super::super::Foundation::LUID,
 );
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_CALLBACK_FUNCTION = unsafe extern "system" fn(argument1: usize, argument2: usize, inputbuffer: *mut SecBuffer, outputbuffer: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_CALL_PACKAGE = unsafe extern "system" fn(authenticationpackage: *const super::super::super::Foundation::UNICODE_STRING, protocolsubmitbuffer: *const ::std::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::std::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_CALL_PACKAGEEX = unsafe extern "system" fn(authenticationpackage: *const super::super::super::Foundation::UNICODE_STRING, clientbufferbase: *const ::std::ffi::c_void, protocolsubmitbuffer: *const ::std::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::std::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_CALL_PACKAGE_PASSTHROUGH = unsafe extern "system" fn(authenticationpackage: *const super::super::super::Foundation::UNICODE_STRING, clientbufferbase: *const ::std::ffi::c_void, protocolsubmitbuffer: *const ::std::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::std::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_CANCEL_NOTIFICATION = unsafe extern "system" fn(notifyhandle: super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_CHECK_PROTECTED_USER_BY_TOKEN = unsafe extern "system" fn(usertoken: super::super::super::Foundation::HANDLE, protecteduser: *mut super::super::super::Foundation::BOOLEAN) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_CLIENT_CALLBACK = unsafe extern "system" fn(callback: super::super::super::Foundation::PSTR, argument1: usize, argument2: usize, input: *const SecBuffer, output: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_CLOSE_SAM_USER = unsafe extern "system" fn(userhandle: *const ::std::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_CONVERT_AUTH_DATA_TO_TOKEN = unsafe extern "system" fn(
     userauthdata: *const ::std::ffi::c_void,
@@ -8636,17 +8714,24 @@ pub type PLSA_CONVERT_AUTH_DATA_TO_TOKEN = unsafe extern "system" fn(
     accountname: *mut super::super::super::Foundation::UNICODE_STRING,
     substatus: *mut i32,
 ) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_COPY_FROM_CLIENT_BUFFER = unsafe extern "system" fn(clientrequest: *const *const ::std::ffi::c_void, length: u32, buffertocopy: *mut ::std::ffi::c_void, clientbaseaddress: *const ::std::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_COPY_TO_CLIENT_BUFFER = unsafe extern "system" fn(clientrequest: *const *const ::std::ffi::c_void, length: u32, clientbaseaddress: *mut ::std::ffi::c_void, buffertocopy: *const ::std::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_CRACK_SINGLE_NAME = unsafe extern "system" fn(formatoffered: u32, performatgc: super::super::super::Foundation::BOOLEAN, nameinput: *const super::super::super::Foundation::UNICODE_STRING, prefix: *const super::super::super::Foundation::UNICODE_STRING, requestedformat: u32, crackedname: *mut super::super::super::Foundation::UNICODE_STRING, dnsdomainname: *mut super::super::super::Foundation::UNICODE_STRING, substatus: *mut u32) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_CREATE_LOGON_SESSION = unsafe extern "system" fn(logonid: *mut super::super::super::Foundation::LUID) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub type PLSA_CREATE_SHARED_MEMORY = unsafe extern "system" fn(maxsize: u32, initialsize: u32) -> *mut ::std::ffi::c_void;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 pub type PLSA_CREATE_THREAD = unsafe extern "system" fn(securityattributes: *const super::super::SECURITY_ATTRIBUTES, stacksize: u32, startfunction: ::windows::runtime::RawPtr, threadparameter: *const ::std::ffi::c_void, creationflags: u32, threadid: *mut u32) -> super::super::super::Foundation::HANDLE;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_CREATE_TOKEN = unsafe extern "system" fn(
     logonid: *const super::super::super::Foundation::LUID,
@@ -8663,6 +8748,7 @@ pub type PLSA_CREATE_TOKEN = unsafe extern "system" fn(
     token: *mut super::super::super::Foundation::HANDLE,
     substatus: *mut i32,
 ) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_CREATE_TOKEN_EX = unsafe extern "system" fn(
     logonid: *const super::super::super::Foundation::LUID,
@@ -8679,33 +8765,49 @@ pub type PLSA_CREATE_TOKEN_EX = unsafe extern "system" fn(
     token: *mut super::super::super::Foundation::HANDLE,
     substatus: *mut i32,
 ) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`, `Win32_System_Kernel`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub type PLSA_DELETE_CREDENTIAL = unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, authenticationpackage: u32, primarykeyvalue: *const super::super::super::System::Kernel::STRING) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_DELETE_LOGON_SESSION = unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_DELETE_SHARED_MEMORY = unsafe extern "system" fn(sharedmem: *const ::std::ffi::c_void) -> super::super::super::Foundation::BOOLEAN;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_DUPLICATE_HANDLE = unsafe extern "system" fn(sourcehandle: super::super::super::Foundation::HANDLE, destionationhandle: *mut super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_EXPAND_AUTH_DATA_FOR_DOMAIN = unsafe extern "system" fn(userauthdata: *const u8, userauthdatasize: u32, reserved: *const ::std::ffi::c_void, expandedauthdata: *mut *mut u8, expandedauthdatasize: *mut u32) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_FREE_CLIENT_BUFFER = unsafe extern "system" fn(clientrequest: *const *const ::std::ffi::c_void, clientbaseaddress: *const ::std::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub type PLSA_FREE_LSA_HEAP = unsafe extern "system" fn(base: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub type PLSA_FREE_PRIVATE_HEAP = unsafe extern "system" fn(base: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub type PLSA_FREE_SHARED_MEMORY = unsafe extern "system" fn(sharedmem: *const ::std::ffi::c_void, memory: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_GET_APP_MODE_INFO = unsafe extern "system" fn(userfunction: *mut u32, argument1: *mut usize, argument2: *mut usize, userdata: *mut SecBuffer, returntolsa: *mut super::super::super::Foundation::BOOLEAN) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_GET_AUTH_DATA_FOR_USER = unsafe extern "system" fn(name: *const super::super::super::Foundation::UNICODE_STRING, nametype: SECPKG_NAME_TYPE, prefix: *const super::super::super::Foundation::UNICODE_STRING, userauthdata: *mut *mut u8, userauthdatasize: *mut u32, userflatname: *mut super::super::super::Foundation::UNICODE_STRING) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_GET_CALL_INFO = unsafe extern "system" fn(info: *mut SECPKG_CALL_INFO) -> super::super::super::Foundation::BOOLEAN;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_GET_CLIENT_INFO = unsafe extern "system" fn(clientinfo: *mut SECPKG_CLIENT_INFO) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`, `Win32_System_Kernel`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub type PLSA_GET_CREDENTIALS = unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, authenticationpackage: u32, querycontext: *mut u32, retrieveallcredentials: super::super::super::Foundation::BOOLEAN, primarykeyvalue: *const super::super::super::System::Kernel::STRING, primarykeylength: *mut u32, credentials: *const super::super::super::System::Kernel::STRING) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_GET_EXTENDED_CALL_FLAGS = unsafe extern "system" fn(flags: *mut u32) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_GET_SERVICE_ACCOUNT_PASSWORD = unsafe extern "system" fn(
     accountname: *const super::super::super::Foundation::UNICODE_STRING,
@@ -8716,42 +8818,62 @@ pub type PLSA_GET_SERVICE_ACCOUNT_PASSWORD = unsafe extern "system" fn(
     previouspassword: *mut super::super::super::Foundation::UNICODE_STRING,
     filetimecurrpwdvalidforoutbound: *mut super::super::super::Foundation::FILETIME,
 ) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_GET_USER_AUTH_DATA = unsafe extern "system" fn(userhandle: *const ::std::ffi::c_void, userauthdata: *mut *mut u8, userauthdatasize: *mut u32) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_GET_USER_CREDENTIALS = unsafe extern "system" fn(userhandle: *const ::std::ffi::c_void, primarycreds: *mut *mut ::std::ffi::c_void, primarycredssize: *mut u32, supplementalcreds: *mut *mut ::std::ffi::c_void, supplementalcredssize: *mut u32) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_IMPERSONATE_CLIENT = unsafe extern "system" fn() -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub type PLSA_LOCATE_PKG_BY_ID = unsafe extern "system" fn(packgeid: u32) -> *mut ::std::ffi::c_void;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_MAP_BUFFER = unsafe extern "system" fn(inputbuffer: *const SecBuffer, outputbuffer: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_OPEN_SAM_USER = unsafe extern "system" fn(name: *const super::super::super::Foundation::UNICODE_STRING, nametype: SECPKG_NAME_TYPE, prefix: *const super::super::super::Foundation::UNICODE_STRING, allowguest: super::super::super::Foundation::BOOLEAN, reserved: u32, userhandle: *mut *mut ::std::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_OPEN_TOKEN_BY_LOGON_ID = unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, rettokenhandle: *mut super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub type PLSA_PROTECT_MEMORY = unsafe extern "system" fn(buffer: *mut ::std::ffi::c_void, buffersize: u32);
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_QUERY_CLIENT_REQUEST = unsafe extern "system" fn(clientrequest: *const *const ::std::ffi::c_void, querytype: u32, replybuffer: *mut *mut ::std::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_REDIRECTED_LOGON_CALLBACK = unsafe extern "system" fn(redirectedlogonhandle: super::super::super::Foundation::HANDLE, buffer: *mut ::std::ffi::c_void, bufferlength: u32, returnbuffer: *mut *mut ::std::ffi::c_void, returnbufferlength: *mut u32) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACK = unsafe extern "system" fn(redirectedlogonhandle: super::super::super::Foundation::HANDLE);
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_REDIRECTED_LOGON_GET_LOGON_CREDS = unsafe extern "system" fn(redirectedlogonhandle: super::super::super::Foundation::HANDLE, logonbuffer: *mut *mut u8, logonbufferlength: *mut u32) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_REDIRECTED_LOGON_GET_SUPP_CREDS = unsafe extern "system" fn(redirectedlogonhandle: super::super::super::Foundation::HANDLE, supplementalcredentials: *mut *mut SECPKG_SUPPLEMENTAL_CRED_ARRAY) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_REDIRECTED_LOGON_INIT = unsafe extern "system" fn(redirectedlogonhandle: super::super::super::Foundation::HANDLE, packagename: *const super::super::super::Foundation::UNICODE_STRING, sessionid: u32, logonid: *const super::super::super::Foundation::LUID) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_REGISTER_CALLBACK = unsafe extern "system" fn(callbackid: u32, callback: ::windows::runtime::RawPtr) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 pub type PLSA_REGISTER_NOTIFICATION = unsafe extern "system" fn(startfunction: ::windows::runtime::RawPtr, parameter: *const ::std::ffi::c_void, notificationtype: u32, notificationclass: u32, notificationflags: u32, intervalminutes: u32, waitevent: super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::HANDLE;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_SAVE_SUPPLEMENTAL_CREDENTIALS = unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, supplementalcredsize: u32, supplementalcreds: *const ::std::ffi::c_void, synchronous: super::super::super::Foundation::BOOLEAN) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_SET_APP_MODE_INFO = unsafe extern "system" fn(userfunction: u32, argument1: usize, argument2: usize, userdata: *const SecBuffer, returntolsa: super::super::super::Foundation::BOOLEAN) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_UNLOAD_PACKAGE = unsafe extern "system" fn() -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_UPDATE_PRIMARY_CREDENTIALS = unsafe extern "system" fn(primarycredentials: *const SECPKG_PRIMARY_CRED, credentials: *const SECPKG_SUPPLEMENTAL_CRED_ARRAY) -> super::super::super::Foundation::NTSTATUS;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -9539,7 +9661,9 @@ pub const PRIMARY_CRED_SUPPLEMENTAL: u32 = 4194304u32;
 pub const PRIMARY_CRED_TRANSFER: u32 = 8192u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const PRIMARY_CRED_UPDATE: u32 = 4u32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub type PSAM_CREDENTIAL_UPDATE_FREE_ROUTINE = unsafe extern "system" fn(p: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINE = unsafe extern "system" fn(
     clearpassword: *const super::super::super::Foundation::UNICODE_STRING,
@@ -9553,14 +9677,19 @@ pub type PSAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINE = unsafe extern "system" fn(
     newcredentials: *mut *mut ::std::ffi::c_void,
     newcredentialsize: *mut u32,
 ) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSAM_CREDENTIAL_UPDATE_REGISTER_MAPPED_ENTRYPOINTS_ROUTINE = unsafe extern "system" fn(table: *mut SAM_REGISTER_MAPPING_TABLE) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSAM_CREDENTIAL_UPDATE_REGISTER_ROUTINE = unsafe extern "system" fn(credentialname: *mut super::super::super::Foundation::UNICODE_STRING) -> super::super::super::Foundation::BOOLEAN;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSAM_INIT_NOTIFICATION_ROUTINE = unsafe extern "system" fn() -> super::super::super::Foundation::BOOLEAN;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSAM_PASSWORD_FILTER_ROUTINE = unsafe extern "system" fn(accountname: *const super::super::super::Foundation::UNICODE_STRING, fullname: *const super::super::super::Foundation::UNICODE_STRING, password: *const super::super::super::Foundation::UNICODE_STRING, setoperation: super::super::super::Foundation::BOOLEAN) -> super::super::super::Foundation::BOOLEAN;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSAM_PASSWORD_NOTIFICATION_ROUTINE = unsafe extern "system" fn(username: *mut super::super::super::Foundation::UNICODE_STRING, relativeid: u32, newpassword: *mut super::super::super::Foundation::UNICODE_STRING) -> super::super::super::Foundation::NTSTATUS;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -9591,25 +9720,36 @@ impl ::std::cmp::Eq for PctPublicKey {}
 unsafe impl ::windows::runtime::Abi for PctPublicKey {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type QUERY_CONTEXT_ATTRIBUTES_EX_FN_A = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::std::ffi::c_void, param3: u32) -> i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type QUERY_CONTEXT_ATTRIBUTES_EX_FN_W = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::std::ffi::c_void, param3: u32) -> i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type QUERY_CONTEXT_ATTRIBUTES_FN_A = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::std::ffi::c_void) -> i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type QUERY_CONTEXT_ATTRIBUTES_FN_W = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::std::ffi::c_void) -> i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_A = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::std::ffi::c_void, param3: u32) -> i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_W = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::std::ffi::c_void, param3: u32) -> i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type QUERY_CREDENTIALS_ATTRIBUTES_FN_A = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::std::ffi::c_void) -> i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type QUERY_CREDENTIALS_ATTRIBUTES_FN_W = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::std::ffi::c_void) -> i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type QUERY_SECURITY_CONTEXT_TOKEN_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut *mut ::std::ffi::c_void) -> i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub type QUERY_SECURITY_PACKAGE_INFO_FN_A = unsafe extern "system" fn(param0: *mut i8, param1: *mut *mut SecPkgInfoA) -> i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub type QUERY_SECURITY_PACKAGE_INFO_FN_W = unsafe extern "system" fn(param0: *mut u16, param1: *mut *mut SecPkgInfoW) -> i32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
@@ -9782,6 +9922,7 @@ pub const RCRED_CRED_EXISTS: u32 = 1u32;
 pub const RCRED_STATUS_NOCRED: u32 = 0u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const RCRED_STATUS_UNKNOWN_ISSUER: u32 = 2u32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type REVERT_SECURITY_CONTEXT_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle) -> i32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
@@ -13066,6 +13207,7 @@ impl ::std::cmp::Eq for SEC_FLAGS {}
 unsafe impl ::windows::runtime::Abi for SEC_FLAGS {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub type SEC_GET_KEY_FN = unsafe extern "system" fn(arg: *mut ::std::ffi::c_void, principal: *mut ::std::ffi::c_void, keyver: u32, key: *mut *mut ::std::ffi::c_void, status: *mut i32);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -13638,12 +13780,16 @@ unsafe impl ::windows::runtime::Abi for SEND_GENERIC_TLS_EXTENSION {
 pub const SESSION_TICKET_INFO_V0: u32 = 0u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const SESSION_TICKET_INFO_VERSION: u32 = 0u32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type SET_CONTEXT_ATTRIBUTES_FN_A = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::std::ffi::c_void, param3: u32) -> i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type SET_CONTEXT_ATTRIBUTES_FN_W = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::std::ffi::c_void, param3: u32) -> i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type SET_CREDENTIALS_ATTRIBUTES_FN_A = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::std::ffi::c_void, param3: u32) -> i32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type SET_CREDENTIALS_ATTRIBUTES_FN_W = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::std::ffi::c_void, param3: u32) -> i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -15688,6 +15834,7 @@ impl ::std::cmp::Eq for SR_SECURITY_DESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for SR_SECURITY_DESCRIPTOR {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SSL_CRACK_CERTIFICATE_FN = unsafe extern "system" fn(pbcertificate: *mut u8, cbcertificate: u32, verifysignature: super::super::super::Foundation::BOOL, ppcertificate: *mut *mut X509Certificate) -> super::super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -15727,10 +15874,13 @@ impl ::std::cmp::Eq for SSL_CREDENTIAL_CERTIFICATE {}
 unsafe impl ::windows::runtime::Abi for SSL_CREDENTIAL_CERTIFICATE {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SSL_EMPTY_CACHE_FN_A = unsafe extern "system" fn(psztargetname: super::super::super::Foundation::PSTR, dwflags: u32) -> super::super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SSL_EMPTY_CACHE_FN_W = unsafe extern "system" fn(psztargetname: super::super::super::Foundation::PWSTR, dwflags: u32) -> super::super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SSL_FREE_CERTIFICATE_FN = unsafe extern "system" fn(pcertificate: *mut X509Certificate);
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
@@ -18672,95 +18822,140 @@ pub unsafe fn SetCredentialsAttributesW(phcredential: *const super::super::Crede
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpAcceptCredentialsFn = unsafe extern "system" fn(logontype: SECURITY_LOGON_TYPE, accountname: *const super::super::super::Foundation::UNICODE_STRING, primarycredentials: *const SECPKG_PRIMARY_CRED, supplementalcredentials: *const SECPKG_SUPPLEMENTAL_CRED) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpAcceptLsaModeContextFn = unsafe extern "system" fn(credentialhandle: usize, contexthandle: usize, inputbuffer: *const SecBufferDesc, contextrequirements: u32, targetdatarep: u32, newcontexthandle: *mut usize, outputbuffer: *mut SecBufferDesc, contextattributes: *mut u32, expirationtime: *mut i64, mappedcontext: *mut super::super::super::Foundation::BOOLEAN, contextdata: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpAcquireCredentialsHandleFn = unsafe extern "system" fn(principalname: *const super::super::super::Foundation::UNICODE_STRING, credentialuseflags: u32, logonid: *const super::super::super::Foundation::LUID, authorizationdata: *const ::std::ffi::c_void, getkeyfunciton: *const ::std::ffi::c_void, getkeyargument: *const ::std::ffi::c_void, credentialhandle: *mut usize, expirationtime: *mut i64) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpAddCredentialsFn = unsafe extern "system" fn(credentialhandle: usize, principalname: *const super::super::super::Foundation::UNICODE_STRING, package: *const super::super::super::Foundation::UNICODE_STRING, credentialuseflags: u32, authorizationdata: *const ::std::ffi::c_void, getkeyfunciton: *const ::std::ffi::c_void, getkeyargument: *const ::std::ffi::c_void, expirationtime: *mut i64) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpApplyControlTokenFn = unsafe extern "system" fn(contexthandle: usize, controltoken: *const SecBufferDesc) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpChangeAccountPasswordFn = unsafe extern "system" fn(pdomainname: *const super::super::super::Foundation::UNICODE_STRING, paccountname: *const super::super::super::Foundation::UNICODE_STRING, poldpassword: *const super::super::super::Foundation::UNICODE_STRING, pnewpassword: *const super::super::super::Foundation::UNICODE_STRING, impersonating: super::super::super::Foundation::BOOLEAN, poutput: *mut SecBufferDesc) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpCompleteAuthTokenFn = unsafe extern "system" fn(contexthandle: usize, inputbuffer: *const SecBufferDesc) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpDeleteContextFn = unsafe extern "system" fn(contexthandle: usize) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpDeleteCredentialsFn = unsafe extern "system" fn(credentialhandle: usize, key: *const SecBuffer) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpExchangeMetaDataFn = unsafe extern "system" fn(credentialhandle: usize, targetname: *const super::super::super::Foundation::UNICODE_STRING, contextrequirements: u32, metadatalength: u32, metadata: *const u8, contexthandle: *mut usize) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpExportSecurityContextFn = unsafe extern "system" fn(phcontext: usize, fflags: u32, ppackedcontext: *mut SecBuffer, ptoken: *mut super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpFormatCredentialsFn = unsafe extern "system" fn(credentials: *const SecBuffer, formattedcredentials: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpFreeCredentialsHandleFn = unsafe extern "system" fn(credentialhandle: usize) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpGetContextTokenFn = unsafe extern "system" fn(contexthandle: usize, impersonationtoken: *mut super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpGetCredUIContextFn = unsafe extern "system" fn(contexthandle: usize, credtype: *const ::windows::runtime::GUID, flatcreduicontextlength: *mut u32, flatcreduicontext: *mut *mut u8) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpGetCredentialsFn = unsafe extern "system" fn(credentialhandle: usize, credentials: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpGetExtendedInformationFn = unsafe extern "system" fn(class: SECPKG_EXTENDED_INFORMATION_CLASS, ppinformation: *mut *mut SECPKG_EXTENDED_INFORMATION) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpGetInfoFn = unsafe extern "system" fn(packageinfo: *mut SecPkgInfoA) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpGetRemoteCredGuardLogonBufferFn = unsafe extern "system" fn(credhandle: usize, contexthandle: usize, targetname: *const super::super::super::Foundation::UNICODE_STRING, redirectedlogonhandle: *mut super::super::super::Foundation::HANDLE, callback: *mut ::windows::runtime::RawPtr, cleanupcallback: *mut ::windows::runtime::RawPtr, logonbuffersize: *mut u32, logonbuffer: *mut *mut ::std::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpGetRemoteCredGuardSupplementalCredsFn = unsafe extern "system" fn(credhandle: usize, targetname: *const super::super::super::Foundation::UNICODE_STRING, redirectedlogonhandle: *mut super::super::super::Foundation::HANDLE, callback: *mut ::windows::runtime::RawPtr, cleanupcallback: *mut ::windows::runtime::RawPtr, supplementalcredssize: *mut u32, supplementalcreds: *mut *mut ::std::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpGetTbalSupplementalCredsFn = unsafe extern "system" fn(logonid: super::super::super::Foundation::LUID, supplementalcredssize: *mut u32, supplementalcreds: *mut *mut ::std::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpGetUserInfoFn = unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, flags: u32, userdata: *mut *mut SECURITY_USER_DATA) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpImportSecurityContextFn = unsafe extern "system" fn(ppackedcontext: *const SecBuffer, token: super::super::super::Foundation::HANDLE, phcontext: *mut usize) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpInitLsaModeContextFn =
     unsafe extern "system" fn(credentialhandle: usize, contexthandle: usize, targetname: *const super::super::super::Foundation::UNICODE_STRING, contextrequirements: u32, targetdatarep: u32, inputbuffers: *const SecBufferDesc, newcontexthandle: *mut usize, outputbuffers: *mut SecBufferDesc, contextattributes: *mut u32, expirationtime: *mut i64, mappedcontext: *mut super::super::super::Foundation::BOOLEAN, contextdata: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpInitUserModeContextFn = unsafe extern "system" fn(contexthandle: usize, packedcontext: *const SecBuffer) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`, `Win32_Security_Credentials`, `Win32_System_Kernel`, `Win32_System_SystemServices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_SystemServices"))]
 pub type SpInitializeFn = unsafe extern "system" fn(packageid: usize, parameters: *const SECPKG_PARAMETERS, functiontable: *const ::std::mem::ManuallyDrop<LSA_SECPKG_FUNCTION_TABLE>) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpInstanceInitFn = unsafe extern "system" fn(version: u32, functiontable: *const ::std::mem::ManuallyDrop<SECPKG_DLL_FUNCTIONS>, userfunctions: *mut *mut ::std::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`, `Win32_Security_Credentials`, `Win32_System_Kernel`, `Win32_System_SystemServices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_SystemServices"))]
 pub type SpLsaModeInitializeFn = unsafe extern "system" fn(lsaversion: u32, packageversion: *mut u32, pptables: *mut *mut SECPKG_FUNCTION_TABLE, pctables: *mut u32) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpMakeSignatureFn = unsafe extern "system" fn(contexthandle: usize, qualityofprotection: u32, messagebuffers: *const SecBufferDesc, messagesequencenumber: u32) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpMarshalAttributeDataFn = unsafe extern "system" fn(attributeinfo: u32, attribute: u32, attributedatasize: u32, attributedata: *const u8, marshaledattributedatasize: *mut u32, marshaledattributedata: *mut *mut u8) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpMarshallSupplementalCredsFn = unsafe extern "system" fn(credentialsize: u32, credentials: *const u8, marshalledcredsize: *mut u32, marshalledcreds: *mut *mut ::std::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpQueryContextAttributesFn = unsafe extern "system" fn(contexthandle: usize, contextattribute: u32, buffer: *mut ::std::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpQueryCredentialsAttributesFn = unsafe extern "system" fn(credentialhandle: usize, credentialattribute: u32, buffer: *mut ::std::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpQueryMetaDataFn = unsafe extern "system" fn(credentialhandle: usize, targetname: *const super::super::super::Foundation::UNICODE_STRING, contextrequirements: u32, metadatalength: *mut u32, metadata: *mut *mut u8, contexthandle: *mut usize) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpSaveCredentialsFn = unsafe extern "system" fn(credentialhandle: usize, credentials: *const SecBuffer) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpSealMessageFn = unsafe extern "system" fn(contexthandle: usize, qualityofprotection: u32, messagebuffers: *const SecBufferDesc, messagesequencenumber: u32) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpSetContextAttributesFn = unsafe extern "system" fn(contexthandle: usize, contextattribute: u32, buffer: *const ::std::ffi::c_void, buffersize: u32) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpSetCredentialsAttributesFn = unsafe extern "system" fn(credentialhandle: usize, credentialattribute: u32, buffer: *const ::std::ffi::c_void, buffersize: u32) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpSetExtendedInformationFn = unsafe extern "system" fn(class: SECPKG_EXTENDED_INFORMATION_CLASS, info: *const SECPKG_EXTENDED_INFORMATION) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpShutdownFn = unsafe extern "system" fn() -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpUnsealMessageFn = unsafe extern "system" fn(contexthandle: usize, messagebuffers: *const SecBufferDesc, messagesequencenumber: u32, qualityofprotection: *mut u32) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpUpdateCredentialsFn = unsafe extern "system" fn(contexthandle: usize, credtype: *const ::windows::runtime::GUID, flatcreduicontextlength: u32, flatcreduicontext: *const u8) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpUserModeInitializeFn = unsafe extern "system" fn(lsaversion: u32, packageversion: *mut u32, pptables: *mut *mut SECPKG_USER_FUNCTION_TABLE, pctables: *mut u32) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpValidateTargetInfoFn = unsafe extern "system" fn(clientrequest: *const *const ::std::ffi::c_void, protocolsubmitbuffer: *const ::std::ffi::c_void, clientbufferbase: *const ::std::ffi::c_void, submitbufferlength: u32, targetinfo: *const SECPKG_TARGETINFO) -> super::super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SpVerifySignatureFn = unsafe extern "system" fn(contexthandle: usize, messagebuffers: *const SecBufferDesc, messagesequencenumber: u32, qualityofprotection: *mut u32) -> super::super::super::Foundation::NTSTATUS;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
@@ -18851,6 +19046,7 @@ pub unsafe fn SslGetExtensions(clienthello: *const u8, clienthellobytesize: u32,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub type SslGetExtensionsFn = unsafe extern "system" fn(clienthello: *const u8, clienthellobytesize: u32, genericextensions: *mut SCH_EXTENSION_DATA, genericextensionscount: u8, bytestoread: *mut u32, flags: SchGetExtensionsOptions) -> i32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 #[inline]
@@ -18880,6 +19076,7 @@ pub unsafe fn SslGetServerIdentity(clienthello: *const u8, clienthellosize: u32,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub type SslGetServerIdentityFn = unsafe extern "system" fn(clienthello: *const u8, clienthellosize: u32, serveridentity: *mut *mut u8, serveridentitysize: *mut u32, flags: u32) -> i32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -20382,6 +20579,7 @@ pub const USER_USE_AES_KEYS: u32 = 2097152u32;
 pub const USER_USE_DES_KEY_ONLY: u32 = 32768u32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`*"]
 pub const USER_WORKSTATION_TRUST_ACCOUNT: u32 = 128u32;
+#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type VERIFY_SIGNATURE_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut SecBufferDesc, param2: u32, param3: *mut u32) -> i32;
 #[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Security_Credentials`*"]

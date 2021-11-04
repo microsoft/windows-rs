@@ -3203,6 +3203,7 @@ pub struct IImeSpecifyApplets_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, refiid: *const ::windows::runtime::GUID, lpiidlist: *mut APPLETIDLIST) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 pub type IMCENUMPROC = unsafe extern "system" fn(param0: super::super::super::Globalization::HIMC, param1: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
@@ -6611,6 +6612,7 @@ impl ::std::ops::Not for NOTIFY_IME_INDEX {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNLOG = unsafe extern "system" fn(param0: *mut IMEDP, param1: ::windows::runtime::HRESULT) -> super::super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -6717,8 +6719,10 @@ impl ::std::cmp::Eq for REGISTERWORDA {}
 unsafe impl ::windows::runtime::Abi for REGISTERWORDA {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type REGISTERWORDENUMPROCA = unsafe extern "system" fn(lpszreading: super::super::super::Foundation::PSTR, param1: u32, lpszstring: super::super::super::Foundation::PSTR, param3: *mut ::std::ffi::c_void) -> i32;
+#[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type REGISTERWORDENUMPROCW = unsafe extern "system" fn(lpszreading: super::super::super::Foundation::PWSTR, param1: u32, lpszstring: super::super::super::Foundation::PWSTR, param3: *mut ::std::ffi::c_void) -> i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -7077,8 +7081,11 @@ impl ::std::cmp::Eq for WDD_1 {}
 unsafe impl ::windows::runtime::Abi for WDD_1 {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub type fpCreateIFECommonInstanceType = unsafe extern "system" fn(ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub type fpCreateIFEDictionaryInstanceType = unsafe extern "system" fn(ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub type fpCreateIFELanguageInstanceType = unsafe extern "system" fn(clsid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]

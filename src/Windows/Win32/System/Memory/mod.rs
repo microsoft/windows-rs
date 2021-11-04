@@ -1654,7 +1654,9 @@ impl ::std::ops::Not for PAGE_TYPE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_Memory`*"]
 pub type PBAD_MEMORY_CALLBACK_ROUTINE = unsafe extern "system" fn();
+#[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSECURE_MEMORY_CACHE_CALLBACK = unsafe extern "system" fn(addr: *const ::std::ffi::c_void, range: usize) -> super::super::Foundation::BOOLEAN;
 #[doc = "*Required features: `Win32_System_Memory`, `Win32_Foundation`*"]

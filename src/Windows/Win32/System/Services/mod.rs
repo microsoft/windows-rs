@@ -848,12 +848,18 @@ pub unsafe fn GetSharedServiceRegistryStateKey<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Services`*"]
 pub type HANDLER_FUNCTION = unsafe extern "system" fn(dwcontrol: u32);
+#[doc = "*Required features: `Win32_System_Services`*"]
 pub type HANDLER_FUNCTION_EX = unsafe extern "system" fn(dwcontrol: u32, dweventtype: u32, lpeventdata: *mut ::std::ffi::c_void, lpcontext: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_System_Services`*"]
 pub type LPHANDLER_FUNCTION = unsafe extern "system" fn(dwcontrol: u32);
+#[doc = "*Required features: `Win32_System_Services`*"]
 pub type LPHANDLER_FUNCTION_EX = unsafe extern "system" fn(dwcontrol: u32, dweventtype: u32, lpeventdata: *mut ::std::ffi::c_void, lpcontext: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPSERVICE_MAIN_FUNCTIONA = unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut super::super::Foundation::PSTR);
+#[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPSERVICE_MAIN_FUNCTIONW = unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut super::super::Foundation::PWSTR);
 #[doc = "*Required features: `Win32_System_Services`, `Win32_Security`*"]
@@ -980,7 +986,9 @@ pub unsafe fn OpenServiceW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Services`*"]
 pub type PFN_SC_NOTIFY_CALLBACK = unsafe extern "system" fn(pparameter: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_System_Services`*"]
 pub type PSC_NOTIFICATION_CALLBACK = unsafe extern "system" fn(dwnotify: u32, pcallbackcontext: *const ::std::ffi::c_void);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2030,7 +2038,9 @@ pub const SERVICE_LAUNCH_PROTECTED_NONE: u32 = 0u32;
 pub const SERVICE_LAUNCH_PROTECTED_WINDOWS: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Services`*"]
 pub const SERVICE_LAUNCH_PROTECTED_WINDOWS_LIGHT: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_Services`*"]
 pub type SERVICE_MAIN_FUNCTIONA = unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut *mut i8);
+#[doc = "*Required features: `Win32_System_Services`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SERVICE_MAIN_FUNCTIONW = unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut super::super::Foundation::PWSTR);
 #[doc = "*Required features: `Win32_System_Services`*"]

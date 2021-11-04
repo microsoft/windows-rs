@@ -412,19 +412,29 @@ impl ::std::convert::From<i32> for NS_REQS {
 unsafe impl ::windows::runtime::Abi for NS_REQS {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_HANDLE_CMD = unsafe extern "system" fn(pwszmachine: super::super::Foundation::PWSTR, ppwcarguments: *mut super::super::Foundation::PWSTR, dwcurrentindex: u32, dwargcount: u32, dwflags: u32, pvdata: *const ::std::ffi::c_void, pbdone: *mut super::super::Foundation::BOOL) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PGET_RESOURCE_STRING_FN = unsafe extern "system" fn(dwmsgid: u32, lpbuffer: super::super::Foundation::PWSTR, nbuffermax: u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_NetShell`*"]
 pub type PNS_CONTEXT_COMMIT_FN = unsafe extern "system" fn(dwaction: u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PNS_CONTEXT_CONNECT_FN = unsafe extern "system" fn(pwszmachine: super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PNS_CONTEXT_DUMP_FN = unsafe extern "system" fn(pwszrouter: super::super::Foundation::PWSTR, ppwcarguments: *const super::super::Foundation::PWSTR, dwargcount: u32, pvdata: *const ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_NetShell`*"]
 pub type PNS_DLL_INIT_FN = unsafe extern "system" fn(dwnetshversion: u32, preserved: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_NetShell`*"]
 pub type PNS_DLL_STOP_FN = unsafe extern "system" fn(dwreserved: u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_NetShell`*"]
 pub type PNS_HELPER_START_FN = unsafe extern "system" fn(pguidparent: *const ::windows::runtime::GUID, dwversion: u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_NetShell`*"]
 pub type PNS_HELPER_STOP_FN = unsafe extern "system" fn(dwreserved: u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PNS_OSVERSIONCHECK = unsafe extern "system" fn(cimostype: u32, cimosproductsuite: u32, cimosversion: super::super::Foundation::PWSTR, cimosbuildnumber: super::super::Foundation::PWSTR, cimservicepackmajorversion: super::super::Foundation::PWSTR, cimservicepackminorversion: super::super::Foundation::PWSTR, uireserved: u32, dwreserved: u32) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]

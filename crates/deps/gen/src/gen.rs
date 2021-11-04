@@ -72,8 +72,8 @@ impl Gen {
         features
     }
 
-    pub fn gen_function_cfg(&self, def: &MethodDef, signature: &MethodSignature) -> TokenStream {
-        let arch = self.gen_arch_cfg(def.attributes());
+    pub fn gen_function_cfg(&self, attributes: impl Iterator<Item = Attribute>, signature: &MethodSignature) -> TokenStream {
+        let arch = self.gen_arch_cfg(attributes);
         let features = signature.method_features();
         let cfg = self.gen_cfg(&features);
         let doc = self.gen_cfg_doc(&features);
@@ -111,7 +111,7 @@ impl Gen {
         format!(r#"#[doc = "*Required features: {}*"]"#, tokens).into()
     }
 
-    pub fn gen_arch_cfg(&self, attributes: impl Iterator<Item = Attribute>) -> TokenStream {
+    fn gen_arch_cfg(&self, attributes: impl Iterator<Item = Attribute>) -> TokenStream {
         for attribute in attributes {
             if attribute.name() == "SupportedArchitectureAttribute" {
                 if let Some((_, ConstantValue::I32(value))) = attribute.args().get(0) {

@@ -10360,18 +10360,25 @@ impl ::std::cmp::Eq for PF_LATEBIND_INFO {}
 unsafe impl ::windows::runtime::Abi for PF_LATEBIND_INFO {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub type PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub type PIPFORWARD_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::std::ffi::c_void, row: *const MIB_IPFORWARD_ROW2, notificationtype: MIB_NOTIFICATION_TYPE);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub type PIPINTERFACE_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::std::ffi::c_void, row: *const MIB_IPINTERFACE_ROW, notificationtype: MIB_NOTIFICATION_TYPE);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub type PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::std::ffi::c_void, connectivityhint: super::super::Networking::WinSock::NL_NETWORK_CONNECTIVITY_HINT);
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub const PROXY_ARP: u32 = 22u32;
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub type PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::std::ffi::c_void, addresstable: *const MIB_UNICASTIPADDRESS_TABLE);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub type PTEREDO_PORT_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::std::ffi::c_void, port: u16, notificationtype: MIB_NOTIFICATION_TYPE);
+#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub type PUNICAST_IPADDRESS_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::std::ffi::c_void, row: *const MIB_UNICASTIPADDRESS_ROW, notificationtype: MIB_NOTIFICATION_TYPE);
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]

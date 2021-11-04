@@ -1055,9 +1055,13 @@ impl ::std::cmp::Eq for WEBAUTHN_X5C {}
 unsafe impl ::windows::runtime::Abi for WEBAUTHN_X5C {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_ABANDON_MESSAGE_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::std::ffi::c_void, message: *const WS_MESSAGE, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_ABORT_CHANNEL_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::std::ffi::c_void, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_ABORT_LISTENER_CALLBACK = unsafe extern "system" fn(listenerinstance: *const ::std::ffi::c_void, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_ACCEPT_CHANNEL_CALLBACK = unsafe extern "system" fn(listenerinstance: *const ::std::ffi::c_void, channelinstance: *const ::std::ffi::c_void, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1143,6 +1147,7 @@ impl ::std::cmp::Eq for WS_ANY_ATTRIBUTES {}
 unsafe impl ::windows::runtime::Abi for WS_ANY_ATTRIBUTES {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_ASYNC_CALLBACK = unsafe extern "system" fn(errorcode: ::windows::runtime::HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const ::std::ffi::c_void);
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1171,6 +1176,7 @@ impl ::std::cmp::Eq for WS_ASYNC_CONTEXT {}
 unsafe impl ::windows::runtime::Abi for WS_ASYNC_CONTEXT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_ASYNC_FUNCTION = unsafe extern "system" fn(hr: ::windows::runtime::HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const ::std::ffi::c_void, next: *mut ::std::mem::ManuallyDrop<WS_ASYNC_OPERATION>, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -1517,6 +1523,7 @@ impl ::std::cmp::Eq for WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {}
 unsafe impl ::windows::runtime::Abi for WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub type WS_CERTIFICATE_VALIDATION_CALLBACK = unsafe extern "system" fn(certcontext: *const super::super::Security::Cryptography::CERT_CONTEXT, state: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone)]
@@ -1631,6 +1638,7 @@ pub const WS_CERT_FAILURE_REVOCATION_OFFLINE: i32 = 16i32;
 pub const WS_CERT_FAILURE_UNTRUSTED_ROOT: i32 = 4i32;
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub const WS_CERT_FAILURE_WRONG_USAGE: i32 = 8i32;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Security_Authentication_Identity`, `Win32_Security_Cryptography`*"]
 #[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 pub type WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACK = unsafe extern "system" fn(certissuerlistnotificationcallbackstate: *const ::std::ffi::c_void, issuerlist: *const super::super::Security::Authentication::Identity::SecPkgContext_IssuerListInfoEx, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -2069,7 +2077,9 @@ impl ::std::cmp::Eq for WS_CHAR_ARRAY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_CHAR_ARRAY_DESCRIPTION {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_CLOSE_CHANNEL_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::std::ffi::c_void, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_CLOSE_LISTENER_CALLBACK = unsafe extern "system" fn(listenerinstance: *const ::std::ffi::c_void, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2119,10 +2129,15 @@ impl ::std::convert::From<i32> for WS_COOKIE_MODE {
 unsafe impl ::windows::runtime::Abi for WS_COOKIE_MODE {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_CREATE_CHANNEL_CALLBACK = unsafe extern "system" fn(channeltype: WS_CHANNEL_TYPE, channelparameters: *const ::std::ffi::c_void, channelparameterssize: u32, channelinstance: *mut *mut ::std::ffi::c_void, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_CREATE_CHANNEL_FOR_LISTENER_CALLBACK = unsafe extern "system" fn(listenerinstance: *const ::std::ffi::c_void, channelparameters: *const ::std::ffi::c_void, channelparameterssize: u32, channelinstance: *mut *mut ::std::ffi::c_void, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_CREATE_DECODER_CALLBACK = unsafe extern "system" fn(createcontext: *const ::std::ffi::c_void, readcallback: ::windows::runtime::RawPtr, readcontext: *const ::std::ffi::c_void, decodercontext: *mut *mut ::std::ffi::c_void, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_CREATE_ENCODER_CALLBACK = unsafe extern "system" fn(createcontext: *const ::std::ffi::c_void, writecallback: ::windows::runtime::RawPtr, writecontext: *const ::std::ffi::c_void, encodercontext: *mut *mut ::std::ffi::c_void, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_CREATE_LISTENER_CALLBACK = unsafe extern "system" fn(channeltype: WS_CHANNEL_TYPE, listenerparameters: *const ::std::ffi::c_void, listenerparameterssize: u32, listenerinstance: *mut *mut ::std::ffi::c_void, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -2440,10 +2455,14 @@ impl ::std::cmp::Eq for WS_DECIMAL_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_DECIMAL_DESCRIPTION {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_DECODER_DECODE_CALLBACK = unsafe extern "system" fn(encodercontext: *const ::std::ffi::c_void, buffer: *mut ::std::ffi::c_void, maxlength: u32, length: *mut u32, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_DECODER_END_CALLBACK = unsafe extern "system" fn(encodercontext: *const ::std::ffi::c_void, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WS_DECODER_GET_CONTENT_TYPE_CALLBACK = unsafe extern "system" fn(decodercontext: *const ::std::ffi::c_void, contenttype: *const WS_STRING, contentencoding: *const WS_STRING, newcontenttype: *mut WS_STRING, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_DECODER_START_CALLBACK = unsafe extern "system" fn(encodercontext: *const ::std::ffi::c_void, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2644,6 +2663,7 @@ impl ::std::cmp::Eq for WS_DURATION {}
 unsafe impl ::windows::runtime::Abi for WS_DURATION {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WS_DURATION_COMPARISON_CALLBACK = unsafe extern "system" fn(duration1: *const WS_DURATION, duration2: *const WS_DURATION, result: *mut i32, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone)]
@@ -2681,6 +2701,7 @@ impl ::std::cmp::Eq for WS_DURATION_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_DURATION_DESCRIPTION {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WS_DYNAMIC_STRING_CALLBACK = unsafe extern "system" fn(callbackstate: *const ::std::ffi::c_void, string: *const WS_XML_STRING, found: *mut super::super::Foundation::BOOL, id: *mut u32, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -2719,10 +2740,14 @@ impl ::std::cmp::Eq for WS_ELEMENT_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_ELEMENT_DESCRIPTION {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_ENCODER_ENCODE_CALLBACK = unsafe extern "system" fn(encodercontext: *const ::std::ffi::c_void, buffers: *const WS_BYTES, count: u32, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_ENCODER_END_CALLBACK = unsafe extern "system" fn(encodercontext: *const ::std::ffi::c_void, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WS_ENCODER_GET_CONTENT_TYPE_CALLBACK = unsafe extern "system" fn(encodercontext: *const ::std::ffi::c_void, contenttype: *const WS_STRING, newcontenttype: *mut WS_STRING, contentencoding: *mut WS_STRING, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_ENCODER_START_CALLBACK = unsafe extern "system" fn(encodercontext: *const ::std::ffi::c_void, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -3420,13 +3445,20 @@ impl ::std::cmp::Eq for WS_FLOAT_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_FLOAT_DESCRIPTION {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_FREE_CHANNEL_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_FREE_DECODER_CALLBACK = unsafe extern "system" fn(decodercontext: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_FREE_ENCODER_CALLBACK = unsafe extern "system" fn(encodercontext: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_FREE_LISTENER_CALLBACK = unsafe extern "system" fn(listenerinstance: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub type WS_GET_CERT_CALLBACK = unsafe extern "system" fn(getcertcallbackstate: *const ::std::ffi::c_void, targetaddress: *const WS_ENDPOINT_ADDRESS, viauri: *const WS_STRING, cert: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_GET_CHANNEL_PROPERTY_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::std::ffi::c_void, id: WS_CHANNEL_PROPERTY_ID, value: *mut ::std::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_GET_LISTENER_PROPERTY_CALLBACK = unsafe extern "system" fn(listenerinstance: *const ::std::ffi::c_void, id: WS_LISTENER_PROPERTY_ID, value: *mut ::std::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3960,6 +3992,7 @@ impl ::std::convert::From<i32> for WS_HTTP_PROXY_SETTING_MODE {
 unsafe impl ::windows::runtime::Abi for WS_HTTP_PROXY_SETTING_MODE {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WS_HTTP_REDIRECT_CALLBACK = unsafe extern "system" fn(state: *const ::std::ffi::c_void, originalurl: *const WS_STRING, newurl: *const WS_STRING) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone)]
@@ -4669,6 +4702,7 @@ impl ::std::cmp::Eq for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {}
 unsafe impl ::windows::runtime::Abi for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WS_IS_DEFAULT_VALUE_CALLBACK = unsafe extern "system" fn(descriptiondata: *const ::std::ffi::c_void, value: *const ::std::ffi::c_void, defaultvalue: *const ::std::ffi::c_void, valuesize: u32, isdefault: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -4969,6 +5003,7 @@ impl ::std::cmp::Eq for WS_MESSAGE_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_MESSAGE_DESCRIPTION {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_MESSAGE_DONE_CALLBACK = unsafe extern "system" fn(donecallbackstate: *const ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5456,10 +5491,13 @@ impl ::std::cmp::Eq for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {}
 unsafe impl ::windows::runtime::Abi for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WS_OPEN_CHANNEL_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::std::ffi::c_void, endpointaddress: *const WS_ENDPOINT_ADDRESS, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WS_OPEN_LISTENER_CALLBACK = unsafe extern "system" fn(listenerinstance: *const ::std::ffi::c_void, url: *const WS_STRING, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_OPERATION_CANCEL_CALLBACK = unsafe extern "system" fn(reason: WS_SERVICE_CANCEL_REASON, state: *const ::std::ffi::c_void);
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -5543,6 +5581,7 @@ impl ::std::cmp::Eq for WS_OPERATION_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_OPERATION_DESCRIPTION {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_OPERATION_FREE_STATE_CALLBACK = unsafe extern "system" fn(state: *const ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5782,6 +5821,7 @@ impl ::std::convert::From<i32> for WS_PROTECTION_LEVEL {
 unsafe impl ::windows::runtime::Abi for WS_PROTECTION_LEVEL {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_PROXY_MESSAGE_CALLBACK = unsafe extern "system" fn(message: *const WS_MESSAGE, heap: *const WS_HEAP, state: *const ::std::ffi::c_void, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -5857,7 +5897,9 @@ impl ::std::convert::From<i32> for WS_PROXY_PROPERTY_ID {
 unsafe impl ::windows::runtime::Abi for WS_PROXY_PROPERTY_ID {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_PULL_BYTES_CALLBACK = unsafe extern "system" fn(callbackstate: *const ::std::ffi::c_void, bytes: *mut ::std::ffi::c_void, maxsize: u32, actualsize: *mut u32, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_PUSH_BYTES_CALLBACK = unsafe extern "system" fn(callbackstate: *const ::std::ffi::c_void, writecallback: ::windows::runtime::RawPtr, writecallbackstate: *const ::std::ffi::c_void, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5886,8 +5928,11 @@ impl ::std::cmp::Eq for WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {}
 unsafe impl ::windows::runtime::Abi for WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_READ_CALLBACK = unsafe extern "system" fn(callbackstate: *const ::std::ffi::c_void, bytes: *mut ::std::ffi::c_void, maxsize: u32, actualsize: *mut u32, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_READ_MESSAGE_END_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::std::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_READ_MESSAGE_START_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::std::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -5906,6 +5951,7 @@ impl ::std::convert::From<i32> for WS_READ_OPTION {
 unsafe impl ::windows::runtime::Abi for WS_READ_OPTION {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_READ_TYPE_CALLBACK = unsafe extern "system" fn(reader: *const WS_XML_READER, typemapping: WS_TYPE_MAPPING, descriptiondata: *const ::std::ffi::c_void, heap: *const WS_HEAP, value: *mut ::std::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -6060,7 +6106,9 @@ impl ::std::convert::From<i32> for WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID {
 unsafe impl ::windows::runtime::Abi for WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_RESET_CHANNEL_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::std::ffi::c_void, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_RESET_LISTENER_CALLBACK = unsafe extern "system" fn(listenerinstance: *const ::std::ffi::c_void, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7169,6 +7217,7 @@ impl ::std::convert::From<i32> for WS_SECURITY_TOKEN_REFERENCE_MODE {
 unsafe impl ::windows::runtime::Abi for WS_SECURITY_TOKEN_REFERENCE_MODE {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_SERVICE_ACCEPT_CHANNEL_CALLBACK = unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, channelstate: *mut *mut ::std::ffi::c_void, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -7184,6 +7233,7 @@ impl ::std::convert::From<i32> for WS_SERVICE_CANCEL_REASON {
 unsafe impl ::windows::runtime::Abi for WS_SERVICE_CANCEL_REASON {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_SERVICE_CLOSE_CHANNEL_CALLBACK = unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -7381,6 +7431,7 @@ impl ::std::convert::From<i32> for WS_SERVICE_HOST_STATE {
 unsafe impl ::windows::runtime::Abi for WS_SERVICE_HOST_STATE {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_SERVICE_MESSAGE_RECEIVE_CALLBACK = unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -7573,6 +7624,7 @@ impl ::std::convert::From<i32> for WS_SERVICE_PROXY_STATE {
 unsafe impl ::windows::runtime::Abi for WS_SERVICE_PROXY_STATE {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WS_SERVICE_SECURITY_CALLBACK = unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, authorized: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -7609,9 +7661,13 @@ impl ::std::cmp::Eq for WS_SERVICE_SECURITY_IDENTITIES {}
 unsafe impl ::windows::runtime::Abi for WS_SERVICE_SECURITY_IDENTITIES {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_SERVICE_STUB_CALLBACK = unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, frame: *const ::std::ffi::c_void, callback: *const ::std::ffi::c_void, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_SET_CHANNEL_PROPERTY_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::std::ffi::c_void, id: WS_CHANNEL_PROPERTY_ID, value: *const ::std::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_SET_LISTENER_PROPERTY_CALLBACK = unsafe extern "system" fn(listenerinstance: *const ::std::ffi::c_void, id: WS_LISTENER_PROPERTY_ID, value: *const ::std::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_SHUTDOWN_SESSION_CHANNEL_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::std::ffi::c_void, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -9510,8 +9566,10 @@ impl ::std::cmp::Eq for WS_UTF8_ARRAY_DESCRIPTION {}
 unsafe impl ::windows::runtime::Abi for WS_UTF8_ARRAY_DESCRIPTION {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WS_VALIDATE_PASSWORD_CALLBACK = unsafe extern "system" fn(passwordvalidatorcallbackstate: *const ::std::ffi::c_void, username: *const WS_STRING, password: *const WS_STRING, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_VALIDATE_SAML_CALLBACK = unsafe extern "system" fn(samlvalidatorcallbackstate: *const ::std::ffi::c_void, samlassertion: *const WS_XML_BUFFER, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9623,8 +9681,11 @@ impl ::std::convert::From<i32> for WS_WINDOWS_INTEGRATED_AUTH_PACKAGE {
 unsafe impl ::windows::runtime::Abi for WS_WINDOWS_INTEGRATED_AUTH_PACKAGE {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_WRITE_CALLBACK = unsafe extern "system" fn(callbackstate: *const ::std::ffi::c_void, buffers: *const WS_BYTES, count: u32, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_WRITE_MESSAGE_END_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::std::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_WRITE_MESSAGE_START_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::std::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const ::std::mem::ManuallyDrop<WS_ASYNC_CONTEXT>, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -9642,6 +9703,7 @@ impl ::std::convert::From<i32> for WS_WRITE_OPTION {
 unsafe impl ::windows::runtime::Abi for WS_WRITE_OPTION {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
 pub type WS_WRITE_TYPE_CALLBACK = unsafe extern "system" fn(writer: *const WS_XML_WRITER, typemapping: WS_TYPE_MAPPING, descriptiondata: *const ::std::ffi::c_void, value: *const ::std::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]

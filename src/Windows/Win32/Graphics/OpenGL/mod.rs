@@ -296,22 +296,36 @@ pub const GLU_V_STEP: u32 = 100207u32;
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct GLUnurbs(pub u8);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type GLUnurbsErrorProc = unsafe extern "system" fn(param0: u32);
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct GLUquadric(pub u8);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type GLUquadricErrorProc = unsafe extern "system" fn(param0: u32);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type GLUtessBeginDataProc = unsafe extern "system" fn(param0: u32, param1: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type GLUtessBeginProc = unsafe extern "system" fn(param0: u32);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type GLUtessCombineDataProc = unsafe extern "system" fn(param0: *mut f64, param1: *mut *mut ::std::ffi::c_void, param2: *mut f32, param3: *mut *mut ::std::ffi::c_void, param4: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type GLUtessCombineProc = unsafe extern "system" fn(param0: *mut f64, param1: *mut *mut ::std::ffi::c_void, param2: *mut f32, param3: *mut *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type GLUtessEdgeFlagDataProc = unsafe extern "system" fn(param0: u8, param1: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type GLUtessEdgeFlagProc = unsafe extern "system" fn(param0: u8);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type GLUtessEndDataProc = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type GLUtessEndProc = unsafe extern "system" fn();
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type GLUtessErrorDataProc = unsafe extern "system" fn(param0: u32, param1: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type GLUtessErrorProc = unsafe extern "system" fn(param0: u32);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type GLUtessVertexDataProc = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type GLUtessVertexProc = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void);
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -1661,22 +1675,39 @@ impl ::std::cmp::Eq for LAYERPLANEDESCRIPTOR {}
 unsafe impl ::windows::runtime::Abi for LAYERPLANEDESCRIPTOR {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type PFNGLADDSWAPHINTRECTWINPROC = unsafe extern "system" fn(x: i32, y: i32, width: i32, height: i32);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type PFNGLARRAYELEMENTARRAYEXTPROC = unsafe extern "system" fn(mode: u32, count: i32, pi: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type PFNGLARRAYELEMENTEXTPROC = unsafe extern "system" fn(i: i32);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type PFNGLCOLORPOINTEREXTPROC = unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type PFNGLCOLORSUBTABLEEXTPROC = unsafe extern "system" fn(target: u32, start: i32, count: i32, format: u32, r#type: u32, data: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type PFNGLCOLORTABLEEXTPROC = unsafe extern "system" fn(target: u32, internalformat: u32, width: i32, format: u32, r#type: u32, data: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type PFNGLDRAWARRAYSEXTPROC = unsafe extern "system" fn(mode: u32, first: i32, count: i32);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type PFNGLDRAWRANGEELEMENTSWINPROC = unsafe extern "system" fn(mode: u32, start: u32, end: u32, count: i32, r#type: u32, indices: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type PFNGLEDGEFLAGPOINTEREXTPROC = unsafe extern "system" fn(stride: i32, count: i32, pointer: *const u8);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type PFNGLGETCOLORTABLEEXTPROC = unsafe extern "system" fn(target: u32, format: u32, r#type: u32, data: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type PFNGLGETCOLORTABLEPARAMETERFVEXTPROC = unsafe extern "system" fn(target: u32, pname: u32, params: *mut f32);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type PFNGLGETCOLORTABLEPARAMETERIVEXTPROC = unsafe extern "system" fn(target: u32, pname: u32, params: *mut i32);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type PFNGLGETPOINTERVEXTPROC = unsafe extern "system" fn(pname: u32, params: *mut *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type PFNGLINDEXPOINTEREXTPROC = unsafe extern "system" fn(r#type: u32, stride: i32, count: i32, pointer: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type PFNGLNORMALPOINTEREXTPROC = unsafe extern "system" fn(r#type: u32, stride: i32, count: i32, pointer: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type PFNGLTEXCOORDPOINTEREXTPROC = unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub type PFNGLVERTEXPOINTEREXTPROC = unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const ::std::ffi::c_void);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]

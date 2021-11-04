@@ -125,6 +125,7 @@ impl ::std::convert::From<i32> for PRJ_CALLBACK_DATA_FLAGS {
 unsafe impl ::windows::runtime::Abi for PRJ_CALLBACK_DATA_FLAGS {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_CANCEL_COMMAND_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -249,6 +250,7 @@ unsafe impl ::windows::runtime::Handle for PRJ_DIR_ENTRY_BUFFER_HANDLE {}
 unsafe impl ::windows::runtime::Abi for PRJ_DIR_ENTRY_BUFFER_HANDLE {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_END_DIRECTORY_ENUMERATION_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -443,10 +445,13 @@ impl ::std::ops::Not for PRJ_FILE_STATE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_GET_DIRECTORY_ENUMERATION_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows::runtime::GUID, searchexpression: super::super::Foundation::PWSTR, direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_GET_FILE_DATA_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, byteoffset: u64, length: u32) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_GET_PLACEHOLDER_INFO_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
@@ -485,6 +490,7 @@ impl ::std::convert::From<i32> for PRJ_NOTIFICATION {
 unsafe impl ::windows::runtime::Abi for PRJ_NOTIFICATION {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_NOTIFICATION_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, isdirectory: super::super::Foundation::BOOLEAN, notification: PRJ_NOTIFICATION, destinationfilename: super::super::Foundation::PWSTR, operationparameters: *mut PRJ_NOTIFICATION_PARAMETERS) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -885,6 +891,7 @@ impl ::std::cmp::Eq for PRJ_PLACEHOLDER_VERSION_INFO {}
 unsafe impl ::windows::runtime::Abi for PRJ_PLACEHOLDER_VERSION_INFO {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_QUERY_FILE_NAME_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
@@ -972,6 +979,7 @@ impl ::std::cmp::Eq for PRJ_STARTVIRTUALIZING_OPTIONS {}
 unsafe impl ::windows::runtime::Abi for PRJ_STARTVIRTUALIZING_OPTIONS {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_START_DIRECTORY_ENUMERATION_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]

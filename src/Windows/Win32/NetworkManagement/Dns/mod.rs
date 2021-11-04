@@ -1723,6 +1723,7 @@ unsafe impl ::windows::runtime::Abi for DNS_OPT_DATA {
 pub const DNS_PORT_HOST_ORDER: u32 = 53u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const DNS_PORT_NET_ORDER: u32 = 13568u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub type DNS_PROXY_COMPLETION_ROUTINE = unsafe extern "system" fn(completioncontext: *const ::std::ffi::c_void, status: i32);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5018,14 +5019,19 @@ impl ::std::cmp::Eq for MDNS_QUERY_REQUEST {}
 unsafe impl ::windows::runtime::Abi for MDNS_QUERY_REQUEST {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDNS_QUERY_COMPLETION_ROUTINE = unsafe extern "system" fn(pquerycontext: *const ::std::ffi::c_void, pqueryresults: *mut DNS_QUERY_RESULT);
+#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDNS_SERVICE_BROWSE_CALLBACK = unsafe extern "system" fn(status: u32, pquerycontext: *const ::std::ffi::c_void, pdnsrecord: *const DNS_RECORDA);
+#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDNS_SERVICE_REGISTER_COMPLETE = unsafe extern "system" fn(status: u32, pquerycontext: *const ::std::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE);
+#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDNS_SERVICE_RESOLVE_COMPLETE = unsafe extern "system" fn(status: u32, pquerycontext: *const ::std::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE);
+#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PMDNS_QUERY_CALLBACK = unsafe extern "system" fn(pquerycontext: *const ::std::ffi::c_void, pqueryhandle: *mut MDNS_QUERY_HANDLE, pqueryresults: *mut DNS_QUERY_RESULT);
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]

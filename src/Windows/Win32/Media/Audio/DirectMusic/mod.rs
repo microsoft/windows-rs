@@ -3827,6 +3827,7 @@ impl ::std::convert::From<i32> for EAudioConstriction {
 unsafe impl ::windows::runtime::Abi for EAudioConstriction {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub type FNAPONOTIFICATIONCALLBACK = unsafe extern "system" fn(pproperties: *mut APO_REG_PROPERTIES, pvrefdata: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`*"]
 pub const F_INSTRUMENT_DRUMS: u32 = 2147483648u32;
@@ -7457,14 +7458,19 @@ impl ::std::cmp::Eq for KSP_PINMODE {}
 unsafe impl ::windows::runtime::Abi for KSP_PINMODE {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDSENUMCALLBACKA = unsafe extern "system" fn(param0: *mut ::windows::runtime::GUID, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: *mut ::std::ffi::c_void) -> super::super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDSENUMCALLBACKW = unsafe extern "system" fn(param0: *mut ::windows::runtime::GUID, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: *mut ::std::ffi::c_void) -> super::super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1 = unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA, param1: *mut ::std::ffi::c_void) -> super::super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKA = unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA, param1: *mut ::std::ffi::c_void) -> super::super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW = unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA, param1: *mut ::std::ffi::c_void) -> super::super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]

@@ -1490,8 +1490,10 @@ impl ::std::ops::Not for OS_PRODUCT_TYPE {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PGET_SYSTEM_WOW64_DIRECTORY_A = unsafe extern "system" fn(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32;
+#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PGET_SYSTEM_WOW64_DIRECTORY_W = unsafe extern "system" fn(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32;
 #[doc = "*Required features: `Win32_System_SystemInformation`*"]

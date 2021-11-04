@@ -522,6 +522,7 @@ impl ::std::convert::From<i32> for APPINFODATAFLAGS {
 unsafe impl ::windows::runtime::Abi for APPINFODATAFLAGS {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type APPLET_PROC = unsafe extern "system" fn(hwndcpl: super::super::Foundation::HWND, msg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> i32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
@@ -1552,6 +1553,7 @@ impl ::std::cmp::Eq for BASEBROWSERDATAXP {}
 unsafe impl ::windows::runtime::Abi for BASEBROWSERDATAXP {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type BFFCALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, lparam: super::super::Foundation::LPARAM, lpdata: super::super::Foundation::LPARAM) -> i32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
@@ -4270,6 +4272,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAY_DEVICE_TYPE {
 }
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const DLG_SCRNSAVECONFIGURE: u32 = 2003u32;
+#[doc = "*Required features: `Win32_UI_Shell`*"]
 pub type DLLGETVERSIONPROC = unsafe extern "system" fn(param0: *mut DLLVERSIONINFO) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -43819,8 +43822,10 @@ pub const LIBRARY_E_NO_ACCESSIBLE_LOCATION: ::windows::runtime::HRESULT = ::wind
 pub const LIBRARY_E_NO_SAVE_LOCATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2144927232i32 as _);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const LINK_E_DELETE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2144927485i32 as _);
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub type LPFNDFMCALLBACK = unsafe extern "system" fn(psf: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, pdtobj: ::windows::runtime::RawPtr, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNVIEWCALLBACK = unsafe extern "system" fn(psvouter: ::windows::runtime::RawPtr, psf: ::windows::runtime::RawPtr, hwndmain: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
@@ -45413,8 +45418,10 @@ pub const PANE_PROGRESS: u32 = 6u32;
 pub const PANE_SSL: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const PANE_ZONE: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PAPPCONSTRAIN_CHANGE_ROUTINE = unsafe extern "system" fn(constrained: super::super::Foundation::BOOLEAN, context: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PAPPSTATE_CHANGE_ROUTINE = unsafe extern "system" fn(quiesced: super::super::Foundation::BOOLEAN, context: *const ::std::ffi::c_void);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -45638,8 +45645,10 @@ impl ::std::cmp::Eq for PERSIST_FOLDER_TARGET_INFO {}
 unsafe impl ::windows::runtime::Abi for PERSIST_FOLDER_TARGET_INFO {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNCANSHAREFOLDERW = unsafe extern "system" fn(pszpath: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNSHOWSHAREFOLDERUIW = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pszpath: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
@@ -56525,6 +56534,7 @@ impl ::std::convert::From<i32> for STRRET_TYPE {
 unsafe impl ::windows::runtime::Abi for STRRET_TYPE {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SUBCLASSPROC = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::LRESULT;
 #[derive(:: std :: clone :: Clone)]

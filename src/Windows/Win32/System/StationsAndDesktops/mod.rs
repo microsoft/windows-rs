@@ -309,8 +309,10 @@ pub unsafe fn CreateWindowStationW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DESKTOPENUMPROCA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DESKTOPENUMPROCW = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
@@ -701,7 +703,9 @@ impl ::std::ops::Not for USER_OBJECT_INFORMATION_INDEX {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WINSTAENUMPROCA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WINSTAENUMPROCW = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;

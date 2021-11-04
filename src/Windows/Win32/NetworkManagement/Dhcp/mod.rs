@@ -9447,15 +9447,23 @@ unsafe impl ::windows::runtime::Abi for FSM_STATE {
 }
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 pub const HWTYPE_ETHERNET_10MB: u32 = 1u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 pub type LPDHCP_CONTROL = unsafe extern "system" fn(dwcontrolcode: u32, lpreserved: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 pub type LPDHCP_DELETE_CLIENT = unsafe extern "system" fn(ipaddress: u32, hwaddress: *mut u8, hwaddresslength: u32, reserved: u32, clienttype: u32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 pub type LPDHCP_DROP_SEND = unsafe extern "system" fn(packet: *mut *mut u8, packetsize: *mut u32, controlcode: u32, ipaddress: u32, reserved: *mut ::std::ffi::c_void, pktcontext: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDHCP_ENTRY_POINT_FUNC = unsafe extern "system" fn(chaindlls: super::super::Foundation::PWSTR, calloutversion: u32, callouttbl: *mut ::std::mem::ManuallyDrop<DHCP_CALLOUT_TABLE>) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 pub type LPDHCP_GIVE_ADDRESS = unsafe extern "system" fn(packet: *mut u8, packetsize: u32, controlcode: u32, ipaddress: u32, altaddress: u32, addrtype: u32, leasetime: u32, reserved: *mut ::std::ffi::c_void, pktcontext: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDHCP_HANDLE_OPTIONS = unsafe extern "system" fn(packet: *mut u8, packetsize: u32, reserved: *mut ::std::ffi::c_void, pktcontext: *mut ::std::ffi::c_void, serveroptions: *mut DHCP_SERVER_OPTIONS) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 pub type LPDHCP_NEWPKT = unsafe extern "system" fn(packet: *mut *mut u8, packetsize: *mut u32, ipaddress: u32, reserved: *mut ::std::ffi::c_void, pktcontext: *mut *mut ::std::ffi::c_void, processit: *mut i32) -> u32;
+#[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 pub type LPDHCP_PROB = unsafe extern "system" fn(packet: *mut u8, packetsize: u32, controlcode: u32, ipaddress: u32, altaddress: u32, reserved: *mut ::std::ffi::c_void, pktcontext: *mut ::std::ffi::c_void) -> u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`*"]
 pub const MAC_ADDRESS_LENGTH: u32 = 6u32;

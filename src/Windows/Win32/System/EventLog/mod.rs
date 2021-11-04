@@ -523,6 +523,7 @@ impl ::std::convert::From<i32> for EVT_SEEK_FLAGS {
 unsafe impl ::windows::runtime::Abi for EVT_SEEK_FLAGS {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_EventLog`*"]
 pub type EVT_SUBSCRIBE_CALLBACK = unsafe extern "system" fn(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: *const ::std::ffi::c_void, event: isize) -> u32;
 #[doc = "*Required features: `Win32_System_EventLog`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]

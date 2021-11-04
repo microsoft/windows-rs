@@ -212,6 +212,7 @@ pub unsafe fn MagGetWindowTransform<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_UI_Magnification`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type MagImageScalingCallback = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, srcdata: *mut ::std::ffi::c_void, srcheader: MAGIMAGEHEADER, destdata: *mut ::std::ffi::c_void, destheader: MAGIMAGEHEADER, unclipped: super::super::Foundation::RECT, clipped: super::super::Foundation::RECT, dirty: super::super::Graphics::Gdi::HRGN) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_UI_Magnification`, `Win32_Foundation`*"]

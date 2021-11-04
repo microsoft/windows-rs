@@ -15,7 +15,9 @@ pub unsafe fn JsAddRef(r#ref: *const ::std::ffi::c_void, count: *mut u32) -> JsE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Js`*"]
 pub type JsBackgroundWorkItemCallback = unsafe extern "system" fn(callbackstate: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_System_Js`*"]
 pub type JsBeforeCollectCallback = unsafe extern "system" fn(callbackstate: *const ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Js`*"]
 #[inline]
@@ -525,6 +527,7 @@ impl ::std::ops::Not for JsErrorCode {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_System_Js`*"]
 pub type JsFinalizeCallback = unsafe extern "system" fn(data: *const ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Js`*"]
 #[inline]
@@ -933,6 +936,7 @@ pub unsafe fn JsIsRuntimeExecutionDisabled(runtime: *const ::std::ffi::c_void, i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Js`*"]
 pub type JsMemoryAllocationCallback = unsafe extern "system" fn(callbackstate: *const ::std::ffi::c_void, allocationevent: JsMemoryEventType, allocationsize: usize) -> bool;
 #[doc = "*Required features: `Win32_System_Js`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -949,6 +953,7 @@ impl ::std::convert::From<i32> for JsMemoryEventType {
 unsafe impl ::windows::runtime::Abi for JsMemoryEventType {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_Js`*"]
 pub type JsNativeFunction = unsafe extern "system" fn(callee: *const ::std::ffi::c_void, isconstructcall: bool, arguments: *const *const ::std::ffi::c_void, argumentcount: u16, callbackstate: *const ::std::ffi::c_void) -> *mut ::std::ffi::c_void;
 #[doc = "*Required features: `Win32_System_Js`*"]
 #[inline]
@@ -1330,6 +1335,7 @@ pub unsafe fn JsStringToPointer(value: *const ::std::ffi::c_void, stringvalue: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Js`*"]
 pub type JsThreadServiceCallback = unsafe extern "system" fn(callback: ::windows::runtime::RawPtr, callbackstate: *const ::std::ffi::c_void) -> bool;
 #[doc = "*Required features: `Win32_System_Js`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]

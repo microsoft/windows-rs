@@ -27,6 +27,7 @@ impl ::std::cmp::Eq for AVRF_BACKTRACE_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for AVRF_BACKTRACE_INFORMATION {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_ApplicationVerifier`*"]
 pub type AVRF_HANDLEOPERATION_ENUMERATE_CALLBACK = unsafe extern "system" fn(handleoperation: *mut AVRF_HANDLE_OPERATION, enumerationcontext: *mut ::std::ffi::c_void, enumerationlevel: *mut u32) -> u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -59,6 +60,7 @@ impl ::std::cmp::Eq for AVRF_HANDLE_OPERATION {}
 unsafe impl ::windows::runtime::Abi for AVRF_HANDLE_OPERATION {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_ApplicationVerifier`*"]
 pub type AVRF_HEAPALLOCATION_ENUMERATE_CALLBACK = unsafe extern "system" fn(heapallocation: *mut AVRF_HEAP_ALLOCATION, enumerationcontext: *mut ::std::ffi::c_void, enumerationlevel: *mut u32) -> u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -106,6 +108,7 @@ unsafe impl ::windows::runtime::Abi for AVRF_HEAP_ALLOCATION {
 }
 #[doc = "*Required features: `Win32_System_ApplicationVerifier`*"]
 pub const AVRF_MAX_TRACES: u32 = 32u32;
+#[doc = "*Required features: `Win32_System_ApplicationVerifier`*"]
 pub type AVRF_RESOURCE_ENUMERATE_CALLBACK = unsafe extern "system" fn(resourcedescription: *mut ::std::ffi::c_void, enumerationcontext: *mut ::std::ffi::c_void, enumerationlevel: *mut u32) -> u32;
 #[doc = "*Required features: `Win32_System_ApplicationVerifier`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]

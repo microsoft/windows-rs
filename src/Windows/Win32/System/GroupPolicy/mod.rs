@@ -7924,12 +7924,16 @@ pub const NODEID_RSOPUser: ::windows::runtime::GUID = ::windows::runtime::GUID::
 pub const NODEID_RSOPUserSWSettings: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3844889827, 64807, 17410, [132, 222, 217, 165, 242, 133, 137, 16]);
 pub const NODEID_User: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2411771704, 41185, 4561, [167, 211, 0, 0, 248, 117, 113, 227]);
 pub const NODEID_UserSWSettings: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2411771708, 41185, 4561, [167, 211, 0, 0, 248, 117, 113, 227]);
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Wmi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
 pub type PFNGENERATEGROUPPOLICY = unsafe extern "system" fn(dwflags: u32, pbabort: *mut super::super::Foundation::BOOL, pwszsite: super::super::Foundation::PWSTR, pcomputertarget: *const ::std::mem::ManuallyDrop<RSOP_TARGET>, pusertarget: *const ::std::mem::ManuallyDrop<RSOP_TARGET>) -> u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PFNPROCESSGROUPPOLICY = unsafe extern "system" fn(dwflags: u32, htoken: super::super::Foundation::HANDLE, hkeyroot: super::Registry::HKEY, pdeletedgpolist: *const GROUP_POLICY_OBJECTA, pchangedgpolist: *const GROUP_POLICY_OBJECTA, phandle: usize, pbabort: *mut super::super::Foundation::BOOL, pstatuscallback: ::windows::runtime::RawPtr) -> u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Registry`, `Win32_System_Wmi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry", feature = "Win32_System_Wmi"))]
 pub type PFNPROCESSGROUPPOLICYEX = unsafe extern "system" fn(dwflags: u32, htoken: super::super::Foundation::HANDLE, hkeyroot: super::Registry::HKEY, pdeletedgpolist: *const GROUP_POLICY_OBJECTA, pchangedgpolist: *const GROUP_POLICY_OBJECTA, phandle: usize, pbabort: *mut super::super::Foundation::BOOL, pstatuscallback: ::windows::runtime::RawPtr, pwbemservices: ::windows::runtime::RawPtr, prsopstatus: *mut ::windows::runtime::HRESULT) -> u32;
+#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNSTATUSMESSAGECALLBACK = unsafe extern "system" fn(bverbose: super::super::Foundation::BOOL, lpmessage: super::super::Foundation::PWSTR) -> u32;
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]

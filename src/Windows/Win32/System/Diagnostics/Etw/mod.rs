@@ -3985,11 +3985,16 @@ impl ::std::convert::From<i32> for PAYLOAD_OPERATOR {
 unsafe impl ::windows::runtime::Abi for PAYLOAD_OPERATOR {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub type PENABLECALLBACK = unsafe extern "system" fn(sourceid: *const ::windows::runtime::GUID, isenabled: ENABLECALLBACK_ENABLED_STATE, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub type PEVENT_CALLBACK = unsafe extern "system" fn(pevent: *mut EVENT_TRACE);
+#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub type PEVENT_RECORD_CALLBACK = unsafe extern "system" fn(eventrecord: *mut EVENT_RECORD);
+#[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`, `Win32_System_Time`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub type PEVENT_TRACE_BUFFER_CALLBACKA = unsafe extern "system" fn(logfile: *mut ::std::mem::ManuallyDrop<EVENT_TRACE_LOGFILEA>) -> u32;
+#[doc = "*Required features: `Win32_System_Diagnostics_Etw`, `Win32_Foundation`, `Win32_System_Time`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub type PEVENT_TRACE_BUFFER_CALLBACKW = unsafe extern "system" fn(logfile: *mut ::std::mem::ManuallyDrop<EVENT_TRACE_LOGFILEW>) -> u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
@@ -6347,6 +6352,7 @@ pub unsafe fn UpdateTraceW<'a, Param1: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 pub type WMIDPREQUEST = unsafe extern "system" fn(requestcode: WMIDPREQUESTCODE, requestcontext: *const ::std::ffi::c_void, buffersize: *mut u32, buffer: *mut ::std::ffi::c_void) -> u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_Etw`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]

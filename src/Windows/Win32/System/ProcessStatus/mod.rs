@@ -506,8 +506,10 @@ impl ::std::cmp::Eq for MODULEINFO {}
 unsafe impl ::windows::runtime::Abi for MODULEINFO {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PENUM_PAGE_FILE_CALLBACKA = unsafe extern "system" fn(pcontext: *mut ::std::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_ProcessStatus`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PENUM_PAGE_FILE_CALLBACKW = unsafe extern "system" fn(pcontext: *mut ::std::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]

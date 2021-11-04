@@ -13732,6 +13732,7 @@ impl ::std::cmp::Eq for SPNORMALIZATIONLIST {}
 unsafe impl ::windows::runtime::Abi for SPNORMALIZATIONLIST {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SPNOTIFYCALLBACK = unsafe extern "system" fn(wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM);
 #[doc = "*Required features: `Win32_Media_Speech`*"]

@@ -29796,10 +29796,13 @@ pub struct ID3DX11SegmentedScan_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, direction: D3DX11_SCAN_DIRECTION) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, elementtype: D3DX11_SCAN_DATA_TYPE, opcode: D3DX11_SCAN_OPCODE, elementscansize: u32, psrc: ::windows::runtime::RawPtr, psrcelementflags: ::windows::runtime::RawPtr, pdst: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D11`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 pub type PFN_D3D11_CREATE_DEVICE = unsafe extern "system" fn(param0: ::windows::runtime::RawPtr, param1: D3D_DRIVER_TYPE, param2: super::super::Foundation::HINSTANCE, param3: u32, param4: *const D3D_FEATURE_LEVEL, featurelevels: u32, param6: u32, param7: *mut ::windows::runtime::RawPtr, param8: *mut D3D_FEATURE_LEVEL, param9: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Direct3D11`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 pub type PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN = unsafe extern "system" fn(param0: ::windows::runtime::RawPtr, param1: D3D_DRIVER_TYPE, param2: super::super::Foundation::HINSTANCE, param3: u32, param4: *const D3D_FEATURE_LEVEL, featurelevels: u32, param6: u32, param7: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, param8: *mut ::windows::runtime::RawPtr, param9: *mut ::windows::runtime::RawPtr, param10: *mut D3D_FEATURE_LEVEL, param11: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Direct3D11`*"]
 pub type PFN_DESTRUCTION_CALLBACK = unsafe extern "system" fn(pdata: *mut ::std::ffi::c_void);
 pub const WKPDID_CommentStringW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3491012032, 37096, 20168, [129, 68, 233, 0, 173, 38, 107, 178]);
 pub const WKPDID_D3D12UniqueObjectId: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(456777237, 60420, 19374, [186, 77, 140, 239, 121, 252, 4, 193]);

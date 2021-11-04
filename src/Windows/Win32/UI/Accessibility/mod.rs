@@ -21074,16 +21074,22 @@ pub const ItemContainer_Pattern_GUID: ::windows::runtime::GUID = ::windows::runt
 pub const ItemStatus_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1373504289, 14707, 17383, [137, 19, 11, 8, 232, 19, 195, 127]);
 pub const ItemType_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3453633357, 25122, 16699, [166, 138, 50, 93, 209, 212, 15, 57]);
 pub const LIBID_Accessibility: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(514120688, 15419, 4559, [129, 12, 0, 170, 0, 56, 155, 113]);
+#[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 pub type LPFNACCESSIBLECHILDREN = unsafe extern "system" fn(pacccontainer: ::windows::runtime::RawPtr, ichildstart: i32, cchildren: i32, rgvarchildren: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pcobtained: *mut i32) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 pub type LPFNACCESSIBLEOBJECTFROMPOINT = unsafe extern "system" fn(ptscreen: super::super::Foundation::POINT, ppacc: *mut ::windows::runtime::RawPtr, pvarchild: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNACCESSIBLEOBJECTFROMWINDOW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, dwid: u32, riid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNCREATESTDACCESSIBLEOBJECT = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, idobject: i32, riid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNLRESULTFROMOBJECT = unsafe extern "system" fn(riid: *const ::windows::runtime::GUID, wparam: super::super::Foundation::WPARAM, punk: ::windows::runtime::RawPtr) -> super::super::Foundation::LRESULT;
+#[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNOBJECTFROMLRESULT = unsafe extern "system" fn(lresult: super::super::Foundation::LRESULT, riid: *const ::windows::runtime::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
 pub const LabeledBy_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3854078539, 64650, 18997, [128, 49, 207, 120, 172, 67, 229, 94]);
@@ -24504,6 +24510,7 @@ impl ::std::cmp::Eq for UiaEventArgs {}
 unsafe impl ::windows::runtime::Abi for UiaEventArgs {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub type UiaEventCallback = unsafe extern "system" fn(pargs: *mut UiaEventArgs, prequesteddata: *mut super::super::System::Com::SAFEARRAY, ptreestructure: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>);
 #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
@@ -25024,6 +25031,7 @@ impl ::std::cmp::Eq for UiaPropertyCondition {}
 unsafe impl ::windows::runtime::Abi for UiaPropertyCondition {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub type UiaProviderCallback = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, providertype: ProviderType) -> *mut super::super::System::Com::SAFEARRAY;
 #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
@@ -25469,6 +25477,7 @@ unsafe impl ::windows::runtime::Abi for VisualEffects {
     type Abi = Self;
 }
 pub const VisualEffects_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3860497765, 43737, 18135, [158, 112, 78, 138, 132, 32, 212, 32]);
+#[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WINEVENTPROC = unsafe extern "system" fn(hwineventhook: HWINEVENTHOOK, event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, ideventthread: u32, dwmseventtime: u32);
 #[doc = "*Required features: `Win32_UI_Accessibility`, `Win32_Foundation`*"]

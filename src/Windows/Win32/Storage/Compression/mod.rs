@@ -196,7 +196,9 @@ pub unsafe fn Decompress(decompressorhandle: isize, compresseddata: *const ::std
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Storage_Compression`*"]
 pub type PFN_COMPRESS_ALLOCATE = unsafe extern "system" fn(usercontext: *const ::std::ffi::c_void, size: usize) -> *mut ::std::ffi::c_void;
+#[doc = "*Required features: `Win32_Storage_Compression`*"]
 pub type PFN_COMPRESS_FREE = unsafe extern "system" fn(usercontext: *const ::std::ffi::c_void, memory: *const ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_Storage_Compression`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
