@@ -1129,6 +1129,46 @@ unsafe impl ::windows::runtime::Abi for MEMORY_BASIC_INFORMATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Memory`*"]
+pub struct MEMORY_BASIC_INFORMATION {
+    pub BaseAddress: *mut ::std::ffi::c_void,
+    pub AllocationBase: *mut ::std::ffi::c_void,
+    pub AllocationProtect: PAGE_PROTECTION_FLAGS,
+    pub RegionSize: usize,
+    pub State: VIRTUAL_ALLOCATION_TYPE,
+    pub Protect: PAGE_PROTECTION_FLAGS,
+    pub Type: PAGE_TYPE,
+}
+impl MEMORY_BASIC_INFORMATION {}
+impl ::std::default::Default for MEMORY_BASIC_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for MEMORY_BASIC_INFORMATION {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("MEMORY_BASIC_INFORMATION")
+            .field("BaseAddress", &self.BaseAddress)
+            .field("AllocationBase", &self.AllocationBase)
+            .field("AllocationProtect", &self.AllocationProtect)
+            .field("RegionSize", &self.RegionSize)
+            .field("State", &self.State)
+            .field("Protect", &self.Protect)
+            .field("Type", &self.Type)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for MEMORY_BASIC_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        self.BaseAddress == other.BaseAddress && self.AllocationBase == other.AllocationBase && self.AllocationProtect == other.AllocationProtect && self.RegionSize == other.RegionSize && self.State == other.State && self.Protect == other.Protect && self.Type == other.Type
+    }
+}
+impl ::std::cmp::Eq for MEMORY_BASIC_INFORMATION {}
+unsafe impl ::windows::runtime::Abi for MEMORY_BASIC_INFORMATION {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_System_Memory`*"]
 pub struct MEMORY_BASIC_INFORMATION32 {
     pub BaseAddress: u32,
     pub AllocationBase: u32,

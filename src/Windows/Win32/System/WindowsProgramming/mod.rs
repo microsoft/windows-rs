@@ -1582,6 +1582,40 @@ unsafe impl ::windows::runtime::Abi for DELAYLOAD_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_WindowsProgramming`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+pub struct DELAYLOAD_INFO {
+    pub Size: u32,
+    pub DelayloadDescriptor: *mut super::SystemServices::IMAGE_DELAYLOAD_DESCRIPTOR,
+    pub ThunkAddress: *mut super::SystemServices::IMAGE_THUNK_DATA32,
+    pub TargetDllName: super::super::Foundation::PSTR,
+    pub TargetApiDescriptor: DELAYLOAD_PROC_DESCRIPTOR,
+    pub TargetModuleBase: *mut ::std::ffi::c_void,
+    pub Unused: *mut ::std::ffi::c_void,
+    pub LastError: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+impl DELAYLOAD_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+impl ::std::default::Default for DELAYLOAD_INFO {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+impl ::std::cmp::PartialEq for DELAYLOAD_INFO {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+impl ::std::cmp::Eq for DELAYLOAD_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+unsafe impl ::windows::runtime::Abi for DELAYLOAD_INFO {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_WindowsProgramming`, `Win32_Foundation`*"]
 pub struct DELAYLOAD_PROC_DESCRIPTOR {
@@ -2058,6 +2092,7 @@ pub const EVENPARITY: u32 = 2u32;
 pub const EVENTLOG_FULL_INFO: u32 = 0u32;
 pub const EditionUpgradeBroker: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3290892327, 20281, 17887, [146, 136, 18, 255, 107, 133, 169, 33]);
 pub const EditionUpgradeHelper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(24604147, 47535, 20048, [155, 28, 86, 233, 49, 22, 215, 4]);
+#[cfg(any(target_arch = "i686", target_arch = "x86_64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_WindowsProgramming`, `Win32_Foundation`*"]
 #[inline]
@@ -3053,6 +3088,7 @@ pub unsafe fn GetSystemRegistryQuota(pdwquotaallowed: *mut u32, pdwquotaused: *m
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "i686", target_arch = "x86_64",))]
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 #[inline]
 pub unsafe fn GetThreadEnabledXStateFeatures() -> u64 {
@@ -15497,6 +15533,7 @@ impl ::std::cmp::Eq for tcp_request_set_information_ex {}
 unsafe impl ::windows::runtime::Abi for tcp_request_set_information_ex {
     type Abi = Self;
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 #[inline]
 pub unsafe fn uaw_lstrcmpW(string1: *const u16, string2: *const u16) -> i32 {
@@ -15511,6 +15548,7 @@ pub unsafe fn uaw_lstrcmpW(string1: *const u16, string2: *const u16) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 #[inline]
 pub unsafe fn uaw_lstrcmpiW(string1: *const u16, string2: *const u16) -> i32 {
@@ -15525,6 +15563,7 @@ pub unsafe fn uaw_lstrcmpiW(string1: *const u16, string2: *const u16) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 #[inline]
 pub unsafe fn uaw_lstrlenW(string: *const u16) -> i32 {
@@ -15539,6 +15578,7 @@ pub unsafe fn uaw_lstrlenW(string: *const u16) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 #[inline]
 pub unsafe fn uaw_wcschr(string: *const u16, character: u16) -> *mut u16 {
@@ -15553,6 +15593,7 @@ pub unsafe fn uaw_wcschr(string: *const u16, character: u16) -> *mut u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 #[inline]
 pub unsafe fn uaw_wcscpy(destination: *mut u16, source: *const u16) -> *mut u16 {
@@ -15567,6 +15608,7 @@ pub unsafe fn uaw_wcscpy(destination: *mut u16, source: *const u16) -> *mut u16 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 #[inline]
 pub unsafe fn uaw_wcsicmp(string1: *const u16, string2: *const u16) -> i32 {
@@ -15581,6 +15623,7 @@ pub unsafe fn uaw_wcsicmp(string1: *const u16, string2: *const u16) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 #[inline]
 pub unsafe fn uaw_wcslen(string: *const u16) -> usize {
@@ -15595,6 +15638,7 @@ pub unsafe fn uaw_wcslen(string: *const u16) -> usize {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 #[inline]
 pub unsafe fn uaw_wcsrchr(string: *const u16, character: u16) -> *mut u16 {

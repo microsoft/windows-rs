@@ -272,6 +272,85 @@ impl ::std::cmp::Eq for DBID_1 {}
 unsafe impl ::windows::runtime::Abi for DBID_1 {
     type Abi = Self;
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(2))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_Foundation`*"]
+pub struct DBID {
+    pub uGuid: DBID_0,
+    pub eKind: u32,
+    pub uName: DBID_1,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl DBID {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for DBID {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for DBID {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for DBID {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for DBID {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_Storage_IndexServer`*"]
+pub union DBID_0 {
+    pub guid: ::windows::runtime::GUID,
+    pub pguid: *mut ::windows::runtime::GUID,
+}
+impl DBID_0 {}
+impl ::std::default::Default for DBID_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for DBID_0 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for DBID_0 {}
+unsafe impl ::windows::runtime::Abi for DBID_0 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(2))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_Foundation`*"]
+pub union DBID_1 {
+    pub pwszName: super::super::Foundation::PWSTR,
+    pub ulPropid: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl DBID_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for DBID_1 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for DBID_1 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for DBID_1 {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for DBID_1 {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]

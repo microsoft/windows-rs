@@ -114,6 +114,37 @@ unsafe impl ::windows::runtime::Abi for CABINET_INFO_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct CABINET_INFO_A {
+    pub CabinetPath: super::super::Foundation::PSTR,
+    pub CabinetFile: super::super::Foundation::PSTR,
+    pub DiskName: super::super::Foundation::PSTR,
+    pub SetId: u16,
+    pub CabinetNumber: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl CABINET_INFO_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for CABINET_INFO_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for CABINET_INFO_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for CABINET_INFO_A {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for CABINET_INFO_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
@@ -142,6 +173,37 @@ impl ::std::fmt::Debug for CABINET_INFO_W {
 impl ::std::cmp::PartialEq for CABINET_INFO_W {
     fn eq(&self, other: &Self) -> bool {
         self.CabinetPath == other.CabinetPath && self.CabinetFile == other.CabinetFile && self.DiskName == other.DiskName && self.SetId == other.SetId && self.CabinetNumber == other.CabinetNumber
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for CABINET_INFO_W {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for CABINET_INFO_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct CABINET_INFO_W {
+    pub CabinetPath: super::super::Foundation::PWSTR,
+    pub CabinetFile: super::super::Foundation::PWSTR,
+    pub DiskName: super::super::Foundation::PWSTR,
+    pub SetId: u16,
+    pub CabinetNumber: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl CABINET_INFO_W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for CABINET_INFO_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for CABINET_INFO_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4393,6 +4455,35 @@ impl ::std::cmp::Eq for COINSTALLER_CONTEXT_DATA {}
 unsafe impl ::windows::runtime::Abi for COINSTALLER_CONTEXT_DATA {
     type Abi = Self;
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct COINSTALLER_CONTEXT_DATA {
+    pub PostProcessing: super::super::Foundation::BOOL,
+    pub InstallResult: u32,
+    pub PrivateData: *mut ::std::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl COINSTALLER_CONTEXT_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for COINSTALLER_CONTEXT_DATA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for COINSTALLER_CONTEXT_DATA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for COINSTALLER_CONTEXT_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for COINSTALLER_CONTEXT_DATA {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const CONFIGMG_VERSION: u32 = 1024u32;
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
@@ -5602,6 +5693,36 @@ unsafe impl ::windows::runtime::Abi for FILEPATHS_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct FILEPATHS_A {
+    pub Target: super::super::Foundation::PSTR,
+    pub Source: super::super::Foundation::PSTR,
+    pub Win32Error: u32,
+    pub Flags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl FILEPATHS_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for FILEPATHS_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for FILEPATHS_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for FILEPATHS_A {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for FILEPATHS_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
@@ -5632,6 +5753,39 @@ impl ::std::fmt::Debug for FILEPATHS_SIGNERINFO_A {
 impl ::std::cmp::PartialEq for FILEPATHS_SIGNERINFO_A {
     fn eq(&self, other: &Self) -> bool {
         self.Target == other.Target && self.Source == other.Source && self.Win32Error == other.Win32Error && self.Flags == other.Flags && self.DigitalSigner == other.DigitalSigner && self.Version == other.Version && self.CatalogFile == other.CatalogFile
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for FILEPATHS_SIGNERINFO_A {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for FILEPATHS_SIGNERINFO_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct FILEPATHS_SIGNERINFO_A {
+    pub Target: super::super::Foundation::PSTR,
+    pub Source: super::super::Foundation::PSTR,
+    pub Win32Error: u32,
+    pub Flags: u32,
+    pub DigitalSigner: super::super::Foundation::PSTR,
+    pub Version: super::super::Foundation::PSTR,
+    pub CatalogFile: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl FILEPATHS_SIGNERINFO_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for FILEPATHS_SIGNERINFO_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for FILEPATHS_SIGNERINFO_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5680,6 +5834,39 @@ unsafe impl ::windows::runtime::Abi for FILEPATHS_SIGNERINFO_W {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct FILEPATHS_SIGNERINFO_W {
+    pub Target: super::super::Foundation::PWSTR,
+    pub Source: super::super::Foundation::PWSTR,
+    pub Win32Error: u32,
+    pub Flags: u32,
+    pub DigitalSigner: super::super::Foundation::PWSTR,
+    pub Version: super::super::Foundation::PWSTR,
+    pub CatalogFile: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl FILEPATHS_SIGNERINFO_W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for FILEPATHS_SIGNERINFO_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for FILEPATHS_SIGNERINFO_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for FILEPATHS_SIGNERINFO_W {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for FILEPATHS_SIGNERINFO_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
@@ -5707,6 +5894,36 @@ impl ::std::fmt::Debug for FILEPATHS_W {
 impl ::std::cmp::PartialEq for FILEPATHS_W {
     fn eq(&self, other: &Self) -> bool {
         self.Target == other.Target && self.Source == other.Source && self.Win32Error == other.Win32Error && self.Flags == other.Flags
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for FILEPATHS_W {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for FILEPATHS_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct FILEPATHS_W {
+    pub Target: super::super::Foundation::PWSTR,
+    pub Source: super::super::Foundation::PWSTR,
+    pub Win32Error: u32,
+    pub Flags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl FILEPATHS_W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for FILEPATHS_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for FILEPATHS_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5771,6 +5988,39 @@ unsafe impl ::windows::runtime::Abi for FILE_IN_CABINET_INFO_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct FILE_IN_CABINET_INFO_A {
+    pub NameInCabinet: super::super::Foundation::PSTR,
+    pub FileSize: u32,
+    pub Win32Error: u32,
+    pub DosDate: u16,
+    pub DosTime: u16,
+    pub DosAttribs: u16,
+    pub FullTargetName: [super::super::Foundation::CHAR; 260],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl FILE_IN_CABINET_INFO_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for FILE_IN_CABINET_INFO_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for FILE_IN_CABINET_INFO_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for FILE_IN_CABINET_INFO_A {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for FILE_IN_CABINET_INFO_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
@@ -5809,6 +6059,39 @@ impl ::std::fmt::Debug for FILE_IN_CABINET_INFO_W {
 impl ::std::cmp::PartialEq for FILE_IN_CABINET_INFO_W {
     fn eq(&self, other: &Self) -> bool {
         self.NameInCabinet == other.NameInCabinet && self.FileSize == other.FileSize && self.Win32Error == other.Win32Error && self.DosDate == other.DosDate && self.DosTime == other.DosTime && self.DosAttribs == other.DosAttribs && self.FullTargetName == other.FullTargetName
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for FILE_IN_CABINET_INFO_W {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for FILE_IN_CABINET_INFO_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct FILE_IN_CABINET_INFO_W {
+    pub NameInCabinet: super::super::Foundation::PWSTR,
+    pub FileSize: u32,
+    pub Win32Error: u32,
+    pub DosDate: u16,
+    pub DosTime: u16,
+    pub DosAttribs: u16,
+    pub FullTargetName: [u16; 260],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl FILE_IN_CABINET_INFO_W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for FILE_IN_CABINET_INFO_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for FILE_IN_CABINET_INFO_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6238,6 +6521,30 @@ impl ::std::fmt::Debug for INFCONTEXT {
 impl ::std::cmp::PartialEq for INFCONTEXT {
     fn eq(&self, other: &Self) -> bool {
         self.Inf == other.Inf && self.CurrentInf == other.CurrentInf && self.Section == other.Section && self.Line == other.Line
+    }
+}
+impl ::std::cmp::Eq for INFCONTEXT {}
+unsafe impl ::windows::runtime::Abi for INFCONTEXT {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct INFCONTEXT {
+    pub Inf: *mut ::std::ffi::c_void,
+    pub CurrentInf: *mut ::std::ffi::c_void,
+    pub Section: u32,
+    pub Line: u32,
+}
+impl INFCONTEXT {}
+impl ::std::default::Default for INFCONTEXT {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for INFCONTEXT {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for INFCONTEXT {}
@@ -7171,6 +7478,38 @@ unsafe impl ::windows::runtime::Abi for SOURCE_MEDIA_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SOURCE_MEDIA_A {
+    pub Reserved: super::super::Foundation::PSTR,
+    pub Tagfile: super::super::Foundation::PSTR,
+    pub Description: super::super::Foundation::PSTR,
+    pub SourcePath: super::super::Foundation::PSTR,
+    pub SourceFile: super::super::Foundation::PSTR,
+    pub Flags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SOURCE_MEDIA_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SOURCE_MEDIA_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SOURCE_MEDIA_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SOURCE_MEDIA_A {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SOURCE_MEDIA_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
@@ -7200,6 +7539,38 @@ impl ::std::fmt::Debug for SOURCE_MEDIA_W {
 impl ::std::cmp::PartialEq for SOURCE_MEDIA_W {
     fn eq(&self, other: &Self) -> bool {
         self.Reserved == other.Reserved && self.Tagfile == other.Tagfile && self.Description == other.Description && self.SourcePath == other.SourcePath && self.SourceFile == other.SourceFile && self.Flags == other.Flags
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SOURCE_MEDIA_W {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SOURCE_MEDIA_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SOURCE_MEDIA_W {
+    pub Reserved: super::super::Foundation::PWSTR,
+    pub Tagfile: super::super::Foundation::PWSTR,
+    pub Description: super::super::Foundation::PWSTR,
+    pub SourcePath: super::super::Foundation::PWSTR,
+    pub SourceFile: super::super::Foundation::PWSTR,
+    pub Flags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SOURCE_MEDIA_W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SOURCE_MEDIA_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SOURCE_MEDIA_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7565,6 +7936,38 @@ unsafe impl ::windows::runtime::Abi for SP_ALTPLATFORM_INFO_V1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_System_Diagnostics_Debug`*"]
+pub struct SP_ALTPLATFORM_INFO_V1 {
+    pub cbSize: u32,
+    pub Platform: super::super::System::Diagnostics::Debug::VER_PLATFORM,
+    pub MajorVersion: u32,
+    pub MinorVersion: u32,
+    pub ProcessorArchitecture: u16,
+    pub Reserved: u16,
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl SP_ALTPLATFORM_INFO_V1 {}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl ::std::default::Default for SP_ALTPLATFORM_INFO_V1 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl ::std::cmp::PartialEq for SP_ALTPLATFORM_INFO_V1 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl ::std::cmp::Eq for SP_ALTPLATFORM_INFO_V1 {}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+unsafe impl ::windows::runtime::Abi for SP_ALTPLATFORM_INFO_V1 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_System_Diagnostics_Debug`*"]
@@ -7600,6 +8003,62 @@ unsafe impl ::windows::runtime::Abi for SP_ALTPLATFORM_INFO_V2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub union SP_ALTPLATFORM_INFO_V2_0 {
+    pub Reserved: u16,
+    pub Flags: u16,
+}
+impl SP_ALTPLATFORM_INFO_V2_0 {}
+impl ::std::default::Default for SP_ALTPLATFORM_INFO_V2_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SP_ALTPLATFORM_INFO_V2_0 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for SP_ALTPLATFORM_INFO_V2_0 {}
+unsafe impl ::windows::runtime::Abi for SP_ALTPLATFORM_INFO_V2_0 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_System_Diagnostics_Debug`*"]
+pub struct SP_ALTPLATFORM_INFO_V2 {
+    pub cbSize: u32,
+    pub Platform: super::super::System::Diagnostics::Debug::VER_PLATFORM,
+    pub MajorVersion: u32,
+    pub MinorVersion: u32,
+    pub ProcessorArchitecture: u16,
+    pub Anonymous: SP_ALTPLATFORM_INFO_V2_0,
+    pub FirstValidatedMajorVersion: u32,
+    pub FirstValidatedMinorVersion: u32,
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl SP_ALTPLATFORM_INFO_V2 {}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl ::std::default::Default for SP_ALTPLATFORM_INFO_V2 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl ::std::cmp::PartialEq for SP_ALTPLATFORM_INFO_V2 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl ::std::cmp::Eq for SP_ALTPLATFORM_INFO_V2 {}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+unsafe impl ::windows::runtime::Abi for SP_ALTPLATFORM_INFO_V2 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub union SP_ALTPLATFORM_INFO_V2_0 {
     pub Reserved: u16,
@@ -7673,6 +8132,59 @@ impl ::std::cmp::Eq for SP_ALTPLATFORM_INFO_V3_0 {}
 unsafe impl ::windows::runtime::Abi for SP_ALTPLATFORM_INFO_V3_0 {
     type Abi = Self;
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_ALTPLATFORM_INFO_V3 {
+    pub cbSize: u32,
+    pub Platform: u32,
+    pub MajorVersion: u32,
+    pub MinorVersion: u32,
+    pub ProcessorArchitecture: u16,
+    pub Anonymous: SP_ALTPLATFORM_INFO_V3_0,
+    pub FirstValidatedMajorVersion: u32,
+    pub FirstValidatedMinorVersion: u32,
+    pub ProductType: u8,
+    pub SuiteMask: u16,
+    pub BuildNumber: u32,
+}
+impl SP_ALTPLATFORM_INFO_V3 {}
+impl ::std::default::Default for SP_ALTPLATFORM_INFO_V3 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SP_ALTPLATFORM_INFO_V3 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for SP_ALTPLATFORM_INFO_V3 {}
+unsafe impl ::windows::runtime::Abi for SP_ALTPLATFORM_INFO_V3 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub union SP_ALTPLATFORM_INFO_V3_0 {
+    pub Reserved: u16,
+    pub Flags: u16,
+}
+impl SP_ALTPLATFORM_INFO_V3_0 {}
+impl ::std::default::Default for SP_ALTPLATFORM_INFO_V3_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SP_ALTPLATFORM_INFO_V3_0 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for SP_ALTPLATFORM_INFO_V3_0 {}
+unsafe impl ::windows::runtime::Abi for SP_ALTPLATFORM_INFO_V3_0 {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const SP_BACKUP_BACKUPPASS: u32 = 1u32;
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
@@ -7715,6 +8227,35 @@ unsafe impl ::windows::runtime::Abi for SP_BACKUP_QUEUE_PARAMS_V1_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_BACKUP_QUEUE_PARAMS_V1_A {
+    pub cbSize: u32,
+    pub FullInfPath: [super::super::Foundation::CHAR; 260],
+    pub FilenameOffset: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SP_BACKUP_QUEUE_PARAMS_V1_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_BACKUP_QUEUE_PARAMS_V1_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V1_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_BACKUP_QUEUE_PARAMS_V1_A {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_BACKUP_QUEUE_PARAMS_V1_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_W {
@@ -7736,6 +8277,29 @@ impl ::std::fmt::Debug for SP_BACKUP_QUEUE_PARAMS_V1_W {
 impl ::std::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V1_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.FullInfPath == other.FullInfPath && self.FilenameOffset == other.FilenameOffset
+    }
+}
+impl ::std::cmp::Eq for SP_BACKUP_QUEUE_PARAMS_V1_W {}
+unsafe impl ::windows::runtime::Abi for SP_BACKUP_QUEUE_PARAMS_V1_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_BACKUP_QUEUE_PARAMS_V1_W {
+    pub cbSize: u32,
+    pub FullInfPath: [u16; 260],
+    pub FilenameOffset: i32,
+}
+impl SP_BACKUP_QUEUE_PARAMS_V1_W {}
+impl ::std::default::Default for SP_BACKUP_QUEUE_PARAMS_V1_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V1_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for SP_BACKUP_QUEUE_PARAMS_V1_W {}
@@ -7779,6 +8343,36 @@ unsafe impl ::windows::runtime::Abi for SP_BACKUP_QUEUE_PARAMS_V2_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_BACKUP_QUEUE_PARAMS_V2_A {
+    pub cbSize: u32,
+    pub FullInfPath: [super::super::Foundation::CHAR; 260],
+    pub FilenameOffset: i32,
+    pub ReinstallInstance: [super::super::Foundation::CHAR; 260],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SP_BACKUP_QUEUE_PARAMS_V2_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_BACKUP_QUEUE_PARAMS_V2_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V2_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_BACKUP_QUEUE_PARAMS_V2_A {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_BACKUP_QUEUE_PARAMS_V2_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_W {
@@ -7801,6 +8395,30 @@ impl ::std::fmt::Debug for SP_BACKUP_QUEUE_PARAMS_V2_W {
 impl ::std::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V2_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.FullInfPath == other.FullInfPath && self.FilenameOffset == other.FilenameOffset && self.ReinstallInstance == other.ReinstallInstance
+    }
+}
+impl ::std::cmp::Eq for SP_BACKUP_QUEUE_PARAMS_V2_W {}
+unsafe impl ::windows::runtime::Abi for SP_BACKUP_QUEUE_PARAMS_V2_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_BACKUP_QUEUE_PARAMS_V2_W {
+    pub cbSize: u32,
+    pub FullInfPath: [u16; 260],
+    pub FilenameOffset: i32,
+    pub ReinstallInstance: [u16; 260],
+}
+impl SP_BACKUP_QUEUE_PARAMS_V2_W {}
+impl ::std::default::Default for SP_BACKUP_QUEUE_PARAMS_V2_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V2_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for SP_BACKUP_QUEUE_PARAMS_V2_W {}
@@ -7845,6 +8463,35 @@ unsafe impl ::windows::runtime::Abi for SP_CLASSIMAGELIST_DATA {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_UI_Controls")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_UI_Controls`*"]
+pub struct SP_CLASSIMAGELIST_DATA {
+    pub cbSize: u32,
+    pub ImageList: super::super::UI::Controls::HIMAGELIST,
+    pub Reserved: usize,
+}
+#[cfg(feature = "Win32_UI_Controls")]
+impl SP_CLASSIMAGELIST_DATA {}
+#[cfg(feature = "Win32_UI_Controls")]
+impl ::std::default::Default for SP_CLASSIMAGELIST_DATA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_UI_Controls")]
+impl ::std::cmp::PartialEq for SP_CLASSIMAGELIST_DATA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_UI_Controls")]
+impl ::std::cmp::Eq for SP_CLASSIMAGELIST_DATA {}
+#[cfg(feature = "Win32_UI_Controls")]
+unsafe impl ::windows::runtime::Abi for SP_CLASSIMAGELIST_DATA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_CLASSINSTALL_HEADER {
@@ -7865,6 +8512,28 @@ impl ::std::fmt::Debug for SP_CLASSINSTALL_HEADER {
 impl ::std::cmp::PartialEq for SP_CLASSINSTALL_HEADER {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.InstallFunction == other.InstallFunction
+    }
+}
+impl ::std::cmp::Eq for SP_CLASSINSTALL_HEADER {}
+unsafe impl ::windows::runtime::Abi for SP_CLASSINSTALL_HEADER {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_CLASSINSTALL_HEADER {
+    pub cbSize: u32,
+    pub InstallFunction: u32,
+}
+impl SP_CLASSINSTALL_HEADER {}
+impl ::std::default::Default for SP_CLASSINSTALL_HEADER {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SP_CLASSINSTALL_HEADER {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for SP_CLASSINSTALL_HEADER {}
@@ -7974,6 +8643,40 @@ impl ::std::cmp::Eq for SP_DETECTDEVICE_PARAMS {}
 unsafe impl ::windows::runtime::Abi for SP_DETECTDEVICE_PARAMS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::clone::Clone for SP_DETECTDEVICE_PARAMS {
+    fn clone(&self) -> Self {
+        unimplemented!()
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_DETECTDEVICE_PARAMS {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub DetectProgressNotify: ::std::option::Option<PDETECT_PROGRESS_NOTIFY>,
+    pub ProgressNotifyParam: *mut ::std::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SP_DETECTDEVICE_PARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_DETECTDEVICE_PARAMS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_DETECTDEVICE_PARAMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_DETECTDEVICE_PARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_DETECTDEVICE_PARAMS {
+    type Abi = ::std::mem::ManuallyDrop<Self>;
+}
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
@@ -7997,6 +8700,30 @@ impl ::std::fmt::Debug for SP_DEVICE_INTERFACE_DATA {
 impl ::std::cmp::PartialEq for SP_DEVICE_INTERFACE_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.InterfaceClassGuid == other.InterfaceClassGuid && self.Flags == other.Flags && self.Reserved == other.Reserved
+    }
+}
+impl ::std::cmp::Eq for SP_DEVICE_INTERFACE_DATA {}
+unsafe impl ::windows::runtime::Abi for SP_DEVICE_INTERFACE_DATA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_DEVICE_INTERFACE_DATA {
+    pub cbSize: u32,
+    pub InterfaceClassGuid: ::windows::runtime::GUID,
+    pub Flags: u32,
+    pub Reserved: usize,
+}
+impl SP_DEVICE_INTERFACE_DATA {}
+impl ::std::default::Default for SP_DEVICE_INTERFACE_DATA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SP_DEVICE_INTERFACE_DATA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for SP_DEVICE_INTERFACE_DATA {}
@@ -8038,6 +8765,34 @@ unsafe impl ::windows::runtime::Abi for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_A {
+    pub cbSize: u32,
+    pub DevicePath: [super::super::Foundation::CHAR; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SP_DEVICE_INTERFACE_DETAIL_DATA_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_DEVICE_INTERFACE_DETAIL_DATA_A {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_W {
@@ -8058,6 +8813,28 @@ impl ::std::fmt::Debug for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
 impl ::std::cmp::PartialEq for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.DevicePath == other.DevicePath
+    }
+}
+impl ::std::cmp::Eq for SP_DEVICE_INTERFACE_DETAIL_DATA_W {}
+unsafe impl ::windows::runtime::Abi for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+    pub cbSize: u32,
+    pub DevicePath: [u16; 1],
+}
+impl SP_DEVICE_INTERFACE_DETAIL_DATA_W {}
+impl ::std::default::Default for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for SP_DEVICE_INTERFACE_DETAIL_DATA_W {}
@@ -8087,6 +8864,30 @@ impl ::std::fmt::Debug for SP_DEVINFO_DATA {
 impl ::std::cmp::PartialEq for SP_DEVINFO_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.ClassGuid == other.ClassGuid && self.DevInst == other.DevInst && self.Reserved == other.Reserved
+    }
+}
+impl ::std::cmp::Eq for SP_DEVINFO_DATA {}
+unsafe impl ::windows::runtime::Abi for SP_DEVINFO_DATA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_DEVINFO_DATA {
+    pub cbSize: u32,
+    pub ClassGuid: ::windows::runtime::GUID,
+    pub DevInst: u32,
+    pub Reserved: usize,
+}
+impl SP_DEVINFO_DATA {}
+impl ::std::default::Default for SP_DEVINFO_DATA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SP_DEVINFO_DATA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for SP_DEVINFO_DATA {}
@@ -8130,6 +8931,36 @@ unsafe impl ::windows::runtime::Abi for SP_DEVINFO_LIST_DETAIL_DATA_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_DEVINFO_LIST_DETAIL_DATA_A {
+    pub cbSize: u32,
+    pub ClassGuid: ::windows::runtime::GUID,
+    pub RemoteMachineHandle: super::super::Foundation::HANDLE,
+    pub RemoteMachineName: [super::super::Foundation::CHAR; 263],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SP_DEVINFO_LIST_DETAIL_DATA_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_DEVINFO_LIST_DETAIL_DATA_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_DEVINFO_LIST_DETAIL_DATA_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_DEVINFO_LIST_DETAIL_DATA_A {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_DEVINFO_LIST_DETAIL_DATA_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
@@ -8157,6 +8988,36 @@ impl ::std::fmt::Debug for SP_DEVINFO_LIST_DETAIL_DATA_W {
 impl ::std::cmp::PartialEq for SP_DEVINFO_LIST_DETAIL_DATA_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.ClassGuid == other.ClassGuid && self.RemoteMachineHandle == other.RemoteMachineHandle && self.RemoteMachineName == other.RemoteMachineName
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_DEVINFO_LIST_DETAIL_DATA_W {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_DEVINFO_LIST_DETAIL_DATA_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_DEVINFO_LIST_DETAIL_DATA_W {
+    pub cbSize: u32,
+    pub ClassGuid: ::windows::runtime::GUID,
+    pub RemoteMachineHandle: super::super::Foundation::HANDLE,
+    pub RemoteMachineName: [u16; 263],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SP_DEVINFO_LIST_DETAIL_DATA_W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_DEVINFO_LIST_DETAIL_DATA_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_DEVINFO_LIST_DETAIL_DATA_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8217,6 +9078,47 @@ impl ::std::cmp::Eq for SP_DEVINSTALL_PARAMS_A {}
 unsafe impl ::windows::runtime::Abi for SP_DEVINSTALL_PARAMS_A {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::clone::Clone for SP_DEVINSTALL_PARAMS_A {
+    fn clone(&self) -> Self {
+        unimplemented!()
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_DEVINSTALL_PARAMS_A {
+    pub cbSize: u32,
+    pub Flags: u32,
+    pub FlagsEx: u32,
+    pub hwndParent: super::super::Foundation::HWND,
+    pub InstallMsgHandler: ::std::option::Option<PSP_FILE_CALLBACK_A>,
+    pub InstallMsgHandlerContext: *mut ::std::ffi::c_void,
+    pub FileQueue: *mut ::std::ffi::c_void,
+    pub ClassInstallReserved: usize,
+    pub Reserved: u32,
+    pub DriverPath: [super::super::Foundation::CHAR; 260],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SP_DEVINSTALL_PARAMS_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_DEVINSTALL_PARAMS_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_DEVINSTALL_PARAMS_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_DEVINSTALL_PARAMS_A {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_DEVINSTALL_PARAMS_A {
+    type Abi = ::std::mem::ManuallyDrop<Self>;
+}
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -8269,6 +9171,47 @@ impl ::std::cmp::Eq for SP_DEVINSTALL_PARAMS_W {}
 unsafe impl ::windows::runtime::Abi for SP_DEVINSTALL_PARAMS_W {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::clone::Clone for SP_DEVINSTALL_PARAMS_W {
+    fn clone(&self) -> Self {
+        unimplemented!()
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_DEVINSTALL_PARAMS_W {
+    pub cbSize: u32,
+    pub Flags: u32,
+    pub FlagsEx: u32,
+    pub hwndParent: super::super::Foundation::HWND,
+    pub InstallMsgHandler: ::std::option::Option<PSP_FILE_CALLBACK_A>,
+    pub InstallMsgHandlerContext: *mut ::std::ffi::c_void,
+    pub FileQueue: *mut ::std::ffi::c_void,
+    pub ClassInstallReserved: usize,
+    pub Reserved: u32,
+    pub DriverPath: [u16; 260],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SP_DEVINSTALL_PARAMS_W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_DEVINSTALL_PARAMS_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_DEVINSTALL_PARAMS_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_DEVINSTALL_PARAMS_W {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_DEVINSTALL_PARAMS_W {
+    type Abi = ::std::mem::ManuallyDrop<Self>;
+}
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -8308,6 +9251,38 @@ unsafe impl ::windows::runtime::Abi for SP_DRVINFO_DATA_V1_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_DRVINFO_DATA_V1_A {
+    pub cbSize: u32,
+    pub DriverType: u32,
+    pub Reserved: usize,
+    pub Description: [super::super::Foundation::CHAR; 256],
+    pub MfgName: [super::super::Foundation::CHAR; 256],
+    pub ProviderName: [super::super::Foundation::CHAR; 256],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SP_DRVINFO_DATA_V1_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_DRVINFO_DATA_V1_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_DRVINFO_DATA_V1_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_DRVINFO_DATA_V1_A {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_DRVINFO_DATA_V1_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_DRVINFO_DATA_V1_W {
@@ -8332,6 +9307,32 @@ impl ::std::fmt::Debug for SP_DRVINFO_DATA_V1_W {
 impl ::std::cmp::PartialEq for SP_DRVINFO_DATA_V1_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.DriverType == other.DriverType && self.Reserved == other.Reserved && self.Description == other.Description && self.MfgName == other.MfgName && self.ProviderName == other.ProviderName
+    }
+}
+impl ::std::cmp::Eq for SP_DRVINFO_DATA_V1_W {}
+unsafe impl ::windows::runtime::Abi for SP_DRVINFO_DATA_V1_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_DRVINFO_DATA_V1_W {
+    pub cbSize: u32,
+    pub DriverType: u32,
+    pub Reserved: usize,
+    pub Description: [u16; 256],
+    pub MfgName: [u16; 256],
+    pub ProviderName: [u16; 256],
+}
+impl SP_DRVINFO_DATA_V1_W {}
+impl ::std::default::Default for SP_DRVINFO_DATA_V1_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SP_DRVINFO_DATA_V1_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for SP_DRVINFO_DATA_V1_W {}
@@ -8388,6 +9389,40 @@ unsafe impl ::windows::runtime::Abi for SP_DRVINFO_DATA_V2_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_DRVINFO_DATA_V2_A {
+    pub cbSize: u32,
+    pub DriverType: u32,
+    pub Reserved: usize,
+    pub Description: [super::super::Foundation::CHAR; 256],
+    pub MfgName: [super::super::Foundation::CHAR; 256],
+    pub ProviderName: [super::super::Foundation::CHAR; 256],
+    pub DriverDate: super::super::Foundation::FILETIME,
+    pub DriverVersion: u64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SP_DRVINFO_DATA_V2_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_DRVINFO_DATA_V2_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_DRVINFO_DATA_V2_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_DRVINFO_DATA_V2_A {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_DRVINFO_DATA_V2_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
@@ -8428,6 +9463,40 @@ impl ::std::fmt::Debug for SP_DRVINFO_DATA_V2_W {
 impl ::std::cmp::PartialEq for SP_DRVINFO_DATA_V2_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.DriverType == other.DriverType && self.Reserved == other.Reserved && self.Description == other.Description && self.MfgName == other.MfgName && self.ProviderName == other.ProviderName && self.DriverDate == other.DriverDate && self.DriverVersion == other.DriverVersion
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_DRVINFO_DATA_V2_W {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_DRVINFO_DATA_V2_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_DRVINFO_DATA_V2_W {
+    pub cbSize: u32,
+    pub DriverType: u32,
+    pub Reserved: usize,
+    pub Description: [u16; 256],
+    pub MfgName: [u16; 256],
+    pub ProviderName: [u16; 256],
+    pub DriverDate: super::super::Foundation::FILETIME,
+    pub DriverVersion: u64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SP_DRVINFO_DATA_V2_W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_DRVINFO_DATA_V2_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_DRVINFO_DATA_V2_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8488,6 +9557,41 @@ unsafe impl ::windows::runtime::Abi for SP_DRVINFO_DETAIL_DATA_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_DRVINFO_DETAIL_DATA_A {
+    pub cbSize: u32,
+    pub InfDate: super::super::Foundation::FILETIME,
+    pub CompatIDsOffset: u32,
+    pub CompatIDsLength: u32,
+    pub Reserved: usize,
+    pub SectionName: [super::super::Foundation::CHAR; 256],
+    pub InfFileName: [super::super::Foundation::CHAR; 260],
+    pub DrvDescription: [super::super::Foundation::CHAR; 256],
+    pub HardwareID: [super::super::Foundation::CHAR; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SP_DRVINFO_DETAIL_DATA_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_DRVINFO_DETAIL_DATA_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_DRVINFO_DETAIL_DATA_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_DRVINFO_DETAIL_DATA_A {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_DRVINFO_DETAIL_DATA_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
@@ -8539,6 +9643,41 @@ unsafe impl ::windows::runtime::Abi for SP_DRVINFO_DETAIL_DATA_W {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_DRVINFO_DETAIL_DATA_W {
+    pub cbSize: u32,
+    pub InfDate: super::super::Foundation::FILETIME,
+    pub CompatIDsOffset: u32,
+    pub CompatIDsLength: u32,
+    pub Reserved: usize,
+    pub SectionName: [u16; 256],
+    pub InfFileName: [u16; 260],
+    pub DrvDescription: [u16; 256],
+    pub HardwareID: [u16; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SP_DRVINFO_DETAIL_DATA_W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_DRVINFO_DETAIL_DATA_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_DRVINFO_DETAIL_DATA_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_DRVINFO_DETAIL_DATA_W {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_DRVINFO_DETAIL_DATA_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_DRVINSTALL_PARAMS {
@@ -8569,6 +9708,31 @@ unsafe impl ::windows::runtime::Abi for SP_DRVINSTALL_PARAMS {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_DRVINSTALL_PARAMS {
+    pub cbSize: u32,
+    pub Rank: u32,
+    pub Flags: u32,
+    pub PrivateData: usize,
+    pub Reserved: u32,
+}
+impl SP_DRVINSTALL_PARAMS {}
+impl ::std::default::Default for SP_DRVINSTALL_PARAMS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SP_DRVINSTALL_PARAMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for SP_DRVINSTALL_PARAMS {}
+unsafe impl ::windows::runtime::Abi for SP_DRVINSTALL_PARAMS {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_ENABLECLASS_PARAMS {
@@ -8590,6 +9754,29 @@ impl ::std::fmt::Debug for SP_ENABLECLASS_PARAMS {
 impl ::std::cmp::PartialEq for SP_ENABLECLASS_PARAMS {
     fn eq(&self, other: &Self) -> bool {
         self.ClassInstallHeader == other.ClassInstallHeader && self.ClassGuid == other.ClassGuid && self.EnableMessage == other.EnableMessage
+    }
+}
+impl ::std::cmp::Eq for SP_ENABLECLASS_PARAMS {}
+unsafe impl ::windows::runtime::Abi for SP_ENABLECLASS_PARAMS {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_ENABLECLASS_PARAMS {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub ClassGuid: ::windows::runtime::GUID,
+    pub EnableMessage: u32,
+}
+impl SP_ENABLECLASS_PARAMS {}
+impl ::std::default::Default for SP_ENABLECLASS_PARAMS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SP_ENABLECLASS_PARAMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for SP_ENABLECLASS_PARAMS {}
@@ -8656,6 +9843,44 @@ impl ::std::cmp::PartialEq for SP_FILE_COPY_PARAMS_A {
             && self.CopyStyle == other.CopyStyle
             && self.LayoutInf == other.LayoutInf
             && self.SecurityDescriptor == other.SecurityDescriptor
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_FILE_COPY_PARAMS_A {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_FILE_COPY_PARAMS_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_FILE_COPY_PARAMS_A {
+    pub cbSize: u32,
+    pub QueueHandle: *mut ::std::ffi::c_void,
+    pub SourceRootPath: super::super::Foundation::PSTR,
+    pub SourcePath: super::super::Foundation::PSTR,
+    pub SourceFilename: super::super::Foundation::PSTR,
+    pub SourceDescription: super::super::Foundation::PSTR,
+    pub SourceTagfile: super::super::Foundation::PSTR,
+    pub TargetDirectory: super::super::Foundation::PSTR,
+    pub TargetFilename: super::super::Foundation::PSTR,
+    pub CopyStyle: u32,
+    pub LayoutInf: *mut ::std::ffi::c_void,
+    pub SecurityDescriptor: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SP_FILE_COPY_PARAMS_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_FILE_COPY_PARAMS_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_FILE_COPY_PARAMS_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8732,6 +9957,44 @@ impl ::std::cmp::Eq for SP_FILE_COPY_PARAMS_W {}
 unsafe impl ::windows::runtime::Abi for SP_FILE_COPY_PARAMS_W {
     type Abi = Self;
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_FILE_COPY_PARAMS_W {
+    pub cbSize: u32,
+    pub QueueHandle: *mut ::std::ffi::c_void,
+    pub SourceRootPath: super::super::Foundation::PWSTR,
+    pub SourcePath: super::super::Foundation::PWSTR,
+    pub SourceFilename: super::super::Foundation::PWSTR,
+    pub SourceDescription: super::super::Foundation::PWSTR,
+    pub SourceTagfile: super::super::Foundation::PWSTR,
+    pub TargetDirectory: super::super::Foundation::PWSTR,
+    pub TargetFilename: super::super::Foundation::PWSTR,
+    pub CopyStyle: u32,
+    pub LayoutInf: *mut ::std::ffi::c_void,
+    pub SecurityDescriptor: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SP_FILE_COPY_PARAMS_W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_FILE_COPY_PARAMS_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_FILE_COPY_PARAMS_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_FILE_COPY_PARAMS_W {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_FILE_COPY_PARAMS_W {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const SP_FLAG_CABINETCONTINUATION: u32 = 2048u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -8756,6 +10019,29 @@ impl ::std::fmt::Debug for SP_INF_INFORMATION {
 impl ::std::cmp::PartialEq for SP_INF_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.InfStyle == other.InfStyle && self.InfCount == other.InfCount && self.VersionData == other.VersionData
+    }
+}
+impl ::std::cmp::Eq for SP_INF_INFORMATION {}
+unsafe impl ::windows::runtime::Abi for SP_INF_INFORMATION {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_INF_INFORMATION {
+    pub InfStyle: SP_INF_STYLE,
+    pub InfCount: u32,
+    pub VersionData: [u8; 1],
+}
+impl SP_INF_INFORMATION {}
+impl ::std::default::Default for SP_INF_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SP_INF_INFORMATION {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for SP_INF_INFORMATION {}
@@ -8799,6 +10085,36 @@ unsafe impl ::windows::runtime::Abi for SP_INF_SIGNER_INFO_V1_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_INF_SIGNER_INFO_V1_A {
+    pub cbSize: u32,
+    pub CatalogFile: [super::super::Foundation::CHAR; 260],
+    pub DigitalSigner: [super::super::Foundation::CHAR; 260],
+    pub DigitalSignerVersion: [super::super::Foundation::CHAR; 260],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SP_INF_SIGNER_INFO_V1_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_INF_SIGNER_INFO_V1_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_INF_SIGNER_INFO_V1_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_INF_SIGNER_INFO_V1_A {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_INF_SIGNER_INFO_V1_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_INF_SIGNER_INFO_V1_W {
@@ -8821,6 +10137,30 @@ impl ::std::fmt::Debug for SP_INF_SIGNER_INFO_V1_W {
 impl ::std::cmp::PartialEq for SP_INF_SIGNER_INFO_V1_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.CatalogFile == other.CatalogFile && self.DigitalSigner == other.DigitalSigner && self.DigitalSignerVersion == other.DigitalSignerVersion
+    }
+}
+impl ::std::cmp::Eq for SP_INF_SIGNER_INFO_V1_W {}
+unsafe impl ::windows::runtime::Abi for SP_INF_SIGNER_INFO_V1_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_INF_SIGNER_INFO_V1_W {
+    pub cbSize: u32,
+    pub CatalogFile: [u16; 260],
+    pub DigitalSigner: [u16; 260],
+    pub DigitalSignerVersion: [u16; 260],
+}
+impl SP_INF_SIGNER_INFO_V1_W {}
+impl ::std::default::Default for SP_INF_SIGNER_INFO_V1_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SP_INF_SIGNER_INFO_V1_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for SP_INF_SIGNER_INFO_V1_W {}
@@ -8865,6 +10205,37 @@ unsafe impl ::windows::runtime::Abi for SP_INF_SIGNER_INFO_V2_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_INF_SIGNER_INFO_V2_A {
+    pub cbSize: u32,
+    pub CatalogFile: [super::super::Foundation::CHAR; 260],
+    pub DigitalSigner: [super::super::Foundation::CHAR; 260],
+    pub DigitalSignerVersion: [super::super::Foundation::CHAR; 260],
+    pub SignerScore: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SP_INF_SIGNER_INFO_V2_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_INF_SIGNER_INFO_V2_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_INF_SIGNER_INFO_V2_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_INF_SIGNER_INFO_V2_A {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_INF_SIGNER_INFO_V2_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_INF_SIGNER_INFO_V2_W {
@@ -8888,6 +10259,31 @@ impl ::std::fmt::Debug for SP_INF_SIGNER_INFO_V2_W {
 impl ::std::cmp::PartialEq for SP_INF_SIGNER_INFO_V2_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.CatalogFile == other.CatalogFile && self.DigitalSigner == other.DigitalSigner && self.DigitalSignerVersion == other.DigitalSignerVersion && self.SignerScore == other.SignerScore
+    }
+}
+impl ::std::cmp::Eq for SP_INF_SIGNER_INFO_V2_W {}
+unsafe impl ::windows::runtime::Abi for SP_INF_SIGNER_INFO_V2_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_INF_SIGNER_INFO_V2_W {
+    pub cbSize: u32,
+    pub CatalogFile: [u16; 260],
+    pub DigitalSigner: [u16; 260],
+    pub DigitalSignerVersion: [u16; 260],
+    pub SignerScore: u32,
+}
+impl SP_INF_SIGNER_INFO_V2_W {}
+impl ::std::default::Default for SP_INF_SIGNER_INFO_V2_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SP_INF_SIGNER_INFO_V2_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for SP_INF_SIGNER_INFO_V2_W {}
@@ -8986,6 +10382,40 @@ impl ::std::cmp::Eq for SP_INSTALLWIZARD_DATA {}
 unsafe impl ::windows::runtime::Abi for SP_INSTALLWIZARD_DATA {
     type Abi = Self;
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_UI_Controls`*"]
+pub struct SP_INSTALLWIZARD_DATA {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub Flags: u32,
+    pub DynamicPages: [super::super::UI::Controls::HPROPSHEETPAGE; 20],
+    pub NumDynamicPages: u32,
+    pub DynamicPageFlags: u32,
+    pub PrivateFlags: u32,
+    pub PrivateData: super::super::Foundation::LPARAM,
+    pub hwndWizardDlg: super::super::Foundation::HWND,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl SP_INSTALLWIZARD_DATA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl ::std::default::Default for SP_INSTALLWIZARD_DATA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl ::std::cmp::PartialEq for SP_INSTALLWIZARD_DATA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl ::std::cmp::Eq for SP_INSTALLWIZARD_DATA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+unsafe impl ::windows::runtime::Abi for SP_INSTALLWIZARD_DATA {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub const SP_MAX_MACHINENAME_LENGTH: u32 = 263u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -9017,6 +10447,37 @@ impl ::std::fmt::Debug for SP_NEWDEVICEWIZARD_DATA {
 impl ::std::cmp::PartialEq for SP_NEWDEVICEWIZARD_DATA {
     fn eq(&self, other: &Self) -> bool {
         self.ClassInstallHeader == other.ClassInstallHeader && self.Flags == other.Flags && self.DynamicPages == other.DynamicPages && self.NumDynamicPages == other.NumDynamicPages && self.hwndWizardDlg == other.hwndWizardDlg
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl ::std::cmp::Eq for SP_NEWDEVICEWIZARD_DATA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+unsafe impl ::windows::runtime::Abi for SP_NEWDEVICEWIZARD_DATA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`, `Win32_UI_Controls`*"]
+pub struct SP_NEWDEVICEWIZARD_DATA {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub Flags: u32,
+    pub DynamicPages: [super::super::UI::Controls::HPROPSHEETPAGE; 20],
+    pub NumDynamicPages: u32,
+    pub hwndWizardDlg: super::super::Foundation::HWND,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl SP_NEWDEVICEWIZARD_DATA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl ::std::default::Default for SP_NEWDEVICEWIZARD_DATA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl ::std::cmp::PartialEq for SP_NEWDEVICEWIZARD_DATA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -9061,6 +10522,35 @@ unsafe impl ::windows::runtime::Abi for SP_ORIGINAL_FILE_INFO_A {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_ORIGINAL_FILE_INFO_A {
+    pub cbSize: u32,
+    pub OriginalInfName: [super::super::Foundation::CHAR; 260],
+    pub OriginalCatalogName: [super::super::Foundation::CHAR; 260],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SP_ORIGINAL_FILE_INFO_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_ORIGINAL_FILE_INFO_A {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_ORIGINAL_FILE_INFO_A {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_ORIGINAL_FILE_INFO_A {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_ORIGINAL_FILE_INFO_A {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_ORIGINAL_FILE_INFO_W {
@@ -9082,6 +10572,29 @@ impl ::std::fmt::Debug for SP_ORIGINAL_FILE_INFO_W {
 impl ::std::cmp::PartialEq for SP_ORIGINAL_FILE_INFO_W {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.OriginalInfName == other.OriginalInfName && self.OriginalCatalogName == other.OriginalCatalogName
+    }
+}
+impl ::std::cmp::Eq for SP_ORIGINAL_FILE_INFO_W {}
+unsafe impl ::windows::runtime::Abi for SP_ORIGINAL_FILE_INFO_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_ORIGINAL_FILE_INFO_W {
+    pub cbSize: u32,
+    pub OriginalInfName: [u16; 260],
+    pub OriginalCatalogName: [u16; 260],
+}
+impl SP_ORIGINAL_FILE_INFO_W {}
+impl ::std::default::Default for SP_ORIGINAL_FILE_INFO_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SP_ORIGINAL_FILE_INFO_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for SP_ORIGINAL_FILE_INFO_W {}
@@ -9150,6 +10663,28 @@ unsafe impl ::windows::runtime::Abi for SP_POWERMESSAGEWAKE_PARAMS_W {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_POWERMESSAGEWAKE_PARAMS_W {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub PowerMessageWake: [u16; 512],
+}
+impl SP_POWERMESSAGEWAKE_PARAMS_W {}
+impl ::std::default::Default for SP_POWERMESSAGEWAKE_PARAMS_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SP_POWERMESSAGEWAKE_PARAMS_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for SP_POWERMESSAGEWAKE_PARAMS_W {}
+unsafe impl ::windows::runtime::Abi for SP_POWERMESSAGEWAKE_PARAMS_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_PROPCHANGE_PARAMS {
@@ -9172,6 +10707,30 @@ impl ::std::fmt::Debug for SP_PROPCHANGE_PARAMS {
 impl ::std::cmp::PartialEq for SP_PROPCHANGE_PARAMS {
     fn eq(&self, other: &Self) -> bool {
         self.ClassInstallHeader == other.ClassInstallHeader && self.StateChange == other.StateChange && self.Scope == other.Scope && self.HwProfile == other.HwProfile
+    }
+}
+impl ::std::cmp::Eq for SP_PROPCHANGE_PARAMS {}
+unsafe impl ::windows::runtime::Abi for SP_PROPCHANGE_PARAMS {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_PROPCHANGE_PARAMS {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub StateChange: u32,
+    pub Scope: u32,
+    pub HwProfile: u32,
+}
+impl SP_PROPCHANGE_PARAMS {}
+impl ::std::default::Default for SP_PROPCHANGE_PARAMS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SP_PROPCHANGE_PARAMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for SP_PROPCHANGE_PARAMS {}
@@ -9208,6 +10767,30 @@ unsafe impl ::windows::runtime::Abi for SP_PROPSHEETPAGE_REQUEST {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_PROPSHEETPAGE_REQUEST {
+    pub cbSize: u32,
+    pub PageRequested: u32,
+    pub DeviceInfoSet: *mut ::std::ffi::c_void,
+    pub DeviceInfoData: *mut SP_DEVINFO_DATA,
+}
+impl SP_PROPSHEETPAGE_REQUEST {}
+impl ::std::default::Default for SP_PROPSHEETPAGE_REQUEST {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SP_PROPSHEETPAGE_REQUEST {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for SP_PROPSHEETPAGE_REQUEST {}
+unsafe impl ::windows::runtime::Abi for SP_PROPSHEETPAGE_REQUEST {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
@@ -9235,6 +10818,36 @@ impl ::std::fmt::Debug for SP_REGISTER_CONTROL_STATUSA {
 impl ::std::cmp::PartialEq for SP_REGISTER_CONTROL_STATUSA {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.FileName == other.FileName && self.Win32Error == other.Win32Error && self.FailureCode == other.FailureCode
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_REGISTER_CONTROL_STATUSA {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_REGISTER_CONTROL_STATUSA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_REGISTER_CONTROL_STATUSA {
+    pub cbSize: u32,
+    pub FileName: super::super::Foundation::PSTR,
+    pub Win32Error: u32,
+    pub FailureCode: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SP_REGISTER_CONTROL_STATUSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_REGISTER_CONTROL_STATUSA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_REGISTER_CONTROL_STATUSA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9280,6 +10893,36 @@ unsafe impl ::windows::runtime::Abi for SP_REGISTER_CONTROL_STATUSW {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
+pub struct SP_REGISTER_CONTROL_STATUSW {
+    pub cbSize: u32,
+    pub FileName: super::super::Foundation::PWSTR,
+    pub Win32Error: u32,
+    pub FailureCode: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SP_REGISTER_CONTROL_STATUSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SP_REGISTER_CONTROL_STATUSW {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SP_REGISTER_CONTROL_STATUSW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SP_REGISTER_CONTROL_STATUSW {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SP_REGISTER_CONTROL_STATUSW {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_REMOVEDEVICE_PARAMS {
@@ -9301,6 +10944,29 @@ impl ::std::fmt::Debug for SP_REMOVEDEVICE_PARAMS {
 impl ::std::cmp::PartialEq for SP_REMOVEDEVICE_PARAMS {
     fn eq(&self, other: &Self) -> bool {
         self.ClassInstallHeader == other.ClassInstallHeader && self.Scope == other.Scope && self.HwProfile == other.HwProfile
+    }
+}
+impl ::std::cmp::Eq for SP_REMOVEDEVICE_PARAMS {}
+unsafe impl ::windows::runtime::Abi for SP_REMOVEDEVICE_PARAMS {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_REMOVEDEVICE_PARAMS {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub Scope: u32,
+    pub HwProfile: u32,
+}
+impl SP_REMOVEDEVICE_PARAMS {}
+impl ::std::default::Default for SP_REMOVEDEVICE_PARAMS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SP_REMOVEDEVICE_PARAMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for SP_REMOVEDEVICE_PARAMS {}
@@ -9376,6 +11042,31 @@ unsafe impl ::windows::runtime::Abi for SP_SELECTDEVICE_PARAMS_W {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_SELECTDEVICE_PARAMS_W {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub Title: [u16; 60],
+    pub Instructions: [u16; 256],
+    pub ListLabel: [u16; 30],
+    pub SubTitle: [u16; 256],
+}
+impl SP_SELECTDEVICE_PARAMS_W {}
+impl ::std::default::Default for SP_SELECTDEVICE_PARAMS_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SP_SELECTDEVICE_PARAMS_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for SP_SELECTDEVICE_PARAMS_W {}
+unsafe impl ::windows::runtime::Abi for SP_SELECTDEVICE_PARAMS_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`, `Win32_Foundation`*"]
@@ -9439,6 +11130,29 @@ unsafe impl ::windows::runtime::Abi for SP_TROUBLESHOOTER_PARAMS_W {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_TROUBLESHOOTER_PARAMS_W {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub ChmFile: [u16; 260],
+    pub HtmlTroubleShooter: [u16; 260],
+}
+impl SP_TROUBLESHOOTER_PARAMS_W {}
+impl ::std::default::Default for SP_TROUBLESHOOTER_PARAMS_W {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SP_TROUBLESHOOTER_PARAMS_W {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for SP_TROUBLESHOOTER_PARAMS_W {}
+unsafe impl ::windows::runtime::Abi for SP_TROUBLESHOOTER_PARAMS_W {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
 pub struct SP_UNREMOVEDEVICE_PARAMS {
@@ -9460,6 +11174,29 @@ impl ::std::fmt::Debug for SP_UNREMOVEDEVICE_PARAMS {
 impl ::std::cmp::PartialEq for SP_UNREMOVEDEVICE_PARAMS {
     fn eq(&self, other: &Self) -> bool {
         self.ClassInstallHeader == other.ClassInstallHeader && self.Scope == other.Scope && self.HwProfile == other.HwProfile
+    }
+}
+impl ::std::cmp::Eq for SP_UNREMOVEDEVICE_PARAMS {}
+unsafe impl ::windows::runtime::Abi for SP_UNREMOVEDEVICE_PARAMS {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Devices_DeviceAndDriverInstallation`*"]
+pub struct SP_UNREMOVEDEVICE_PARAMS {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub Scope: u32,
+    pub HwProfile: u32,
+}
+impl SP_UNREMOVEDEVICE_PARAMS {}
+impl ::std::default::Default for SP_UNREMOVEDEVICE_PARAMS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SP_UNREMOVEDEVICE_PARAMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for SP_UNREMOVEDEVICE_PARAMS {}

@@ -8141,6 +8141,215 @@ unsafe impl ::windows::runtime::Abi for IFIMETRICS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+pub struct IFIMETRICS {
+    pub cjThis: u32,
+    pub cjIfiExtra: u32,
+    pub dpwszFamilyName: i32,
+    pub dpwszStyleName: i32,
+    pub dpwszFaceName: i32,
+    pub dpwszUniqueName: i32,
+    pub dpFontSim: i32,
+    pub lEmbedId: i32,
+    pub lItalicAngle: i32,
+    pub lCharBias: i32,
+    pub dpCharSets: i32,
+    pub jWinCharSet: u8,
+    pub jWinPitchAndFamily: u8,
+    pub usWinWeight: u16,
+    pub flInfo: u32,
+    pub fsSelection: u16,
+    pub fsType: u16,
+    pub fwdUnitsPerEm: i16,
+    pub fwdLowestPPEm: i16,
+    pub fwdWinAscender: i16,
+    pub fwdWinDescender: i16,
+    pub fwdMacAscender: i16,
+    pub fwdMacDescender: i16,
+    pub fwdMacLineGap: i16,
+    pub fwdTypoAscender: i16,
+    pub fwdTypoDescender: i16,
+    pub fwdTypoLineGap: i16,
+    pub fwdAveCharWidth: i16,
+    pub fwdMaxCharInc: i16,
+    pub fwdCapHeight: i16,
+    pub fwdXHeight: i16,
+    pub fwdSubscriptXSize: i16,
+    pub fwdSubscriptYSize: i16,
+    pub fwdSubscriptXOffset: i16,
+    pub fwdSubscriptYOffset: i16,
+    pub fwdSuperscriptXSize: i16,
+    pub fwdSuperscriptYSize: i16,
+    pub fwdSuperscriptXOffset: i16,
+    pub fwdSuperscriptYOffset: i16,
+    pub fwdUnderscoreSize: i16,
+    pub fwdUnderscorePosition: i16,
+    pub fwdStrikeoutSize: i16,
+    pub fwdStrikeoutPosition: i16,
+    pub chFirstChar: u8,
+    pub chLastChar: u8,
+    pub chDefaultChar: u8,
+    pub chBreakChar: u8,
+    pub wcFirstChar: u16,
+    pub wcLastChar: u16,
+    pub wcDefaultChar: u16,
+    pub wcBreakChar: u16,
+    pub ptlBaseline: super::super::Foundation::POINTL,
+    pub ptlAspect: super::super::Foundation::POINTL,
+    pub ptlCaret: super::super::Foundation::POINTL,
+    pub rclFontBox: super::super::Foundation::RECTL,
+    pub achVendId: [u8; 4],
+    pub cKerningPairs: u32,
+    pub ulPanoseCulture: u32,
+    pub panose: super::super::Graphics::Gdi::PANOSE,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl IFIMETRICS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::std::default::Default for IFIMETRICS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::std::fmt::Debug for IFIMETRICS {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("IFIMETRICS")
+            .field("cjThis", &self.cjThis)
+            .field("cjIfiExtra", &self.cjIfiExtra)
+            .field("dpwszFamilyName", &self.dpwszFamilyName)
+            .field("dpwszStyleName", &self.dpwszStyleName)
+            .field("dpwszFaceName", &self.dpwszFaceName)
+            .field("dpwszUniqueName", &self.dpwszUniqueName)
+            .field("dpFontSim", &self.dpFontSim)
+            .field("lEmbedId", &self.lEmbedId)
+            .field("lItalicAngle", &self.lItalicAngle)
+            .field("lCharBias", &self.lCharBias)
+            .field("dpCharSets", &self.dpCharSets)
+            .field("jWinCharSet", &self.jWinCharSet)
+            .field("jWinPitchAndFamily", &self.jWinPitchAndFamily)
+            .field("usWinWeight", &self.usWinWeight)
+            .field("flInfo", &self.flInfo)
+            .field("fsSelection", &self.fsSelection)
+            .field("fsType", &self.fsType)
+            .field("fwdUnitsPerEm", &self.fwdUnitsPerEm)
+            .field("fwdLowestPPEm", &self.fwdLowestPPEm)
+            .field("fwdWinAscender", &self.fwdWinAscender)
+            .field("fwdWinDescender", &self.fwdWinDescender)
+            .field("fwdMacAscender", &self.fwdMacAscender)
+            .field("fwdMacDescender", &self.fwdMacDescender)
+            .field("fwdMacLineGap", &self.fwdMacLineGap)
+            .field("fwdTypoAscender", &self.fwdTypoAscender)
+            .field("fwdTypoDescender", &self.fwdTypoDescender)
+            .field("fwdTypoLineGap", &self.fwdTypoLineGap)
+            .field("fwdAveCharWidth", &self.fwdAveCharWidth)
+            .field("fwdMaxCharInc", &self.fwdMaxCharInc)
+            .field("fwdCapHeight", &self.fwdCapHeight)
+            .field("fwdXHeight", &self.fwdXHeight)
+            .field("fwdSubscriptXSize", &self.fwdSubscriptXSize)
+            .field("fwdSubscriptYSize", &self.fwdSubscriptYSize)
+            .field("fwdSubscriptXOffset", &self.fwdSubscriptXOffset)
+            .field("fwdSubscriptYOffset", &self.fwdSubscriptYOffset)
+            .field("fwdSuperscriptXSize", &self.fwdSuperscriptXSize)
+            .field("fwdSuperscriptYSize", &self.fwdSuperscriptYSize)
+            .field("fwdSuperscriptXOffset", &self.fwdSuperscriptXOffset)
+            .field("fwdSuperscriptYOffset", &self.fwdSuperscriptYOffset)
+            .field("fwdUnderscoreSize", &self.fwdUnderscoreSize)
+            .field("fwdUnderscorePosition", &self.fwdUnderscorePosition)
+            .field("fwdStrikeoutSize", &self.fwdStrikeoutSize)
+            .field("fwdStrikeoutPosition", &self.fwdStrikeoutPosition)
+            .field("chFirstChar", &self.chFirstChar)
+            .field("chLastChar", &self.chLastChar)
+            .field("chDefaultChar", &self.chDefaultChar)
+            .field("chBreakChar", &self.chBreakChar)
+            .field("wcFirstChar", &self.wcFirstChar)
+            .field("wcLastChar", &self.wcLastChar)
+            .field("wcDefaultChar", &self.wcDefaultChar)
+            .field("wcBreakChar", &self.wcBreakChar)
+            .field("ptlBaseline", &self.ptlBaseline)
+            .field("ptlAspect", &self.ptlAspect)
+            .field("ptlCaret", &self.ptlCaret)
+            .field("rclFontBox", &self.rclFontBox)
+            .field("achVendId", &self.achVendId)
+            .field("cKerningPairs", &self.cKerningPairs)
+            .field("ulPanoseCulture", &self.ulPanoseCulture)
+            .field("panose", &self.panose)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::std::cmp::PartialEq for IFIMETRICS {
+    fn eq(&self, other: &Self) -> bool {
+        self.cjThis == other.cjThis
+            && self.cjIfiExtra == other.cjIfiExtra
+            && self.dpwszFamilyName == other.dpwszFamilyName
+            && self.dpwszStyleName == other.dpwszStyleName
+            && self.dpwszFaceName == other.dpwszFaceName
+            && self.dpwszUniqueName == other.dpwszUniqueName
+            && self.dpFontSim == other.dpFontSim
+            && self.lEmbedId == other.lEmbedId
+            && self.lItalicAngle == other.lItalicAngle
+            && self.lCharBias == other.lCharBias
+            && self.dpCharSets == other.dpCharSets
+            && self.jWinCharSet == other.jWinCharSet
+            && self.jWinPitchAndFamily == other.jWinPitchAndFamily
+            && self.usWinWeight == other.usWinWeight
+            && self.flInfo == other.flInfo
+            && self.fsSelection == other.fsSelection
+            && self.fsType == other.fsType
+            && self.fwdUnitsPerEm == other.fwdUnitsPerEm
+            && self.fwdLowestPPEm == other.fwdLowestPPEm
+            && self.fwdWinAscender == other.fwdWinAscender
+            && self.fwdWinDescender == other.fwdWinDescender
+            && self.fwdMacAscender == other.fwdMacAscender
+            && self.fwdMacDescender == other.fwdMacDescender
+            && self.fwdMacLineGap == other.fwdMacLineGap
+            && self.fwdTypoAscender == other.fwdTypoAscender
+            && self.fwdTypoDescender == other.fwdTypoDescender
+            && self.fwdTypoLineGap == other.fwdTypoLineGap
+            && self.fwdAveCharWidth == other.fwdAveCharWidth
+            && self.fwdMaxCharInc == other.fwdMaxCharInc
+            && self.fwdCapHeight == other.fwdCapHeight
+            && self.fwdXHeight == other.fwdXHeight
+            && self.fwdSubscriptXSize == other.fwdSubscriptXSize
+            && self.fwdSubscriptYSize == other.fwdSubscriptYSize
+            && self.fwdSubscriptXOffset == other.fwdSubscriptXOffset
+            && self.fwdSubscriptYOffset == other.fwdSubscriptYOffset
+            && self.fwdSuperscriptXSize == other.fwdSuperscriptXSize
+            && self.fwdSuperscriptYSize == other.fwdSuperscriptYSize
+            && self.fwdSuperscriptXOffset == other.fwdSuperscriptXOffset
+            && self.fwdSuperscriptYOffset == other.fwdSuperscriptYOffset
+            && self.fwdUnderscoreSize == other.fwdUnderscoreSize
+            && self.fwdUnderscorePosition == other.fwdUnderscorePosition
+            && self.fwdStrikeoutSize == other.fwdStrikeoutSize
+            && self.fwdStrikeoutPosition == other.fwdStrikeoutPosition
+            && self.chFirstChar == other.chFirstChar
+            && self.chLastChar == other.chLastChar
+            && self.chDefaultChar == other.chDefaultChar
+            && self.chBreakChar == other.chBreakChar
+            && self.wcFirstChar == other.wcFirstChar
+            && self.wcLastChar == other.wcLastChar
+            && self.wcDefaultChar == other.wcDefaultChar
+            && self.wcBreakChar == other.wcBreakChar
+            && self.ptlBaseline == other.ptlBaseline
+            && self.ptlAspect == other.ptlAspect
+            && self.ptlCaret == other.ptlCaret
+            && self.rclFontBox == other.rclFontBox
+            && self.achVendId == other.achVendId
+            && self.cKerningPairs == other.cKerningPairs
+            && self.ulPanoseCulture == other.ulPanoseCulture
+            && self.panose == other.panose
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::std::cmp::Eq for IFIMETRICS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::runtime::Abi for IFIMETRICS {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
 #[cfg(feature = "Win32_System_SystemServices")]
 #[doc = "*Required features: `Win32_UI_DisplayDevices`, `Win32_System_SystemServices`*"]
 pub struct LINEATTRS {

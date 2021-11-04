@@ -67,6 +67,42 @@ unsafe impl ::windows::runtime::Abi for D3DADAPTER_IDENTIFIER9 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(4))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
+pub struct D3DADAPTER_IDENTIFIER9 {
+    pub Driver: [super::super::Foundation::CHAR; 512],
+    pub Description: [super::super::Foundation::CHAR; 512],
+    pub DeviceName: [super::super::Foundation::CHAR; 32],
+    pub DriverVersion: i64,
+    pub VendorId: u32,
+    pub DeviceId: u32,
+    pub SubSysId: u32,
+    pub Revision: u32,
+    pub DeviceIdentifier: ::windows::runtime::GUID,
+    pub WHQLLevel: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl D3DADAPTER_IDENTIFIER9 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for D3DADAPTER_IDENTIFIER9 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for D3DADAPTER_IDENTIFIER9 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for D3DADAPTER_IDENTIFIER9 {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for D3DADAPTER_IDENTIFIER9 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub struct D3DAES_CTR_IV {
@@ -87,6 +123,28 @@ impl ::std::fmt::Debug for D3DAES_CTR_IV {
 impl ::std::cmp::PartialEq for D3DAES_CTR_IV {
     fn eq(&self, other: &Self) -> bool {
         self.IV == other.IV && self.Count == other.Count
+    }
+}
+impl ::std::cmp::Eq for D3DAES_CTR_IV {}
+unsafe impl ::windows::runtime::Abi for D3DAES_CTR_IV {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(4))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
+pub struct D3DAES_CTR_IV {
+    pub IV: u64,
+    pub Count: u64,
+}
+impl D3DAES_CTR_IV {}
+impl ::std::default::Default for D3DAES_CTR_IV {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for D3DAES_CTR_IV {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for D3DAES_CTR_IV {}
@@ -847,6 +905,37 @@ impl ::std::fmt::Debug for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
 impl ::std::cmp::PartialEq for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
         self.Output == other.Output && self.DeviceHandle == other.DeviceHandle && self.CryptoSessionHandle == other.CryptoSessionHandle && self.OutputIDIndex == other.OutputIDIndex && self.OutputID == other.OutputID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(4))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub DeviceHandle: super::super::Foundation::HANDLE,
+    pub CryptoSessionHandle: super::super::Foundation::HANDLE,
+    pub OutputIDIndex: u32,
+    pub OutputID: u64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3094,6 +3183,29 @@ impl ::std::cmp::Eq for D3DMEMORYPRESSURE {}
 unsafe impl ::windows::runtime::Abi for D3DMEMORYPRESSURE {
     type Abi = Self;
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(4))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
+pub struct D3DMEMORYPRESSURE {
+    pub BytesEvictedFromProcess: u64,
+    pub SizeOfInefficientAllocation: u64,
+    pub LevelOfEfficiency: u32,
+}
+impl D3DMEMORYPRESSURE {}
+impl ::std::default::Default for D3DMEMORYPRESSURE {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for D3DMEMORYPRESSURE {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for D3DMEMORYPRESSURE {}
+unsafe impl ::windows::runtime::Abi for D3DMEMORYPRESSURE {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DMIN30SHADERINSTRUCTIONS: u32 = 512u32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
@@ -3394,6 +3506,31 @@ impl ::std::fmt::Debug for D3DPRESENTSTATS {
 impl ::std::cmp::PartialEq for D3DPRESENTSTATS {
     fn eq(&self, other: &Self) -> bool {
         self.PresentCount == other.PresentCount && self.PresentRefreshCount == other.PresentRefreshCount && self.SyncRefreshCount == other.SyncRefreshCount && self.SyncQPCTime == other.SyncQPCTime && self.SyncGPUTime == other.SyncGPUTime
+    }
+}
+impl ::std::cmp::Eq for D3DPRESENTSTATS {}
+unsafe impl ::windows::runtime::Abi for D3DPRESENTSTATS {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(4))]
+#[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
+pub struct D3DPRESENTSTATS {
+    pub PresentCount: u32,
+    pub PresentRefreshCount: u32,
+    pub SyncRefreshCount: u32,
+    pub SyncQPCTime: i64,
+    pub SyncGPUTime: i64,
+}
+impl D3DPRESENTSTATS {}
+impl ::std::default::Default for D3DPRESENTSTATS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for D3DPRESENTSTATS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for D3DPRESENTSTATS {}

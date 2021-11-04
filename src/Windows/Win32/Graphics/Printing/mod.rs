@@ -24174,6 +24174,32 @@ unsafe impl ::windows::runtime::Abi for _SPLCLIENT_INFO_2_V2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
+pub struct _SPLCLIENT_INFO_2_V2 {
+    pub hSplPrinter: u32,
+}
+impl _SPLCLIENT_INFO_2_V2 {}
+impl ::std::default::Default for _SPLCLIENT_INFO_2_V2 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for _SPLCLIENT_INFO_2_V2 {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("_SPLCLIENT_INFO_2_V2").field("hSplPrinter", &self.hSplPrinter).finish()
+    }
+}
+impl ::std::cmp::PartialEq for _SPLCLIENT_INFO_2_V2 {
+    fn eq(&self, other: &Self) -> bool {
+        self.hSplPrinter == other.hSplPrinter
+    }
+}
+impl ::std::cmp::Eq for _SPLCLIENT_INFO_2_V2 {}
+unsafe impl ::windows::runtime::Abi for _SPLCLIENT_INFO_2_V2 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub struct _SPLCLIENT_INFO_2_V3 {
     pub hSplPrinter: u64,
 }

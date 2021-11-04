@@ -866,6 +866,28 @@ impl ::std::cmp::Eq for DBBINDEXT {}
 unsafe impl ::windows::runtime::Abi for DBBINDEXT {
     type Abi = Self;
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+pub struct DBBINDEXT {
+    pub pExtension: *mut u8,
+    pub ulExtension: usize,
+}
+impl DBBINDEXT {}
+impl ::std::default::Default for DBBINDEXT {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for DBBINDEXT {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for DBBINDEXT {}
+unsafe impl ::windows::runtime::Abi for DBBINDEXT {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
@@ -948,6 +970,52 @@ impl ::std::cmp::PartialEq for DBBINDING {
             && self.wType == other.wType
             && self.bPrecision == other.bPrecision
             && self.bScale == other.bScale
+    }
+}
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::cmp::Eq for DBBINDING {}
+#[cfg(feature = "Win32_System_Ole_Automation")]
+unsafe impl ::windows::runtime::Abi for DBBINDING {
+    type Abi = ::std::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::clone::Clone for DBBINDING {
+    fn clone(&self) -> Self {
+        unimplemented!()
+    }
+}
+#[repr(C, packed(2))]
+#[cfg(feature = "Win32_System_Ole_Automation")]
+#[doc = "*Required features: `Win32_System_Search`, `Win32_System_Ole_Automation`*"]
+pub struct DBBINDING {
+    pub iOrdinal: usize,
+    pub obValue: usize,
+    pub obLength: usize,
+    pub obStatus: usize,
+    pub pTypeInfo: ::std::option::Option<super::Ole::Automation::ITypeInfo>,
+    pub pObject: *mut DBOBJECT,
+    pub pBindExt: *mut DBBINDEXT,
+    pub dwPart: u32,
+    pub dwMemOwner: u32,
+    pub eParamIO: u32,
+    pub cbMaxLen: usize,
+    pub dwFlags: u32,
+    pub wType: u16,
+    pub bPrecision: u8,
+    pub bScale: u8,
+}
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl DBBINDING {}
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::default::Default for DBBINDING {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::cmp::PartialEq for DBBINDING {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1070,6 +1138,41 @@ impl ::std::cmp::Eq for DBCOLUMNACCESS {}
 unsafe impl ::windows::runtime::Abi for DBCOLUMNACCESS {
     type Abi = Self;
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(2))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+#[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`*"]
+pub struct DBCOLUMNACCESS {
+    pub pData: *mut ::std::ffi::c_void,
+    pub columnid: super::super::Storage::IndexServer::DBID,
+    pub cbDataLen: usize,
+    pub dwStatus: u32,
+    pub cbMaxLen: usize,
+    pub dwReserved: usize,
+    pub wType: u16,
+    pub bPrecision: u8,
+    pub bScale: u8,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+impl DBCOLUMNACCESS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+impl ::std::default::Default for DBCOLUMNACCESS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+impl ::std::cmp::PartialEq for DBCOLUMNACCESS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+impl ::std::cmp::Eq for DBCOLUMNACCESS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+unsafe impl ::windows::runtime::Abi for DBCOLUMNACCESS {
+    type Abi = Self;
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for DBCOLUMNDESC {
     fn clone(&self) -> Self {
@@ -1077,6 +1180,47 @@ impl ::std::clone::Clone for DBCOLUMNDESC {
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+#[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+pub struct DBCOLUMNDESC {
+    pub pwszTypeName: super::super::Foundation::PWSTR,
+    pub pTypeInfo: ::std::option::Option<super::Ole::Automation::ITypeInfo>,
+    pub rgPropertySets: *mut DBPROPSET,
+    pub pclsid: *mut ::windows::runtime::GUID,
+    pub cPropertySets: u32,
+    pub ulColumnSize: usize,
+    pub dbcid: super::super::Storage::IndexServer::DBID,
+    pub wType: u16,
+    pub bPrecision: u8,
+    pub bScale: u8,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+impl DBCOLUMNDESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+impl ::std::default::Default for DBCOLUMNDESC {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+impl ::std::cmp::PartialEq for DBCOLUMNDESC {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+impl ::std::cmp::Eq for DBCOLUMNDESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+unsafe impl ::windows::runtime::Abi for DBCOLUMNDESC {
+    type Abi = ::std::mem::ManuallyDrop<Self>;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+impl ::std::clone::Clone for DBCOLUMNDESC {
+    fn clone(&self) -> Self {
+        unimplemented!()
+    }
+}
+#[repr(C, packed(2))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
 pub struct DBCOLUMNDESC {
@@ -1220,6 +1364,46 @@ impl ::std::clone::Clone for DBCOLUMNINFO {
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Ole_Automation"))]
+#[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Ole_Automation`*"]
+pub struct DBCOLUMNINFO {
+    pub pwszName: super::super::Foundation::PWSTR,
+    pub pTypeInfo: ::std::option::Option<super::Ole::Automation::ITypeInfo>,
+    pub iOrdinal: usize,
+    pub dwFlags: u32,
+    pub ulColumnSize: usize,
+    pub wType: u16,
+    pub bPrecision: u8,
+    pub bScale: u8,
+    pub columnid: super::super::Storage::IndexServer::DBID,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Ole_Automation"))]
+impl DBCOLUMNINFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Ole_Automation"))]
+impl ::std::default::Default for DBCOLUMNINFO {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Ole_Automation"))]
+impl ::std::cmp::PartialEq for DBCOLUMNINFO {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Ole_Automation"))]
+impl ::std::cmp::Eq for DBCOLUMNINFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Ole_Automation"))]
+unsafe impl ::windows::runtime::Abi for DBCOLUMNINFO {
+    type Abi = ::std::mem::ManuallyDrop<Self>;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Ole_Automation"))]
+impl ::std::clone::Clone for DBCOLUMNINFO {
+    fn clone(&self) -> Self {
+        unimplemented!()
+    }
+}
+#[repr(C, packed(2))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Ole_Automation`*"]
 pub struct DBCOLUMNINFO {
@@ -1415,6 +1599,46 @@ impl ::std::cmp::Eq for DBCONSTRAINTDESC {}
 unsafe impl ::windows::runtime::Abi for DBCONSTRAINTDESC {
     type Abi = Self;
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(2))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+#[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+pub struct DBCONSTRAINTDESC {
+    pub pConstraintID: *mut super::super::Storage::IndexServer::DBID,
+    pub ConstraintType: u32,
+    pub cColumns: usize,
+    pub rgColumnList: *mut super::super::Storage::IndexServer::DBID,
+    pub pReferencedTableID: *mut super::super::Storage::IndexServer::DBID,
+    pub cForeignKeyColumns: usize,
+    pub rgForeignKeyColumnList: *mut super::super::Storage::IndexServer::DBID,
+    pub pwszConstraintText: super::super::Foundation::PWSTR,
+    pub UpdateRule: u32,
+    pub DeleteRule: u32,
+    pub MatchType: u32,
+    pub Deferrability: u32,
+    pub cReserved: usize,
+    pub rgReserved: *mut DBPROPSET,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+impl DBCONSTRAINTDESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+impl ::std::default::Default for DBCONSTRAINTDESC {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+impl ::std::cmp::PartialEq for DBCONSTRAINTDESC {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+impl ::std::cmp::Eq for DBCONSTRAINTDESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+unsafe impl ::windows::runtime::Abi for DBCONSTRAINTDESC {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
@@ -1499,6 +1723,29 @@ impl ::std::fmt::Debug for DBCOST {
 impl ::std::cmp::PartialEq for DBCOST {
     fn eq(&self, other: &Self) -> bool {
         self.eKind == other.eKind && self.dwUnits == other.dwUnits && self.lValue == other.lValue
+    }
+}
+impl ::std::cmp::Eq for DBCOST {}
+unsafe impl ::windows::runtime::Abi for DBCOST {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+pub struct DBCOST {
+    pub eKind: u32,
+    pub dwUnits: u32,
+    pub lValue: i32,
+}
+impl DBCOST {}
+impl ::std::default::Default for DBCOST {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for DBCOST {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for DBCOST {}
@@ -1668,6 +1915,29 @@ impl ::std::cmp::Eq for DBFAILUREINFO {}
 unsafe impl ::windows::runtime::Abi for DBFAILUREINFO {
     type Abi = Self;
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+pub struct DBFAILUREINFO {
+    pub hRow: usize,
+    pub iColumn: usize,
+    pub failure: ::windows::runtime::HRESULT,
+}
+impl DBFAILUREINFO {}
+impl ::std::default::Default for DBFAILUREINFO {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for DBFAILUREINFO {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for DBFAILUREINFO {}
+unsafe impl ::windows::runtime::Abi for DBFAILUREINFO {
+    type Abi = Self;
+}
 pub const DBGUID_MSSQLXML: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1565727922, 59117, 4562, [178, 82, 0, 192, 79, 104, 27, 113]);
 pub const DBGUID_XPATH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3962192531, 59544, 4562, [177, 183, 0, 192, 79, 104, 12, 86]);
 #[derive(:: std :: clone :: Clone)]
@@ -1692,6 +1962,33 @@ impl ::std::fmt::Debug for DBIMPLICITSESSION {
 impl ::std::cmp::PartialEq for DBIMPLICITSESSION {
     fn eq(&self, other: &Self) -> bool {
         self.pUnkOuter == other.pUnkOuter && self.piid == other.piid && self.pSession == other.pSession
+    }
+}
+impl ::std::cmp::Eq for DBIMPLICITSESSION {}
+unsafe impl ::windows::runtime::Abi for DBIMPLICITSESSION {
+    type Abi = ::std::mem::ManuallyDrop<Self>;
+}
+impl ::std::clone::Clone for DBIMPLICITSESSION {
+    fn clone(&self) -> Self {
+        unimplemented!()
+    }
+}
+#[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+pub struct DBIMPLICITSESSION {
+    pub pUnkOuter: ::std::option::Option<::windows::runtime::IUnknown>,
+    pub piid: *mut ::windows::runtime::GUID,
+    pub pSession: ::std::option::Option<::windows::runtime::IUnknown>,
+}
+impl DBIMPLICITSESSION {}
+impl ::std::default::Default for DBIMPLICITSESSION {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for DBIMPLICITSESSION {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for DBIMPLICITSESSION {}
@@ -1724,6 +2021,34 @@ impl ::std::fmt::Debug for DBINDEXCOLUMNDESC {
 impl ::std::cmp::PartialEq for DBINDEXCOLUMNDESC {
     fn eq(&self, other: &Self) -> bool {
         self.pColumnID == other.pColumnID && self.eIndexColOrder == other.eIndexColOrder
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+impl ::std::cmp::Eq for DBINDEXCOLUMNDESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+unsafe impl ::windows::runtime::Abi for DBINDEXCOLUMNDESC {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(2))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+#[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`*"]
+pub struct DBINDEXCOLUMNDESC {
+    pub pColumnID: *mut super::super::Storage::IndexServer::DBID,
+    pub eIndexColOrder: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+impl DBINDEXCOLUMNDESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+impl ::std::default::Default for DBINDEXCOLUMNDESC {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+impl ::std::cmp::PartialEq for DBINDEXCOLUMNDESC {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
@@ -1858,6 +2183,38 @@ impl ::std::cmp::Eq for DBLITERALINFO {}
 unsafe impl ::windows::runtime::Abi for DBLITERALINFO {
     type Abi = Self;
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(2))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
+pub struct DBLITERALINFO {
+    pub pwszLiteralValue: super::super::Foundation::PWSTR,
+    pub pwszInvalidChars: super::super::Foundation::PWSTR,
+    pub pwszInvalidStartingChars: super::super::Foundation::PWSTR,
+    pub lt: u32,
+    pub fSupported: super::super::Foundation::BOOL,
+    pub cchMaxLen: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl DBLITERALINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for DBLITERALINFO {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for DBLITERALINFO {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for DBLITERALINFO {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for DBLITERALINFO {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
@@ -1934,6 +2291,28 @@ unsafe impl ::windows::runtime::Abi for DBOBJECT {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+pub struct DBOBJECT {
+    pub dwFlags: u32,
+    pub iid: ::windows::runtime::GUID,
+}
+impl DBOBJECT {}
+impl ::std::default::Default for DBOBJECT {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for DBOBJECT {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for DBOBJECT {}
+unsafe impl ::windows::runtime::Abi for DBOBJECT {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
@@ -1963,6 +2342,38 @@ impl ::std::fmt::Debug for DBPARAMBINDINFO {
 impl ::std::cmp::PartialEq for DBPARAMBINDINFO {
     fn eq(&self, other: &Self) -> bool {
         self.pwszDataSourceType == other.pwszDataSourceType && self.pwszName == other.pwszName && self.ulParamSize == other.ulParamSize && self.dwFlags == other.dwFlags && self.bPrecision == other.bPrecision && self.bScale == other.bScale
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for DBPARAMBINDINFO {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for DBPARAMBINDINFO {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(2))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
+pub struct DBPARAMBINDINFO {
+    pub pwszDataSourceType: super::super::Foundation::PWSTR,
+    pub pwszName: super::super::Foundation::PWSTR,
+    pub ulParamSize: usize,
+    pub dwFlags: u32,
+    pub bPrecision: u8,
+    pub bScale: u8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl DBPARAMBINDINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for DBPARAMBINDINFO {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for DBPARAMBINDINFO {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2050,6 +2461,45 @@ impl ::std::cmp::Eq for DBPARAMINFO {}
 unsafe impl ::windows::runtime::Abi for DBPARAMINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+impl ::std::clone::Clone for DBPARAMINFO {
+    fn clone(&self) -> Self {
+        unimplemented!()
+    }
+}
+#[repr(C, packed(2))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+#[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
+pub struct DBPARAMINFO {
+    pub dwFlags: u32,
+    pub iOrdinal: usize,
+    pub pwszName: super::super::Foundation::PWSTR,
+    pub pTypeInfo: ::std::option::Option<super::Ole::Automation::ITypeInfo>,
+    pub ulParamSize: usize,
+    pub wType: u16,
+    pub bPrecision: u8,
+    pub bScale: u8,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+impl DBPARAMINFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+impl ::std::default::Default for DBPARAMINFO {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+impl ::std::cmp::PartialEq for DBPARAMINFO {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+impl ::std::cmp::Eq for DBPARAMINFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
+unsafe impl ::windows::runtime::Abi for DBPARAMINFO {
+    type Abi = ::std::mem::ManuallyDrop<Self>;
+}
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
@@ -2087,6 +2537,29 @@ impl ::std::fmt::Debug for DBPARAMS {
 impl ::std::cmp::PartialEq for DBPARAMS {
     fn eq(&self, other: &Self) -> bool {
         self.pData == other.pData && self.cParamSets == other.cParamSets && self.hAccessor == other.hAccessor
+    }
+}
+impl ::std::cmp::Eq for DBPARAMS {}
+unsafe impl ::windows::runtime::Abi for DBPARAMS {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+pub struct DBPARAMS {
+    pub pData: *mut ::std::ffi::c_void,
+    pub cParamSets: usize,
+    pub hAccessor: usize,
+}
+impl DBPARAMS {}
+impl ::std::default::Default for DBPARAMS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for DBPARAMS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for DBPARAMS {}
@@ -2183,6 +2656,42 @@ impl ::std::clone::Clone for DBPROP {
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+#[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+pub struct DBPROP {
+    pub dwPropertyID: u32,
+    pub dwOptions: u32,
+    pub dwStatus: u32,
+    pub colid: super::super::Storage::IndexServer::DBID,
+    pub vValue: super::Com::VARIANT,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+impl DBPROP {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+impl ::std::default::Default for DBPROP {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+impl ::std::cmp::PartialEq for DBPROP {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+impl ::std::cmp::Eq for DBPROP {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+unsafe impl ::windows::runtime::Abi for DBPROP {
+    type Abi = ::std::mem::ManuallyDrop<Self>;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+impl ::std::clone::Clone for DBPROP {
+    fn clone(&self) -> Self {
+        unimplemented!()
+    }
+}
+#[repr(C, packed(2))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
 pub struct DBPROP {
@@ -2657,6 +3166,29 @@ impl ::std::cmp::Eq for DBPROPIDSET {}
 unsafe impl ::windows::runtime::Abi for DBPROPIDSET {
     type Abi = Self;
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+pub struct DBPROPIDSET {
+    pub rgPropertyIDs: *mut u32,
+    pub cPropertyIDs: u32,
+    pub guidPropertySet: ::windows::runtime::GUID,
+}
+impl DBPROPIDSET {}
+impl ::std::default::Default for DBPROPIDSET {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for DBPROPIDSET {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for DBPROPIDSET {}
+unsafe impl ::windows::runtime::Abi for DBPROPIDSET {
+    type Abi = Self;
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for DBPROPINFO {
     fn clone(&self) -> Self {
@@ -2664,6 +3196,42 @@ impl ::std::clone::Clone for DBPROPINFO {
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+#[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+pub struct DBPROPINFO {
+    pub pwszDescription: super::super::Foundation::PWSTR,
+    pub dwPropertyID: u32,
+    pub dwFlags: u32,
+    pub vtType: u16,
+    pub vValues: super::Com::VARIANT,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+impl DBPROPINFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+impl ::std::default::Default for DBPROPINFO {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+impl ::std::cmp::PartialEq for DBPROPINFO {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+impl ::std::cmp::Eq for DBPROPINFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+unsafe impl ::windows::runtime::Abi for DBPROPINFO {
+    type Abi = ::std::mem::ManuallyDrop<Self>;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+impl ::std::clone::Clone for DBPROPINFO {
+    fn clone(&self) -> Self {
+        unimplemented!()
+    }
+}
+#[repr(C, packed(2))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
 pub struct DBPROPINFO {
@@ -2728,6 +3296,35 @@ impl ::std::cmp::Eq for DBPROPINFOSET {}
 unsafe impl ::windows::runtime::Abi for DBPROPINFOSET {
     type Abi = Self;
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(2))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+#[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+pub struct DBPROPINFOSET {
+    pub rgPropertyInfos: *mut DBPROPINFO,
+    pub cPropertyInfos: u32,
+    pub guidPropertySet: ::windows::runtime::GUID,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+impl DBPROPINFOSET {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+impl ::std::default::Default for DBPROPINFOSET {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+impl ::std::cmp::PartialEq for DBPROPINFOSET {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+impl ::std::cmp::Eq for DBPROPINFOSET {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+unsafe impl ::windows::runtime::Abi for DBPROPINFOSET {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
@@ -2770,6 +3367,35 @@ impl ::std::fmt::Debug for DBPROPSET {
 impl ::std::cmp::PartialEq for DBPROPSET {
     fn eq(&self, other: &Self) -> bool {
         self.rgProperties == other.rgProperties && self.cProperties == other.cProperties && self.guidPropertySet == other.guidPropertySet
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+impl ::std::cmp::Eq for DBPROPSET {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+unsafe impl ::windows::runtime::Abi for DBPROPSET {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(2))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+#[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+pub struct DBPROPSET {
+    pub rgProperties: *mut DBPROP,
+    pub cProperties: u32,
+    pub guidPropertySet: ::windows::runtime::GUID,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+impl DBPROPSET {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+impl ::std::default::Default for DBPROPSET {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+impl ::std::cmp::PartialEq for DBPROPSET {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
@@ -3645,6 +4271,33 @@ impl ::std::cmp::Eq for DBTIMESTAMP {}
 unsafe impl ::windows::runtime::Abi for DBTIMESTAMP {
     type Abi = Self;
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+pub struct DBTIMESTAMP {
+    pub year: i16,
+    pub month: u16,
+    pub day: u16,
+    pub hour: u16,
+    pub minute: u16,
+    pub second: u16,
+    pub fraction: u32,
+}
+impl DBTIMESTAMP {}
+impl ::std::default::Default for DBTIMESTAMP {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for DBTIMESTAMP {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for DBTIMESTAMP {}
+unsafe impl ::windows::runtime::Abi for DBTIMESTAMP {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
@@ -3758,6 +4411,28 @@ impl ::std::fmt::Debug for DBVECTOR {
 impl ::std::cmp::PartialEq for DBVECTOR {
     fn eq(&self, other: &Self) -> bool {
         self.size == other.size && self.ptr == other.ptr
+    }
+}
+impl ::std::cmp::Eq for DBVECTOR {}
+unsafe impl ::windows::runtime::Abi for DBVECTOR {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+pub struct DBVECTOR {
+    pub size: usize,
+    pub ptr: *mut ::std::ffi::c_void,
+}
+impl DBVECTOR {}
+impl ::std::default::Default for DBVECTOR {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for DBVECTOR {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for DBVECTOR {}
@@ -4657,6 +5332,31 @@ impl ::std::fmt::Debug for ERRORINFO {
 impl ::std::cmp::PartialEq for ERRORINFO {
     fn eq(&self, other: &Self) -> bool {
         self.hrError == other.hrError && self.dwMinor == other.dwMinor && self.clsid == other.clsid && self.iid == other.iid && self.dispid == other.dispid
+    }
+}
+impl ::std::cmp::Eq for ERRORINFO {}
+unsafe impl ::windows::runtime::Abi for ERRORINFO {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+pub struct ERRORINFO {
+    pub hrError: ::windows::runtime::HRESULT,
+    pub dwMinor: u32,
+    pub clsid: ::windows::runtime::GUID,
+    pub iid: ::windows::runtime::GUID,
+    pub dispid: i32,
+}
+impl ERRORINFO {}
+impl ::std::default::Default for ERRORINFO {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for ERRORINFO {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for ERRORINFO {}
@@ -18658,6 +19358,38 @@ impl ::std::cmp::Eq for MDAXISINFO {}
 unsafe impl ::windows::runtime::Abi for MDAXISINFO {
     type Abi = Self;
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(2))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
+pub struct MDAXISINFO {
+    pub cbSize: usize,
+    pub iAxis: usize,
+    pub cDimensions: usize,
+    pub cCoordinates: usize,
+    pub rgcColumns: *mut usize,
+    pub rgpwszDimensionNames: *mut super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl MDAXISINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for MDAXISINFO {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for MDAXISINFO {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for MDAXISINFO {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for MDAXISINFO {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const MDAXIS_CHAPTERS: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_Search`*"]
@@ -20236,6 +20968,51 @@ impl ::std::cmp::Eq for RMTPACK {}
 unsafe impl ::windows::runtime::Abi for RMTPACK {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
+impl ::std::clone::Clone for RMTPACK {
+    fn clone(&self) -> Self {
+        unimplemented!()
+    }
+}
+#[repr(C, packed(2))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
+#[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
+pub struct RMTPACK {
+    pub pISeqStream: ::std::option::Option<super::Com::ISequentialStream>,
+    pub cbData: u32,
+    pub cBSTR: u32,
+    pub rgBSTR: *mut super::super::Foundation::BSTR,
+    pub cVARIANT: u32,
+    pub rgVARIANT: *mut super::Com::VARIANT,
+    pub cIDISPATCH: u32,
+    pub rgIDISPATCH: *mut ::std::option::Option<super::Ole::Automation::IDispatch>,
+    pub cIUNKNOWN: u32,
+    pub rgIUNKNOWN: *mut ::std::option::Option<::windows::runtime::IUnknown>,
+    pub cPROPVARIANT: u32,
+    pub rgPROPVARIANT: *mut super::Com::StructuredStorage::PROPVARIANT,
+    pub cArray: u32,
+    pub rgArray: *mut super::Com::VARIANT,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
+impl RMTPACK {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
+impl ::std::default::Default for RMTPACK {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
+impl ::std::cmp::PartialEq for RMTPACK {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
+impl ::std::cmp::Eq for RMTPACK {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
+unsafe impl ::windows::runtime::Abi for RMTPACK {
+    type Abi = ::std::mem::ManuallyDrop<Self>;
+}
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
@@ -20627,7 +21404,63 @@ unsafe impl ::windows::runtime::Abi for SEC_OBJECT {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(2))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+#[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`*"]
+pub struct SEC_OBJECT {
+    pub cObjects: u32,
+    pub prgObjects: *mut SEC_OBJECT_ELEMENT,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+impl SEC_OBJECT {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+impl ::std::default::Default for SEC_OBJECT {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+impl ::std::cmp::PartialEq for SEC_OBJECT {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+impl ::std::cmp::Eq for SEC_OBJECT {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+unsafe impl ::windows::runtime::Abi for SEC_OBJECT {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+#[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`*"]
+pub struct SEC_OBJECT_ELEMENT {
+    pub guidObjectType: ::windows::runtime::GUID,
+    pub ObjectID: super::super::Storage::IndexServer::DBID,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+impl SEC_OBJECT_ELEMENT {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+impl ::std::default::Default for SEC_OBJECT_ELEMENT {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+impl ::std::cmp::PartialEq for SEC_OBJECT_ELEMENT {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+impl ::std::cmp::Eq for SEC_OBJECT_ELEMENT {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+unsafe impl ::windows::runtime::Abi for SEC_OBJECT_ELEMENT {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(2))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`*"]
 pub struct SEC_OBJECT_ELEMENT {
@@ -20827,6 +21660,7 @@ pub const SQLBINARY: u32 = 45u32;
 pub const SQLBIT: u32 = 50u32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const SQLBITN: u32 = 104u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLBindCol(statementhandle: *mut ::std::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::std::ffi::c_void, bufferlength: i64, strlen_or_ind: *mut i64) -> i16 {
@@ -20841,6 +21675,22 @@ pub unsafe fn SQLBindCol(statementhandle: *mut ::std::ffi::c_void, columnnumber:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLBindCol(statementhandle: *mut ::std::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::std::ffi::c_void, bufferlength: i32, strlen_or_ind: *mut i32) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLBindCol(statementhandle: *mut ::std::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::std::ffi::c_void, bufferlength: i32, strlen_or_ind: *mut i32) -> i16;
+        }
+        ::std::mem::transmute(SQLBindCol(::std::mem::transmute(statementhandle), ::std::mem::transmute(columnnumber), ::std::mem::transmute(targettype), ::std::mem::transmute(targetvalue), ::std::mem::transmute(bufferlength), ::std::mem::transmute(strlen_or_ind)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLBindParam(statementhandle: *mut ::std::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u64, parameterscale: i16, parametervalue: *mut ::std::ffi::c_void, strlen_or_ind: *mut i64) -> i16 {
@@ -20864,6 +21714,31 @@ pub unsafe fn SQLBindParam(statementhandle: *mut ::std::ffi::c_void, parameternu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLBindParam(statementhandle: *mut ::std::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *mut ::std::ffi::c_void, strlen_or_ind: *mut i32) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLBindParam(statementhandle: *mut ::std::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *mut ::std::ffi::c_void, strlen_or_ind: *mut i32) -> i16;
+        }
+        ::std::mem::transmute(SQLBindParam(
+            ::std::mem::transmute(statementhandle),
+            ::std::mem::transmute(parameternumber),
+            ::std::mem::transmute(valuetype),
+            ::std::mem::transmute(parametertype),
+            ::std::mem::transmute(lengthprecision),
+            ::std::mem::transmute(parameterscale),
+            ::std::mem::transmute(parametervalue),
+            ::std::mem::transmute(strlen_or_ind),
+        ))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLBindParameter(hstmt: *mut ::std::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u64, ibscale: i16, rgbvalue: *mut ::std::ffi::c_void, cbvaluemax: i64, pcbvalue: *mut i64) -> i16 {
@@ -20872,6 +21747,32 @@ pub unsafe fn SQLBindParameter(hstmt: *mut ::std::ffi::c_void, ipar: u16, fparam
         #[link(name = "windows")]
         extern "system" {
             fn SQLBindParameter(hstmt: *mut ::std::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u64, ibscale: i16, rgbvalue: *mut ::std::ffi::c_void, cbvaluemax: i64, pcbvalue: *mut i64) -> i16;
+        }
+        ::std::mem::transmute(SQLBindParameter(
+            ::std::mem::transmute(hstmt),
+            ::std::mem::transmute(ipar),
+            ::std::mem::transmute(fparamtype),
+            ::std::mem::transmute(fctype),
+            ::std::mem::transmute(fsqltype),
+            ::std::mem::transmute(cbcoldef),
+            ::std::mem::transmute(ibscale),
+            ::std::mem::transmute(rgbvalue),
+            ::std::mem::transmute(cbvaluemax),
+            ::std::mem::transmute(pcbvalue),
+        ))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLBindParameter(hstmt: *mut ::std::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u32, ibscale: i16, rgbvalue: *mut ::std::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLBindParameter(hstmt: *mut ::std::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u32, ibscale: i16, rgbvalue: *mut ::std::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16;
         }
         ::std::mem::transmute(SQLBindParameter(
             ::std::mem::transmute(hstmt),
@@ -21004,6 +21905,7 @@ pub unsafe fn SQLCloseEnumServers<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLColAttribute(statementhandle: *mut ::std::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: *mut ::std::ffi::c_void, bufferlength: i16, stringlength: *mut i16, numericattribute: *mut i64) -> i16 {
@@ -21018,6 +21920,22 @@ pub unsafe fn SQLColAttribute(statementhandle: *mut ::std::ffi::c_void, columnnu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLColAttribute(statementhandle: *mut ::std::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: *mut ::std::ffi::c_void, bufferlength: i16, stringlength: *mut i16, numericattribute: *mut ::std::ffi::c_void) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLColAttribute(statementhandle: *mut ::std::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: *mut ::std::ffi::c_void, bufferlength: i16, stringlength: *mut i16, numericattribute: *mut ::std::ffi::c_void) -> i16;
+        }
+        ::std::mem::transmute(SQLColAttribute(::std::mem::transmute(statementhandle), ::std::mem::transmute(columnnumber), ::std::mem::transmute(fieldidentifier), ::std::mem::transmute(characterattribute), ::std::mem::transmute(bufferlength), ::std::mem::transmute(stringlength), ::std::mem::transmute(numericattribute)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLColAttributeA(hstmt: *mut ::std::ffi::c_void, icol: i16, ifield: i16, pcharattr: *mut ::std::ffi::c_void, cbcharattrmax: i16, pcbcharattr: *mut i16, pnumattr: *mut i64) -> i16 {
@@ -21032,6 +21950,22 @@ pub unsafe fn SQLColAttributeA(hstmt: *mut ::std::ffi::c_void, icol: i16, ifield
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLColAttributeA(hstmt: *mut ::std::ffi::c_void, icol: i16, ifield: i16, pcharattr: *mut ::std::ffi::c_void, cbcharattrmax: i16, pcbcharattr: *mut i16, pnumattr: *mut ::std::ffi::c_void) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLColAttributeA(hstmt: *mut ::std::ffi::c_void, icol: i16, ifield: i16, pcharattr: *mut ::std::ffi::c_void, cbcharattrmax: i16, pcbcharattr: *mut i16, pnumattr: *mut ::std::ffi::c_void) -> i16;
+        }
+        ::std::mem::transmute(SQLColAttributeA(::std::mem::transmute(hstmt), ::std::mem::transmute(icol), ::std::mem::transmute(ifield), ::std::mem::transmute(pcharattr), ::std::mem::transmute(cbcharattrmax), ::std::mem::transmute(pcbcharattr), ::std::mem::transmute(pnumattr)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLColAttributeW(hstmt: *mut ::std::ffi::c_void, icol: u16, ifield: u16, pcharattr: *mut ::std::ffi::c_void, cbdescmax: i16, pcbcharattr: *mut i16, pnumattr: *mut i64) -> i16 {
@@ -21046,6 +21980,22 @@ pub unsafe fn SQLColAttributeW(hstmt: *mut ::std::ffi::c_void, icol: u16, ifield
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLColAttributeW(hstmt: *mut ::std::ffi::c_void, icol: u16, ifield: u16, pcharattr: *mut ::std::ffi::c_void, cbdescmax: i16, pcbcharattr: *mut i16, pnumattr: *mut ::std::ffi::c_void) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLColAttributeW(hstmt: *mut ::std::ffi::c_void, icol: u16, ifield: u16, pcharattr: *mut ::std::ffi::c_void, cbdescmax: i16, pcbcharattr: *mut i16, pnumattr: *mut ::std::ffi::c_void) -> i16;
+        }
+        ::std::mem::transmute(SQLColAttributeW(::std::mem::transmute(hstmt), ::std::mem::transmute(icol), ::std::mem::transmute(ifield), ::std::mem::transmute(pcharattr), ::std::mem::transmute(cbdescmax), ::std::mem::transmute(pcbcharattr), ::std::mem::transmute(pnumattr)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLColAttributes(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::std::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16 {
@@ -21060,6 +22010,22 @@ pub unsafe fn SQLColAttributes(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesct
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLColAttributes(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::std::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLColAttributes(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::std::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16;
+        }
+        ::std::mem::transmute(SQLColAttributes(::std::mem::transmute(hstmt), ::std::mem::transmute(icol), ::std::mem::transmute(fdesctype), ::std::mem::transmute(rgbdesc), ::std::mem::transmute(cbdescmax), ::std::mem::transmute(pcbdesc), ::std::mem::transmute(pfdesc)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLColAttributesA(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::std::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16 {
@@ -21074,6 +22040,22 @@ pub unsafe fn SQLColAttributesA(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLColAttributesA(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::std::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLColAttributesA(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::std::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16;
+        }
+        ::std::mem::transmute(SQLColAttributesA(::std::mem::transmute(hstmt), ::std::mem::transmute(icol), ::std::mem::transmute(fdesctype), ::std::mem::transmute(rgbdesc), ::std::mem::transmute(cbdescmax), ::std::mem::transmute(pcbdesc), ::std::mem::transmute(pfdesc)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLColAttributesW(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::std::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16 {
@@ -21082,6 +22064,21 @@ pub unsafe fn SQLColAttributesW(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesc
         #[link(name = "windows")]
         extern "system" {
             fn SQLColAttributesW(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::std::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16;
+        }
+        ::std::mem::transmute(SQLColAttributesW(::std::mem::transmute(hstmt), ::std::mem::transmute(icol), ::std::mem::transmute(fdesctype), ::std::mem::transmute(rgbdesc), ::std::mem::transmute(cbdescmax), ::std::mem::transmute(pcbdesc), ::std::mem::transmute(pfdesc)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLColAttributesW(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::std::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLColAttributesW(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::std::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16;
         }
         ::std::mem::transmute(SQLColAttributesW(::std::mem::transmute(hstmt), ::std::mem::transmute(icol), ::std::mem::transmute(fdesctype), ::std::mem::transmute(rgbdesc), ::std::mem::transmute(cbdescmax), ::std::mem::transmute(pcbdesc), ::std::mem::transmute(pfdesc)))
     }
@@ -21363,6 +22360,7 @@ pub unsafe fn SQLDataSourcesW(henv: *mut ::std::ffi::c_void, fdirection: u16, sz
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLDescribeCol(statementhandle: *mut ::std::ffi::c_void, columnnumber: u16, columnname: *mut u8, bufferlength: i16, namelength: *mut i16, datatype: *mut i16, columnsize: *mut u64, decimaldigits: *mut i16, nullable: *mut i16) -> i16 {
@@ -21387,6 +22385,32 @@ pub unsafe fn SQLDescribeCol(statementhandle: *mut ::std::ffi::c_void, columnnum
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLDescribeCol(statementhandle: *mut ::std::ffi::c_void, columnnumber: u16, columnname: *mut u8, bufferlength: i16, namelength: *mut i16, datatype: *mut i16, columnsize: *mut u32, decimaldigits: *mut i16, nullable: *mut i16) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLDescribeCol(statementhandle: *mut ::std::ffi::c_void, columnnumber: u16, columnname: *mut u8, bufferlength: i16, namelength: *mut i16, datatype: *mut i16, columnsize: *mut u32, decimaldigits: *mut i16, nullable: *mut i16) -> i16;
+        }
+        ::std::mem::transmute(SQLDescribeCol(
+            ::std::mem::transmute(statementhandle),
+            ::std::mem::transmute(columnnumber),
+            ::std::mem::transmute(columnname),
+            ::std::mem::transmute(bufferlength),
+            ::std::mem::transmute(namelength),
+            ::std::mem::transmute(datatype),
+            ::std::mem::transmute(columnsize),
+            ::std::mem::transmute(decimaldigits),
+            ::std::mem::transmute(nullable),
+        ))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLDescribeColA(hstmt: *mut ::std::ffi::c_void, icol: u16, szcolname: *mut u8, cbcolnamemax: i16, pcbcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
@@ -21411,6 +22435,32 @@ pub unsafe fn SQLDescribeColA(hstmt: *mut ::std::ffi::c_void, icol: u16, szcolna
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLDescribeColA(hstmt: *mut ::std::ffi::c_void, icol: u16, szcolname: *mut u8, cbcolnamemax: i16, pcbcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLDescribeColA(hstmt: *mut ::std::ffi::c_void, icol: u16, szcolname: *mut u8, cbcolnamemax: i16, pcbcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
+        }
+        ::std::mem::transmute(SQLDescribeColA(
+            ::std::mem::transmute(hstmt),
+            ::std::mem::transmute(icol),
+            ::std::mem::transmute(szcolname),
+            ::std::mem::transmute(cbcolnamemax),
+            ::std::mem::transmute(pcbcolname),
+            ::std::mem::transmute(pfsqltype),
+            ::std::mem::transmute(pcbcoldef),
+            ::std::mem::transmute(pibscale),
+            ::std::mem::transmute(pfnullable),
+        ))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLDescribeColW(hstmt: *mut ::std::ffi::c_void, icol: u16, szcolname: *mut u16, cchcolnamemax: i16, pcchcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
@@ -21435,6 +22485,32 @@ pub unsafe fn SQLDescribeColW(hstmt: *mut ::std::ffi::c_void, icol: u16, szcolna
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLDescribeColW(hstmt: *mut ::std::ffi::c_void, icol: u16, szcolname: *mut u16, cchcolnamemax: i16, pcchcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLDescribeColW(hstmt: *mut ::std::ffi::c_void, icol: u16, szcolname: *mut u16, cchcolnamemax: i16, pcchcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
+        }
+        ::std::mem::transmute(SQLDescribeColW(
+            ::std::mem::transmute(hstmt),
+            ::std::mem::transmute(icol),
+            ::std::mem::transmute(szcolname),
+            ::std::mem::transmute(cchcolnamemax),
+            ::std::mem::transmute(pcchcolname),
+            ::std::mem::transmute(pfsqltype),
+            ::std::mem::transmute(pcbcoldef),
+            ::std::mem::transmute(pibscale),
+            ::std::mem::transmute(pfnullable),
+        ))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLDescribeParam(hstmt: *mut ::std::ffi::c_void, ipar: u16, pfsqltype: *mut i16, pcbparamdef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
@@ -21443,6 +22519,21 @@ pub unsafe fn SQLDescribeParam(hstmt: *mut ::std::ffi::c_void, ipar: u16, pfsqlt
         #[link(name = "windows")]
         extern "system" {
             fn SQLDescribeParam(hstmt: *mut ::std::ffi::c_void, ipar: u16, pfsqltype: *mut i16, pcbparamdef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
+        }
+        ::std::mem::transmute(SQLDescribeParam(::std::mem::transmute(hstmt), ::std::mem::transmute(ipar), ::std::mem::transmute(pfsqltype), ::std::mem::transmute(pcbparamdef), ::std::mem::transmute(pibscale), ::std::mem::transmute(pfnullable)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLDescribeParam(hstmt: *mut ::std::ffi::c_void, ipar: u16, pfsqltype: *mut i16, pcbparamdef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLDescribeParam(hstmt: *mut ::std::ffi::c_void, ipar: u16, pfsqltype: *mut i16, pcbparamdef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
         }
         ::std::mem::transmute(SQLDescribeParam(::std::mem::transmute(hstmt), ::std::mem::transmute(ipar), ::std::mem::transmute(pfsqltype), ::std::mem::transmute(pcbparamdef), ::std::mem::transmute(pibscale), ::std::mem::transmute(pfnullable)))
     }
@@ -21722,6 +22813,7 @@ pub unsafe fn SQLExecute(statementhandle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLExtendedFetch(hstmt: *mut ::std::ffi::c_void, ffetchtype: u16, irow: i64, pcrow: *mut u64, rgfrowstatus: *mut u16) -> i16 {
@@ -21730,6 +22822,21 @@ pub unsafe fn SQLExtendedFetch(hstmt: *mut ::std::ffi::c_void, ffetchtype: u16, 
         #[link(name = "windows")]
         extern "system" {
             fn SQLExtendedFetch(hstmt: *mut ::std::ffi::c_void, ffetchtype: u16, irow: i64, pcrow: *mut u64, rgfrowstatus: *mut u16) -> i16;
+        }
+        ::std::mem::transmute(SQLExtendedFetch(::std::mem::transmute(hstmt), ::std::mem::transmute(ffetchtype), ::std::mem::transmute(irow), ::std::mem::transmute(pcrow), ::std::mem::transmute(rgfrowstatus)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLExtendedFetch(hstmt: *mut ::std::ffi::c_void, ffetchtype: u16, irow: i32, pcrow: *mut u32, rgfrowstatus: *mut u16) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLExtendedFetch(hstmt: *mut ::std::ffi::c_void, ffetchtype: u16, irow: i32, pcrow: *mut u32, rgfrowstatus: *mut u16) -> i16;
         }
         ::std::mem::transmute(SQLExtendedFetch(::std::mem::transmute(hstmt), ::std::mem::transmute(ffetchtype), ::std::mem::transmute(irow), ::std::mem::transmute(pcrow), ::std::mem::transmute(rgfrowstatus)))
     }
@@ -21756,6 +22863,7 @@ pub unsafe fn SQLFetch(statementhandle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLFetchScroll(statementhandle: *mut ::std::ffi::c_void, fetchorientation: i16, fetchoffset: i64) -> i16 {
@@ -21764,6 +22872,21 @@ pub unsafe fn SQLFetchScroll(statementhandle: *mut ::std::ffi::c_void, fetchorie
         #[link(name = "windows")]
         extern "system" {
             fn SQLFetchScroll(statementhandle: *mut ::std::ffi::c_void, fetchorientation: i16, fetchoffset: i64) -> i16;
+        }
+        ::std::mem::transmute(SQLFetchScroll(::std::mem::transmute(statementhandle), ::std::mem::transmute(fetchorientation), ::std::mem::transmute(fetchoffset)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLFetchScroll(statementhandle: *mut ::std::ffi::c_void, fetchorientation: i16, fetchoffset: i32) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLFetchScroll(statementhandle: *mut ::std::ffi::c_void, fetchorientation: i16, fetchoffset: i32) -> i16;
         }
         ::std::mem::transmute(SQLFetchScroll(::std::mem::transmute(statementhandle), ::std::mem::transmute(fetchorientation), ::std::mem::transmute(fetchoffset)))
     }
@@ -22036,6 +23159,7 @@ pub unsafe fn SQLGetCursorNameW(hstmt: *mut ::std::ffi::c_void, szcursor: *mut u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLGetData(statementhandle: *mut ::std::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::std::ffi::c_void, bufferlength: i64, strlen_or_indptr: *mut i64) -> i16 {
@@ -22044,6 +23168,21 @@ pub unsafe fn SQLGetData(statementhandle: *mut ::std::ffi::c_void, columnnumber:
         #[link(name = "windows")]
         extern "system" {
             fn SQLGetData(statementhandle: *mut ::std::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::std::ffi::c_void, bufferlength: i64, strlen_or_indptr: *mut i64) -> i16;
+        }
+        ::std::mem::transmute(SQLGetData(::std::mem::transmute(statementhandle), ::std::mem::transmute(columnnumber), ::std::mem::transmute(targettype), ::std::mem::transmute(targetvalue), ::std::mem::transmute(bufferlength), ::std::mem::transmute(strlen_or_indptr)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLGetData(statementhandle: *mut ::std::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::std::ffi::c_void, bufferlength: i32, strlen_or_indptr: *mut i32) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLGetData(statementhandle: *mut ::std::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::std::ffi::c_void, bufferlength: i32, strlen_or_indptr: *mut i32) -> i16;
         }
         ::std::mem::transmute(SQLGetData(::std::mem::transmute(statementhandle), ::std::mem::transmute(columnnumber), ::std::mem::transmute(targettype), ::std::mem::transmute(targetvalue), ::std::mem::transmute(bufferlength), ::std::mem::transmute(strlen_or_indptr)))
     }
@@ -22092,6 +23231,7 @@ pub unsafe fn SQLGetDescFieldW(hdesc: *mut ::std::ffi::c_void, irecord: i16, ifi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::std::ffi::c_void, recnumber: i16, name: *mut u8, bufferlength: i16, stringlengthptr: *mut i16, typeptr: *mut i16, subtypeptr: *mut i16, lengthptr: *mut i64, precisionptr: *mut i16, scaleptr: *mut i16, nullableptr: *mut i16) -> i16 {
@@ -22118,6 +23258,34 @@ pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::std::ffi::c_void, recnumber
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::std::ffi::c_void, recnumber: i16, name: *mut u8, bufferlength: i16, stringlengthptr: *mut i16, typeptr: *mut i16, subtypeptr: *mut i16, lengthptr: *mut i32, precisionptr: *mut i16, scaleptr: *mut i16, nullableptr: *mut i16) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLGetDescRec(descriptorhandle: *mut ::std::ffi::c_void, recnumber: i16, name: *mut u8, bufferlength: i16, stringlengthptr: *mut i16, typeptr: *mut i16, subtypeptr: *mut i16, lengthptr: *mut i32, precisionptr: *mut i16, scaleptr: *mut i16, nullableptr: *mut i16) -> i16;
+        }
+        ::std::mem::transmute(SQLGetDescRec(
+            ::std::mem::transmute(descriptorhandle),
+            ::std::mem::transmute(recnumber),
+            ::std::mem::transmute(name),
+            ::std::mem::transmute(bufferlength),
+            ::std::mem::transmute(stringlengthptr),
+            ::std::mem::transmute(typeptr),
+            ::std::mem::transmute(subtypeptr),
+            ::std::mem::transmute(lengthptr),
+            ::std::mem::transmute(precisionptr),
+            ::std::mem::transmute(scaleptr),
+            ::std::mem::transmute(nullableptr),
+        ))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLGetDescRecA(hdesc: *mut ::std::ffi::c_void, irecord: i16, szname: *mut u8, cbnamemax: i16, pcbname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i64, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
@@ -22144,6 +23312,34 @@ pub unsafe fn SQLGetDescRecA(hdesc: *mut ::std::ffi::c_void, irecord: i16, sznam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLGetDescRecA(hdesc: *mut ::std::ffi::c_void, irecord: i16, szname: *mut u8, cbnamemax: i16, pcbname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i32, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLGetDescRecA(hdesc: *mut ::std::ffi::c_void, irecord: i16, szname: *mut u8, cbnamemax: i16, pcbname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i32, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16;
+        }
+        ::std::mem::transmute(SQLGetDescRecA(
+            ::std::mem::transmute(hdesc),
+            ::std::mem::transmute(irecord),
+            ::std::mem::transmute(szname),
+            ::std::mem::transmute(cbnamemax),
+            ::std::mem::transmute(pcbname),
+            ::std::mem::transmute(pftype),
+            ::std::mem::transmute(pfsubtype),
+            ::std::mem::transmute(plength),
+            ::std::mem::transmute(pprecision),
+            ::std::mem::transmute(pscale),
+            ::std::mem::transmute(pnullable),
+        ))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLGetDescRecW(hdesc: *mut ::std::ffi::c_void, irecord: i16, szname: *mut u16, cchnamemax: i16, pcchname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i64, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
@@ -22152,6 +23348,33 @@ pub unsafe fn SQLGetDescRecW(hdesc: *mut ::std::ffi::c_void, irecord: i16, sznam
         #[link(name = "windows")]
         extern "system" {
             fn SQLGetDescRecW(hdesc: *mut ::std::ffi::c_void, irecord: i16, szname: *mut u16, cchnamemax: i16, pcchname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i64, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16;
+        }
+        ::std::mem::transmute(SQLGetDescRecW(
+            ::std::mem::transmute(hdesc),
+            ::std::mem::transmute(irecord),
+            ::std::mem::transmute(szname),
+            ::std::mem::transmute(cchnamemax),
+            ::std::mem::transmute(pcchname),
+            ::std::mem::transmute(pftype),
+            ::std::mem::transmute(pfsubtype),
+            ::std::mem::transmute(plength),
+            ::std::mem::transmute(pprecision),
+            ::std::mem::transmute(pscale),
+            ::std::mem::transmute(pnullable),
+        ))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLGetDescRecW(hdesc: *mut ::std::ffi::c_void, irecord: i16, szname: *mut u16, cchnamemax: i16, pcchname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i32, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLGetDescRecW(hdesc: *mut ::std::ffi::c_void, irecord: i16, szname: *mut u16, cchnamemax: i16, pcchname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i32, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16;
         }
         ::std::mem::transmute(SQLGetDescRecW(
             ::std::mem::transmute(hdesc),
@@ -22647,6 +23870,7 @@ pub unsafe fn SQLParamData(statementhandle: *mut ::std::ffi::c_void, value: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLParamOptions(hstmt: *mut ::std::ffi::c_void, crow: u64, pirow: *mut u64) -> i16 {
@@ -22655,6 +23879,21 @@ pub unsafe fn SQLParamOptions(hstmt: *mut ::std::ffi::c_void, crow: u64, pirow: 
         #[link(name = "windows")]
         extern "system" {
             fn SQLParamOptions(hstmt: *mut ::std::ffi::c_void, crow: u64, pirow: *mut u64) -> i16;
+        }
+        ::std::mem::transmute(SQLParamOptions(::std::mem::transmute(hstmt), ::std::mem::transmute(crow), ::std::mem::transmute(pirow)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLParamOptions(hstmt: *mut ::std::ffi::c_void, crow: u32, pirow: *mut u32) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLParamOptions(hstmt: *mut ::std::ffi::c_void, crow: u32, pirow: *mut u32) -> i16;
         }
         ::std::mem::transmute(SQLParamOptions(::std::mem::transmute(hstmt), ::std::mem::transmute(crow), ::std::mem::transmute(pirow)))
     }
@@ -22859,6 +24098,7 @@ pub unsafe fn SQLProceduresW(hstmt: *mut ::std::ffi::c_void, szcatalogname: *con
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLPutData(statementhandle: *mut ::std::ffi::c_void, data: *const ::std::ffi::c_void, strlen_or_ind: i64) -> i16 {
@@ -22873,6 +24113,22 @@ pub unsafe fn SQLPutData(statementhandle: *mut ::std::ffi::c_void, data: *const 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLPutData(statementhandle: *mut ::std::ffi::c_void, data: *const ::std::ffi::c_void, strlen_or_ind: i32) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLPutData(statementhandle: *mut ::std::ffi::c_void, data: *const ::std::ffi::c_void, strlen_or_ind: i32) -> i16;
+        }
+        ::std::mem::transmute(SQLPutData(::std::mem::transmute(statementhandle), ::std::mem::transmute(data), ::std::mem::transmute(strlen_or_ind)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLRowCount(statementhandle: *const ::std::ffi::c_void, rowcount: *mut i64) -> i16 {
@@ -22881,6 +24137,21 @@ pub unsafe fn SQLRowCount(statementhandle: *const ::std::ffi::c_void, rowcount: 
         #[link(name = "windows")]
         extern "system" {
             fn SQLRowCount(statementhandle: *const ::std::ffi::c_void, rowcount: *mut i64) -> i16;
+        }
+        ::std::mem::transmute(SQLRowCount(::std::mem::transmute(statementhandle), ::std::mem::transmute(rowcount)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLRowCount(statementhandle: *const ::std::ffi::c_void, rowcount: *mut i32) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLRowCount(statementhandle: *const ::std::ffi::c_void, rowcount: *mut i32) -> i16;
         }
         ::std::mem::transmute(SQLRowCount(::std::mem::transmute(statementhandle), ::std::mem::transmute(rowcount)))
     }
@@ -22929,6 +24200,7 @@ pub unsafe fn SQLSetConnectAttrW(hdbc: *mut ::std::ffi::c_void, fattribute: i32,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLSetConnectOption(connectionhandle: *mut ::std::ffi::c_void, option: u16, value: u64) -> i16 {
@@ -22943,6 +24215,22 @@ pub unsafe fn SQLSetConnectOption(connectionhandle: *mut ::std::ffi::c_void, opt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLSetConnectOption(connectionhandle: *mut ::std::ffi::c_void, option: u16, value: u32) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLSetConnectOption(connectionhandle: *mut ::std::ffi::c_void, option: u16, value: u32) -> i16;
+        }
+        ::std::mem::transmute(SQLSetConnectOption(::std::mem::transmute(connectionhandle), ::std::mem::transmute(option), ::std::mem::transmute(value)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLSetConnectOptionA(hdbc: *mut ::std::ffi::c_void, foption: u16, vparam: u64) -> i16 {
@@ -22957,6 +24245,22 @@ pub unsafe fn SQLSetConnectOptionA(hdbc: *mut ::std::ffi::c_void, foption: u16, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLSetConnectOptionA(hdbc: *mut ::std::ffi::c_void, foption: u16, vparam: u32) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLSetConnectOptionA(hdbc: *mut ::std::ffi::c_void, foption: u16, vparam: u32) -> i16;
+        }
+        ::std::mem::transmute(SQLSetConnectOptionA(::std::mem::transmute(hdbc), ::std::mem::transmute(foption), ::std::mem::transmute(vparam)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLSetConnectOptionW(hdbc: *mut ::std::ffi::c_void, foption: u16, vparam: u64) -> i16 {
@@ -22965,6 +24269,21 @@ pub unsafe fn SQLSetConnectOptionW(hdbc: *mut ::std::ffi::c_void, foption: u16, 
         #[link(name = "windows")]
         extern "system" {
             fn SQLSetConnectOptionW(hdbc: *mut ::std::ffi::c_void, foption: u16, vparam: u64) -> i16;
+        }
+        ::std::mem::transmute(SQLSetConnectOptionW(::std::mem::transmute(hdbc), ::std::mem::transmute(foption), ::std::mem::transmute(vparam)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLSetConnectOptionW(hdbc: *mut ::std::ffi::c_void, foption: u16, vparam: u32) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLSetConnectOptionW(hdbc: *mut ::std::ffi::c_void, foption: u16, vparam: u32) -> i16;
         }
         ::std::mem::transmute(SQLSetConnectOptionW(::std::mem::transmute(hdbc), ::std::mem::transmute(foption), ::std::mem::transmute(vparam)))
     }
@@ -23041,6 +24360,7 @@ pub unsafe fn SQLSetDescFieldW(descriptorhandle: *mut ::std::ffi::c_void, recnum
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::std::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i64, precision: i16, scale: i16, data: *mut ::std::ffi::c_void, stringlength: *mut i64, indicator: *mut i64) -> i16 {
@@ -23049,6 +24369,32 @@ pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::std::ffi::c_void, recnumber
         #[link(name = "windows")]
         extern "system" {
             fn SQLSetDescRec(descriptorhandle: *mut ::std::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i64, precision: i16, scale: i16, data: *mut ::std::ffi::c_void, stringlength: *mut i64, indicator: *mut i64) -> i16;
+        }
+        ::std::mem::transmute(SQLSetDescRec(
+            ::std::mem::transmute(descriptorhandle),
+            ::std::mem::transmute(recnumber),
+            ::std::mem::transmute(r#type),
+            ::std::mem::transmute(subtype),
+            ::std::mem::transmute(length),
+            ::std::mem::transmute(precision),
+            ::std::mem::transmute(scale),
+            ::std::mem::transmute(data),
+            ::std::mem::transmute(stringlength),
+            ::std::mem::transmute(indicator),
+        ))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::std::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i32, precision: i16, scale: i16, data: *mut ::std::ffi::c_void, stringlength: *mut i32, indicator: *mut i32) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLSetDescRec(descriptorhandle: *mut ::std::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i32, precision: i16, scale: i16, data: *mut ::std::ffi::c_void, stringlength: *mut i32, indicator: *mut i32) -> i16;
         }
         ::std::mem::transmute(SQLSetDescRec(
             ::std::mem::transmute(descriptorhandle),
@@ -23080,6 +24426,7 @@ pub unsafe fn SQLSetEnvAttr(environmenthandle: *mut ::std::ffi::c_void, attribut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLSetParam(statementhandle: *mut ::std::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u64, parameterscale: i16, parametervalue: *const ::std::ffi::c_void, strlen_or_ind: *mut i64) -> i16 {
@@ -23103,6 +24450,31 @@ pub unsafe fn SQLSetParam(statementhandle: *mut ::std::ffi::c_void, parameternum
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLSetParam(statementhandle: *mut ::std::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *const ::std::ffi::c_void, strlen_or_ind: *mut i32) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLSetParam(statementhandle: *mut ::std::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *const ::std::ffi::c_void, strlen_or_ind: *mut i32) -> i16;
+        }
+        ::std::mem::transmute(SQLSetParam(
+            ::std::mem::transmute(statementhandle),
+            ::std::mem::transmute(parameternumber),
+            ::std::mem::transmute(valuetype),
+            ::std::mem::transmute(parametertype),
+            ::std::mem::transmute(lengthprecision),
+            ::std::mem::transmute(parameterscale),
+            ::std::mem::transmute(parametervalue),
+            ::std::mem::transmute(strlen_or_ind),
+        ))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLSetPos(hstmt: *mut ::std::ffi::c_void, irow: u64, foption: u16, flock: u16) -> i16 {
@@ -23117,6 +24489,22 @@ pub unsafe fn SQLSetPos(hstmt: *mut ::std::ffi::c_void, irow: u64, foption: u16,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLSetPos(hstmt: *mut ::std::ffi::c_void, irow: u16, foption: u16, flock: u16) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLSetPos(hstmt: *mut ::std::ffi::c_void, irow: u16, foption: u16, flock: u16) -> i16;
+        }
+        ::std::mem::transmute(SQLSetPos(::std::mem::transmute(hstmt), ::std::mem::transmute(irow), ::std::mem::transmute(foption), ::std::mem::transmute(flock)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLSetScrollOptions(hstmt: *mut ::std::ffi::c_void, fconcurrency: u16, crowkeyset: i64, crowrowset: u16) -> i16 {
@@ -23125,6 +24513,21 @@ pub unsafe fn SQLSetScrollOptions(hstmt: *mut ::std::ffi::c_void, fconcurrency: 
         #[link(name = "windows")]
         extern "system" {
             fn SQLSetScrollOptions(hstmt: *mut ::std::ffi::c_void, fconcurrency: u16, crowkeyset: i64, crowrowset: u16) -> i16;
+        }
+        ::std::mem::transmute(SQLSetScrollOptions(::std::mem::transmute(hstmt), ::std::mem::transmute(fconcurrency), ::std::mem::transmute(crowkeyset), ::std::mem::transmute(crowrowset)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLSetScrollOptions(hstmt: *mut ::std::ffi::c_void, fconcurrency: u16, crowkeyset: i32, crowrowset: u16) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLSetScrollOptions(hstmt: *mut ::std::ffi::c_void, fconcurrency: u16, crowkeyset: i32, crowrowset: u16) -> i16;
         }
         ::std::mem::transmute(SQLSetScrollOptions(::std::mem::transmute(hstmt), ::std::mem::transmute(fconcurrency), ::std::mem::transmute(crowkeyset), ::std::mem::transmute(crowrowset)))
     }
@@ -23159,6 +24562,7 @@ pub unsafe fn SQLSetStmtAttrW(hstmt: *mut ::std::ffi::c_void, fattribute: i32, r
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 #[inline]
 pub unsafe fn SQLSetStmtOption(statementhandle: *mut ::std::ffi::c_void, option: u16, value: u64) -> i16 {
@@ -23167,6 +24571,21 @@ pub unsafe fn SQLSetStmtOption(statementhandle: *mut ::std::ffi::c_void, option:
         #[link(name = "windows")]
         extern "system" {
             fn SQLSetStmtOption(statementhandle: *mut ::std::ffi::c_void, option: u16, value: u64) -> i16;
+        }
+        ::std::mem::transmute(SQLSetStmtOption(::std::mem::transmute(statementhandle), ::std::mem::transmute(option), ::std::mem::transmute(value)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "i686",))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+#[inline]
+pub unsafe fn SQLSetStmtOption(statementhandle: *mut ::std::ffi::c_void, option: u16, value: u32) -> i16 {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SQLSetStmtOption(statementhandle: *mut ::std::ffi::c_void, option: u16, value: u32) -> i16;
         }
         ::std::mem::transmute(SQLSetStmtOption(::std::mem::transmute(statementhandle), ::std::mem::transmute(option), ::std::mem::transmute(value)))
     }
@@ -28261,6 +29680,30 @@ impl ::std::fmt::Debug for tagDBROWWATCHRANGE {
 impl ::std::cmp::PartialEq for tagDBROWWATCHRANGE {
     fn eq(&self, other: &Self) -> bool {
         self.hRegion == other.hRegion && self.eChangeKind == other.eChangeKind && self.hRow == other.hRow && self.iRow == other.iRow
+    }
+}
+impl ::std::cmp::Eq for tagDBROWWATCHRANGE {}
+unsafe impl ::windows::runtime::Abi for tagDBROWWATCHRANGE {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(2))]
+#[doc = "*Required features: `Win32_System_Search`*"]
+pub struct tagDBROWWATCHRANGE {
+    pub hRegion: usize,
+    pub eChangeKind: u32,
+    pub hRow: usize,
+    pub iRow: usize,
+}
+impl tagDBROWWATCHRANGE {}
+impl ::std::default::Default for tagDBROWWATCHRANGE {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for tagDBROWWATCHRANGE {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for tagDBROWWATCHRANGE {}

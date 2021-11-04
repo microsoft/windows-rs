@@ -26,12 +26,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
         }
     };
 
-    let arch = if let Some(arch) = def.supported_arch() {
-        quote! { #[cfg(target_arch = #arch)] }
-    } else {
-        quote! {}
-    };
-
+    let arch = gen.gen_arch_cfg(def.attributes());
     let features = signature.method_features();
     let cfg = gen.gen_cfg(&features);
     let doc = gen.gen_cfg_doc(&features);

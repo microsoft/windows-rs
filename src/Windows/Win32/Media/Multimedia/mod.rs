@@ -652,6 +652,38 @@ impl ::std::cmp::Eq for ACMSTREAMHEADER {}
 unsafe impl ::windows::runtime::Abi for ACMSTREAMHEADER {
     type Abi = Self;
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+pub struct ACMSTREAMHEADER {
+    pub cbStruct: u32,
+    pub fdwStatus: u32,
+    pub dwUser: usize,
+    pub pbSrc: *mut u8,
+    pub cbSrcLength: u32,
+    pub cbSrcLengthUsed: u32,
+    pub dwSrcUser: usize,
+    pub pbDst: *mut u8,
+    pub cbDstLength: u32,
+    pub cbDstLengthUsed: u32,
+    pub dwDstUser: usize,
+    pub dwReservedDriver: [u32; 10],
+}
+impl ACMSTREAMHEADER {}
+impl ::std::default::Default for ACMSTREAMHEADER {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for ACMSTREAMHEADER {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for ACMSTREAMHEADER {}
+unsafe impl ::windows::runtime::Abi for ACMSTREAMHEADER {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub const ACMSTREAMHEADER_STATUSF_DONE: i32 = 65536i32;
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]

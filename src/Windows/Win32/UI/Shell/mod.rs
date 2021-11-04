@@ -273,6 +273,38 @@ unsafe impl ::windows::runtime::Abi for APPBARDATA {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+pub struct APPBARDATA {
+    pub cbSize: u32,
+    pub hWnd: super::super::Foundation::HWND,
+    pub uCallbackMessage: u32,
+    pub uEdge: u32,
+    pub rc: super::super::Foundation::RECT,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl APPBARDATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for APPBARDATA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for APPBARDATA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for APPBARDATA {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for APPBARDATA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
@@ -712,6 +744,35 @@ impl ::std::fmt::Debug for ASSOCIATIONELEMENT {
 impl ::std::cmp::PartialEq for ASSOCIATIONELEMENT {
     fn eq(&self, other: &Self) -> bool {
         self.ac == other.ac && self.hkClass == other.hkClass && self.pszClass == other.pszClass
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::std::cmp::Eq for ASSOCIATIONELEMENT {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+unsafe impl ::windows::runtime::Abi for ASSOCIATIONELEMENT {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+pub struct ASSOCIATIONELEMENT {
+    pub ac: ASSOCCLASS,
+    pub hkClass: super::super::System::Registry::HKEY,
+    pub pszClass: super::super::Foundation::PWSTR,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ASSOCIATIONELEMENT {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::std::default::Default for ASSOCIATIONELEMENT {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::std::cmp::PartialEq for ASSOCIATIONELEMENT {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
@@ -4292,6 +4353,37 @@ unsafe impl ::windows::runtime::Abi for DRAGINFOA {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+pub struct DRAGINFOA {
+    pub uSize: u32,
+    pub pt: super::super::Foundation::POINT,
+    pub fNC: super::super::Foundation::BOOL,
+    pub lpFileList: super::super::Foundation::PSTR,
+    pub grfKeyState: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl DRAGINFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for DRAGINFOA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for DRAGINFOA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for DRAGINFOA {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for DRAGINFOA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
@@ -4320,6 +4412,37 @@ impl ::std::fmt::Debug for DRAGINFOW {
 impl ::std::cmp::PartialEq for DRAGINFOW {
     fn eq(&self, other: &Self) -> bool {
         self.uSize == other.uSize && self.pt == other.pt && self.fNC == other.fNC && self.lpFileList == other.lpFileList && self.grfKeyState == other.grfKeyState
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for DRAGINFOW {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for DRAGINFOW {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+pub struct DRAGINFOW {
+    pub uSize: u32,
+    pub pt: super::super::Foundation::POINT,
+    pub fNC: super::super::Foundation::BOOL,
+    pub lpFileList: super::super::Foundation::PWSTR,
+    pub grfKeyState: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl DRAGINFOW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for DRAGINFOW {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for DRAGINFOW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -44144,6 +44267,69 @@ unsafe impl ::windows::runtime::Abi for NOTIFYICONDATAA_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+pub struct NOTIFYICONDATAA {
+    pub cbSize: u32,
+    pub hWnd: super::super::Foundation::HWND,
+    pub uID: u32,
+    pub uFlags: NOTIFY_ICON_DATA_FLAGS,
+    pub uCallbackMessage: u32,
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub szTip: [super::super::Foundation::CHAR; 128],
+    pub dwState: u32,
+    pub dwStateMask: u32,
+    pub szInfo: [super::super::Foundation::CHAR; 256],
+    pub Anonymous: NOTIFYICONDATAA_0,
+    pub szInfoTitle: [super::super::Foundation::CHAR; 64],
+    pub dwInfoFlags: u32,
+    pub guidItem: ::windows::runtime::GUID,
+    pub hBalloonIcon: super::WindowsAndMessaging::HICON,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl NOTIFYICONDATAA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::std::default::Default for NOTIFYICONDATAA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::std::cmp::PartialEq for NOTIFYICONDATAA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::std::cmp::Eq for NOTIFYICONDATAA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+unsafe impl ::windows::runtime::Abi for NOTIFYICONDATAA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_UI_Shell`*"]
+pub union NOTIFYICONDATAA_0 {
+    pub uTimeout: u32,
+    pub uVersion: u32,
+}
+impl NOTIFYICONDATAA_0 {}
+impl ::std::default::Default for NOTIFYICONDATAA_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for NOTIFYICONDATAA_0 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for NOTIFYICONDATAA_0 {}
+unsafe impl ::windows::runtime::Abi for NOTIFYICONDATAA_0 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
@@ -44207,6 +44393,69 @@ unsafe impl ::windows::runtime::Abi for NOTIFYICONDATAW_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+pub struct NOTIFYICONDATAW {
+    pub cbSize: u32,
+    pub hWnd: super::super::Foundation::HWND,
+    pub uID: u32,
+    pub uFlags: NOTIFY_ICON_DATA_FLAGS,
+    pub uCallbackMessage: u32,
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub szTip: [u16; 128],
+    pub dwState: u32,
+    pub dwStateMask: u32,
+    pub szInfo: [u16; 256],
+    pub Anonymous: NOTIFYICONDATAW_0,
+    pub szInfoTitle: [u16; 64],
+    pub dwInfoFlags: u32,
+    pub guidItem: ::windows::runtime::GUID,
+    pub hBalloonIcon: super::WindowsAndMessaging::HICON,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl NOTIFYICONDATAW {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::std::default::Default for NOTIFYICONDATAW {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::std::cmp::PartialEq for NOTIFYICONDATAW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::std::cmp::Eq for NOTIFYICONDATAW {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+unsafe impl ::windows::runtime::Abi for NOTIFYICONDATAW {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_UI_Shell`*"]
+pub union NOTIFYICONDATAW_0 {
+    pub uTimeout: u32,
+    pub uVersion: u32,
+}
+impl NOTIFYICONDATAW_0 {}
+impl ::std::default::Default for NOTIFYICONDATAW_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for NOTIFYICONDATAW_0 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for NOTIFYICONDATAW_0 {}
+unsafe impl ::windows::runtime::Abi for NOTIFYICONDATAW_0 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
@@ -44234,6 +44483,36 @@ impl ::std::fmt::Debug for NOTIFYICONIDENTIFIER {
 impl ::std::cmp::PartialEq for NOTIFYICONIDENTIFIER {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.hWnd == other.hWnd && self.uID == other.uID && self.guidItem == other.guidItem
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for NOTIFYICONIDENTIFIER {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for NOTIFYICONIDENTIFIER {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+pub struct NOTIFYICONIDENTIFIER {
+    pub cbSize: u32,
+    pub hWnd: super::super::Foundation::HWND,
+    pub uID: u32,
+    pub guidItem: ::windows::runtime::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl NOTIFYICONIDENTIFIER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for NOTIFYICONIDENTIFIER {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for NOTIFYICONIDENTIFIER {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -44718,6 +44997,37 @@ unsafe impl ::windows::runtime::Abi for OPEN_PRINTER_PROPS_INFOA {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+pub struct OPEN_PRINTER_PROPS_INFOA {
+    pub dwSize: u32,
+    pub pszSheetName: super::super::Foundation::PSTR,
+    pub uSheetIndex: u32,
+    pub dwFlags: u32,
+    pub bModal: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl OPEN_PRINTER_PROPS_INFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for OPEN_PRINTER_PROPS_INFOA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for OPEN_PRINTER_PROPS_INFOA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for OPEN_PRINTER_PROPS_INFOA {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for OPEN_PRINTER_PROPS_INFOA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
@@ -44746,6 +45056,37 @@ impl ::std::fmt::Debug for OPEN_PRINTER_PROPS_INFOW {
 impl ::std::cmp::PartialEq for OPEN_PRINTER_PROPS_INFOW {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.pszSheetName == other.pszSheetName && self.uSheetIndex == other.uSheetIndex && self.dwFlags == other.dwFlags && self.bModal == other.bModal
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for OPEN_PRINTER_PROPS_INFOW {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for OPEN_PRINTER_PROPS_INFOW {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+pub struct OPEN_PRINTER_PROPS_INFOW {
+    pub dwSize: u32,
+    pub pszSheetName: super::super::Foundation::PWSTR,
+    pub uSheetIndex: u32,
+    pub dwFlags: u32,
+    pub bModal: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl OPEN_PRINTER_PROPS_INFOW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for OPEN_PRINTER_PROPS_INFOW {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for OPEN_PRINTER_PROPS_INFOW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -49751,6 +50092,45 @@ impl ::std::cmp::Eq for SHCREATEPROCESSINFOW {}
 unsafe impl ::windows::runtime::Abi for SHCREATEPROCESSINFOW {
     type Abi = Self;
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_Security`, `Win32_System_Threading`*"]
+pub struct SHCREATEPROCESSINFOW {
+    pub cbSize: u32,
+    pub fMask: u32,
+    pub hwnd: super::super::Foundation::HWND,
+    pub pszFile: super::super::Foundation::PWSTR,
+    pub pszParameters: super::super::Foundation::PWSTR,
+    pub pszCurrentDirectory: super::super::Foundation::PWSTR,
+    pub hUserToken: super::super::Foundation::HANDLE,
+    pub lpProcessAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
+    pub lpThreadAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
+    pub bInheritHandles: super::super::Foundation::BOOL,
+    pub dwCreationFlags: u32,
+    pub lpStartupInfo: *mut super::super::System::Threading::STARTUPINFOW,
+    pub lpProcessInformation: *mut super::super::System::Threading::PROCESS_INFORMATION,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
+impl SHCREATEPROCESSINFOW {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
+impl ::std::default::Default for SHCREATEPROCESSINFOW {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
+impl ::std::cmp::PartialEq for SHCREATEPROCESSINFOW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
+impl ::std::cmp::Eq for SHCREATEPROCESSINFOW {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
+unsafe impl ::windows::runtime::Abi for SHCREATEPROCESSINFOW {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const SHC_E_SHELL_COMPONENT_STARTUP_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2144927180i32 as _);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -50860,6 +51240,75 @@ unsafe impl ::windows::runtime::Abi for SHELLEXECUTEINFOA_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+pub struct SHELLEXECUTEINFOA {
+    pub cbSize: u32,
+    pub fMask: u32,
+    pub hwnd: super::super::Foundation::HWND,
+    pub lpVerb: super::super::Foundation::PSTR,
+    pub lpFile: super::super::Foundation::PSTR,
+    pub lpParameters: super::super::Foundation::PSTR,
+    pub lpDirectory: super::super::Foundation::PSTR,
+    pub nShow: i32,
+    pub hInstApp: super::super::Foundation::HINSTANCE,
+    pub lpIDList: *mut ::std::ffi::c_void,
+    pub lpClass: super::super::Foundation::PSTR,
+    pub hkeyClass: super::super::System::Registry::HKEY,
+    pub dwHotKey: u32,
+    pub Anonymous: SHELLEXECUTEINFOA_0,
+    pub hProcess: super::super::Foundation::HANDLE,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl SHELLEXECUTEINFOA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::std::default::Default for SHELLEXECUTEINFOA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::std::cmp::PartialEq for SHELLEXECUTEINFOA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::std::cmp::Eq for SHELLEXECUTEINFOA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+unsafe impl ::windows::runtime::Abi for SHELLEXECUTEINFOA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+pub union SHELLEXECUTEINFOA_0 {
+    pub hIcon: super::super::Foundation::HANDLE,
+    pub hMonitor: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SHELLEXECUTEINFOA_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SHELLEXECUTEINFOA_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SHELLEXECUTEINFOA_0 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SHELLEXECUTEINFOA_0 {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SHELLEXECUTEINFOA_0 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
@@ -50902,6 +51351,75 @@ unsafe impl ::windows::runtime::Abi for SHELLEXECUTEINFOW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+pub union SHELLEXECUTEINFOW_0 {
+    pub hIcon: super::super::Foundation::HANDLE,
+    pub hMonitor: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SHELLEXECUTEINFOW_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SHELLEXECUTEINFOW_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SHELLEXECUTEINFOW_0 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SHELLEXECUTEINFOW_0 {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SHELLEXECUTEINFOW_0 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+pub struct SHELLEXECUTEINFOW {
+    pub cbSize: u32,
+    pub fMask: u32,
+    pub hwnd: super::super::Foundation::HWND,
+    pub lpVerb: super::super::Foundation::PWSTR,
+    pub lpFile: super::super::Foundation::PWSTR,
+    pub lpParameters: super::super::Foundation::PWSTR,
+    pub lpDirectory: super::super::Foundation::PWSTR,
+    pub nShow: i32,
+    pub hInstApp: super::super::Foundation::HINSTANCE,
+    pub lpIDList: *mut ::std::ffi::c_void,
+    pub lpClass: super::super::Foundation::PWSTR,
+    pub hkeyClass: super::super::System::Registry::HKEY,
+    pub dwHotKey: u32,
+    pub Anonymous: SHELLEXECUTEINFOW_0,
+    pub hProcess: super::super::Foundation::HANDLE,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl SHELLEXECUTEINFOW {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::std::default::Default for SHELLEXECUTEINFOW {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::std::cmp::PartialEq for SHELLEXECUTEINFOW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::std::cmp::Eq for SHELLEXECUTEINFOW {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+unsafe impl ::windows::runtime::Abi for SHELLEXECUTEINFOW {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 pub union SHELLEXECUTEINFOW_0 {
@@ -51259,6 +51777,37 @@ unsafe impl ::windows::runtime::Abi for SHFILEINFOA {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+pub struct SHFILEINFOA {
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub iIcon: i32,
+    pub dwAttributes: u32,
+    pub szDisplayName: [super::super::Foundation::CHAR; 260],
+    pub szTypeName: [super::super::Foundation::CHAR; 80],
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl SHFILEINFOA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::std::default::Default for SHFILEINFOA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::std::cmp::PartialEq for SHFILEINFOA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::std::cmp::Eq for SHFILEINFOA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+unsafe impl ::windows::runtime::Abi for SHFILEINFOA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_UI_WindowsAndMessaging`*"]
@@ -51287,6 +51836,37 @@ impl ::std::fmt::Debug for SHFILEINFOW {
 impl ::std::cmp::PartialEq for SHFILEINFOW {
     fn eq(&self, other: &Self) -> bool {
         self.hIcon == other.hIcon && self.iIcon == other.iIcon && self.dwAttributes == other.dwAttributes && self.szDisplayName == other.szDisplayName && self.szTypeName == other.szTypeName
+    }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::std::cmp::Eq for SHFILEINFOW {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+unsafe impl ::windows::runtime::Abi for SHFILEINFOW {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_UI_WindowsAndMessaging`*"]
+pub struct SHFILEINFOW {
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub iIcon: i32,
+    pub dwAttributes: u32,
+    pub szDisplayName: [u16; 260],
+    pub szTypeName: [u16; 80],
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl SHFILEINFOW {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::std::default::Default for SHFILEINFOW {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::std::cmp::PartialEq for SHFILEINFOW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -51345,6 +51925,40 @@ unsafe impl ::windows::runtime::Abi for SHFILEOPSTRUCTA {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+pub struct SHFILEOPSTRUCTA {
+    pub hwnd: super::super::Foundation::HWND,
+    pub wFunc: u32,
+    pub pFrom: *mut i8,
+    pub pTo: *mut i8,
+    pub fFlags: u16,
+    pub fAnyOperationsAborted: super::super::Foundation::BOOL,
+    pub hNameMappings: *mut ::std::ffi::c_void,
+    pub lpszProgressTitle: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SHFILEOPSTRUCTA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SHFILEOPSTRUCTA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SHFILEOPSTRUCTA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SHFILEOPSTRUCTA {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SHFILEOPSTRUCTA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
@@ -51385,6 +51999,40 @@ impl ::std::fmt::Debug for SHFILEOPSTRUCTW {
 impl ::std::cmp::PartialEq for SHFILEOPSTRUCTW {
     fn eq(&self, other: &Self) -> bool {
         self.hwnd == other.hwnd && self.wFunc == other.wFunc && self.pFrom == other.pFrom && self.pTo == other.pTo && self.fFlags == other.fFlags && self.fAnyOperationsAborted == other.fAnyOperationsAborted && self.hNameMappings == other.hNameMappings && self.lpszProgressTitle == other.lpszProgressTitle
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SHFILEOPSTRUCTW {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SHFILEOPSTRUCTW {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+pub struct SHFILEOPSTRUCTW {
+    pub hwnd: super::super::Foundation::HWND,
+    pub wFunc: u32,
+    pub pFrom: super::super::Foundation::PWSTR,
+    pub pTo: super::super::Foundation::PWSTR,
+    pub fFlags: u16,
+    pub fAnyOperationsAborted: super::super::Foundation::BOOL,
+    pub hNameMappings: *mut ::std::ffi::c_void,
+    pub lpszProgressTitle: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SHFILEOPSTRUCTW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SHFILEOPSTRUCTW {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SHFILEOPSTRUCTW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -53003,6 +53651,36 @@ unsafe impl ::windows::runtime::Abi for SHNAMEMAPPINGA {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+pub struct SHNAMEMAPPINGA {
+    pub pszOldPath: super::super::Foundation::PSTR,
+    pub pszNewPath: super::super::Foundation::PSTR,
+    pub cchOldPath: i32,
+    pub cchNewPath: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SHNAMEMAPPINGA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SHNAMEMAPPINGA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SHNAMEMAPPINGA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SHNAMEMAPPINGA {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SHNAMEMAPPINGA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
@@ -53030,6 +53708,36 @@ impl ::std::fmt::Debug for SHNAMEMAPPINGW {
 impl ::std::cmp::PartialEq for SHNAMEMAPPINGW {
     fn eq(&self, other: &Self) -> bool {
         self.pszOldPath == other.pszOldPath && self.pszNewPath == other.pszNewPath && self.cchOldPath == other.cchOldPath && self.cchNewPath == other.cchNewPath
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SHNAMEMAPPINGW {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SHNAMEMAPPINGW {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+pub struct SHNAMEMAPPINGW {
+    pub pszOldPath: super::super::Foundation::PWSTR,
+    pub pszNewPath: super::super::Foundation::PWSTR,
+    pub cchOldPath: i32,
+    pub cchNewPath: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl SHNAMEMAPPINGW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SHNAMEMAPPINGW {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SHNAMEMAPPINGW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -53299,6 +54007,29 @@ impl ::std::fmt::Debug for SHQUERYRBINFO {
 impl ::std::cmp::PartialEq for SHQUERYRBINFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.i64Size == other.i64Size && self.i64NumItems == other.i64NumItems
+    }
+}
+impl ::std::cmp::Eq for SHQUERYRBINFO {}
+unsafe impl ::windows::runtime::Abi for SHQUERYRBINFO {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[doc = "*Required features: `Win32_UI_Shell`*"]
+pub struct SHQUERYRBINFO {
+    pub cbSize: u32,
+    pub i64Size: i64,
+    pub i64NumItems: i64,
+}
+impl SHQUERYRBINFO {}
+impl ::std::default::Default for SHQUERYRBINFO {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SHQUERYRBINFO {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for SHQUERYRBINFO {}
@@ -54167,6 +54898,37 @@ impl ::std::fmt::Debug for SHSTOCKICONINFO {
 impl ::std::cmp::PartialEq for SHSTOCKICONINFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.hIcon == other.hIcon && self.iSysImageIndex == other.iSysImageIndex && self.iIcon == other.iIcon && self.szPath == other.szPath
+    }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::std::cmp::Eq for SHSTOCKICONINFO {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+unsafe impl ::windows::runtime::Abi for SHSTOCKICONINFO {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_UI_WindowsAndMessaging`*"]
+pub struct SHSTOCKICONINFO {
+    pub cbSize: u32,
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub iSysImageIndex: i32,
+    pub iIcon: i32,
+    pub szPath: [u16; 260],
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl SHSTOCKICONINFO {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::std::default::Default for SHSTOCKICONINFO {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::std::cmp::PartialEq for SHSTOCKICONINFO {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]

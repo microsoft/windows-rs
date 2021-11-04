@@ -13789,6 +13789,29 @@ unsafe impl ::windows::runtime::Abi for KSNODEPROPERTY_AUDIO_3D_LISTENER {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
+pub struct KSNODEPROPERTY_AUDIO_3D_LISTENER {
+    pub NodeProperty: KSNODEPROPERTY,
+    pub ListenerId: *mut ::std::ffi::c_void,
+    pub Reserved: u32,
+}
+impl KSNODEPROPERTY_AUDIO_3D_LISTENER {}
+impl ::std::default::Default for KSNODEPROPERTY_AUDIO_3D_LISTENER {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for KSNODEPROPERTY_AUDIO_3D_LISTENER {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for KSNODEPROPERTY_AUDIO_3D_LISTENER {}
+unsafe impl ::windows::runtime::Abi for KSNODEPROPERTY_AUDIO_3D_LISTENER {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub struct KSNODEPROPERTY_AUDIO_CHANNEL {
     pub NodeProperty: KSNODEPROPERTY,
     pub Channel: i32,
@@ -13840,6 +13863,30 @@ pub struct KSNODEPROPERTY_AUDIO_PROPERTY {
     pub NodeProperty: KSNODEPROPERTY,
     pub AppContext: *mut ::std::ffi::c_void,
     pub Length: u32,
+}
+impl KSNODEPROPERTY_AUDIO_PROPERTY {}
+impl ::std::default::Default for KSNODEPROPERTY_AUDIO_PROPERTY {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for KSNODEPROPERTY_AUDIO_PROPERTY {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for KSNODEPROPERTY_AUDIO_PROPERTY {}
+unsafe impl ::windows::runtime::Abi for KSNODEPROPERTY_AUDIO_PROPERTY {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
+pub struct KSNODEPROPERTY_AUDIO_PROPERTY {
+    pub NodeProperty: KSNODEPROPERTY,
+    pub AppContext: *mut ::std::ffi::c_void,
+    pub Length: u32,
+    pub Reserved: u32,
 }
 impl KSNODEPROPERTY_AUDIO_PROPERTY {}
 impl ::std::default::Default for KSNODEPROPERTY_AUDIO_PROPERTY {
@@ -19043,6 +19090,48 @@ impl ::std::fmt::Debug for KSSTREAM_HEADER {
 impl ::std::cmp::PartialEq for KSSTREAM_HEADER {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.TypeSpecificFlags == other.TypeSpecificFlags && self.PresentationTime == other.PresentationTime && self.Duration == other.Duration && self.FrameExtent == other.FrameExtent && self.DataUsed == other.DataUsed && self.Data == other.Data && self.OptionsFlags == other.OptionsFlags && self.Reserved == other.Reserved
+    }
+}
+impl ::std::cmp::Eq for KSSTREAM_HEADER {}
+unsafe impl ::windows::runtime::Abi for KSSTREAM_HEADER {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
+pub struct KSSTREAM_HEADER {
+    pub Size: u32,
+    pub TypeSpecificFlags: u32,
+    pub PresentationTime: KSTIME,
+    pub Duration: i64,
+    pub FrameExtent: u32,
+    pub DataUsed: u32,
+    pub Data: *mut ::std::ffi::c_void,
+    pub OptionsFlags: u32,
+}
+impl KSSTREAM_HEADER {}
+impl ::std::default::Default for KSSTREAM_HEADER {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for KSSTREAM_HEADER {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("KSSTREAM_HEADER")
+            .field("Size", &self.Size)
+            .field("TypeSpecificFlags", &self.TypeSpecificFlags)
+            .field("PresentationTime", &self.PresentationTime)
+            .field("Duration", &self.Duration)
+            .field("FrameExtent", &self.FrameExtent)
+            .field("DataUsed", &self.DataUsed)
+            .field("Data", &self.Data)
+            .field("OptionsFlags", &self.OptionsFlags)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for KSSTREAM_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        self.Size == other.Size && self.TypeSpecificFlags == other.TypeSpecificFlags && self.PresentationTime == other.PresentationTime && self.Duration == other.Duration && self.FrameExtent == other.FrameExtent && self.DataUsed == other.DataUsed && self.Data == other.Data && self.OptionsFlags == other.OptionsFlags
     }
 }
 impl ::std::cmp::Eq for KSSTREAM_HEADER {}

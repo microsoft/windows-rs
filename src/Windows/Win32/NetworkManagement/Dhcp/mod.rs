@@ -5073,6 +5073,113 @@ unsafe impl ::windows::runtime::Abi for DHCP_SERVER_OPTIONS {
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
+pub struct DHCP_SERVER_OPTIONS {
+    pub MessageType: *mut u8,
+    pub SubnetMask: *mut u32,
+    pub RequestedAddress: *mut u32,
+    pub RequestLeaseTime: *mut u32,
+    pub OverlayFields: *mut u8,
+    pub RouterAddress: *mut u32,
+    pub Server: *mut u32,
+    pub ParameterRequestList: *mut u8,
+    pub ParameterRequestListLength: u32,
+    pub MachineName: super::super::Foundation::PSTR,
+    pub MachineNameLength: u32,
+    pub ClientHardwareAddressType: u8,
+    pub ClientHardwareAddressLength: u8,
+    pub ClientHardwareAddress: *mut u8,
+    pub ClassIdentifier: super::super::Foundation::PSTR,
+    pub ClassIdentifierLength: u32,
+    pub VendorClass: *mut u8,
+    pub VendorClassLength: u32,
+    pub DNSFlags: u32,
+    pub DNSNameLength: u32,
+    pub DNSName: *mut u8,
+    pub DSDomainNameRequested: super::super::Foundation::BOOLEAN,
+    pub DSDomainName: super::super::Foundation::PSTR,
+    pub DSDomainNameLen: u32,
+    pub ScopeId: *mut u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl DHCP_SERVER_OPTIONS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for DHCP_SERVER_OPTIONS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::fmt::Debug for DHCP_SERVER_OPTIONS {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("DHCP_SERVER_OPTIONS")
+            .field("MessageType", &self.MessageType)
+            .field("SubnetMask", &self.SubnetMask)
+            .field("RequestedAddress", &self.RequestedAddress)
+            .field("RequestLeaseTime", &self.RequestLeaseTime)
+            .field("OverlayFields", &self.OverlayFields)
+            .field("RouterAddress", &self.RouterAddress)
+            .field("Server", &self.Server)
+            .field("ParameterRequestList", &self.ParameterRequestList)
+            .field("ParameterRequestListLength", &self.ParameterRequestListLength)
+            .field("MachineName", &self.MachineName)
+            .field("MachineNameLength", &self.MachineNameLength)
+            .field("ClientHardwareAddressType", &self.ClientHardwareAddressType)
+            .field("ClientHardwareAddressLength", &self.ClientHardwareAddressLength)
+            .field("ClientHardwareAddress", &self.ClientHardwareAddress)
+            .field("ClassIdentifier", &self.ClassIdentifier)
+            .field("ClassIdentifierLength", &self.ClassIdentifierLength)
+            .field("VendorClass", &self.VendorClass)
+            .field("VendorClassLength", &self.VendorClassLength)
+            .field("DNSFlags", &self.DNSFlags)
+            .field("DNSNameLength", &self.DNSNameLength)
+            .field("DNSName", &self.DNSName)
+            .field("DSDomainNameRequested", &self.DSDomainNameRequested)
+            .field("DSDomainName", &self.DSDomainName)
+            .field("DSDomainNameLen", &self.DSDomainNameLen)
+            .field("ScopeId", &self.ScopeId)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for DHCP_SERVER_OPTIONS {
+    fn eq(&self, other: &Self) -> bool {
+        self.MessageType == other.MessageType
+            && self.SubnetMask == other.SubnetMask
+            && self.RequestedAddress == other.RequestedAddress
+            && self.RequestLeaseTime == other.RequestLeaseTime
+            && self.OverlayFields == other.OverlayFields
+            && self.RouterAddress == other.RouterAddress
+            && self.Server == other.Server
+            && self.ParameterRequestList == other.ParameterRequestList
+            && self.ParameterRequestListLength == other.ParameterRequestListLength
+            && self.MachineName == other.MachineName
+            && self.MachineNameLength == other.MachineNameLength
+            && self.ClientHardwareAddressType == other.ClientHardwareAddressType
+            && self.ClientHardwareAddressLength == other.ClientHardwareAddressLength
+            && self.ClientHardwareAddress == other.ClientHardwareAddress
+            && self.ClassIdentifier == other.ClassIdentifier
+            && self.ClassIdentifierLength == other.ClassIdentifierLength
+            && self.VendorClass == other.VendorClass
+            && self.VendorClassLength == other.VendorClassLength
+            && self.DNSFlags == other.DNSFlags
+            && self.DNSNameLength == other.DNSNameLength
+            && self.DNSName == other.DNSName
+            && self.DSDomainNameRequested == other.DSDomainNameRequested
+            && self.DSDomainName == other.DSDomainName
+            && self.DSDomainNameLen == other.DSDomainNameLen
+            && self.ScopeId == other.ScopeId
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for DHCP_SERVER_OPTIONS {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for DHCP_SERVER_OPTIONS {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
 pub struct DHCP_SERVER_SPECIFIC_STRINGS {
     pub DefaultVendorClassName: super::super::Foundation::PWSTR,
     pub DefaultUserClassName: super::super::Foundation::PWSTR,

@@ -690,6 +690,34 @@ impl ::std::cmp::Eq for FDISPILLFILE {}
 unsafe impl ::windows::runtime::Abi for FDISPILLFILE {
     type Abi = Self;
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
+pub struct FDISPILLFILE {
+    pub ach: [super::super::Foundation::CHAR; 2],
+    pub cbFile: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl FDISPILLFILE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for FDISPILLFILE {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for FDISPILLFILE {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for FDISPILLFILE {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for FDISPILLFILE {
+    type Abi = Self;
+}
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 #[inline]

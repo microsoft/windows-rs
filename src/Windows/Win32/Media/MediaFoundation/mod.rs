@@ -7582,6 +7582,31 @@ unsafe impl ::windows::runtime::Abi for D3DCONTENTPROTECTIONCAPS {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(4))]
+#[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
+pub struct D3DCONTENTPROTECTIONCAPS {
+    pub Caps: u32,
+    pub KeyExchangeType: ::windows::runtime::GUID,
+    pub BufferAlignmentStart: u32,
+    pub BlockAlignmentSize: u32,
+    pub ProtectedMemorySize: u64,
+}
+impl D3DCONTENTPROTECTIONCAPS {}
+impl ::std::default::Default for D3DCONTENTPROTECTIONCAPS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for D3DCONTENTPROTECTIONCAPS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for D3DCONTENTPROTECTIONCAPS {}
+unsafe impl ::windows::runtime::Abi for D3DCONTENTPROTECTIONCAPS {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub struct D3DOVERLAYCAPS {
@@ -11617,6 +11642,55 @@ impl ::std::fmt::Debug for DXVA_VideoSample2 {
 impl ::std::cmp::PartialEq for DXVA_VideoSample2 {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.Reserved == other.Reserved && self.rtStart == other.rtStart && self.rtEnd == other.rtEnd && self.SampleFormat == other.SampleFormat && self.SampleFlags == other.SampleFlags && self.lpDDSSrcSurface == other.lpDDSSrcSurface && self.rcSrc == other.rcSrc && self.rcDst == other.rcDst && self.Palette == other.Palette
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for DXVA_VideoSample2 {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for DXVA_VideoSample2 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+pub struct DXVA_VideoSample2 {
+    pub rtStart: i64,
+    pub rtEnd: i64,
+    pub SampleFormat: u32,
+    pub SampleFlags: u32,
+    pub lpDDSSrcSurface: *mut ::std::ffi::c_void,
+    pub rcSrc: super::super::Foundation::RECT,
+    pub rcDst: super::super::Foundation::RECT,
+    pub Palette: [DXVA_AYUVsample2; 16],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl DXVA_VideoSample2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for DXVA_VideoSample2 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::fmt::Debug for DXVA_VideoSample2 {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("DXVA_VideoSample2")
+            .field("rtStart", &self.rtStart)
+            .field("rtEnd", &self.rtEnd)
+            .field("SampleFormat", &self.SampleFormat)
+            .field("SampleFlags", &self.SampleFlags)
+            .field("lpDDSSrcSurface", &self.lpDDSSrcSurface)
+            .field("rcSrc", &self.rcSrc)
+            .field("rcDst", &self.rcDst)
+            .field("Palette", &self.Palette)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for DXVA_VideoSample2 {
+    fn eq(&self, other: &Self) -> bool {
+        self.rtStart == other.rtStart && self.rtEnd == other.rtEnd && self.SampleFormat == other.SampleFormat && self.SampleFlags == other.SampleFlags && self.lpDDSSrcSurface == other.lpDDSSrcSurface && self.rcSrc == other.rcSrc && self.rcDst == other.rcDst && self.Palette == other.Palette
     }
 }
 #[cfg(feature = "Win32_Foundation")]

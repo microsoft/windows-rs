@@ -346,6 +346,83 @@ impl ::std::cmp::Eq for NCB {}
 unsafe impl ::windows::runtime::Abi for NCB {
     type Abi = Self;
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_NetworkManagement_NetBios`, `Win32_Foundation`*"]
+pub struct NCB {
+    pub ncb_command: u8,
+    pub ncb_retcode: u8,
+    pub ncb_lsn: u8,
+    pub ncb_num: u8,
+    pub ncb_buffer: *mut u8,
+    pub ncb_length: u16,
+    pub ncb_callname: [u8; 16],
+    pub ncb_name: [u8; 16],
+    pub ncb_rto: u8,
+    pub ncb_sto: u8,
+    pub ncb_post: isize,
+    pub ncb_lana_num: u8,
+    pub ncb_cmd_cplt: u8,
+    pub ncb_reserve: [u8; 10],
+    pub ncb_event: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl NCB {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for NCB {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::fmt::Debug for NCB {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("NCB")
+            .field("ncb_command", &self.ncb_command)
+            .field("ncb_retcode", &self.ncb_retcode)
+            .field("ncb_lsn", &self.ncb_lsn)
+            .field("ncb_num", &self.ncb_num)
+            .field("ncb_buffer", &self.ncb_buffer)
+            .field("ncb_length", &self.ncb_length)
+            .field("ncb_callname", &self.ncb_callname)
+            .field("ncb_name", &self.ncb_name)
+            .field("ncb_rto", &self.ncb_rto)
+            .field("ncb_sto", &self.ncb_sto)
+            .field("ncb_post", &self.ncb_post)
+            .field("ncb_lana_num", &self.ncb_lana_num)
+            .field("ncb_cmd_cplt", &self.ncb_cmd_cplt)
+            .field("ncb_reserve", &self.ncb_reserve)
+            .field("ncb_event", &self.ncb_event)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for NCB {
+    fn eq(&self, other: &Self) -> bool {
+        self.ncb_command == other.ncb_command
+            && self.ncb_retcode == other.ncb_retcode
+            && self.ncb_lsn == other.ncb_lsn
+            && self.ncb_num == other.ncb_num
+            && self.ncb_buffer == other.ncb_buffer
+            && self.ncb_length == other.ncb_length
+            && self.ncb_callname == other.ncb_callname
+            && self.ncb_name == other.ncb_name
+            && self.ncb_rto == other.ncb_rto
+            && self.ncb_sto == other.ncb_sto
+            && self.ncb_post == other.ncb_post
+            && self.ncb_lana_num == other.ncb_lana_num
+            && self.ncb_cmd_cplt == other.ncb_cmd_cplt
+            && self.ncb_reserve == other.ncb_reserve
+            && self.ncb_event == other.ncb_event
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for NCB {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for NCB {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]
 pub const NCBACTION: u32 = 119u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`*"]

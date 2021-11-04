@@ -127,6 +127,50 @@ unsafe impl ::windows::runtime::Abi for FLOATING_SAVE_AREA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_Kernel`*"]
+pub struct FLOATING_SAVE_AREA {
+    pub ControlWord: u32,
+    pub StatusWord: u32,
+    pub TagWord: u32,
+    pub ErrorOffset: u32,
+    pub ErrorSelector: u32,
+    pub DataOffset: u32,
+    pub DataSelector: u32,
+    pub RegisterArea: [u8; 80],
+    pub Spare0: u32,
+}
+impl FLOATING_SAVE_AREA {}
+impl ::std::default::Default for FLOATING_SAVE_AREA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for FLOATING_SAVE_AREA {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("FLOATING_SAVE_AREA")
+            .field("ControlWord", &self.ControlWord)
+            .field("StatusWord", &self.StatusWord)
+            .field("TagWord", &self.TagWord)
+            .field("ErrorOffset", &self.ErrorOffset)
+            .field("ErrorSelector", &self.ErrorSelector)
+            .field("DataOffset", &self.DataOffset)
+            .field("DataSelector", &self.DataSelector)
+            .field("RegisterArea", &self.RegisterArea)
+            .field("Spare0", &self.Spare0)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for FLOATING_SAVE_AREA {
+    fn eq(&self, other: &Self) -> bool {
+        self.ControlWord == other.ControlWord && self.StatusWord == other.StatusWord && self.TagWord == other.TagWord && self.ErrorOffset == other.ErrorOffset && self.ErrorSelector == other.ErrorSelector && self.DataOffset == other.DataOffset && self.DataSelector == other.DataSelector && self.RegisterArea == other.RegisterArea && self.Spare0 == other.Spare0
+    }
+}
+impl ::std::cmp::Eq for FLOATING_SAVE_AREA {}
+unsafe impl ::windows::runtime::Abi for FLOATING_SAVE_AREA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
 pub struct LIST_ENTRY {
     pub Flink: *mut LIST_ENTRY,
     pub Blink: *mut LIST_ENTRY,
@@ -673,6 +717,132 @@ impl ::std::cmp::PartialEq for SLIST_HEADER_1 {
 }
 impl ::std::cmp::Eq for SLIST_HEADER_1 {}
 unsafe impl ::windows::runtime::Abi for SLIST_HEADER_1 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
+pub union SLIST_HEADER {
+    pub Anonymous: SLIST_HEADER_0,
+    pub HeaderX64: SLIST_HEADER_1,
+}
+impl SLIST_HEADER {}
+impl ::std::default::Default for SLIST_HEADER {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SLIST_HEADER {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for SLIST_HEADER {}
+unsafe impl ::windows::runtime::Abi for SLIST_HEADER {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
+pub struct SLIST_HEADER_0 {
+    pub Alignment: u64,
+    pub Region: u64,
+}
+impl SLIST_HEADER_0 {}
+impl ::std::default::Default for SLIST_HEADER_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for SLIST_HEADER_0 {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("_Anonymous_e__Struct").field("Alignment", &self.Alignment).field("Region", &self.Region).finish()
+    }
+}
+impl ::std::cmp::PartialEq for SLIST_HEADER_0 {
+    fn eq(&self, other: &Self) -> bool {
+        self.Alignment == other.Alignment && self.Region == other.Region
+    }
+}
+impl ::std::cmp::Eq for SLIST_HEADER_0 {}
+unsafe impl ::windows::runtime::Abi for SLIST_HEADER_0 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
+pub struct SLIST_HEADER_1 {
+    pub _bitfield1: u64,
+    pub _bitfield2: u64,
+}
+impl SLIST_HEADER_1 {}
+impl ::std::default::Default for SLIST_HEADER_1 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for SLIST_HEADER_1 {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("_HeaderX64_e__Struct").field("_bitfield1", &self._bitfield1).field("_bitfield2", &self._bitfield2).finish()
+    }
+}
+impl ::std::cmp::PartialEq for SLIST_HEADER_1 {
+    fn eq(&self, other: &Self) -> bool {
+        self._bitfield1 == other._bitfield1 && self._bitfield2 == other._bitfield2
+    }
+}
+impl ::std::cmp::Eq for SLIST_HEADER_1 {}
+unsafe impl ::windows::runtime::Abi for SLIST_HEADER_1 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
+pub union SLIST_HEADER {
+    pub Alignment: u64,
+    pub Anonymous: SLIST_HEADER_0,
+}
+impl SLIST_HEADER {}
+impl ::std::default::Default for SLIST_HEADER {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for SLIST_HEADER {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for SLIST_HEADER {}
+unsafe impl ::windows::runtime::Abi for SLIST_HEADER {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
+pub struct SLIST_HEADER_0 {
+    pub Next: SINGLE_LIST_ENTRY,
+    pub Depth: u16,
+    pub CpuId: u16,
+}
+impl SLIST_HEADER_0 {}
+impl ::std::default::Default for SLIST_HEADER_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for SLIST_HEADER_0 {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("_Anonymous_e__Struct").field("Next", &self.Next).field("Depth", &self.Depth).field("CpuId", &self.CpuId).finish()
+    }
+}
+impl ::std::cmp::PartialEq for SLIST_HEADER_0 {
+    fn eq(&self, other: &Self) -> bool {
+        self.Next == other.Next && self.Depth == other.Depth && self.CpuId == other.CpuId
+    }
+}
+impl ::std::cmp::Eq for SLIST_HEADER_0 {}
+unsafe impl ::windows::runtime::Abi for SLIST_HEADER_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]

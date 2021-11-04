@@ -4890,6 +4890,29 @@ impl ::std::cmp::Eq for IP6_ADDRESS {}
 unsafe impl ::windows::runtime::Abi for IP6_ADDRESS {
     type Abi = Self;
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
+pub union IP6_ADDRESS {
+    pub IP6Dword: [u32; 4],
+    pub IP6Word: [u16; 8],
+    pub IP6Byte: [u8; 16],
+}
+impl IP6_ADDRESS {}
+impl ::std::default::Default for IP6_ADDRESS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for IP6_ADDRESS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for IP6_ADDRESS {}
+unsafe impl ::windows::runtime::Abi for IP6_ADDRESS {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub const IP6_ADDRESS_STRING_BUFFER_LENGTH: u32 = 65u32;
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]

@@ -8526,6 +8526,59 @@ impl ::std::cmp::Eq for PERF_COUNTER_DEFINITION {}
 unsafe impl ::windows::runtime::Abi for PERF_COUNTER_DEFINITION {
     type Abi = Self;
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+pub struct PERF_COUNTER_DEFINITION {
+    pub ByteLength: u32,
+    pub CounterNameTitleIndex: u32,
+    pub CounterNameTitle: super::super::Foundation::PWSTR,
+    pub CounterHelpTitleIndex: u32,
+    pub CounterHelpTitle: super::super::Foundation::PWSTR,
+    pub DefaultScale: i32,
+    pub DetailLevel: u32,
+    pub CounterType: u32,
+    pub CounterSize: u32,
+    pub CounterOffset: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl PERF_COUNTER_DEFINITION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for PERF_COUNTER_DEFINITION {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::fmt::Debug for PERF_COUNTER_DEFINITION {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("PERF_COUNTER_DEFINITION")
+            .field("ByteLength", &self.ByteLength)
+            .field("CounterNameTitleIndex", &self.CounterNameTitleIndex)
+            .field("CounterNameTitle", &self.CounterNameTitle)
+            .field("CounterHelpTitleIndex", &self.CounterHelpTitleIndex)
+            .field("CounterHelpTitle", &self.CounterHelpTitle)
+            .field("DefaultScale", &self.DefaultScale)
+            .field("DetailLevel", &self.DetailLevel)
+            .field("CounterType", &self.CounterType)
+            .field("CounterSize", &self.CounterSize)
+            .field("CounterOffset", &self.CounterOffset)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for PERF_COUNTER_DEFINITION {
+    fn eq(&self, other: &Self) -> bool {
+        self.ByteLength == other.ByteLength && self.CounterNameTitleIndex == other.CounterNameTitleIndex && self.CounterNameTitle == other.CounterNameTitle && self.CounterHelpTitleIndex == other.CounterHelpTitleIndex && self.CounterHelpTitle == other.CounterHelpTitle && self.DefaultScale == other.DefaultScale && self.DetailLevel == other.DetailLevel && self.CounterType == other.CounterType && self.CounterSize == other.CounterSize && self.CounterOffset == other.CounterOffset
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for PERF_COUNTER_DEFINITION {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for PERF_COUNTER_DEFINITION {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub const PERF_COUNTER_ELAPSED: u32 = 262144u32;
 #[doc = "*Required features: `Win32_System_Performance`*"]
@@ -9108,6 +9161,80 @@ impl ::std::cmp::PartialEq for PERF_OBJECT_TYPE {
     }
 }
 impl ::std::cmp::Eq for PERF_OBJECT_TYPE {}
+unsafe impl ::windows::runtime::Abi for PERF_OBJECT_TYPE {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
+pub struct PERF_OBJECT_TYPE {
+    pub TotalByteLength: u32,
+    pub DefinitionLength: u32,
+    pub HeaderLength: u32,
+    pub ObjectNameTitleIndex: u32,
+    pub ObjectNameTitle: super::super::Foundation::PWSTR,
+    pub ObjectHelpTitleIndex: u32,
+    pub ObjectHelpTitle: super::super::Foundation::PWSTR,
+    pub DetailLevel: u32,
+    pub NumCounters: u32,
+    pub DefaultCounter: i32,
+    pub NumInstances: i32,
+    pub CodePage: u32,
+    pub PerfTime: i64,
+    pub PerfFreq: i64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl PERF_OBJECT_TYPE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for PERF_OBJECT_TYPE {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::fmt::Debug for PERF_OBJECT_TYPE {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("PERF_OBJECT_TYPE")
+            .field("TotalByteLength", &self.TotalByteLength)
+            .field("DefinitionLength", &self.DefinitionLength)
+            .field("HeaderLength", &self.HeaderLength)
+            .field("ObjectNameTitleIndex", &self.ObjectNameTitleIndex)
+            .field("ObjectNameTitle", &self.ObjectNameTitle)
+            .field("ObjectHelpTitleIndex", &self.ObjectHelpTitleIndex)
+            .field("ObjectHelpTitle", &self.ObjectHelpTitle)
+            .field("DetailLevel", &self.DetailLevel)
+            .field("NumCounters", &self.NumCounters)
+            .field("DefaultCounter", &self.DefaultCounter)
+            .field("NumInstances", &self.NumInstances)
+            .field("CodePage", &self.CodePage)
+            .field("PerfTime", &self.PerfTime)
+            .field("PerfFreq", &self.PerfFreq)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for PERF_OBJECT_TYPE {
+    fn eq(&self, other: &Self) -> bool {
+        self.TotalByteLength == other.TotalByteLength
+            && self.DefinitionLength == other.DefinitionLength
+            && self.HeaderLength == other.HeaderLength
+            && self.ObjectNameTitleIndex == other.ObjectNameTitleIndex
+            && self.ObjectNameTitle == other.ObjectNameTitle
+            && self.ObjectHelpTitleIndex == other.ObjectHelpTitleIndex
+            && self.ObjectHelpTitle == other.ObjectHelpTitle
+            && self.DetailLevel == other.DetailLevel
+            && self.NumCounters == other.NumCounters
+            && self.DefaultCounter == other.DefaultCounter
+            && self.NumInstances == other.NumInstances
+            && self.CodePage == other.CodePage
+            && self.PerfTime == other.PerfTime
+            && self.PerfFreq == other.PerfFreq
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for PERF_OBJECT_TYPE {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PERF_OBJECT_TYPE {
     type Abi = Self;
 }

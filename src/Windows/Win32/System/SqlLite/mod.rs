@@ -1763,6 +1763,797 @@ impl ::std::cmp::Eq for sqlite3_api_routines {}
 unsafe impl ::windows::runtime::Abi for sqlite3_api_routines {
     type Abi = Self;
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
+pub struct sqlite3_api_routines {
+    pub aggregate_context: isize,
+    pub aggregate_count: isize,
+    pub bind_blob: isize,
+    pub bind_double: isize,
+    pub bind_int: isize,
+    pub bind_int64: isize,
+    pub bind_null: isize,
+    pub bind_parameter_count: isize,
+    pub bind_parameter_index: isize,
+    pub bind_parameter_name: isize,
+    pub bind_text: isize,
+    pub bind_text16: isize,
+    pub bind_value: isize,
+    pub busy_handler: isize,
+    pub busy_timeout: isize,
+    pub changes: isize,
+    pub close: isize,
+    pub collation_needed: isize,
+    pub collation_needed16: isize,
+    pub column_blob: isize,
+    pub column_bytes: isize,
+    pub column_bytes16: isize,
+    pub column_count: isize,
+    pub column_database_name: isize,
+    pub column_database_name16: isize,
+    pub column_decltype: isize,
+    pub column_decltype16: isize,
+    pub column_double: isize,
+    pub column_int: isize,
+    pub column_int64: isize,
+    pub column_name: isize,
+    pub column_name16: isize,
+    pub column_origin_name: isize,
+    pub column_origin_name16: isize,
+    pub column_table_name: isize,
+    pub column_table_name16: isize,
+    pub column_text: isize,
+    pub column_text16: isize,
+    pub column_type: isize,
+    pub column_value: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_value,
+    pub commit_hook: isize,
+    pub complete: isize,
+    pub complete16: isize,
+    pub create_collation: isize,
+    pub create_collation16: isize,
+    pub create_function: isize,
+    pub create_function16: isize,
+    pub create_module: isize,
+    pub data_count: isize,
+    pub db_handle: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3,
+    pub declare_vtab: isize,
+    pub enable_shared_cache: isize,
+    pub errcode: isize,
+    pub errmsg: isize,
+    pub errmsg16: isize,
+    pub exec: isize,
+    pub expired: isize,
+    pub finalize: isize,
+    pub free: isize,
+    pub free_table: isize,
+    pub get_autocommit: isize,
+    pub get_auxdata: isize,
+    pub get_table: isize,
+    pub global_recover: isize,
+    pub interruptx: isize,
+    pub last_insert_rowid: isize,
+    pub libversion: isize,
+    pub libversion_number: isize,
+    pub malloc: isize,
+    pub mprintf: isize,
+    pub open: isize,
+    pub open16: isize,
+    pub prepare: isize,
+    pub prepare16: isize,
+    pub profile: isize,
+    pub progress_handler: isize,
+    pub realloc: isize,
+    pub reset: isize,
+    pub result_blob: isize,
+    pub result_double: isize,
+    pub result_error: isize,
+    pub result_error16: isize,
+    pub result_int: isize,
+    pub result_int64: isize,
+    pub result_null: isize,
+    pub result_text: isize,
+    pub result_text16: isize,
+    pub result_text16be: isize,
+    pub result_text16le: isize,
+    pub result_value: isize,
+    pub rollback_hook: isize,
+    pub set_authorizer: isize,
+    pub set_auxdata: isize,
+    pub xsnprintf: isize,
+    pub step: isize,
+    pub table_column_metadata: isize,
+    pub thread_cleanup: isize,
+    pub total_changes: isize,
+    pub trace: isize,
+    pub transfer_bindings: isize,
+    pub update_hook: isize,
+    pub user_data: isize,
+    pub value_blob: isize,
+    pub value_bytes: isize,
+    pub value_bytes16: isize,
+    pub value_double: isize,
+    pub value_int: isize,
+    pub value_int64: isize,
+    pub value_numeric_type: isize,
+    pub value_text: isize,
+    pub value_text16: isize,
+    pub value_text16be: isize,
+    pub value_text16le: isize,
+    pub value_type: isize,
+    pub vmprintf: isize,
+    pub overload_function: isize,
+    pub prepare_v2: isize,
+    pub prepare16_v2: isize,
+    pub clear_bindings: isize,
+    pub create_module_v2: isize,
+    pub bind_zeroblob: isize,
+    pub blob_bytes: isize,
+    pub blob_close: isize,
+    pub blob_open: isize,
+    pub blob_read: isize,
+    pub blob_write: isize,
+    pub create_collation_v2: isize,
+    pub file_control: isize,
+    pub memory_highwater: isize,
+    pub memory_used: isize,
+    pub mutex_alloc: *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_mutex,
+    pub mutex_enter: isize,
+    pub mutex_free: isize,
+    pub mutex_leave: isize,
+    pub mutex_try: isize,
+    pub open_v2: isize,
+    pub release_memory: isize,
+    pub result_error_nomem: isize,
+    pub result_error_toobig: isize,
+    pub sleep: isize,
+    pub soft_heap_limit: isize,
+    pub vfs_find: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_vfs,
+    pub vfs_register: isize,
+    pub vfs_unregister: isize,
+    pub xthreadsafe: isize,
+    pub result_zeroblob: isize,
+    pub result_error_code: isize,
+    pub test_control: isize,
+    pub randomness: isize,
+    pub context_db_handle: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3,
+    pub extended_result_codes: isize,
+    pub limit: isize,
+    pub next_stmt: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_stmt,
+    pub sql: isize,
+    pub status: isize,
+    pub backup_finish: isize,
+    pub backup_init: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_backup,
+    pub backup_pagecount: isize,
+    pub backup_remaining: isize,
+    pub backup_step: isize,
+    pub compileoption_get: isize,
+    pub compileoption_used: isize,
+    pub create_function_v2: isize,
+    pub db_config: isize,
+    pub db_mutex: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_mutex,
+    pub db_status: isize,
+    pub extended_errcode: isize,
+    pub log: isize,
+    pub soft_heap_limit64: isize,
+    pub sourceid: isize,
+    pub stmt_status: isize,
+    pub strnicmp: isize,
+    pub unlock_notify: isize,
+    pub wal_autocheckpoint: isize,
+    pub wal_checkpoint: isize,
+    pub wal_hook: isize,
+    pub blob_reopen: isize,
+    pub vtab_config: isize,
+    pub vtab_on_conflict: isize,
+    pub close_v2: isize,
+    pub db_filename: isize,
+    pub db_readonly: isize,
+    pub db_release_memory: isize,
+    pub errstr: isize,
+    pub stmt_busy: isize,
+    pub stmt_readonly: isize,
+    pub stricmp: isize,
+    pub uri_boolean: isize,
+    pub uri_int64: isize,
+    pub uri_parameter: isize,
+    pub xvsnprintf: isize,
+    pub wal_checkpoint_v2: isize,
+    pub auto_extension: isize,
+    pub bind_blob64: isize,
+    pub bind_text64: isize,
+    pub cancel_auto_extension: isize,
+    pub load_extension: isize,
+    pub malloc64: isize,
+    pub msize: isize,
+    pub realloc64: isize,
+    pub reset_auto_extension: isize,
+    pub result_blob64: isize,
+    pub result_text64: isize,
+    pub strglob: isize,
+    pub value_dup: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_value,
+    pub value_free: isize,
+    pub result_zeroblob64: isize,
+    pub bind_zeroblob64: isize,
+    pub value_subtype: isize,
+    pub result_subtype: isize,
+    pub status64: isize,
+    pub strlike: isize,
+    pub db_cacheflush: isize,
+    pub system_errno: isize,
+    pub trace_v2: isize,
+    pub expanded_sql: isize,
+    pub set_last_insert_rowid: isize,
+    pub prepare_v3: isize,
+    pub prepare16_v3: isize,
+    pub bind_pointer: isize,
+    pub result_pointer: isize,
+    pub value_pointer: isize,
+    pub vtab_nochange: isize,
+    pub value_nochange: isize,
+    pub vtab_collation: isize,
+    pub keyword_count: isize,
+    pub keyword_name: isize,
+    pub keyword_check: isize,
+    pub str_new: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_str,
+    pub str_finish: isize,
+    pub str_appendf: isize,
+    pub str_vappendf: isize,
+    pub str_append: isize,
+    pub str_appendall: isize,
+    pub str_appendchar: isize,
+    pub str_reset: isize,
+    pub str_errcode: isize,
+    pub str_length: isize,
+    pub str_value: isize,
+    pub create_window_function: isize,
+    pub normalized_sql: isize,
+    pub stmt_isexplain: isize,
+    pub value_frombind: isize,
+    pub drop_modules: isize,
+    pub hard_heap_limit64: isize,
+    pub uri_key: isize,
+    pub filename_database: isize,
+    pub filename_journal: isize,
+    pub filename_wal: isize,
+    pub create_filename: isize,
+    pub free_filename: isize,
+    pub database_file_object: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_file,
+    pub txn_state: isize,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl sqlite3_api_routines {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for sqlite3_api_routines {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::fmt::Debug for sqlite3_api_routines {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("sqlite3_api_routines")
+            .field("aggregate_context", &self.aggregate_context)
+            .field("aggregate_count", &self.aggregate_count)
+            .field("bind_blob", &self.bind_blob)
+            .field("bind_double", &self.bind_double)
+            .field("bind_int", &self.bind_int)
+            .field("bind_int64", &self.bind_int64)
+            .field("bind_null", &self.bind_null)
+            .field("bind_parameter_count", &self.bind_parameter_count)
+            .field("bind_parameter_index", &self.bind_parameter_index)
+            .field("bind_parameter_name", &self.bind_parameter_name)
+            .field("bind_text", &self.bind_text)
+            .field("bind_text16", &self.bind_text16)
+            .field("bind_value", &self.bind_value)
+            .field("busy_handler", &self.busy_handler)
+            .field("busy_timeout", &self.busy_timeout)
+            .field("changes", &self.changes)
+            .field("close", &self.close)
+            .field("collation_needed", &self.collation_needed)
+            .field("collation_needed16", &self.collation_needed16)
+            .field("column_blob", &self.column_blob)
+            .field("column_bytes", &self.column_bytes)
+            .field("column_bytes16", &self.column_bytes16)
+            .field("column_count", &self.column_count)
+            .field("column_database_name", &self.column_database_name)
+            .field("column_database_name16", &self.column_database_name16)
+            .field("column_decltype", &self.column_decltype)
+            .field("column_decltype16", &self.column_decltype16)
+            .field("column_double", &self.column_double)
+            .field("column_int", &self.column_int)
+            .field("column_int64", &self.column_int64)
+            .field("column_name", &self.column_name)
+            .field("column_name16", &self.column_name16)
+            .field("column_origin_name", &self.column_origin_name)
+            .field("column_origin_name16", &self.column_origin_name16)
+            .field("column_table_name", &self.column_table_name)
+            .field("column_table_name16", &self.column_table_name16)
+            .field("column_text", &self.column_text)
+            .field("column_text16", &self.column_text16)
+            .field("column_type", &self.column_type)
+            .field("column_value", &self.column_value)
+            .field("commit_hook", &self.commit_hook)
+            .field("complete", &self.complete)
+            .field("complete16", &self.complete16)
+            .field("create_collation", &self.create_collation)
+            .field("create_collation16", &self.create_collation16)
+            .field("create_function", &self.create_function)
+            .field("create_function16", &self.create_function16)
+            .field("create_module", &self.create_module)
+            .field("data_count", &self.data_count)
+            .field("db_handle", &self.db_handle)
+            .field("declare_vtab", &self.declare_vtab)
+            .field("enable_shared_cache", &self.enable_shared_cache)
+            .field("errcode", &self.errcode)
+            .field("errmsg", &self.errmsg)
+            .field("errmsg16", &self.errmsg16)
+            .field("exec", &self.exec)
+            .field("expired", &self.expired)
+            .field("finalize", &self.finalize)
+            .field("free", &self.free)
+            .field("free_table", &self.free_table)
+            .field("get_autocommit", &self.get_autocommit)
+            .field("get_auxdata", &self.get_auxdata)
+            .field("get_table", &self.get_table)
+            .field("global_recover", &self.global_recover)
+            .field("interruptx", &self.interruptx)
+            .field("last_insert_rowid", &self.last_insert_rowid)
+            .field("libversion", &self.libversion)
+            .field("libversion_number", &self.libversion_number)
+            .field("malloc", &self.malloc)
+            .field("mprintf", &self.mprintf)
+            .field("open", &self.open)
+            .field("open16", &self.open16)
+            .field("prepare", &self.prepare)
+            .field("prepare16", &self.prepare16)
+            .field("profile", &self.profile)
+            .field("progress_handler", &self.progress_handler)
+            .field("realloc", &self.realloc)
+            .field("reset", &self.reset)
+            .field("result_blob", &self.result_blob)
+            .field("result_double", &self.result_double)
+            .field("result_error", &self.result_error)
+            .field("result_error16", &self.result_error16)
+            .field("result_int", &self.result_int)
+            .field("result_int64", &self.result_int64)
+            .field("result_null", &self.result_null)
+            .field("result_text", &self.result_text)
+            .field("result_text16", &self.result_text16)
+            .field("result_text16be", &self.result_text16be)
+            .field("result_text16le", &self.result_text16le)
+            .field("result_value", &self.result_value)
+            .field("rollback_hook", &self.rollback_hook)
+            .field("set_authorizer", &self.set_authorizer)
+            .field("set_auxdata", &self.set_auxdata)
+            .field("xsnprintf", &self.xsnprintf)
+            .field("step", &self.step)
+            .field("table_column_metadata", &self.table_column_metadata)
+            .field("thread_cleanup", &self.thread_cleanup)
+            .field("total_changes", &self.total_changes)
+            .field("trace", &self.trace)
+            .field("transfer_bindings", &self.transfer_bindings)
+            .field("update_hook", &self.update_hook)
+            .field("user_data", &self.user_data)
+            .field("value_blob", &self.value_blob)
+            .field("value_bytes", &self.value_bytes)
+            .field("value_bytes16", &self.value_bytes16)
+            .field("value_double", &self.value_double)
+            .field("value_int", &self.value_int)
+            .field("value_int64", &self.value_int64)
+            .field("value_numeric_type", &self.value_numeric_type)
+            .field("value_text", &self.value_text)
+            .field("value_text16", &self.value_text16)
+            .field("value_text16be", &self.value_text16be)
+            .field("value_text16le", &self.value_text16le)
+            .field("value_type", &self.value_type)
+            .field("vmprintf", &self.vmprintf)
+            .field("overload_function", &self.overload_function)
+            .field("prepare_v2", &self.prepare_v2)
+            .field("prepare16_v2", &self.prepare16_v2)
+            .field("clear_bindings", &self.clear_bindings)
+            .field("create_module_v2", &self.create_module_v2)
+            .field("bind_zeroblob", &self.bind_zeroblob)
+            .field("blob_bytes", &self.blob_bytes)
+            .field("blob_close", &self.blob_close)
+            .field("blob_open", &self.blob_open)
+            .field("blob_read", &self.blob_read)
+            .field("blob_write", &self.blob_write)
+            .field("create_collation_v2", &self.create_collation_v2)
+            .field("file_control", &self.file_control)
+            .field("memory_highwater", &self.memory_highwater)
+            .field("memory_used", &self.memory_used)
+            .field("mutex_alloc", &self.mutex_alloc)
+            .field("mutex_enter", &self.mutex_enter)
+            .field("mutex_free", &self.mutex_free)
+            .field("mutex_leave", &self.mutex_leave)
+            .field("mutex_try", &self.mutex_try)
+            .field("open_v2", &self.open_v2)
+            .field("release_memory", &self.release_memory)
+            .field("result_error_nomem", &self.result_error_nomem)
+            .field("result_error_toobig", &self.result_error_toobig)
+            .field("sleep", &self.sleep)
+            .field("soft_heap_limit", &self.soft_heap_limit)
+            .field("vfs_find", &self.vfs_find)
+            .field("vfs_register", &self.vfs_register)
+            .field("vfs_unregister", &self.vfs_unregister)
+            .field("xthreadsafe", &self.xthreadsafe)
+            .field("result_zeroblob", &self.result_zeroblob)
+            .field("result_error_code", &self.result_error_code)
+            .field("test_control", &self.test_control)
+            .field("randomness", &self.randomness)
+            .field("context_db_handle", &self.context_db_handle)
+            .field("extended_result_codes", &self.extended_result_codes)
+            .field("limit", &self.limit)
+            .field("next_stmt", &self.next_stmt)
+            .field("sql", &self.sql)
+            .field("status", &self.status)
+            .field("backup_finish", &self.backup_finish)
+            .field("backup_init", &self.backup_init)
+            .field("backup_pagecount", &self.backup_pagecount)
+            .field("backup_remaining", &self.backup_remaining)
+            .field("backup_step", &self.backup_step)
+            .field("compileoption_get", &self.compileoption_get)
+            .field("compileoption_used", &self.compileoption_used)
+            .field("create_function_v2", &self.create_function_v2)
+            .field("db_config", &self.db_config)
+            .field("db_mutex", &self.db_mutex)
+            .field("db_status", &self.db_status)
+            .field("extended_errcode", &self.extended_errcode)
+            .field("log", &self.log)
+            .field("soft_heap_limit64", &self.soft_heap_limit64)
+            .field("sourceid", &self.sourceid)
+            .field("stmt_status", &self.stmt_status)
+            .field("strnicmp", &self.strnicmp)
+            .field("unlock_notify", &self.unlock_notify)
+            .field("wal_autocheckpoint", &self.wal_autocheckpoint)
+            .field("wal_checkpoint", &self.wal_checkpoint)
+            .field("wal_hook", &self.wal_hook)
+            .field("blob_reopen", &self.blob_reopen)
+            .field("vtab_config", &self.vtab_config)
+            .field("vtab_on_conflict", &self.vtab_on_conflict)
+            .field("close_v2", &self.close_v2)
+            .field("db_filename", &self.db_filename)
+            .field("db_readonly", &self.db_readonly)
+            .field("db_release_memory", &self.db_release_memory)
+            .field("errstr", &self.errstr)
+            .field("stmt_busy", &self.stmt_busy)
+            .field("stmt_readonly", &self.stmt_readonly)
+            .field("stricmp", &self.stricmp)
+            .field("uri_boolean", &self.uri_boolean)
+            .field("uri_int64", &self.uri_int64)
+            .field("uri_parameter", &self.uri_parameter)
+            .field("xvsnprintf", &self.xvsnprintf)
+            .field("wal_checkpoint_v2", &self.wal_checkpoint_v2)
+            .field("auto_extension", &self.auto_extension)
+            .field("bind_blob64", &self.bind_blob64)
+            .field("bind_text64", &self.bind_text64)
+            .field("cancel_auto_extension", &self.cancel_auto_extension)
+            .field("load_extension", &self.load_extension)
+            .field("malloc64", &self.malloc64)
+            .field("msize", &self.msize)
+            .field("realloc64", &self.realloc64)
+            .field("reset_auto_extension", &self.reset_auto_extension)
+            .field("result_blob64", &self.result_blob64)
+            .field("result_text64", &self.result_text64)
+            .field("strglob", &self.strglob)
+            .field("value_dup", &self.value_dup)
+            .field("value_free", &self.value_free)
+            .field("result_zeroblob64", &self.result_zeroblob64)
+            .field("bind_zeroblob64", &self.bind_zeroblob64)
+            .field("value_subtype", &self.value_subtype)
+            .field("result_subtype", &self.result_subtype)
+            .field("status64", &self.status64)
+            .field("strlike", &self.strlike)
+            .field("db_cacheflush", &self.db_cacheflush)
+            .field("system_errno", &self.system_errno)
+            .field("trace_v2", &self.trace_v2)
+            .field("expanded_sql", &self.expanded_sql)
+            .field("set_last_insert_rowid", &self.set_last_insert_rowid)
+            .field("prepare_v3", &self.prepare_v3)
+            .field("prepare16_v3", &self.prepare16_v3)
+            .field("bind_pointer", &self.bind_pointer)
+            .field("result_pointer", &self.result_pointer)
+            .field("value_pointer", &self.value_pointer)
+            .field("vtab_nochange", &self.vtab_nochange)
+            .field("value_nochange", &self.value_nochange)
+            .field("vtab_collation", &self.vtab_collation)
+            .field("keyword_count", &self.keyword_count)
+            .field("keyword_name", &self.keyword_name)
+            .field("keyword_check", &self.keyword_check)
+            .field("str_new", &self.str_new)
+            .field("str_finish", &self.str_finish)
+            .field("str_appendf", &self.str_appendf)
+            .field("str_vappendf", &self.str_vappendf)
+            .field("str_append", &self.str_append)
+            .field("str_appendall", &self.str_appendall)
+            .field("str_appendchar", &self.str_appendchar)
+            .field("str_reset", &self.str_reset)
+            .field("str_errcode", &self.str_errcode)
+            .field("str_length", &self.str_length)
+            .field("str_value", &self.str_value)
+            .field("create_window_function", &self.create_window_function)
+            .field("normalized_sql", &self.normalized_sql)
+            .field("stmt_isexplain", &self.stmt_isexplain)
+            .field("value_frombind", &self.value_frombind)
+            .field("drop_modules", &self.drop_modules)
+            .field("hard_heap_limit64", &self.hard_heap_limit64)
+            .field("uri_key", &self.uri_key)
+            .field("filename_database", &self.filename_database)
+            .field("filename_journal", &self.filename_journal)
+            .field("filename_wal", &self.filename_wal)
+            .field("create_filename", &self.create_filename)
+            .field("free_filename", &self.free_filename)
+            .field("database_file_object", &self.database_file_object)
+            .field("txn_state", &self.txn_state)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for sqlite3_api_routines {
+    fn eq(&self, other: &Self) -> bool {
+        self.aggregate_context == other.aggregate_context
+            && self.aggregate_count == other.aggregate_count
+            && self.bind_blob == other.bind_blob
+            && self.bind_double == other.bind_double
+            && self.bind_int == other.bind_int
+            && self.bind_int64 == other.bind_int64
+            && self.bind_null == other.bind_null
+            && self.bind_parameter_count == other.bind_parameter_count
+            && self.bind_parameter_index == other.bind_parameter_index
+            && self.bind_parameter_name == other.bind_parameter_name
+            && self.bind_text == other.bind_text
+            && self.bind_text16 == other.bind_text16
+            && self.bind_value == other.bind_value
+            && self.busy_handler == other.busy_handler
+            && self.busy_timeout == other.busy_timeout
+            && self.changes == other.changes
+            && self.close == other.close
+            && self.collation_needed == other.collation_needed
+            && self.collation_needed16 == other.collation_needed16
+            && self.column_blob == other.column_blob
+            && self.column_bytes == other.column_bytes
+            && self.column_bytes16 == other.column_bytes16
+            && self.column_count == other.column_count
+            && self.column_database_name == other.column_database_name
+            && self.column_database_name16 == other.column_database_name16
+            && self.column_decltype == other.column_decltype
+            && self.column_decltype16 == other.column_decltype16
+            && self.column_double == other.column_double
+            && self.column_int == other.column_int
+            && self.column_int64 == other.column_int64
+            && self.column_name == other.column_name
+            && self.column_name16 == other.column_name16
+            && self.column_origin_name == other.column_origin_name
+            && self.column_origin_name16 == other.column_origin_name16
+            && self.column_table_name == other.column_table_name
+            && self.column_table_name16 == other.column_table_name16
+            && self.column_text == other.column_text
+            && self.column_text16 == other.column_text16
+            && self.column_type == other.column_type
+            && self.column_value == other.column_value
+            && self.commit_hook == other.commit_hook
+            && self.complete == other.complete
+            && self.complete16 == other.complete16
+            && self.create_collation == other.create_collation
+            && self.create_collation16 == other.create_collation16
+            && self.create_function == other.create_function
+            && self.create_function16 == other.create_function16
+            && self.create_module == other.create_module
+            && self.data_count == other.data_count
+            && self.db_handle == other.db_handle
+            && self.declare_vtab == other.declare_vtab
+            && self.enable_shared_cache == other.enable_shared_cache
+            && self.errcode == other.errcode
+            && self.errmsg == other.errmsg
+            && self.errmsg16 == other.errmsg16
+            && self.exec == other.exec
+            && self.expired == other.expired
+            && self.finalize == other.finalize
+            && self.free == other.free
+            && self.free_table == other.free_table
+            && self.get_autocommit == other.get_autocommit
+            && self.get_auxdata == other.get_auxdata
+            && self.get_table == other.get_table
+            && self.global_recover == other.global_recover
+            && self.interruptx == other.interruptx
+            && self.last_insert_rowid == other.last_insert_rowid
+            && self.libversion == other.libversion
+            && self.libversion_number == other.libversion_number
+            && self.malloc == other.malloc
+            && self.mprintf == other.mprintf
+            && self.open == other.open
+            && self.open16 == other.open16
+            && self.prepare == other.prepare
+            && self.prepare16 == other.prepare16
+            && self.profile == other.profile
+            && self.progress_handler == other.progress_handler
+            && self.realloc == other.realloc
+            && self.reset == other.reset
+            && self.result_blob == other.result_blob
+            && self.result_double == other.result_double
+            && self.result_error == other.result_error
+            && self.result_error16 == other.result_error16
+            && self.result_int == other.result_int
+            && self.result_int64 == other.result_int64
+            && self.result_null == other.result_null
+            && self.result_text == other.result_text
+            && self.result_text16 == other.result_text16
+            && self.result_text16be == other.result_text16be
+            && self.result_text16le == other.result_text16le
+            && self.result_value == other.result_value
+            && self.rollback_hook == other.rollback_hook
+            && self.set_authorizer == other.set_authorizer
+            && self.set_auxdata == other.set_auxdata
+            && self.xsnprintf == other.xsnprintf
+            && self.step == other.step
+            && self.table_column_metadata == other.table_column_metadata
+            && self.thread_cleanup == other.thread_cleanup
+            && self.total_changes == other.total_changes
+            && self.trace == other.trace
+            && self.transfer_bindings == other.transfer_bindings
+            && self.update_hook == other.update_hook
+            && self.user_data == other.user_data
+            && self.value_blob == other.value_blob
+            && self.value_bytes == other.value_bytes
+            && self.value_bytes16 == other.value_bytes16
+            && self.value_double == other.value_double
+            && self.value_int == other.value_int
+            && self.value_int64 == other.value_int64
+            && self.value_numeric_type == other.value_numeric_type
+            && self.value_text == other.value_text
+            && self.value_text16 == other.value_text16
+            && self.value_text16be == other.value_text16be
+            && self.value_text16le == other.value_text16le
+            && self.value_type == other.value_type
+            && self.vmprintf == other.vmprintf
+            && self.overload_function == other.overload_function
+            && self.prepare_v2 == other.prepare_v2
+            && self.prepare16_v2 == other.prepare16_v2
+            && self.clear_bindings == other.clear_bindings
+            && self.create_module_v2 == other.create_module_v2
+            && self.bind_zeroblob == other.bind_zeroblob
+            && self.blob_bytes == other.blob_bytes
+            && self.blob_close == other.blob_close
+            && self.blob_open == other.blob_open
+            && self.blob_read == other.blob_read
+            && self.blob_write == other.blob_write
+            && self.create_collation_v2 == other.create_collation_v2
+            && self.file_control == other.file_control
+            && self.memory_highwater == other.memory_highwater
+            && self.memory_used == other.memory_used
+            && self.mutex_alloc == other.mutex_alloc
+            && self.mutex_enter == other.mutex_enter
+            && self.mutex_free == other.mutex_free
+            && self.mutex_leave == other.mutex_leave
+            && self.mutex_try == other.mutex_try
+            && self.open_v2 == other.open_v2
+            && self.release_memory == other.release_memory
+            && self.result_error_nomem == other.result_error_nomem
+            && self.result_error_toobig == other.result_error_toobig
+            && self.sleep == other.sleep
+            && self.soft_heap_limit == other.soft_heap_limit
+            && self.vfs_find == other.vfs_find
+            && self.vfs_register == other.vfs_register
+            && self.vfs_unregister == other.vfs_unregister
+            && self.xthreadsafe == other.xthreadsafe
+            && self.result_zeroblob == other.result_zeroblob
+            && self.result_error_code == other.result_error_code
+            && self.test_control == other.test_control
+            && self.randomness == other.randomness
+            && self.context_db_handle == other.context_db_handle
+            && self.extended_result_codes == other.extended_result_codes
+            && self.limit == other.limit
+            && self.next_stmt == other.next_stmt
+            && self.sql == other.sql
+            && self.status == other.status
+            && self.backup_finish == other.backup_finish
+            && self.backup_init == other.backup_init
+            && self.backup_pagecount == other.backup_pagecount
+            && self.backup_remaining == other.backup_remaining
+            && self.backup_step == other.backup_step
+            && self.compileoption_get == other.compileoption_get
+            && self.compileoption_used == other.compileoption_used
+            && self.create_function_v2 == other.create_function_v2
+            && self.db_config == other.db_config
+            && self.db_mutex == other.db_mutex
+            && self.db_status == other.db_status
+            && self.extended_errcode == other.extended_errcode
+            && self.log == other.log
+            && self.soft_heap_limit64 == other.soft_heap_limit64
+            && self.sourceid == other.sourceid
+            && self.stmt_status == other.stmt_status
+            && self.strnicmp == other.strnicmp
+            && self.unlock_notify == other.unlock_notify
+            && self.wal_autocheckpoint == other.wal_autocheckpoint
+            && self.wal_checkpoint == other.wal_checkpoint
+            && self.wal_hook == other.wal_hook
+            && self.blob_reopen == other.blob_reopen
+            && self.vtab_config == other.vtab_config
+            && self.vtab_on_conflict == other.vtab_on_conflict
+            && self.close_v2 == other.close_v2
+            && self.db_filename == other.db_filename
+            && self.db_readonly == other.db_readonly
+            && self.db_release_memory == other.db_release_memory
+            && self.errstr == other.errstr
+            && self.stmt_busy == other.stmt_busy
+            && self.stmt_readonly == other.stmt_readonly
+            && self.stricmp == other.stricmp
+            && self.uri_boolean == other.uri_boolean
+            && self.uri_int64 == other.uri_int64
+            && self.uri_parameter == other.uri_parameter
+            && self.xvsnprintf == other.xvsnprintf
+            && self.wal_checkpoint_v2 == other.wal_checkpoint_v2
+            && self.auto_extension == other.auto_extension
+            && self.bind_blob64 == other.bind_blob64
+            && self.bind_text64 == other.bind_text64
+            && self.cancel_auto_extension == other.cancel_auto_extension
+            && self.load_extension == other.load_extension
+            && self.malloc64 == other.malloc64
+            && self.msize == other.msize
+            && self.realloc64 == other.realloc64
+            && self.reset_auto_extension == other.reset_auto_extension
+            && self.result_blob64 == other.result_blob64
+            && self.result_text64 == other.result_text64
+            && self.strglob == other.strglob
+            && self.value_dup == other.value_dup
+            && self.value_free == other.value_free
+            && self.result_zeroblob64 == other.result_zeroblob64
+            && self.bind_zeroblob64 == other.bind_zeroblob64
+            && self.value_subtype == other.value_subtype
+            && self.result_subtype == other.result_subtype
+            && self.status64 == other.status64
+            && self.strlike == other.strlike
+            && self.db_cacheflush == other.db_cacheflush
+            && self.system_errno == other.system_errno
+            && self.trace_v2 == other.trace_v2
+            && self.expanded_sql == other.expanded_sql
+            && self.set_last_insert_rowid == other.set_last_insert_rowid
+            && self.prepare_v3 == other.prepare_v3
+            && self.prepare16_v3 == other.prepare16_v3
+            && self.bind_pointer == other.bind_pointer
+            && self.result_pointer == other.result_pointer
+            && self.value_pointer == other.value_pointer
+            && self.vtab_nochange == other.vtab_nochange
+            && self.value_nochange == other.value_nochange
+            && self.vtab_collation == other.vtab_collation
+            && self.keyword_count == other.keyword_count
+            && self.keyword_name == other.keyword_name
+            && self.keyword_check == other.keyword_check
+            && self.str_new == other.str_new
+            && self.str_finish == other.str_finish
+            && self.str_appendf == other.str_appendf
+            && self.str_vappendf == other.str_vappendf
+            && self.str_append == other.str_append
+            && self.str_appendall == other.str_appendall
+            && self.str_appendchar == other.str_appendchar
+            && self.str_reset == other.str_reset
+            && self.str_errcode == other.str_errcode
+            && self.str_length == other.str_length
+            && self.str_value == other.str_value
+            && self.create_window_function == other.create_window_function
+            && self.normalized_sql == other.normalized_sql
+            && self.stmt_isexplain == other.stmt_isexplain
+            && self.value_frombind == other.value_frombind
+            && self.drop_modules == other.drop_modules
+            && self.hard_heap_limit64 == other.hard_heap_limit64
+            && self.uri_key == other.uri_key
+            && self.filename_database == other.filename_database
+            && self.filename_journal == other.filename_journal
+            && self.filename_wal == other.filename_wal
+            && self.create_filename == other.create_filename
+            && self.free_filename == other.free_filename
+            && self.database_file_object == other.database_file_object
+            && self.txn_state == other.txn_state
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for sqlite3_api_routines {}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for sqlite3_api_routines {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_System_SqlLite`*"]
 #[inline]
 pub unsafe fn sqlite3_auto_extension(xentrypoint: isize) -> i32 {

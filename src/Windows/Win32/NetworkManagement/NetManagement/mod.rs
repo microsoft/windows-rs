@@ -265,6 +265,36 @@ pub const AE_ACCLIMITEXCD: u32 = 17u32;
 pub const AE_ACCRESTRICT: u32 = 4u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_ACLMOD: u32 = 12u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_ACLMOD {
+    pub ae_am_compname: u32,
+    pub ae_am_username: u32,
+    pub ae_am_resname: u32,
+    pub ae_am_action: u32,
+    pub ae_am_datalen: u32,
+}
+impl AE_ACLMOD {}
+impl ::std::default::Default for AE_ACLMOD {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_ACLMOD {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_ACLMOD").field("ae_am_compname", &self.ae_am_compname).field("ae_am_username", &self.ae_am_username).field("ae_am_resname", &self.ae_am_resname).field("ae_am_action", &self.ae_am_action).field("ae_am_datalen", &self.ae_am_datalen).finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_ACLMOD {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_am_compname == other.ae_am_compname && self.ae_am_username == other.ae_am_username && self.ae_am_resname == other.ae_am_resname && self.ae_am_action == other.ae_am_action && self.ae_am_datalen == other.ae_am_datalen
+    }
+}
+impl ::std::cmp::Eq for AE_ACLMOD {}
+unsafe impl ::windows::runtime::Abi for AE_ACLMOD {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_ACLMODFAIL: u32 = 19u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -283,12 +313,138 @@ pub const AE_AUTODIS: u32 = 2u32;
 pub const AE_BADPW: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_CLOSEFILE: u32 = 9u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_CLOSEFILE {
+    pub ae_cf_compname: u32,
+    pub ae_cf_username: u32,
+    pub ae_cf_resname: u32,
+    pub ae_cf_fileid: u32,
+    pub ae_cf_duration: u32,
+    pub ae_cf_reason: u32,
+}
+impl AE_CLOSEFILE {}
+impl ::std::default::Default for AE_CLOSEFILE {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_CLOSEFILE {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_CLOSEFILE")
+            .field("ae_cf_compname", &self.ae_cf_compname)
+            .field("ae_cf_username", &self.ae_cf_username)
+            .field("ae_cf_resname", &self.ae_cf_resname)
+            .field("ae_cf_fileid", &self.ae_cf_fileid)
+            .field("ae_cf_duration", &self.ae_cf_duration)
+            .field("ae_cf_reason", &self.ae_cf_reason)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_CLOSEFILE {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_cf_compname == other.ae_cf_compname && self.ae_cf_username == other.ae_cf_username && self.ae_cf_resname == other.ae_cf_resname && self.ae_cf_fileid == other.ae_cf_fileid && self.ae_cf_duration == other.ae_cf_duration && self.ae_cf_reason == other.ae_cf_reason
+    }
+}
+impl ::std::cmp::Eq for AE_CLOSEFILE {}
+unsafe impl ::windows::runtime::Abi for AE_CLOSEFILE {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_CONNREJ: u32 = 6u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_CONNREJ {
+    pub ae_cr_compname: u32,
+    pub ae_cr_username: u32,
+    pub ae_cr_netname: u32,
+    pub ae_cr_reason: u32,
+}
+impl AE_CONNREJ {}
+impl ::std::default::Default for AE_CONNREJ {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_CONNREJ {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_CONNREJ").field("ae_cr_compname", &self.ae_cr_compname).field("ae_cr_username", &self.ae_cr_username).field("ae_cr_netname", &self.ae_cr_netname).field("ae_cr_reason", &self.ae_cr_reason).finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_CONNREJ {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_cr_compname == other.ae_cr_compname && self.ae_cr_username == other.ae_cr_username && self.ae_cr_netname == other.ae_cr_netname && self.ae_cr_reason == other.ae_cr_reason
+    }
+}
+impl ::std::cmp::Eq for AE_CONNREJ {}
+unsafe impl ::windows::runtime::Abi for AE_CONNREJ {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_CONNSTART: u32 = 4u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_CONNSTART {
+    pub ae_ct_compname: u32,
+    pub ae_ct_username: u32,
+    pub ae_ct_netname: u32,
+    pub ae_ct_connid: u32,
+}
+impl AE_CONNSTART {}
+impl ::std::default::Default for AE_CONNSTART {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_CONNSTART {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_CONNSTART").field("ae_ct_compname", &self.ae_ct_compname).field("ae_ct_username", &self.ae_ct_username).field("ae_ct_netname", &self.ae_ct_netname).field("ae_ct_connid", &self.ae_ct_connid).finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_CONNSTART {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_ct_compname == other.ae_ct_compname && self.ae_ct_username == other.ae_ct_username && self.ae_ct_netname == other.ae_ct_netname && self.ae_ct_connid == other.ae_ct_connid
+    }
+}
+impl ::std::cmp::Eq for AE_CONNSTART {}
+unsafe impl ::windows::runtime::Abi for AE_CONNSTART {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_CONNSTOP: u32 = 5u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_CONNSTOP {
+    pub ae_cp_compname: u32,
+    pub ae_cp_username: u32,
+    pub ae_cp_netname: u32,
+    pub ae_cp_connid: u32,
+    pub ae_cp_reason: u32,
+}
+impl AE_CONNSTOP {}
+impl ::std::default::Default for AE_CONNSTOP {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_CONNSTOP {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_CONNSTOP").field("ae_cp_compname", &self.ae_cp_compname).field("ae_cp_username", &self.ae_cp_username).field("ae_cp_netname", &self.ae_cp_netname).field("ae_cp_connid", &self.ae_cp_connid).field("ae_cp_reason", &self.ae_cp_reason).finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_CONNSTOP {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_cp_compname == other.ae_cp_compname && self.ae_cp_username == other.ae_cp_username && self.ae_cp_netname == other.ae_cp_netname && self.ae_cp_connid == other.ae_cp_connid && self.ae_cp_reason == other.ae_cp_reason
+    }
+}
+impl ::std::cmp::Eq for AE_CONNSTOP {}
+unsafe impl ::windows::runtime::Abi for AE_CONNSTOP {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_DELETE: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -374,14 +530,101 @@ pub const AE_LIM_LOGONHOURS: u32 = 1u32;
 pub const AE_LIM_UNKNOWN: u32 = 0u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_LOCKOUT: u32 = 20u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_LOCKOUT {
+    pub ae_lk_compname: u32,
+    pub ae_lk_username: u32,
+    pub ae_lk_action: u32,
+    pub ae_lk_bad_pw_count: u32,
+}
+impl AE_LOCKOUT {}
+impl ::std::default::Default for AE_LOCKOUT {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_LOCKOUT {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_LOCKOUT").field("ae_lk_compname", &self.ae_lk_compname).field("ae_lk_username", &self.ae_lk_username).field("ae_lk_action", &self.ae_lk_action).field("ae_lk_bad_pw_count", &self.ae_lk_bad_pw_count).finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_LOCKOUT {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_lk_compname == other.ae_lk_compname && self.ae_lk_username == other.ae_lk_username && self.ae_lk_action == other.ae_lk_action && self.ae_lk_bad_pw_count == other.ae_lk_bad_pw_count
+    }
+}
+impl ::std::cmp::Eq for AE_LOCKOUT {}
+unsafe impl ::windows::runtime::Abi for AE_LOCKOUT {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_MOD: u32 = 0u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_NETLOGDENIED: u32 = 16u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_NETLOGOFF: u32 = 15u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_NETLOGOFF {
+    pub ae_nf_compname: u32,
+    pub ae_nf_username: u32,
+    pub ae_nf_reserved1: u32,
+    pub ae_nf_reserved2: u32,
+}
+impl AE_NETLOGOFF {}
+impl ::std::default::Default for AE_NETLOGOFF {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_NETLOGOFF {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_NETLOGOFF").field("ae_nf_compname", &self.ae_nf_compname).field("ae_nf_username", &self.ae_nf_username).field("ae_nf_reserved1", &self.ae_nf_reserved1).field("ae_nf_reserved2", &self.ae_nf_reserved2).finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_NETLOGOFF {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_nf_compname == other.ae_nf_compname && self.ae_nf_username == other.ae_nf_username && self.ae_nf_reserved1 == other.ae_nf_reserved1 && self.ae_nf_reserved2 == other.ae_nf_reserved2
+    }
+}
+impl ::std::cmp::Eq for AE_NETLOGOFF {}
+unsafe impl ::windows::runtime::Abi for AE_NETLOGOFF {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_NETLOGON: u32 = 14u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_NETLOGON {
+    pub ae_no_compname: u32,
+    pub ae_no_username: u32,
+    pub ae_no_privilege: u32,
+    pub ae_no_authflags: u32,
+}
+impl AE_NETLOGON {}
+impl ::std::default::Default for AE_NETLOGON {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_NETLOGON {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_NETLOGON").field("ae_no_compname", &self.ae_no_compname).field("ae_no_username", &self.ae_no_username).field("ae_no_privilege", &self.ae_no_privilege).field("ae_no_authflags", &self.ae_no_authflags).finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_NETLOGON {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_no_compname == other.ae_no_compname && self.ae_no_username == other.ae_no_username && self.ae_no_privilege == other.ae_no_privilege && self.ae_no_authflags == other.ae_no_authflags
+    }
+}
+impl ::std::cmp::Eq for AE_NETLOGON {}
+unsafe impl ::windows::runtime::Abi for AE_NETLOGON {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_NOACCESSPERM: u32 = 3u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -390,20 +633,212 @@ pub const AE_NORMAL: u32 = 0u32;
 pub const AE_NORMAL_CLOSE: u32 = 0u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_RESACCESS: u32 = 7u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_RESACCESS {
+    pub ae_ra_compname: u32,
+    pub ae_ra_username: u32,
+    pub ae_ra_resname: u32,
+    pub ae_ra_operation: u32,
+    pub ae_ra_returncode: u32,
+    pub ae_ra_restype: u32,
+    pub ae_ra_fileid: u32,
+}
+impl AE_RESACCESS {}
+impl ::std::default::Default for AE_RESACCESS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_RESACCESS {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_RESACCESS")
+            .field("ae_ra_compname", &self.ae_ra_compname)
+            .field("ae_ra_username", &self.ae_ra_username)
+            .field("ae_ra_resname", &self.ae_ra_resname)
+            .field("ae_ra_operation", &self.ae_ra_operation)
+            .field("ae_ra_returncode", &self.ae_ra_returncode)
+            .field("ae_ra_restype", &self.ae_ra_restype)
+            .field("ae_ra_fileid", &self.ae_ra_fileid)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_RESACCESS {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_ra_compname == other.ae_ra_compname && self.ae_ra_username == other.ae_ra_username && self.ae_ra_resname == other.ae_ra_resname && self.ae_ra_operation == other.ae_ra_operation && self.ae_ra_returncode == other.ae_ra_returncode && self.ae_ra_restype == other.ae_ra_restype && self.ae_ra_fileid == other.ae_ra_fileid
+    }
+}
+impl ::std::cmp::Eq for AE_RESACCESS {}
+unsafe impl ::windows::runtime::Abi for AE_RESACCESS {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_RESACCESS2: u32 = 18u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_RESACCESSREJ: u32 = 8u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_RESACCESSREJ {
+    pub ae_rr_compname: u32,
+    pub ae_rr_username: u32,
+    pub ae_rr_resname: u32,
+    pub ae_rr_operation: u32,
+}
+impl AE_RESACCESSREJ {}
+impl ::std::default::Default for AE_RESACCESSREJ {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_RESACCESSREJ {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_RESACCESSREJ").field("ae_rr_compname", &self.ae_rr_compname).field("ae_rr_username", &self.ae_rr_username).field("ae_rr_resname", &self.ae_rr_resname).field("ae_rr_operation", &self.ae_rr_operation).finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_RESACCESSREJ {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_rr_compname == other.ae_rr_compname && self.ae_rr_username == other.ae_rr_username && self.ae_rr_resname == other.ae_rr_resname && self.ae_rr_operation == other.ae_rr_operation
+    }
+}
+impl ::std::cmp::Eq for AE_RESACCESSREJ {}
+unsafe impl ::windows::runtime::Abi for AE_RESACCESSREJ {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_SERVICESTAT: u32 = 11u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_SERVICESTAT {
+    pub ae_ss_compname: u32,
+    pub ae_ss_username: u32,
+    pub ae_ss_svcname: u32,
+    pub ae_ss_status: u32,
+    pub ae_ss_code: u32,
+    pub ae_ss_text: u32,
+    pub ae_ss_returnval: u32,
+}
+impl AE_SERVICESTAT {}
+impl ::std::default::Default for AE_SERVICESTAT {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_SERVICESTAT {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_SERVICESTAT")
+            .field("ae_ss_compname", &self.ae_ss_compname)
+            .field("ae_ss_username", &self.ae_ss_username)
+            .field("ae_ss_svcname", &self.ae_ss_svcname)
+            .field("ae_ss_status", &self.ae_ss_status)
+            .field("ae_ss_code", &self.ae_ss_code)
+            .field("ae_ss_text", &self.ae_ss_text)
+            .field("ae_ss_returnval", &self.ae_ss_returnval)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_SERVICESTAT {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_ss_compname == other.ae_ss_compname && self.ae_ss_username == other.ae_ss_username && self.ae_ss_svcname == other.ae_ss_svcname && self.ae_ss_status == other.ae_ss_status && self.ae_ss_code == other.ae_ss_code && self.ae_ss_text == other.ae_ss_text && self.ae_ss_returnval == other.ae_ss_returnval
+    }
+}
+impl ::std::cmp::Eq for AE_SERVICESTAT {}
+unsafe impl ::windows::runtime::Abi for AE_SERVICESTAT {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_SESSDIS: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_SESSLOGOFF: u32 = 2u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_SESSLOGOFF {
+    pub ae_sf_compname: u32,
+    pub ae_sf_username: u32,
+    pub ae_sf_reason: u32,
+}
+impl AE_SESSLOGOFF {}
+impl ::std::default::Default for AE_SESSLOGOFF {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_SESSLOGOFF {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_SESSLOGOFF").field("ae_sf_compname", &self.ae_sf_compname).field("ae_sf_username", &self.ae_sf_username).field("ae_sf_reason", &self.ae_sf_reason).finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_SESSLOGOFF {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_sf_compname == other.ae_sf_compname && self.ae_sf_username == other.ae_sf_username && self.ae_sf_reason == other.ae_sf_reason
+    }
+}
+impl ::std::cmp::Eq for AE_SESSLOGOFF {}
+unsafe impl ::windows::runtime::Abi for AE_SESSLOGOFF {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_SESSLOGON: u32 = 1u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_SESSLOGON {
+    pub ae_so_compname: u32,
+    pub ae_so_username: u32,
+    pub ae_so_privilege: u32,
+}
+impl AE_SESSLOGON {}
+impl ::std::default::Default for AE_SESSLOGON {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_SESSLOGON {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_SESSLOGON").field("ae_so_compname", &self.ae_so_compname).field("ae_so_username", &self.ae_so_username).field("ae_so_privilege", &self.ae_so_privilege).finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_SESSLOGON {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_so_compname == other.ae_so_compname && self.ae_so_username == other.ae_so_username && self.ae_so_privilege == other.ae_so_privilege
+    }
+}
+impl ::std::cmp::Eq for AE_SESSLOGON {}
+unsafe impl ::windows::runtime::Abi for AE_SESSLOGON {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_SESSPWERR: u32 = 3u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_SESSPWERR {
+    pub ae_sp_compname: u32,
+    pub ae_sp_username: u32,
+}
+impl AE_SESSPWERR {}
+impl ::std::default::Default for AE_SESSPWERR {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_SESSPWERR {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_SESSPWERR").field("ae_sp_compname", &self.ae_sp_compname).field("ae_sp_username", &self.ae_sp_username).finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_SESSPWERR {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_sp_compname == other.ae_sp_compname && self.ae_sp_username == other.ae_sp_username
+    }
+}
+impl ::std::cmp::Eq for AE_SESSPWERR {}
+unsafe impl ::windows::runtime::Abi for AE_SESSPWERR {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_SES_CLOSE: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
@@ -414,10 +849,74 @@ pub const AE_SRVPAUSED: u32 = 1u32;
 pub const AE_SRVSTART: u32 = 0u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_SRVSTATUS: u32 = 0u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_SRVSTATUS {
+    pub ae_sv_status: u32,
+}
+impl AE_SRVSTATUS {}
+impl ::std::default::Default for AE_SRVSTATUS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_SRVSTATUS {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_SRVSTATUS").field("ae_sv_status", &self.ae_sv_status).finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_SRVSTATUS {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_sv_status == other.ae_sv_status
+    }
+}
+impl ::std::cmp::Eq for AE_SRVSTATUS {}
+unsafe impl ::windows::runtime::Abi for AE_SRVSTATUS {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_SRVSTOP: u32 = 3u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_UASMOD: u32 = 13u32;
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
+pub struct AE_UASMOD {
+    pub ae_um_compname: u32,
+    pub ae_um_username: u32,
+    pub ae_um_resname: u32,
+    pub ae_um_rectype: u32,
+    pub ae_um_action: u32,
+    pub ae_um_datalen: u32,
+}
+impl AE_UASMOD {}
+impl ::std::default::Default for AE_UASMOD {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for AE_UASMOD {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("AE_UASMOD")
+            .field("ae_um_compname", &self.ae_um_compname)
+            .field("ae_um_username", &self.ae_um_username)
+            .field("ae_um_resname", &self.ae_um_resname)
+            .field("ae_um_rectype", &self.ae_um_rectype)
+            .field("ae_um_action", &self.ae_um_action)
+            .field("ae_um_datalen", &self.ae_um_datalen)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for AE_UASMOD {
+    fn eq(&self, other: &Self) -> bool {
+        self.ae_um_compname == other.ae_um_compname && self.ae_um_username == other.ae_um_username && self.ae_um_resname == other.ae_um_resname && self.ae_um_rectype == other.ae_um_rectype && self.ae_um_action == other.ae_um_action && self.ae_um_datalen == other.ae_um_datalen
+    }
+}
+impl ::std::cmp::Eq for AE_UASMOD {}
+unsafe impl ::windows::runtime::Abi for AE_UASMOD {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const AE_UAS_GROUP: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]

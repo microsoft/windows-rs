@@ -768,6 +768,35 @@ impl ::std::cmp::Eq for WINHTTP_CONNECTION_INFO {}
 unsafe impl ::windows::runtime::Abi for WINHTTP_CONNECTION_INFO {
     type Abi = Self;
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `Win32_Networking_WinHttp`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
+pub struct WINHTTP_CONNECTION_INFO {
+    pub cbSize: u32,
+    pub LocalAddress: super::WinSock::SOCKADDR_STORAGE,
+    pub RemoteAddress: super::WinSock::SOCKADDR_STORAGE,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl WINHTTP_CONNECTION_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::std::default::Default for WINHTTP_CONNECTION_INFO {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::std::cmp::PartialEq for WINHTTP_CONNECTION_INFO {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::std::cmp::Eq for WINHTTP_CONNECTION_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+unsafe impl ::windows::runtime::Abi for WINHTTP_CONNECTION_INFO {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 pub const WINHTTP_CONNECTION_RETRY_CONDITION_408: u32 = 1u32;
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
@@ -1266,6 +1295,28 @@ impl ::std::fmt::Debug for WINHTTP_MATCH_CONNECTION_GUID {
 impl ::std::cmp::PartialEq for WINHTTP_MATCH_CONNECTION_GUID {
     fn eq(&self, other: &Self) -> bool {
         self.ConnectionGuid == other.ConnectionGuid && self.ullFlags == other.ullFlags
+    }
+}
+impl ::std::cmp::Eq for WINHTTP_MATCH_CONNECTION_GUID {}
+unsafe impl ::windows::runtime::Abi for WINHTTP_MATCH_CONNECTION_GUID {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(4))]
+#[doc = "*Required features: `Win32_Networking_WinHttp`*"]
+pub struct WINHTTP_MATCH_CONNECTION_GUID {
+    pub ConnectionGuid: ::windows::runtime::GUID,
+    pub ullFlags: u64,
+}
+impl WINHTTP_MATCH_CONNECTION_GUID {}
+impl ::std::default::Default for WINHTTP_MATCH_CONNECTION_GUID {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for WINHTTP_MATCH_CONNECTION_GUID {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for WINHTTP_MATCH_CONNECTION_GUID {}
@@ -2036,6 +2087,30 @@ impl ::std::cmp::Eq for WINHTTP_REQUEST_STATS {}
 unsafe impl ::windows::runtime::Abi for WINHTTP_REQUEST_STATS {
     type Abi = Self;
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(4))]
+#[doc = "*Required features: `Win32_Networking_WinHttp`*"]
+pub struct WINHTTP_REQUEST_STATS {
+    pub ullFlags: u64,
+    pub ulIndex: u32,
+    pub cStats: u32,
+    pub rgullStats: [u64; 32],
+}
+impl WINHTTP_REQUEST_STATS {}
+impl ::std::default::Default for WINHTTP_REQUEST_STATS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for WINHTTP_REQUEST_STATS {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+impl ::std::cmp::Eq for WINHTTP_REQUEST_STATS {}
+unsafe impl ::windows::runtime::Abi for WINHTTP_REQUEST_STATS {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_Networking_WinHttp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
@@ -2099,6 +2174,28 @@ impl ::std::fmt::Debug for WINHTTP_REQUEST_TIMES {
 impl ::std::cmp::PartialEq for WINHTTP_REQUEST_TIMES {
     fn eq(&self, other: &Self) -> bool {
         self.cTimes == other.cTimes && self.rgullTimes == other.rgullTimes
+    }
+}
+impl ::std::cmp::Eq for WINHTTP_REQUEST_TIMES {}
+unsafe impl ::windows::runtime::Abi for WINHTTP_REQUEST_TIMES {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(4))]
+#[doc = "*Required features: `Win32_Networking_WinHttp`*"]
+pub struct WINHTTP_REQUEST_TIMES {
+    pub cTimes: u32,
+    pub rgullTimes: [u64; 64],
+}
+impl WINHTTP_REQUEST_TIMES {}
+impl ::std::default::Default for WINHTTP_REQUEST_TIMES {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for WINHTTP_REQUEST_TIMES {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for WINHTTP_REQUEST_TIMES {}
@@ -2203,6 +2300,32 @@ impl ::std::fmt::Debug for WINHTTP_RESOLVER_CACHE_CONFIG {
 impl ::std::cmp::PartialEq for WINHTTP_RESOLVER_CACHE_CONFIG {
     fn eq(&self, other: &Self) -> bool {
         self.ulMaxResolverCacheEntries == other.ulMaxResolverCacheEntries && self.ulMaxCacheEntryAge == other.ulMaxCacheEntryAge && self.ulMinCacheEntryTtl == other.ulMinCacheEntryTtl && self.SecureDnsSetting == other.SecureDnsSetting && self.ullConnResolutionWaitTime == other.ullConnResolutionWaitTime && self.ullFlags == other.ullFlags
+    }
+}
+impl ::std::cmp::Eq for WINHTTP_RESOLVER_CACHE_CONFIG {}
+unsafe impl ::windows::runtime::Abi for WINHTTP_RESOLVER_CACHE_CONFIG {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(4))]
+#[doc = "*Required features: `Win32_Networking_WinHttp`*"]
+pub struct WINHTTP_RESOLVER_CACHE_CONFIG {
+    pub ulMaxResolverCacheEntries: u32,
+    pub ulMaxCacheEntryAge: u32,
+    pub ulMinCacheEntryTtl: u32,
+    pub SecureDnsSetting: WINHTTP_SECURE_DNS_SETTING,
+    pub ullConnResolutionWaitTime: u64,
+    pub ullFlags: u64,
+}
+impl WINHTTP_RESOLVER_CACHE_CONFIG {}
+impl ::std::default::Default for WINHTTP_RESOLVER_CACHE_CONFIG {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::cmp::PartialEq for WINHTTP_RESOLVER_CACHE_CONFIG {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
 impl ::std::cmp::Eq for WINHTTP_RESOLVER_CACHE_CONFIG {}

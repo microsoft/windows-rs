@@ -157,10 +157,27 @@ pub unsafe fn JsCreateArray(length: u32, result: *mut *mut ::std::ffi::c_void) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[doc = "*Required features: `Win32_System_Js`, `Win32_System_Diagnostics_Debug`*"]
 #[inline]
 pub unsafe fn JsCreateContext<'a, Param1: ::windows::runtime::IntoParam<'a, super::Diagnostics::Debug::IDebugApplication64>>(runtime: *const ::std::ffi::c_void, debugapplication: Param1, newcontext: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn JsCreateContext(runtime: *const ::std::ffi::c_void, debugapplication: ::windows::runtime::RawPtr, newcontext: *mut *mut ::std::ffi::c_void) -> JsErrorCode;
+        }
+        ::std::mem::transmute(JsCreateContext(::std::mem::transmute(runtime), debugapplication.into_param().abi(), ::std::mem::transmute(newcontext)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "i686",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[doc = "*Required features: `Win32_System_Js`, `Win32_System_Diagnostics_Debug`*"]
+#[inline]
+pub unsafe fn JsCreateContext<'a, Param1: ::windows::runtime::IntoParam<'a, super::Diagnostics::Debug::IDebugApplication32>>(runtime: *const ::std::ffi::c_void, debugapplication: Param1, newcontext: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1224,10 +1241,27 @@ pub unsafe fn JsSetRuntimeMemoryLimit(runtime: *const ::std::ffi::c_void, memory
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[doc = "*Required features: `Win32_System_Js`, `Win32_System_Diagnostics_Debug`*"]
 #[inline]
 pub unsafe fn JsStartDebugging<'a, Param0: ::windows::runtime::IntoParam<'a, super::Diagnostics::Debug::IDebugApplication64>>(debugapplication: Param0) -> JsErrorCode {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn JsStartDebugging(debugapplication: ::windows::runtime::RawPtr) -> JsErrorCode;
+        }
+        ::std::mem::transmute(JsStartDebugging(debugapplication.into_param().abi()))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(any(target_arch = "i686",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[doc = "*Required features: `Win32_System_Js`, `Win32_System_Diagnostics_Debug`*"]
+#[inline]
+pub unsafe fn JsStartDebugging<'a, Param0: ::windows::runtime::IntoParam<'a, super::Diagnostics::Debug::IDebugApplication32>>(debugapplication: Param0) -> JsErrorCode {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

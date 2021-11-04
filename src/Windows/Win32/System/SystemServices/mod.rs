@@ -9405,6 +9405,60 @@ unsafe impl ::windows::runtime::Abi for DISPATCHER_CONTEXT {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`*"]
+pub struct DISPATCHER_CONTEXT {
+    pub ControlPc: u64,
+    pub ImageBase: u64,
+    pub FunctionEntry: *mut IMAGE_RUNTIME_FUNCTION_ENTRY,
+    pub EstablisherFrame: u64,
+    pub TargetIp: u64,
+    pub ContextRecord: *mut super::Diagnostics::Debug::CONTEXT,
+    pub LanguageHandler: ::std::option::Option<super::Kernel::EXCEPTION_ROUTINE>,
+    pub HandlerData: *mut ::std::ffi::c_void,
+    pub HistoryTable: *mut UNWIND_HISTORY_TABLE,
+    pub ScopeIndex: u32,
+    pub Fill0: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+impl DISPATCHER_CONTEXT {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+impl ::std::default::Default for DISPATCHER_CONTEXT {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+impl ::std::fmt::Debug for DISPATCHER_CONTEXT {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("DISPATCHER_CONTEXT")
+            .field("ControlPc", &self.ControlPc)
+            .field("ImageBase", &self.ImageBase)
+            .field("FunctionEntry", &self.FunctionEntry)
+            .field("EstablisherFrame", &self.EstablisherFrame)
+            .field("TargetIp", &self.TargetIp)
+            .field("ContextRecord", &self.ContextRecord)
+            .field("HandlerData", &self.HandlerData)
+            .field("HistoryTable", &self.HistoryTable)
+            .field("ScopeIndex", &self.ScopeIndex)
+            .field("Fill0", &self.Fill0)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+impl ::std::cmp::PartialEq for DISPATCHER_CONTEXT {
+    fn eq(&self, other: &Self) -> bool {
+        self.ControlPc == other.ControlPc && self.ImageBase == other.ImageBase && self.FunctionEntry == other.FunctionEntry && self.EstablisherFrame == other.EstablisherFrame && self.TargetIp == other.TargetIp && self.ContextRecord == other.ContextRecord && self.LanguageHandler.map(|f| f as usize) == other.LanguageHandler.map(|f| f as usize) && self.HandlerData == other.HandlerData && self.HistoryTable == other.HistoryTable && self.ScopeIndex == other.ScopeIndex && self.Fill0 == other.Fill0
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+impl ::std::cmp::Eq for DISPATCHER_CONTEXT {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+unsafe impl ::windows::runtime::Abi for DISPATCHER_CONTEXT {
+    type Abi = ::std::mem::ManuallyDrop<Self>;
+}
+#[derive(:: std :: clone :: Clone)]
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`*"]
 pub struct DISPATCHER_CONTEXT_ARM64 {
     pub ControlPc: usize,
     pub ImageBase: usize,
@@ -17550,6 +17604,32 @@ unsafe impl ::windows::runtime::Abi for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
+pub struct KNONVOLATILE_CONTEXT_POINTERS {
+    pub Dummy: u32,
+}
+impl KNONVOLATILE_CONTEXT_POINTERS {}
+impl ::std::default::Default for KNONVOLATILE_CONTEXT_POINTERS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for KNONVOLATILE_CONTEXT_POINTERS {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("KNONVOLATILE_CONTEXT_POINTERS").field("Dummy", &self.Dummy).finish()
+    }
+}
+impl ::std::cmp::PartialEq for KNONVOLATILE_CONTEXT_POINTERS {
+    fn eq(&self, other: &Self) -> bool {
+        self.Dummy == other.Dummy
+    }
+}
+impl ::std::cmp::Eq for KNONVOLATILE_CONTEXT_POINTERS {}
+unsafe impl ::windows::runtime::Abi for KNONVOLATILE_CONTEXT_POINTERS {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
     pub X19: *mut u64,
     pub X20: *mut u64,
@@ -19328,6 +19408,7 @@ pub const PF_TEMPORAL_LEVEL_2: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PF_TEMPORAL_LEVEL_3: u32 = 3u32;
 pub type PGET_RUNTIME_FUNCTION_CALLBACK = unsafe extern "system" fn(controlpc: u64, context: *const ::std::ffi::c_void) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
+pub type PGET_RUNTIME_FUNCTION_CALLBACK = unsafe extern "system" fn(controlpc: u64, context: *const ::std::ffi::c_void) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY;
 pub type PIMAGE_TLS_CALLBACK = unsafe extern "system" fn(dllhandle: *mut ::std::ffi::c_void, reason: u32, reserved: *mut ::std::ffi::c_void);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19414,6 +19495,8 @@ unsafe impl ::windows::runtime::Abi for POINTQF {
 pub const POLICY_AUDIT_SUBCATEGORY_COUNT: u32 = 59u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const ::std::ffi::c_void, entries: *mut u32, functions: *mut *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> u32;
+#[cfg(feature = "Win32_Foundation")]
+pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const ::std::ffi::c_void, entries: *mut u32, functions: *mut *mut IMAGE_RUNTIME_FUNCTION_ENTRY) -> u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWERBUTTON_ACTION_INDEX_HIBERNATE: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -22723,6 +22806,8 @@ pub const PRODUCT_XBOX_SYSTEMOS: u32 = 192u32;
 pub type PRTL_UMS_SCHEDULER_ENTRY_POINT = unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const ::std::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 pub type PTERMINATION_HANDLER = unsafe extern "system" fn(_abnormal_termination: super::super::Foundation::BOOLEAN, establisherframe: u64);
+#[cfg(feature = "Win32_Foundation")]
+pub type PTERMINATION_HANDLER = unsafe extern "system" fn(_abnormal_termination: super::super::Foundation::BOOLEAN, establisherframe: *mut ::std::ffi::c_void);
 pub type PTP_CLEANUP_GROUP_CANCEL_CALLBACK = unsafe extern "system" fn(objectcontext: *mut ::std::ffi::c_void, cleanupcontext: *mut ::std::ffi::c_void);
 pub type PTP_SIMPLE_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::std::ffi::c_void);
 pub type PTP_TIMER_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::std::ffi::c_void, timer: *mut TP_TIMER);
@@ -23921,6 +24006,7 @@ pub unsafe fn RtlCrc64(buffer: *const ::std::ffi::c_void, size: usize, initialcr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn RtlDrainNonVolatileFlush(nvtoken: *const ::std::ffi::c_void) -> u32 {
@@ -23950,6 +24036,7 @@ pub unsafe fn RtlExtendCorrelationVector(correlationvector: *mut CORRELATION_VEC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn RtlFillNonVolatileMemory(nvtoken: *const ::std::ffi::c_void, nvdestination: *mut ::std::ffi::c_void, size: usize, value: u8, flags: u32) -> u32 {
@@ -23979,6 +24066,7 @@ pub unsafe fn RtlFirstEntrySList(listhead: *const super::Kernel::SLIST_HEADER) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn RtlFlushNonVolatileMemory(nvtoken: *const ::std::ffi::c_void, nvbuffer: *const ::std::ffi::c_void, size: usize, flags: u32) -> u32 {
@@ -23993,6 +24081,7 @@ pub unsafe fn RtlFlushNonVolatileMemory(nvtoken: *const ::std::ffi::c_void, nvbu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn RtlFlushNonVolatileMemoryRanges(nvtoken: *const ::std::ffi::c_void, nvranges: *const NV_MEMORY_RANGE, numranges: usize, flags: u32) -> u32 {
@@ -24007,6 +24096,7 @@ pub unsafe fn RtlFlushNonVolatileMemoryRanges(nvtoken: *const ::std::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn RtlFreeNonVolatileToken(nvtoken: *const ::std::ffi::c_void) -> u32 {
@@ -24035,6 +24125,7 @@ pub unsafe fn RtlGetDeviceFamilyInfoEnum(pulluapinfo: *mut u64, puldevicefamily:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn RtlGetNonVolatileToken(nvbuffer: *const ::std::ffi::c_void, size: usize, nvtoken: *mut *mut ::std::ffi::c_void) -> u32 {
@@ -24316,6 +24407,7 @@ pub unsafe fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[inline]
 pub unsafe fn RtlWriteNonVolatileMemory(nvtoken: *const ::std::ffi::c_void, nvdestination: *mut ::std::ffi::c_void, source: *const ::std::ffi::c_void, size: usize, flags: u32) -> u32 {
@@ -27871,6 +27963,33 @@ impl ::std::cmp::Eq for UNWIND_HISTORY_TABLE_ENTRY {}
 unsafe impl ::windows::runtime::Abi for UNWIND_HISTORY_TABLE_ENTRY {
     type Abi = Self;
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
+pub struct UNWIND_HISTORY_TABLE_ENTRY {
+    pub ImageBase: usize,
+    pub FunctionEntry: *mut IMAGE_RUNTIME_FUNCTION_ENTRY,
+}
+impl UNWIND_HISTORY_TABLE_ENTRY {}
+impl ::std::default::Default for UNWIND_HISTORY_TABLE_ENTRY {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for UNWIND_HISTORY_TABLE_ENTRY {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("UNWIND_HISTORY_TABLE_ENTRY").field("ImageBase", &self.ImageBase).field("FunctionEntry", &self.FunctionEntry).finish()
+    }
+}
+impl ::std::cmp::PartialEq for UNWIND_HISTORY_TABLE_ENTRY {
+    fn eq(&self, other: &Self) -> bool {
+        self.ImageBase == other.ImageBase && self.FunctionEntry == other.FunctionEntry
+    }
+}
+impl ::std::cmp::Eq for UNWIND_HISTORY_TABLE_ENTRY {}
+unsafe impl ::windows::runtime::Abi for UNWIND_HISTORY_TABLE_ENTRY {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const UNWIND_HISTORY_TABLE_SIZE: u32 = 12u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -28399,6 +28518,79 @@ impl ::std::cmp::Eq for XSAVE_FORMAT {}
 unsafe impl ::windows::runtime::Abi for XSAVE_FORMAT {
     type Abi = Self;
 }
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
+pub struct XSAVE_FORMAT {
+    pub ControlWord: u16,
+    pub StatusWord: u16,
+    pub TagWord: u8,
+    pub Reserved1: u8,
+    pub ErrorOpcode: u16,
+    pub ErrorOffset: u32,
+    pub ErrorSelector: u16,
+    pub Reserved2: u16,
+    pub DataOffset: u32,
+    pub DataSelector: u16,
+    pub Reserved3: u16,
+    pub MxCsr: u32,
+    pub MxCsr_Mask: u32,
+    pub FloatRegisters: [M128A; 8],
+    pub XmmRegisters: [M128A; 8],
+    pub Reserved4: [u8; 224],
+}
+impl XSAVE_FORMAT {}
+impl ::std::default::Default for XSAVE_FORMAT {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for XSAVE_FORMAT {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("XSAVE_FORMAT")
+            .field("ControlWord", &self.ControlWord)
+            .field("StatusWord", &self.StatusWord)
+            .field("TagWord", &self.TagWord)
+            .field("Reserved1", &self.Reserved1)
+            .field("ErrorOpcode", &self.ErrorOpcode)
+            .field("ErrorOffset", &self.ErrorOffset)
+            .field("ErrorSelector", &self.ErrorSelector)
+            .field("Reserved2", &self.Reserved2)
+            .field("DataOffset", &self.DataOffset)
+            .field("DataSelector", &self.DataSelector)
+            .field("Reserved3", &self.Reserved3)
+            .field("MxCsr", &self.MxCsr)
+            .field("MxCsr_Mask", &self.MxCsr_Mask)
+            .field("FloatRegisters", &self.FloatRegisters)
+            .field("XmmRegisters", &self.XmmRegisters)
+            .field("Reserved4", &self.Reserved4)
+            .finish()
+    }
+}
+impl ::std::cmp::PartialEq for XSAVE_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        self.ControlWord == other.ControlWord
+            && self.StatusWord == other.StatusWord
+            && self.TagWord == other.TagWord
+            && self.Reserved1 == other.Reserved1
+            && self.ErrorOpcode == other.ErrorOpcode
+            && self.ErrorOffset == other.ErrorOffset
+            && self.ErrorSelector == other.ErrorSelector
+            && self.Reserved2 == other.Reserved2
+            && self.DataOffset == other.DataOffset
+            && self.DataSelector == other.DataSelector
+            && self.Reserved3 == other.Reserved3
+            && self.MxCsr == other.MxCsr
+            && self.MxCsr_Mask == other.MxCsr_Mask
+            && self.FloatRegisters == other.FloatRegisters
+            && self.XmmRegisters == other.XmmRegisters
+            && self.Reserved4 == other.Reserved4
+    }
+}
+impl ::std::cmp::Eq for XSAVE_FORMAT {}
+unsafe impl ::windows::runtime::Abi for XSAVE_FORMAT {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const XSTATE_ALIGN_BIT: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -28524,6 +28716,38 @@ impl ::std::fmt::Debug for XSTATE_CONTEXT {
 impl ::std::cmp::PartialEq for XSTATE_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
         self.Mask == other.Mask && self.Length == other.Length && self.Reserved1 == other.Reserved1 && self.Area == other.Area && self.Buffer == other.Buffer
+    }
+}
+impl ::std::cmp::Eq for XSTATE_CONTEXT {}
+unsafe impl ::windows::runtime::Abi for XSTATE_CONTEXT {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
+pub struct XSTATE_CONTEXT {
+    pub Mask: u64,
+    pub Length: u32,
+    pub Reserved1: u32,
+    pub Area: *mut XSAVE_AREA,
+    pub Reserved2: u32,
+    pub Buffer: *mut ::std::ffi::c_void,
+    pub Reserved3: u32,
+}
+impl XSTATE_CONTEXT {}
+impl ::std::default::Default for XSTATE_CONTEXT {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for XSTATE_CONTEXT {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("XSTATE_CONTEXT").field("Mask", &self.Mask).field("Length", &self.Length).field("Reserved1", &self.Reserved1).field("Area", &self.Area).field("Reserved2", &self.Reserved2).field("Buffer", &self.Buffer).field("Reserved3", &self.Reserved3).finish()
+    }
+}
+impl ::std::cmp::PartialEq for XSTATE_CONTEXT {
+    fn eq(&self, other: &Self) -> bool {
+        self.Mask == other.Mask && self.Length == other.Length && self.Reserved1 == other.Reserved1 && self.Area == other.Area && self.Reserved2 == other.Reserved2 && self.Buffer == other.Buffer && self.Reserved3 == other.Reserved3
     }
 }
 impl ::std::cmp::Eq for XSTATE_CONTEXT {}
